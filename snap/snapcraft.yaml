@@ -1,0 +1,21 @@
+name: firmware-updater
+version: git
+summary: Firmware Updater
+description: Update Firmware
+confinement: devmode
+base: core18
+grade: devel
+architectures:
+  - build-on: amd64
+
+parts:
+  firmware-updater:
+    plugin: flutter
+    source: .
+    flutter-target: lib/main.dart
+
+apps:
+  firmware-updater:
+    command: firmware-updater
+    desktop: bin/data/flutter_assets/assets/firmware-updater.desktop
+    extensions: [flutter-dev]
