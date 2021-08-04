@@ -2,7 +2,7 @@ name: firmware-updater
 version: git
 summary: Firmware Updater
 description: Update Firmware
-confinement: devmode
+confinement: strict
 base: core18
 grade: devel
 architectures:
@@ -19,3 +19,5 @@ apps:
     command: firmware-updater
     desktop: bin/data/flutter_assets/assets/firmware-updater.desktop
     extensions: [flutter-dev]
+    plugs:
+      - fwupd
