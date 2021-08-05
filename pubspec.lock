@@ -14,7 +14,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.7.0"
+    version: "2.8.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -152,10 +152,12 @@ packages:
   fwupd:
     dependency: "direct main"
     description:
-      name: fwupd
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.1"
+      path: "."
+      ref: properties
+      resolved-ref: "8a84c38be04d71a7535a2fb964ee4f920fb97281"
+      url: "https://github.com/jpnurmi/fwupd.dart"
+    source: git
+    version: "0.0.2"
   html:
     dependency: transitive
     description:

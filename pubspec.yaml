@@ -9,7 +9,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_html: ^2.1.1
-  fwupd: ^0.0.1
+  fwupd: #^0.0.2
+    git:
+      url: https://github.com/jpnurmi/fwupd.dart
+      ref: properties
+
   provider: ^5.0.0
   yaru: ^0.1.1
 

@@ -2,11 +2,20 @@ import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
 
 class FwupdModel extends ChangeNotifier {
-  FwupdModel(this._client);
+  FwupdModel(
+    this._client,
+  ) {
+    _client.propertiesChanged.listen((_) => notifyListeners());
+  }
 
   final FwupdClient _client;
   var _devices = <FwupdDevice>[];
   bool? _showAllDevices;
+
+  bool get isBusy => status.index > FwupdStatus.idle.index;
+  FwupdStatus get status => _client.status;
+  int get percentage => _client.percentage;
+  String get daemonVersion => _client.daemonVersion;
 
   bool get showAllDevices => _showAllDevices ?? false;
   set showAllDevices(bool? value) {

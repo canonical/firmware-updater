@@ -32,6 +32,18 @@ class _FwupdPageState extends State<FwupdPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Firmware Updater'),
+        bottom: PreferredSize(
+          child: Visibility(
+            visible: model.percentage > 0,
+            child: LinearProgressIndicator(
+              value: model.percentage / 100,
+            ),
+          ),
+          preferredSize: Size(
+            double.infinity,
+            ProgressIndicatorTheme.of(context).linearMinHeight ?? 6,
+          ),
+        ),
         actions: <Widget>[
           Checkbox(
             splashRadius: 24,
@@ -39,11 +51,7 @@ class _FwupdPageState extends State<FwupdPage> {
             onChanged: (value) => model.showAllDevices = value,
           ),
           const SizedBox(width: 16),
-          IconButton(
-            splashRadius: 24,
-            icon: const Icon(Icons.refresh),
-            onPressed: model.refresh,
-          ),
+          RefreshButton(isBusy: model.isBusy, onPressed: model.refresh),
           const SizedBox(width: 8),
         ],
       ),
@@ -56,6 +64,7 @@ class _FwupdPageState extends State<FwupdPage> {
           );
         }).toList(),
       ),
+      bottomNavigationBar: const StatusBar(),
     );
   }
 }
