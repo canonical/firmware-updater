@@ -11,8 +11,8 @@ dependencies:
   flutter_html: ^2.1.5
   fwupd:
     git:
-      url: https://github.com/robert-ancell/fwupd.dart.git
-      ref: unix-fd
+      url: https://github.com/jpnurmi/fwupd.dart.git
+      ref: unix-fd-and-device-flags
   provider: ^6.0.0
   yaru: ^0.1.6
 
