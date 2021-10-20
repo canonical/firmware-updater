@@ -30,12 +30,6 @@ class FwupdModel extends ChangeNotifier {
     _devices = devices;
     notifyListeners();
   }
-
-  @override
-  Future<void> dispose() async {
-    await _client.close();
-    super.dispose();
-  }
 }
 
 class FwupdDeviceModel extends ChangeNotifier {
