@@ -34,7 +34,8 @@ class _FwupdPageState extends State<FwupdPage> {
         title: const Text('Firmware Updater'),
         bottom: PreferredSize(
           child: Visibility(
-            visible: model.percentage > 0,
+            visible: model.status != FwupdStatus.idle &&
+                model.status != FwupdStatus.unknown,
             child: LinearProgressIndicator(
               value: model.percentage / 100,
             ),
