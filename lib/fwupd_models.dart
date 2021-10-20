@@ -83,6 +83,8 @@ class FwupdDeviceModel extends ChangeNotifier {
 }
 
 extension FwupdDeviceX on FwupdDevice {
+  bool get canVerify => flags.contains(FwupdDeviceFlag.canVerify);
+
   bool get isUpdatable =>
       flags.contains(FwupdDeviceFlag.updatable) ||
       flags.contains(FwupdDeviceFlag.updatableHidden);

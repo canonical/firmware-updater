@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
@@ -103,52 +104,85 @@ class _DeviceBodyState extends State<DeviceBody> {
     final model = context.watch<FwupdDeviceModel>();
     return Padding(
       padding: const EdgeInsets.only(top: 4, left: 16, right: 16, bottom: 16),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Expanded(
-            child: Table(
-              columnWidths: const {
-                0: IntrinsicColumnWidth(),
-                1: FixedColumnWidth(16),
-                2: FlexColumnWidth(),
-              },
-              children: [
-                if (model.device.version != null)
-                  TableRow(children: [
-                    DeviceBody._buildHeader(context, 'Version'),
-                    const SizedBox.shrink(),
-                    DeviceBody._buildLabel(context, model.device.version!),
-                  ]),
-                if (model.device.vendor != null)
-                  TableRow(children: [
-                    DeviceBody._buildHeader(context, 'Vendor'),
-                    const SizedBox.shrink(),
-                    DeviceBody._buildLabel(context, model.device.vendor!),
-                  ]),
-                if (model.device.guid.isNotEmpty)
-                  TableRow(children: [
-                    DeviceBody._buildHeader(context, 'GUID'),
-                    const SizedBox.shrink(),
-                    DeviceBody._buildPadding(
-                        SelectableText(model.device.guid.first)),
-                  ]),
-                if (model.device.guid.length > 1)
-                  for (final guid in model.device.guid.skip(1))
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Table(
+                columnWidths: const {
+                  0: IntrinsicColumnWidth(),
+                  1: FixedColumnWidth(16),
+                  2: IntrinsicColumnWidth(),
+                },
+                children: [
+                  if (model.device.version != null)
                     TableRow(children: [
-                      DeviceBody._buildHeader(context, ''),
+                      DeviceBody._buildHeader(context, 'Version'),
                       const SizedBox.shrink(),
-                      DeviceBody._buildPadding(SelectableText(guid)),
+                      DeviceBody._buildLabel(context, model.device.version!),
                     ]),
+                  if (model.device.vendor != null)
+                    TableRow(children: [
+                      DeviceBody._buildHeader(context, 'Vendor'),
+                      const SizedBox.shrink(),
+                      DeviceBody._buildLabel(context, model.device.vendor!),
+                    ]),
+                  if (model.device.guid.isNotEmpty)
+                    TableRow(children: [
+                      DeviceBody._buildHeader(context, 'GUID'),
+                      const SizedBox.shrink(),
+                      DeviceBody._buildPadding(
+                          SelectableText(model.device.guid.first)),
+                    ]),
+                  if (model.device.guid.length > 1)
+                    for (final guid in model.device.guid.skip(1))
+                      TableRow(children: [
+                        DeviceBody._buildHeader(context, ''),
+                        const SizedBox.shrink(),
+                        DeviceBody._buildPadding(SelectableText(guid)),
+                      ]),
+                ],
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  alignment: WrapAlignment.end,
+                  children: [
+                    for (final flag in model.device.flags)
+                      Chip(
+                        label: Text(describeEnum(flag)),
+                        labelPadding: EdgeInsets.symmetric(horizontal: 4),
+                        labelStyle: Theme.of(context)
+                            .textTheme
+                            .caption!
+                            .copyWith(fontSize: 10),
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          if (model.device.canVerify || model.hasUpgrades)
+            const SizedBox(height: 16),
+          if (model.device.canVerify || model.hasUpgrades)
+            ButtonBar(
+              children: [
+                if (model.device.canVerify)
+                  const OutlinedButton(
+                    onPressed: null,
+                    child: Text('Verify'),
+                  ),
+                if (model.hasUpgrades)
+                  OutlinedButton(
+                    onPressed: () => showUpdateDialog(context, model),
+                    child: const Text('Update'),
+                  ),
               ],
             ),
-          ),
-          OutlinedButton(
-            onPressed: model.hasUpgrades
-                ? () => showUpdateDialog(context, model)
-                : null,
-            child: const Text('Update'),
-          ),
         ],
       ),
     );
