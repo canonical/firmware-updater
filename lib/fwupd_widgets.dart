@@ -1,19 +1,32 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
 import 'fwupd_dialogs.dart';
 import 'fwupd_models.dart';
 import 'fwupd_icons.dart';
 
-class DeviceHeader extends StatelessWidget {
+class DeviceHeader extends StatefulWidget {
   const DeviceHeader({Key? key}) : super(key: key);
 
-  static Widget create(BuildContext context, FwupdDeviceModel device) {
-    return ChangeNotifierProvider.value(
-      value: device,
+  static Widget create(BuildContext context, FwupdDevice device) {
+    final client = context.read<FwupdClient>();
+    return ChangeNotifierProvider(
+      create: (_) => FwupdDeviceModel(device, client: client),
       child: const DeviceHeader(),
     );
+  }
+
+  @override
+  State<DeviceHeader> createState() => _DeviceHeaderState();
+}
+
+class _DeviceHeaderState extends State<DeviceHeader> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<FwupdDeviceModel>().init();
   }
 
   @override
@@ -30,12 +43,13 @@ class DeviceHeader extends StatelessWidget {
   }
 }
 
-class DeviceBody extends StatelessWidget {
+class DeviceBody extends StatefulWidget {
   const DeviceBody({Key? key}) : super(key: key);
 
-  static Widget create(BuildContext context, FwupdDeviceModel device) {
-    return ChangeNotifierProvider.value(
-      value: device,
+  static Widget create(BuildContext context, FwupdDevice device) {
+    final client = context.read<FwupdClient>();
+    return ChangeNotifierProvider(
+      create: (_) => FwupdDeviceModel(device, client: client),
       child: const DeviceBody(),
     );
   }
@@ -62,6 +76,17 @@ class DeviceBody extends StatelessWidget {
   }
 
   @override
+  State<DeviceBody> createState() => _DeviceBodyState();
+}
+
+class _DeviceBodyState extends State<DeviceBody> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<FwupdDeviceModel>().init();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final model = context.watch<FwupdDeviceModel>();
     return Padding(
@@ -79,28 +104,29 @@ class DeviceBody extends StatelessWidget {
               children: [
                 if (model.device.version != null)
                   TableRow(children: [
-                    _buildHeader(context, 'Version'),
+                    DeviceBody._buildHeader(context, 'Version'),
                     const SizedBox.shrink(),
-                    _buildLabel(context, model.device.version!),
+                    DeviceBody._buildLabel(context, model.device.version!),
                   ]),
                 if (model.device.vendor != null)
                   TableRow(children: [
-                    _buildHeader(context, 'Vendor'),
+                    DeviceBody._buildHeader(context, 'Vendor'),
                     const SizedBox.shrink(),
-                    _buildLabel(context, model.device.vendor!),
+                    DeviceBody._buildLabel(context, model.device.vendor!),
                   ]),
                 if (model.device.guid.isNotEmpty)
                   TableRow(children: [
-                    _buildHeader(context, 'GUID'),
+                    DeviceBody._buildHeader(context, 'GUID'),
                     const SizedBox.shrink(),
-                    _buildPadding(SelectableText(model.device.guid.first)),
+                    DeviceBody._buildPadding(
+                        SelectableText(model.device.guid.first)),
                   ]),
                 if (model.device.guid.length > 1)
                   for (final guid in model.device.guid.skip(1))
                     TableRow(children: [
-                      _buildHeader(context, ''),
+                      DeviceBody._buildHeader(context, ''),
                       const SizedBox.shrink(),
-                      _buildPadding(SelectableText(guid)),
+                      DeviceBody._buildPadding(SelectableText(guid)),
                     ]),
               ],
             ),

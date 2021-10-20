@@ -60,10 +60,12 @@ class _FwupdPageState extends State<FwupdPage> {
           },
           children: [
             for (var i = 0; i < model.devices.length; ++i)
-              _buildDevicePanel(
-                context,
-                device: model.devices[i],
+              ExpansionPanel(
+                canTapOnHeader: true,
                 isExpanded: _expansions[i] == true,
+                headerBuilder: (context, isExpanded) =>
+                    DeviceHeader.create(context, model.devices[i]),
+                body: DeviceBody.create(context, model.devices[i]),
               ),
           ],
         ),
@@ -71,19 +73,4 @@ class _FwupdPageState extends State<FwupdPage> {
       bottomNavigationBar: const StatusBar(),
     );
   }
-}
-
-ExpansionPanel _buildDevicePanel(
-  BuildContext context, {
-  required FwupdDevice device,
-  required bool isExpanded,
-}) {
-  final model = FwupdDeviceModel(device, client: context.read<FwupdClient>());
-  model.init();
-  return ExpansionPanel(
-    isExpanded: isExpanded,
-    canTapOnHeader: true,
-    headerBuilder: (context, isExpanded) => DeviceHeader.create(context, model),
-    body: DeviceBody.create(context, model),
-  );
 }
