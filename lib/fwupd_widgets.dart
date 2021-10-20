@@ -32,13 +32,25 @@ class _DeviceHeaderState extends State<DeviceHeader> {
   @override
   Widget build(BuildContext context) {
     final device = context.watch<FwupdDeviceModel>();
-    final highlight = Theme.of(context).colorScheme.primary;
-    return ListTile(
-      textColor: device.hasUpgrades ? highlight : null,
-      iconColor: device.hasUpgrades ? highlight : null,
-      title: Text(device.name),
-      subtitle: Text(device.summary),
-      leading: device.icon.firstOrNull?.toDeviceIcon(),
+    return Stack(
+      children: [
+        ListTile(
+          title: Text(device.name),
+          subtitle: Text(device.summary),
+          leading: device.icon.firstOrNull?.toDeviceIcon(),
+          contentPadding: const EdgeInsets.only(left: 24),
+        ),
+        if (device.hasUpgrades)
+          Positioned.fill(
+            child: ClipRect(
+              child: Banner(
+                message: 'Update',
+                location: BannerLocation.topStart,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+          ),
+      ],
     );
   }
 }

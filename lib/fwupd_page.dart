@@ -55,6 +55,7 @@ class _FwupdPageState extends State<FwupdPage> {
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
         child: ExpansionPanelList(
+          expandedHeaderPadding: EdgeInsets.zero,
           expansionCallback: (index, isExpanded) {
             setState(() => _expansions[index] = !isExpanded);
           },
