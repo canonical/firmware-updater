@@ -1,120 +1,120 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
-import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
+import 'fwupd_dialogs.dart';
 import 'fwupd_models.dart';
+import 'fwupd_icons.dart';
 
-class DeviceWidget extends StatefulWidget {
-  const DeviceWidget({Key? key}) : super(key: key);
+class DeviceHeader extends StatelessWidget {
+  const DeviceHeader({Key? key}) : super(key: key);
 
-  static Widget create(BuildContext context, {required FwupdDevice device}) {
-    return ChangeNotifierProvider(
-      create: (_) => FwupdDeviceModel(
-        device: device,
-        client: context.read<FwupdClient>(),
-      ),
-      child: const DeviceWidget(),
+  static Widget create(BuildContext context, FwupdDeviceModel device) {
+    return ChangeNotifierProvider.value(
+      value: device,
+      child: const DeviceHeader(),
     );
   }
 
   @override
-  _DeviceWidgetState createState() => _DeviceWidgetState();
+  Widget build(BuildContext context) {
+    final device = context.watch<FwupdDeviceModel>();
+    final highlight = Theme.of(context).colorScheme.primary;
+    return ListTile(
+      textColor: device.hasUpgrades ? highlight : null,
+      iconColor: device.hasUpgrades ? highlight : null,
+      title: Text(device.name),
+      subtitle: Text(device.summary),
+      leading: device.icon.firstOrNull?.toDeviceIcon(),
+    );
+  }
 }
 
-class _DeviceWidgetState extends State<DeviceWidget> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<FwupdDeviceModel>().init();
+class DeviceBody extends StatelessWidget {
+  const DeviceBody({Key? key}) : super(key: key);
+
+  static Widget create(BuildContext context, FwupdDeviceModel device) {
+    return ChangeNotifierProvider.value(
+      value: device,
+      child: const DeviceBody(),
+    );
+  }
+
+  static Widget _buildPadding(Widget child) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: child,
+    );
+  }
+
+  static Widget _buildHeader(BuildContext context, String text) {
+    return _buildPadding(
+      Text(
+        text,
+        textAlign: TextAlign.end,
+        style: Theme.of(context).textTheme.caption,
+      ),
+    );
+  }
+
+  static Widget _buildLabel(BuildContext context, String text) {
+    return _buildPadding(Text(text));
   }
 
   @override
   Widget build(BuildContext context) {
     final model = context.watch<FwupdDeviceModel>();
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+    return Padding(
+      padding: const EdgeInsets.only(top: 4, left: 16, right: 16, bottom: 16),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Container(
-            color: Theme.of(context).highlightColor,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                model.name,
-                style: Theme.of(context).textTheme.caption,
-              ),
+          Expanded(
+            child: Table(
+              columnWidths: const {
+                0: IntrinsicColumnWidth(),
+                1: FixedColumnWidth(16),
+                2: FlexColumnWidth(),
+              },
+              children: [
+                if (model.device.version != null)
+                  TableRow(children: [
+                    _buildHeader(context, 'Version'),
+                    const SizedBox.shrink(),
+                    _buildLabel(context, model.device.version!),
+                  ]),
+                if (model.device.vendor != null)
+                  TableRow(children: [
+                    _buildHeader(context, 'Vendor'),
+                    const SizedBox.shrink(),
+                    _buildLabel(context, model.device.vendor!),
+                  ]),
+                if (model.device.guid.isNotEmpty)
+                  TableRow(children: [
+                    _buildHeader(context, 'GUID'),
+                    const SizedBox.shrink(),
+                    _buildPadding(SelectableText(model.device.guid.first)),
+                  ]),
+                if (model.device.guid.length > 1)
+                  for (final guid in model.device.guid.skip(1))
+                    TableRow(children: [
+                      _buildHeader(context, ''),
+                      const SizedBox.shrink(),
+                      _buildPadding(SelectableText(guid)),
+                    ]),
+              ],
             ),
           ),
-          if (model.upgrades.isNotEmpty)
-            ListTile(
-              title: Row(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Icon(Icons.memory, size: 72),
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('${model.name} ${model.upgrades.first.version}'),
-                        const SizedBox(height: 8),
-                        Text(
-                          model.upgrades.first.summary,
-                          style: Theme.of(context).textTheme.caption,
-                        ),
-                      ],
-                    ),
-                  ),
-                  OutlinedButton(
-                    child: const Text('Update'),
-                    onPressed: () => model.install(model.upgrades.first),
-                  ),
-                ],
-              ),
-              onTap: () => showUpgradeInfoDialog(context, model),
-            ),
+          OutlinedButton(
+            onPressed: model.hasUpgrades
+                ? () => showUpdateDialog(context, model)
+                : null,
+            child: const Text('Update'),
+          ),
         ],
       ),
     );
   }
-}
-
-Future<void> showUpgradeInfoDialog(
-    BuildContext context, FwupdDeviceModel model) {
-  return showDialog(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: Text(model.name),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 0, vertical: 16),
-        content: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: model.upgrades.map((upgrade) {
-              return Flexible(
-                child: Html(
-                  data: '<h3>${upgrade.version}</h3>${upgrade.description}',
-                  shrinkWrap: true,
-                ),
-              );
-            }).toList(),
-          ),
-        ),
-        actionsPadding: const EdgeInsets.all(8.0),
-        actions: [
-          OutlinedButton(
-            onPressed: Navigator.of(context).pop,
-            child: const Text('Close'),
-          )
-        ],
-      );
-    },
-  );
 }
 
 class StatusBar extends StatelessWidget {

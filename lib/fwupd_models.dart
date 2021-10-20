@@ -18,7 +18,7 @@ class FwupdModel extends ChangeNotifier {
   int get percentage => _client.percentage;
   String get daemonVersion => _client.daemonVersion;
 
-  Iterable<FwupdDevice> get devices => _devices;
+  List<FwupdDevice> get devices => _devices;
 
   Future<void> init() => _client.connect().then((_) => refresh());
 
@@ -35,18 +35,21 @@ class FwupdModel extends ChangeNotifier {
 }
 
 class FwupdDeviceModel extends ChangeNotifier {
-  FwupdDeviceModel({
-    required FwupdDevice device,
-    required FwupdClient client,
-  })  : _device = device,
+  FwupdDeviceModel(FwupdDevice device, {required FwupdClient client})
+      : _device = device,
         _client = client;
 
   final FwupdDevice _device;
   final FwupdClient _client;
   var _upgrades = <FwupdRelease>[];
 
-  String get name => _device.name;
+  FwupdDevice get device => _device;
 
+  String get name => _device.name;
+  String get summary => _device.summary ?? '';
+  List<String> get icon => _device.icon;
+
+  bool get hasUpgrades => _upgrades.isNotEmpty;
   List<FwupdRelease> get upgrades => _upgrades;
 
   Future<void> init() async => _fetchUpgrades();

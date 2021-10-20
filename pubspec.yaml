@@ -6,6 +6,7 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  collection: ^1.15.0
   flutter:
     sdk: flutter
   flutter_html: ^2.1.5
@@ -15,6 +16,7 @@ dependencies:
       ref: unix-fd-and-device-flags
   provider: ^6.0.0
   yaru: ^0.1.6
+  yaru_icons: ^0.0.6
 
 dev_dependencies:
   flutter_lints: ^1.0.0

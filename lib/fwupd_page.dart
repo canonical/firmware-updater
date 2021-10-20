@@ -20,10 +20,12 @@ class FwupdPage extends StatefulWidget {
 }
 
 class _FwupdPageState extends State<FwupdPage> {
+  final _expansions = <int, bool>{};
+
   @override
   void initState() {
     super.initState();
-    context.read<FwupdModel>().init();
+    context.read<FwupdModel>().init().then((value) => null);
   }
 
   @override
@@ -50,16 +52,38 @@ class _FwupdPageState extends State<FwupdPage> {
           const SizedBox(width: 8),
         ],
       ),
-      body: ListView(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
-        children: model.devices.map((device) {
-          return Provider.value(
-            value: device,
-            child: DeviceWidget.create(context, device: device),
-          );
-        }).toList(),
+        child: ExpansionPanelList(
+          expansionCallback: (index, isExpanded) {
+            setState(() => _expansions[index] = !isExpanded);
+          },
+          children: [
+            for (var i = 0; i < model.devices.length; ++i)
+              _buildDevicePanel(
+                context,
+                device: model.devices[i],
+                isExpanded: _expansions[i] == true,
+              ),
+          ],
+        ),
       ),
       bottomNavigationBar: const StatusBar(),
     );
   }
+}
+
+ExpansionPanel _buildDevicePanel(
+  BuildContext context, {
+  required FwupdDevice device,
+  required bool isExpanded,
+}) {
+  final model = FwupdDeviceModel(device, client: context.read<FwupdClient>());
+  model.init();
+  return ExpansionPanel(
+    isExpanded: isExpanded,
+    canTapOnHeader: true,
+    headerBuilder: (context, isExpanded) => DeviceHeader.create(context, model),
+    body: DeviceBody.create(context, model),
+  );
 }
