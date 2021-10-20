@@ -53,16 +53,16 @@ class FwupdDeviceModel extends ChangeNotifier {
 
   final FwupdDevice _device;
   final FwupdClient _client;
-  var _upgrades = <FwupdUpgrade>[];
+  var _upgrades = <FwupdRelease>[];
 
   String get name => _device.name;
 
-  List<FwupdUpgrade> get upgrades => _upgrades;
+  List<FwupdRelease> get upgrades => _upgrades;
 
   Future<void> init() async => _fetchUpgrades();
 
   Future<void> _fetchUpgrades() async {
-    var upgrades = <FwupdUpgrade>[];
+    var upgrades = <FwupdRelease>[];
     try {
       upgrades = await _client.getUpgrades(_device.deviceId);
     } catch (_) {}
