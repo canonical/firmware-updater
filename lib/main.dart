@@ -6,8 +6,9 @@ import 'package:yaru/yaru.dart' as yaru;
 import 'fwupd_page.dart';
 
 Future<void> main() async {
-  runApp(Provider(
+  runApp(Provider<FwupdClient>(
     create: (_) => FwupdClient(),
+    dispose: (_, client) => client.close(),
     child: MaterialApp(
       title: 'Firmware Updater',
       theme: yaru.lightTheme,
