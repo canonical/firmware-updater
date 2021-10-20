@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
 
@@ -57,6 +59,17 @@ class FwupdDeviceModel extends ChangeNotifier {
     if (_upgrades == upgrades) return;
     _upgrades = upgrades;
     notifyListeners();
+  }
+
+  Future<void> install(FwupdRelease upgrade) {
+    assert(upgrade.locations.isNotEmpty);
+    // TODO: FwupdRemote.filenameCache;
+    const cache = '/usr/share/installed-tests/fwupd';
+    final file = File('$cache/${upgrade.locations.first}');
+    return _client.install(
+      _device.deviceId,
+      ResourceHandle.fromFile(file.openSync()),
+    );
   }
 
   Future<void> activate() => _client.activate(_device.deviceId);

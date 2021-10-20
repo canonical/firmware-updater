@@ -71,7 +71,7 @@ class _DeviceWidgetState extends State<DeviceWidget> {
                   ),
                   OutlinedButton(
                     child: const Text('Update'),
-                    onPressed: () => model.verifyUpdate(),
+                    onPressed: () => model.install(model.upgrades.first),
                   ),
                 ],
               ),
