@@ -45,12 +45,6 @@ class _FwupdPageState extends State<FwupdPage> {
           ),
         ),
         actions: <Widget>[
-          Checkbox(
-            splashRadius: 24,
-            value: model.showAllDevices,
-            onChanged: (value) => model.showAllDevices = value,
-          ),
-          const SizedBox(width: 16),
           RefreshButton(isBusy: model.isBusy, onPressed: model.refresh),
           const SizedBox(width: 8),
         ],

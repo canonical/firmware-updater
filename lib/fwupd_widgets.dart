@@ -32,8 +32,6 @@ class _DeviceWidgetState extends State<DeviceWidget> {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<FwupdDeviceModel>();
-    final showAll = context.select<FwupdModel, bool>((m) => m.showAllDevices);
-    if (!showAll && model.upgrades.isEmpty) return const SizedBox.shrink();
     return Card(
       clipBehavior: Clip.antiAlias,
       child: Column(

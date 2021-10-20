@@ -10,19 +10,11 @@ class FwupdModel extends ChangeNotifier {
 
   final FwupdClient _client;
   var _devices = <FwupdDevice>[];
-  bool? _showAllDevices;
 
   bool get isBusy => status.index > FwupdStatus.idle.index;
   FwupdStatus get status => _client.status;
   int get percentage => _client.percentage;
   String get daemonVersion => _client.daemonVersion;
-
-  bool get showAllDevices => _showAllDevices ?? false;
-  set showAllDevices(bool? value) {
-    if (_showAllDevices == value) return;
-    _showAllDevices = value;
-    notifyListeners();
-  }
 
   Iterable<FwupdDevice> get devices => _devices;
 
@@ -31,7 +23,9 @@ class FwupdModel extends ChangeNotifier {
   Future<void> refresh() => _fetchDevices();
 
   Future<void> _fetchDevices() async {
-    final devices = await _client.getDevices();
+    final devices = await _client.getDevices().then((devices) {
+      return devices.where((device) => device.isUpdatable).toList();
+    });
     if (_devices == devices) return;
     _devices = devices;
     notifyListeners();
@@ -76,4 +70,10 @@ class FwupdDeviceModel extends ChangeNotifier {
   Future<void> unlock() => _client.activate(_device.deviceId);
   Future<void> verify() => _client.verify(_device.deviceId);
   Future<void> verifyUpdate() => _client.verifyUpdate(_device.deviceId);
+}
+
+extension FwupdDeviceX on FwupdDevice {
+  bool get isUpdatable =>
+      flags.contains(FwupdDeviceFlag.updatable) ||
+      flags.contains(FwupdDeviceFlag.updatableHidden);
 }
