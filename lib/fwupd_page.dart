@@ -3,7 +3,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
 import 'fwupd_models.dart';
-import 'fwupd_widgets.dart';
+import 'widgets.dart';
 
 class FwupdPage extends StatefulWidget {
   const FwupdPage({Key? key}) : super(key: key);

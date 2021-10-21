@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-import 'fwupd_models.dart';
+import '../../fwupd_models.dart';
 
 Future<void> showUpdateDialog(BuildContext context, FwupdDeviceModel model) {
   return showDialog(
