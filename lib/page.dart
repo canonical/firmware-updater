@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
-import 'fwupd_models.dart';
+import 'model.dart';
 import 'widgets.dart';
 
 class FwupdPage extends StatefulWidget {
@@ -64,14 +64,26 @@ class _FwupdPageState extends State<FwupdPage> {
               ExpansionPanel(
                 canTapOnHeader: true,
                 isExpanded: _expansions[i] == true,
-                headerBuilder: (context, isExpanded) =>
-                    DeviceHeader.create(context, model.devices[i]),
-                body: DeviceBody.create(context, model.devices[i]),
+                headerBuilder: (context, isExpanded) => DeviceHeader(
+                  device: model.devices[i],
+                  upgrades: model.upgrades(model.devices[i]),
+                ),
+                body: DeviceBody(
+                  device: model.devices[i],
+                  canVerify: model.devices[i].canVerify,
+                  onVerify: () => model.verify(model.devices[i]),
+                  canUpgrade: model.upgrades(model.devices[i]).isNotEmpty,
+                  upgrades: model.upgrades(model.devices[i]),
+                  onUpgrade: (u) => model.upgrade(model.devices[i], u),
+                ),
               ),
           ],
         ),
       ),
-      bottomNavigationBar: const StatusBar(),
+      bottomNavigationBar: StatusBar(
+        status: model.status,
+        daemonVersion: model.daemonVersion,
+      ),
     );
   }
 }

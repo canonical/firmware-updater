@@ -6,14 +6,14 @@ Future<void> showUpdateDialog(
   BuildContext context, {
   required FwupdDevice device,
   required List<FwupdRelease> upgrades,
-  required ValueChanged<FwupdRelease> onUpdate,
+  required ValueChanged<FwupdRelease> onUpgrade,
 }) {
   return showDialog(
     context: context,
     builder: (_) => UpdateDialog(
       device: device,
       upgrades: upgrades,
-      onUpdate: onUpdate,
+      onUpdate: onUpgrade,
     ),
   );
 }

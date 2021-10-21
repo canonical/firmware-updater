@@ -1,21 +1,26 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
-import 'package:provider/provider.dart';
 
 import 'update_dialog.dart';
-import '../../fwupd_models.dart';
 
-class DeviceBody extends StatefulWidget {
-  const DeviceBody({Key? key}) : super(key: key);
+class DeviceBody extends StatelessWidget {
+  const DeviceBody({
+    Key? key,
+    required this.device,
+    required this.canVerify,
+    required this.onVerify,
+    required this.canUpgrade,
+    required this.upgrades,
+    required this.onUpgrade,
+  }) : super(key: key);
 
-  static Widget create(BuildContext context, FwupdDevice device) {
-    final client = context.read<FwupdClient>();
-    return ChangeNotifierProvider(
-      create: (_) => FwupdDeviceModel(device, client: client),
-      child: const DeviceBody(),
-    );
-  }
+  final FwupdDevice device;
+  final bool canVerify;
+  final VoidCallback onVerify;
+  final bool canUpgrade;
+  final List<FwupdRelease> upgrades;
+  final ValueChanged<FwupdRelease> onUpgrade;
 
   static Widget _buildPadding(Widget child) {
     return Padding(
@@ -39,19 +44,7 @@ class DeviceBody extends StatefulWidget {
   }
 
   @override
-  State<DeviceBody> createState() => _DeviceBodyState();
-}
-
-class _DeviceBodyState extends State<DeviceBody> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<FwupdDeviceModel>().init();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final model = context.watch<FwupdDeviceModel>();
     return Padding(
       padding: const EdgeInsets.only(top: 4, left: 16, right: 16, bottom: 16),
       child: Column(
@@ -67,27 +60,27 @@ class _DeviceBodyState extends State<DeviceBody> {
                   2: IntrinsicColumnWidth(),
                 },
                 children: [
-                  if (model.device.version != null)
+                  if (device.version != null)
                     TableRow(children: [
                       DeviceBody._buildHeader(context, 'Version'),
                       const SizedBox.shrink(),
-                      DeviceBody._buildLabel(context, model.device.version!),
+                      DeviceBody._buildLabel(context, device.version!),
                     ]),
-                  if (model.device.vendor != null)
+                  if (device.vendor != null)
                     TableRow(children: [
                       DeviceBody._buildHeader(context, 'Vendor'),
                       const SizedBox.shrink(),
-                      DeviceBody._buildLabel(context, model.device.vendor!),
+                      DeviceBody._buildLabel(context, device.vendor!),
                     ]),
-                  if (model.device.guid.isNotEmpty)
+                  if (device.guid.isNotEmpty)
                     TableRow(children: [
                       DeviceBody._buildHeader(context, 'GUID'),
                       const SizedBox.shrink(),
                       DeviceBody._buildPadding(
-                          SelectableText(model.device.guid.first)),
+                          SelectableText(device.guid.first)),
                     ]),
-                  if (model.device.guid.length > 1)
-                    for (final guid in model.device.guid.skip(1))
+                  if (device.guid.length > 1)
+                    for (final guid in device.guid.skip(1))
                       TableRow(children: [
                         DeviceBody._buildHeader(context, ''),
                         const SizedBox.shrink(),
@@ -102,7 +95,7 @@ class _DeviceBodyState extends State<DeviceBody> {
                   runSpacing: 8,
                   alignment: WrapAlignment.end,
                   children: [
-                    for (final flag in model.device.flags)
+                    for (final flag in device.flags)
                       Chip(
                         label: Text(describeEnum(flag)),
                         labelPadding: const EdgeInsets.symmetric(horizontal: 4),
@@ -116,50 +109,28 @@ class _DeviceBodyState extends State<DeviceBody> {
               ),
             ],
           ),
-          if (model.device.canVerify || model.hasUpgrades)
-            const SizedBox(height: 16),
-          if (model.device.canVerify || model.hasUpgrades)
+          if (canVerify || canUpgrade) const SizedBox(height: 16),
+          if (canVerify || canUpgrade)
             ButtonBar(
               children: [
-                if (model.device.canVerify)
-                  const OutlinedButton(
-                    onPressed: null,
-                    child: Text('Verify'),
+                if (canVerify)
+                  OutlinedButton(
+                    onPressed: onVerify,
+                    child: const Text('Verify'),
                   ),
-                if (model.hasUpgrades)
+                if (canUpgrade)
                   OutlinedButton(
                     onPressed: () => showUpdateDialog(
                       context,
-                      device: model.device,
-                      upgrades: model.upgrades,
-                      onUpdate: model.install,
+                      device: device,
+                      upgrades: upgrades,
+                      onUpgrade: onUpgrade,
                     ),
                     child: const Text('Update'),
                   ),
               ],
             ),
         ],
-      ),
-    );
-  }
-}
-
-class StatusBar extends StatelessWidget {
-  const StatusBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final model = Provider.of<FwupdModel>(context);
-    return BottomAppBar(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            Text('Status: ${model.status.toString().split('.').last}'),
-            const Spacer(),
-            Text('fwupd ${model.daemonVersion}'),
-          ],
-        ),
       ),
     );
   }
