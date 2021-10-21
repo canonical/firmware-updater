@@ -9,11 +9,11 @@ const yaruIcons = <String, IconData>{
 };
 
 // TODO: https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html
-extension FwupdIcons on String {
-  Widget? toDeviceIcon() {
-    final icon = yaruIcons[this];
+class DeviceIcon {
+  static Widget? fromName(String? name) {
+    final icon = yaruIcons[name];
     if (icon == null) {
-      print('Missing icon: $this');
+      if (name != null) print('Missing icon: $name');
       return const SizedBox(width: 24, height: 24, child: Placeholder());
     }
     return Icon(icon);

@@ -4,7 +4,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
 import '../../fwupd_models.dart';
-import '../../fwupd_icons.dart';
+import 'device_icon.dart';
 
 class DeviceHeader extends StatefulWidget {
   const DeviceHeader({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class _DeviceHeaderState extends State<DeviceHeader> {
         ListTile(
           title: Text(device.name),
           subtitle: Text(device.summary),
-          leading: device.icon.firstOrNull?.toDeviceIcon(),
+          leading: DeviceIcon.fromName(device.icon.firstOrNull),
           contentPadding: const EdgeInsets.only(left: 24),
         ),
         if (device.hasUpgrades)
