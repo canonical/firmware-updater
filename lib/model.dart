@@ -11,6 +11,7 @@ class FwupdModel extends ChangeNotifier {
 
   final FwupdClient _client;
   var _devices = <FwupdDevice>[];
+  final _downgrades = <String, List<FwupdRelease>>{};
   final _upgrades = <String, List<FwupdRelease>>{};
   var _remotes = <String, FwupdRemote>{};
 
@@ -20,18 +21,20 @@ class FwupdModel extends ChangeNotifier {
   String get daemonVersion => _client.daemonVersion;
 
   List<FwupdDevice> get devices => _devices;
+  List<FwupdRelease> downgrades(FwupdDevice device) =>
+      _downgrades[device.id] ?? [];
   List<FwupdRelease> upgrades(FwupdDevice device) => _upgrades[device.id] ?? [];
 
   Future<void> init() => _client.connect().then((_) => refresh());
 
   Future<void> refresh() => Future.wait([_fetchDevices(), _fetchRemotes()]);
 
-  Future<void> upgrade(FwupdDevice device, FwupdRelease upgrade) {
-    assert(upgrade.locations.isNotEmpty);
+  Future<void> install(FwupdDevice device, FwupdRelease release) {
+    assert(release.locations.isNotEmpty);
     // TODO: handle different types of remotes (local, download, directory, ...)
-    final remote = _remotes[upgrade.remoteId];
+    final remote = _remotes[release.remoteId];
     final cache = p.dirname(remote?.filenameCache ?? '');
-    final file = File(p.join(cache, upgrade.locations.first));
+    final file = File(p.join(cache, release.locations.first));
     return _client.install(
       device.id,
       ResourceHandle.fromFile(file.openSync()),
@@ -52,7 +55,7 @@ class FwupdModel extends ChangeNotifier {
       devices = await _client.getDevices().then((devices) {
         return devices.where((device) {
           if (!device.isUpdatable) return false;
-          _fetchUpgrades(device);
+          _fetchReleases(device);
           return true;
         }).toList();
       });
@@ -61,20 +64,21 @@ class FwupdModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> _fetchUpgrades(FwupdDevice device) async {
-    var upgrades = <FwupdRelease>[];
-    try {
-      upgrades = await _client.getUpgrades(device.id);
-    } on FwupdException catch (_) {}
-    _upgrades[device.id] = upgrades;
+  Future<void> _fetchReleases(FwupdDevice device) async {
+    _upgrades[device.id] = await _client
+        .getUpgrades(device.id)
+        .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
+    // TODO: FwupdClient.getDowngrades()
+    // _downgrades[device.id] = await _client
+    //     .getDowngrades(device.id)
+    //     .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
     notifyListeners();
   }
 
   Future<void> _fetchRemotes() async {
-    var remotes = <FwupdRemote>[];
-    try {
-      remotes = await _client.getRemotes();
-    } on FwupdException catch (_) {}
+    final remotes = await _client
+        .getRemotes()
+        .catchError((_) {}, test: (e) => e is FwupdException);
     _remotes = {
       for (final remote in remotes) remote.id: remote,
     };

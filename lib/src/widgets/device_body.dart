@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 
-import 'update_dialog.dart';
+import 'release_dialog.dart';
 
 class DeviceBody extends StatelessWidget {
   const DeviceBody({
@@ -10,17 +10,17 @@ class DeviceBody extends StatelessWidget {
     required this.device,
     required this.canVerify,
     required this.onVerify,
-    required this.canUpgrade,
     required this.upgrades,
-    required this.onUpgrade,
+    required this.downgrades,
+    required this.onInstall,
   }) : super(key: key);
 
   final FwupdDevice device;
   final bool canVerify;
   final VoidCallback onVerify;
-  final bool canUpgrade;
   final List<FwupdRelease> upgrades;
-  final ValueChanged<FwupdRelease> onUpgrade;
+  final List<FwupdRelease> downgrades;
+  final ValueChanged<FwupdRelease> onInstall;
 
   static Widget _buildPadding(Widget child) {
     return Padding(
@@ -42,6 +42,9 @@ class DeviceBody extends StatelessWidget {
   static Widget _buildLabel(BuildContext context, String text) {
     return _buildPadding(Text(text));
   }
+
+  bool get canUpgrade => upgrades.isNotEmpty;
+  bool get canDowngrade => downgrades.isNotEmpty;
 
   @override
   Widget build(BuildContext context) {
@@ -109,24 +112,26 @@ class DeviceBody extends StatelessWidget {
               ),
             ],
           ),
-          if (canVerify || canUpgrade) const SizedBox(height: 16),
-          if (canVerify || canUpgrade)
+          if (canVerify || canUpgrade || canDowngrade)
+            const SizedBox(height: 16),
+          if (canVerify || canUpgrade || canDowngrade)
             ButtonBar(
               children: [
                 if (canVerify)
                   OutlinedButton(
                     onPressed: onVerify,
-                    child: const Text('Verify'),
+                    child: const Text('Verify Firmware'),
                   ),
                 if (canUpgrade)
                   OutlinedButton(
-                    onPressed: () => showUpdateDialog(
+                    onPressed: () => showReleaseDialog(
                       context,
                       device: device,
                       upgrades: upgrades,
-                      onUpgrade: onUpgrade,
+                      downgrades: downgrades,
+                      onInstall: onInstall,
                     ),
-                    child: const Text('Update'),
+                    child: const Text('Show Releases'),
                   ),
               ],
             ),

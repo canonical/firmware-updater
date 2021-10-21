@@ -2,33 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
 
-Future<void> showUpdateDialog(
+Future<void> showReleaseDialog(
   BuildContext context, {
   required FwupdDevice device,
   required List<FwupdRelease> upgrades,
-  required ValueChanged<FwupdRelease> onUpgrade,
+  required List<FwupdRelease> downgrades,
+  required ValueChanged<FwupdRelease> onInstall,
 }) {
   return showDialog(
     context: context,
-    builder: (_) => UpdateDialog(
+    builder: (_) => ReleaseDialog(
       device: device,
       upgrades: upgrades,
-      onUpdate: onUpgrade,
+      downgrades: downgrades,
+      onInstall: onInstall,
     ),
   );
 }
 
-class UpdateDialog extends StatelessWidget {
-  const UpdateDialog({
+class ReleaseDialog extends StatelessWidget {
+  const ReleaseDialog({
     Key? key,
     required this.device,
     required this.upgrades,
-    required this.onUpdate,
+    required this.downgrades,
+    required this.onInstall,
   }) : super(key: key);
 
   final FwupdDevice device;
   final List<FwupdRelease> upgrades;
-  final ValueChanged<FwupdRelease> onUpdate;
+  final List<FwupdRelease> downgrades;
+  final ValueChanged<FwupdRelease> onInstall;
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +44,11 @@ class UpdateDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: upgrades.map((upgrade) {
+          children: [...upgrades, ...downgrades].map((release) {
             return Flexible(
               child: Html(
                 data:
-                    '<h3>${upgrade.version}</h3>${upgrade.summary}${upgrade.description}',
+                    '<h3>${release.version}</h3>${release.summary}${release.description}',
                 shrinkWrap: true,
               ),
             );
@@ -56,8 +60,8 @@ class UpdateDialog extends StatelessWidget {
         OutlinedButton(
           child: const Text('Update'),
           onPressed: () {
-            // TODO: allow selecting the upgrade
-            onUpdate(upgrades.first);
+            // TODO: allow selecting the upgrade or downgrade
+            onInstall(upgrades.first);
             Navigator.of(context).pop();
           },
         ),
