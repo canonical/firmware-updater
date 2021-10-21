@@ -155,7 +155,7 @@ class _DeviceBodyState extends State<DeviceBody> {
                     for (final flag in model.device.flags)
                       Chip(
                         label: Text(describeEnum(flag)),
-                        labelPadding: EdgeInsets.symmetric(horizontal: 4),
+                        labelPadding: const EdgeInsets.symmetric(horizontal: 4),
                         labelStyle: Theme.of(context)
                             .textTheme
                             .caption!
