@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:path/path.dart' as p;
 
 class FwupdModel extends ChangeNotifier {
   FwupdModel(this._client) {
@@ -11,6 +12,7 @@ class FwupdModel extends ChangeNotifier {
   final FwupdClient _client;
   var _devices = <FwupdDevice>[];
   final _upgrades = <String, List<FwupdRelease>>{};
+  var _remotes = <String, FwupdRemote>{};
 
   bool get isBusy => status.index > FwupdStatus.idle.index;
   FwupdStatus get status => _client.status;
@@ -22,13 +24,14 @@ class FwupdModel extends ChangeNotifier {
 
   Future<void> init() => _client.connect().then((_) => refresh());
 
-  Future<void> refresh() => _fetchDevices();
+  Future<void> refresh() => Future.wait([_fetchDevices(), _fetchRemotes()]);
 
   Future<void> upgrade(FwupdDevice device, FwupdRelease upgrade) {
     assert(upgrade.locations.isNotEmpty);
-    // TODO: FwupdRemote.filenameCache;
-    const cache = '/usr/share/installed-tests/fwupd';
-    final file = File('$cache/${upgrade.locations.first}');
+    // TODO: handle different types of remotes (local, download, directory, ...)
+    final remote = _remotes[upgrade.remoteId];
+    final cache = p.dirname(remote?.filenameCache ?? '');
+    final file = File(p.join(cache, upgrade.locations.first));
     return _client.install(
       device.id,
       ResourceHandle.fromFile(file.openSync()),
@@ -64,6 +67,17 @@ class FwupdModel extends ChangeNotifier {
       upgrades = await _client.getUpgrades(device.id);
     } on FwupdException catch (_) {}
     _upgrades[device.id] = upgrades;
+    notifyListeners();
+  }
+
+  Future<void> _fetchRemotes() async {
+    var remotes = <FwupdRemote>[];
+    try {
+      remotes = await _client.getRemotes();
+    } on FwupdException catch (_) {}
+    _remotes = {
+      for (final remote in remotes) remote.id: remote,
+    };
     notifyListeners();
   }
 }
