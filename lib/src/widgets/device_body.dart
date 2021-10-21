@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 
 import 'release_dialog.dart';
+import 'small_chip.dart';
 
 class DeviceBody extends StatelessWidget {
   const DeviceBody({
@@ -99,14 +100,7 @@ class DeviceBody extends StatelessWidget {
                   alignment: WrapAlignment.end,
                   children: [
                     for (final flag in device.flags)
-                      Chip(
-                        label: Text(describeEnum(flag)),
-                        labelPadding: const EdgeInsets.symmetric(horizontal: 4),
-                        labelStyle: Theme.of(context)
-                            .textTheme
-                            .caption!
-                            .copyWith(fontSize: 10),
-                      ),
+                      SmallChip(text: describeEnum(flag)),
                   ],
                 ),
               ),
@@ -122,7 +116,7 @@ class DeviceBody extends StatelessWidget {
                     onPressed: onVerify,
                     child: const Text('Verify Firmware'),
                   ),
-                if (canUpgrade)
+                if (canUpgrade || canDowngrade)
                   OutlinedButton(
                     onPressed: () => showReleaseDialog(
                       context,
