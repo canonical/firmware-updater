@@ -8,6 +8,7 @@ const yaruIcons = <String, IconData>{
   'preferences-desktop-keyboard': YaruIcons.input_keyboard,
 };
 
+// TODO: https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html
 extension FwupdIcons on String {
   Widget? toDeviceIcon() {
     final icon = yaruIcons[this];
