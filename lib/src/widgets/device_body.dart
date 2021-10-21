@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
-import '../../fwupd_dialogs.dart';
+import 'update_dialog.dart';
 import '../../fwupd_models.dart';
 
 class DeviceBody extends StatefulWidget {
@@ -128,7 +128,12 @@ class _DeviceBodyState extends State<DeviceBody> {
                   ),
                 if (model.hasUpgrades)
                   OutlinedButton(
-                    onPressed: () => showUpdateDialog(context, model),
+                    onPressed: () => showUpdateDialog(
+                      context,
+                      device: model.device,
+                      upgrades: model.upgrades,
+                      onUpdate: model.install,
+                    ),
                     child: const Text('Update'),
                   ),
               ],
@@ -156,32 +161,6 @@ class StatusBar extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class RefreshButton extends StatelessWidget {
-  const RefreshButton({
-    Key? key,
-    required this.isBusy,
-    required this.onPressed,
-  }) : super(key: key);
-
-  final bool isBusy;
-  final VoidCallback onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      splashRadius: 24,
-      icon: isBusy
-          ? const SizedBox(
-              width: 24,
-              height: 24,
-              child: CircularProgressIndicator(),
-            )
-          : const Icon(Icons.refresh),
-      onPressed: isBusy ? null : onPressed,
     );
   }
 }
