@@ -13,7 +13,7 @@ dependencies:
   fwupd:
     git:
       url: https://github.com/jpnurmi/fwupd.dart.git
-      ref: unix-fd-and-remotes
+      ref: wip
   path: ^1.8.0
   provider: ^6.0.0
   yaru: ^0.1.6
