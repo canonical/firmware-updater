@@ -68,10 +68,9 @@ class FwupdModel extends ChangeNotifier {
     _upgrades[device.id] = await _client
         .getUpgrades(device.id)
         .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
-    // TODO: FwupdClient.getDowngrades()
-    // _downgrades[device.id] = await _client
-    //     .getDowngrades(device.id)
-    //     .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
+    _downgrades[device.id] = await _client
+        .getDowngrades(device.id)
+        .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
     notifyListeners();
   }
 
