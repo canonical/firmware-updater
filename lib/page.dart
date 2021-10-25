@@ -66,14 +66,13 @@ class _FwupdPageState extends State<FwupdPage> {
                 isExpanded: _expansions[i] == true,
                 headerBuilder: (context, isExpanded) => DeviceHeader(
                   device: model.devices[i],
-                  upgrades: model.upgrades(model.devices[i]),
+                  hasUpgrade: model.hasUpgrade(model.devices[i]),
                 ),
                 body: DeviceBody(
                   device: model.devices[i],
                   canVerify: model.devices[i].canVerify,
                   onVerify: () => model.verify(model.devices[i]),
-                  upgrades: model.upgrades(model.devices[i]),
-                  downgrades: model.downgrades(model.devices[i]),
+                  releases: model.releases(model.devices[i]),
                   onInstall: (rel) => model.install(model.devices[i], rel),
                 ),
               ),

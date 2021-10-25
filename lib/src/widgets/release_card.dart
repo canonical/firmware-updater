@@ -7,13 +7,11 @@ import 'option_card.dart';
 class ReleaseCard extends StatelessWidget {
   const ReleaseCard({
     Key? key,
-    required this.label,
     required this.release,
     required this.selected,
     required this.onSelected,
   }) : super(key: key);
 
-  final String label;
   final FwupdRelease release;
   final bool selected;
   final VoidCallback onSelected;
@@ -37,7 +35,11 @@ class ReleaseCard extends StatelessWidget {
               top: 16,
               right: 0,
               child: Text(
-                label,
+                release.flags.contains(FwupdReleaseFlag.isUpgrade)
+                    ? 'Upgrade'
+                    : release.flags.contains(FwupdReleaseFlag.isDowngrade)
+                        ? 'Downgrade'
+                        : 'Current',
                 style:
                     Theme.of(context).textTheme.caption!.copyWith(fontSize: 10),
               ),

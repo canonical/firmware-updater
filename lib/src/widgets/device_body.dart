@@ -11,16 +11,14 @@ class DeviceBody extends StatelessWidget {
     required this.device,
     required this.canVerify,
     required this.onVerify,
-    required this.upgrades,
-    required this.downgrades,
+    required this.releases,
     required this.onInstall,
   }) : super(key: key);
 
   final FwupdDevice device;
   final bool canVerify;
   final VoidCallback onVerify;
-  final List<FwupdRelease> upgrades;
-  final List<FwupdRelease> downgrades;
+  final List<FwupdRelease> releases;
   final ValueChanged<FwupdRelease> onInstall;
 
   static Widget _buildPadding(Widget child) {
@@ -43,9 +41,6 @@ class DeviceBody extends StatelessWidget {
   static Widget _buildLabel(BuildContext context, String text) {
     return _buildPadding(Text(text));
   }
-
-  bool get canUpgrade => upgrades.isNotEmpty;
-  bool get canDowngrade => downgrades.isNotEmpty;
 
   @override
   Widget build(BuildContext context) {
@@ -106,9 +101,8 @@ class DeviceBody extends StatelessWidget {
               ),
             ],
           ),
-          if (canVerify || canUpgrade || canDowngrade)
-            const SizedBox(height: 16),
-          if (canVerify || canUpgrade || canDowngrade)
+          if (canVerify || releases.isNotEmpty) const SizedBox(height: 16),
+          if (canVerify || releases.isNotEmpty)
             ButtonBar(
               children: [
                 if (canVerify)
@@ -116,13 +110,12 @@ class DeviceBody extends StatelessWidget {
                     onPressed: onVerify,
                     child: const Text('Verify Firmware'),
                   ),
-                if (canUpgrade || canDowngrade)
+                if (releases.isNotEmpty)
                   OutlinedButton(
                     onPressed: () => showReleaseDialog(
                       context,
                       device: device,
-                      upgrades: upgrades,
-                      downgrades: downgrades,
+                      releases: releases,
                       onInstall: onInstall,
                     ),
                     child: const Text('Show Releases'),

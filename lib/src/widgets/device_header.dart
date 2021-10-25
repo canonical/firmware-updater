@@ -8,11 +8,11 @@ class DeviceHeader extends StatelessWidget {
   const DeviceHeader({
     Key? key,
     required this.device,
-    required this.upgrades,
+    required this.hasUpgrade,
   }) : super(key: key);
 
   final FwupdDevice device;
-  final List<FwupdRelease> upgrades;
+  final bool hasUpgrade;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class DeviceHeader extends StatelessWidget {
           leading: DeviceIcon.fromName(device.icon.firstOrNull),
           contentPadding: const EdgeInsets.only(left: 24),
         ),
-        if (upgrades.isNotEmpty)
+        if (hasUpgrade)
           Positioned.fill(
             child: ClipRect(
               child: Banner(

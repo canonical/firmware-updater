@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:path/path.dart' as p;
@@ -11,8 +12,7 @@ class FwupdModel extends ChangeNotifier {
 
   final FwupdClient _client;
   var _devices = <FwupdDevice>[];
-  final _downgrades = <String, List<FwupdRelease>>{};
-  final _upgrades = <String, List<FwupdRelease>>{};
+  final _releases = <String, List<FwupdRelease>>{};
   var _remotes = <String, FwupdRemote>{};
 
   bool get isBusy => status.index > FwupdStatus.idle.index;
@@ -21,12 +21,12 @@ class FwupdModel extends ChangeNotifier {
   String get daemonVersion => _client.daemonVersion;
 
   List<FwupdDevice> get devices => _devices;
-  List<FwupdRelease> downgrades(FwupdDevice device) =>
-      _downgrades[device.id] ?? [];
-  List<FwupdRelease> upgrades(FwupdDevice device) => _upgrades[device.id] ?? [];
+  List<FwupdRelease> releases(FwupdDevice device) => _releases[device.id] ?? [];
+  bool hasUpgrade(FwupdDevice device) =>
+      _releases[device.id]?.firstWhereOrNull((release) => release.isUpgrade) !=
+      null;
 
   Future<void> init() => _client.connect().then((_) => refresh());
-
   Future<void> refresh() => Future.wait([_fetchDevices(), _fetchRemotes()]);
 
   Future<void> install(FwupdDevice device, FwupdRelease release) {
@@ -65,11 +65,8 @@ class FwupdModel extends ChangeNotifier {
   }
 
   Future<void> _fetchReleases(FwupdDevice device) async {
-    _upgrades[device.id] = await _client
-        .getUpgrades(device.id)
-        .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
-    _downgrades[device.id] = await _client
-        .getDowngrades(device.id)
+    _releases[device.id] = await _client
+        .getReleases(device.id)
         .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
     notifyListeners();
   }
@@ -91,4 +88,9 @@ extension FwupdDeviceX on FwupdDevice {
   bool get isUpdatable =>
       flags.contains(FwupdDeviceFlag.updatable) ||
       flags.contains(FwupdDeviceFlag.updatableHidden);
+}
+
+extension FwupdReleaseX on FwupdRelease {
+  bool get isUpgrade => flags.contains(FwupdReleaseFlag.isUpgrade);
+  bool get isDowngrade => flags.contains(FwupdReleaseFlag.isDowngrade);
 }

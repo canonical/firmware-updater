@@ -2,21 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 
 import 'release_card.dart';
-import 'small_chip.dart';
 
 Future<void> showReleaseDialog(
   BuildContext context, {
   required FwupdDevice device,
-  required List<FwupdRelease> upgrades,
-  required List<FwupdRelease> downgrades,
+  required List<FwupdRelease> releases,
   required ValueChanged<FwupdRelease> onInstall,
 }) {
   return showDialog(
     context: context,
     builder: (_) => ReleaseDialog(
       device: device,
-      upgrades: upgrades,
-      downgrades: downgrades,
+      releases: releases,
       onInstall: onInstall,
     ),
   );
@@ -26,14 +23,12 @@ class ReleaseDialog extends StatefulWidget {
   const ReleaseDialog({
     Key? key,
     required this.device,
-    required this.upgrades,
-    required this.downgrades,
+    required this.releases,
     required this.onInstall,
   }) : super(key: key);
 
   final FwupdDevice device;
-  final List<FwupdRelease> upgrades;
-  final List<FwupdRelease> downgrades;
+  final List<FwupdRelease> releases;
   final ValueChanged<FwupdRelease> onInstall;
 
   @override
@@ -54,31 +49,24 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ...widget.upgrades.map((upgrade) {
-              return ReleaseCard(
-                label: 'Upgrade',
-                release: upgrade,
-                selected: upgrade == _selected,
-                onSelected: () => setState(() => _selected = upgrade),
-              );
-            }).toList(),
-            ...widget.downgrades.map((downgrade) {
-              return ReleaseCard(
-                label: 'Downgrade',
-                release: downgrade,
-                selected: downgrade == _selected,
-                onSelected: () => setState(() => _selected = downgrade),
-              );
-            }).toList(),
-          ],
+          children: widget.releases.map((release) {
+            return ReleaseCard(
+              release: release,
+              selected: release == _selected,
+              onSelected: () => setState(() => _selected = release),
+            );
+          }).toList(),
         ),
       ),
       buttonPadding: const EdgeInsets.only(left: 16),
       actionsPadding: const EdgeInsets.fromLTRB(0, 0, 12, 12),
       actions: [
         OutlinedButton(
-          child: const Text('Install'),
+          child: Text(_selected?.isDowngrade == true
+              ? 'Downgrade'
+              : _selected?.isUpgrade == false
+                  ? 'Reinstall'
+                  : 'Upgrade'),
           onPressed: _selected != null
               ? () {
                   widget.onInstall(_selected!);
@@ -93,4 +81,9 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
       ],
     );
   }
+}
+
+extension FwupdReleaseX on FwupdRelease {
+  bool get isUpgrade => flags.contains(FwupdReleaseFlag.isUpgrade);
+  bool get isDowngrade => flags.contains(FwupdReleaseFlag.isDowngrade);
 }
