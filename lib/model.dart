@@ -7,9 +7,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:path/path.dart' as p;
 
 class FwupdModel extends ChangeNotifier {
-  FwupdModel(this._client) {
-    _client.propertiesChanged.listen((_) => notifyListeners());
-  }
+  FwupdModel(this._client);
 
   final FwupdClient _client;
   var _devices = <FwupdDevice>[];
@@ -18,6 +16,7 @@ class FwupdModel extends ChangeNotifier {
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceChanged;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
+  StreamSubscription<List<String>>? _propsChanged;
 
   bool get isBusy => status.index > FwupdStatus.idle.index;
   FwupdStatus get status => _client.status;
@@ -32,9 +31,10 @@ class FwupdModel extends ChangeNotifier {
 
   Future<void> init() {
     // TODO: sync _devices
-    _deviceAdded = _client.deviceAdded.listen((device) => _fetchDevices());
-    _deviceChanged = _client.deviceChanged.listen((device) => _fetchDevices());
-    _deviceRemoved = _client.deviceRemoved.listen((device) => _fetchDevices());
+    _deviceAdded = _client.deviceAdded.listen((_) => _fetchDevices());
+    _deviceChanged = _client.deviceChanged.listen((_) => _fetchDevices());
+    _deviceRemoved = _client.deviceRemoved.listen((_) => _fetchDevices());
+    _propsChanged = _client.propertiesChanged.listen((_) => notifyListeners());
     return _client.connect().then((_) => refresh());
   }
 
@@ -48,6 +48,8 @@ class FwupdModel extends ChangeNotifier {
     _deviceChanged = null;
     _deviceRemoved?.cancel();
     _deviceRemoved = null;
+    _propsChanged?.cancel();
+    _propsChanged = null;
     super.dispose();
   }
 
