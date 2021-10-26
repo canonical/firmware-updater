@@ -89,14 +89,17 @@ class DeviceBody extends StatelessWidget {
               ),
               const SizedBox(width: 16),
               Expanded(
-                child: Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  alignment: WrapAlignment.end,
-                  children: [
-                    for (final flag in device.flags)
-                      SmallChip(text: describeEnum(flag)),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    alignment: WrapAlignment.end,
+                    children: [
+                      for (final flag in device.flags)
+                        SmallChip(text: describeEnum(flag)),
+                    ],
+                  ),
                 ),
               ),
             ],
