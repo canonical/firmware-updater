@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:collection/collection.dart';
@@ -14,6 +15,9 @@ class FwupdModel extends ChangeNotifier {
   var _devices = <FwupdDevice>[];
   final _releases = <String, List<FwupdRelease>>{};
   var _remotes = <String, FwupdRemote>{};
+  StreamSubscription<FwupdDevice>? _deviceAdded;
+  StreamSubscription<FwupdDevice>? _deviceChanged;
+  StreamSubscription<FwupdDevice>? _deviceRemoved;
 
   bool get isBusy => status.index > FwupdStatus.idle.index;
   FwupdStatus get status => _client.status;
@@ -26,8 +30,26 @@ class FwupdModel extends ChangeNotifier {
       _releases[device.id]?.firstWhereOrNull((release) => release.isUpgrade) !=
       null;
 
-  Future<void> init() => _client.connect().then((_) => refresh());
+  Future<void> init() {
+    // TODO: sync _devices
+    _deviceAdded = _client.deviceAdded.listen((device) => _fetchDevices());
+    _deviceChanged = _client.deviceChanged.listen((device) => _fetchDevices());
+    _deviceRemoved = _client.deviceRemoved.listen((device) => _fetchDevices());
+    return _client.connect().then((_) => refresh());
+  }
+
   Future<void> refresh() => Future.wait([_fetchDevices(), _fetchRemotes()]);
+
+  @override
+  void dispose() {
+    _deviceAdded?.cancel();
+    _deviceAdded = null;
+    _deviceChanged?.cancel();
+    _deviceChanged = null;
+    _deviceRemoved?.cancel();
+    _deviceRemoved = null;
+    super.dispose();
+  }
 
   Future<void> install(FwupdDevice device, FwupdRelease release) {
     assert(release.locations.isNotEmpty);
