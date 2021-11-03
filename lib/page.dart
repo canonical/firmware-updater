@@ -29,7 +29,16 @@ class _FwupdPageState extends State<FwupdPage> {
   @override
   void initState() {
     super.initState();
-    context.read<FwupdModel>().init().then((value) => null);
+    context.read<FwupdModel>().init(
+      onError: (error) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(error),
+            duration: const Duration(seconds: 5),
+          ),
+        );
+      },
+    );
   }
 
   @override

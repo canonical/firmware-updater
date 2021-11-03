@@ -23,6 +23,7 @@ class FwupdModel extends ChangeNotifier {
   StreamSubscription<FwupdDevice>? _deviceRemoved;
   StreamSubscription<List<String>>? _propsChanged;
   int? _progress;
+  void Function(String error)? _onError;
 
   bool get isBusy => status.index > FwupdStatus.idle.index;
   FwupdStatus get status =>
@@ -36,7 +37,8 @@ class FwupdModel extends ChangeNotifier {
       _releases[device.id]?.firstWhereOrNull((release) => release.isUpgrade) !=
       null;
 
-  Future<void> init() {
+  Future<void> init({required void Function(String error) onError}) {
+    _onError = onError;
     // TODO: sync _devices
     _deviceAdded = _client.deviceAdded.listen((_) => _fetchDevices());
     _deviceChanged = _client.deviceChanged.listen((_) => _fetchDevices());
@@ -61,38 +63,17 @@ class FwupdModel extends ChangeNotifier {
   }
 
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
-    final remote = _remotes[release.remoteId];
-    assert(remote != null);
-
-    // TODO: handle multiple locations
-    assert(release.locations.isNotEmpty);
-
-    late final File file;
-    switch (remote!.kind) {
-      case FwupdRemoteKind.download:
-        // TODO:
-        // - handle download failures
-        // - should the .cab be stored in the cache directory?
-        file = await _service.download(
-          release.locations.first,
-          onProgress: _updateProgress,
-        );
-        _updateProgress(null);
-        break;
-      case FwupdRemoteKind.local:
-        final cache = p.dirname(remote.filenameCache ?? '');
-        file = File(p.join(cache, release.locations.first));
-        break;
-      default:
-        throw UnimplementedError('Remote kind ${remote.kind} not implemented');
+    try {
+      final file = await _fetchRelease(release);
+      return await _client.install(
+        device.id,
+        ResourceHandle.fromFile(file.openSync()),
+        allowOlder: release.isDowngrade,
+        allowReinstall: !release.isDowngrade && !release.isUpgrade,
+      );
+    } on Exception catch (e) {
+      _onError?.call(e.toString());
     }
-
-    return _client.install(
-      device.id,
-      ResourceHandle.fromFile(file.openSync()),
-      allowOlder: release.isDowngrade,
-      allowReinstall: !release.isDowngrade && !release.isUpgrade,
-    );
   }
 
   Future<void> activate(FwupdDevice device) => _client.activate(device.id);
@@ -133,6 +114,37 @@ class FwupdModel extends ChangeNotifier {
       for (final remote in remotes) remote.id: remote,
     };
     notifyListeners();
+  }
+
+  Future<File> _fetchRelease(FwupdRelease release) async {
+    final remote = _remotes[release.remoteId];
+    assert(remote != null);
+
+    // TODO: handle multiple locations
+    assert(release.locations.isNotEmpty);
+
+    late final File file;
+    switch (remote!.kind) {
+      case FwupdRemoteKind.download:
+        // TODO:
+        // - should the .cab be stored in the cache directory?
+        try {
+          file = await _service.download(
+            release.locations.first,
+            onProgress: _updateProgress,
+          );
+        } finally {
+          _updateProgress(null);
+        }
+        break;
+      case FwupdRemoteKind.local:
+        final cache = p.dirname(remote.filenameCache ?? '');
+        file = File(p.join(cache, release.locations.first));
+        break;
+      default:
+        throw UnimplementedError('Remote kind ${remote.kind} not implemented');
+    }
+    return file;
   }
 
   void _updateProgress(int? progress) {
