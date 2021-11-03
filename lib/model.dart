@@ -6,10 +6,15 @@ import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:path/path.dart' as p;
 
+import 'service.dart';
+
 class FwupdModel extends ChangeNotifier {
-  FwupdModel(this._client);
+  FwupdModel({required FwupdClient client, required FwupdService service})
+      : _client = client,
+        _service = service;
 
   final FwupdClient _client;
+  final FwupdService _service;
   var _devices = <FwupdDevice>[];
   final _releases = <String, List<FwupdRelease>>{};
   var _remotes = <String, FwupdRemote>{};
@@ -53,12 +58,29 @@ class FwupdModel extends ChangeNotifier {
     super.dispose();
   }
 
-  Future<void> install(FwupdDevice device, FwupdRelease release) {
-    assert(release.locations.isNotEmpty);
-    // TODO: handle different types of remotes (local, download, directory, ...)
+  Future<void> install(FwupdDevice device, FwupdRelease release) async {
     final remote = _remotes[release.remoteId];
-    final cache = p.dirname(remote?.filenameCache ?? '');
-    final file = File(p.join(cache, release.locations.first));
+    assert(remote != null);
+
+    // TODO: handle multiple locations
+    assert(release.locations.isNotEmpty);
+
+    late final File file;
+    switch (remote!.kind) {
+      case FwupdRemoteKind.download:
+        // TODO:
+        // - report progress & handle download failures
+        // - should the .cab be stored in the cache directory?
+        file = await _service.download(release.locations.first);
+        break;
+      case FwupdRemoteKind.local:
+        final cache = p.dirname(remote.filenameCache ?? '');
+        file = File(p.join(cache, release.locations.first));
+        break;
+      default:
+        throw UnimplementedError('Remote kind ${remote.kind} not implemented');
+    }
+
     return _client.install(
       device.id,
       ResourceHandle.fromFile(file.openSync()),

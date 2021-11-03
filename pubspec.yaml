@@ -14,6 +14,7 @@ dependencies:
     git:
       url: https://github.com/jpnurmi/fwupd.dart.git
       ref: wip
+  http: ^0.13.4
   path: ^1.8.0
   provider: ^6.0.0
   yaru: ^0.1.6

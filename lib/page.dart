@@ -3,6 +3,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
 import 'model.dart';
+import 'service.dart';
 import 'widgets.dart';
 
 class FwupdPage extends StatefulWidget {
@@ -10,7 +11,10 @@ class FwupdPage extends StatefulWidget {
 
   static Widget create(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => FwupdModel(context.read<FwupdClient>()),
+      create: (_) => FwupdModel(
+        client: context.read<FwupdClient>(),
+        service: context.read<FwupdService>(),
+      ),
       child: const FwupdPage(),
     );
   }
