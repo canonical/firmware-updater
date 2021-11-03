@@ -13,7 +13,10 @@ Future<void> main() async {
         create: (_) => FwupdClient(),
         dispose: (_, client) => client.close(),
       ),
-      Provider<FwupdService>(create: (_) => FwupdService()),
+      Provider<FwupdService>(
+        create: (_) => FwupdService(),
+        dispose: (_, service) => service.dispose(),
+      ),
     ],
     child: MaterialApp(
       title: 'Firmware Updater',
