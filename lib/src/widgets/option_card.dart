@@ -44,7 +44,7 @@ class _OptionCardState extends State<OptionCard> {
         hoverColor: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(6),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 0, 16, 4),
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           child: widget.child,
         ),
         onHover: _setHovered,
