@@ -1,24 +1,24 @@
 name: firmware_updater
 description: Firmware Updater
-publish_to: 'none'
+publish_to: "none"
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
   collection: ^1.15.0
-  dio: ^4.0.1
+  dio: ^4.0.0
   flutter:
     sdk: flutter
-  flutter_html: ^2.1.5
+  flutter_html: ^2.2.0
   fwupd:
     git:
       url: https://github.com/jpnurmi/fwupd.dart.git
       ref: wip
   path: ^1.8.0
   provider: ^6.0.0
-  yaru: ^0.1.6
-  yaru_icons: ^0.0.6
+  yaru: ^0.2.0
+  yaru_icons: ^0.1.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0
