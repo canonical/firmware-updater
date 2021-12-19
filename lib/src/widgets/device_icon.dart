@@ -5,6 +5,7 @@ const yaruIcons = <String, IconData>{
   'audio-card': YaruIcons.audio,
   'computer': YaruIcons.computer,
   'drive-harddisk': YaruIcons.drive_harddisk,
+  'input-gaming': YaruIcons.input_gaming,
   'preferences-desktop-keyboard': YaruIcons.input_keyboard,
 };
 
