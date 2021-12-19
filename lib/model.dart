@@ -71,6 +71,7 @@ class FwupdModel extends ChangeNotifier {
         allowOlder: release.isDowngrade,
         allowReinstall: !release.isDowngrade && !release.isUpgrade,
       );
+      // TODO: FwupdException
     } on Exception catch (e) {
       _onError?.call(e.toString());
     }

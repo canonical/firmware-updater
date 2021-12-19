@@ -1,6 +1,8 @@
+import 'package:firmware_updater/src/widgets/message_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
+import 'package:yaru_icons/yaru_icons.dart';
 
 import 'model.dart';
 import 'service.dart';
@@ -30,15 +32,13 @@ class _FwupdPageState extends State<FwupdPage> {
   void initState() {
     super.initState();
     context.read<FwupdModel>().init(
-      onError: (error) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(error),
-            duration: const Duration(seconds: 5),
+          onError: (error) => showMessageDialog(
+            context,
+            icon: YaruIcons.error,
+            title: 'Error',
+            message: error,
           ),
         );
-      },
-    );
   }
 
   @override
