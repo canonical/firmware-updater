@@ -86,7 +86,7 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
   }
 }
 
-extension FwupdReleaseX on FwupdRelease {
+extension _FwupdReleaseX on FwupdRelease {
   bool get isUpgrade => flags.contains(FwupdReleaseFlag.isUpgrade);
   bool get isDowngrade => flags.contains(FwupdReleaseFlag.isDowngrade);
 }

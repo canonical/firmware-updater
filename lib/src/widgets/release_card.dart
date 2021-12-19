@@ -35,13 +35,17 @@ class ReleaseCard extends StatelessWidget {
               top: 16,
               right: 0,
               child: Text(
-                release.flags.contains(FwupdReleaseFlag.isUpgrade)
+                release.isUpgrade
                     ? 'Upgrade'
-                    : release.flags.contains(FwupdReleaseFlag.isDowngrade)
+                    : release.isDowngrade
                         ? 'Downgrade'
                         : 'Current',
-                style:
-                    Theme.of(context).textTheme.caption!.copyWith(fontSize: 10),
+                style: Theme.of(context).textTheme.caption!.copyWith(
+                      fontSize: 10,
+                      color: release.isUpgrade
+                          ? Theme.of(context).colorScheme.primary
+                          : null,
+                    ),
               ),
             ),
           ],
@@ -49,4 +53,9 @@ class ReleaseCard extends StatelessWidget {
       ),
     );
   }
+}
+
+extension _FwupdReleaseX on FwupdRelease {
+  bool get isUpgrade => flags.contains(FwupdReleaseFlag.isUpgrade);
+  bool get isDowngrade => flags.contains(FwupdReleaseFlag.isDowngrade);
 }
