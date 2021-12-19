@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
-import 'package:yaru/yaru.dart' as yaru;
+import 'package:yaru/yaru.dart';
 
 import 'service.dart';
 import 'page.dart';
@@ -20,8 +20,8 @@ Future<void> main() async {
     ],
     child: MaterialApp(
       title: 'Firmware Updater',
-      theme: yaru.lightTheme,
-      darkTheme: yaru.darkTheme,
+      theme: yaruLight,
+      darkTheme: yaruDark,
       debugShowCheckedModeBanner: false,
       routes: const {'/': FwupdPage.create},
     ),

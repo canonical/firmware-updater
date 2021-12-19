@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:yaru_icons/widgets/yaru_icons.dart';
+import 'package:yaru_icons/yaru_icons.dart';
 
 const yaruIcons = <String, IconData>{
   'audio-card': YaruIcons.audio,
