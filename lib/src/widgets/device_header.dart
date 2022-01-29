@@ -36,7 +36,7 @@ class DeviceHeader extends StatelessWidget {
                       .elevatedButtonTheme
                       .style!
                       .backgroundColor!
-                      .resolve({MaterialState.focused}) ??
+                      .resolve({}) ??
                   Theme.of(context).primaryColor,
             ),
           ),
