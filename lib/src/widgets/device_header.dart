@@ -29,16 +29,17 @@ class DeviceHeader extends StatelessWidget {
         ),
         if (hasUpgrade)
           Align(
-              alignment: Alignment.centerRight,
-              child: SmallChip(
-                text: 'Update available',
-                color: Theme.of(context)
-                        .elevatedButtonTheme
-                        .style!
-                        .backgroundColor!
-                        .resolve({MaterialState.focused}) ??
-                    Theme.of(context).primaryColor,
-              )),
+            alignment: Alignment.centerRight,
+            child: SmallChip(
+              text: 'Update available',
+              color: Theme.of(context)
+                      .elevatedButtonTheme
+                      .style!
+                      .backgroundColor!
+                      .resolve({MaterialState.focused}) ??
+                  Theme.of(context).primaryColor,
+            ),
+          ),
       ],
     );
   }
