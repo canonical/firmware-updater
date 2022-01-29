@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 
@@ -22,18 +23,22 @@ class DeviceHeader extends StatelessWidget {
           title: Text(device.name),
           subtitle: Text(device.summary ?? ''),
           leading: DeviceIcon.fromName(device.icon.firstOrNull),
-          contentPadding: const EdgeInsets.only(left: 24),
+          contentPadding: const EdgeInsets.only(
+            left: 24,
+          ),
         ),
         if (hasUpgrade)
-          Positioned.fill(
-            child: ClipRect(
-              child: Banner(
-                message: 'Update',
-                location: BannerLocation.topStart,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-            ),
-          ),
+          Align(
+              alignment: Alignment.centerRight,
+              child: SmallChip(
+                text: 'Update available',
+                color: Theme.of(context)
+                        .elevatedButtonTheme
+                        .style!
+                        .backgroundColor!
+                        .resolve({MaterialState.focused}) ??
+                    Theme.of(context).primaryColor,
+              )),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yaru_icons/yaru_icons.dart';
 
 class RefreshButton extends StatelessWidget {
   const RefreshButton({
@@ -20,7 +21,7 @@ class RefreshButton extends StatelessWidget {
               height: 24,
               child: CircularProgressIndicator(),
             )
-          : const Icon(Icons.refresh),
+          : const Icon(YaruIcons.refresh),
       onPressed: isBusy ? null : onPressed,
     );
   }

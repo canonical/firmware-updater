@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:yaru_icons/yaru_icons.dart';
+import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'model.dart';
 import 'service.dart';
@@ -46,6 +47,7 @@ class _FwupdPageState extends State<FwupdPage> {
     final model = context.watch<FwupdModel>();
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 48,
         title: const Text('Firmware Updater'),
         bottom: PreferredSize(
           child: Visibility(
@@ -66,9 +68,10 @@ class _FwupdPageState extends State<FwupdPage> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 20),
-        child: ExpansionPanelList(
-          expandedHeaderPadding: EdgeInsets.zero,
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        child: YaruExpansionPanelList(
+          customExpandIconData: YaruIcons.pan_down,
+          elevation: 0.8,
           expansionCallback: (index, isExpanded) {
             setState(() => _expansions[index] = !isExpanded);
           },

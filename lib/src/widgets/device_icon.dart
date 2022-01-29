@@ -7,6 +7,8 @@ const yaruIcons = <String, IconData>{
   'drive-harddisk': YaruIcons.drive_harddisk,
   'input-gaming': YaruIcons.input_gaming,
   'preferences-desktop-keyboard': YaruIcons.input_keyboard,
+  'touchpad-disabled': YaruIcons.fingerprint,
+  'thunderbolt': YaruIcons.thunderbolt
 };
 
 // TODO: https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html
