@@ -48,7 +48,7 @@ class _FwupdPageState extends State<FwupdPage> {
     final model = context.watch<FwupdModel>();
     return Scaffold(
       backgroundColor: Theme.of(context).brightness == Brightness.light
-          ? YaruColors.warmGrey.shade100
+          ? YaruColors.warmGrey.shade200
           : null,
       appBar: AppBar(
         title: const Text('Firmware Updater'),
