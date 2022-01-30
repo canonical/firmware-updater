@@ -47,7 +47,6 @@ class _FwupdPageState extends State<FwupdPage> {
     final model = context.watch<FwupdModel>();
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 48,
         title: const Text('Firmware Updater'),
         bottom: PreferredSize(
           child: Visibility(
