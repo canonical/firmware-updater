@@ -2,6 +2,7 @@ import 'package:firmware_updater/src/widgets/message_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
+import 'package:yaru/yaru.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
@@ -46,6 +47,9 @@ class _FwupdPageState extends State<FwupdPage> {
   Widget build(BuildContext context) {
     final model = context.watch<FwupdModel>();
     return Scaffold(
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? YaruColors.warmGrey.shade100
+          : null,
       appBar: AppBar(
         title: const Text('Firmware Updater'),
         bottom: PreferredSize(

@@ -14,6 +14,8 @@ class RefreshButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      color: Theme.of(context).appBarTheme.titleTextStyle!.color ??
+          Theme.of(context).colorScheme.onSurface,
       splashRadius: 24,
       icon: isBusy
           ? const SizedBox(
