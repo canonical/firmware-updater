@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  bundle:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Flutter
+      run: sudo snap install flutter --classic
+    - name: Configure Flutter
+      run: |
+        flutter config --enable-linux-desktop
+        flutter doctor -v
+    - name: Build app bundle
+      run: flutter build linux -v
+
+  snap:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: snapcore/action-build@v1
+      id: snapcraft
+    - uses: actions/upload-artifact@v2
+      if: github.event_name == 'workflow_dispatch'
+      with:
+        name: 'snap'
+        path: ${{steps.snapcraft.outputs.snap}}
