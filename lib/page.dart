@@ -1,4 +1,3 @@
-import 'package:firmware_updater/src/widgets/message_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';

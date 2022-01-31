@@ -121,8 +121,7 @@ class FwupdModel extends ChangeNotifier {
     final remote = _remotes[release.remoteId];
     assert(remote != null);
 
-    // TODO: handle multiple locations
-    assert(release.locations.isNotEmpty);
+    assert(release.locations.isNotEmpty, 'TODO: handle multiple locations');
 
     late final File file;
     switch (remote!.kind) {

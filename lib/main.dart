@@ -3,8 +3,8 @@ import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:yaru/yaru.dart';
 
-import 'service.dart';
 import 'page.dart';
+import 'service.dart';
 
 Future<void> main() async {
   runApp(MultiProvider(

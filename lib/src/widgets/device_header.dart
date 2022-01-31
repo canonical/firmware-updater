@@ -1,9 +1,9 @@
 import 'package:collection/collection.dart';
-import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 
 import 'device_icon.dart';
+import 'small_chip.dart';
 
 class DeviceHeader extends StatelessWidget {
   const DeviceHeader({

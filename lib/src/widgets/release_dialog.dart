@@ -51,7 +51,6 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: widget.releases.map((release) {
             return Flexible(
-              fit: FlexFit.loose,
               child: ReleaseCard(
                 release: release,
                 selected: release == _selected,
