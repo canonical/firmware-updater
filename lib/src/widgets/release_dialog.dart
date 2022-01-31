@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 
 import 'release_card.dart';
@@ -40,6 +41,7 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return AlertDialog(
       title: Text('${widget.device.name} ${widget.device.version}'),
       titlePadding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -65,10 +67,10 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
       actions: [
         OutlinedButton(
           child: Text(_selected?.isDowngrade == true
-              ? 'Downgrade'
+              ? l10n.downgrade
               : _selected?.isUpgrade == false
-                  ? 'Reinstall'
-                  : 'Upgrade'),
+                  ? l10n.reinstall
+                  : l10n.upgrade),
           onPressed: _selected != null
               ? () {
                   widget.onInstall(_selected!);
