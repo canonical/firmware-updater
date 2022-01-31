@@ -118,15 +118,25 @@ class DeviceBody extends StatelessWidget {
                     child: Text(l10n.verifyFirmware),
                   ),
                 if (releases.isNotEmpty)
-                  OutlinedButton(
-                    onPressed: () => showReleaseDialog(
-                      context,
-                      device: device,
-                      releases: releases,
-                      onInstall: onInstall,
-                    ),
-                    child: Text(l10n.showReleases),
-                  ),
+                  hasUpgrade
+                      ? ElevatedButton(
+                          onPressed: () => showReleaseDialog(
+                            context,
+                            device: device,
+                            releases: releases,
+                            onInstall: onInstall,
+                          ),
+                          child: Text(l10n.showUpdates),
+                        )
+                      : OutlinedButton(
+                          onPressed: () => showReleaseDialog(
+                            context,
+                            device: device,
+                            releases: releases,
+                            onInstall: onInstall,
+                          ),
+                          child: Text(l10n.showReleases),
+                        ),
               ],
             ),
         ],
