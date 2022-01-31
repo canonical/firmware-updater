@@ -13,6 +13,7 @@ class DeviceBody extends StatelessWidget {
     required this.onVerify,
     required this.releases,
     required this.onInstall,
+    required this.hasUpgrade,
   }) : super(key: key);
 
   final FwupdDevice device;
@@ -20,6 +21,7 @@ class DeviceBody extends StatelessWidget {
   final VoidCallback onVerify;
   final List<FwupdRelease> releases;
   final ValueChanged<FwupdRelease> onInstall;
+  final bool hasUpgrade;
 
   static Widget _buildPadding(Widget child) {
     return Padding(
@@ -114,15 +116,24 @@ class DeviceBody extends StatelessWidget {
                     child: const Text('Verify Firmware'),
                   ),
                 if (releases.isNotEmpty)
-                  OutlinedButton(
-                    onPressed: () => showReleaseDialog(
-                      context,
-                      device: device,
-                      releases: releases,
-                      onInstall: onInstall,
-                    ),
-                    child: const Text('Show Releases'),
-                  ),
+                  hasUpgrade
+                      ? ElevatedButton(
+                          onPressed: () => showReleaseDialog(
+                                context,
+                                device: device,
+                                releases: releases,
+                                onInstall: onInstall,
+                              ),
+                          child: const Text('Show Update'))
+                      : OutlinedButton(
+                          onPressed: () => showReleaseDialog(
+                            context,
+                            device: device,
+                            releases: releases,
+                            onInstall: onInstall,
+                          ),
+                          child: const Text('Show Releases'),
+                        ),
               ],
             ),
         ],

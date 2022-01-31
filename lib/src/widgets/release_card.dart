@@ -41,7 +41,7 @@ class ReleaseCard extends StatelessWidget {
                         ? 'Downgrade'
                         : 'Current',
                 style: Theme.of(context).textTheme.caption!.copyWith(
-                      fontSize: 10,
+                      fontSize: 15,
                       color: release.isUpgrade
                           ? Theme.of(context).colorScheme.primary
                           : null,
