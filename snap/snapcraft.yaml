@@ -10,7 +10,6 @@ icon: snap/firmware-updater.png
 architectures:
   - build-on: amd64
 
-
 parts:
   flutter-git:
     source: https://github.com/flutter/flutter.git
