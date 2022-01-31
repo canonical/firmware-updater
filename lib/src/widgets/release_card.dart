@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
 
@@ -18,6 +19,7 @@ class ReleaseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.only(top: 16),
       child: OptionCard(
@@ -36,10 +38,10 @@ class ReleaseCard extends StatelessWidget {
               right: 0,
               child: Text(
                 release.isUpgrade
-                    ? 'Upgrade'
+                    ? l10n.upgrade
                     : release.isDowngrade
-                        ? 'Downgrade'
-                        : 'Current',
+                        ? l10n.downgrade
+                        : l10n.current,
                 style: Theme.of(context).textTheme.caption!.copyWith(
                       fontSize: 10,
                       color: release.isUpgrade

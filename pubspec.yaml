@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_html: ^2.2.0
+  flutter_localizations:
+    sdk: flutter
   fwupd:
     git:
       url: https://github.com/jpnurmi/fwupd.dart.git
@@ -28,6 +30,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - assets/
