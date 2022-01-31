@@ -5,6 +5,8 @@ description: Update Firmware
 confinement: strict
 base: core20
 grade: devel
+license: GPL-3.0+
+icon: snap/firmware-updater.png
 architectures:
   - build-on: amd64
 
