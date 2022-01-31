@@ -23,9 +23,7 @@ class DeviceHeader extends StatelessWidget {
           title: Text(device.name),
           subtitle: Text(device.summary ?? ''),
           leading: DeviceIcon.fromName(device.icon.firstOrNull),
-          contentPadding: const EdgeInsets.only(
-            left: 24,
-          ),
+          contentPadding: const EdgeInsets.only(left: 24),
         ),
         if (hasUpgrade)
           Align(
