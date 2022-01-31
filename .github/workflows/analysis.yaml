@@ -1,0 +1,35 @@
+name: Analysis
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  analyzer:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: subosito/flutter-action@v1
+    - run: flutter config --enable-linux-desktop
+    - run: flutter analyze
+
+  format:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - uses: subosito/flutter-action@v1
+    - run: flutter config --enable-linux-desktop
+    - name: Run flutter format
+      run: |
+        find . -name '*.dart' \
+        ! -name '*.freezed.dart' \
+        ! -name '*.g.dart' \
+        ! -name '*.mocks.dart' \
+        ! -name '*_localizations*.dart' \
+        ! -path "*/.*/*" \
+        | xargs flutter format --set-exit-if-changed
