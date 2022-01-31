@@ -47,7 +47,7 @@ class DeviceIcon {
   static Widget? fromName(String? name) {
     final icon = yaruIcons[name];
     if (icon == null) {
-      if (name != null) print('Missing icon: $name');
+      assert(name != null, 'Missing icon: $name');
       return const SizedBox(width: 24, height: 24, child: Placeholder());
     }
     return Icon(icon);

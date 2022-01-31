@@ -3,21 +3,68 @@ version: git
 summary: Firmware Updater
 description: Update Firmware
 confinement: strict
-base: core18
+base: core20
 grade: devel
+license: GPL-3.0+
+icon: snap/firmware-updater.png
 architectures:
   - build-on: amd64
 
 parts:
+  flutter-git:
+    source: https://github.com/flutter/flutter.git
+    source-branch: stable
+    source-depth: 1
+    plugin: nil
+    override-build: |
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
+      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/libexec
+      cp -r $SNAPCRAFT_PART_SRC $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter
+      ln -s $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter/bin/flutter $SNAPCRAFT_PART_INSTALL/usr/bin/flutter
+    build-packages:
+      - clang
+      - cmake
+      - curl
+      - ninja-build
+      - unzip
+      - xz-utils
+      - zip
+    override-prime: ''
+
+  libhandy:
+    source: https://gitlab.gnome.org/GNOME/libhandy.git
+    source-branch: libhandy-1-2
+    source-depth: 1
+    plugin: meson
+    meson-parameters:
+      - --prefix=/usr
+      - --buildtype=release
+      - -Dvapi=false
+      - -Dintrospection=disabled
+      - -Dgtk_doc=false
+      - -Dtests=false
+      - -Dexamples=false
+      - -Dglade_catalog=disabled
+
   firmware-updater:
-    plugin: flutter
+    after: [ libhandy, flutter-git ]
+    plugin: nil
     source: .
-    flutter-target: lib/main.dart
+    override-build: |
+      set -eux
+      flutter channel stable
+      flutter upgrade
+      flutter config --enable-linux-desktop
+      flutter doctor
+      flutter pub get
+      flutter build linux --release -v
+      mkdir -p $SNAPCRAFT_PART_INSTALL/bin/
+      cp -r build/linux/*/release/bundle/* $SNAPCRAFT_PART_INSTALL/bin/
 
 apps:
   firmware-updater:
-    command: firmware-updater
+    command: bin/firmware-updater
     desktop: bin/data/flutter_assets/assets/firmware-updater.desktop
-    extensions: [flutter-dev]
+    extensions: [gnome-3-38]
     plugs:
       - fwupd

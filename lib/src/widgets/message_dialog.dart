@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> showMessageDialog(
   BuildContext context, {
@@ -30,6 +31,7 @@ class MessageDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return FractionallySizedBox(
       widthFactor: 0.6,
       child: AlertDialog(
@@ -48,7 +50,7 @@ class MessageDialog extends StatelessWidget {
         actions: [
           OutlinedButton(
             onPressed: Navigator.of(context).pop,
-            child: const Text('Close'),
+            child: Text(l10n.close),
           )
         ],
       ),

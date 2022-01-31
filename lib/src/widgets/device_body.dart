@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 
 import 'release_dialog.dart';
@@ -46,6 +47,7 @@ class DeviceBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.only(top: 4, left: 16, right: 16, bottom: 16),
       child: Column(
@@ -63,19 +65,19 @@ class DeviceBody extends StatelessWidget {
                 children: [
                   if (device.version != null)
                     TableRow(children: [
-                      DeviceBody._buildHeader(context, 'Version'),
+                      DeviceBody._buildHeader(context, l10n.version),
                       const SizedBox.shrink(),
                       DeviceBody._buildLabel(context, device.version!),
                     ]),
                   if (device.vendor != null)
                     TableRow(children: [
-                      DeviceBody._buildHeader(context, 'Vendor'),
+                      DeviceBody._buildHeader(context, l10n.vendor),
                       const SizedBox.shrink(),
                       DeviceBody._buildLabel(context, device.vendor!),
                     ]),
                   if (device.guid.isNotEmpty)
                     TableRow(children: [
-                      DeviceBody._buildHeader(context, 'GUID'),
+                      DeviceBody._buildHeader(context, l10n.guid),
                       const SizedBox.shrink(),
                       DeviceBody._buildPadding(
                           SelectableText(device.guid.first)),
@@ -113,27 +115,18 @@ class DeviceBody extends StatelessWidget {
                 if (canVerify)
                   OutlinedButton(
                     onPressed: onVerify,
-                    child: const Text('Verify Firmware'),
+                    child: Text(l10n.verifyFirmware),
                   ),
                 if (releases.isNotEmpty)
-                  hasUpgrade
-                      ? ElevatedButton(
-                          onPressed: () => showReleaseDialog(
-                                context,
-                                device: device,
-                                releases: releases,
-                                onInstall: onInstall,
-                              ),
-                          child: const Text('Show Update'))
-                      : OutlinedButton(
-                          onPressed: () => showReleaseDialog(
-                            context,
-                            device: device,
-                            releases: releases,
-                            onInstall: onInstall,
-                          ),
-                          child: const Text('Show Releases'),
-                        ),
+                  OutlinedButton(
+                    onPressed: () => showReleaseDialog(
+                      context,
+                      device: device,
+                      releases: releases,
+                      onInstall: onInstall,
+                    ),
+                    child: Text(l10n.showReleases),
+                  ),
               ],
             ),
         ],
