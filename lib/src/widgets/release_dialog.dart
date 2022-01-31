@@ -65,7 +65,7 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
       buttonPadding: const EdgeInsets.only(left: 16),
       actionsPadding: const EdgeInsets.fromLTRB(0, 0, 12, 12),
       actions: [
-        OutlinedButton(
+        ElevatedButton(
           child: Text(_selected?.isDowngrade == true
               ? l10n.downgrade
               : _selected?.isUpgrade == false

@@ -6,6 +6,7 @@
   "guid": "GUID",
   "reinstall": "Reinstall",
   "showReleases": "Show Releases",
+  "showUpdates": "Show Updates",
   "updateAvailable": "Update available",
   "upgrade": "Upgrade",
   "vendor": "Vendor",

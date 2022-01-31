@@ -93,6 +93,7 @@ class _FwupdPageState extends State<FwupdPage> {
                   onVerify: () => model.verify(model.devices[i]),
                   releases: model.releases(model.devices[i]),
                   onInstall: (rel) => model.install(model.devices[i], rel),
+                  hasUpgrade: model.hasUpgrade(model.devices[i]),
                 ),
               ),
           ],
