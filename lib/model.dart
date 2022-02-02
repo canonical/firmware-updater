@@ -68,8 +68,11 @@ class FwupdModel extends ChangeNotifier {
       return await _client.install(
         device.id,
         ResourceHandle.fromFile(file.openSync()),
-        allowOlder: release.isDowngrade,
-        allowReinstall: !release.isDowngrade && !release.isUpgrade,
+        flags: {
+          if (release.isDowngrade) FwupdInstallFlag.allowOlder,
+          if (!release.isDowngrade && !release.isUpgrade)
+            FwupdInstallFlag.allowReinstall,
+        },
       );
       // TODO: FwupdException
     } on Exception catch (e) {
