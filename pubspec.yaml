@@ -18,8 +18,7 @@ dependencies:
   provider: ^6.0.0
   yaru: ^0.2.1
   yaru_icons: ^0.1.2
-  yaru_widgets:
-    git: http://github.com/ubuntu/yaru_widgets.dart
+  yaru_widgets: ^1.0.0
 
 dev_dependencies:
   flutter_lints: ^1.0.0
