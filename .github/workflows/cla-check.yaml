@@ -1,8 +1,8 @@
-name: CLA check
+name: CLA
 on: [pull_request_target]
 
 jobs:
-  cla-check:
+  check:
     runs-on: ubuntu-20.04
     steps:
       - name: Check if CLA signed
