@@ -31,23 +31,8 @@ parts:
       - zip
     override-prime: ''
 
-  libhandy:
-    source: https://gitlab.gnome.org/GNOME/libhandy.git
-    source-branch: libhandy-1-2
-    source-depth: 1
-    plugin: meson
-    meson-parameters:
-      - --prefix=/usr
-      - --buildtype=release
-      - -Dvapi=false
-      - -Dintrospection=disabled
-      - -Dgtk_doc=false
-      - -Dtests=false
-      - -Dexamples=false
-      - -Dglade_catalog=disabled
-
   firmware-updater:
-    after: [ libhandy, flutter-git ]
+    after: [ flutter-git ]
     plugin: nil
     source: .
     override-build: |
