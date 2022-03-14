@@ -49,7 +49,6 @@ add_definitions(-DAPPLICATION_ID="${APPLICATION_ID}")
 add_executable(${BINARY_NAME}
   "main.cc"
   "my_application.cc"
-  "handy_window.cc"
   "${FLUTTER_MANAGED_DIR}/generated_plugin_registrant.cc"
 )
 apply_standard_settings(${BINARY_NAME})
@@ -64,12 +63,6 @@ set_target_properties(${BINARY_NAME}
   PROPERTIES
   RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/intermediates_do_not_run"
 )
-
-pkg_check_modules(LIBHANDY IMPORTED_TARGET libhandy-1)
-if(LIBHANDY_FOUND)
-  add_definitions("-DHAVE_LIBHANDY")
-  target_link_libraries(${BINARY_NAME} PRIVATE PkgConfig::LIBHANDY)
-endif(LIBHANDY_FOUND)
 
 # Generated plugin build rules, which manage building the plugins and adding
 # them to the application.
