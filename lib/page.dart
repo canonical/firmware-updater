@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
+import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_colors/yaru_colors.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
@@ -16,8 +17,8 @@ class FwupdPage extends StatefulWidget {
   static Widget create(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => FwupdModel(
-        client: context.read<FwupdClient>(),
-        service: context.read<FwupdService>(),
+        client: getService<FwupdClient>(),
+        service: getService<FwupdService>(),
       ),
       child: const FwupdPage(),
     );
