@@ -13,7 +13,7 @@ class OptionCard extends StatefulWidget {
   final VoidCallback onSelected;
 
   @override
-  _OptionCardState createState() => _OptionCardState();
+  State<OptionCard> createState() => _OptionCardState();
 }
 
 class _OptionCardState extends State<OptionCard> {
@@ -43,12 +43,12 @@ class _OptionCardState extends State<OptionCard> {
       child: InkWell(
         hoverColor: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(6),
+        onHover: _setHovered,
+        onTap: widget.onSelected,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           child: widget.child,
         ),
-        onHover: _setHovered,
-        onTap: widget.onSelected,
       ),
     );
   }

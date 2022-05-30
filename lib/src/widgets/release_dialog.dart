@@ -66,17 +66,17 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
       actionsPadding: const EdgeInsets.fromLTRB(0, 0, 12, 12),
       actions: [
         ElevatedButton(
-          child: Text(_selected?.isDowngrade == true
-              ? l10n.downgrade
-              : _selected?.isUpgrade == false
-                  ? l10n.reinstall
-                  : l10n.upgrade),
           onPressed: _selected != null
               ? () {
                   widget.onInstall(_selected!);
                   Navigator.of(context).pop();
                 }
               : null,
+          child: Text(_selected?.isDowngrade == true
+              ? l10n.downgrade
+              : _selected?.isUpgrade == false
+                  ? l10n.reinstall
+                  : l10n.upgrade),
         ),
         OutlinedButton(
           onPressed: Navigator.of(context).pop,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
-import 'package:yaru/yaru.dart';
+import 'package:yaru_colors/yaru_colors.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
@@ -53,16 +53,16 @@ class _FwupdPageState extends State<FwupdPage> {
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).appTitle),
         bottom: PreferredSize(
+          preferredSize: Size(
+            double.infinity,
+            ProgressIndicatorTheme.of(context).linearMinHeight ?? 6,
+          ),
           child: Visibility(
             visible: model.status != FwupdStatus.idle &&
                 model.status != FwupdStatus.unknown,
             child: LinearProgressIndicator(
               value: model.percentage / 100,
             ),
-          ),
-          preferredSize: Size(
-            double.infinity,
-            ProgressIndicatorTheme.of(context).linearMinHeight ?? 6,
           ),
         ),
         actions: <Widget>[
