@@ -318,7 +318,7 @@ class __$$FwupdLoadingStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FwupdLoadingState extends FwupdLoadingState {
-  const _$FwupdLoadingState({required this.previous}) : super._();
+  const _$FwupdLoadingState({this.previous}) : super._();
 
   @override
   final FwupdState? previous;
@@ -427,7 +427,7 @@ class _$FwupdLoadingState extends FwupdLoadingState {
 }
 
 abstract class FwupdLoadingState extends FwupdState {
-  const factory FwupdLoadingState({required final FwupdState? previous}) =
+  const factory FwupdLoadingState({final FwupdState? previous}) =
       _$FwupdLoadingState;
   const FwupdLoadingState._() : super._();
 
@@ -495,8 +495,7 @@ class __$$FwupdErrorStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FwupdErrorState extends FwupdErrorState {
-  const _$FwupdErrorState(
-      {required this.error, this.stackTrace, required this.previous})
+  const _$FwupdErrorState({required this.error, this.stackTrace, this.previous})
       : super._();
 
   @override
@@ -619,7 +618,7 @@ abstract class FwupdErrorState extends FwupdState {
   const factory FwupdErrorState(
       {required final Object error,
       final StackTrace? stackTrace,
-      required final FwupdState? previous}) = _$FwupdErrorState;
+      final FwupdState? previous}) = _$FwupdErrorState;
   const FwupdErrorState._() : super._();
 
   Object get error;

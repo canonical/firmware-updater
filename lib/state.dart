@@ -16,13 +16,13 @@ class FwupdState with _$FwupdState {
   }) = _FwupdState;
 
   const factory FwupdState.loading({
-    required FwupdState? previous,
+    FwupdState? previous,
   }) = FwupdLoadingState;
 
   const factory FwupdState.error({
     required Object error,
     StackTrace? stackTrace,
-    required FwupdState? previous,
+    FwupdState? previous,
   }) = FwupdErrorState;
 
   static const empty = FwupdState.data(devices: [], releases: {});
