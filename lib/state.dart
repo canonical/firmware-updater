@@ -13,7 +13,6 @@ class FwupdState with _$FwupdState {
   const factory FwupdState.data({
     required List<FwupdDevice> devices,
     required Map<String, List<FwupdRelease>> releases,
-    required Map<String, FwupdRemote> remotes,
   }) = _FwupdState;
 
   const factory FwupdState.loading({
@@ -26,11 +25,11 @@ class FwupdState with _$FwupdState {
     required FwupdState? previous,
   }) = FwupdErrorState;
 
-  static const none = FwupdState.data(devices: [], releases: {}, remotes: {});
+  static const empty = FwupdState.data(devices: [], releases: {});
 
   List<FwupdDevice>? getDevices() {
     return when(
-      data: (devices, releases, remotes) => devices,
+      data: (devices, releases) => devices,
       loading: (previous) => previous?.getDevices(),
       error: (error, stackTrace, previous) => previous?.getDevices(),
     );
@@ -38,7 +37,7 @@ class FwupdState with _$FwupdState {
 
   List<FwupdRelease>? getReleases(FwupdDevice device) {
     return when(
-      data: (devices, releases, remotes) => releases[device.id],
+      data: (devices, releases) => releases[device.id],
       loading: (previous) => previous?.getReleases(device),
       error: (error, stackTrace, previous) => previous?.getReleases(device),
     );

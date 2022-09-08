@@ -18,7 +18,7 @@ class FwupdModel extends SafeChangeNotifier {
 
   final FwupdService _service;
   final FwupdMonitor _monitor;
-  var _state = FwupdState.none;
+  var _state = FwupdState.empty;
 
   FwupdState get state => _state;
 
@@ -34,7 +34,7 @@ class FwupdModel extends SafeChangeNotifier {
     return Future.wait([
       _service.init(),
       _monitor.init(),
-    ]).then((_) => refresh());
+    ]).then((_) => _updateState());
   }
 
   Future<void> refresh() => _monitor.refresh();
@@ -43,12 +43,6 @@ class FwupdModel extends SafeChangeNotifier {
   void dispose() {
     _monitor.dispose();
     super.dispose();
-  }
-
-  Future<void> activate(FwupdDevice device) => _service.activate(device);
-
-  Future<void> clearResults(FwupdDevice device) {
-    return _service.clearResults(device);
   }
 
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
@@ -65,23 +59,16 @@ class FwupdModel extends SafeChangeNotifier {
     }
   }
 
-  Future<void> unlock(FwupdDevice device) => _service.unlock(device);
-
   Future<void> verify(FwupdDevice device) => _service.verify(device);
-
-  Future<void> verifyUpdate(FwupdDevice device) {
-    return _service.verifyUpdate(device);
-  }
 
   Future<FwupdState> _fetchState() async {
     try {
       return FwupdState.data(
         devices: _monitor.devices,
         releases: await _fetchReleases(_monitor.devices),
-        remotes: await _fetchRemotes(),
       );
     } on FwupdException catch (_) {
-      return FwupdState.none;
+      return FwupdState.empty;
     }
   }
 
@@ -92,16 +79,13 @@ class FwupdModel extends SafeChangeNotifier {
           test: (e) => e is FwupdNothingToDoException);
     }
 
-    return {
-      for (final device in devices) device.id: await fetchReleases(device),
-    };
-  }
-
-  Future<Map<String, FwupdRemote>> _fetchRemotes() {
-    return _service.getRemotes().then((remotes) {
-      return {
-        for (final remote in remotes) remote.id: remote,
-      };
-    });
+    final all = <String, List<FwupdRelease>>{};
+    for (final device in devices) {
+      final releases = await fetchReleases(device);
+      if (releases.isNotEmpty) {
+        all[device.id] = releases;
+      }
+    }
+    return all;
   }
 }
