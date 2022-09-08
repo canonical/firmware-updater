@@ -11,17 +11,11 @@ on:
 
 jobs:
   bundle:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2
-    - name: Install Flutter
-      run: sudo snap install flutter --classic
-    - name: Configure Flutter
-      run: |
-        flutter config --enable-linux-desktop
-        flutter doctor -v
-    - name: Build app bundle
-      run: flutter build linux -v
+    - run: sudo snap install flutter --classic
+    - run: flutter build linux -v
 
   snap:
     runs-on: ubuntu-latest
