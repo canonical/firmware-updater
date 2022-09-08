@@ -20,13 +20,11 @@ class FwupdModel extends ChangeNotifier {
   StreamSubscription<FwupdDevice>? _deviceChanged;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
   StreamSubscription<List<String>>? _propsChanged;
-  int? _progress;
   void Function(String error)? _onError;
 
   bool get isBusy => status.index > FwupdStatus.idle.index;
-  FwupdStatus get status =>
-      _progress != null ? FwupdStatus.downloading : _service.status;
-  int get percentage => _progress ?? _service.percentage;
+  FwupdStatus get status => _service.status;
+  int get percentage => _service.percentage;
   String get daemonVersion => _service.daemonVersion;
 
   List<FwupdDevice> get devices => _devices;
@@ -129,14 +127,7 @@ class FwupdModel extends ChangeNotifier {
       case FwupdRemoteKind.download:
         // TODO:
         // - should the .cab be stored in the cache directory?
-        try {
-          file = await _service.download(
-            release.locations.first,
-            onProgress: _updateProgress,
-          );
-        } finally {
-          _updateProgress(null);
-        }
+        file = await _service.download(release.locations.first);
         break;
       case FwupdRemoteKind.local:
         final cache = p.dirname(remote.filenameCache ?? '');
@@ -146,11 +137,5 @@ class FwupdModel extends ChangeNotifier {
         throw UnimplementedError('Remote kind ${remote.kind} not implemented');
     }
     return file;
-  }
-
-  void _updateProgress(int? progress) {
-    if (_progress == progress) return;
-    _progress = progress;
-    notifyListeners();
   }
 }
