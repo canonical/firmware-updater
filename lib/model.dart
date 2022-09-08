@@ -22,13 +22,7 @@ class FwupdModel extends ChangeNotifier {
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceChanged;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
-  StreamSubscription<List<String>>? _propsChanged;
   void Function(String error)? _onError;
-
-  bool get isBusy => status.index > FwupdStatus.idle.index;
-  FwupdStatus get status => _service.status;
-  int get percentage => _service.percentage;
-  String get daemonVersion => _service.daemonVersion;
 
   List<FwupdDevice> get devices => _devices;
   List<FwupdRelease> releases(FwupdDevice device) => _releases[device.id] ?? [];
@@ -51,7 +45,6 @@ class FwupdModel extends ChangeNotifier {
       log.debug('removed $device');
       _fetchDevices();
     });
-    _propsChanged = _service.propertiesChanged.listen((_) => notifyListeners());
     return _service.init().then((_) => refresh());
   }
 
@@ -65,8 +58,6 @@ class FwupdModel extends ChangeNotifier {
     _deviceChanged = null;
     _deviceRemoved?.cancel();
     _deviceRemoved = null;
-    _propsChanged?.cancel();
-    _propsChanged = null;
     super.dispose();
   }
 

@@ -7,6 +7,7 @@ import 'package:yaru_colors/yaru_colors.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
+import 'daemon.dart';
 import 'fwupd_x.dart';
 import 'model.dart';
 import 'service.dart';
@@ -16,8 +17,15 @@ class FwupdPage extends StatefulWidget {
   const FwupdPage({Key? key}) : super(key: key);
 
   static Widget create(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => FwupdModel(getService<FwupdService>()),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => FwupdDaemon(getService<FwupdService>()),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => FwupdModel(getService<FwupdService>()),
+        ),
+      ],
       child: const FwupdPage(),
     );
   }
@@ -45,6 +53,7 @@ class _FwupdPageState extends State<FwupdPage> {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<FwupdModel>();
+    final daemon = context.watch<FwupdDaemon>();
     return Scaffold(
       backgroundColor: Theme.of(context).brightness == Brightness.light
           ? YaruColors.warmGrey.shade200
@@ -57,15 +66,15 @@ class _FwupdPageState extends State<FwupdPage> {
             ProgressIndicatorTheme.of(context).linearMinHeight ?? 6,
           ),
           child: Visibility(
-            visible: model.status != FwupdStatus.idle &&
-                model.status != FwupdStatus.unknown,
+            visible: daemon.status != FwupdStatus.idle &&
+                daemon.status != FwupdStatus.unknown,
             child: LinearProgressIndicator(
-              value: model.percentage / 100,
+              value: daemon.percentage / 100,
             ),
           ),
         ),
         actions: <Widget>[
-          RefreshButton(isBusy: model.isBusy, onPressed: model.refresh),
+          RefreshButton(isBusy: daemon.isBusy, onPressed: model.refresh),
           const SizedBox(width: 8),
         ],
       ),
@@ -99,8 +108,8 @@ class _FwupdPageState extends State<FwupdPage> {
         ),
       ),
       bottomNavigationBar: StatusBar(
-        status: model.status,
-        daemonVersion: model.daemonVersion,
+        status: daemon.status,
+        daemonVersion: daemon.version,
       ),
     );
   }
