@@ -37,6 +37,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
+  integration_test:
+    sdk: flutter
   mockito: 5.3.0
 
 flutter:
