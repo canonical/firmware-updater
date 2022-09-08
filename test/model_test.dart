@@ -8,7 +8,7 @@ import 'test_utils.dart';
 
 void main() {
   test('initializes service', () async {
-    final service = createMockService();
+    final service = mockService();
 
     final model = FwupdModel(service);
     await model.init();
@@ -18,9 +18,9 @@ void main() {
 
   test('fetches devices and releases', () async {
     final devices = [
-      createDevice(id: 'a'),
-      createDevice(id: 'b'),
-      createDevice(id: 'c'),
+      testDevice(id: 'a'),
+      testDevice(id: 'b'),
+      testDevice(id: 'c'),
     ];
 
     final releases = {
@@ -33,7 +33,7 @@ void main() {
       ]
     };
 
-    final service = createMockService(devices: devices, releases: releases);
+    final service = mockService(devices: devices, releases: releases);
 
     final model = FwupdModel(service);
     await model.init();
@@ -42,7 +42,7 @@ void main() {
   });
 
   test('refresh devices', () async {
-    final service = createMockService();
+    final service = mockService();
 
     final model = FwupdModel(service);
     await model.refresh();
@@ -51,10 +51,10 @@ void main() {
   });
 
   test('install release', () async {
-    final device = createDevice(id: '');
+    final device = testDevice(id: '');
     final release = FwupdRelease(name: '');
 
-    final service = createMockService();
+    final service = mockService();
 
     final model = FwupdModel(service);
     await model.install(device, release);
@@ -62,10 +62,10 @@ void main() {
   });
 
   test('installation failure', () async {
-    final device = createDevice(id: '');
+    final device = testDevice(id: '');
     final release = FwupdRelease(name: '');
 
-    final service = createMockService();
+    final service = mockService();
     when(service.install(device, release))
         .thenThrow(const FwupdInvalidFileException());
 
@@ -75,9 +75,9 @@ void main() {
   });
 
   test('nothing to do', () async {
-    final device = createDevice(id: 'foo');
+    final device = testDevice(id: 'foo');
 
-    final service = createMockService(devices: [device]);
+    final service = mockService(devices: [device]);
     when(service.getReleases(any)).thenThrow(const FwupdNothingToDoException());
 
     final model = FwupdModel(service);
@@ -86,9 +86,9 @@ void main() {
   });
 
   test('verify', () async {
-    final device = createDevice(id: '');
+    final device = testDevice(id: '');
 
-    final service = createMockService();
+    final service = mockService();
 
     final model = FwupdModel(service);
     await model.verify(device);
