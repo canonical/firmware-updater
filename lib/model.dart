@@ -68,29 +68,18 @@ class FwupdModel extends ChangeNotifier {
     }
   }
 
-  Future<void> activate(FwupdDevice device) {
-    log.debug('activate $device');
-    return _service.activate(device.id);
-  }
+  Future<void> activate(FwupdDevice device) => _service.activate(device);
 
   Future<void> clearResults(FwupdDevice device) {
-    log.debug('clearResults $device');
-    return _service.clearResults(device.id);
+    return _service.clearResults(device);
   }
 
-  Future<void> unlock(FwupdDevice device) {
-    log.debug('unlock $device');
-    return _service.activate(device.id);
-  }
+  Future<void> unlock(FwupdDevice device) => _service.unlock(device);
 
-  Future<void> verify(FwupdDevice device) {
-    log.debug('verify $device');
-    return _service.verify(device.id);
-  }
+  Future<void> verify(FwupdDevice device) => _service.verify(device);
 
   Future<void> verifyUpdate(FwupdDevice device) {
-    log.debug('verifyUpdate $device');
-    return _service.verifyUpdate(device.id);
+    return _service.verifyUpdate(device);
   }
 
   Future<void> _fetchDevices() async {

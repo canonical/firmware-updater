@@ -87,9 +87,15 @@ class FwupdService {
     _propertiesChanged.add(['Percentage']);
   }
 
-  Future<void> activate(String id) => _fwupd.activate(id);
+  Future<void> activate(FwupdDevice device) {
+    log.debug('activate $device');
+    return _fwupd.activate(device.id);
+  }
 
-  Future<void> clearResults(String id) => _fwupd.clearResults(id);
+  Future<void> clearResults(FwupdDevice device) {
+    log.debug('clearResults $device');
+    return _fwupd.clearResults(device.id);
+  }
 
   Future<List<FwupdDevice>> getDevices() => _fwupd.getDevices();
 
@@ -110,6 +116,7 @@ class FwupdService {
   }
 
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
+    log.debug('install $release on $device');
     final file = await _fetchRelease(release);
     return _fwupd.install(
       device.id,
@@ -122,9 +129,18 @@ class FwupdService {
     );
   }
 
-  Future<void> unlock(String id) => _fwupd.unlock(id);
+  Future<void> unlock(FwupdDevice device) {
+    log.debug('unlock $device');
+    return _fwupd.unlock(device.id);
+  }
 
-  Future<void> verify(String id) => _fwupd.verify(id);
+  Future<void> verify(FwupdDevice device) {
+    log.debug('verify $device');
+    return _fwupd.verify(device.id);
+  }
 
-  Future<void> verifyUpdate(String id) => _fwupd.verifyUpdate(id);
+  Future<void> verifyUpdate(FwupdDevice device) {
+    log.debug('verifyUpdate $device');
+    return _fwupd.verifyUpdate(device.id);
+  }
 }
