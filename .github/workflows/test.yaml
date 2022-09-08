@@ -30,14 +30,20 @@ jobs:
     - run: flutter test
 
   integration:
-    if: ${{false}}
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
     - run: sudo apt update
-    - run: sudo apt install -y clang cmake curl libgtk-3-dev ninja-build pkg-config unzip xvfb
+    - run: sudo apt install -y clang cmake curl dbus dbus-x11 fwupd fwupd-tests gsettings-desktop-schemas libgtk-3-dev ninja-build pkg-config unzip xvfb
       env:
         DEBIAN_FRONTEND: noninteractive
-    - run: xvfb-run -a xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' \
-            flutter test integration_test
+    - name: Prepare environment
+      run: |
+        sudo sed -i 's/DisabledPlugins=.*/DisabledPlugins=invalid;bios/g' /etc/fwupd/daemon.conf
+        echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus" >> $GITHUB_ENV
+        echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
+        gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
+    - run: sudo fwupdmgr enable-remote fwupd-tests
+    - run: sudo fwupdmgr get-devices
+    - run: sudo -E xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' $FLUTTER_ROOT/bin/flutter test integration_test
