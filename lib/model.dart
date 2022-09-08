@@ -5,20 +5,20 @@ import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 import 'fwupd_x.dart';
+import 'monitor.dart';
 import 'service.dart';
 import 'state.dart';
 
 final log = Logger('model');
 
 class FwupdModel extends SafeChangeNotifier {
-  FwupdModel(this._service);
+  FwupdModel(this._service) : _monitor = FwupdMonitor(_service) {
+    _monitor.addListener(_updateState);
+  }
 
   final FwupdService _service;
+  final FwupdMonitor _monitor;
   var _state = FwupdState.none;
-
-  StreamSubscription<FwupdDevice>? _deviceAdded;
-  StreamSubscription<FwupdDevice>? _deviceChanged;
-  StreamSubscription<FwupdDevice>? _deviceRemoved;
 
   FwupdState get state => _state;
 
@@ -28,35 +28,20 @@ class FwupdModel extends SafeChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> _updateState() async => _setState(await _fetchState());
+
   Future<void> init() {
-    return _service.init().then((_) {
-      // TODO: sync _devices
-      _deviceAdded = _service.deviceAdded.listen((device) {
-        log.debug('added $device');
-        refresh();
-      });
-      _deviceChanged = _service.deviceChanged.listen((device) {
-        log.debug('changed $device');
-        refresh();
-      });
-      _deviceRemoved = _service.deviceRemoved.listen((device) {
-        log.debug('removed $device');
-        refresh();
-      });
-      return refresh();
-    });
+    return Future.wait([
+      _service.init(),
+      _monitor.init(),
+    ]).then((_) => refresh());
   }
 
-  Future<void> refresh() async => _setState(await _fetchState());
+  Future<void> refresh() => _monitor.refresh();
 
   @override
   void dispose() {
-    _deviceAdded?.cancel();
-    _deviceAdded = null;
-    _deviceChanged?.cancel();
-    _deviceChanged = null;
-    _deviceRemoved?.cancel();
-    _deviceRemoved = null;
+    _monitor.dispose();
     super.dispose();
   }
 
@@ -89,27 +74,15 @@ class FwupdModel extends SafeChangeNotifier {
   }
 
   Future<FwupdState> _fetchState() async {
-    var devices = <FwupdDevice>[];
-    var releases = <String, List<FwupdRelease>>{};
-    var remotes = <String, FwupdRemote>{};
-
     try {
-      devices = await _fetchDevices();
-      releases = await _fetchReleases(devices);
-      remotes = await _fetchRemotes();
-    } on FwupdException catch (_) {}
-
-    return FwupdState.data(
-      devices: devices,
-      releases: releases,
-      remotes: remotes,
-    );
-  }
-
-  Future<List<FwupdDevice>> _fetchDevices() {
-    return _service.getDevices().then((devices) {
-      return devices.where((device) => device.isUpdatable).toList();
-    });
+      return FwupdState.data(
+        devices: _monitor.devices,
+        releases: await _fetchReleases(_monitor.devices),
+        remotes: await _fetchRemotes(),
+      );
+    } on FwupdException catch (_) {
+      return FwupdState.none;
+    }
   }
 
   Future<Map<String, List<FwupdRelease>>> _fetchReleases(
