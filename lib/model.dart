@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:path/path.dart' as p;
 
+import 'fwupd_x.dart';
 import 'service.dart';
 
 class FwupdModel extends ChangeNotifier {
@@ -152,17 +153,4 @@ class FwupdModel extends ChangeNotifier {
     _progress = progress;
     notifyListeners();
   }
-}
-
-extension FwupdDeviceX on FwupdDevice {
-  String get id => deviceId;
-  bool get canVerify => flags.contains(FwupdDeviceFlag.canVerify);
-  bool get isUpdatable =>
-      flags.contains(FwupdDeviceFlag.updatable) ||
-      flags.contains(FwupdDeviceFlag.updatableHidden);
-}
-
-extension FwupdReleaseX on FwupdRelease {
-  bool get isUpgrade => flags.contains(FwupdReleaseFlag.isUpgrade);
-  bool get isDowngrade => flags.contains(FwupdReleaseFlag.isDowngrade);
 }

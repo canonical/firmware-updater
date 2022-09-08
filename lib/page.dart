@@ -7,6 +7,7 @@ import 'package:yaru_colors/yaru_colors.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
+import 'fwupd_x.dart';
 import 'model.dart';
 import 'service.dart';
 import 'widgets.dart';
