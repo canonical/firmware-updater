@@ -14,7 +14,6 @@ class FwupdDaemon extends SafeChangeNotifier {
   final FwupdService _service;
   StreamSubscription? _listener;
 
-  bool get isBusy => status.index > FwupdStatus.idle.index;
   FwupdStatus get status => _service.status;
   int get percentage => _service.percentage;
   String get version => _service.daemonVersion;

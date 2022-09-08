@@ -12,3 +12,7 @@ extension FwupdReleaseX on FwupdRelease {
   bool get isUpgrade => flags.contains(FwupdReleaseFlag.isUpgrade);
   bool get isDowngrade => flags.contains(FwupdReleaseFlag.isDowngrade);
 }
+
+extension FwupdStatusX on FwupdStatus {
+  bool get isBusy => index > FwupdStatus.idle.index;
+}
