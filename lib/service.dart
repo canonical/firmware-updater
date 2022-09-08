@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -14,32 +15,46 @@ class FwupdService {
 
   final Dio _dio;
   final FwupdClient _fwupd;
+  int? _downloadProgress;
+  final _propertiesChanged = StreamController<List<String>>();
 
-  FwupdStatus get status => _fwupd.status;
-  int get percentage => _fwupd.percentage;
+  FwupdStatus get status =>
+      _downloadProgress != null ? FwupdStatus.downloading : _fwupd.status;
+  int get percentage => _downloadProgress ?? _fwupd.percentage;
   String get daemonVersion => _fwupd.daemonVersion;
 
   Stream<FwupdDevice> get deviceAdded => _fwupd.deviceAdded;
   Stream<FwupdDevice> get deviceChanged => _fwupd.deviceChanged;
   Stream<FwupdDevice> get deviceRemoved => _fwupd.deviceRemoved;
-  Stream<List<String>> get propertiesChanged => _fwupd.propertiesChanged;
+  Stream<List<String>> get propertiesChanged => _propertiesChanged.stream;
 
-  Future<void> init() => _fwupd.connect();
+  Future<void> init() async {
+    await _fwupd.connect();
+    _propertiesChanged.addStream(_fwupd.propertiesChanged);
+  }
 
   Future<void> dispose() {
     _dio.close();
     return _fwupd.close();
   }
 
-  Future<File> download(String url, {void Function(int)? onProgress}) async {
+  Future<File> download(String url) async {
     final path = p.join(Directory.systemTemp.path, p.basename(url));
     try {
       return await _dio.download(url, path, onReceiveProgress: (recvd, total) {
-        onProgress?.call(100 * recvd ~/ total);
+        _setDownloadProgress(100 * recvd ~/ total);
       }).then((response) => File(path));
     } on DioError catch (e) {
       throw Exception(e.message);
+    } finally {
+      _setDownloadProgress(null);
     }
+  }
+
+  void _setDownloadProgress(int? progress) {
+    if (_downloadProgress == progress) return;
+    _downloadProgress = progress;
+    _propertiesChanged.add(['Percentage']);
   }
 
   Future<void> activate(String id) => _fwupd.activate(id);
