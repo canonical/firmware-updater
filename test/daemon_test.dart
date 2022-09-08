@@ -1,15 +1,12 @@
 import 'dart:async';
 
 import 'package:firmware_updater/daemon.dart';
-import 'package:firmware_updater/service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'daemon_test.mocks.dart';
+import 'service_test.mocks.dart';
 
-@GenerateMocks([FwupdService])
 void main() {
   test('initializes service', () async {
     final service = MockFwupdService();
