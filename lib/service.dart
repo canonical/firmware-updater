@@ -5,6 +5,9 @@ import 'package:dio/dio.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
+import 'package:ubuntu_logger/ubuntu_logger.dart';
+
+final log = Logger('service');
 
 class FwupdService {
   FwupdService({
@@ -40,6 +43,7 @@ class FwupdService {
 
   Future<File> download(String url) async {
     final path = p.join(Directory.systemTemp.path, p.basename(url));
+    log.debug('download $url to $path');
     try {
       return await _dio.download(url, path, onReceiveProgress: (recvd, total) {
         _setDownloadProgress(100 * recvd ~/ total);
