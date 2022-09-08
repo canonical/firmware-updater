@@ -31,9 +31,11 @@ dependencies:
   yaru_widgets: ^1.0.0
 
 dev_dependencies:
+  build_runner: ^2.2.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  mockito: 5.3.0
 
 flutter:
   generate: true
