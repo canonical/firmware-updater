@@ -3,11 +3,10 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
-import 'dart:io' as _i2;
+import 'dart:async' as _i4;
 
-import 'package:firmware_updater/service.dart' as _i3;
-import 'package:fwupd/fwupd.dart' as _i4;
+import 'package:firmware_updater/service.dart' as _i2;
+import 'package:fwupd/fwupd.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -21,22 +20,17 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeFile_0 extends _i1.SmartFake implements _i2.File {
-  _FakeFile_0(Object parent, Invocation parentInvocation)
-      : super(parent, parentInvocation);
-}
-
 /// A class which mocks [FwupdService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
+class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
   MockFwupdService() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.FwupdStatus get status => (super.noSuchMethod(Invocation.getter(#status),
-      returnValue: _i4.FwupdStatus.unknown) as _i4.FwupdStatus);
+  _i3.FwupdStatus get status => (super.noSuchMethod(Invocation.getter(#status),
+      returnValue: _i3.FwupdStatus.unknown) as _i3.FwupdStatus);
   @override
   int get percentage =>
       (super.noSuchMethod(Invocation.getter(#percentage), returnValue: 0)
@@ -46,104 +40,97 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
       (super.noSuchMethod(Invocation.getter(#daemonVersion), returnValue: '')
           as String);
   @override
-  _i5.Stream<_i4.FwupdDevice> get deviceAdded =>
+  _i4.Stream<_i3.FwupdDevice> get deviceAdded =>
       (super.noSuchMethod(Invocation.getter(#deviceAdded),
-              returnValue: _i5.Stream<_i4.FwupdDevice>.empty())
-          as _i5.Stream<_i4.FwupdDevice>);
+              returnValue: _i4.Stream<_i3.FwupdDevice>.empty())
+          as _i4.Stream<_i3.FwupdDevice>);
   @override
-  _i5.Stream<_i4.FwupdDevice> get deviceChanged =>
+  _i4.Stream<_i3.FwupdDevice> get deviceChanged =>
       (super.noSuchMethod(Invocation.getter(#deviceChanged),
-              returnValue: _i5.Stream<_i4.FwupdDevice>.empty())
-          as _i5.Stream<_i4.FwupdDevice>);
+              returnValue: _i4.Stream<_i3.FwupdDevice>.empty())
+          as _i4.Stream<_i3.FwupdDevice>);
   @override
-  _i5.Stream<_i4.FwupdDevice> get deviceRemoved =>
+  _i4.Stream<_i3.FwupdDevice> get deviceRemoved =>
       (super.noSuchMethod(Invocation.getter(#deviceRemoved),
-              returnValue: _i5.Stream<_i4.FwupdDevice>.empty())
-          as _i5.Stream<_i4.FwupdDevice>);
+              returnValue: _i4.Stream<_i3.FwupdDevice>.empty())
+          as _i4.Stream<_i3.FwupdDevice>);
   @override
-  _i5.Stream<List<String>> get propertiesChanged =>
+  _i4.Stream<List<String>> get propertiesChanged =>
       (super.noSuchMethod(Invocation.getter(#propertiesChanged),
-              returnValue: _i5.Stream<List<String>>.empty())
-          as _i5.Stream<List<String>>);
+              returnValue: _i4.Stream<List<String>>.empty())
+          as _i4.Stream<List<String>>);
   @override
-  _i5.Future<void> init() => (super.noSuchMethod(Invocation.method(#init, []),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+  _i4.Future<void> init() => (super.noSuchMethod(Invocation.method(#init, []),
+      returnValue: _i4.Future<void>.value(),
+      returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
   @override
-  _i5.Future<void> dispose() => (super.noSuchMethod(
+  _i4.Future<void> dispose() => (super.noSuchMethod(
       Invocation.method(#dispose, []),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+      returnValue: _i4.Future<void>.value(),
+      returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
   @override
-  _i5.Future<_i2.File> download(String? url) =>
-      (super.noSuchMethod(Invocation.method(#download, [url]),
-              returnValue: _i5.Future<_i2.File>.value(
-                  _FakeFile_0(this, Invocation.method(#download, [url]))))
-          as _i5.Future<_i2.File>);
+  _i4.Future<void> activate(_i3.FwupdDevice? device) => (super.noSuchMethod(
+      Invocation.method(#activate, [device]),
+      returnValue: _i4.Future<void>.value(),
+      returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
   @override
-  _i5.Future<void> activate(String? id) => (super.noSuchMethod(
-      Invocation.method(#activate, [id]),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+  _i4.Future<void> clearResults(_i3.FwupdDevice? device) => (super.noSuchMethod(
+      Invocation.method(#clearResults, [device]),
+      returnValue: _i4.Future<void>.value(),
+      returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
   @override
-  _i5.Future<void> clearResults(String? id) => (super.noSuchMethod(
-      Invocation.method(#clearResults, [id]),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
-  @override
-  _i5.Future<List<_i4.FwupdDevice>> getDevices() =>
+  _i4.Future<List<_i3.FwupdDevice>> getDevices() =>
       (super.noSuchMethod(Invocation.method(#getDevices, []),
               returnValue:
-                  _i5.Future<List<_i4.FwupdDevice>>.value(<_i4.FwupdDevice>[]))
-          as _i5.Future<List<_i4.FwupdDevice>>);
+                  _i4.Future<List<_i3.FwupdDevice>>.value(<_i3.FwupdDevice>[]))
+          as _i4.Future<List<_i3.FwupdDevice>>);
   @override
-  _i5.Future<List<_i4.FwupdRelease>> getDowngrades(String? deviceId) =>
+  _i4.Future<List<_i3.FwupdRelease>> getDowngrades(String? deviceId) =>
       (super.noSuchMethod(Invocation.method(#getDowngrades, [deviceId]),
-          returnValue: _i5.Future<List<_i4.FwupdRelease>>.value(
-              <_i4.FwupdRelease>[])) as _i5.Future<List<_i4.FwupdRelease>>);
+          returnValue: _i4.Future<List<_i3.FwupdRelease>>.value(
+              <_i3.FwupdRelease>[])) as _i4.Future<List<_i3.FwupdRelease>>);
   @override
-  _i5.Future<List<_i4.FwupdPlugin>> getPlugins() =>
+  _i4.Future<List<_i3.FwupdPlugin>> getPlugins() =>
       (super.noSuchMethod(Invocation.method(#getPlugins, []),
               returnValue:
-                  _i5.Future<List<_i4.FwupdPlugin>>.value(<_i4.FwupdPlugin>[]))
-          as _i5.Future<List<_i4.FwupdPlugin>>);
+                  _i4.Future<List<_i3.FwupdPlugin>>.value(<_i3.FwupdPlugin>[]))
+          as _i4.Future<List<_i3.FwupdPlugin>>);
   @override
-  _i5.Future<List<_i4.FwupdRelease>> getReleases(String? deviceId) =>
+  _i4.Future<List<_i3.FwupdRelease>> getReleases(String? deviceId) =>
       (super.noSuchMethod(Invocation.method(#getReleases, [deviceId]),
-          returnValue: _i5.Future<List<_i4.FwupdRelease>>.value(
-              <_i4.FwupdRelease>[])) as _i5.Future<List<_i4.FwupdRelease>>);
+          returnValue: _i4.Future<List<_i3.FwupdRelease>>.value(
+              <_i3.FwupdRelease>[])) as _i4.Future<List<_i3.FwupdRelease>>);
   @override
-  _i5.Future<List<_i4.FwupdRemote>> getRemotes() =>
+  _i4.Future<List<_i3.FwupdRemote>> getRemotes() =>
       (super.noSuchMethod(Invocation.method(#getRemotes, []),
               returnValue:
-                  _i5.Future<List<_i4.FwupdRemote>>.value(<_i4.FwupdRemote>[]))
-          as _i5.Future<List<_i4.FwupdRemote>>);
+                  _i4.Future<List<_i3.FwupdRemote>>.value(<_i3.FwupdRemote>[]))
+          as _i4.Future<List<_i3.FwupdRemote>>);
   @override
-  _i5.Future<List<_i4.FwupdRelease>> getUpgrades(String? deviceId) =>
+  _i4.Future<List<_i3.FwupdRelease>> getUpgrades(String? deviceId) =>
       (super.noSuchMethod(Invocation.method(#getUpgrades, [deviceId]),
-          returnValue: _i5.Future<List<_i4.FwupdRelease>>.value(
-              <_i4.FwupdRelease>[])) as _i5.Future<List<_i4.FwupdRelease>>);
+          returnValue: _i4.Future<List<_i3.FwupdRelease>>.value(
+              <_i3.FwupdRelease>[])) as _i4.Future<List<_i3.FwupdRelease>>);
   @override
-  _i5.Future<void> install(String? id, _i2.ResourceHandle? handle,
-          {Set<_i4.FwupdInstallFlag>? flags = const {}}) =>
-      (super.noSuchMethod(
-              Invocation.method(#install, [id, handle], {#flags: flags}),
-              returnValue: _i5.Future<void>.value(),
-              returnValueForMissingStub: _i5.Future<void>.value())
-          as _i5.Future<void>);
+  _i4.Future<void> install(
+          _i3.FwupdDevice? device, _i3.FwupdRelease? release) =>
+      (super.noSuchMethod(Invocation.method(#install, [device, release]),
+              returnValue: _i4.Future<void>.value(),
+              returnValueForMissingStub: _i4.Future<void>.value())
+          as _i4.Future<void>);
   @override
-  _i5.Future<void> unlock(String? id) => (super.noSuchMethod(
-      Invocation.method(#unlock, [id]),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+  _i4.Future<void> unlock(_i3.FwupdDevice? device) => (super.noSuchMethod(
+      Invocation.method(#unlock, [device]),
+      returnValue: _i4.Future<void>.value(),
+      returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
   @override
-  _i5.Future<void> verify(String? id) => (super.noSuchMethod(
-      Invocation.method(#verify, [id]),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+  _i4.Future<void> verify(_i3.FwupdDevice? device) => (super.noSuchMethod(
+      Invocation.method(#verify, [device]),
+      returnValue: _i4.Future<void>.value(),
+      returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
   @override
-  _i5.Future<void> verifyUpdate(String? id) => (super.noSuchMethod(
-      Invocation.method(#verifyUpdate, [id]),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+  _i4.Future<void> verifyUpdate(_i3.FwupdDevice? device) => (super.noSuchMethod(
+      Invocation.method(#verifyUpdate, [device]),
+      returnValue: _i4.Future<void>.value(),
+      returnValueForMissingStub: _i4.Future<void>.value()) as _i4.Future<void>);
 }
