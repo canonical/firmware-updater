@@ -7,6 +7,8 @@ import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
+import 'fwupd_x.dart';
+
 final log = Logger('service');
 
 class FwupdService {
@@ -41,7 +43,31 @@ class FwupdService {
     return _fwupd.close();
   }
 
-  Future<File> download(String url) async {
+  Future<File> _fetchRelease(FwupdRelease release) async {
+    final remote = await _fwupd.getRemotes().then((remotes) {
+      return remotes.firstWhere((remote) => remote.id == release.remoteId);
+    });
+
+    assert(release.locations.isNotEmpty, 'TODO: handle multiple locations');
+
+    late final File file;
+    switch (remote.kind) {
+      case FwupdRemoteKind.download:
+        // TODO:
+        // - should the .cab be stored in the cache directory?
+        file = await _downloadRelease(release.locations.first);
+        break;
+      case FwupdRemoteKind.local:
+        final cache = p.dirname(remote.filenameCache ?? '');
+        file = File(p.join(cache, release.locations.first));
+        break;
+      default:
+        throw UnimplementedError('Remote kind ${remote.kind} not implemented');
+    }
+    return file;
+  }
+
+  Future<File> _downloadRelease(String url) async {
     final path = p.join(Directory.systemTemp.path, p.basename(url));
     log.debug('download $url to $path');
     try {
@@ -83,12 +109,17 @@ class FwupdService {
     return _fwupd.getUpgrades(deviceId);
   }
 
-  Future<void> install(
-    String id,
-    ResourceHandle handle, {
-    Set<FwupdInstallFlag> flags = const {},
-  }) {
-    return _fwupd.install(id, handle, flags: flags);
+  Future<void> install(FwupdDevice device, FwupdRelease release) async {
+    final file = await _fetchRelease(release);
+    return _fwupd.install(
+      device.id,
+      ResourceHandle.fromFile(file.openSync()),
+      flags: {
+        if (release.isDowngrade) FwupdInstallFlag.allowOlder,
+        if (!release.isDowngrade && !release.isUpgrade)
+          FwupdInstallFlag.allowReinstall,
+      },
+    );
   }
 
   Future<void> unlock(String id) => _fwupd.unlock(id);

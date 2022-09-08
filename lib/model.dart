@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
-import 'package:path/path.dart' as p;
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 import 'fwupd_x.dart';
@@ -18,7 +16,6 @@ class FwupdModel extends ChangeNotifier {
   final FwupdService _service;
   var _devices = <FwupdDevice>[];
   final _releases = <String, List<FwupdRelease>>{};
-  var _remotes = <String, FwupdRemote>{};
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceChanged;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
@@ -48,7 +45,7 @@ class FwupdModel extends ChangeNotifier {
     return _service.init().then((_) => refresh());
   }
 
-  Future<void> refresh() => Future.wait([_fetchDevices(), _fetchRemotes()]);
+  Future<void> refresh() => _fetchDevices();
 
   @override
   void dispose() {
@@ -64,16 +61,7 @@ class FwupdModel extends ChangeNotifier {
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
     log.debug('install $release on $device');
     try {
-      final file = await _fetchRelease(release);
-      return await _service.install(
-        device.id,
-        ResourceHandle.fromFile(file.openSync()),
-        flags: {
-          if (release.isDowngrade) FwupdInstallFlag.allowOlder,
-          if (!release.isDowngrade && !release.isUpgrade)
-            FwupdInstallFlag.allowReinstall,
-        },
-      );
+      await _service.install(device, release);
       // TODO: FwupdException
     } on Exception catch (e) {
       _onError?.call(e.toString());
@@ -125,38 +113,5 @@ class FwupdModel extends ChangeNotifier {
         .getReleases(device.id)
         .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
     notifyListeners();
-  }
-
-  Future<void> _fetchRemotes() async {
-    final remotes = await _service
-        .getRemotes()
-        .catchError((_) {}, test: (e) => e is FwupdException);
-    _remotes = {
-      for (final remote in remotes) remote.id: remote,
-    };
-    notifyListeners();
-  }
-
-  Future<File> _fetchRelease(FwupdRelease release) async {
-    final remote = _remotes[release.remoteId];
-    assert(remote != null);
-
-    assert(release.locations.isNotEmpty, 'TODO: handle multiple locations');
-
-    late final File file;
-    switch (remote!.kind) {
-      case FwupdRemoteKind.download:
-        // TODO:
-        // - should the .cab be stored in the cache directory?
-        file = await _service.download(release.locations.first);
-        break;
-      case FwupdRemoteKind.local:
-        final cache = p.dirname(remote.filenameCache ?? '');
-        file = File(p.join(cache, release.locations.first));
-        break;
-      default:
-        throw UnimplementedError('Remote kind ${remote.kind} not implemented');
-    }
-    return file;
   }
 }
