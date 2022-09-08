@@ -8,16 +8,6 @@ import 'package:mockito/mockito.dart';
 import 'service_test.mocks.dart';
 
 void main() {
-  test('initializes service', () async {
-    final service = MockFwupdService();
-    when(service.propertiesChanged).thenAnswer((_) => const Stream.empty());
-
-    final daemon = FwupdDaemon(service);
-    await daemon.init();
-
-    verify(service.init()).called(1);
-  });
-
   test('daemon properties', () async {
     final service = MockFwupdService();
     final daemon = FwupdDaemon(service);

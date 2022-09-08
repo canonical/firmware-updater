@@ -18,12 +18,9 @@ class FwupdDaemon extends SafeChangeNotifier {
   int get percentage => _service.percentage;
   String get version => _service.daemonVersion;
 
-  Future<void> init() {
-    return _service.init().then((_) {
-      _listener ??= _service.propertiesChanged.listen((properties) {
-        log.debug('changed $properties');
-        notifyListeners();
-      });
+  Future<void> init() async {
+    _listener ??= _service.propertiesChanged.listen((properties) {
+      log.debug('properties $properties changed');
       notifyListeners();
     });
   }

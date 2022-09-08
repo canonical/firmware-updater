@@ -32,6 +32,7 @@ class _FwupdPageState extends State<FwupdPage> {
   @override
   void initState() {
     super.initState();
+    context.read<FwupdDaemon>().init();
     context.read<FwupdModel>().init();
   }
 
