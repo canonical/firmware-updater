@@ -45,6 +45,12 @@ class FwupdModel extends SafeChangeNotifier {
     super.dispose();
   }
 
+  Future<void> activate(FwupdDevice device) => _service.activate(device);
+
+  Future<void> clearResults(FwupdDevice device) {
+    return _service.clearResults(device);
+  }
+
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
     try {
       await _service.install(device, release);
@@ -57,12 +63,6 @@ class FwupdModel extends SafeChangeNotifier {
         previous: state,
       ));
     }
-  }
-
-  Future<void> activate(FwupdDevice device) => _service.activate(device);
-
-  Future<void> clearResults(FwupdDevice device) {
-    return _service.clearResults(device);
   }
 
   Future<void> unlock(FwupdDevice device) => _service.unlock(device);
