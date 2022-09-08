@@ -19,9 +19,7 @@ mixin _$FwupdState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)
+            List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases)
         data,
     required TResult Function(FwupdState? previous) loading,
     required TResult Function(
@@ -31,10 +29,8 @@ mixin _$FwupdState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)?
+    TResult Function(List<FwupdDevice> devices,
+            Map<String, List<FwupdRelease>> releases)?
         data,
     TResult Function(FwupdState? previous)? loading,
     TResult Function(
@@ -44,10 +40,8 @@ mixin _$FwupdState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)?
+    TResult Function(List<FwupdDevice> devices,
+            Map<String, List<FwupdRelease>> releases)?
         data,
     TResult Function(FwupdState? previous)? loading,
     TResult Function(
@@ -102,9 +96,7 @@ abstract class _$$_FwupdStateCopyWith<$Res> {
           _$_FwupdState value, $Res Function(_$_FwupdState) then) =
       __$$_FwupdStateCopyWithImpl<$Res>;
   $Res call(
-      {List<FwupdDevice> devices,
-      Map<String, List<FwupdRelease>> releases,
-      Map<String, FwupdRemote> remotes});
+      {List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases});
 }
 
 /// @nodoc
@@ -121,7 +113,6 @@ class __$$_FwupdStateCopyWithImpl<$Res> extends _$FwupdStateCopyWithImpl<$Res>
   $Res call({
     Object? devices = freezed,
     Object? releases = freezed,
-    Object? remotes = freezed,
   }) {
     return _then(_$_FwupdState(
       devices: devices == freezed
@@ -132,10 +123,6 @@ class __$$_FwupdStateCopyWithImpl<$Res> extends _$FwupdStateCopyWithImpl<$Res>
           ? _value._releases
           : releases // ignore: cast_nullable_to_non_nullable
               as Map<String, List<FwupdRelease>>,
-      remotes: remotes == freezed
-          ? _value._remotes
-          : remotes // ignore: cast_nullable_to_non_nullable
-              as Map<String, FwupdRemote>,
     ));
   }
 }
@@ -145,11 +132,9 @@ class __$$_FwupdStateCopyWithImpl<$Res> extends _$FwupdStateCopyWithImpl<$Res>
 class _$_FwupdState extends _FwupdState {
   const _$_FwupdState(
       {required final List<FwupdDevice> devices,
-      required final Map<String, List<FwupdRelease>> releases,
-      required final Map<String, FwupdRemote> remotes})
+      required final Map<String, List<FwupdRelease>> releases})
       : _devices = devices,
         _releases = releases,
-        _remotes = remotes,
         super._();
 
   final List<FwupdDevice> _devices;
@@ -166,16 +151,9 @@ class _$_FwupdState extends _FwupdState {
     return EqualUnmodifiableMapView(_releases);
   }
 
-  final Map<String, FwupdRemote> _remotes;
-  @override
-  Map<String, FwupdRemote> get remotes {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_remotes);
-  }
-
   @override
   String toString() {
-    return 'FwupdState.data(devices: $devices, releases: $releases, remotes: $remotes)';
+    return 'FwupdState.data(devices: $devices, releases: $releases)';
   }
 
   @override
@@ -184,16 +162,14 @@ class _$_FwupdState extends _FwupdState {
         (other.runtimeType == runtimeType &&
             other is _$_FwupdState &&
             const DeepCollectionEquality().equals(other._devices, _devices) &&
-            const DeepCollectionEquality().equals(other._releases, _releases) &&
-            const DeepCollectionEquality().equals(other._remotes, _remotes));
+            const DeepCollectionEquality().equals(other._releases, _releases));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_devices),
-      const DeepCollectionEquality().hash(_releases),
-      const DeepCollectionEquality().hash(_remotes));
+      const DeepCollectionEquality().hash(_releases));
 
   @JsonKey(ignore: true)
   @override
@@ -204,41 +180,35 @@ class _$_FwupdState extends _FwupdState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)
+            List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases)
         data,
     required TResult Function(FwupdState? previous) loading,
     required TResult Function(
             Object error, StackTrace? stackTrace, FwupdState? previous)
         error,
   }) {
-    return data(devices, releases, remotes);
+    return data(devices, releases);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)?
+    TResult Function(List<FwupdDevice> devices,
+            Map<String, List<FwupdRelease>> releases)?
         data,
     TResult Function(FwupdState? previous)? loading,
     TResult Function(
             Object error, StackTrace? stackTrace, FwupdState? previous)?
         error,
   }) {
-    return data?.call(devices, releases, remotes);
+    return data?.call(devices, releases);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)?
+    TResult Function(List<FwupdDevice> devices,
+            Map<String, List<FwupdRelease>> releases)?
         data,
     TResult Function(FwupdState? previous)? loading,
     TResult Function(
@@ -247,7 +217,7 @@ class _$_FwupdState extends _FwupdState {
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data(devices, releases, remotes);
+      return data(devices, releases);
     }
     return orElse();
   }
@@ -290,13 +260,11 @@ class _$_FwupdState extends _FwupdState {
 abstract class _FwupdState extends FwupdState {
   const factory _FwupdState(
       {required final List<FwupdDevice> devices,
-      required final Map<String, List<FwupdRelease>> releases,
-      required final Map<String, FwupdRemote> remotes}) = _$_FwupdState;
+      required final Map<String, List<FwupdRelease>> releases}) = _$_FwupdState;
   const _FwupdState._() : super._();
 
   List<FwupdDevice> get devices;
   Map<String, List<FwupdRelease>> get releases;
-  Map<String, FwupdRemote> get remotes;
   @JsonKey(ignore: true)
   _$$_FwupdStateCopyWith<_$_FwupdState> get copyWith =>
       throw _privateConstructorUsedError;
@@ -381,9 +349,7 @@ class _$FwupdLoadingState extends FwupdLoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)
+            List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases)
         data,
     required TResult Function(FwupdState? previous) loading,
     required TResult Function(
@@ -396,10 +362,8 @@ class _$FwupdLoadingState extends FwupdLoadingState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)?
+    TResult Function(List<FwupdDevice> devices,
+            Map<String, List<FwupdRelease>> releases)?
         data,
     TResult Function(FwupdState? previous)? loading,
     TResult Function(
@@ -412,10 +376,8 @@ class _$FwupdLoadingState extends FwupdLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)?
+    TResult Function(List<FwupdDevice> devices,
+            Map<String, List<FwupdRelease>> releases)?
         data,
     TResult Function(FwupdState? previous)? loading,
     TResult Function(
@@ -576,9 +538,7 @@ class _$FwupdErrorState extends FwupdErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)
+            List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases)
         data,
     required TResult Function(FwupdState? previous) loading,
     required TResult Function(
@@ -591,10 +551,8 @@ class _$FwupdErrorState extends FwupdErrorState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)?
+    TResult Function(List<FwupdDevice> devices,
+            Map<String, List<FwupdRelease>> releases)?
         data,
     TResult Function(FwupdState? previous)? loading,
     TResult Function(
@@ -607,10 +565,8 @@ class _$FwupdErrorState extends FwupdErrorState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            List<FwupdDevice> devices,
-            Map<String, List<FwupdRelease>> releases,
-            Map<String, FwupdRemote> remotes)?
+    TResult Function(List<FwupdDevice> devices,
+            Map<String, List<FwupdRelease>> releases)?
         data,
     TResult Function(FwupdState? previous)? loading,
     TResult Function(
