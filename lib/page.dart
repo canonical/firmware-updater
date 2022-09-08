@@ -4,8 +4,6 @@ import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_colors/yaru_colors.dart';
-import 'package:yaru_icons/yaru_icons.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'daemon.dart';
 import 'fwupd_x.dart';
@@ -17,14 +15,11 @@ class FwupdPage extends StatefulWidget {
   const FwupdPage({Key? key}) : super(key: key);
 
   static Widget create(BuildContext context) {
+    final service = getService<FwupdService>();
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => FwupdDaemon(getService<FwupdService>()),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => FwupdModel(getService<FwupdService>()),
-        ),
+        ChangeNotifierProvider(create: (_) => FwupdDaemon(service)),
+        ChangeNotifierProvider(create: (_) => FwupdModel(service)),
       ],
       child: const FwupdPage(),
     );
@@ -35,19 +30,10 @@ class FwupdPage extends StatefulWidget {
 }
 
 class _FwupdPageState extends State<FwupdPage> {
-  final _expansions = <int, bool>{};
-
   @override
   void initState() {
     super.initState();
-    context.read<FwupdModel>().init(
-          onError: (error) => showMessageDialog(
-            context,
-            icon: YaruIcons.error,
-            title: 'Error',
-            message: error,
-          ),
-        );
+    context.read<FwupdModel>().init();
   }
 
   @override
@@ -80,31 +66,24 @@ class _FwupdPageState extends State<FwupdPage> {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        child: YaruExpansionPanelList(
-          customExpandIconData: YaruIcons.pan_down,
-          elevation: 0.8,
-          expansionCallback: (index, isExpanded) {
-            setState(() => _expansions[index] = !isExpanded);
-          },
-          children: [
-            for (var i = 0; i < model.devices.length; ++i)
-              ExpansionPanel(
-                canTapOnHeader: true,
-                isExpanded: _expansions[i] == true,
-                headerBuilder: (context, isExpanded) => DeviceHeader(
-                  device: model.devices[i],
-                  hasUpgrade: model.hasUpgrade(model.devices[i]),
-                ),
-                body: DeviceBody(
-                  device: model.devices[i],
-                  canVerify: model.devices[i].canVerify,
-                  onVerify: () => model.verify(model.devices[i]),
-                  releases: model.releases(model.devices[i]),
-                  onInstall: (rel) => model.install(model.devices[i], rel),
-                  hasUpgrade: model.hasUpgrade(model.devices[i]),
-                ),
-              ),
-          ],
+        child: model.state.map(
+          data: (state) => DevicePanelList(
+            devices: state.devices,
+            headerBuilder: (context, device, isExpanded) => DeviceHeader(
+              device: device,
+              hasUpgrade: state.hasUpgrade(device),
+            ),
+            bodyBuilder: (context, device, child) => DeviceBody(
+              device: device,
+              canVerify: device.canVerify,
+              hasUpgrade: state.hasUpgrade(device),
+              releases: state.getReleases(device) ?? [],
+              onVerify: () => model.verify(device),
+              onInstall: (release) => model.install(device, release),
+            ),
+          ),
+          loading: (state) => const Center(child: CircularProgressIndicator()),
+          error: (state) => ErrorWidget(state.error),
         ),
       ),
       bottomNavigationBar: StatusBar(

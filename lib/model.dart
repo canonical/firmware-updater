@@ -1,51 +1,53 @@
 import 'dart:async';
 
-import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 import 'fwupd_x.dart';
 import 'service.dart';
+import 'state.dart';
 
 final log = Logger('model');
 
-class FwupdModel extends ChangeNotifier {
+class FwupdModel extends SafeChangeNotifier {
   FwupdModel(this._service);
 
   final FwupdService _service;
-  var _devices = <FwupdDevice>[];
-  final _releases = <String, List<FwupdRelease>>{};
+  var _state = FwupdState.none;
+
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceChanged;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
-  void Function(String error)? _onError;
 
-  List<FwupdDevice> get devices => _devices;
-  List<FwupdRelease> releases(FwupdDevice device) => _releases[device.id] ?? [];
-  bool hasUpgrade(FwupdDevice device) =>
-      _releases[device.id]?.firstWhereOrNull((release) => release.isUpgrade) !=
-      null;
+  FwupdState get state => _state;
 
-  Future<void> init({required void Function(String error) onError}) {
-    _onError = onError;
-    // TODO: sync _devices
-    _deviceAdded = _service.deviceAdded.listen((device) {
-      log.debug('added $device');
-      _fetchDevices();
-    });
-    _deviceChanged = _service.deviceChanged.listen((device) {
-      log.debug('changed $device');
-      _fetchDevices();
-    });
-    _deviceRemoved = _service.deviceRemoved.listen((device) {
-      log.debug('removed $device');
-      _fetchDevices();
-    });
-    return _service.init().then((_) => refresh());
+  void _setState(FwupdState state) {
+    if (_state == state) return;
+    _state = state;
+    notifyListeners();
   }
 
-  Future<void> refresh() => _fetchDevices();
+  Future<void> init() {
+    return _service.init().then((_) {
+      // TODO: sync _devices
+      _deviceAdded = _service.deviceAdded.listen((device) {
+        log.debug('added $device');
+        refresh();
+      });
+      _deviceChanged = _service.deviceChanged.listen((device) {
+        log.debug('changed $device');
+        refresh();
+      });
+      _deviceRemoved = _service.deviceRemoved.listen((device) {
+        log.debug('removed $device');
+        refresh();
+      });
+      return refresh();
+    });
+  }
+
+  Future<void> refresh() async => _setState(await _fetchState());
 
   @override
   void dispose() {
@@ -62,8 +64,13 @@ class FwupdModel extends ChangeNotifier {
     try {
       await _service.install(device, release);
       // TODO: FwupdException
-    } on Exception catch (e) {
-      _onError?.call(e.toString());
+    } on Exception catch (error, stackTrace) {
+      log.error('installation failed $error');
+      _setState(FwupdState.error(
+        error: error,
+        stackTrace: stackTrace,
+        previous: state,
+      ));
     }
   }
 
@@ -81,25 +88,47 @@ class FwupdModel extends ChangeNotifier {
     return _service.verifyUpdate(device);
   }
 
-  Future<void> _fetchDevices() async {
+  Future<FwupdState> _fetchState() async {
     var devices = <FwupdDevice>[];
+    var releases = <String, List<FwupdRelease>>{};
+    var remotes = <String, FwupdRemote>{};
+
     try {
-      devices = await _service.getDevices().then((devices) {
-        return devices.where((device) {
-          if (!device.isUpdatable) return false;
-          _fetchReleases(device);
-          return true;
-        }).toList();
-      });
+      devices = await _fetchDevices();
+      releases = await _fetchReleases(devices);
+      remotes = await _fetchRemotes();
     } on FwupdException catch (_) {}
-    _devices = devices;
-    notifyListeners();
+
+    return FwupdState.data(
+      devices: devices,
+      releases: releases,
+      remotes: remotes,
+    );
   }
 
-  Future<void> _fetchReleases(FwupdDevice device) async {
-    _releases[device.id] = await _service
-        .getReleases(device.id)
-        .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
-    notifyListeners();
+  Future<List<FwupdDevice>> _fetchDevices() {
+    return _service.getDevices().then((devices) {
+      return devices.where((device) => device.isUpdatable).toList();
+    });
+  }
+
+  Future<Map<String, List<FwupdRelease>>> _fetchReleases(
+      List<FwupdDevice> devices) async {
+    Future<List<FwupdRelease>> fetchReleases(FwupdDevice device) {
+      return _service.getReleases(device.id).catchError((_) => <FwupdRelease>[],
+          test: (e) => e is FwupdNothingToDoException);
+    }
+
+    return {
+      for (final device in devices) device.id: await fetchReleases(device),
+    };
+  }
+
+  Future<Map<String, FwupdRemote>> _fetchRemotes() {
+    return _service.getRemotes().then((remotes) {
+      return {
+        for (final remote in remotes) remote.id: remote,
+      };
+    });
   }
 }
