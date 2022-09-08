@@ -5,9 +5,12 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:path/path.dart' as p;
+import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 import 'fwupd_x.dart';
 import 'service.dart';
+
+final log = Logger('model');
 
 class FwupdModel extends ChangeNotifier {
   FwupdModel(this._service);
@@ -36,9 +39,18 @@ class FwupdModel extends ChangeNotifier {
   Future<void> init({required void Function(String error) onError}) {
     _onError = onError;
     // TODO: sync _devices
-    _deviceAdded = _service.deviceAdded.listen((_) => _fetchDevices());
-    _deviceChanged = _service.deviceChanged.listen((_) => _fetchDevices());
-    _deviceRemoved = _service.deviceRemoved.listen((_) => _fetchDevices());
+    _deviceAdded = _service.deviceAdded.listen((device) {
+      log.debug('added $device');
+      _fetchDevices();
+    });
+    _deviceChanged = _service.deviceChanged.listen((device) {
+      log.debug('changed $device');
+      _fetchDevices();
+    });
+    _deviceRemoved = _service.deviceRemoved.listen((device) {
+      log.debug('removed $device');
+      _fetchDevices();
+    });
     _propsChanged = _service.propertiesChanged.listen((_) => notifyListeners());
     return _service.init().then((_) => refresh());
   }
@@ -59,6 +71,7 @@ class FwupdModel extends ChangeNotifier {
   }
 
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
+    log.debug('install $release on $device');
     try {
       final file = await _fetchRelease(release);
       return await _service.install(
@@ -76,13 +89,30 @@ class FwupdModel extends ChangeNotifier {
     }
   }
 
-  Future<void> activate(FwupdDevice device) => _service.activate(device.id);
-  Future<void> clearResults(FwupdDevice device) =>
-      _service.clearResults(device.id);
-  Future<void> unlock(FwupdDevice device) => _service.activate(device.id);
-  Future<void> verify(FwupdDevice device) => _service.verify(device.id);
-  Future<void> verifyUpdate(FwupdDevice device) =>
-      _service.verifyUpdate(device.id);
+  Future<void> activate(FwupdDevice device) {
+    log.debug('activate $device');
+    return _service.activate(device.id);
+  }
+
+  Future<void> clearResults(FwupdDevice device) {
+    log.debug('clearResults $device');
+    return _service.clearResults(device.id);
+  }
+
+  Future<void> unlock(FwupdDevice device) {
+    log.debug('unlock $device');
+    return _service.activate(device.id);
+  }
+
+  Future<void> verify(FwupdDevice device) {
+    log.debug('verify $device');
+    return _service.verify(device.id);
+  }
+
+  Future<void> verifyUpdate(FwupdDevice device) {
+    log.debug('verifyUpdate $device');
+    return _service.verifyUpdate(device.id);
+  }
 
   Future<void> _fetchDevices() async {
     var devices = <FwupdDevice>[];

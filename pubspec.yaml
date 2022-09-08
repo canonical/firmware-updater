@@ -19,6 +19,10 @@ dependencies:
   meta: ^1.7.0
   path: ^1.8.0
   provider: ^6.0.0
+  ubuntu_logger:
+    git:
+      url: https://github.com/canonical/ubuntu-flutter-plugins.git
+      path: packages/ubuntu_logger
   ubuntu_service: ^0.1.0
   yaru: ^0.3.3
   yaru_colors: ^0.1.0
