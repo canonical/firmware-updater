@@ -9,11 +9,8 @@ import 'package:path/path.dart' as p;
 import 'service.dart';
 
 class FwupdModel extends ChangeNotifier {
-  FwupdModel({required FwupdClient client, required FwupdService service})
-      : _client = client,
-        _service = service;
+  FwupdModel(this._service);
 
-  final FwupdClient _client;
   final FwupdService _service;
   var _devices = <FwupdDevice>[];
   final _releases = <String, List<FwupdRelease>>{};
@@ -27,9 +24,9 @@ class FwupdModel extends ChangeNotifier {
 
   bool get isBusy => status.index > FwupdStatus.idle.index;
   FwupdStatus get status =>
-      _progress != null ? FwupdStatus.downloading : _client.status;
-  int get percentage => _progress ?? _client.percentage;
-  String get daemonVersion => _client.daemonVersion;
+      _progress != null ? FwupdStatus.downloading : _service.status;
+  int get percentage => _progress ?? _service.percentage;
+  String get daemonVersion => _service.daemonVersion;
 
   List<FwupdDevice> get devices => _devices;
   List<FwupdRelease> releases(FwupdDevice device) => _releases[device.id] ?? [];
@@ -40,11 +37,11 @@ class FwupdModel extends ChangeNotifier {
   Future<void> init({required void Function(String error) onError}) {
     _onError = onError;
     // TODO: sync _devices
-    _deviceAdded = _client.deviceAdded.listen((_) => _fetchDevices());
-    _deviceChanged = _client.deviceChanged.listen((_) => _fetchDevices());
-    _deviceRemoved = _client.deviceRemoved.listen((_) => _fetchDevices());
-    _propsChanged = _client.propertiesChanged.listen((_) => notifyListeners());
-    return _client.connect().then((_) => refresh());
+    _deviceAdded = _service.deviceAdded.listen((_) => _fetchDevices());
+    _deviceChanged = _service.deviceChanged.listen((_) => _fetchDevices());
+    _deviceRemoved = _service.deviceRemoved.listen((_) => _fetchDevices());
+    _propsChanged = _service.propertiesChanged.listen((_) => notifyListeners());
+    return _service.init().then((_) => refresh());
   }
 
   Future<void> refresh() => Future.wait([_fetchDevices(), _fetchRemotes()]);
@@ -65,7 +62,7 @@ class FwupdModel extends ChangeNotifier {
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
     try {
       final file = await _fetchRelease(release);
-      return await _client.install(
+      return await _service.install(
         device.id,
         ResourceHandle.fromFile(file.openSync()),
         flags: {
@@ -80,18 +77,18 @@ class FwupdModel extends ChangeNotifier {
     }
   }
 
-  Future<void> activate(FwupdDevice device) => _client.activate(device.id);
+  Future<void> activate(FwupdDevice device) => _service.activate(device.id);
   Future<void> clearResults(FwupdDevice device) =>
-      _client.clearResults(device.id);
-  Future<void> unlock(FwupdDevice device) => _client.activate(device.id);
-  Future<void> verify(FwupdDevice device) => _client.verify(device.id);
+      _service.clearResults(device.id);
+  Future<void> unlock(FwupdDevice device) => _service.activate(device.id);
+  Future<void> verify(FwupdDevice device) => _service.verify(device.id);
   Future<void> verifyUpdate(FwupdDevice device) =>
-      _client.verifyUpdate(device.id);
+      _service.verifyUpdate(device.id);
 
   Future<void> _fetchDevices() async {
     var devices = <FwupdDevice>[];
     try {
-      devices = await _client.getDevices().then((devices) {
+      devices = await _service.getDevices().then((devices) {
         return devices.where((device) {
           if (!device.isUpdatable) return false;
           _fetchReleases(device);
@@ -104,14 +101,14 @@ class FwupdModel extends ChangeNotifier {
   }
 
   Future<void> _fetchReleases(FwupdDevice device) async {
-    _releases[device.id] = await _client
+    _releases[device.id] = await _service
         .getReleases(device.id)
         .catchError((_) => <FwupdRelease>[], test: (e) => e is FwupdException);
     notifyListeners();
   }
 
   Future<void> _fetchRemotes() async {
-    final remotes = await _client
+    final remotes = await _service
         .getRemotes()
         .catchError((_) {}, test: (e) => e is FwupdException);
     _remotes = {

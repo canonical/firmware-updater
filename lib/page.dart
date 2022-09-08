@@ -16,10 +16,7 @@ class FwupdPage extends StatefulWidget {
 
   static Widget create(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => FwupdModel(
-        client: getService<FwupdClient>(),
-        service: getService<FwupdService>(),
-      ),
+      create: (_) => FwupdModel(getService<FwupdService>()),
       child: const FwupdPage(),
     );
   }
