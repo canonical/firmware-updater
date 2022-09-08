@@ -11,11 +11,15 @@ Future<void> main() async {
   registerService<FwupdClient>(FwupdClient.new, dispose: (c) => c.close());
   registerService<FwupdService>(FwupdService.new, dispose: (s) => s.dispose());
 
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    localizationsDelegates: AppLocalizations.localizationsDelegates,
-    supportedLocales: AppLocalizations.supportedLocales,
-    onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
-    routes: {'/': (context) => YaruTheme(child: FwupdPage.create(context))},
+  runApp(YaruTheme(
+    builder: (context, yaru, child) => MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: yaru.variant?.theme ?? yaruLight,
+      darkTheme: yaru.variant?.darkTheme ?? yaruDark,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
+      routes: const {'/': FwupdPage.create},
+    ),
   ));
 }
