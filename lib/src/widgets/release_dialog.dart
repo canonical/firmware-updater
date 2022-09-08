@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 
+import '../../fwupd_x.dart';
 import 'release_card.dart';
 
 Future<void> showReleaseDialog(
@@ -85,9 +86,4 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
       ],
     );
   }
-}
-
-extension _FwupdReleaseX on FwupdRelease {
-  bool get isUpgrade => flags.contains(FwupdReleaseFlag.isUpgrade);
-  bool get isDowngrade => flags.contains(FwupdReleaseFlag.isDowngrade);
 }

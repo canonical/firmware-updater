@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
 
+import '../../fwupd_x.dart';
 import 'option_card.dart';
 
 class ReleaseCard extends StatelessWidget {
@@ -55,9 +56,4 @@ class ReleaseCard extends StatelessWidget {
       ),
     );
   }
-}
-
-extension _FwupdReleaseX on FwupdRelease {
-  bool get isUpgrade => flags.contains(FwupdReleaseFlag.isUpgrade);
-  bool get isDowngrade => flags.contains(FwupdReleaseFlag.isDowngrade);
 }
