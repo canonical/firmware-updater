@@ -24,11 +24,9 @@ void main() {
 
     when(service.status).thenReturn(FwupdStatus.idle);
     expect(daemon.status, FwupdStatus.idle);
-    expect(daemon.isBusy, isFalse);
 
     when(service.status).thenReturn(FwupdStatus.loading);
     expect(daemon.status, FwupdStatus.loading);
-    expect(daemon.isBusy, isTrue);
 
     when(service.percentage).thenReturn(75);
     expect(daemon.percentage, 75);

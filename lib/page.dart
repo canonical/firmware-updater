@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_colors/yaru_colors.dart';
@@ -44,25 +43,12 @@ class _FwupdPageState extends State<FwupdPage> {
       backgroundColor: Theme.of(context).brightness == Brightness.light
           ? YaruColors.warmGrey.shade200
           : null,
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context).appTitle),
-        bottom: PreferredSize(
-          preferredSize: Size(
-            double.infinity,
-            ProgressIndicatorTheme.of(context).linearMinHeight ?? 6,
-          ),
-          child: Visibility(
-            visible: daemon.status != FwupdStatus.idle &&
-                daemon.status != FwupdStatus.unknown,
-            child: LinearProgressIndicator(
-              value: daemon.percentage / 100,
-            ),
-          ),
-        ),
-        actions: <Widget>[
-          RefreshButton(isBusy: daemon.isBusy, onPressed: model.refresh),
-          const SizedBox(width: 8),
-        ],
+      appBar: AppProgressBar(
+        title: AppLocalizations.of(context).appTitle,
+        height: ProgressIndicatorTheme.of(context).linearMinHeight,
+        status: daemon.status,
+        progress: daemon.percentage / 100,
+        onRefresh: model.refresh,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
