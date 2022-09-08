@@ -59,7 +59,6 @@ class FwupdModel extends ChangeNotifier {
   }
 
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
-    log.debug('install $release on $device');
     try {
       await _service.install(device, release);
       // TODO: FwupdException
