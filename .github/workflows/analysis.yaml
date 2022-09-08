@@ -5,25 +5,21 @@ on:
     branches:
       - main
   pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
   analyzer:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2
-    - uses: subosito/flutter-action@v1
-    - run: flutter config --enable-linux-desktop
+    - uses: subosito/flutter-action@v2
     - run: flutter analyze
 
   format:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2
-    - uses: subosito/flutter-action@v1
-    - run: flutter config --enable-linux-desktop
+    - uses: subosito/flutter-action@v2
     - name: Run flutter format
       run: |
         find . -name '*.dart' \

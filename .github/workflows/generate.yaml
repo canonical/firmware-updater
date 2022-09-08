@@ -1,0 +1,32 @@
+name: Generate
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-runner:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2
+    - run: flutter pub get
+    - run: flutter pub run build_runner build --delete-conflicting-outputs
+    - run: ./.github/scripts/check-outdated-files.sh
+
+  pull-request:
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2
+    - run: flutter pub get
+    - run: flutter pub run build_runner build --delete-conflicting-outputs
+    - uses: peter-evans/create-pull-request@v3
+      with:
+        title: 'Regenerate files'
+        commit-message: 'Regenerate files'
