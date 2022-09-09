@@ -28,6 +28,7 @@ void main() {
   test('notifies property changes', () async {
     final service = MockFwupdService();
     when(service.status).thenReturn(FwupdStatus.loading);
+    when(service.percentage).thenReturn(75);
 
     final daemon = FwupdDaemon(service);
     expect(daemon.status, FwupdStatus.loading);
@@ -40,9 +41,14 @@ void main() {
     var wasNotified = 0;
     daemon.addListener(() => wasNotified++);
 
-    propertiesChanged.add(['foo']);
-
+    propertiesChanged.add(['Status']);
     expect(wasNotified, 1);
+
+    propertiesChanged.add(['Unknown']);
+    expect(wasNotified, 1);
+
+    propertiesChanged.add(['Percentage']);
+    expect(wasNotified, 2);
   });
 
   test('cancels subscription', () async {
