@@ -1,10 +1,12 @@
+import 'package:firmware_updater/service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'service_test.mocks.dart';
+import 'test_utils.mocks.dart';
 
 FwupdDevice testDevice({
   required String id,
@@ -23,6 +25,7 @@ FwupdDevice testDevice({
   );
 }
 
+@GenerateMocks([FwupdService])
 MockFwupdService mockService({
   List<FwupdDevice>? devices,
   Map<String, List<FwupdRelease>>? releases,
