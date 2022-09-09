@@ -1,10 +1,10 @@
-import 'package:firmware_updater/service.dart';
+import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'service_test.mocks.dart';
+import 'fwupd_service_test.mocks.dart';
 
 @GenerateMocks([FwupdClient])
 void main() {

@@ -4,7 +4,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
-import 'service.dart';
+import 'fwupd_service.dart';
 
 final log = Logger('daemon');
 

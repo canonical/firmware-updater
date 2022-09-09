@@ -6,8 +6,8 @@ import 'package:yaru_colors/yaru_colors.dart';
 
 import 'daemon.dart';
 import 'firmware_model.dart';
+import 'fwupd_service.dart';
 import 'fwupd_x.dart';
-import 'service.dart';
 import 'widgets.dart';
 
 class FirmwarePage extends StatefulWidget {

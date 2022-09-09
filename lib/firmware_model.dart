@@ -5,8 +5,8 @@ import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 import 'device_monitor.dart';
+import 'fwupd_service.dart';
 import 'fwupd_x.dart';
-import 'service.dart';
 import 'state.dart';
 
 final log = Logger('firmware_model');

@@ -6,7 +6,7 @@ import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
 
 import 'firmware_page.dart';
-import 'service.dart';
+import 'fwupd_service.dart';
 
 Future<void> main() async {
   Logger.setup(level: LogLevel.fromString(kDebugMode ? 'debug' : 'info'));
