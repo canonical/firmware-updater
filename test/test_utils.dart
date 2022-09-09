@@ -58,4 +58,24 @@ extension WidgetTesterX on WidgetTester {
       home: Builder(builder: builder),
     ));
   }
+
+  Future<void> pumpUntil(
+    Finder finder, [
+    Duration timeout = const Duration(seconds: 30),
+  ]) async {
+    assert(timeout.inMilliseconds >= 250);
+    const delay = Duration(milliseconds: 250);
+
+    if (this.any(finder)) return;
+
+    return Future.doWhile(() async {
+      if (this.any(finder)) return false;
+      await pump(delay);
+      return true;
+    }).timeout(
+      timeout,
+      onTimeout: () => debugPrint(
+          '\nWARNING: A call to pumpUntil() with finder "$finder" did not complete within the specified timeout $timeout.\n${StackTrace.current}'),
+    );
+  }
 }
