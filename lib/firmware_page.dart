@@ -10,8 +10,8 @@ import 'model.dart';
 import 'service.dart';
 import 'widgets.dart';
 
-class FwupdPage extends StatefulWidget {
-  const FwupdPage({Key? key}) : super(key: key);
+class FirmwarePage extends StatefulWidget {
+  const FirmwarePage({Key? key}) : super(key: key);
 
   static Widget create(BuildContext context) {
     final service = getService<FwupdService>();
@@ -20,15 +20,15 @@ class FwupdPage extends StatefulWidget {
         ChangeNotifierProvider(create: (_) => FwupdDaemon(service)),
         ChangeNotifierProvider(create: (_) => FwupdModel(service)),
       ],
-      child: const FwupdPage(),
+      child: const FirmwarePage(),
     );
   }
 
   @override
-  State<FwupdPage> createState() => _FwupdPageState();
+  State<FirmwarePage> createState() => _FirmwarePageState();
 }
 
-class _FwupdPageState extends State<FwupdPage> {
+class _FirmwarePageState extends State<FirmwarePage> {
   @override
   void initState() {
     super.initState();

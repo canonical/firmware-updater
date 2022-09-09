@@ -1,6 +1,6 @@
 import 'package:firmware_updater/daemon.dart';
+import 'package:firmware_updater/firmware_page.dart';
 import 'package:firmware_updater/model.dart';
-import 'package:firmware_updater/page.dart';
 import 'package:firmware_updater/state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,7 +9,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 
-import 'page_test.mocks.dart';
+import 'firmare_page_test.mocks.dart';
 import 'test_utils.dart';
 
 @GenerateMocks([FwupdDaemon, FwupdModel])
@@ -40,7 +40,7 @@ void main() {
         ChangeNotifierProvider<FwupdModel>.value(value: model),
         ChangeNotifierProvider<FwupdDaemon>.value(value: daemon),
       ],
-      child: const FwupdPage(),
+      child: const FirmwarePage(),
     );
   }
 
