@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class OptionCard extends StatefulWidget {
   const OptionCard({
-    Key? key,
+    super.key,
     required this.child,
     required this.selected,
     required this.onSelected,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final bool selected;

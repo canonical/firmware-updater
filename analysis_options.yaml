@@ -5,12 +5,41 @@ analyzer:
     - "**/*.freezed.dart"
     - "**/*.g.dart"
     - "**/*.mocks.dart"
-    - "**/*_localizations*.dart"
+    - "**/l10n/*.dart"
+
+  strong-mode:
+    implicit-casts: false
 
 linter:
   rules:
+    always_declare_return_types: true
+    avoid_catches_without_on_clauses: true
     avoid_classes_with_only_static_members: false
+    avoid_equals_and_hash_code_on_mutable_classes: true
     avoid_redundant_argument_values: true
+    avoid_types_on_closure_parameters: true
+    cancel_subscriptions: true
+    depend_on_referenced_packages: true
     directives_ordering: true
+    eol_at_end_of_file: true
+    omit_local_variable_types: true
+    prefer_asserts_in_initializer_lists: true
+    prefer_const_constructors: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    prefer_null_aware_method_calls: true
+    prefer_null_aware_operators: true
     prefer_relative_imports: true
+    prefer_single_quotes: true
+    sized_box_shrink_expand: true
+    sized_box_for_whitespace: true
+    sort_unnamed_constructors_first: true
     sort_pub_dependencies: true
+    type_annotate_public_apis: true
+    unawaited_futures: true
+    unnecessary_lambdas: true
+    unnecessary_late: true
+    unnecessary_parenthesis: true
+    use_decorated_box: true
+    use_named_constants: true
+    use_super_parameters: true

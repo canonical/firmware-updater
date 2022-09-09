@@ -19,11 +19,11 @@ Future<void> showMessageDialog(
 
 class MessageDialog extends StatelessWidget {
   const MessageDialog({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
     required this.message,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final String title;

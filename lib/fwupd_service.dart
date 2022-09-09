@@ -35,7 +35,7 @@ class FwupdService {
 
   Future<void> init() async {
     await _fwupd.connect();
-    _propertiesChanged.addStream(_fwupd.propertiesChanged);
+    unawaited(_propertiesChanged.addStream(_fwupd.propertiesChanged));
   }
 
   Future<void> dispose() {

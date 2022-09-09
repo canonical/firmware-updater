@@ -8,10 +8,10 @@ import 'small_chip.dart';
 
 class DeviceHeader extends StatelessWidget {
   const DeviceHeader({
-    Key? key,
+    super.key,
     required this.device,
     required this.hasUpgrade,
-  }) : super(key: key);
+  });
 
   final FwupdDevice device;
   final bool hasUpgrade;

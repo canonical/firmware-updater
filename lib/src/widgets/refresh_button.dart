@@ -3,10 +3,10 @@ import 'package:yaru_icons/yaru_icons.dart';
 
 class RefreshButton extends StatelessWidget {
   const RefreshButton({
-    Key? key,
+    super.key,
     required this.isBusy,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final bool isBusy;
   final VoidCallback onPressed;
