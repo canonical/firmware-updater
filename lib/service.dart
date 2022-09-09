@@ -116,7 +116,8 @@ class FwupdService {
   }
 
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
-    log.debug('install $release on $device');
+    log.debug('install $release');
+    log.debug('on $device');
     final file = await _fetchRelease(release);
     return _fwupd.install(
       device.id,
