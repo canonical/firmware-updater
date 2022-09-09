@@ -8,14 +8,14 @@ import 'small_chip.dart';
 
 class DeviceBody extends StatelessWidget {
   const DeviceBody({
-    Key? key,
+    super.key,
     required this.device,
     required this.canVerify,
     required this.onVerify,
     required this.releases,
     required this.onInstall,
     required this.hasUpgrade,
-  }) : super(key: key);
+  });
 
   final FwupdDevice device;
   final bool canVerify;

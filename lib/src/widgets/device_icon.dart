@@ -45,7 +45,7 @@ const yaruIcons = <String, IconData>{
 // TODO: https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html
 class DeviceIcon {
   static Widget? fromName(String? name) {
-    var icon = yaruIcons[name];
+    final icon = yaruIcons[name];
     if (icon == null && name != null) {
       debugPrint('Missing icon: $name');
       return const SizedBox(width: 24, height: 24, child: Placeholder());

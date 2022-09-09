@@ -8,11 +8,11 @@ import 'option_card.dart';
 
 class ReleaseCard extends StatelessWidget {
   const ReleaseCard({
-    Key? key,
+    super.key,
     required this.release,
     required this.selected,
     required this.onSelected,
-  }) : super(key: key);
+  });
 
   final FwupdRelease release;
   final bool selected;

@@ -25,7 +25,7 @@ void main() {
       expect(upgrade, isNotNull, reason: 'Fake webcam has no upgrades');
       expect(upgrade!.version, isNotEmpty);
 
-      app.main();
+      await app.main();
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapDeviceHeader('Fake webcam');
@@ -54,7 +54,7 @@ void main() {
       expect(reinstall, isNotNull, reason: 'Fake webcam has no reinstall');
       expect(reinstall!.version, isNotEmpty);
 
-      app.main();
+      await app.main();
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapDeviceHeader('Fake webcam');
@@ -80,7 +80,7 @@ void main() {
       expect(downgrade, isNotNull, reason: 'Fake webcam has no downgrades');
       expect(downgrade!.version, isNotEmpty);
 
-      app.main();
+      await app.main();
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapDeviceHeader('Fake webcam');

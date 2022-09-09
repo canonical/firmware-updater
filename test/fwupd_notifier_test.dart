@@ -90,8 +90,8 @@ void main() {
       plugin: '',
     );
 
-    int wasNotified = 0;
-    int expectedNotified = 0;
+    var wasNotified = 0;
+    var expectedNotified = 0;
     monitor.addListener(() => ++wasNotified);
 
     when(service.getDevices()).thenAnswer((_) async => [dev1]);

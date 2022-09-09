@@ -23,11 +23,11 @@ Future<void> showReleaseDialog(
 
 class ReleaseDialog extends StatefulWidget {
   const ReleaseDialog({
-    Key? key,
+    super.key,
     required this.device,
     required this.releases,
     required this.onInstall,
-  }) : super(key: key);
+  });
 
   final FwupdDevice device;
   final List<FwupdRelease> releases;

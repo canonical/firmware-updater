@@ -11,7 +11,7 @@ import 'fwupd_x.dart';
 import 'widgets.dart';
 
 class FirmwarePage extends StatefulWidget {
-  const FirmwarePage({Key? key}) : super(key: key);
+  const FirmwarePage({super.key});
 
   static Widget create(BuildContext context) {
     final service = getService<FwupdService>();
