@@ -6,9 +6,9 @@
 import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
-import 'package:firmware_updater/daemon.dart' as _i3;
 import 'package:firmware_updater/firmware_model.dart' as _i7;
 import 'package:firmware_updater/firmware_state.dart' as _i2;
+import 'package:firmware_updater/fwupd_notifier.dart' as _i3;
 import 'package:fwupd/fwupd.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -28,11 +28,11 @@ class _FakeFirmwareState_0 extends _i1.SmartFake implements _i2.FirmwareState {
       : super(parent, parentInvocation);
 }
 
-/// A class which mocks [FwupdDaemon].
+/// A class which mocks [FwupdNotifier].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFwupdDaemon extends _i1.Mock implements _i3.FwupdDaemon {
-  MockFwupdDaemon() {
+class MockFwupdNotifier extends _i1.Mock implements _i3.FwupdNotifier {
+  MockFwupdNotifier() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -48,6 +48,10 @@ class MockFwupdDaemon extends _i1.Mock implements _i3.FwupdDaemon {
       (super.noSuchMethod(Invocation.getter(#version), returnValue: '')
           as String);
   @override
+  List<_i4.FwupdDevice> get devices =>
+      (super.noSuchMethod(Invocation.getter(#devices),
+          returnValue: <_i4.FwupdDevice>[]) as List<_i4.FwupdDevice>);
+  @override
   bool get isDisposed =>
       (super.noSuchMethod(Invocation.getter(#isDisposed), returnValue: false)
           as bool);
@@ -57,6 +61,11 @@ class MockFwupdDaemon extends _i1.Mock implements _i3.FwupdDaemon {
           as bool);
   @override
   _i5.Future<void> init() => (super.noSuchMethod(Invocation.method(#init, []),
+      returnValue: _i5.Future<void>.value(),
+      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+  @override
+  _i5.Future<void> refresh() => (super.noSuchMethod(
+      Invocation.method(#refresh, []),
       returnValue: _i5.Future<void>.value(),
       returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
   @override

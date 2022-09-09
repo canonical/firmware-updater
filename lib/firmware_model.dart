@@ -4,20 +4,20 @@ import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
-import 'device_monitor.dart';
 import 'firmware_state.dart';
+import 'fwupd_notifier.dart';
 import 'fwupd_service.dart';
 import 'fwupd_x.dart';
 
 final log = Logger('firmware_model');
 
 class FirmwareModel extends SafeChangeNotifier {
-  FirmwareModel(this._service) : _monitor = DeviceMonitor(_service) {
+  FirmwareModel(this._service) : _monitor = FwupdNotifier(_service) {
     _monitor.addListener(_updateState);
   }
 
   final FwupdService _service;
-  final DeviceMonitor _monitor;
+  final FwupdNotifier _monitor;
   var _state = FirmwareState.empty;
 
   FirmwareState get state => _state;

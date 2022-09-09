@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_colors/yaru_colors.dart';
 
-import 'daemon.dart';
 import 'firmware_model.dart';
+import 'fwupd_notifier.dart';
 import 'fwupd_service.dart';
 import 'fwupd_x.dart';
 import 'widgets.dart';
@@ -17,8 +17,8 @@ class FirmwarePage extends StatefulWidget {
     final service = getService<FwupdService>();
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => FwupdDaemon(service)),
         ChangeNotifierProvider(create: (_) => FirmwareModel(service)),
+        ChangeNotifierProvider(create: (_) => FwupdNotifier(service)),
       ],
       child: const FirmwarePage(),
     );
@@ -32,14 +32,13 @@ class _FirmwarePageState extends State<FirmwarePage> {
   @override
   void initState() {
     super.initState();
-    context.read<FwupdDaemon>().init();
     context.read<FirmwareModel>().init();
   }
 
   @override
   Widget build(BuildContext context) {
     final model = context.watch<FirmwareModel>();
-    final daemon = context.watch<FwupdDaemon>();
+    final fwupd = context.watch<FwupdNotifier>();
     return Scaffold(
       backgroundColor: Theme.of(context).brightness == Brightness.light
           ? YaruColors.warmGrey.shade200
@@ -47,8 +46,8 @@ class _FirmwarePageState extends State<FirmwarePage> {
       appBar: AppProgressBar(
         title: AppLocalizations.of(context).appTitle,
         height: ProgressIndicatorTheme.of(context).linearMinHeight,
-        status: daemon.status,
-        progress: daemon.percentage / 100,
+        status: fwupd.status,
+        progress: fwupd.percentage / 100,
         onRefresh: model.refresh,
       ),
       body: SingleChildScrollView(
@@ -74,8 +73,8 @@ class _FirmwarePageState extends State<FirmwarePage> {
         ),
       ),
       bottomNavigationBar: StatusBar(
-        status: daemon.status,
-        daemonVersion: daemon.version,
+        status: fwupd.status,
+        daemonVersion: fwupd.version,
       ),
     );
   }
