@@ -1,7 +1,7 @@
 import 'package:firmware_updater/daemon.dart';
 import 'package:firmware_updater/firmware_model.dart';
 import 'package:firmware_updater/firmware_page.dart';
-import 'package:firmware_updater/state.dart';
+import 'package:firmware_updater/firmware_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -15,7 +15,7 @@ import 'test_utils.dart';
 @GenerateMocks([FwupdDaemon, FirmwareModel])
 void main() {
   FirmwareModel mockModel({
-    required FwupdState state,
+    required FirmwareState state,
   }) {
     final model = MockFirmwareModel();
     when(model.state).thenReturn(state);
@@ -46,7 +46,7 @@ void main() {
   }
 
   testWidgets('loading', (tester) async {
-    final model = mockModel(state: const FwupdState.loading());
+    final model = mockModel(state: const FirmwareState.loading());
     await tester.pumpApp((_) => buildPage(model: model, daemon: mockDaemon()));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
@@ -54,7 +54,7 @@ void main() {
 
   testWidgets('data', (tester) async {
     final model = mockModel(
-      state: FwupdState.data(devices: [
+      state: FirmwareState.data(devices: [
         testDevice(id: '1', name: 'Device 1', summary: 'Summary 1'),
         testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
       ], releases: {}),
@@ -69,7 +69,7 @@ void main() {
   });
 
   testWidgets('error', (tester) async {
-    final model = mockModel(state: const FwupdState.error(error: 'Error'));
+    final model = mockModel(state: const FirmwareState.error(error: 'Error'));
     await tester.pumpApp((_) => buildPage(model: model, daemon: mockDaemon()));
 
     expect(find.byType(ErrorWidget), findsOneWidget);

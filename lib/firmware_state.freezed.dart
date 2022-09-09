@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'state.dart';
+part of 'firmware_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,15 +15,15 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$FwupdState {
+mixin _$FirmwareState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
             List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases)
         data,
-    required TResult Function(FwupdState? previous) loading,
+    required TResult Function(FirmwareState? previous) loading,
     required TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)
+            Object error, StackTrace? stackTrace, FirmwareState? previous)
         error,
   }) =>
       throw _privateConstructorUsedError;
@@ -32,9 +32,9 @@ mixin _$FwupdState {
     TResult Function(List<FwupdDevice> devices,
             Map<String, List<FwupdRelease>> releases)?
         data,
-    TResult Function(FwupdState? previous)? loading,
+    TResult Function(FirmwareState? previous)? loading,
     TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)?
+            Object error, StackTrace? stackTrace, FirmwareState? previous)?
         error,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,78 +43,80 @@ mixin _$FwupdState {
     TResult Function(List<FwupdDevice> devices,
             Map<String, List<FwupdRelease>> releases)?
         data,
-    TResult Function(FwupdState? previous)? loading,
+    TResult Function(FirmwareState? previous)? loading,
     TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)?
+            Object error, StackTrace? stackTrace, FirmwareState? previous)?
         error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FwupdState value) data,
-    required TResult Function(FwupdLoadingState value) loading,
-    required TResult Function(FwupdErrorState value) error,
+    required TResult Function(FirmareDataState value) data,
+    required TResult Function(FirmwareLoadingState value) loading,
+    required TResult Function(FirmwareErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FwupdState value)? data,
-    TResult Function(FwupdLoadingState value)? loading,
-    TResult Function(FwupdErrorState value)? error,
+    TResult Function(FirmareDataState value)? data,
+    TResult Function(FirmwareLoadingState value)? loading,
+    TResult Function(FirmwareErrorState value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FwupdState value)? data,
-    TResult Function(FwupdLoadingState value)? loading,
-    TResult Function(FwupdErrorState value)? error,
+    TResult Function(FirmareDataState value)? data,
+    TResult Function(FirmwareLoadingState value)? loading,
+    TResult Function(FirmwareErrorState value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FwupdStateCopyWith<$Res> {
-  factory $FwupdStateCopyWith(
-          FwupdState value, $Res Function(FwupdState) then) =
-      _$FwupdStateCopyWithImpl<$Res>;
+abstract class $FirmwareStateCopyWith<$Res> {
+  factory $FirmwareStateCopyWith(
+          FirmwareState value, $Res Function(FirmwareState) then) =
+      _$FirmwareStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$FwupdStateCopyWithImpl<$Res> implements $FwupdStateCopyWith<$Res> {
-  _$FwupdStateCopyWithImpl(this._value, this._then);
+class _$FirmwareStateCopyWithImpl<$Res>
+    implements $FirmwareStateCopyWith<$Res> {
+  _$FirmwareStateCopyWithImpl(this._value, this._then);
 
-  final FwupdState _value;
+  final FirmwareState _value;
   // ignore: unused_field
-  final $Res Function(FwupdState) _then;
+  final $Res Function(FirmwareState) _then;
 }
 
 /// @nodoc
-abstract class _$$_FwupdStateCopyWith<$Res> {
-  factory _$$_FwupdStateCopyWith(
-          _$_FwupdState value, $Res Function(_$_FwupdState) then) =
-      __$$_FwupdStateCopyWithImpl<$Res>;
+abstract class _$$FirmareDataStateCopyWith<$Res> {
+  factory _$$FirmareDataStateCopyWith(
+          _$FirmareDataState value, $Res Function(_$FirmareDataState) then) =
+      __$$FirmareDataStateCopyWithImpl<$Res>;
   $Res call(
       {List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases});
 }
 
 /// @nodoc
-class __$$_FwupdStateCopyWithImpl<$Res> extends _$FwupdStateCopyWithImpl<$Res>
-    implements _$$_FwupdStateCopyWith<$Res> {
-  __$$_FwupdStateCopyWithImpl(
-      _$_FwupdState _value, $Res Function(_$_FwupdState) _then)
-      : super(_value, (v) => _then(v as _$_FwupdState));
+class __$$FirmareDataStateCopyWithImpl<$Res>
+    extends _$FirmwareStateCopyWithImpl<$Res>
+    implements _$$FirmareDataStateCopyWith<$Res> {
+  __$$FirmareDataStateCopyWithImpl(
+      _$FirmareDataState _value, $Res Function(_$FirmareDataState) _then)
+      : super(_value, (v) => _then(v as _$FirmareDataState));
 
   @override
-  _$_FwupdState get _value => super._value as _$_FwupdState;
+  _$FirmareDataState get _value => super._value as _$FirmareDataState;
 
   @override
   $Res call({
     Object? devices = freezed,
     Object? releases = freezed,
   }) {
-    return _then(_$_FwupdState(
+    return _then(_$FirmareDataState(
       devices: devices == freezed
           ? _value._devices
           : devices // ignore: cast_nullable_to_non_nullable
@@ -129,8 +131,8 @@ class __$$_FwupdStateCopyWithImpl<$Res> extends _$FwupdStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FwupdState extends _FwupdState {
-  const _$_FwupdState(
+class _$FirmareDataState extends FirmareDataState {
+  const _$FirmareDataState(
       {required final List<FwupdDevice> devices,
       required final Map<String, List<FwupdRelease>> releases})
       : _devices = devices,
@@ -153,14 +155,14 @@ class _$_FwupdState extends _FwupdState {
 
   @override
   String toString() {
-    return 'FwupdState.data(devices: $devices, releases: $releases)';
+    return 'FirmwareState.data(devices: $devices, releases: $releases)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FwupdState &&
+            other is _$FirmareDataState &&
             const DeepCollectionEquality().equals(other._devices, _devices) &&
             const DeepCollectionEquality().equals(other._releases, _releases));
   }
@@ -173,8 +175,8 @@ class _$_FwupdState extends _FwupdState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_FwupdStateCopyWith<_$_FwupdState> get copyWith =>
-      __$$_FwupdStateCopyWithImpl<_$_FwupdState>(this, _$identity);
+  _$$FirmareDataStateCopyWith<_$FirmareDataState> get copyWith =>
+      __$$FirmareDataStateCopyWithImpl<_$FirmareDataState>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -182,9 +184,9 @@ class _$_FwupdState extends _FwupdState {
     required TResult Function(
             List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases)
         data,
-    required TResult Function(FwupdState? previous) loading,
+    required TResult Function(FirmwareState? previous) loading,
     required TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)
+            Object error, StackTrace? stackTrace, FirmwareState? previous)
         error,
   }) {
     return data(devices, releases);
@@ -196,9 +198,9 @@ class _$_FwupdState extends _FwupdState {
     TResult Function(List<FwupdDevice> devices,
             Map<String, List<FwupdRelease>> releases)?
         data,
-    TResult Function(FwupdState? previous)? loading,
+    TResult Function(FirmwareState? previous)? loading,
     TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)?
+            Object error, StackTrace? stackTrace, FirmwareState? previous)?
         error,
   }) {
     return data?.call(devices, releases);
@@ -210,9 +212,9 @@ class _$_FwupdState extends _FwupdState {
     TResult Function(List<FwupdDevice> devices,
             Map<String, List<FwupdRelease>> releases)?
         data,
-    TResult Function(FwupdState? previous)? loading,
+    TResult Function(FirmwareState? previous)? loading,
     TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)?
+            Object error, StackTrace? stackTrace, FirmwareState? previous)?
         error,
     required TResult orElse(),
   }) {
@@ -225,9 +227,9 @@ class _$_FwupdState extends _FwupdState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FwupdState value) data,
-    required TResult Function(FwupdLoadingState value) loading,
-    required TResult Function(FwupdErrorState value) error,
+    required TResult Function(FirmareDataState value) data,
+    required TResult Function(FirmwareLoadingState value) loading,
+    required TResult Function(FirmwareErrorState value) error,
   }) {
     return data(this);
   }
@@ -235,9 +237,9 @@ class _$_FwupdState extends _FwupdState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FwupdState value)? data,
-    TResult Function(FwupdLoadingState value)? loading,
-    TResult Function(FwupdErrorState value)? error,
+    TResult Function(FirmareDataState value)? data,
+    TResult Function(FirmwareLoadingState value)? loading,
+    TResult Function(FirmwareErrorState value)? error,
   }) {
     return data?.call(this);
   }
@@ -245,9 +247,9 @@ class _$_FwupdState extends _FwupdState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FwupdState value)? data,
-    TResult Function(FwupdLoadingState value)? loading,
-    TResult Function(FwupdErrorState value)? error,
+    TResult Function(FirmareDataState value)? data,
+    TResult Function(FirmwareLoadingState value)? loading,
+    TResult Function(FirmwareErrorState value)? error,
     required TResult orElse(),
   }) {
     if (data != null) {
@@ -257,59 +259,60 @@ class _$_FwupdState extends _FwupdState {
   }
 }
 
-abstract class _FwupdState extends FwupdState {
-  const factory _FwupdState(
-      {required final List<FwupdDevice> devices,
-      required final Map<String, List<FwupdRelease>> releases}) = _$_FwupdState;
-  const _FwupdState._() : super._();
+abstract class FirmareDataState extends FirmwareState {
+  const factory FirmareDataState(
+          {required final List<FwupdDevice> devices,
+          required final Map<String, List<FwupdRelease>> releases}) =
+      _$FirmareDataState;
+  const FirmareDataState._() : super._();
 
   List<FwupdDevice> get devices;
   Map<String, List<FwupdRelease>> get releases;
   @JsonKey(ignore: true)
-  _$$_FwupdStateCopyWith<_$_FwupdState> get copyWith =>
+  _$$FirmareDataStateCopyWith<_$FirmareDataState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FwupdLoadingStateCopyWith<$Res> {
-  factory _$$FwupdLoadingStateCopyWith(
-          _$FwupdLoadingState value, $Res Function(_$FwupdLoadingState) then) =
-      __$$FwupdLoadingStateCopyWithImpl<$Res>;
-  $Res call({FwupdState? previous});
+abstract class _$$FirmwareLoadingStateCopyWith<$Res> {
+  factory _$$FirmwareLoadingStateCopyWith(_$FirmwareLoadingState value,
+          $Res Function(_$FirmwareLoadingState) then) =
+      __$$FirmwareLoadingStateCopyWithImpl<$Res>;
+  $Res call({FirmwareState? previous});
 
-  $FwupdStateCopyWith<$Res>? get previous;
+  $FirmwareStateCopyWith<$Res>? get previous;
 }
 
 /// @nodoc
-class __$$FwupdLoadingStateCopyWithImpl<$Res>
-    extends _$FwupdStateCopyWithImpl<$Res>
-    implements _$$FwupdLoadingStateCopyWith<$Res> {
-  __$$FwupdLoadingStateCopyWithImpl(
-      _$FwupdLoadingState _value, $Res Function(_$FwupdLoadingState) _then)
-      : super(_value, (v) => _then(v as _$FwupdLoadingState));
+class __$$FirmwareLoadingStateCopyWithImpl<$Res>
+    extends _$FirmwareStateCopyWithImpl<$Res>
+    implements _$$FirmwareLoadingStateCopyWith<$Res> {
+  __$$FirmwareLoadingStateCopyWithImpl(_$FirmwareLoadingState _value,
+      $Res Function(_$FirmwareLoadingState) _then)
+      : super(_value, (v) => _then(v as _$FirmwareLoadingState));
 
   @override
-  _$FwupdLoadingState get _value => super._value as _$FwupdLoadingState;
+  _$FirmwareLoadingState get _value => super._value as _$FirmwareLoadingState;
 
   @override
   $Res call({
     Object? previous = freezed,
   }) {
-    return _then(_$FwupdLoadingState(
+    return _then(_$FirmwareLoadingState(
       previous: previous == freezed
           ? _value.previous
           : previous // ignore: cast_nullable_to_non_nullable
-              as FwupdState?,
+              as FirmwareState?,
     ));
   }
 
   @override
-  $FwupdStateCopyWith<$Res>? get previous {
+  $FirmwareStateCopyWith<$Res>? get previous {
     if (_value.previous == null) {
       return null;
     }
 
-    return $FwupdStateCopyWith<$Res>(_value.previous!, (value) {
+    return $FirmwareStateCopyWith<$Res>(_value.previous!, (value) {
       return _then(_value.copyWith(previous: value));
     });
   }
@@ -317,22 +320,22 @@ class __$$FwupdLoadingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FwupdLoadingState extends FwupdLoadingState {
-  const _$FwupdLoadingState({this.previous}) : super._();
+class _$FirmwareLoadingState extends FirmwareLoadingState {
+  const _$FirmwareLoadingState({this.previous}) : super._();
 
   @override
-  final FwupdState? previous;
+  final FirmwareState? previous;
 
   @override
   String toString() {
-    return 'FwupdState.loading(previous: $previous)';
+    return 'FirmwareState.loading(previous: $previous)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FwupdLoadingState &&
+            other is _$FirmwareLoadingState &&
             const DeepCollectionEquality().equals(other.previous, previous));
   }
 
@@ -342,8 +345,9 @@ class _$FwupdLoadingState extends FwupdLoadingState {
 
   @JsonKey(ignore: true)
   @override
-  _$$FwupdLoadingStateCopyWith<_$FwupdLoadingState> get copyWith =>
-      __$$FwupdLoadingStateCopyWithImpl<_$FwupdLoadingState>(this, _$identity);
+  _$$FirmwareLoadingStateCopyWith<_$FirmwareLoadingState> get copyWith =>
+      __$$FirmwareLoadingStateCopyWithImpl<_$FirmwareLoadingState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -351,9 +355,9 @@ class _$FwupdLoadingState extends FwupdLoadingState {
     required TResult Function(
             List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases)
         data,
-    required TResult Function(FwupdState? previous) loading,
+    required TResult Function(FirmwareState? previous) loading,
     required TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)
+            Object error, StackTrace? stackTrace, FirmwareState? previous)
         error,
   }) {
     return loading(previous);
@@ -365,9 +369,9 @@ class _$FwupdLoadingState extends FwupdLoadingState {
     TResult Function(List<FwupdDevice> devices,
             Map<String, List<FwupdRelease>> releases)?
         data,
-    TResult Function(FwupdState? previous)? loading,
+    TResult Function(FirmwareState? previous)? loading,
     TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)?
+            Object error, StackTrace? stackTrace, FirmwareState? previous)?
         error,
   }) {
     return loading?.call(previous);
@@ -379,9 +383,9 @@ class _$FwupdLoadingState extends FwupdLoadingState {
     TResult Function(List<FwupdDevice> devices,
             Map<String, List<FwupdRelease>> releases)?
         data,
-    TResult Function(FwupdState? previous)? loading,
+    TResult Function(FirmwareState? previous)? loading,
     TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)?
+            Object error, StackTrace? stackTrace, FirmwareState? previous)?
         error,
     required TResult orElse(),
   }) {
@@ -394,9 +398,9 @@ class _$FwupdLoadingState extends FwupdLoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FwupdState value) data,
-    required TResult Function(FwupdLoadingState value) loading,
-    required TResult Function(FwupdErrorState value) error,
+    required TResult Function(FirmareDataState value) data,
+    required TResult Function(FirmwareLoadingState value) loading,
+    required TResult Function(FirmwareErrorState value) error,
   }) {
     return loading(this);
   }
@@ -404,9 +408,9 @@ class _$FwupdLoadingState extends FwupdLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FwupdState value)? data,
-    TResult Function(FwupdLoadingState value)? loading,
-    TResult Function(FwupdErrorState value)? error,
+    TResult Function(FirmareDataState value)? data,
+    TResult Function(FirmwareLoadingState value)? loading,
+    TResult Function(FirmwareErrorState value)? error,
   }) {
     return loading?.call(this);
   }
@@ -414,9 +418,9 @@ class _$FwupdLoadingState extends FwupdLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FwupdState value)? data,
-    TResult Function(FwupdLoadingState value)? loading,
-    TResult Function(FwupdErrorState value)? error,
+    TResult Function(FirmareDataState value)? data,
+    TResult Function(FirmwareLoadingState value)? loading,
+    TResult Function(FirmwareErrorState value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -426,37 +430,37 @@ class _$FwupdLoadingState extends FwupdLoadingState {
   }
 }
 
-abstract class FwupdLoadingState extends FwupdState {
-  const factory FwupdLoadingState({final FwupdState? previous}) =
-      _$FwupdLoadingState;
-  const FwupdLoadingState._() : super._();
+abstract class FirmwareLoadingState extends FirmwareState {
+  const factory FirmwareLoadingState({final FirmwareState? previous}) =
+      _$FirmwareLoadingState;
+  const FirmwareLoadingState._() : super._();
 
-  FwupdState? get previous;
+  FirmwareState? get previous;
   @JsonKey(ignore: true)
-  _$$FwupdLoadingStateCopyWith<_$FwupdLoadingState> get copyWith =>
+  _$$FirmwareLoadingStateCopyWith<_$FirmwareLoadingState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$FwupdErrorStateCopyWith<$Res> {
-  factory _$$FwupdErrorStateCopyWith(
-          _$FwupdErrorState value, $Res Function(_$FwupdErrorState) then) =
-      __$$FwupdErrorStateCopyWithImpl<$Res>;
-  $Res call({Object error, StackTrace? stackTrace, FwupdState? previous});
+abstract class _$$FirmwareErrorStateCopyWith<$Res> {
+  factory _$$FirmwareErrorStateCopyWith(_$FirmwareErrorState value,
+          $Res Function(_$FirmwareErrorState) then) =
+      __$$FirmwareErrorStateCopyWithImpl<$Res>;
+  $Res call({Object error, StackTrace? stackTrace, FirmwareState? previous});
 
-  $FwupdStateCopyWith<$Res>? get previous;
+  $FirmwareStateCopyWith<$Res>? get previous;
 }
 
 /// @nodoc
-class __$$FwupdErrorStateCopyWithImpl<$Res>
-    extends _$FwupdStateCopyWithImpl<$Res>
-    implements _$$FwupdErrorStateCopyWith<$Res> {
-  __$$FwupdErrorStateCopyWithImpl(
-      _$FwupdErrorState _value, $Res Function(_$FwupdErrorState) _then)
-      : super(_value, (v) => _then(v as _$FwupdErrorState));
+class __$$FirmwareErrorStateCopyWithImpl<$Res>
+    extends _$FirmwareStateCopyWithImpl<$Res>
+    implements _$$FirmwareErrorStateCopyWith<$Res> {
+  __$$FirmwareErrorStateCopyWithImpl(
+      _$FirmwareErrorState _value, $Res Function(_$FirmwareErrorState) _then)
+      : super(_value, (v) => _then(v as _$FirmwareErrorState));
 
   @override
-  _$FwupdErrorState get _value => super._value as _$FwupdErrorState;
+  _$FirmwareErrorState get _value => super._value as _$FirmwareErrorState;
 
   @override
   $Res call({
@@ -464,7 +468,7 @@ class __$$FwupdErrorStateCopyWithImpl<$Res>
     Object? stackTrace = freezed,
     Object? previous = freezed,
   }) {
-    return _then(_$FwupdErrorState(
+    return _then(_$FirmwareErrorState(
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -476,17 +480,17 @@ class __$$FwupdErrorStateCopyWithImpl<$Res>
       previous: previous == freezed
           ? _value.previous
           : previous // ignore: cast_nullable_to_non_nullable
-              as FwupdState?,
+              as FirmwareState?,
     ));
   }
 
   @override
-  $FwupdStateCopyWith<$Res>? get previous {
+  $FirmwareStateCopyWith<$Res>? get previous {
     if (_value.previous == null) {
       return null;
     }
 
-    return $FwupdStateCopyWith<$Res>(_value.previous!, (value) {
+    return $FirmwareStateCopyWith<$Res>(_value.previous!, (value) {
       return _then(_value.copyWith(previous: value));
     });
   }
@@ -494,8 +498,9 @@ class __$$FwupdErrorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FwupdErrorState extends FwupdErrorState {
-  const _$FwupdErrorState({required this.error, this.stackTrace, this.previous})
+class _$FirmwareErrorState extends FirmwareErrorState {
+  const _$FirmwareErrorState(
+      {required this.error, this.stackTrace, this.previous})
       : super._();
 
   @override
@@ -503,18 +508,18 @@ class _$FwupdErrorState extends FwupdErrorState {
   @override
   final StackTrace? stackTrace;
   @override
-  final FwupdState? previous;
+  final FirmwareState? previous;
 
   @override
   String toString() {
-    return 'FwupdState.error(error: $error, stackTrace: $stackTrace, previous: $previous)';
+    return 'FirmwareState.error(error: $error, stackTrace: $stackTrace, previous: $previous)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FwupdErrorState &&
+            other is _$FirmwareErrorState &&
             const DeepCollectionEquality().equals(other.error, error) &&
             const DeepCollectionEquality()
                 .equals(other.stackTrace, stackTrace) &&
@@ -530,8 +535,9 @@ class _$FwupdErrorState extends FwupdErrorState {
 
   @JsonKey(ignore: true)
   @override
-  _$$FwupdErrorStateCopyWith<_$FwupdErrorState> get copyWith =>
-      __$$FwupdErrorStateCopyWithImpl<_$FwupdErrorState>(this, _$identity);
+  _$$FirmwareErrorStateCopyWith<_$FirmwareErrorState> get copyWith =>
+      __$$FirmwareErrorStateCopyWithImpl<_$FirmwareErrorState>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -539,9 +545,9 @@ class _$FwupdErrorState extends FwupdErrorState {
     required TResult Function(
             List<FwupdDevice> devices, Map<String, List<FwupdRelease>> releases)
         data,
-    required TResult Function(FwupdState? previous) loading,
+    required TResult Function(FirmwareState? previous) loading,
     required TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)
+            Object error, StackTrace? stackTrace, FirmwareState? previous)
         error,
   }) {
     return error(this.error, stackTrace, previous);
@@ -553,9 +559,9 @@ class _$FwupdErrorState extends FwupdErrorState {
     TResult Function(List<FwupdDevice> devices,
             Map<String, List<FwupdRelease>> releases)?
         data,
-    TResult Function(FwupdState? previous)? loading,
+    TResult Function(FirmwareState? previous)? loading,
     TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)?
+            Object error, StackTrace? stackTrace, FirmwareState? previous)?
         error,
   }) {
     return error?.call(this.error, stackTrace, previous);
@@ -567,9 +573,9 @@ class _$FwupdErrorState extends FwupdErrorState {
     TResult Function(List<FwupdDevice> devices,
             Map<String, List<FwupdRelease>> releases)?
         data,
-    TResult Function(FwupdState? previous)? loading,
+    TResult Function(FirmwareState? previous)? loading,
     TResult Function(
-            Object error, StackTrace? stackTrace, FwupdState? previous)?
+            Object error, StackTrace? stackTrace, FirmwareState? previous)?
         error,
     required TResult orElse(),
   }) {
@@ -582,9 +588,9 @@ class _$FwupdErrorState extends FwupdErrorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FwupdState value) data,
-    required TResult Function(FwupdLoadingState value) loading,
-    required TResult Function(FwupdErrorState value) error,
+    required TResult Function(FirmareDataState value) data,
+    required TResult Function(FirmwareLoadingState value) loading,
+    required TResult Function(FirmwareErrorState value) error,
   }) {
     return error(this);
   }
@@ -592,9 +598,9 @@ class _$FwupdErrorState extends FwupdErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_FwupdState value)? data,
-    TResult Function(FwupdLoadingState value)? loading,
-    TResult Function(FwupdErrorState value)? error,
+    TResult Function(FirmareDataState value)? data,
+    TResult Function(FirmwareLoadingState value)? loading,
+    TResult Function(FirmwareErrorState value)? error,
   }) {
     return error?.call(this);
   }
@@ -602,9 +608,9 @@ class _$FwupdErrorState extends FwupdErrorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FwupdState value)? data,
-    TResult Function(FwupdLoadingState value)? loading,
-    TResult Function(FwupdErrorState value)? error,
+    TResult Function(FirmareDataState value)? data,
+    TResult Function(FirmwareLoadingState value)? loading,
+    TResult Function(FirmwareErrorState value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -614,17 +620,17 @@ class _$FwupdErrorState extends FwupdErrorState {
   }
 }
 
-abstract class FwupdErrorState extends FwupdState {
-  const factory FwupdErrorState(
+abstract class FirmwareErrorState extends FirmwareState {
+  const factory FirmwareErrorState(
       {required final Object error,
       final StackTrace? stackTrace,
-      final FwupdState? previous}) = _$FwupdErrorState;
-  const FwupdErrorState._() : super._();
+      final FirmwareState? previous}) = _$FirmwareErrorState;
+  const FirmwareErrorState._() : super._();
 
   Object get error;
   StackTrace? get stackTrace;
-  FwupdState? get previous;
+  FirmwareState? get previous;
   @JsonKey(ignore: true)
-  _$$FwupdErrorStateCopyWith<_$FwupdErrorState> get copyWith =>
+  _$$FirmwareErrorStateCopyWith<_$FirmwareErrorState> get copyWith =>
       throw _privateConstructorUsedError;
 }

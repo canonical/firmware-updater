@@ -8,7 +8,7 @@ import 'dart:ui' as _i6;
 
 import 'package:firmware_updater/daemon.dart' as _i3;
 import 'package:firmware_updater/firmware_model.dart' as _i7;
-import 'package:firmware_updater/state.dart' as _i2;
+import 'package:firmware_updater/firmware_state.dart' as _i2;
 import 'package:fwupd/fwupd.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -23,8 +23,8 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeFwupdState_0 extends _i1.SmartFake implements _i2.FwupdState {
-  _FakeFwupdState_0(Object parent, Invocation parentInvocation)
+class _FakeFirmwareState_0 extends _i1.SmartFake implements _i2.FirmwareState {
+  _FakeFirmwareState_0(Object parent, Invocation parentInvocation)
       : super(parent, parentInvocation);
 }
 
@@ -87,9 +87,9 @@ class MockFirmwareModel extends _i1.Mock implements _i7.FirmwareModel {
   }
 
   @override
-  _i2.FwupdState get state => (super.noSuchMethod(Invocation.getter(#state),
-          returnValue: _FakeFwupdState_0(this, Invocation.getter(#state)))
-      as _i2.FwupdState);
+  _i2.FirmwareState get state => (super.noSuchMethod(Invocation.getter(#state),
+          returnValue: _FakeFirmwareState_0(this, Invocation.getter(#state)))
+      as _i2.FirmwareState);
   @override
   bool get isDisposed =>
       (super.noSuchMethod(Invocation.getter(#isDisposed), returnValue: false)

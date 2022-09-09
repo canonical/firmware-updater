@@ -1,5 +1,5 @@
 import 'package:firmware_updater/firmware_model.dart';
-import 'package:firmware_updater/state.dart';
+import 'package:firmware_updater/firmware_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/mockito.dart';
@@ -38,7 +38,8 @@ void main() {
     final model = FirmwareModel(service);
     await model.init();
 
-    expect(model.state, FwupdState.data(devices: devices, releases: releases));
+    expect(
+        model.state, FirmwareState.data(devices: devices, releases: releases));
   });
 
   test('refresh devices', () async {
@@ -71,7 +72,7 @@ void main() {
 
     final model = FirmwareModel(service);
     await model.install(device, release);
-    expect(model.state, isA<FwupdErrorState>());
+    expect(model.state, isA<FirmwareErrorState>());
   });
 
   test('nothing to do', () async {
@@ -82,7 +83,7 @@ void main() {
 
     final model = FirmwareModel(service);
     await model.init();
-    expect(model.state, isA<FwupdState>());
+    expect(model.state, isA<FirmwareState>());
   });
 
   test('verify', () async {

@@ -4,28 +4,28 @@ import 'package:fwupd/fwupd.dart';
 
 import 'fwupd_x.dart';
 
-part 'state.freezed.dart';
+part 'firmware_state.freezed.dart';
 
 @freezed
-class FwupdState with _$FwupdState {
-  const FwupdState._();
+class FirmwareState with _$FirmwareState {
+  const FirmwareState._();
 
-  const factory FwupdState.data({
+  const factory FirmwareState.data({
     required List<FwupdDevice> devices,
     required Map<String, List<FwupdRelease>> releases,
-  }) = _FwupdState;
+  }) = FirmareDataState;
 
-  const factory FwupdState.loading({
-    FwupdState? previous,
-  }) = FwupdLoadingState;
+  const factory FirmwareState.loading({
+    FirmwareState? previous,
+  }) = FirmwareLoadingState;
 
-  const factory FwupdState.error({
+  const factory FirmwareState.error({
     required Object error,
     StackTrace? stackTrace,
-    FwupdState? previous,
-  }) = FwupdErrorState;
+    FirmwareState? previous,
+  }) = FirmwareErrorState;
 
-  static const empty = FwupdState.data(devices: [], releases: {});
+  static const empty = FirmwareState.data(devices: [], releases: {});
 
   List<FwupdDevice>? getDevices() {
     return when(
