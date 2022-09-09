@@ -7,7 +7,7 @@ import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
 import 'package:firmware_updater/daemon.dart' as _i3;
-import 'package:firmware_updater/model.dart' as _i7;
+import 'package:firmware_updater/firmware_model.dart' as _i7;
 import 'package:firmware_updater/state.dart' as _i2;
 import 'package:fwupd/fwupd.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
@@ -78,11 +78,11 @@ class MockFwupdDaemon extends _i1.Mock implements _i3.FwupdDaemon {
           returnValueForMissingStub: null);
 }
 
-/// A class which mocks [FwupdModel].
+/// A class which mocks [FirmwareModel].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFwupdModel extends _i1.Mock implements _i7.FwupdModel {
-  MockFwupdModel() {
+class MockFirmwareModel extends _i1.Mock implements _i7.FirmwareModel {
+  MockFirmwareModel() {
     _i1.throwOnMissingStub(this);
   }
 

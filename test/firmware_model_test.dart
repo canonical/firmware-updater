@@ -1,4 +1,4 @@
-import 'package:firmware_updater/model.dart';
+import 'package:firmware_updater/firmware_model.dart';
 import 'package:firmware_updater/state.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -10,7 +10,7 @@ void main() {
   test('initializes service', () async {
     final service = mockService();
 
-    final model = FwupdModel(service);
+    final model = FirmwareModel(service);
     await model.init();
 
     verify(service.init()).called(1);
@@ -35,7 +35,7 @@ void main() {
 
     final service = mockService(devices: devices, releases: releases);
 
-    final model = FwupdModel(service);
+    final model = FirmwareModel(service);
     await model.init();
 
     expect(model.state, FwupdState.data(devices: devices, releases: releases));
@@ -44,7 +44,7 @@ void main() {
   test('refresh devices', () async {
     final service = mockService();
 
-    final model = FwupdModel(service);
+    final model = FirmwareModel(service);
     await model.refresh();
 
     verify(service.getDevices()).called(1);
@@ -56,7 +56,7 @@ void main() {
 
     final service = mockService();
 
-    final model = FwupdModel(service);
+    final model = FirmwareModel(service);
     await model.install(device, release);
     verify(service.install(device, release)).called(1);
   });
@@ -69,7 +69,7 @@ void main() {
     when(service.install(device, release))
         .thenThrow(const FwupdInvalidFileException());
 
-    final model = FwupdModel(service);
+    final model = FirmwareModel(service);
     await model.install(device, release);
     expect(model.state, isA<FwupdErrorState>());
   });
@@ -80,7 +80,7 @@ void main() {
     final service = mockService(devices: [device]);
     when(service.getReleases(any)).thenThrow(const FwupdNothingToDoException());
 
-    final model = FwupdModel(service);
+    final model = FirmwareModel(service);
     await model.init();
     expect(model.state, isA<FwupdState>());
   });
@@ -90,7 +90,7 @@ void main() {
 
     final service = mockService();
 
-    final model = FwupdModel(service);
+    final model = FirmwareModel(service);
     await model.verify(device);
     verify(service.verify(device)).called(1);
   });

@@ -9,10 +9,10 @@ import 'monitor.dart';
 import 'service.dart';
 import 'state.dart';
 
-final log = Logger('model');
+final log = Logger('firmware_model');
 
-class FwupdModel extends SafeChangeNotifier {
-  FwupdModel(this._service) : _monitor = FwupdMonitor(_service) {
+class FirmwareModel extends SafeChangeNotifier {
+  FirmwareModel(this._service) : _monitor = FwupdMonitor(_service) {
     _monitor.addListener(_updateState);
   }
 

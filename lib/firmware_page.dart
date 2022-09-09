@@ -6,7 +6,7 @@ import 'package:yaru_colors/yaru_colors.dart';
 
 import 'daemon.dart';
 import 'fwupd_x.dart';
-import 'model.dart';
+import 'firmware_model.dart';
 import 'service.dart';
 import 'widgets.dart';
 
@@ -18,7 +18,7 @@ class FirmwarePage extends StatefulWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => FwupdDaemon(service)),
-        ChangeNotifierProvider(create: (_) => FwupdModel(service)),
+        ChangeNotifierProvider(create: (_) => FirmwareModel(service)),
       ],
       child: const FirmwarePage(),
     );
@@ -33,12 +33,12 @@ class _FirmwarePageState extends State<FirmwarePage> {
   void initState() {
     super.initState();
     context.read<FwupdDaemon>().init();
-    context.read<FwupdModel>().init();
+    context.read<FirmwareModel>().init();
   }
 
   @override
   Widget build(BuildContext context) {
-    final model = context.watch<FwupdModel>();
+    final model = context.watch<FirmwareModel>();
     final daemon = context.watch<FwupdDaemon>();
     return Scaffold(
       backgroundColor: Theme.of(context).brightness == Brightness.light

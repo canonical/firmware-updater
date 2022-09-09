@@ -1,6 +1,6 @@
 import 'package:firmware_updater/daemon.dart';
+import 'package:firmware_updater/firmware_model.dart';
 import 'package:firmware_updater/firmware_page.dart';
-import 'package:firmware_updater/model.dart';
 import 'package:firmware_updater/state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -12,12 +12,12 @@ import 'package:provider/provider.dart';
 import 'firmare_page_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([FwupdDaemon, FwupdModel])
+@GenerateMocks([FwupdDaemon, FirmwareModel])
 void main() {
-  FwupdModel mockModel({
+  FirmwareModel mockModel({
     required FwupdState state,
   }) {
-    final model = MockFwupdModel();
+    final model = MockFirmwareModel();
     when(model.state).thenReturn(state);
     return model;
   }
@@ -34,10 +34,11 @@ void main() {
     return daemon;
   }
 
-  Widget buildPage({required FwupdModel model, required FwupdDaemon daemon}) {
+  Widget buildPage(
+      {required FirmwareModel model, required FwupdDaemon daemon}) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<FwupdModel>.value(value: model),
+        ChangeNotifierProvider<FirmwareModel>.value(value: model),
         ChangeNotifierProvider<FwupdDaemon>.value(value: daemon),
       ],
       child: const FirmwarePage(),
