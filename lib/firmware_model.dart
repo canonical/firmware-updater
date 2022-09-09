@@ -4,25 +4,25 @@ import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
+import 'firmware_state.dart';
+import 'fwupd_notifier.dart';
+import 'fwupd_service.dart';
 import 'fwupd_x.dart';
-import 'monitor.dart';
-import 'service.dart';
-import 'state.dart';
 
-final log = Logger('model');
+final log = Logger('firmware_model');
 
-class FwupdModel extends SafeChangeNotifier {
-  FwupdModel(this._service) : _monitor = FwupdMonitor(_service) {
+class FirmwareModel extends SafeChangeNotifier {
+  FirmwareModel(this._service) : _monitor = FwupdNotifier(_service) {
     _monitor.addListener(_updateState);
   }
 
   final FwupdService _service;
-  final FwupdMonitor _monitor;
-  var _state = FwupdState.empty;
+  final FwupdNotifier _monitor;
+  var _state = FirmwareState.empty;
 
-  FwupdState get state => _state;
+  FirmwareState get state => _state;
 
-  void _setState(FwupdState state) {
+  void _setState(FirmwareState state) {
     if (_state == state) return;
     _state = state;
     notifyListeners();
@@ -51,7 +51,7 @@ class FwupdModel extends SafeChangeNotifier {
       // TODO: FwupdException
     } on Exception catch (error, stackTrace) {
       log.error('installation failed $error');
-      _setState(FwupdState.error(
+      _setState(FirmwareState.error(
         error: error,
         stackTrace: stackTrace,
         previous: state,
@@ -61,14 +61,14 @@ class FwupdModel extends SafeChangeNotifier {
 
   Future<void> verify(FwupdDevice device) => _service.verify(device);
 
-  Future<FwupdState> _fetchState() async {
+  Future<FirmwareState> _fetchState() async {
     try {
-      return FwupdState.data(
+      return FirmwareState.data(
         devices: _monitor.devices,
         releases: await _fetchReleases(_monitor.devices),
       );
     } on FwupdException catch (_) {
-      return FwupdState.empty;
+      return FirmwareState.empty;
     }
   }
 

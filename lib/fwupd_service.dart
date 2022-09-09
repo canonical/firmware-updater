@@ -9,7 +9,7 @@ import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 import 'fwupd_x.dart';
 
-final log = Logger('service');
+final log = Logger('fwupd_service');
 
 class FwupdService {
   FwupdService({

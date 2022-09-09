@@ -5,8 +5,8 @@ import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
 
-import 'page.dart';
-import 'service.dart';
+import 'firmware_page.dart';
+import 'fwupd_service.dart';
 
 Future<void> main() async {
   Logger.setup(level: LogLevel.fromString(kDebugMode ? 'debug' : 'info'));
@@ -21,7 +21,7 @@ Future<void> main() async {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
-      routes: const {'/': FwupdPage.create},
+      routes: const {'/': FirmwarePage.create},
     ),
   ));
 }

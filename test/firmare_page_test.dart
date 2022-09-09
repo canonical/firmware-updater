@@ -1,0 +1,80 @@
+import 'package:firmware_updater/firmware_model.dart';
+import 'package:firmware_updater/firmware_page.dart';
+import 'package:firmware_updater/firmware_state.dart';
+import 'package:firmware_updater/fwupd_notifier.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:fwupd/fwupd.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+import 'package:provider/provider.dart';
+
+import 'firmare_page_test.mocks.dart';
+import 'test_utils.dart';
+
+@GenerateMocks([FwupdNotifier, FirmwareModel])
+void main() {
+  FirmwareModel mockModel({
+    required FirmwareState state,
+  }) {
+    final model = MockFirmwareModel();
+    when(model.state).thenReturn(state);
+    return model;
+  }
+
+  FwupdNotifier mockNotifier({
+    FwupdStatus? status,
+    int? percentage,
+    String? version,
+  }) {
+    final notifier = MockFwupdNotifier();
+    when(notifier.status).thenReturn(status ?? FwupdStatus.idle);
+    when(notifier.percentage).thenReturn(percentage ?? 0);
+    when(notifier.version).thenReturn(version ?? 'v1.2.3');
+    return notifier;
+  }
+
+  Widget buildPage(
+      {required FirmwareModel model, required FwupdNotifier notifier}) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<FirmwareModel>.value(value: model),
+        ChangeNotifierProvider<FwupdNotifier>.value(value: notifier),
+      ],
+      child: const FirmwarePage(),
+    );
+  }
+
+  testWidgets('loading', (tester) async {
+    final model = mockModel(state: const FirmwareState.loading());
+    await tester
+        .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));
+
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+  });
+
+  testWidgets('data', (tester) async {
+    final model = mockModel(
+      state: FirmwareState.data(devices: [
+        testDevice(id: '1', name: 'Device 1', summary: 'Summary 1'),
+        testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
+      ], releases: {}),
+    );
+    await tester
+        .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));
+
+    expect(find.text('Device 1'), findsOneWidget);
+    expect(find.text('Summary 1'), findsOneWidget);
+
+    expect(find.text('Device 2'), findsOneWidget);
+    expect(find.text('Summary 2'), findsOneWidget);
+  });
+
+  testWidgets('error', (tester) async {
+    final model = mockModel(state: const FirmwareState.error(error: 'Error'));
+    await tester
+        .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));
+
+    expect(find.byType(ErrorWidget), findsOneWidget);
+  });
+}

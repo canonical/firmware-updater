@@ -4,42 +4,41 @@ import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_colors/yaru_colors.dart';
 
-import 'daemon.dart';
+import 'firmware_model.dart';
+import 'fwupd_notifier.dart';
+import 'fwupd_service.dart';
 import 'fwupd_x.dart';
-import 'model.dart';
-import 'service.dart';
 import 'widgets.dart';
 
-class FwupdPage extends StatefulWidget {
-  const FwupdPage({Key? key}) : super(key: key);
+class FirmwarePage extends StatefulWidget {
+  const FirmwarePage({Key? key}) : super(key: key);
 
   static Widget create(BuildContext context) {
     final service = getService<FwupdService>();
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => FwupdDaemon(service)),
-        ChangeNotifierProvider(create: (_) => FwupdModel(service)),
+        ChangeNotifierProvider(create: (_) => FirmwareModel(service)),
+        ChangeNotifierProvider(create: (_) => FwupdNotifier(service)),
       ],
-      child: const FwupdPage(),
+      child: const FirmwarePage(),
     );
   }
 
   @override
-  State<FwupdPage> createState() => _FwupdPageState();
+  State<FirmwarePage> createState() => _FirmwarePageState();
 }
 
-class _FwupdPageState extends State<FwupdPage> {
+class _FirmwarePageState extends State<FirmwarePage> {
   @override
   void initState() {
     super.initState();
-    context.read<FwupdDaemon>().init();
-    context.read<FwupdModel>().init();
+    context.read<FirmwareModel>().init();
   }
 
   @override
   Widget build(BuildContext context) {
-    final model = context.watch<FwupdModel>();
-    final daemon = context.watch<FwupdDaemon>();
+    final model = context.watch<FirmwareModel>();
+    final fwupd = context.watch<FwupdNotifier>();
     return Scaffold(
       backgroundColor: Theme.of(context).brightness == Brightness.light
           ? YaruColors.warmGrey.shade200
@@ -47,8 +46,8 @@ class _FwupdPageState extends State<FwupdPage> {
       appBar: AppProgressBar(
         title: AppLocalizations.of(context).appTitle,
         height: ProgressIndicatorTheme.of(context).linearMinHeight,
-        status: daemon.status,
-        progress: daemon.percentage / 100,
+        status: fwupd.status,
+        progress: fwupd.percentage / 100,
         onRefresh: model.refresh,
       ),
       body: SingleChildScrollView(
@@ -74,8 +73,8 @@ class _FwupdPageState extends State<FwupdPage> {
         ),
       ),
       bottomNavigationBar: StatusBar(
-        status: daemon.status,
-        daemonVersion: daemon.version,
+        status: fwupd.status,
+        daemonVersion: fwupd.version,
       ),
     );
   }
