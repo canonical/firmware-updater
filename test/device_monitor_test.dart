@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:firmware_updater/monitor.dart';
+import 'package:firmware_updater/device_monitor.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/mockito.dart';
@@ -19,7 +19,7 @@ void main() {
     when(service.deviceChanged).thenAnswer((_) => deviceChanged.stream);
     when(service.deviceRemoved).thenAnswer((_) => deviceRemoved.stream);
 
-    final monitor = FwupdMonitor(service);
+    final monitor = DeviceMonitor(service);
     await monitor.init();
     expect(monitor.devices, isEmpty);
     verify(service.getDevices()).called(1);
@@ -94,7 +94,7 @@ void main() {
     when(service.deviceChanged).thenAnswer((_) => deviceChanged.stream);
     when(service.deviceRemoved).thenAnswer((_) => deviceRemoved.stream);
 
-    final monitor = FwupdMonitor(service);
+    final monitor = DeviceMonitor(service);
     await monitor.init();
 
     expect(deviceAdded.hasListener, isTrue);

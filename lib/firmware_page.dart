@@ -5,8 +5,8 @@ import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_colors/yaru_colors.dart';
 
 import 'daemon.dart';
-import 'fwupd_x.dart';
 import 'firmware_model.dart';
+import 'fwupd_x.dart';
 import 'service.dart';
 import 'widgets.dart';
 

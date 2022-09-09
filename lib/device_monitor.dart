@@ -7,10 +7,10 @@ import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'fwupd_x.dart';
 import 'service.dart';
 
-final log = Logger('monitor');
+final log = Logger('device_monitor');
 
-class FwupdMonitor extends SafeChangeNotifier {
-  FwupdMonitor(this._service);
+class DeviceMonitor extends SafeChangeNotifier {
+  DeviceMonitor(this._service);
 
   final FwupdService _service;
   var _devices = <FwupdDevice>[];
