@@ -100,6 +100,10 @@ class MockFirmwareModel extends _i1.Mock implements _i7.FirmwareModel {
           returnValue: _FakeFirmwareState_0(this, Invocation.getter(#state)))
       as _i2.FirmwareState);
   @override
+  set state(_i2.FirmwareState? value) =>
+      super.noSuchMethod(Invocation.setter(#state, value),
+          returnValueForMissingStub: null);
+  @override
   bool get isDisposed =>
       (super.noSuchMethod(Invocation.getter(#isDisposed), returnValue: false)
           as bool);

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:fwupd/fwupd.dart';
+import 'package:meta/meta.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
@@ -22,13 +23,14 @@ class FirmwareModel extends SafeChangeNotifier {
 
   FirmwareState get state => _state;
 
-  void _setState(FirmwareState state) {
-    if (_state == state) return;
-    _state = state;
+  @protected
+  set state(FirmwareState value) {
+    if (_state == value) return;
+    _state = value;
     notifyListeners();
   }
 
-  Future<void> _updateState() async => _setState(await _fetchState());
+  Future<void> _updateState() async => state = await _fetchState();
 
   Future<void> init() {
     return Future.wait([
@@ -51,11 +53,11 @@ class FirmwareModel extends SafeChangeNotifier {
       // TODO: FwupdException
     } on Exception catch (error, stackTrace) {
       log.error('installation failed $error');
-      _setState(FirmwareState.error(
+      state = FirmwareState.error(
         error: error,
         stackTrace: stackTrace,
         previous: state,
-      ));
+      );
     }
   }
 
