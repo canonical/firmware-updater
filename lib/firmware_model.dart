@@ -77,8 +77,14 @@ class FirmwareModel extends SafeChangeNotifier {
   Future<Map<String, List<FwupdRelease>>> _fetchReleases(
       List<FwupdDevice> devices) async {
     Future<List<FwupdRelease>> fetchReleases(FwupdDevice device) {
-      return _service.getReleases(device.id).catchError((_) => <FwupdRelease>[],
-          test: (e) => e is FwupdNothingToDoException);
+      return _service.getReleases(device.id).catchError(
+        (e) {
+          log.debug('could not fetch releases for device ${device.id}: $e');
+          return <FwupdRelease>[];
+        },
+        test: (e) =>
+            e is FwupdNothingToDoException || e is FwupdNotSupportedException,
+      );
     }
 
     final all = <String, List<FwupdRelease>>{};
