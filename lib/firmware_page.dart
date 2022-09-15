@@ -38,7 +38,6 @@ class _FirmwarePageState extends State<FirmwarePage> {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<FirmwareModel>();
-    final fwupd = context.watch<FwupdNotifier>();
     return model.state.map(
       data: (state) => YaruMasterDetailPage(
         pageItems: state.devices
