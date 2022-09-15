@@ -19,7 +19,7 @@ class FirmwareModel extends SafeChangeNotifier {
 
   final FwupdService _service;
   final FwupdNotifier _monitor;
-  var _state = FirmwareState.empty;
+  var _state = const FirmwareState.loading();
 
   FirmwareState get state => _state;
 
