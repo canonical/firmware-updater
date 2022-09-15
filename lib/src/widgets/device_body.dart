@@ -60,22 +60,24 @@ class DeviceBody extends StatelessWidget {
           size: 64,
         ),
         const SizedBox(width: 16),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              vendor,
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            Text(
-              name,
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            Text(
-              description,
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-          ],
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                vendor,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              Text(
+                name,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              Text(
+                description,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -89,15 +91,17 @@ class DeviceBody extends StatelessWidget {
       child: Column(
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              DeviceBody._buildIconRow(
-                context,
-                device.vendor ?? '',
-                device.name,
-                device.summary ?? '',
-                DeviceIcon.fromName(device.icon.firstOrNull),
+              Flexible(
+                child: DeviceBody._buildIconRow(
+                  context,
+                  device.vendor ?? '',
+                  device.name,
+                  device.summary ?? '',
+                  DeviceIcon.fromName(device.icon.firstOrNull),
+                ),
               ),
-              if (canVerify || releases.isNotEmpty) const Spacer(),
               if (canVerify || releases.isNotEmpty)
                 ButtonBar(
                   children: [
