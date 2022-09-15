@@ -63,8 +63,9 @@ void main() {
     await tester
         .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));
 
-    expect(find.text('Device 1'), findsOneWidget);
-    expect(find.text('Summary 1'), findsOneWidget);
+    // First device appears twice in master detail layout
+    expect(find.text('Device 1'), findsNWidgets(2));
+    expect(find.text('Summary 1'), findsNWidgets(2));
 
     expect(find.text('Device 2'), findsOneWidget);
     expect(find.text('Summary 2'), findsOneWidget);
