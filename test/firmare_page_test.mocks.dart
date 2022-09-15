@@ -24,8 +24,13 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: subtype_of_sealed_class
 
 class _FakeFirmwareState_0 extends _i1.SmartFake implements _i2.FirmwareState {
-  _FakeFirmwareState_0(Object parent, Invocation parentInvocation)
-      : super(parent, parentInvocation);
+  _FakeFirmwareState_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
 }
 
 /// A class which mocks [FwupdNotifier].
@@ -37,54 +42,86 @@ class MockFwupdNotifier extends _i1.Mock implements _i3.FwupdNotifier {
   }
 
   @override
-  _i4.FwupdStatus get status => (super.noSuchMethod(Invocation.getter(#status),
-      returnValue: _i4.FwupdStatus.unknown) as _i4.FwupdStatus);
+  _i4.FwupdStatus get status => (super.noSuchMethod(
+        Invocation.getter(#status),
+        returnValue: _i4.FwupdStatus.unknown,
+      ) as _i4.FwupdStatus);
   @override
-  int get percentage =>
-      (super.noSuchMethod(Invocation.getter(#percentage), returnValue: 0)
-          as int);
+  int get percentage => (super.noSuchMethod(
+        Invocation.getter(#percentage),
+        returnValue: 0,
+      ) as int);
   @override
-  String get version =>
-      (super.noSuchMethod(Invocation.getter(#version), returnValue: '')
-          as String);
+  String get version => (super.noSuchMethod(
+        Invocation.getter(#version),
+        returnValue: '',
+      ) as String);
   @override
-  List<_i4.FwupdDevice> get devices =>
-      (super.noSuchMethod(Invocation.getter(#devices),
-          returnValue: <_i4.FwupdDevice>[]) as List<_i4.FwupdDevice>);
+  List<_i4.FwupdDevice> get devices => (super.noSuchMethod(
+        Invocation.getter(#devices),
+        returnValue: <_i4.FwupdDevice>[],
+      ) as List<_i4.FwupdDevice>);
   @override
-  bool get isDisposed =>
-      (super.noSuchMethod(Invocation.getter(#isDisposed), returnValue: false)
-          as bool);
+  bool get isDisposed => (super.noSuchMethod(
+        Invocation.getter(#isDisposed),
+        returnValue: false,
+      ) as bool);
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(Invocation.getter(#hasListeners), returnValue: false)
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+        Invocation.getter(#hasListeners),
+        returnValue: false,
+      ) as bool);
   @override
-  _i5.Future<void> init() => (super.noSuchMethod(Invocation.method(#init, []),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+  _i5.Future<void> init() => (super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
   @override
   _i5.Future<void> refresh() => (super.noSuchMethod(
-      Invocation.method(#refresh, []),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+        Invocation.method(
+          #refresh,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
   @override
   _i5.Future<void> dispose() => (super.noSuchMethod(
-      Invocation.method(#dispose, []),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
   @override
-  void notifyListeners() =>
-      super.noSuchMethod(Invocation.method(#notifyListeners, []),
-          returnValueForMissingStub: null);
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
   @override
-  void addListener(_i6.VoidCallback? listener) =>
-      super.noSuchMethod(Invocation.method(#addListener, [listener]),
-          returnValueForMissingStub: null);
+  void addListener(_i6.VoidCallback? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
   @override
-  void removeListener(_i6.VoidCallback? listener) =>
-      super.noSuchMethod(Invocation.method(#removeListener, [listener]),
-          returnValueForMissingStub: null);
+  void removeListener(_i6.VoidCallback? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
 }
 
 /// A class which mocks [FirmwareModel].
@@ -96,55 +133,104 @@ class MockFirmwareModel extends _i1.Mock implements _i7.FirmwareModel {
   }
 
   @override
-  _i2.FirmwareState get state => (super.noSuchMethod(Invocation.getter(#state),
-          returnValue: _FakeFirmwareState_0(this, Invocation.getter(#state)))
-      as _i2.FirmwareState);
+  _i2.FirmwareState get state => (super.noSuchMethod(
+        Invocation.getter(#state),
+        returnValue: _FakeFirmwareState_0(
+          this,
+          Invocation.getter(#state),
+        ),
+      ) as _i2.FirmwareState);
   @override
-  set state(_i2.FirmwareState? value) =>
-      super.noSuchMethod(Invocation.setter(#state, value),
-          returnValueForMissingStub: null);
+  set state(_i2.FirmwareState? value) => super.noSuchMethod(
+        Invocation.setter(
+          #state,
+          value,
+        ),
+        returnValueForMissingStub: null,
+      );
   @override
-  bool get isDisposed =>
-      (super.noSuchMethod(Invocation.getter(#isDisposed), returnValue: false)
-          as bool);
+  bool get isDisposed => (super.noSuchMethod(
+        Invocation.getter(#isDisposed),
+        returnValue: false,
+      ) as bool);
   @override
-  bool get hasListeners =>
-      (super.noSuchMethod(Invocation.getter(#hasListeners), returnValue: false)
-          as bool);
+  bool get hasListeners => (super.noSuchMethod(
+        Invocation.getter(#hasListeners),
+        returnValue: false,
+      ) as bool);
   @override
-  _i5.Future<void> init() => (super.noSuchMethod(Invocation.method(#init, []),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+  _i5.Future<void> init() => (super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
   @override
   _i5.Future<void> refresh() => (super.noSuchMethod(
-      Invocation.method(#refresh, []),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+        Invocation.method(
+          #refresh,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
   @override
-  void dispose() => super.noSuchMethod(Invocation.method(#dispose, []),
-      returnValueForMissingStub: null);
+  void dispose() => super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
   @override
   _i5.Future<void> install(
-          _i4.FwupdDevice? device, _i4.FwupdRelease? release) =>
-      (super.noSuchMethod(Invocation.method(#install, [device, release]),
-              returnValue: _i5.Future<void>.value(),
-              returnValueForMissingStub: _i5.Future<void>.value())
-          as _i5.Future<void>);
+    _i4.FwupdDevice? device,
+    _i4.FwupdRelease? release,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #install,
+          [
+            device,
+            release,
+          ],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
   @override
   _i5.Future<void> verify(_i4.FwupdDevice? device) => (super.noSuchMethod(
-      Invocation.method(#verify, [device]),
-      returnValue: _i5.Future<void>.value(),
-      returnValueForMissingStub: _i5.Future<void>.value()) as _i5.Future<void>);
+        Invocation.method(
+          #verify,
+          [device],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
   @override
-  void notifyListeners() =>
-      super.noSuchMethod(Invocation.method(#notifyListeners, []),
-          returnValueForMissingStub: null);
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
   @override
-  void addListener(_i6.VoidCallback? listener) =>
-      super.noSuchMethod(Invocation.method(#addListener, [listener]),
-          returnValueForMissingStub: null);
+  void addListener(_i6.VoidCallback? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
   @override
-  void removeListener(_i6.VoidCallback? listener) =>
-      super.noSuchMethod(Invocation.method(#removeListener, [listener]),
-          returnValueForMissingStub: null);
+  void removeListener(_i6.VoidCallback? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
 }
