@@ -120,9 +120,9 @@ extension IntegrationClient on FwupdClient {
     await expectLater(
       propertiesChanged
           .where((p) => p.contains('Status'))
-          .map((_) => status.isBusy)
+          .map((_) => status)
           .timeout(timeout),
-      emits(true),
+      emitsThrough(FwupdStatus.deviceWrite),
     );
 
     if (percentage < 100) {
@@ -147,7 +147,7 @@ extension IntegrationClient on FwupdClient {
 
     final updateState = await findDevice((d) =>
             d.deviceId == device.deviceId && d.version == release.version)
-        .then((d) => d!.updateState);
+        .then((d) => d?.updateState);
     if (updateState != FwupdUpdateState.success) {
       await expectLater(
         deviceChanged
