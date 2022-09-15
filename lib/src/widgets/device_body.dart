@@ -6,7 +6,6 @@ import 'package:fwupd/fwupd.dart';
 
 import 'device_icon.dart';
 import 'release_dialog.dart';
-import 'small_chip.dart';
 
 class DeviceBody extends StatelessWidget {
   const DeviceBody({
