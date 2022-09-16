@@ -59,7 +59,7 @@ class _FirmwarePageState extends State<FirmwarePage> {
             .toList(),
         leftPaneWidth: 400,
       ),
-      loading: (state) => const Center(child: CircularProgressIndicator()),
+      loading: (state) => const Center(child: YaruCircularProgressIndicator()),
       error: (state) => ErrorWidget(state.error),
     );
   }

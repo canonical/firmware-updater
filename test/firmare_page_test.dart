@@ -8,6 +8,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
+import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'firmare_page_test.mocks.dart';
 import 'test_utils.dart';
@@ -50,7 +51,7 @@ void main() {
     await tester
         .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));
 
-    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    expect(find.byType(YaruCircularProgressIndicator), findsOneWidget);
   });
 
   testWidgets('data', (tester) async {
