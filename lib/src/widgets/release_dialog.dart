@@ -81,7 +81,7 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
         ),
         OutlinedButton(
           onPressed: Navigator.of(context).pop,
-          child: const Text('Cancel'),
+          child: Text(l10n.cancel),
         )
       ],
     );

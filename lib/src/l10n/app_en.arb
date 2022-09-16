@@ -1,10 +1,12 @@
 {
   "appTitle": "Firmware Updater",
   "close": "Close",
+  "cancel": "Cancel",
   "current": "Current",
   "downgrade": "Downgrade",
   "flags": "Flags",
   "guid": "GUIDs",
+  "ok": "OK",
   "reinstall": "Reinstall",
   "showReleases": "Show Releases",
   "showUpdates": "Show Updates",
