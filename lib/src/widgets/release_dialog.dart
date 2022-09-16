@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 
 import '../../fwupd_x.dart';
+import 'confirmation_dialog.dart';
 import 'release_card.dart';
 
 Future<void> showReleaseDialog(
@@ -43,6 +44,11 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final action = _selected?.isDowngrade == true
+        ? l10n.downgrade
+        : _selected?.isUpgrade == false
+            ? l10n.reinstall
+            : l10n.upgrade;
     return AlertDialog(
       title: Text('${widget.device.name} ${widget.device.version}'),
       titlePadding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -69,15 +75,19 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
         ElevatedButton(
           onPressed: _selected != null
               ? () {
-                  widget.onInstall(_selected!);
-                  Navigator.of(context).pop();
+                  showConfirmationDialog(
+                    context,
+                    title: 'foo',
+                    text: '$action ${_selected?.name}?',
+                    onConfirm: () {
+                      widget.onInstall(_selected!);
+                      Navigator.of(context).pop();
+                    },
+                    onCancel: () {},
+                  );
                 }
               : null,
-          child: Text(_selected?.isDowngrade == true
-              ? l10n.downgrade
-              : _selected?.isUpgrade == false
-                  ? l10n.reinstall
-                  : l10n.upgrade),
+          child: Text(action),
         ),
         OutlinedButton(
           onPressed: Navigator.of(context).pop,
