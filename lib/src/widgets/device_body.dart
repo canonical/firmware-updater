@@ -54,6 +54,7 @@ class DeviceBody extends StatelessWidget {
     IconData icon,
   ) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Icon(
           icon,
@@ -89,21 +90,22 @@ class DeviceBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            runSpacing: 16.0,
             children: [
-              Flexible(
-                child: DeviceBody._buildIconRow(
-                  context,
-                  device.vendor ?? '',
-                  device.name,
-                  device.summary ?? '',
-                  DeviceIcon.fromName(device.icon.firstOrNull),
-                ),
+              DeviceBody._buildIconRow(
+                context,
+                device.vendor ?? '',
+                device.name,
+                device.summary ?? '',
+                DeviceIcon.fromName(device.icon.firstOrNull),
               ),
               if (canVerify || releases.isNotEmpty)
                 ButtonBar(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     if (canVerify)
                       OutlinedButton(
@@ -137,9 +139,9 @@ class DeviceBody extends StatelessWidget {
           const SizedBox(height: 32),
           Table(
             columnWidths: const {
-              0: IntrinsicColumnWidth(),
+              0: FlexColumnWidth(),
               1: FixedColumnWidth(16),
-              2: IntrinsicColumnWidth(),
+              2: FlexColumnWidth(2.0),
             },
             children: [
               if (device.version != null)
