@@ -3,7 +3,8 @@
   "close": "Close",
   "current": "Current",
   "downgrade": "Downgrade",
-  "guid": "GUID",
+  "flags": "Flags",
+  "guid": "GUIDs",
   "reinstall": "Reinstall",
   "showReleases": "Show Releases",
   "showUpdates": "Show Updates",
@@ -11,5 +12,6 @@
   "upgrade": "Upgrade",
   "vendor": "Vendor",
   "verifyFirmware": "Verify Firmware",
-  "version": "Version"
+  "currentVersion": "Current Version",
+  "minVersion": "Minimum Version"
 }
