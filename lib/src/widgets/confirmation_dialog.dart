@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru_icons/yaru_icons.dart';
 
 Future<void> showConfirmationDialog(
   BuildContext context, {
@@ -13,8 +13,8 @@ Future<void> showConfirmationDialog(
   final l10n = AppLocalizations.of(context);
   final confirmed = await showDialog<bool>(
     context: context,
-    builder: (context) => YaruAlertDialog(
-      title: title,
+    builder: (context) => AlertDialog(
+      contentPadding: const EdgeInsets.all(16),
       actions: [
         OutlinedButton(
           onPressed: () => Navigator.of(context).pop(false),
@@ -25,8 +25,13 @@ Future<void> showConfirmationDialog(
           child: Text(okText ?? l10n.ok),
         ),
       ],
-      child: YaruPage(
+      content: Row(
         children: [
+          const Icon(
+            YaruIcons.question,
+            size: 64.0,
+          ),
+          const SizedBox(width: 16),
           Text(text),
         ],
       ),
