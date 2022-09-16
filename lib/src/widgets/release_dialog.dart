@@ -44,11 +44,31 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final action = _selected?.isDowngrade == true
-        ? l10n.downgrade
-        : _selected?.isUpgrade == false
-            ? l10n.reinstall
-            : l10n.upgrade;
+    final String action;
+    final String dialogText;
+
+    if (_selected?.isDowngrade == true) {
+      action = l10n.downgrade;
+      dialogText = l10n.downgradeConfirm(
+        widget.device.name,
+        widget.device.version,
+        _selected?.version,
+      );
+    } else if (_selected?.isUpgrade == false) {
+      action = l10n.reinstall;
+      dialogText = l10n.reinstallConfirm(
+        widget.device.name,
+        widget.device.version,
+      );
+    } else {
+      action = l10n.upgrade;
+      dialogText = l10n.upgradeConfirm(
+        widget.device.name,
+        widget.device.version,
+        _selected?.version,
+      );
+    }
+
     return AlertDialog(
       title: Text('${widget.device.name} ${widget.device.version}'),
       titlePadding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -77,8 +97,8 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
               ? () {
                   showConfirmationDialog(
                     context,
-                    title: 'foo',
-                    text: '$action ${_selected?.name}?',
+                    title: '$action ${_selected?.name}?',
+                    text: dialogText,
                     onConfirm: () {
                       widget.onInstall(_selected!);
                       Navigator.of(context).pop();

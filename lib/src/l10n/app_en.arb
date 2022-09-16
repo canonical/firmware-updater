@@ -4,14 +4,53 @@
   "cancel": "Cancel",
   "current": "Current",
   "downgrade": "Downgrade",
+  "downgradeConfirm": "Downgrade {name} from version {current} to {selected}?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String?"
+      },
+      "selected": {
+        "type": "String?"
+      }
+    }
+  },
   "flags": "Flags",
   "guid": "GUIDs",
   "ok": "OK",
   "reinstall": "Reinstall",
+  "reinstallConfirm": "Reinstall {name} version {current}?",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String?"
+      }
+    }
+  },
   "showReleases": "Show Releases",
   "showUpdates": "Show Updates",
   "updateAvailable": "Update available",
   "upgrade": "Upgrade",
+  "upgradeConfirm": "Upgrade {name} from version {current} to {selected}?",
+  "@upgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String?"
+      },
+      "selected": {
+        "type": "String?"
+      }
+    }
+  },
   "vendor": "Vendor",
   "verifyFirmware": "Verify Firmware",
   "currentVersion": "Current Version",
