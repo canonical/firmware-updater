@@ -4,7 +4,6 @@ import 'package:yaru_icons/yaru_icons.dart';
 
 Future<void> showConfirmationDialog(
   BuildContext context, {
-  required String title,
   required String text,
   String? okText,
   VoidCallback? onConfirm,

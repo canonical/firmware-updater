@@ -97,7 +97,6 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
               ? () {
                   showConfirmationDialog(
                     context,
-                    title: '$action ${_selected?.name}?',
                     text: dialogText,
                     onConfirm: () {
                       widget.onInstall(_selected!);
