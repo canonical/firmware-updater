@@ -16,8 +16,8 @@ Future<void> main() async {
   runApp(YaruTheme(
     builder: (context, yaru, child) => MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: yaru.variant?.theme ?? yaruLight,
-      darkTheme: yaru.variant?.darkTheme ?? yaruDark,
+      theme: yaru.theme,
+      darkTheme: yaru.darkTheme,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
