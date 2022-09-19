@@ -4,10 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
+import 'firmware_body_page.dart';
 import 'firmware_model.dart';
 import 'fwupd_notifier.dart';
 import 'fwupd_service.dart';
-import 'fwupd_x.dart';
 import 'widgets.dart';
 
 class FirmwarePage extends StatefulWidget {
@@ -46,13 +46,9 @@ class _FirmwarePageState extends State<FirmwarePage> {
                     device: device,
                     hasUpgrade: state.hasUpgrade(device),
                   ),
-                  builder: (context) => DeviceBody(
+                  builder: (context) => FirmwareBodyPage.create(
+                    context,
                     device: device,
-                    canVerify: device.canVerify,
-                    onVerify: () => model.verify(device),
-                    releases: state.getReleases(device) ?? [],
-                    onInstall: (release) => model.install(device, release),
-                    hasUpgrade: state.hasUpgrade(device),
                   ),
                   iconData: DeviceIcon.fromName(device.icon.firstOrNull),
                 ))
