@@ -1,9 +1,9 @@
 import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 
+import '../../fwupd_device_flag_l10n.dart';
 import 'device_icon.dart';
 import 'release_dialog.dart';
 
@@ -180,14 +180,14 @@ class DeviceBody extends StatelessWidget {
                   DeviceBody._buildHeader(context, l10n.flags),
                   const SizedBox.shrink(),
                   DeviceBody._buildPadding(
-                      Text(describeEnum(device.flags.first)))
+                      Text(device.flags.first.localize(context)))
                 ]),
               if (device.flags.length > 1)
                 for (final flag in device.flags.skip(1))
                   TableRow(children: [
                     DeviceBody._buildHeader(context, ''),
                     const SizedBox.shrink(),
-                    DeviceBody._buildPadding(Text(describeEnum(flag)))
+                    DeviceBody._buildPadding(Text(flag.localize(context)))
                   ]),
             ],
           ),
