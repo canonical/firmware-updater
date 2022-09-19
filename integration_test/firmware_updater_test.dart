@@ -40,6 +40,9 @@ void main() {
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapButton(tester.lang.upgrade);
+      await tester.pumpAndSettle();
+
+      await tester.pumpAndTapButton(tester.lang.ok);
       await client.testInstallation(webcam, upgrade);
     });
 
@@ -69,6 +72,9 @@ void main() {
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapButton(tester.lang.reinstall);
+      await tester.pumpAndSettle();
+
+      await tester.pumpAndTapButton(tester.lang.ok);
       await client.testInstallation(webcam, reinstall);
     });
 
@@ -95,6 +101,9 @@ void main() {
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapButton(tester.lang.downgrade);
+      await tester.pumpAndSettle();
+
+      await tester.pumpAndTapButton(tester.lang.ok);
       await client.testInstallation(webcam, downgrade);
     });
   });

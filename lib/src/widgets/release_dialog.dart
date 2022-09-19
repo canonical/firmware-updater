@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 
 import '../../fwupd_x.dart';
+import 'confirmation_dialog.dart';
 import 'release_card.dart';
 
 Future<void> showReleaseDialog(
@@ -43,6 +44,31 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final String action;
+    final String dialogText;
+
+    if (_selected?.isDowngrade == true) {
+      action = l10n.downgrade;
+      dialogText = l10n.downgradeConfirm(
+        widget.device.name,
+        widget.device.version,
+        _selected?.version,
+      );
+    } else if (_selected?.isUpgrade == false) {
+      action = l10n.reinstall;
+      dialogText = l10n.reinstallConfirm(
+        widget.device.name,
+        widget.device.version,
+      );
+    } else {
+      action = l10n.upgrade;
+      dialogText = l10n.upgradeConfirm(
+        widget.device.name,
+        widget.device.version,
+        _selected?.version,
+      );
+    }
+
     return AlertDialog(
       title: Text('${widget.device.name} ${widget.device.version}'),
       titlePadding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
@@ -69,19 +95,22 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
         ElevatedButton(
           onPressed: _selected != null
               ? () {
-                  widget.onInstall(_selected!);
-                  Navigator.of(context).pop();
+                  showConfirmationDialog(
+                    context,
+                    text: dialogText,
+                    onConfirm: () {
+                      widget.onInstall(_selected!);
+                      Navigator.of(context).pop();
+                    },
+                    onCancel: () {},
+                  );
                 }
               : null,
-          child: Text(_selected?.isDowngrade == true
-              ? l10n.downgrade
-              : _selected?.isUpgrade == false
-                  ? l10n.reinstall
-                  : l10n.upgrade),
+          child: Text(action),
         ),
         OutlinedButton(
           onPressed: Navigator.of(context).pop,
-          child: const Text('Cancel'),
+          child: Text(l10n.cancel),
         )
       ],
     );
