@@ -6,7 +6,7 @@ import 'device_model.dart';
 import 'firmware_model.dart';
 import 'fwupd_x.dart';
 import 'src/widgets/device_body.dart';
-import 'src/widgets/release_dialog.dart';
+import 'src/widgets/release_body.dart';
 
 class FirmwareBodyPage extends StatelessWidget {
   const FirmwareBodyPage({

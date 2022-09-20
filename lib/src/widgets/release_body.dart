@@ -108,51 +108,5 @@ class ReleaseBody extends StatelessWidget {
         )
       ],
     );
-
-    return AlertDialog(
-      title: Text('${device.name} ${device.version}'),
-      titlePadding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-      contentPadding: const EdgeInsets.all(4),
-      content: SingleChildScrollView(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: releases.map((release) {
-            return Flexible(
-              child: ReleaseCard(
-                release: release,
-                selected: release == selected,
-                onSelected: () => model.selectedRelease = release,
-              ),
-            );
-          }).toList(),
-        ),
-      ),
-      buttonPadding: const EdgeInsets.only(left: 16),
-      actionsPadding: const EdgeInsets.fromLTRB(0, 0, 12, 12),
-      actions: [
-        ElevatedButton(
-          onPressed: selected != null
-              ? () {
-                  showConfirmationDialog(
-                    context,
-                    text: dialogText,
-                    onConfirm: () {
-                      onInstall(selected);
-                      Navigator.of(context).pop();
-                    },
-                    onCancel: () {},
-                  );
-                }
-              : null,
-          child: Text(action),
-        ),
-        OutlinedButton(
-          onPressed: Navigator.of(context).pop,
-          child: Text(l10n.cancel),
-        )
-      ],
-    );
   }
 }
