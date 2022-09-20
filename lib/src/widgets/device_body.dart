@@ -15,7 +15,6 @@ class DeviceBody extends StatelessWidget {
     required this.canVerify,
     required this.onVerify,
     required this.releases,
-    required this.onInstall,
     required this.hasUpgrade,
   });
 
@@ -23,7 +22,6 @@ class DeviceBody extends StatelessWidget {
   final bool canVerify;
   final VoidCallback onVerify;
   final List<FwupdRelease> releases;
-  final ValueChanged<FwupdRelease> onInstall;
   final bool hasUpgrade;
 
   static Widget _buildPadding(Widget child) {

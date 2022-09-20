@@ -35,7 +35,6 @@ class FirmwareBodyPage extends StatelessWidget {
             canVerify: deviceModel.device.canVerify,
             onVerify: deviceModel.verify,
             releases: deviceModel.releases ?? [],
-            onInstall: deviceModel.install,
             hasUpgrade: deviceModel.hasUpgrade(),
           ),
         ),
