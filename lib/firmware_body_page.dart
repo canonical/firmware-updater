@@ -8,7 +8,7 @@ import 'fwupd_x.dart';
 import 'src/widgets/device_body.dart';
 import 'src/widgets/release_dialog.dart';
 
-class FirmwareBodyPage extends StatefulWidget {
+class FirmwareBodyPage extends StatelessWidget {
   const FirmwareBodyPage({
     super.key,
   });
@@ -24,11 +24,6 @@ class FirmwareBodyPage extends StatefulWidget {
     );
   }
 
-  @override
-  State<FirmwareBodyPage> createState() => _FirmwareBodyPageState();
-}
-
-class _FirmwareBodyPageState extends State<FirmwareBodyPage> {
   @override
   Widget build(BuildContext context) {
     final deviceModel = context.watch<DeviceModel>();
