@@ -37,8 +37,6 @@
   "fwupdDeviceFlagIgnoreValidation": "Ignore validation safety checks",
   "fwupdDeviceFlagTrusted": "Trusted",
   "fwupdDeviceFlagNeedsActivation": "Device update needs activation",
-  "fwupdDeviceFlagEnsureSemver": "ensure-semver",
-  "fwupdDeviceFlagHistorical": "historical",
   "fwupdDeviceFlagWillDisappear": "Device will not re-appear after update completes",
   "fwupdDeviceFlagCanVerify": "Cryptographic hash verification is available",
   "fwupdDeviceFlagDualImage": "Device stages updates",
