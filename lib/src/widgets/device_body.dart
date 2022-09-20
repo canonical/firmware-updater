@@ -2,10 +2,11 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:provider/provider.dart';
 
+import '../../device_model.dart';
 import '../../fwupd_l10n.dart';
 import 'device_icon.dart';
-import 'release_dialog.dart';
 
 class DeviceBody extends StatelessWidget {
   const DeviceBody({
@@ -118,21 +119,15 @@ class DeviceBody extends StatelessWidget {
                     if (releases.isNotEmpty)
                       hasUpgrade
                           ? ElevatedButton(
-                              onPressed: () => showReleaseDialog(
-                                context,
-                                device: device,
-                                releases: releases,
-                                onInstall: onInstall,
-                              ),
+                              onPressed: () => context
+                                  .read<DeviceModel>()
+                                  .selectedRelease = releases.first,
                               child: Text(l10n.showUpdates),
                             )
                           : OutlinedButton(
-                              onPressed: () => showReleaseDialog(
-                                context,
-                                device: device,
-                                releases: releases,
-                                onInstall: onInstall,
-                              ),
+                              onPressed: () => context
+                                  .read<DeviceModel>()
+                                  .selectedRelease = releases.first,
                               child: Text(l10n.showReleases),
                             ),
                   ],
