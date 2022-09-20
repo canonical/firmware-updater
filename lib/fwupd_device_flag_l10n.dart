@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
@@ -99,8 +98,6 @@ extension FwupdDeviceFlagL10n on FwupdDeviceFlag {
         return l10n.fwupdDeviceFlagUnreachable;
       case FwupdDeviceFlag.affectsFde:
         return l10n.fwupdDeviceFlagAffectsFde;
-      default:
-        return 'missing: ${describeEnum(this)}';
     }
   }
 }
