@@ -26,7 +26,7 @@ void main() {
   });
 
   test('install release', () async {
-    final device = testDevice(id: '');
+    final device = testDevice(id: 'a');
     final release = FwupdRelease(name: '');
 
     final service = mockService();
@@ -38,7 +38,7 @@ void main() {
   });
 
   test('verify', () async {
-    final device = testDevice(id: '');
+    final device = testDevice(id: 'a');
 
     final service = mockService();
 
