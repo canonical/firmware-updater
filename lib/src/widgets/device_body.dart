@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 
-import '../../fwupd_device_flag_l10n.dart';
+import '../../fwupd_l10n.dart';
 import 'device_icon.dart';
 import 'release_dialog.dart';
 
