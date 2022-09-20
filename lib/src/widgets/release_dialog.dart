@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:provider/provider.dart';
 
+import '../../device_model.dart';
 import '../../fwupd_x.dart';
 import 'confirmation_dialog.dart';
 import 'release_card.dart';
@@ -22,7 +24,7 @@ Future<void> showReleaseDialog(
   );
 }
 
-class ReleaseDialog extends StatefulWidget {
+class ReleaseDialog extends StatelessWidget {
   const ReleaseDialog({
     super.key,
     required this.device,
@@ -35,42 +37,36 @@ class ReleaseDialog extends StatefulWidget {
   final ValueChanged<FwupdRelease> onInstall;
 
   @override
-  State<ReleaseDialog> createState() => _ReleaseDialogState();
-}
-
-class _ReleaseDialogState extends State<ReleaseDialog> {
-  FwupdRelease? _selected;
-
-  @override
   Widget build(BuildContext context) {
+    final selected = context.watch<DeviceModel>().selectedRelease;
     final l10n = AppLocalizations.of(context);
     final String action;
     final String dialogText;
 
-    if (_selected?.isDowngrade == true) {
+    if (selected?.isDowngrade == true) {
       action = l10n.downgrade;
       dialogText = l10n.downgradeConfirm(
-        widget.device.name,
-        widget.device.version,
-        _selected?.version,
+        device.name,
+        device.version,
+        selected?.version,
       );
-    } else if (_selected?.isUpgrade == false) {
+    } else if (selected?.isUpgrade == false) {
       action = l10n.reinstall;
       dialogText = l10n.reinstallConfirm(
-        widget.device.name,
-        widget.device.version,
+        device.name,
+        device.version,
       );
     } else {
       action = l10n.upgrade;
       dialogText = l10n.upgradeConfirm(
-        widget.device.name,
-        widget.device.version,
-        _selected?.version,
+        device.name,
+        device.version,
+        selected?.version,
       );
     }
 
     return AlertDialog(
-      title: Text('${widget.device.name} ${widget.device.version}'),
+      title: Text('${device.name} ${device.version}'),
       titlePadding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       contentPadding: const EdgeInsets.all(4),
       content: SingleChildScrollView(
@@ -78,12 +74,13 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: widget.releases.map((release) {
+          children: releases.map((release) {
             return Flexible(
               child: ReleaseCard(
                 release: release,
-                selected: release == _selected,
-                onSelected: () => setState(() => _selected = release),
+                selected: release == selected,
+                onSelected: () =>
+                    context.read<DeviceModel>().selectedRelease = release,
               ),
             );
           }).toList(),
@@ -93,13 +90,13 @@ class _ReleaseDialogState extends State<ReleaseDialog> {
       actionsPadding: const EdgeInsets.fromLTRB(0, 0, 12, 12),
       actions: [
         ElevatedButton(
-          onPressed: _selected != null
+          onPressed: selected != null
               ? () {
                   showConfirmationDialog(
                     context,
                     text: dialogText,
                     onConfirm: () {
-                      widget.onInstall(_selected!);
+                      onInstall(selected);
                       Navigator.of(context).pop();
                     },
                     onCancel: () {},
