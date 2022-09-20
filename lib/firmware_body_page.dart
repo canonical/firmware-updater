@@ -40,7 +40,7 @@ class FirmwareBodyPage extends StatelessWidget {
         ),
         if (deviceModel.selectedRelease != null)
           MaterialPage(
-            child: ReleaseDialog(
+            child: ReleaseBody(
               device: deviceModel.device,
               releases: deviceModel.releases ?? [],
               onInstall: deviceModel.install,
