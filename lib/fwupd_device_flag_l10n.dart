@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 
 extension FwupdDeviceFlagL10n on FwupdDeviceFlag {
-  String localize(BuildContext context) {
+  String? localize(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     switch (this) {
       case FwupdDeviceFlag.internal:
@@ -32,7 +32,7 @@ extension FwupdDeviceFlagL10n on FwupdDeviceFlag {
       case FwupdDeviceFlag.notified:
         return l10n.fwupdDeviceFlagNotified;
       case FwupdDeviceFlag.useRuntimeVersion:
-        return l10n.fwupdDeviceFlagUseRuntimeVersion;
+        return null;
       case FwupdDeviceFlag.installParentFirst:
         return l10n.fwupdDeviceFlagInstallParentFirst;
       case FwupdDeviceFlag.isBootloader:
@@ -44,23 +44,23 @@ extension FwupdDeviceFlagL10n on FwupdDeviceFlag {
       case FwupdDeviceFlag.trusted:
         return l10n.fwupdDeviceFlagTrusted;
       case FwupdDeviceFlag.anotherWriteRequired:
-        return l10n.fwupdDeviceFlagAnotherWriteRequired;
+        return null;
       case FwupdDeviceFlag.noAutoInstanceIds:
-        return l10n.fwupdDeviceFlagNoAutoInstanceIds;
+        return null;
       case FwupdDeviceFlag.needsActivation:
         return l10n.fwupdDeviceFlagNeedsActivation;
       case FwupdDeviceFlag.ensureSemver:
-        return l10n.fwupdDeviceFlagEnsureSemver;
+        return null;
       case FwupdDeviceFlag.historical:
-        return l10n.fwupdDeviceFlagHistorical;
+        return null;
       case FwupdDeviceFlag.onlySupported:
-        return l10n.fwupdDeviceFlagOnlySupported;
+        return null;
       case FwupdDeviceFlag.willDisappear:
         return l10n.fwupdDeviceFlagWillDisappear;
       case FwupdDeviceFlag.canVerify:
         return l10n.fwupdDeviceFlagCanVerify;
       case FwupdDeviceFlag.canVerifyImage:
-        return l10n.fwupdDeviceFlagCanVerifyImage;
+        return null;
       case FwupdDeviceFlag.dualImage:
         return l10n.fwupdDeviceFlagDualImage;
       case FwupdDeviceFlag.selfRecovery:
@@ -72,21 +72,21 @@ extension FwupdDeviceFlagL10n on FwupdDeviceFlag {
       case FwupdDeviceFlag.installAllReleases:
         return l10n.fwupdDeviceFlagInstallAllReleases;
       case FwupdDeviceFlag.mdSetName:
-        return l10n.fwupdDeviceFlagMdSetName;
+        return null;
       case FwupdDeviceFlag.mdSetNameCategory:
-        return l10n.fwupdDeviceFlagMdSetNameCategory;
+        return null;
       case FwupdDeviceFlag.mdSetVerfmt:
-        return l10n.fwupdDeviceFlagMdSetVerfmt;
+        return null;
       case FwupdDeviceFlag.mdSetIcon:
-        return l10n.fwupdDeviceFlagMdSetIcon;
+        return null;
       case FwupdDeviceFlag.addCounterpartGuids:
-        return l10n.fwupdDeviceFlagAddCounterpartGuids;
+        return null;
       case FwupdDeviceFlag.noGuidMatching:
-        return l10n.fwupdDeviceFlagNoGuidMatching;
+        return null;
       case FwupdDeviceFlag.updatableHidden:
-        return l10n.fwupdDeviceFlagUpdatableHidden;
+        return l10n.fwupdDeviceFlagUpdatable;
       case FwupdDeviceFlag.skipsRestart:
-        return l10n.fwupdDeviceFlagSkipsRestart;
+        return null;
       case FwupdDeviceFlag.hasMultipleBranches:
         return l10n.fwupdDeviceFlagHasMultipleBranches;
       case FwupdDeviceFlag.backupBeforeInstall:
