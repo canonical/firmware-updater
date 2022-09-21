@@ -70,6 +70,7 @@ class ReleaseBody extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 8),
           Flexible(
             child: SingleChildScrollView(
               child: Column(
@@ -91,6 +92,7 @@ class ReleaseBody extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(height: 8),
           ButtonBar(
             children: [
               ElevatedButton(
