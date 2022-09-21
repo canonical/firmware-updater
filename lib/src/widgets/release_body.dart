@@ -51,45 +51,28 @@ class ReleaseBody extends StatelessWidget {
       );
     }
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('${device.name} ${device.version}'),
+        leading: IconButton(
+          onPressed: Navigator.of(context).pop,
+          icon: const Icon(YaruIcons.go_previous),
+        ),
+      ),
+      body: Column(
         children: [
-          Row(
-            children: [
-              IconButton(
-                onPressed: Navigator.of(context).pop,
-                icon: const Icon(YaruIcons.go_previous),
-              ),
-              Expanded(
-                child: Text(
-                  '${device.name} ${device.version}',
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
           Flexible(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisSize: MainAxisSize.min,
-                children: releases
-                    .map(
-                      (release) => Flexible(
-                        child: ReleaseCard(
-                          release: release,
-                          selected: release == selected,
-                          onSelected: () => context
-                              .read<DeviceModel>()
-                              .selectedRelease = release,
-                        ),
-                      ),
-                    )
-                    .toList(),
-              ),
+            child: ListView(
+              children: releases
+                  .map(
+                    (release) => ReleaseCard(
+                      release: release,
+                      selected: release == selected,
+                      onSelected: () =>
+                          context.read<DeviceModel>().selectedRelease = release,
+                    ),
+                  )
+                  .toList(),
             ),
           ),
           const SizedBox(height: 8),
