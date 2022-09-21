@@ -43,7 +43,7 @@ void main() {
       await tester.pumpAndTapButton(tester.lang.upgrade);
       await tester.pumpAndSettle();
 
-      await tester.pumpAndTapButton(tester.lang.ok);
+      await tester.pumpAndTapDialogButton(tester.lang.upgrade);
       await client.testInstallation(webcam, upgrade);
     });
 
@@ -75,7 +75,7 @@ void main() {
       await tester.pumpAndTapButton(tester.lang.reinstall);
       await tester.pumpAndSettle();
 
-      await tester.pumpAndTapButton(tester.lang.ok);
+      await tester.pumpAndTapDialogButton(tester.lang.reinstall);
       await client.testInstallation(webcam, reinstall);
     });
 
@@ -104,7 +104,7 @@ void main() {
       await tester.pumpAndTapButton(tester.lang.downgrade);
       await tester.pumpAndSettle();
 
-      await tester.pumpAndTapButton(tester.lang.ok);
+      await tester.pumpAndTapDialogButton(tester.lang.downgrade);
       await client.testInstallation(webcam, downgrade);
     });
   });
@@ -177,13 +177,25 @@ extension IntegrationTester on WidgetTester {
     return tap(header);
   }
 
-  Future<void> pumpAndTapButton(String text) async {
+  Future<void> pumpAndTapButton(String text) {
+    return _pumpAndTapButtonOfFinder(find.text(text));
+  }
+
+  Future<void> pumpAndTapDialogButton(String text) {
+    return _pumpAndTapButtonOfFinder(find.descendant(
+      of: find.byType(AlertDialog),
+      matching: find.text(text),
+    ));
+  }
+
+  Future<void> _pumpAndTapButtonOfFinder(Finder finder) async {
     final button = find.ancestor(
-      of: find.text(text),
+      of: finder,
       matching: find.byWidgetPredicate((widget) => widget is ButtonStyleButton),
     );
     if (button.evaluate().length > 1) {
-      debugPrint('WARNING: Multiple "$text" buttons. Assuming the first.');
+      debugPrint(
+          'WARNING: Found multiple buttons in $finder. Assuming the first.');
     }
     await pumpUntil(button.first);
     return tap(button.first);

@@ -3,6 +3,7 @@
   "close": "Close",
   "cancel": "Cancel",
   "current": "Current",
+  "deviceUnavailable": "The device will be unavailable during this action.",
   "downgrade": "Downgrade",
   "downgradeConfirm": "Downgrade {name} from version {current} to {selected}?",
   "@downgradeConfirm": {
