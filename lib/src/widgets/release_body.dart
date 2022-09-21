@@ -60,9 +60,12 @@ class ReleaseBody extends StatelessWidget {
               onPressed: Navigator.of(context).pop,
               icon: const Icon(YaruIcons.go_previous),
             ),
-            Text(
-              '${device.name} ${device.version}',
-              style: Theme.of(context).textTheme.headlineSmall,
+            Expanded(
+              child: Text(
+                '${device.name} ${device.version}',
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
             ),
           ],
         ),
