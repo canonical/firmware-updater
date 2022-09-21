@@ -60,6 +60,7 @@ class ReleasePage extends StatelessWidget {
         ),
       ),
       body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         children: releases
             .map(
               (release) => ReleaseCard(
