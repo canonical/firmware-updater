@@ -5,6 +5,7 @@ import 'package:yaru_icons/yaru_icons.dart';
 Future<void> showConfirmationDialog(
   BuildContext context, {
   required String text,
+  String? description,
   String? okText,
   VoidCallback? onConfirm,
   VoidCallback? onCancel,
@@ -13,7 +14,6 @@ Future<void> showConfirmationDialog(
   final confirmed = await showDialog<bool>(
     context: context,
     builder: (context) => AlertDialog(
-      contentPadding: const EdgeInsets.all(16),
       actions: [
         OutlinedButton(
           onPressed: () => Navigator.of(context).pop(false),
@@ -24,15 +24,33 @@ Future<void> showConfirmationDialog(
           child: Text(okText ?? l10n.ok),
         ),
       ],
-      content: Row(
-        children: [
-          const Icon(
-            YaruIcons.question,
-            size: 64.0,
-          ),
-          const SizedBox(width: 16),
-          Flexible(child: Text(text)),
-        ],
+      content: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 500),
+        child: Row(
+          children: [
+            const Icon(
+              YaruIcons.question,
+              size: 64.0,
+            ),
+            const SizedBox(width: 16),
+            Flexible(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    text,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  if (description != null) ...[
+                    const SizedBox(height: 8),
+                    Text(description),
+                  ],
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );

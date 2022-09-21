@@ -27,7 +27,10 @@ class ReleasePage extends StatelessWidget {
     final selected = model.selectedRelease;
     final l10n = AppLocalizations.of(context);
     final String action;
-    String dialogText;
+    final String dialogText;
+    final dialogDesc = device.flags.contains(FwupdDeviceFlag.usableDuringUpdate)
+        ? null
+        : l10n.deviceUnavailable;
 
     if (selected?.isDowngrade == true) {
       action = l10n.downgrade;
@@ -49,9 +52,6 @@ class ReleasePage extends StatelessWidget {
         device.version,
         selected?.version,
       );
-    }
-    if (!device.flags.contains(FwupdDeviceFlag.usableDuringUpdate)) {
-      dialogText += ' ${l10n.deviceUnavailable}';
     }
 
     return Scaffold(
@@ -82,6 +82,7 @@ class ReleasePage extends StatelessWidget {
                     showConfirmationDialog(
                       context,
                       text: dialogText,
+                      description: dialogDesc,
                       okText: action,
                       onConfirm: () {
                         onInstall(selected);
