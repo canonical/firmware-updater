@@ -27,7 +27,7 @@ class ReleasePage extends StatelessWidget {
     final selected = model.selectedRelease;
     final l10n = AppLocalizations.of(context);
     final String action;
-    final String dialogText;
+    String dialogText;
 
     if (selected?.isDowngrade == true) {
       action = l10n.downgrade;
@@ -49,6 +49,9 @@ class ReleasePage extends StatelessWidget {
         device.version,
         selected?.version,
       );
+    }
+    if (!device.flags.contains(FwupdDeviceFlag.usableDuringUpdate)) {
+      dialogText += ' ${l10n.deviceUnavailable}';
     }
 
     return Scaffold(
