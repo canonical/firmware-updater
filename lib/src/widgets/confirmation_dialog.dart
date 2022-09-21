@@ -31,7 +31,7 @@ Future<void> showConfirmationDialog(
             size: 64.0,
           ),
           const SizedBox(width: 16),
-          Text(text),
+          Flexible(child: Text(text)),
         ],
       ),
     ),
