@@ -88,6 +88,14 @@
   },
   "vendor": "Vendor",
   "verifyFirmware": "Verify Firmware",
+  "verifyFirmwareConfirm": "Verify firmware checksums of {name}?",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "currentVersion": "Current Version",
   "minVersion": "Minimum Version"
 }
