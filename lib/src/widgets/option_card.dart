@@ -27,19 +27,19 @@ class _OptionCardState extends State<OptionCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Theme.of(context).cardColor,
-      shape: RoundedRectangleBorder(
-          side: BorderSide(
-              color: widget.selected
-                  ? Theme.of(context).primaryColor.withOpacity(0.5)
-                  : Theme.of(context)
-                      .colorScheme
-                      .onSurface
-                      .withAlpha(hovered ? 60 : 20),
-              width: 2),
-          borderRadius: BorderRadius.circular(6)),
-      elevation: 0,
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(
+          color: widget.selected
+              ? Theme.of(context).primaryColor.withOpacity(0.5)
+              : Theme.of(context)
+                  .colorScheme
+                  .onSurface
+                  .withAlpha(hovered ? 60 : 20),
+          width: 2,
+        ),
+      ),
       child: InkWell(
         hoverColor: Theme.of(context).cardColor,
         borderRadius: BorderRadius.circular(6),
