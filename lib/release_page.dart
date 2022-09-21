@@ -4,13 +4,13 @@ import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 
-import '../../device_model.dart';
-import '../../fwupd_x.dart';
-import 'confirmation_dialog.dart';
-import 'release_card.dart';
+import 'device_model.dart';
+import 'fwupd_x.dart';
+import 'src/widgets/confirmation_dialog.dart';
+import 'src/widgets/release_card.dart';
 
-class ReleaseBody extends StatelessWidget {
-  const ReleaseBody({
+class ReleasePage extends StatelessWidget {
+  const ReleasePage({
     super.key,
     required this.device,
     required this.releases,
