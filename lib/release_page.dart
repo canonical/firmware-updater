@@ -79,6 +79,7 @@ class ReleasePage extends StatelessWidget {
                     showConfirmationDialog(
                       context,
                       text: dialogText,
+                      okText: action,
                       onConfirm: () {
                         onInstall(selected);
                         Navigator.of(context).pop();
