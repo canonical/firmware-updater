@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'device_model.dart';
 import 'fwupd_l10n.dart';
+import 'src/widgets/confirmation_dialog.dart';
 import 'src/widgets/device_icon.dart';
 
 class DevicePage extends StatelessWidget {
@@ -111,7 +112,15 @@ class DevicePage extends StatelessWidget {
                   children: [
                     if (canVerify)
                       OutlinedButton(
-                        onPressed: onVerify,
+                        onPressed: () => showConfirmationDialog(
+                          context,
+                          text: l10n.verifyFirmwareConfirm(device.name),
+                          description: device.flags
+                                  .contains(FwupdDeviceFlag.usableDuringUpdate)
+                              ? null
+                              : l10n.deviceUnavailable,
+                          onConfirm: onVerify,
+                        ),
                         child: Text(l10n.verifyFirmware),
                       ),
                     if (releases.isNotEmpty)
