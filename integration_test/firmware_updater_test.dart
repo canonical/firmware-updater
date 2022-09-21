@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:firmware_updater/device_page.dart';
 import 'package:firmware_updater/fwupd_x.dart';
 import 'package:firmware_updater/main.dart' as app;
 import 'package:firmware_updater/widgets.dart';
@@ -31,7 +32,7 @@ void main() {
       await tester.pumpAndTapDeviceHeader('Fake webcam');
       await tester.pumpAndSettle();
 
-      expect(find.deviceBody(upgrade.version), findsNothing);
+      expect(find.devicePage(upgrade.version), findsNothing);
 
       await tester.pumpAndTapButton(tester.lang.showUpdates);
       await tester.pumpAndSettle();
@@ -63,7 +64,7 @@ void main() {
       await tester.pumpAndTapDeviceHeader('Fake webcam');
       await tester.pumpAndSettle();
 
-      expect(find.deviceBody(reinstall.version), findsOneWidget);
+      expect(find.devicePage(reinstall.version), findsOneWidget);
 
       await tester.pumpAndTapButton(tester.lang.showReleases);
       await tester.pumpAndSettle();
@@ -92,7 +93,7 @@ void main() {
       await tester.pumpAndTapDeviceHeader('Fake webcam');
       await tester.pumpAndSettle();
 
-      expect(find.deviceBody(downgrade.version), findsNothing);
+      expect(find.devicePage(downgrade.version), findsNothing);
 
       await tester.pumpAndTapButton(tester.lang.showReleases);
       await tester.pumpAndSettle();
@@ -197,5 +198,5 @@ extension IntegrationTester on WidgetTester {
 
 extension IntegrationFinder on CommonFinders {
   Finder deviceHeader(String text) => find.widgetWithText(DeviceHeader, text);
-  Finder deviceBody(String text) => find.widgetWithText(DeviceBody, text);
+  Finder devicePage(String text) => find.widgetWithText(DevicePage, text);
 }

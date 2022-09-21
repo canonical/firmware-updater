@@ -4,18 +4,17 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
-import '../../device_model.dart';
-import '../../fwupd_l10n.dart';
-import 'device_icon.dart';
+import 'device_model.dart';
+import 'fwupd_l10n.dart';
+import 'src/widgets/device_icon.dart';
 
-class DeviceBody extends StatelessWidget {
-  const DeviceBody({
+class DevicePage extends StatelessWidget {
+  const DevicePage({
     super.key,
     required this.device,
     required this.canVerify,
     required this.onVerify,
     required this.releases,
-    required this.onInstall,
     required this.hasUpgrade,
   });
 
@@ -23,7 +22,6 @@ class DeviceBody extends StatelessWidget {
   final bool canVerify;
   final VoidCallback onVerify;
   final List<FwupdRelease> releases;
-  final ValueChanged<FwupdRelease> onInstall;
   final bool hasUpgrade;
 
   static Widget _buildPadding(Widget child) {
@@ -100,7 +98,7 @@ class DeviceBody extends StatelessWidget {
             alignment: WrapAlignment.spaceBetween,
             runSpacing: 16.0,
             children: [
-              DeviceBody._buildIconRow(
+              DevicePage._buildIconRow(
                 context,
                 device.vendor ?? '',
                 device.name,
@@ -144,47 +142,47 @@ class DeviceBody extends StatelessWidget {
             children: [
               if (device.version != null)
                 TableRow(children: [
-                  DeviceBody._buildHeader(context, l10n.currentVersion),
+                  DevicePage._buildHeader(context, l10n.currentVersion),
                   const SizedBox.shrink(),
-                  DeviceBody._buildLabel(context, device.version!),
+                  DevicePage._buildLabel(context, device.version!),
                 ]),
               if (device.versionLowest != null)
                 TableRow(children: [
-                  DeviceBody._buildHeader(context, l10n.minVersion),
+                  DevicePage._buildHeader(context, l10n.minVersion),
                   const SizedBox.shrink(),
-                  DeviceBody._buildLabel(context, device.versionLowest!),
+                  DevicePage._buildLabel(context, device.versionLowest!),
                 ]),
               if (device.vendor != null)
                 TableRow(children: [
-                  DeviceBody._buildHeader(context, l10n.vendor),
+                  DevicePage._buildHeader(context, l10n.vendor),
                   const SizedBox.shrink(),
-                  DeviceBody._buildLabel(context, device.vendor!),
+                  DevicePage._buildLabel(context, device.vendor!),
                 ]),
               if (device.guid.isNotEmpty)
                 TableRow(children: [
-                  DeviceBody._buildHeader(context, l10n.guid),
+                  DevicePage._buildHeader(context, l10n.guid),
                   const SizedBox.shrink(),
-                  DeviceBody._buildPadding(SelectableText(device.guid.first)),
+                  DevicePage._buildPadding(SelectableText(device.guid.first)),
                 ]),
               if (device.guid.length > 1)
                 for (final guid in device.guid.skip(1))
                   TableRow(children: [
-                    DeviceBody._buildHeader(context, ''),
+                    DevicePage._buildHeader(context, ''),
                     const SizedBox.shrink(),
-                    DeviceBody._buildPadding(SelectableText(guid)),
+                    DevicePage._buildPadding(SelectableText(guid)),
                   ]),
               if (deviceFlags.isNotEmpty)
                 TableRow(children: [
-                  DeviceBody._buildHeader(context, l10n.flags),
+                  DevicePage._buildHeader(context, l10n.flags),
                   const SizedBox.shrink(),
-                  DeviceBody._buildPadding(Text(deviceFlags.first))
+                  DevicePage._buildPadding(Text(deviceFlags.first))
                 ]),
               if (deviceFlags.length > 1)
                 for (final flag in deviceFlags.skip(1))
                   TableRow(children: [
-                    DeviceBody._buildHeader(context, ''),
+                    DevicePage._buildHeader(context, ''),
                     const SizedBox.shrink(),
-                    DeviceBody._buildPadding(Text(flag))
+                    DevicePage._buildPadding(Text(flag))
                   ]),
             ],
           ),

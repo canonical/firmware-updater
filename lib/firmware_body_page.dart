@@ -3,10 +3,10 @@ import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
 import 'device_model.dart';
+import 'device_page.dart';
 import 'firmware_model.dart';
 import 'fwupd_x.dart';
-import 'src/widgets/device_body.dart';
-import 'src/widgets/release_dialog.dart';
+import 'release_page.dart';
 
 class FirmwareBodyPage extends StatelessWidget {
   const FirmwareBodyPage({
@@ -30,18 +30,17 @@ class FirmwareBodyPage extends StatelessWidget {
     return Navigator(
       pages: [
         MaterialPage(
-          child: DeviceBody(
+          child: DevicePage(
             device: deviceModel.device,
             canVerify: deviceModel.device.canVerify,
             onVerify: deviceModel.verify,
             releases: deviceModel.releases ?? [],
-            onInstall: deviceModel.install,
             hasUpgrade: deviceModel.hasUpgrade(),
           ),
         ),
         if (deviceModel.selectedRelease != null)
           MaterialPage(
-            child: ReleaseDialog(
+            child: ReleasePage(
               device: deviceModel.device,
               releases: deviceModel.releases ?? [],
               onInstall: deviceModel.install,
