@@ -59,46 +59,39 @@ class ReleasePage extends StatelessWidget {
           icon: const Icon(YaruIcons.go_previous),
         ),
       ),
-      body: Column(
-        children: [
-          Flexible(
-            child: ListView(
-              children: releases
-                  .map(
-                    (release) => ReleaseCard(
-                      release: release,
-                      selected: release == selected,
-                      onSelected: () =>
-                          context.read<DeviceModel>().selectedRelease = release,
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-          const SizedBox(height: 8),
-          ButtonBar(
-            children: [
-              ElevatedButton(
-                onPressed: selected != null
-                    ? () {
-                        showConfirmationDialog(
-                          context,
-                          text: dialogText,
-                          onConfirm: () {
-                            onInstall(selected);
-                            Navigator.of(context).pop();
-                          },
-                          onCancel: () {},
-                        );
-                      }
-                    : null,
-                child: Text(action),
+      body: ListView(
+        children: releases
+            .map(
+              (release) => ReleaseCard(
+                release: release,
+                selected: release == selected,
+                onSelected: () =>
+                    context.read<DeviceModel>().selectedRelease = release,
               ),
-              OutlinedButton(
-                onPressed: Navigator.of(context).pop,
-                child: Text(l10n.cancel),
-              )
-            ],
+            )
+            .toList(),
+      ),
+      bottomNavigationBar: ButtonBar(
+        children: [
+          ElevatedButton(
+            onPressed: selected != null
+                ? () {
+                    showConfirmationDialog(
+                      context,
+                      text: dialogText,
+                      onConfirm: () {
+                        onInstall(selected);
+                        Navigator.of(context).pop();
+                      },
+                      onCancel: () {},
+                    );
+                  }
+                : null,
+            child: Text(action),
+          ),
+          OutlinedButton(
+            onPressed: Navigator.of(context).pop,
+            child: Text(l10n.cancel),
           )
         ],
       ),
