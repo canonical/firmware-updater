@@ -17,9 +17,9 @@ class FirmwareBodyPage extends StatelessWidget {
     BuildContext context, {
     required FwupdDevice device,
   }) {
-    final firmwareModel = context.read<FirmwareModel>();
-    return ChangeNotifierProvider<DeviceModel>(
-      create: (_) => DeviceModel(firmwareModel, device),
+    return ChangeNotifierProxyProvider<FirmwareModel, DeviceModel>(
+      create: (_) => DeviceModel(context.read<FirmwareModel>(), device),
+      update: (_, firmwareModel, __) => DeviceModel(firmwareModel, device),
       child: const FirmwareBodyPage(),
     );
   }

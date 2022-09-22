@@ -50,6 +50,8 @@ class FirmwareModel extends SafeChangeNotifier {
   Future<void> install(FwupdDevice device, FwupdRelease release) async {
     try {
       await _service.install(device, release);
+      await refresh();
+      return _updateState();
       // TODO: FwupdException
     } on Exception catch (error, stackTrace) {
       log.error('installation failed $error');
