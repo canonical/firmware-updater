@@ -4,6 +4,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
+import 'dart:io' as _i5;
 
 import 'package:firmware_updater/fwupd_service.dart' as _i2;
 import 'package:fwupd/fwupd.dart' as _i3;
@@ -159,14 +160,16 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
   @override
   _i4.Future<void> install(
     _i3.FwupdDevice? device,
-    _i3.FwupdRelease? release,
-  ) =>
+    _i3.FwupdRelease? release, [
+    _i5.ResourceHandle Function(_i5.RandomAccessFile)? resourceHandleFromFile,
+  ]) =>
       (super.noSuchMethod(
         Invocation.method(
           #install,
           [
             device,
             release,
+            resourceHandleFromFile,
           ],
         ),
         returnValue: _i4.Future<void>.value(),

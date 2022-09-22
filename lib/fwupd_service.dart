@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:file/file.dart';
+import 'package:file/local.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
@@ -15,10 +17,13 @@ class FwupdService {
   FwupdService({
     @visibleForTesting FwupdClient? fwupd,
     @visibleForTesting Dio? dio,
+    @visibleForTesting FileSystem? fs,
   })  : _dio = dio ?? Dio(),
+        _fs = fs ?? const LocalFileSystem(),
         _fwupd = fwupd ?? FwupdClient();
 
   final Dio _dio;
+  final FileSystem _fs;
   final FwupdClient _fwupd;
   int? _downloadProgress;
   final _propertiesChanged = StreamController<List<String>>();
@@ -59,7 +64,7 @@ class FwupdService {
         break;
       case FwupdRemoteKind.local:
         final cache = p.dirname(remote.filenameCache ?? '');
-        file = File(p.join(cache, release.locations.first));
+        file = _fs.file(p.join(cache, release.locations.first));
         break;
       default:
         throw UnimplementedError('Remote kind ${remote.kind} not implemented');
@@ -68,12 +73,12 @@ class FwupdService {
   }
 
   Future<File> _downloadRelease(String url) async {
-    final path = p.join(Directory.systemTemp.path, p.basename(url));
+    final path = p.join(_fs.systemTempDirectory.path, p.basename(url));
     log.debug('download $url to $path');
     try {
       return await _dio.download(url, path, onReceiveProgress: (recvd, total) {
         _setDownloadProgress(100 * recvd ~/ total);
-      }).then((response) => File(path));
+      }).then((response) => _fs.file(path));
     } on DioError catch (e) {
       throw Exception(e.message);
     } finally {
@@ -115,13 +120,19 @@ class FwupdService {
     return _fwupd.getUpgrades(deviceId);
   }
 
-  Future<void> install(FwupdDevice device, FwupdRelease release) async {
+  Future<void> install(
+    FwupdDevice device,
+    FwupdRelease release, [
+    @visibleForTesting
+        ResourceHandle Function(RandomAccessFile file)? resourceHandleFromFile,
+  ]) async {
     log.debug('install $release');
     log.debug('on $device');
     final file = await _fetchRelease(release);
+    resourceHandleFromFile ??= ResourceHandle.fromFile;
     return _fwupd.install(
       device.id,
-      ResourceHandle.fromFile(file.openSync()),
+      resourceHandleFromFile(file.openSync()),
       flags: {
         if (release.isDowngrade) FwupdInstallFlag.allowOlder,
         if (!release.isDowngrade && !release.isUpgrade)
