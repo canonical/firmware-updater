@@ -27,6 +27,7 @@ class FwupdService {
   final FwupdClient _fwupd;
   int? _downloadProgress;
   final _propertiesChanged = StreamController<List<String>>();
+  StreamSubscription<List<String>>? _propertiesSubscription;
 
   FwupdStatus get status =>
       _downloadProgress != null ? FwupdStatus.downloading : _fwupd.status;
@@ -40,11 +41,13 @@ class FwupdService {
 
   Future<void> init() async {
     await _fwupd.connect();
-    unawaited(_propertiesChanged.addStream(_fwupd.propertiesChanged));
+    _propertiesSubscription ??=
+        _fwupd.propertiesChanged.listen(_propertiesChanged.add);
   }
 
-  Future<void> dispose() {
+  Future<void> dispose() async {
     _dio.close();
+    await _propertiesSubscription?.cancel();
     return _fwupd.close();
   }
 

@@ -55,6 +55,7 @@ void main() {
     );
 
     final service = FwupdService(fwupd: fwupd, dio: dio, fs: fs);
+    await service.init();
 
     await service.install(device, release, (f) => MockResourceHandle());
 
