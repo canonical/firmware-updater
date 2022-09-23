@@ -21,6 +21,7 @@ class DeviceModel extends SafeChangeNotifier {
   List<FwupdRelease>? get releases => _releases;
 
   Future<void> verify() => _firmwareModel.verify(_device);
+  Future<void> verifyUpdate() => _firmwareModel.verifyUpdate(_device);
   Future<void> install(FwupdRelease release) =>
       _firmwareModel.install(_device, release);
   bool hasUpgrade() => _firmwareModel.state.hasUpgrade(_device);
