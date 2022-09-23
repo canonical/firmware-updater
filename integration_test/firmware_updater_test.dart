@@ -107,6 +107,27 @@ void main() {
       await tester.pumpAndTapDialogButton(tester.lang.downgrade);
       await client.testInstallation(webcam, downgrade);
     });
+
+    testWidgets('update checksum', (tester) async {
+      final webcam = await client.findDevice((d) => d.summary == 'Fake webcam');
+      expect(webcam, isNotNull, reason: 'Install fwupd-tests (Fake webcam).');
+      expect(webcam!.checksum, isNull,
+          reason: 'Fake webcam already has a checksum');
+
+      await app.main();
+      await tester.pumpAndSettle();
+
+      await tester.pumpAndTapDeviceHeader('Fake webcam');
+      await tester.pumpAndSettle();
+
+      expect(find.devicePage(tester.lang.updateChecksums), findsOneWidget);
+
+      await tester.pumpAndTapButton(tester.lang.updateChecksums);
+      await tester.pumpAndSettle();
+
+      await tester.pumpAndTapDialogButton(tester.lang.update);
+      await client.testUpdateChecksum(webcam);
+    });
   });
 }
 
@@ -167,6 +188,23 @@ extension IntegrationClient on FwupdClient {
         emitsThrough(FwupdUpdateState.success),
       );
     }
+  }
+
+  Future<void> testUpdateChecksum(
+    FwupdDevice device, [
+    Duration timeout = const Duration(seconds: 60),
+  ]) async {
+    await expectLater(
+      propertiesChanged
+          .where((p) => p.contains('Status'))
+          .map((_) => status)
+          .timeout(timeout),
+      emitsThrough(FwupdStatus.idle),
+    );
+
+    final checksum = await findDevice((d) => d.deviceId == device.deviceId)
+        .then((d) => d?.checksum);
+    expect(checksum, isNotNull);
   }
 }
 
