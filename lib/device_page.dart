@@ -105,6 +105,17 @@ class DevicePage extends StatelessWidget {
                       OutlinedButton(
                         onPressed: () => showConfirmationDialog(
                           context,
+                          text: l10n.updateChecksumsConfirm(device.name),
+                          description: l10n.updateChecksumsInfo,
+                          onConfirm: model.verifyUpdate,
+                          okText: l10n.update,
+                        ),
+                        child: Text(l10n.updateChecksums),
+                      ),
+                    if (device.canVerify && device.checksum != null)
+                      OutlinedButton(
+                        onPressed: () => showConfirmationDialog(
+                          context,
                           text: l10n.verifyFirmwareConfirm(device.name),
                           description: device.flags
                                   .contains(FwupdDeviceFlag.usableDuringUpdate)
