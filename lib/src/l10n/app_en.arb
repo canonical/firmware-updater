@@ -70,7 +70,18 @@
   },
   "showReleases": "Show Releases",
   "showUpdates": "Show Updates",
+  "update": "Update",
   "updateAvailable": "Update available",
+  "updateChecksums": "Update Checksums",
+  "updateChecksumsConfirm": "Update device checksums of {name}?",
+  "@updateChecksumsConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "updateChecksumsInfo": "This will record the current cryptographic hashes as verified.",
   "upgrade": "Upgrade",
   "upgradeConfirm": "Upgrade {name} from version {current} to {selected}?",
   "@upgradeConfirm": {
