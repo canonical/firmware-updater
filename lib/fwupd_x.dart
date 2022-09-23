@@ -2,8 +2,7 @@ import 'package:fwupd/fwupd.dart';
 
 extension FwupdDeviceX on FwupdDevice {
   String get id => deviceId;
-  bool get canVerify =>
-      flags.contains(FwupdDeviceFlag.canVerify) && checksum != null;
+  bool get canVerify => flags.contains(FwupdDeviceFlag.canVerify);
   bool get isUpdatable =>
       flags.contains(FwupdDeviceFlag.updatable) ||
       flags.contains(FwupdDeviceFlag.updatableHidden);

@@ -101,7 +101,7 @@ class DevicePage extends StatelessWidget {
                 ButtonBar(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (device.canVerify)
+                    if (device.canVerify && device.checksum != null)
                       OutlinedButton(
                         onPressed: () => showConfirmationDialog(
                           context,
