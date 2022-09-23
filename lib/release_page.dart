@@ -10,20 +10,13 @@ import 'src/widgets/confirmation_dialog.dart';
 import 'src/widgets/release_card.dart';
 
 class ReleasePage extends StatelessWidget {
-  const ReleasePage({
-    super.key,
-    required this.device,
-    required this.releases,
-    required this.onInstall,
-  });
-
-  final FwupdDevice device;
-  final List<FwupdRelease> releases;
-  final ValueChanged<FwupdRelease> onInstall;
+  const ReleasePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final model = context.watch<DeviceModel>();
+    final device = model.device;
+    final releases = model.releases ?? [];
     final selected = model.selectedRelease;
     final l10n = AppLocalizations.of(context);
     final String action;
@@ -86,7 +79,7 @@ class ReleasePage extends StatelessWidget {
                       description: dialogDesc,
                       okText: action,
                       onConfirm: () {
-                        onInstall(selected);
+                        model.install(selected);
                         Navigator.of(context).pop();
                       },
                       onCancel: () {},

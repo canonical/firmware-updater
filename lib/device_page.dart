@@ -6,24 +6,12 @@ import 'package:provider/provider.dart';
 
 import 'device_model.dart';
 import 'fwupd_l10n.dart';
+import 'fwupd_x.dart';
 import 'src/widgets/confirmation_dialog.dart';
 import 'src/widgets/device_icon.dart';
 
 class DevicePage extends StatelessWidget {
-  const DevicePage({
-    super.key,
-    required this.device,
-    required this.canVerify,
-    required this.onVerify,
-    required this.releases,
-    required this.hasUpgrade,
-  });
-
-  final FwupdDevice device;
-  final bool canVerify;
-  final VoidCallback onVerify;
-  final List<FwupdRelease> releases;
-  final bool hasUpgrade;
+  const DevicePage({super.key});
 
   static Widget _buildPadding(Widget child) {
     return Padding(
@@ -86,6 +74,9 @@ class DevicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final model = context.watch<DeviceModel>();
+    final device = model.device;
+    final releases = model.releases ?? [];
     final l10n = AppLocalizations.of(context);
     final deviceFlags = [
       for (final flag in device.flags) flag.localize(context)
@@ -104,13 +95,13 @@ class DevicePage extends StatelessWidget {
                 device.vendor ?? '',
                 device.name,
                 device.summary ?? '',
-                DeviceIcon.fromName(device.icon.firstOrNull),
+                DeviceIcon.fromName(model.device.icon.firstOrNull),
               ),
-              if (canVerify || releases.isNotEmpty)
+              if (device.canVerify || releases.isNotEmpty)
                 ButtonBar(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    if (canVerify)
+                    if (device.canVerify)
                       OutlinedButton(
                         onPressed: () => showConfirmationDialog(
                           context,
@@ -119,12 +110,12 @@ class DevicePage extends StatelessWidget {
                                   .contains(FwupdDeviceFlag.usableDuringUpdate)
                               ? null
                               : l10n.deviceUnavailable,
-                          onConfirm: onVerify,
+                          onConfirm: model.verify,
                         ),
                         child: Text(l10n.verifyFirmware),
                       ),
                     if (releases.isNotEmpty)
-                      hasUpgrade
+                      model.hasUpgrade()
                           ? ElevatedButton(
                               onPressed: () => context
                                   .read<DeviceModel>()
