@@ -68,7 +68,7 @@ class FirmwareModel extends SafeChangeNotifier {
   Future<FirmwareState> _fetchState() async {
     try {
       return FirmwareState.data(
-        devices: _monitor.devices,
+        devices: List.of(_monitor.devices),
         releases: await _fetchReleases(_monitor.devices),
       );
     } on FwupdException catch (_) {
