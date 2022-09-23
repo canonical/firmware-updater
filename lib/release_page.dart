@@ -50,10 +50,14 @@ class ReleasePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('${device.name} ${device.version}'),
-        leading: IconButton(
-          onPressed: Navigator.of(context).pop,
-          icon: const Icon(YaruIcons.go_previous),
+        leading: Center(
+          child: IconButton(
+            style: IconButton.styleFrom(fixedSize: const Size(40, 40)),
+            onPressed: Navigator.of(context).pop,
+            icon: const Icon(YaruIcons.go_previous),
+          ),
         ),
+        elevation: 0,
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 16),
