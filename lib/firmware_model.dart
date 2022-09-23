@@ -62,6 +62,8 @@ class FirmwareModel extends SafeChangeNotifier {
   }
 
   Future<void> verify(FwupdDevice device) => _service.verify(device);
+  Future<void> verifyUpdate(FwupdDevice device) =>
+      _service.verifyUpdate(device);
 
   Future<FirmwareState> _fetchState() async {
     try {

@@ -95,4 +95,14 @@ void main() {
     await model.verify(device);
     verify(service.verify(device)).called(1);
   });
+
+  test('verify update', () async {
+    final device = testDevice(id: '');
+
+    final service = mockService();
+
+    final model = FirmwareModel(service);
+    await model.verifyUpdate(device);
+    verify(service.verifyUpdate(device)).called(1);
+  });
 }
