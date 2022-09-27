@@ -10,6 +10,8 @@ class DeviceModel extends SafeChangeNotifier {
   FirmwareModel _firmwareModel;
   List<FwupdRelease>? _releases;
 
+  Future<void> reboot() => _firmwareModel.reboot();
+
   void update(FirmwareModel firmwareModel) {
     _firmwareModel = firmwareModel;
     _releases = _firmwareModel.state.getReleases(_device);

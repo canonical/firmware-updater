@@ -39,6 +39,7 @@ class FirmwareModel extends SafeChangeNotifier {
     ]).then((_) => _updateState());
   }
 
+  Future<void> reboot() => _service.reboot();
   Future<void> refresh() => _monitor.refresh();
 
   @override
