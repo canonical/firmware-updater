@@ -10,6 +10,13 @@ class DeviceModel extends SafeChangeNotifier {
   FirmwareModel _firmwareModel;
   List<FwupdRelease>? _releases;
 
+  var _state = DeviceState.idle;
+  DeviceState get state => _state;
+  set state(DeviceState state) {
+    _state = state;
+    notifyListeners();
+  }
+
   Future<void> reboot() => _firmwareModel.reboot();
 
   void update(FirmwareModel firmwareModel) {
@@ -36,4 +43,10 @@ class DeviceModel extends SafeChangeNotifier {
   Future<void> install(FwupdRelease release) =>
       _firmwareModel.install(_device, release);
   bool hasUpgrade() => _firmwareModel.state.hasUpgrade(_device);
+}
+
+enum DeviceState {
+  idle,
+  busy,
+  needsReboot,
 }

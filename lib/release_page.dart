@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:yaru_icons/yaru_icons.dart';
+import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'device_model.dart';
 import 'fwupd_x.dart';
@@ -47,57 +48,71 @@ class ReleasePage extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('${device.name} ${device.version}'),
-        leading: Center(
-          child: IconButton(
-            style: IconButton.styleFrom(fixedSize: const Size(40, 40)),
-            onPressed: Navigator.of(context).pop,
-            icon: const Icon(YaruIcons.go_previous),
-          ),
+    if (model.state == DeviceState.needsReboot) {
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => showConfirmationDialog(
+          context,
+          text: l10n.rebootConfirm,
+          okText: l10n.reboot,
+          onCancel: () => model.state = DeviceState.idle,
+          onConfirm: model.reboot,
         ),
-        elevation: 0,
-      ),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        children: releases
-            .map(
-              (release) => ReleaseCard(
-                release: release,
-                selected: release == selected,
-                onSelected: () =>
-                    context.read<DeviceModel>().selectedRelease = release,
+      );
+    }
+
+    return model.state == DeviceState.busy
+        ? const Center(child: YaruCircularProgressIndicator())
+        : Scaffold(
+            appBar: AppBar(
+              title: Text('${device.name} ${device.version}'),
+              leading: IconButton(
+                onPressed: Navigator.of(context).pop,
+                icon: const Icon(YaruIcons.go_previous),
               ),
-            )
-            .toList(),
-      ),
-      bottomNavigationBar: ButtonBar(
-        children: [
-          ElevatedButton(
-            onPressed: selected != null
-                ? () {
-                    showConfirmationDialog(
-                      context,
-                      text: dialogText,
-                      description: dialogDesc,
-                      okText: action,
-                      onConfirm: () {
-                        model.install(selected);
-                        Navigator.of(context).pop();
-                      },
-                      onCancel: () {},
-                    );
-                  }
-                : null,
-            child: Text(action),
-          ),
-          OutlinedButton(
-            onPressed: Navigator.of(context).pop,
-            child: Text(l10n.cancel),
-          )
-        ],
-      ),
-    );
+            ),
+            body: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              children: releases
+                  .map(
+                    (release) => ReleaseCard(
+                      release: release,
+                      selected: release == selected,
+                      onSelected: () =>
+                          context.read<DeviceModel>().selectedRelease = release,
+                    ),
+                  )
+                  .toList(),
+            ),
+            bottomNavigationBar: ButtonBar(
+              children: [
+                ElevatedButton(
+                  onPressed: selected != null
+                      ? () {
+                          showConfirmationDialog(
+                            context,
+                            text: dialogText,
+                            description: dialogDesc,
+                            okText: action,
+                            onConfirm: () async {
+                              model.state = DeviceState.busy;
+                              await model.install(selected);
+                              model.state = device.flags
+                                      .contains(FwupdDeviceFlag.needsReboot)
+                                  ? DeviceState.needsReboot
+                                  : model.state = DeviceState.idle;
+                            },
+                            onCancel: () {},
+                          );
+                        }
+                      : null,
+                  child: Text(action),
+                ),
+                OutlinedButton(
+                  onPressed: Navigator.of(context).pop,
+                  child: Text(l10n.cancel),
+                )
+              ],
+            ),
+          );
   }
 }
