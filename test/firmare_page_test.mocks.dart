@@ -168,6 +168,15 @@ class MockFirmwareModel extends _i1.Mock implements _i7.FirmwareModel {
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
   @override
+  _i5.Future<void> reboot() => (super.noSuchMethod(
+        Invocation.method(
+          #reboot,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+  @override
   _i5.Future<void> refresh() => (super.noSuchMethod(
         Invocation.method(
           #refresh,
