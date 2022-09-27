@@ -19,7 +19,10 @@ class FirmwareBodyPage extends StatelessWidget {
   }) {
     return ChangeNotifierProxyProvider<FirmwareModel, DeviceModel>(
       create: (_) => DeviceModel(context.read<FirmwareModel>(), device),
-      update: (_, firmwareModel, __) => DeviceModel(firmwareModel, device),
+      update: (_, firmwareModel, oldModel) {
+        if (oldModel == null) return DeviceModel(firmwareModel, device);
+        return oldModel..update(firmwareModel);
+      },
       child: const FirmwareBodyPage(),
     );
   }
