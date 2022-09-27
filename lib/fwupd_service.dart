@@ -1,12 +1,15 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:collection/collection.dart';
+import 'package:dbus/dbus.dart';
 import 'package:dio/dio.dart';
 import 'package:file/file.dart';
 import 'package:file/local.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
+import 'package:session_manager/session_manager.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 import 'fwupd_x.dart';
@@ -157,5 +160,21 @@ class FwupdService {
   Future<void> verifyUpdate(FwupdDevice device) {
     log.debug('verifyUpdate $device');
     return _fwupd.verifyUpdate(device.id);
+  }
+
+  Future<void> reboot() async {
+    final manager = SessionManager();
+    await manager.connect();
+    try {
+      await manager.reboot();
+    } on DBusMethodResponseException catch (error) {
+      if (error.response.values.firstOrNull?.asString() ==
+          'Operation was cancelled') {
+        log.debug('reboot cancelled by user');
+      } else {
+        rethrow;
+      }
+    }
+    await manager.close();
   }
 }
