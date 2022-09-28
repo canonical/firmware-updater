@@ -11,6 +11,7 @@ import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:session_manager/session_manager.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
+import 'package:upower/upower.dart';
 
 import 'fwupd_x.dart';
 
@@ -22,14 +23,17 @@ class FwupdService {
     @visibleForTesting Dio? dio,
     @visibleForTesting FileSystem? fs,
     @visibleForTesting SessionManager? sessionManager,
+    @visibleForTesting UPowerClient? upower,
   })  : _dio = dio ?? Dio(),
         _fs = fs ?? const LocalFileSystem(),
         _fwupd = fwupd ?? FwupdClient(),
-        _sessionManager = sessionManager ?? SessionManager();
+        _sessionManager = sessionManager ?? SessionManager(),
+        _upower = upower ?? UPowerClient();
 
   final Dio _dio;
   final FileSystem _fs;
   final FwupdClient _fwupd;
+  final UPowerClient _upower;
   final SessionManager _sessionManager;
   int? _downloadProgress;
   final _propertiesChanged = StreamController<List<String>>();
@@ -50,11 +54,13 @@ class FwupdService {
     _propertiesSubscription ??=
         _fwupd.propertiesChanged.listen(_propertiesChanged.add);
     await _sessionManager.connect();
+    await _upower.connect();
   }
 
   Future<void> dispose() async {
     _dio.close();
     await _sessionManager.close();
+    await _upower.close();
     await _propertiesSubscription?.cancel();
     return _fwupd.close();
   }
@@ -151,6 +157,8 @@ class FwupdService {
       },
     );
   }
+
+  bool get onBattery => _upower.onBattery;
 
   Future<void> unlock(FwupdDevice device) {
     log.debug('unlock $device');

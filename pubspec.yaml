@@ -31,6 +31,7 @@ dependencies:
       url: https://github.com/canonical/ubuntu-flutter-plugins.git
       path: packages/ubuntu_logger
   ubuntu_service: ^0.1.0
+  upower: ^0.7.0
   yaru: ^0.4.1
   yaru_colors: ^0.1.0
   yaru_icons: ^0.2.1

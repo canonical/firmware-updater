@@ -141,6 +141,11 @@ class MockFirmwareModel extends _i1.Mock implements _i7.FirmwareModel {
         ),
       ) as _i2.FirmwareState);
   @override
+  bool get onBattery => (super.noSuchMethod(
+        Invocation.getter(#onBattery),
+        returnValue: false,
+      ) as bool);
+  @override
   set state(_i2.FirmwareState? value) => super.noSuchMethod(
         Invocation.setter(
           #state,

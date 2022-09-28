@@ -54,6 +54,7 @@ class DeviceModel extends SafeChangeNotifier {
 
   FwupdDevice get device => _device;
   List<FwupdRelease>? get releases => _releases;
+  bool get onBattery => _service.onBattery;
 
   Future<List<FwupdRelease>> _fetchReleases() {
     return _service.getReleases(_device.id).catchError(
