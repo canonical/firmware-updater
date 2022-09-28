@@ -1,5 +1,4 @@
 import 'package:firmware_updater/device_model.dart';
-import 'package:firmware_updater/firmware_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/mockito.dart';
@@ -17,10 +16,8 @@ void main() {
 
     final service = mockService(devices: [device], releases: {'a': releases});
 
-    final firmwareModel = FirmwareModel(service);
-    await firmwareModel.init();
-
-    final deviceModel = DeviceModel(firmwareModel, device);
+    final deviceModel = DeviceModel(device, service);
+    await deviceModel.init();
 
     expect(deviceModel.releases, releases);
   });
@@ -31,8 +28,7 @@ void main() {
 
     final service = mockService();
 
-    final firmwareModel = FirmwareModel(service);
-    final deviceModel = DeviceModel(firmwareModel, device);
+    final deviceModel = DeviceModel(device, service);
     await deviceModel.install(release);
     verify(service.install(device, release)).called(1);
   });
@@ -42,8 +38,7 @@ void main() {
 
     final service = mockService();
 
-    final firmwareModel = FirmwareModel(service);
-    final deviceModel = DeviceModel(firmwareModel, device);
+    final deviceModel = DeviceModel(device, service);
     await deviceModel.verify();
     verify(service.verify(device)).called(1);
   });

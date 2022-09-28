@@ -1,14 +1,18 @@
+import 'dart:async';
+
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 
-import 'firmware_model.dart';
+import 'fwupd_service.dart';
+import 'fwupd_x.dart';
 
 class DeviceModel extends SafeChangeNotifier {
-  DeviceModel(this._firmwareModel, this._device)
-      : _releases = _firmwareModel.state.getReleases(_device);
-  final FwupdDevice _device;
-  FirmwareModel _firmwareModel;
+  DeviceModel(this._device, this._service);
+
+  final FwupdService _service;
+  FwupdDevice _device;
   List<FwupdRelease>? _releases;
+  StreamSubscription? _sub;
 
   var _state = DeviceState.idle;
   DeviceState get state => _state;
@@ -17,15 +21,28 @@ class DeviceModel extends SafeChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> reboot() => _firmwareModel.reboot();
+  Future<void> init() async {
+    _sub =
+        _service.deviceChanged.where((d) => d.id == _device.id).listen(update);
+    return update(device);
+  }
 
-  void update(FirmwareModel firmwareModel) {
-    _firmwareModel = firmwareModel;
-    _releases = _firmwareModel.state.getReleases(_device);
+  @override
+  Future<void> dispose() async {
+    await _sub?.cancel();
+    super.dispose();
+  }
+
+  Future<void> reboot() => _service.reboot();
+
+  Future<void> update(FwupdDevice device) async {
+    _device = device;
+    _releases = await _fetchReleases();
     if (_selectedRelease != null) {
       _selectedRelease = _releases?.singleWhere(
           (release) => release.version == _selectedRelease?.version);
     }
+    notifyListeners();
   }
 
   FwupdRelease? _selectedRelease;
@@ -38,11 +55,27 @@ class DeviceModel extends SafeChangeNotifier {
   FwupdDevice get device => _device;
   List<FwupdRelease>? get releases => _releases;
 
-  Future<void> verify() => _firmwareModel.verify(_device);
-  Future<void> verifyUpdate() => _firmwareModel.verifyUpdate(_device);
-  Future<void> install(FwupdRelease release) =>
-      _firmwareModel.install(_device, release);
-  bool hasUpgrade() => _firmwareModel.state.hasUpgrade(_device);
+  Future<List<FwupdRelease>> _fetchReleases() {
+    return _service.getReleases(_device.id).catchError(
+          (_) => <FwupdRelease>[],
+          test: (e) =>
+              e is FwupdNothingToDoException || e is FwupdNotSupportedException,
+        );
+  }
+
+  Future<void> verify() => _service.verify(_device);
+  Future<void> verifyUpdate() => _service.verifyUpdate(_device);
+
+  Future<void> install(FwupdRelease release) async {
+    try {
+      await _service.install(device, release);
+    } on Exception catch (error) {
+      log.error('installation failed $error');
+      // TODO: error handling
+    }
+  }
+
+  bool hasUpgrade() => _releases?.any((r) => r.isUpgrade) == true;
 }
 
 enum DeviceState {
