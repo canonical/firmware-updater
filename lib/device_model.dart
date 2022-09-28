@@ -6,9 +6,27 @@ import 'firmware_model.dart';
 class DeviceModel extends SafeChangeNotifier {
   DeviceModel(this._firmwareModel, this._device)
       : _releases = _firmwareModel.state.getReleases(_device);
-  final FirmwareModel _firmwareModel;
   final FwupdDevice _device;
-  final List<FwupdRelease>? _releases;
+  FirmwareModel _firmwareModel;
+  List<FwupdRelease>? _releases;
+
+  var _state = DeviceState.idle;
+  DeviceState get state => _state;
+  set state(DeviceState state) {
+    _state = state;
+    notifyListeners();
+  }
+
+  Future<void> reboot() => _firmwareModel.reboot();
+
+  void update(FirmwareModel firmwareModel) {
+    _firmwareModel = firmwareModel;
+    _releases = _firmwareModel.state.getReleases(_device);
+    if (_selectedRelease != null) {
+      _selectedRelease = _releases?.singleWhere(
+          (release) => release.version == _selectedRelease?.version);
+    }
+  }
 
   FwupdRelease? _selectedRelease;
   FwupdRelease? get selectedRelease => _selectedRelease;
@@ -25,4 +43,10 @@ class DeviceModel extends SafeChangeNotifier {
   Future<void> install(FwupdRelease release) =>
       _firmwareModel.install(_device, release);
   bool hasUpgrade() => _firmwareModel.state.hasUpgrade(_device);
+}
+
+enum DeviceState {
+  idle,
+  busy,
+  needsReboot,
 }

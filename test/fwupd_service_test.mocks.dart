@@ -19,6 +19,7 @@ import 'package:fwupd/src/fwupd_plugin.dart' as _i12;
 import 'package:fwupd/src/fwupd_release.dart' as _i13;
 import 'package:fwupd/src/fwupd_remote.dart' as _i15;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:session_manager/src/session_manager.dart' as _i16;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -1024,6 +1025,78 @@ class MockFwupdClient extends _i1.Mock implements _i10.FwupdClient {
         Invocation.method(
           #clearResults,
           [id],
+        ),
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
+  @override
+  _i8.Future<void> close() => (super.noSuchMethod(
+        Invocation.method(
+          #close,
+          [],
+        ),
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
+}
+
+/// A class which mocks [SessionManager].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockSessionManager extends _i1.Mock implements _i16.SessionManager {
+  MockSessionManager() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  bool get sessionIsActive => (super.noSuchMethod(
+        Invocation.getter(#sessionIsActive),
+        returnValue: false,
+      ) as bool);
+  @override
+  String get sessionName => (super.noSuchMethod(
+        Invocation.getter(#sessionName),
+        returnValue: '',
+      ) as String);
+  @override
+  _i8.Future<void> reboot() => (super.noSuchMethod(
+        Invocation.method(
+          #reboot,
+          [],
+        ),
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
+  @override
+  _i8.Future<void> shutdown() => (super.noSuchMethod(
+        Invocation.method(
+          #shutdown,
+          [],
+        ),
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
+  @override
+  _i8.Future<bool> canShutdown() => (super.noSuchMethod(
+        Invocation.method(
+          #canShutdown,
+          [],
+        ),
+        returnValue: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
+  @override
+  _i8.Future<bool> isSessionRunning() => (super.noSuchMethod(
+        Invocation.method(
+          #isSessionRunning,
+          [],
+        ),
+        returnValue: _i8.Future<bool>.value(false),
+      ) as _i8.Future<bool>);
+  @override
+  _i8.Future<void> connect() => (super.noSuchMethod(
+        Invocation.method(
+          #connect,
+          [],
         ),
         returnValue: _i8.Future<void>.value(),
         returnValueForMissingStub: _i8.Future<void>.value(),

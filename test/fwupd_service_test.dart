@@ -7,23 +7,27 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:session_manager/session_manager.dart';
 
 import 'fwupd_service_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([Dio, FwupdClient])
+@GenerateMocks([Dio, FwupdClient, SessionManager])
 void main() {
   test('connects and closes the fwupd client', () async {
     final client = MockFwupdClient();
+    final sessionManager = MockSessionManager();
     when(client.propertiesChanged).thenAnswer((_) => const Stream.empty());
 
-    final service = FwupdService(fwupd: client);
+    final service = FwupdService(fwupd: client, sessionManager: sessionManager);
 
     await service.init();
     verify(client.connect()).called(1);
+    verify(sessionManager.connect()).called(1);
 
     await service.dispose();
     verify(client.close()).called(1);
+    verify(sessionManager.close()).called(1);
   });
 
   test('download', () async {
@@ -54,7 +58,10 @@ void main() {
       locations: const [url],
     );
 
-    final service = FwupdService(fwupd: fwupd, dio: dio, fs: fs);
+    final sessionManager = MockSessionManager();
+
+    final service = FwupdService(
+        fwupd: fwupd, dio: dio, fs: fs, sessionManager: sessionManager);
     await service.init();
 
     await service.install(device, release, (f) => MockResourceHandle());
