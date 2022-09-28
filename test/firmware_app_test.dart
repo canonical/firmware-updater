@@ -10,7 +10,7 @@ import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
-import 'firmare_app_test.mocks.dart';
+import 'firmware_app_test.mocks.dart';
 import 'test_utils.dart';
 
 @GenerateMocks([FwupdNotifier, FirmwareModel])
