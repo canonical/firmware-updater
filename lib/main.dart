@@ -5,7 +5,7 @@ import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
 
-import 'firmware_page.dart';
+import 'firmware_app.dart';
 import 'fwupd_service.dart';
 
 Future<void> main() async {
@@ -21,7 +21,7 @@ Future<void> main() async {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
-      routes: const {'/': FirmwarePage.create},
+      routes: const {'/': FirmwareApp.create},
     ),
   ));
 }

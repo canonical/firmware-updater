@@ -1,5 +1,5 @@
+import 'package:firmware_updater/firmware_app.dart';
 import 'package:firmware_updater/firmware_model.dart';
-import 'package:firmware_updater/firmware_page.dart';
 import 'package:firmware_updater/firmware_state.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,7 @@ import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
-import 'firmare_page_test.mocks.dart';
+import 'firmare_app_test.mocks.dart';
 import 'test_utils.dart';
 
 @GenerateMocks([FwupdNotifier, FirmwareModel])
@@ -42,7 +42,7 @@ void main() {
         ChangeNotifierProvider<FirmwareModel>.value(value: model),
         ChangeNotifierProvider<FwupdNotifier>.value(value: notifier),
       ],
-      child: const FirmwarePage(),
+      child: const FirmwareApp(),
     );
   }
 
