@@ -8,8 +8,8 @@ import 'device_page.dart';
 import 'firmware_model.dart';
 import 'release_page.dart';
 
-class FirmwareBodyPage extends StatelessWidget {
-  const FirmwareBodyPage({
+class DetailPage extends StatelessWidget {
+  const DetailPage({
     super.key,
   });
 
@@ -23,7 +23,7 @@ class FirmwareBodyPage extends StatelessWidget {
         if (oldModel == null) return DeviceModel(firmwareModel, device);
         return oldModel..update(firmwareModel);
       },
-      child: const FirmwareBodyPage(),
+      child: const DetailPage(),
     );
   }
 

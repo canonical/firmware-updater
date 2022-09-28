@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
-import 'firmware_body_page.dart';
+import 'detail_page.dart';
 import 'firmware_model.dart';
 import 'fwupd_notifier.dart';
 import 'fwupd_service.dart';
@@ -46,7 +46,7 @@ class _FirmwarePageState extends State<FirmwarePage> {
                     device: device,
                     hasUpgrade: state.hasUpgrade(device),
                   ),
-                  builder: (context) => FirmwareBodyPage.create(
+                  builder: (context) => DetailPage.create(
                     context,
                     device: device,
                   ),
