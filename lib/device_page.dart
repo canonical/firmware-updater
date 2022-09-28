@@ -81,6 +81,18 @@ class DevicePage extends StatelessWidget {
     final deviceFlags = [
       for (final flag in device.flags) flag.localize(context)
     ].whereNotNull();
+
+    if (model.state == DeviceState.needsReboot) {
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => showConfirmationDialog(
+          context,
+          text: l10n.rebootConfirm,
+          okText: l10n.reboot,
+          onCancel: () => model.state = DeviceState.idle,
+          onConfirm: model.reboot,
+        ),
+      );
+    }
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(

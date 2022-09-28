@@ -48,18 +48,6 @@ class ReleasePage extends StatelessWidget {
       );
     }
 
-    if (model.state == DeviceState.needsReboot) {
-      WidgetsBinding.instance.addPostFrameCallback(
-        (_) => showConfirmationDialog(
-          context,
-          text: l10n.rebootConfirm,
-          okText: l10n.reboot,
-          onCancel: () => model.state = DeviceState.idle,
-          onConfirm: model.reboot,
-        ),
-      );
-    }
-
     return model.state == DeviceState.busy
         ? const Center(child: YaruCircularProgressIndicator())
         : Scaffold(
@@ -94,6 +82,7 @@ class ReleasePage extends StatelessWidget {
                             description: dialogDesc,
                             okText: action,
                             onConfirm: () async {
+                              model.selectedRelease = null;
                               model.state = DeviceState.busy;
                               await model.install(selected);
                               model.state = device.flags
