@@ -22,6 +22,7 @@ class DeviceModel extends SafeChangeNotifier {
   }
 
   Future<void> init() async {
+    await _service.init();
     _sub =
         _service.deviceChanged.where((d) => d.id == _device.id).listen(update);
     return update(device);
