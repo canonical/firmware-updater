@@ -6,17 +6,6 @@ import 'package:mockito/mockito.dart';
 import 'test_utils.dart';
 
 void main() {
-  test('initializes service', () async {
-    final device = testDevice(id: 'a');
-
-    final service = mockService();
-
-    final model = DeviceModel(device, service);
-    await model.init();
-
-    verify(service.init()).called(1);
-  });
-
   test('fetches releases', () async {
     final device = testDevice(id: 'a');
 
