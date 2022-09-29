@@ -8,26 +8,34 @@ import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:session_manager/session_manager.dart';
+import 'package:upower/upower.dart';
 
 import 'fwupd_service_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([Dio, FwupdClient, SessionManager])
+@GenerateMocks([Dio, FwupdClient, SessionManager, UPowerClient])
 void main() {
   test('connects and closes the fwupd client', () async {
     final client = MockFwupdClient();
     final sessionManager = MockSessionManager();
     when(client.propertiesChanged).thenAnswer((_) => const Stream.empty());
+    final upower = MockUPowerClient();
 
-    final service = FwupdService(fwupd: client, sessionManager: sessionManager);
+    final service = FwupdService(
+      fwupd: client,
+      sessionManager: sessionManager,
+      upower: upower,
+    );
 
     await service.init();
     verify(client.connect()).called(1);
     verify(sessionManager.connect()).called(1);
+    verify(upower.connect()).called(1);
 
     await service.dispose();
     verify(client.close()).called(1);
     verify(sessionManager.close()).called(1);
+    verify(upower.close()).called(1);
   });
 
   test('download', () async {
@@ -59,9 +67,14 @@ void main() {
     );
 
     final sessionManager = MockSessionManager();
-
+    final upower = MockUPowerClient();
     final service = FwupdService(
-        fwupd: fwupd, dio: dio, fs: fs, sessionManager: sessionManager);
+      fwupd: fwupd,
+      dio: dio,
+      fs: fs,
+      sessionManager: sessionManager,
+      upower: upower,
+    );
     await service.init();
 
     await service.install(device, release, (f) => MockResourceHandle());

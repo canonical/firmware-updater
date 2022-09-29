@@ -65,6 +65,11 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
         returnValue: _i4.Stream<List<String>>.empty(),
       ) as _i4.Stream<List<String>>);
   @override
+  bool get onBattery => (super.noSuchMethod(
+        Invocation.getter(#onBattery),
+        returnValue: false,
+      ) as bool);
+  @override
   _i4.Future<void> init() => (super.noSuchMethod(
         Invocation.method(
           #init,
