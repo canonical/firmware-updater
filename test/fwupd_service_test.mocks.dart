@@ -19,7 +19,7 @@ import 'package:fwupd/src/fwupd_plugin.dart' as _i13;
 import 'package:fwupd/src/fwupd_release.dart' as _i14;
 import 'package:fwupd/src/fwupd_remote.dart' as _i16;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:session_manager/src/session_manager.dart' as _i17;
+import 'package:ubuntu_session/src/session_manager.dart' as _i17;
 import 'package:upower/src/upower_client.dart' as _i7;
 
 // ignore_for_file: type=lint
