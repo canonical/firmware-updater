@@ -21,7 +21,6 @@ class FirmwareModel extends SafeChangeNotifier {
   var _state = const FirmwareState.loading();
 
   FirmwareState get state => _state;
-  bool get onBattery => _service.onBattery;
 
   @protected
   set state(FirmwareState value) {
