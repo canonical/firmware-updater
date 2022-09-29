@@ -7,7 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:session_manager/session_manager.dart';
+import 'package:ubuntu_session/ubuntu_session.dart';
 import 'package:upower/upower.dart';
 
 import 'fwupd_service_test.mocks.dart';

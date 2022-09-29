@@ -9,8 +9,8 @@ import 'package:file/local.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
-import 'package:session_manager/session_manager.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
+import 'package:ubuntu_session/ubuntu_session.dart';
 import 'package:upower/upower.dart';
 
 import 'fwupd_x.dart';
