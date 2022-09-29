@@ -11,7 +11,10 @@ import 'fwupd_service.dart';
 Future<void> main() async {
   Logger.setup(level: LogLevel.fromString(kDebugMode ? 'debug' : 'info'));
 
-  registerService<FwupdService>(FwupdService.new, dispose: (s) => s.dispose());
+  registerService<FwupdService>(
+    () => FwupdService()..init(),
+    dispose: (s) => s.dispose(),
+  );
 
   runApp(YaruTheme(
     builder: (context, yaru, child) => MaterialApp(

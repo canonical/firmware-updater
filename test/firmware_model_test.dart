@@ -7,39 +7,19 @@ import 'package:mockito/mockito.dart';
 import 'test_utils.dart';
 
 void main() {
-  test('initializes service', () async {
-    final service = mockService();
-
-    final model = FirmwareModel(service);
-    await model.init();
-
-    verify(service.init()).called(1);
-  });
-
-  test('fetches devices and releases', () async {
+  test('fetches devices', () async {
     final devices = [
       testDevice(id: 'a'),
       testDevice(id: 'b'),
       testDevice(id: 'c'),
     ];
 
-    final releases = {
-      'a': [
-        FwupdRelease(version: '1', name: ''),
-        FwupdRelease(version: '2', name: ''),
-      ],
-      'c': [
-        FwupdRelease(version: '3', name: ''),
-      ]
-    };
-
-    final service = mockService(devices: devices, releases: releases);
+    final service = mockService(devices: devices);
 
     final model = FirmwareModel(service);
     await model.init();
 
-    expect(
-        model.state, FirmwareState.data(devices: devices, releases: releases));
+    expect(model.state, FirmwareState.data(devices: devices));
   });
 
   test('refresh devices', () async {

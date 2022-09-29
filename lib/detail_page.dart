@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
+import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
 
 import 'device_model.dart';
 import 'device_page.dart';
-import 'firmware_model.dart';
+import 'fwupd_service.dart';
 import 'release_page.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   const DetailPage({
     super.key,
   });
@@ -17,14 +18,21 @@ class DetailPage extends StatelessWidget {
     BuildContext context, {
     required FwupdDevice device,
   }) {
-    return ChangeNotifierProxyProvider<FirmwareModel, DeviceModel>(
-      create: (_) => DeviceModel(context.read<FirmwareModel>(), device),
-      update: (_, firmwareModel, oldModel) {
-        if (oldModel == null) return DeviceModel(firmwareModel, device);
-        return oldModel..update(firmwareModel);
-      },
+    return ChangeNotifierProvider<DeviceModel>(
+      create: (_) => DeviceModel(device, getService<FwupdService>()),
       child: const DetailPage(),
     );
+  }
+
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<DeviceModel>().init();
   }
 
   @override

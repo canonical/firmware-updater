@@ -5,6 +5,7 @@ import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'detail_page.dart';
+import 'device_tile.dart';
 import 'firmware_model.dart';
 import 'fwupd_notifier.dart';
 import 'fwupd_service.dart';
@@ -42,9 +43,9 @@ class _FirmwareAppState extends State<FirmwareApp> {
       data: (state) => YaruMasterDetailPage(
         pageItems: state.devices
             .map((device) => YaruPageItem(
-                  titleBuilder: (context) => DeviceHeader(
+                  titleBuilder: (context) => DeviceTile.create(
+                    context,
                     device: device,
-                    hasUpgrade: state.hasUpgrade(device),
                   ),
                   builder: (context) => DetailPage.create(
                     context,

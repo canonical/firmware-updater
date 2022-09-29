@@ -2,12 +2,14 @@ import 'package:firmware_updater/firmware_app.dart';
 import 'package:firmware_updater/firmware_model.dart';
 import 'package:firmware_updater/firmware_state.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
+import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
+import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'firmware_app_test.mocks.dart';
@@ -55,11 +57,13 @@ void main() {
   });
 
   testWidgets('data', (tester) async {
+    registerMockService<FwupdService>(mockService());
+
     final model = mockModel(
       state: FirmwareState.data(devices: [
         testDevice(id: '1', name: 'Device 1', summary: 'Summary 1'),
         testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
-      ], releases: {}),
+      ]),
     );
     await tester
         .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));
@@ -73,6 +77,8 @@ void main() {
   });
 
   testWidgets('error', (tester) async {
+    registerMockService<FwupdService>(mockService());
+
     final model = mockModel(state: const FirmwareState.error(error: 'Error'));
     await tester
         .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));

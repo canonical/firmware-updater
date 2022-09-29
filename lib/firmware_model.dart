@@ -8,7 +8,6 @@ import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'firmware_state.dart';
 import 'fwupd_notifier.dart';
 import 'fwupd_service.dart';
-import 'fwupd_x.dart';
 
 final log = Logger('firmware_model');
 
@@ -33,10 +32,7 @@ class FirmwareModel extends SafeChangeNotifier {
   Future<void> _updateState() async => state = await _fetchState();
 
   Future<void> init() {
-    return Future.wait([
-      _service.init(),
-      _monitor.init(),
-    ]).then((_) => _updateState());
+    return _monitor.init().then((_) => _updateState());
   }
 
   Future<void> reboot() => _service.reboot();
@@ -70,31 +66,9 @@ class FirmwareModel extends SafeChangeNotifier {
     try {
       return FirmwareState.data(
         devices: List.of(_monitor.devices),
-        releases: await _fetchReleases(_monitor.devices),
       );
     } on FwupdException catch (_) {
       return FirmwareState.empty;
     }
-  }
-
-  Future<Map<String, List<FwupdRelease>>> _fetchReleases(
-      List<FwupdDevice> devices) async {
-    Future<List<FwupdRelease>> fetchReleases(FwupdDevice device) {
-      return _service.getReleases(device.id).catchError(
-            (_) => <FwupdRelease>[],
-            test: (e) =>
-                e is FwupdNothingToDoException ||
-                e is FwupdNotSupportedException,
-          );
-    }
-
-    final all = <String, List<FwupdRelease>>{};
-    for (final device in devices) {
-      final releases = await fetchReleases(device);
-      if (releases.isNotEmpty) {
-        all[device.id] = releases;
-      }
-    }
-    return all;
   }
 }
