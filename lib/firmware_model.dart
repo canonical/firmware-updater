@@ -32,10 +32,7 @@ class FirmwareModel extends SafeChangeNotifier {
   Future<void> _updateState() async => state = await _fetchState();
 
   Future<void> init() {
-    return Future.wait([
-      _service.init(),
-      _monitor.init(),
-    ]).then((_) => _updateState());
+    return _monitor.init().then((_) => _updateState());
   }
 
   Future<void> reboot() => _service.reboot();
