@@ -5,8 +5,8 @@ import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'detail_page.dart';
+import 'device_store.dart';
 import 'device_tile.dart';
-import 'firmware_model.dart';
 import 'fwupd_notifier.dart';
 import 'fwupd_service.dart';
 import 'widgets.dart';
@@ -18,7 +18,7 @@ class FirmwareApp extends StatefulWidget {
     final service = getService<FwupdService>();
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => FirmwareModel(service)),
+        ChangeNotifierProvider(create: (_) => DeviceStore(service)),
         ChangeNotifierProvider(create: (_) => FwupdNotifier(service)),
       ],
       child: const FirmwareApp(),
@@ -33,15 +33,15 @@ class _FirmwareAppState extends State<FirmwareApp> {
   @override
   void initState() {
     super.initState();
-    context.read<FirmwareModel>().init();
+    context.read<DeviceStore>().init();
   }
 
   @override
   Widget build(BuildContext context) {
-    final model = context.watch<FirmwareModel>();
-    return model.state.map(
-      data: (state) => YaruMasterDetailPage(
-        pageItems: state.devices
+    final store = context.watch<DeviceStore>();
+    return store.when(
+      devices: (devices) => YaruMasterDetailPage(
+        pageItems: devices
             .map((device) => YaruPageItem(
                   titleBuilder: (context) => DeviceTile.create(
                     context,
@@ -56,8 +56,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
             .toList(),
         leftPaneWidth: 400,
       ),
-      loading: (state) => const Center(child: YaruCircularProgressIndicator()),
-      error: (state) => ErrorWidget(state.error),
+      empty: () => const Center(child: YaruCircularProgressIndicator()),
     );
   }
 }

@@ -1,6 +1,5 @@
+import 'package:firmware_updater/device_store.dart';
 import 'package:firmware_updater/firmware_app.dart';
-import 'package:firmware_updater/firmware_model.dart';
-import 'package:firmware_updater/firmware_state.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter/material.dart';
@@ -15,14 +14,14 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 import 'firmware_app_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([FwupdNotifier, FirmwareModel])
+@GenerateMocks([DeviceStore, FwupdNotifier])
 void main() {
-  FirmwareModel mockModel({
-    required FirmwareState state,
+  DeviceStore mockStore({
+    required List<FwupdDevice> devices,
   }) {
-    final model = MockFirmwareModel();
-    when(model.state).thenReturn(state);
-    return model;
+    final store = MockDeviceStore();
+    when(store.devices).thenReturn(devices);
+    return store;
   }
 
   FwupdNotifier mockNotifier({
@@ -38,10 +37,10 @@ void main() {
   }
 
   Widget buildPage(
-      {required FirmwareModel model, required FwupdNotifier notifier}) {
+      {required DeviceStore store, required FwupdNotifier notifier}) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<FirmwareModel>.value(value: model),
+        ChangeNotifierProvider<DeviceStore>.value(value: store),
         ChangeNotifierProvider<FwupdNotifier>.value(value: notifier),
       ],
       child: const FirmwareApp(),
@@ -49,9 +48,9 @@ void main() {
   }
 
   testWidgets('loading', (tester) async {
-    final model = mockModel(state: const FirmwareState.loading());
+    final store = mockStore(devices: []);
     await tester
-        .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));
+        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
 
     expect(find.byType(YaruCircularProgressIndicator), findsOneWidget);
   });
@@ -59,14 +58,12 @@ void main() {
   testWidgets('data', (tester) async {
     registerMockService<FwupdService>(mockService());
 
-    final model = mockModel(
-      state: FirmwareState.data(devices: [
-        testDevice(id: '1', name: 'Device 1', summary: 'Summary 1'),
-        testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
-      ]),
-    );
+    final store = mockStore(devices: [
+      testDevice(id: '1', name: 'Device 1', summary: 'Summary 1'),
+      testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
+    ]);
     await tester
-        .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));
+        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
 
     // First device appears twice in master detail layout
     expect(find.text('Device 1'), findsNWidgets(2));
@@ -74,15 +71,5 @@ void main() {
 
     expect(find.text('Device 2'), findsOneWidget);
     expect(find.text('Summary 2'), findsOneWidget);
-  });
-
-  testWidgets('error', (tester) async {
-    registerMockService<FwupdService>(mockService());
-
-    final model = mockModel(state: const FirmwareState.error(error: 'Error'));
-    await tester
-        .pumpApp((_) => buildPage(model: model, notifier: mockNotifier()));
-
-    expect(find.byType(ErrorWidget), findsOneWidget);
   });
 }
