@@ -34,7 +34,7 @@ void main() {
       flags: const {FwupdDeviceFlag.updatableHidden},
     );
     final dev3 = FwupdDevice(
-      deviceId: '2',
+      deviceId: '3',
       name: '',
       plugin: '',
     );
