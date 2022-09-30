@@ -3,13 +3,12 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i5;
-import 'dart:ui' as _i6;
+import 'dart:async' as _i4;
+import 'dart:ui' as _i5;
 
-import 'package:firmware_updater/firmware_model.dart' as _i7;
-import 'package:firmware_updater/firmware_state.dart' as _i2;
-import 'package:firmware_updater/fwupd_notifier.dart' as _i3;
-import 'package:fwupd/fwupd.dart' as _i4;
+import 'package:firmware_updater/device_store.dart' as _i2;
+import 'package:firmware_updater/fwupd_notifier.dart' as _i6;
+import 'package:fwupd/fwupd.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -23,29 +22,95 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeFirmwareState_0 extends _i1.SmartFake implements _i2.FirmwareState {
-  _FakeFirmwareState_0(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+/// A class which mocks [DeviceStore].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
+  MockDeviceStore() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  List<_i3.FwupdDevice> get devices => (super.noSuchMethod(
+        Invocation.getter(#devices),
+        returnValue: <_i3.FwupdDevice>[],
+      ) as List<_i3.FwupdDevice>);
+  @override
+  bool get isDisposed => (super.noSuchMethod(
+        Invocation.getter(#isDisposed),
+        returnValue: false,
+      ) as bool);
+  @override
+  bool get hasListeners => (super.noSuchMethod(
+        Invocation.getter(#hasListeners),
+        returnValue: false,
+      ) as bool);
+  @override
+  _i4.Future<void> init() => (super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<void> refresh() => (super.noSuchMethod(
+        Invocation.method(
+          #refresh,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<void> dispose() => (super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void addListener(_i5.VoidCallback? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void removeListener(_i5.VoidCallback? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
 }
 
 /// A class which mocks [FwupdNotifier].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFwupdNotifier extends _i1.Mock implements _i3.FwupdNotifier {
+class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
   MockFwupdNotifier() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.FwupdStatus get status => (super.noSuchMethod(
+  _i3.FwupdStatus get status => (super.noSuchMethod(
         Invocation.getter(#status),
-        returnValue: _i4.FwupdStatus.unknown,
-      ) as _i4.FwupdStatus);
+        returnValue: _i3.FwupdStatus.unknown,
+      ) as _i3.FwupdStatus);
   @override
   int get percentage => (super.noSuchMethod(
         Invocation.getter(#percentage),
@@ -57,11 +122,6 @@ class MockFwupdNotifier extends _i1.Mock implements _i3.FwupdNotifier {
         returnValue: '',
       ) as String);
   @override
-  List<_i4.FwupdDevice> get devices => (super.noSuchMethod(
-        Invocation.getter(#devices),
-        returnValue: <_i4.FwupdDevice>[],
-      ) as List<_i4.FwupdDevice>);
-  @override
   bool get isDisposed => (super.noSuchMethod(
         Invocation.getter(#isDisposed),
         returnValue: false,
@@ -72,32 +132,23 @@ class MockFwupdNotifier extends _i1.Mock implements _i3.FwupdNotifier {
         returnValue: false,
       ) as bool);
   @override
-  _i5.Future<void> init() => (super.noSuchMethod(
+  _i4.Future<void> init() => (super.noSuchMethod(
         Invocation.method(
           #init,
           [],
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
   @override
-  _i5.Future<void> refresh() => (super.noSuchMethod(
-        Invocation.method(
-          #refresh,
-          [],
-        ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
-  @override
-  _i5.Future<void> dispose() => (super.noSuchMethod(
+  _i4.Future<void> dispose() => (super.noSuchMethod(
         Invocation.method(
           #dispose,
           [],
         ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
   @override
   void notifyListeners() => super.noSuchMethod(
         Invocation.method(
@@ -107,7 +158,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i3.FwupdNotifier {
         returnValueForMissingStub: null,
       );
   @override
-  void addListener(_i6.VoidCallback? listener) => super.noSuchMethod(
+  void addListener(_i5.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
           #addListener,
           [listener],
@@ -115,136 +166,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i3.FwupdNotifier {
         returnValueForMissingStub: null,
       );
   @override
-  void removeListener(_i6.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #removeListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
-}
-
-/// A class which mocks [FirmwareModel].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockFirmwareModel extends _i1.Mock implements _i7.FirmwareModel {
-  MockFirmwareModel() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  _i2.FirmwareState get state => (super.noSuchMethod(
-        Invocation.getter(#state),
-        returnValue: _FakeFirmwareState_0(
-          this,
-          Invocation.getter(#state),
-        ),
-      ) as _i2.FirmwareState);
-  @override
-  set state(_i2.FirmwareState? value) => super.noSuchMethod(
-        Invocation.setter(
-          #state,
-          value,
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  bool get isDisposed => (super.noSuchMethod(
-        Invocation.getter(#isDisposed),
-        returnValue: false,
-      ) as bool);
-  @override
-  bool get hasListeners => (super.noSuchMethod(
-        Invocation.getter(#hasListeners),
-        returnValue: false,
-      ) as bool);
-  @override
-  _i5.Future<void> init() => (super.noSuchMethod(
-        Invocation.method(
-          #init,
-          [],
-        ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
-  @override
-  _i5.Future<void> reboot() => (super.noSuchMethod(
-        Invocation.method(
-          #reboot,
-          [],
-        ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
-  @override
-  _i5.Future<void> refresh() => (super.noSuchMethod(
-        Invocation.method(
-          #refresh,
-          [],
-        ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
-  @override
-  void dispose() => super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  _i5.Future<void> install(
-    _i4.FwupdDevice? device,
-    _i4.FwupdRelease? release,
-  ) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #install,
-          [
-            device,
-            release,
-          ],
-        ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
-  @override
-  _i5.Future<void> verify(_i4.FwupdDevice? device) => (super.noSuchMethod(
-        Invocation.method(
-          #verify,
-          [device],
-        ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
-  @override
-  _i5.Future<void> verifyUpdate(_i4.FwupdDevice? device) => (super.noSuchMethod(
-        Invocation.method(
-          #verifyUpdate,
-          [device],
-        ),
-        returnValue: _i5.Future<void>.value(),
-        returnValueForMissingStub: _i5.Future<void>.value(),
-      ) as _i5.Future<void>);
-  @override
-  void notifyListeners() => super.noSuchMethod(
-        Invocation.method(
-          #notifyListeners,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  void addListener(_i6.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #addListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  void removeListener(_i6.VoidCallback? listener) => super.noSuchMethod(
+  void removeListener(_i5.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
           #removeListener,
           [listener],
