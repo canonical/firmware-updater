@@ -11,14 +11,14 @@ jobs:
   analyzer:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
     - run: flutter analyze
 
   format:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
     - name: Run flutter format
       run: |
