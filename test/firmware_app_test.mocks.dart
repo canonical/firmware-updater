@@ -36,13 +36,13 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         returnValue: <_i3.FwupdDevice>[],
       ) as List<_i3.FwupdDevice>);
   @override
-  bool get isDisposed => (super.noSuchMethod(
-        Invocation.getter(#isDisposed),
+  bool get hasListeners => (super.noSuchMethod(
+        Invocation.getter(#hasListeners),
         returnValue: false,
       ) as bool);
   @override
-  bool get hasListeners => (super.noSuchMethod(
-        Invocation.getter(#hasListeners),
+  bool get isDisposed => (super.noSuchMethod(
+        Invocation.getter(#isDisposed),
         returnValue: false,
       ) as bool);
   @override
@@ -73,14 +73,6 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
   @override
-  void notifyListeners() => super.noSuchMethod(
-        Invocation.method(
-          #notifyListeners,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
   void addListener(_i5.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
           #addListener,
@@ -93,6 +85,14 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         Invocation.method(
           #removeListener,
           [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
         ),
         returnValueForMissingStub: null,
       );
@@ -122,13 +122,13 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         returnValue: '',
       ) as String);
   @override
-  bool get isDisposed => (super.noSuchMethod(
-        Invocation.getter(#isDisposed),
+  bool get hasListeners => (super.noSuchMethod(
+        Invocation.getter(#hasListeners),
         returnValue: false,
       ) as bool);
   @override
-  bool get hasListeners => (super.noSuchMethod(
-        Invocation.getter(#hasListeners),
+  bool get isDisposed => (super.noSuchMethod(
+        Invocation.getter(#isDisposed),
         returnValue: false,
       ) as bool);
   @override
@@ -150,14 +150,6 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
   @override
-  void notifyListeners() => super.noSuchMethod(
-        Invocation.method(
-          #notifyListeners,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
   void addListener(_i5.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
           #addListener,
@@ -170,6 +162,14 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         Invocation.method(
           #removeListener,
           [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
         ),
         returnValueForMissingStub: null,
       );
