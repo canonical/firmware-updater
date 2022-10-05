@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:ubuntu_service/ubuntu_service.dart';
 
 import '../test/test_utils.dart';
 
@@ -16,6 +17,7 @@ void main() {
   final client = FwupdClient();
   setUpAll(client.connect);
   tearDownAll(client.close);
+  tearDown(resetAllServices);
 
   group('fake webcam', () {
     testWidgets('upgrade', (tester) async {
