@@ -35,7 +35,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
     - run: sudo apt update
-    - run: sudo apt install -y clang cmake curl dbus dbus-x11 fwupd fwupd-tests gsettings-desktop-schemas libgtk-3-dev ninja-build pkg-config unzip xvfb
+    - run: sudo apt install -y clang cmake curl dbus dbus-x11 fwupd fwupd-tests gsettings-desktop-schemas libgtk-3-dev ninja-build pkg-config unzip upower xvfb
       env:
         DEBIAN_FRONTEND: noninteractive
     - name: Prepare environment

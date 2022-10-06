@@ -19,7 +19,7 @@ import 'package:fwupd/src/fwupd_plugin.dart' as _i13;
 import 'package:fwupd/src/fwupd_release.dart' as _i14;
 import 'package:fwupd/src/fwupd_remote.dart' as _i16;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:ubuntu_session/src/session_manager.dart' as _i17;
+import 'package:ubuntu_session/src/ubuntu_session.dart' as _i17;
 import 'package:upower/src/upower_client.dart' as _i7;
 
 // ignore_for_file: type=lint
@@ -1062,24 +1062,28 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
       ) as _i9.Future<void>);
 }
 
-/// A class which mocks [SessionManager].
+/// A class which mocks [UbuntuSession].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSessionManager extends _i1.Mock implements _i17.SessionManager {
-  MockSessionManager() {
+class MockUbuntuSession extends _i1.Mock implements _i17.UbuntuSession {
+  MockUbuntuSession() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  bool get sessionIsActive => (super.noSuchMethod(
-        Invocation.getter(#sessionIsActive),
-        returnValue: false,
-      ) as bool);
+  _i17.UbuntuDesktop get desktop => (super.noSuchMethod(
+        Invocation.getter(#desktop),
+        returnValue: _i17.UbuntuDesktop.gnome,
+      ) as _i17.UbuntuDesktop);
   @override
-  String get sessionName => (super.noSuchMethod(
-        Invocation.getter(#sessionName),
-        returnValue: '',
-      ) as String);
+  _i9.Future<void> logout() => (super.noSuchMethod(
+        Invocation.method(
+          #logout,
+          [],
+        ),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
   @override
   _i9.Future<void> reboot() => (super.noSuchMethod(
         Invocation.method(
@@ -1093,40 +1097,6 @@ class MockSessionManager extends _i1.Mock implements _i17.SessionManager {
   _i9.Future<void> shutdown() => (super.noSuchMethod(
         Invocation.method(
           #shutdown,
-          [],
-        ),
-        returnValue: _i9.Future<void>.value(),
-        returnValueForMissingStub: _i9.Future<void>.value(),
-      ) as _i9.Future<void>);
-  @override
-  _i9.Future<bool> canShutdown() => (super.noSuchMethod(
-        Invocation.method(
-          #canShutdown,
-          [],
-        ),
-        returnValue: _i9.Future<bool>.value(false),
-      ) as _i9.Future<bool>);
-  @override
-  _i9.Future<bool> isSessionRunning() => (super.noSuchMethod(
-        Invocation.method(
-          #isSessionRunning,
-          [],
-        ),
-        returnValue: _i9.Future<bool>.value(false),
-      ) as _i9.Future<bool>);
-  @override
-  _i9.Future<void> connect() => (super.noSuchMethod(
-        Invocation.method(
-          #connect,
-          [],
-        ),
-        returnValue: _i9.Future<void>.value(),
-        returnValueForMissingStub: _i9.Future<void>.value(),
-      ) as _i9.Future<void>);
-  @override
-  _i9.Future<void> close() => (super.noSuchMethod(
-        Invocation.method(
-          #close,
           [],
         ),
         returnValue: _i9.Future<void>.value(),
