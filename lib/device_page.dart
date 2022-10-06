@@ -92,6 +92,15 @@ class DevicePage extends StatelessWidget {
           onConfirm: model.reboot,
         ),
       );
+    } else if (model.state == DeviceState.error) {
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => showErrorDialog(
+          context,
+          text: l10n.installError,
+          description: model.error.toString(),
+          onConfirm: () => model.state = DeviceState.idle,
+        ),
+      );
     }
     return Padding(
       padding: const EdgeInsets.all(16),

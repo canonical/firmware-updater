@@ -55,6 +55,7 @@
   "fwupdDeviceFlagSignedPayload": "Signed Payload",
   "fwupdDeviceFlagUnsignedPayload": "Unsigned Payload",
   "guid": "GUIDs",
+  "installError": "Failed to install firmware!",
   "ok": "OK",
   "reboot": "Reboot",
   "rebootConfirm": "The update requires a reboot to complete. Do you want to reboot now?",
