@@ -85,10 +85,6 @@ class ReleasePage extends StatelessWidget {
                               model.selectedRelease = null;
                               model.state = DeviceState.busy;
                               await model.install(selected);
-                              model.state = device.flags
-                                      .contains(FwupdDeviceFlag.needsReboot)
-                                  ? DeviceState.needsReboot
-                                  : model.state = DeviceState.idle;
                             },
                             onCancel: () {},
                           );

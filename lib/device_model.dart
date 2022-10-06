@@ -71,6 +71,9 @@ class DeviceModel extends SafeChangeNotifier {
     try {
       await _service.install(device, release);
     } on Exception catch (error) {
+      state = device.flags.contains(FwupdDeviceFlag.needsReboot)
+          ? DeviceState.needsReboot
+          : state = DeviceState.idle;
       log.error('installation failed $error');
       // TODO: error handling
     }
