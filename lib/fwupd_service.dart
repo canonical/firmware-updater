@@ -22,19 +22,19 @@ class FwupdService {
     @visibleForTesting FwupdClient? fwupd,
     @visibleForTesting Dio? dio,
     @visibleForTesting FileSystem? fs,
-    @visibleForTesting SessionManager? sessionManager,
+    @visibleForTesting UbuntuSession? session,
     @visibleForTesting UPowerClient? upower,
   })  : _dio = dio ?? Dio(),
         _fs = fs ?? const LocalFileSystem(),
         _fwupd = fwupd ?? FwupdClient(),
-        _sessionManager = sessionManager ?? SessionManager(),
+        _session = session ?? UbuntuSession(),
         _upower = upower ?? UPowerClient();
 
   final Dio _dio;
   final FileSystem _fs;
   final FwupdClient _fwupd;
   final UPowerClient _upower;
-  final SessionManager _sessionManager;
+  final UbuntuSession _session;
   int? _downloadProgress;
   final _propertiesChanged = StreamController<List<String>>();
   StreamSubscription<List<String>>? _propertiesSubscription;
@@ -53,13 +53,11 @@ class FwupdService {
     await _fwupd.connect();
     _propertiesSubscription ??=
         _fwupd.propertiesChanged.listen(_propertiesChanged.add);
-    await _sessionManager.connect();
     await _upower.connect();
   }
 
   Future<void> dispose() async {
     _dio.close();
-    await _sessionManager.close();
     await _upower.close();
     await _propertiesSubscription?.cancel();
     return _fwupd.close();
@@ -177,7 +175,7 @@ class FwupdService {
 
   Future<void> reboot() async {
     try {
-      await _sessionManager.reboot();
+      await _session.reboot();
     } on DBusMethodResponseException catch (error) {
       if (error.response.values.firstOrNull?.asString() ==
           'Operation was cancelled') {

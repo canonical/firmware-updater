@@ -13,28 +13,26 @@ import 'package:upower/upower.dart';
 import 'fwupd_service_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([Dio, FwupdClient, SessionManager, UPowerClient])
+@GenerateMocks([Dio, FwupdClient, UbuntuSession, UPowerClient])
 void main() {
   test('connects and closes the fwupd client', () async {
     final client = MockFwupdClient();
-    final sessionManager = MockSessionManager();
+    final session = MockUbuntuSession();
     when(client.propertiesChanged).thenAnswer((_) => const Stream.empty());
     final upower = MockUPowerClient();
 
     final service = FwupdService(
       fwupd: client,
-      sessionManager: sessionManager,
+      session: session,
       upower: upower,
     );
 
     await service.init();
     verify(client.connect()).called(1);
-    verify(sessionManager.connect()).called(1);
     verify(upower.connect()).called(1);
 
     await service.dispose();
     verify(client.close()).called(1);
-    verify(sessionManager.close()).called(1);
     verify(upower.close()).called(1);
   });
 
@@ -66,13 +64,13 @@ void main() {
       locations: const [url],
     );
 
-    final sessionManager = MockSessionManager();
+    final session = MockUbuntuSession();
     final upower = MockUPowerClient();
     final service = FwupdService(
       fwupd: fwupd,
       dio: dio,
       fs: fs,
-      sessionManager: sessionManager,
+      session: session,
       upower: upower,
     );
     await service.init();
