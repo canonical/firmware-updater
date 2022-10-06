@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 
-Future<void> showConfirmationDialog(
+Future<void> showMessageDialog(
   BuildContext context, {
   required String text,
   String? description,
   String? okText,
+  Icon? icon,
   VoidCallback? onConfirm,
   VoidCallback? onCancel,
 }) async {
@@ -15,10 +16,11 @@ Future<void> showConfirmationDialog(
     context: context,
     builder: (context) => AlertDialog(
       actions: [
-        OutlinedButton(
-          onPressed: () => Navigator.of(context).pop(false),
-          child: Text(l10n.cancel),
-        ),
+        if (onCancel != null)
+          OutlinedButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text(l10n.cancel),
+          ),
         ElevatedButton(
           onPressed: () => Navigator.of(context).pop(true),
           child: Text(okText ?? l10n.ok),
@@ -28,10 +30,7 @@ Future<void> showConfirmationDialog(
         constraints: const BoxConstraints(maxWidth: 500),
         child: Row(
           children: [
-            const Icon(
-              YaruIcons.question,
-              size: 64.0,
-            ),
+            if (icon != null) icon,
             const SizedBox(width: 16),
             Flexible(
               child: Column(
@@ -60,3 +59,36 @@ Future<void> showConfirmationDialog(
     onCancel();
   }
 }
+
+Future<void> showConfirmationDialog(
+  BuildContext context, {
+  required String text,
+  String? description,
+  String? okText,
+  VoidCallback? onConfirm,
+  VoidCallback? onCancel,
+}) =>
+    showMessageDialog(
+      context,
+      text: text,
+      description: description,
+      okText: okText,
+      icon: const Icon(YaruIcons.question, size: 64.0),
+      onCancel: onCancel,
+      onConfirm: onConfirm,
+    );
+
+Future<void> showErrorDialog(
+  BuildContext context, {
+  required String text,
+  String? description,
+  VoidCallback? onConfirm,
+}) =>
+    showMessageDialog(
+      context,
+      text: text,
+      description: description,
+      icon: Icon(YaruIcons.error,
+          size: 64.0, color: Theme.of(context).colorScheme.error),
+      onConfirm: onConfirm,
+    );
