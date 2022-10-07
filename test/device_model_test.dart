@@ -22,15 +22,44 @@ void main() {
     expect(deviceModel.releases, releases);
   });
 
-  test('install release', () async {
-    final device = testDevice(id: 'a');
-    final release = FwupdRelease(name: '');
+  group('install releases', () {
+    test('successful', () async {
+      final device = testDevice(id: 'a');
+      final release = FwupdRelease(name: '');
 
-    final service = mockService();
+      final service = mockService();
 
-    final deviceModel = DeviceModel(device, service);
-    await deviceModel.install(release);
-    verify(service.install(device, release)).called(1);
+      final deviceModel = DeviceModel(device, service);
+      await deviceModel.install(release);
+      verify(service.install(device, release)).called(1);
+      expect(deviceModel.state, DeviceState.idle);
+    });
+
+    test('needs reboot', () async {
+      final device = testDevice(id: 'a', flags: {FwupdDeviceFlag.needsReboot});
+      final release = FwupdRelease(name: '');
+
+      final service = mockService();
+
+      final deviceModel = DeviceModel(device, service);
+      await deviceModel.install(release);
+      verify(service.install(device, release)).called(1);
+      expect(deviceModel.state, DeviceState.needsReboot);
+    });
+    test('install error', () async {
+      final device = testDevice(id: 'a');
+      final release = FwupdRelease(name: '');
+
+      final service = mockService();
+      when(service.install(device, release))
+          .thenThrow(const FwupdAuthFailedException());
+
+      final deviceModel = DeviceModel(device, service);
+      await deviceModel.install(release);
+      verify(service.install(device, release)).called(1);
+      expect(deviceModel.state, DeviceState.error);
+      expect(deviceModel.error, const FwupdAuthFailedException());
+    });
   });
 
   test('verify', () async {

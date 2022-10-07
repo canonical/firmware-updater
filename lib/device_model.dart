@@ -13,6 +13,8 @@ class DeviceModel extends SafeChangeNotifier {
   FwupdDevice _device;
   List<FwupdRelease>? _releases;
   StreamSubscription? _sub;
+  FwupdException? _error;
+  FwupdException? get error => _error;
 
   var _state = DeviceState.idle;
   DeviceState get state => _state;
@@ -70,9 +72,13 @@ class DeviceModel extends SafeChangeNotifier {
   Future<void> install(FwupdRelease release) async {
     try {
       await _service.install(device, release);
-    } on Exception catch (error) {
+      state = device.flags.contains(FwupdDeviceFlag.needsReboot)
+          ? DeviceState.needsReboot
+          : state = DeviceState.idle;
+    } on FwupdException catch (error) {
       log.error('installation failed $error');
-      // TODO: error handling
+      state = DeviceState.error;
+      _error = error;
     }
   }
 
@@ -82,5 +88,6 @@ class DeviceModel extends SafeChangeNotifier {
 enum DeviceState {
   idle,
   busy,
+  error,
   needsReboot,
 }

@@ -78,17 +78,13 @@ class ReleasePage extends StatelessWidget {
                       ? () {
                           showConfirmationDialog(
                             context,
-                            text: dialogText,
-                            description: dialogDesc,
-                            okText: action,
+                            title: dialogText,
+                            message: dialogDesc,
+                            actionText: action,
                             onConfirm: () async {
                               model.selectedRelease = null;
                               model.state = DeviceState.busy;
                               await model.install(selected);
-                              model.state = device.flags
-                                      .contains(FwupdDeviceFlag.needsReboot)
-                                  ? DeviceState.needsReboot
-                                  : model.state = DeviceState.idle;
                             },
                             onCancel: () {},
                           );

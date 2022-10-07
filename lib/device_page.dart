@@ -86,10 +86,19 @@ class DevicePage extends StatelessWidget {
       WidgetsBinding.instance.addPostFrameCallback(
         (_) => showConfirmationDialog(
           context,
-          text: l10n.rebootConfirm,
-          okText: l10n.reboot,
+          title: l10n.rebootConfirm,
+          actionText: l10n.reboot,
           onCancel: () => model.state = DeviceState.idle,
           onConfirm: model.reboot,
+        ),
+      );
+    } else if (model.state == DeviceState.error) {
+      WidgetsBinding.instance.addPostFrameCallback(
+        (_) => showErrorDialog(
+          context,
+          title: l10n.installError,
+          message: model.error!.localize(context),
+          onClose: () => model.state = DeviceState.idle,
         ),
       );
     }
@@ -117,10 +126,10 @@ class DevicePage extends StatelessWidget {
                       OutlinedButton(
                         onPressed: () => showConfirmationDialog(
                           context,
-                          text: l10n.updateChecksumsConfirm(device.name),
-                          description: l10n.updateChecksumsInfo,
+                          title: l10n.updateChecksumsConfirm(device.name),
+                          message: l10n.updateChecksumsInfo,
                           onConfirm: model.verifyUpdate,
-                          okText: l10n.update,
+                          actionText: l10n.update,
                         ),
                         child: Text(l10n.updateChecksums),
                       ),
@@ -128,8 +137,8 @@ class DevicePage extends StatelessWidget {
                       OutlinedButton(
                         onPressed: () => showConfirmationDialog(
                           context,
-                          text: l10n.verifyFirmwareConfirm(device.name),
-                          description: device.flags
+                          title: l10n.verifyFirmwareConfirm(device.name),
+                          message: device.flags
                                   .contains(FwupdDeviceFlag.usableDuringUpdate)
                               ? null
                               : l10n.deviceUnavailable,
