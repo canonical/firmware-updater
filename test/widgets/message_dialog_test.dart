@@ -37,7 +37,7 @@ void main() {
     expect(find.byIcon(icon), findsOneWidget);
     expect(find.text(title), findsOneWidget);
     expect(find.text(message), findsOneWidget);
-    expect(find.text(l10n.ok), findsOneWidget);
+    expect(find.text(l10n.close), findsOneWidget);
   });
 
   testWidgets('confirmation dialog', (tester) async {
@@ -97,7 +97,7 @@ void main() {
               context,
               title: title,
               message: message,
-              onConfirm: completer.complete,
+              onClose: completer.complete,
             ),
             child: const Text('click me'),
           );
@@ -114,10 +114,10 @@ void main() {
     expect(find.text(title), findsOneWidget);
     expect(find.text(message), findsOneWidget);
 
-    final okButton = find.text(l10n.ok);
-    expect(okButton, findsOneWidget);
+    final closeButton = find.text(l10n.close);
+    expect(closeButton, findsOneWidget);
 
-    await tester.tap(okButton);
+    await tester.tap(closeButton);
     expect(completer.isCompleted, isTrue);
   });
 }

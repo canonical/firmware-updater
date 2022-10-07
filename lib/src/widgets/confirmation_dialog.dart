@@ -2,29 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 
-Future<void> showMessageDialog(
+enum DialogAction { action, cancel, close }
+
+Future<DialogAction?> showMessageDialog(
   BuildContext context, {
   required String title,
   String? message,
-  String? okText,
+  String? actionText,
   Icon? icon,
-  VoidCallback? onConfirm,
+  VoidCallback? onAction,
   VoidCallback? onCancel,
+  VoidCallback? onClose,
+  bool closeable = true,
 }) async {
   final l10n = AppLocalizations.of(context);
-  final confirmed = await showDialog<bool>(
+  final result = await showDialog<DialogAction>(
     context: context,
     builder: (context) => AlertDialog(
       actions: [
+        if (closeable)
+          OutlinedButton(
+            onPressed: () => Navigator.of(context).pop(DialogAction.close),
+            child: Text(l10n.close),
+          ),
         if (onCancel != null)
           OutlinedButton(
-            onPressed: () => Navigator.of(context).pop(false),
+            onPressed: () => Navigator.of(context).pop(DialogAction.cancel),
             child: Text(l10n.cancel),
           ),
-        ElevatedButton(
-          onPressed: () => Navigator.of(context).pop(true),
-          child: Text(okText ?? l10n.ok),
-        ),
+        if (onAction != null)
+          ElevatedButton(
+            onPressed: () => Navigator.of(context).pop(DialogAction.action),
+            child: Text(actionText ?? l10n.ok),
+          ),
       ],
       content: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 500),
@@ -52,18 +62,26 @@ Future<void> showMessageDialog(
       ),
     ),
   );
-  if (true == confirmed && onConfirm != null) {
-    onConfirm();
-  } else if (onCancel != null) {
-    onCancel();
+  switch (result) {
+    case DialogAction.action:
+      onAction!();
+      break;
+    case DialogAction.cancel:
+      onCancel!();
+      break;
+    case DialogAction.close:
+      if (onClose != null) onClose();
+      break;
+    default:
   }
+  return result;
 }
 
-Future<void> showConfirmationDialog(
+Future<DialogAction?> showConfirmationDialog(
   BuildContext context, {
   required String title,
   String? message,
-  String? okText,
+  String? actionText,
   VoidCallback? onConfirm,
   VoidCallback? onCancel,
 }) =>
@@ -71,17 +89,18 @@ Future<void> showConfirmationDialog(
       context,
       title: title,
       message: message,
-      okText: okText,
+      actionText: actionText,
       icon: const Icon(YaruIcons.question, size: 64.0),
       onCancel: onCancel,
-      onConfirm: onConfirm,
+      onAction: onConfirm,
+      closeable: false,
     );
 
-Future<void> showErrorDialog(
+Future<DialogAction?> showErrorDialog(
   BuildContext context, {
   required String title,
   String? message,
-  VoidCallback? onConfirm,
+  VoidCallback? onClose,
 }) =>
     showMessageDialog(
       context,
@@ -89,5 +108,5 @@ Future<void> showErrorDialog(
       message: message,
       icon: Icon(YaruIcons.error,
           size: 64.0, color: Theme.of(context).colorScheme.error),
-      onConfirm: onConfirm,
+      onClose: onClose,
     );

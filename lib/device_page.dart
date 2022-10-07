@@ -87,7 +87,7 @@ class DevicePage extends StatelessWidget {
         (_) => showConfirmationDialog(
           context,
           title: l10n.rebootConfirm,
-          okText: l10n.reboot,
+          actionText: l10n.reboot,
           onCancel: () => model.state = DeviceState.idle,
           onConfirm: model.reboot,
         ),
@@ -98,7 +98,7 @@ class DevicePage extends StatelessWidget {
           context,
           title: l10n.installError,
           message: model.error!.localize(context),
-          onConfirm: () => model.state = DeviceState.idle,
+          onClose: () => model.state = DeviceState.idle,
         ),
       );
     }
@@ -129,7 +129,7 @@ class DevicePage extends StatelessWidget {
                           title: l10n.updateChecksumsConfirm(device.name),
                           message: l10n.updateChecksumsInfo,
                           onConfirm: model.verifyUpdate,
-                          okText: l10n.update,
+                          actionText: l10n.update,
                         ),
                         child: Text(l10n.updateChecksums),
                       ),

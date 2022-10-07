@@ -80,7 +80,7 @@ class ReleasePage extends StatelessWidget {
                             context,
                             title: dialogText,
                             message: dialogDesc,
-                            okText: action,
+                            actionText: action,
                             onConfirm: () async {
                               model.selectedRelease = null;
                               model.state = DeviceState.busy;
