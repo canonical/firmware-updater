@@ -30,8 +30,7 @@ Future<void> showMessageDialog(
         constraints: const BoxConstraints(maxWidth: 500),
         child: Row(
           children: [
-            if (icon != null) icon,
-            const SizedBox(width: 16),
+            if (icon != null) ...[icon, const SizedBox(width: 16)],
             Flexible(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
