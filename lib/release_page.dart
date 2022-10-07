@@ -78,8 +78,8 @@ class ReleasePage extends StatelessWidget {
                       ? () {
                           showConfirmationDialog(
                             context,
-                            text: dialogText,
-                            description: dialogDesc,
+                            title: dialogText,
+                            message: dialogDesc,
                             okText: action,
                             onConfirm: () async {
                               model.selectedRelease = null;

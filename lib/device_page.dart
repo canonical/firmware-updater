@@ -86,7 +86,7 @@ class DevicePage extends StatelessWidget {
       WidgetsBinding.instance.addPostFrameCallback(
         (_) => showConfirmationDialog(
           context,
-          text: l10n.rebootConfirm,
+          title: l10n.rebootConfirm,
           okText: l10n.reboot,
           onCancel: () => model.state = DeviceState.idle,
           onConfirm: model.reboot,
@@ -96,8 +96,8 @@ class DevicePage extends StatelessWidget {
       WidgetsBinding.instance.addPostFrameCallback(
         (_) => showErrorDialog(
           context,
-          text: l10n.installError,
-          description: model.error.toString(),
+          title: l10n.installError,
+          message: model.error!.localize(context),
           onConfirm: () => model.state = DeviceState.idle,
         ),
       );
@@ -126,8 +126,8 @@ class DevicePage extends StatelessWidget {
                       OutlinedButton(
                         onPressed: () => showConfirmationDialog(
                           context,
-                          text: l10n.updateChecksumsConfirm(device.name),
-                          description: l10n.updateChecksumsInfo,
+                          title: l10n.updateChecksumsConfirm(device.name),
+                          message: l10n.updateChecksumsInfo,
                           onConfirm: model.verifyUpdate,
                           okText: l10n.update,
                         ),
@@ -137,8 +137,8 @@ class DevicePage extends StatelessWidget {
                       OutlinedButton(
                         onPressed: () => showConfirmationDialog(
                           context,
-                          text: l10n.verifyFirmwareConfirm(device.name),
-                          description: device.flags
+                          title: l10n.verifyFirmwareConfirm(device.name),
+                          message: device.flags
                                   .contains(FwupdDeviceFlag.usableDuringUpdate)
                               ? null
                               : l10n.deviceUnavailable,

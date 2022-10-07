@@ -4,8 +4,8 @@ import 'package:yaru_icons/yaru_icons.dart';
 
 Future<void> showMessageDialog(
   BuildContext context, {
-  required String text,
-  String? description,
+  required String title,
+  String? message,
   String? okText,
   Icon? icon,
   VoidCallback? onConfirm,
@@ -38,12 +38,12 @@ Future<void> showMessageDialog(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    text,
+                    title,
                     style: Theme.of(context).textTheme.titleMedium,
                   ),
-                  if (description != null) ...[
+                  if (message != null) ...[
                     const SizedBox(height: 8),
-                    Text(description),
+                    Text(message),
                   ],
                 ],
               ),
@@ -62,16 +62,16 @@ Future<void> showMessageDialog(
 
 Future<void> showConfirmationDialog(
   BuildContext context, {
-  required String text,
-  String? description,
+  required String title,
+  String? message,
   String? okText,
   VoidCallback? onConfirm,
   VoidCallback? onCancel,
 }) =>
     showMessageDialog(
       context,
-      text: text,
-      description: description,
+      title: title,
+      message: message,
       okText: okText,
       icon: const Icon(YaruIcons.question, size: 64.0),
       onCancel: onCancel,
@@ -80,14 +80,14 @@ Future<void> showConfirmationDialog(
 
 Future<void> showErrorDialog(
   BuildContext context, {
-  required String text,
-  String? description,
+  required String title,
+  String? message,
   VoidCallback? onConfirm,
 }) =>
     showMessageDialog(
       context,
-      text: text,
-      description: description,
+      title: title,
+      message: message,
       icon: Icon(YaruIcons.error,
           size: 64.0, color: Theme.of(context).colorScheme.error),
       onConfirm: onConfirm,
