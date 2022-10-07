@@ -101,3 +101,49 @@ extension FwupdDeviceFlagL10n on FwupdDeviceFlag {
     }
   }
 }
+
+extension FwupdExceptionL10n on FwupdException {
+  String localize(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    switch (runtimeType) {
+      case FwupdInternalException:
+        return l10n.fwupdErrorInternal;
+      case FwupdVersionNewerException:
+        return l10n.fwupdErrorVersionNewer;
+      case FwupdVersionSameException:
+        return l10n.fwupdErrorVersionSame;
+      case FwupdAlreadyPendingException:
+        return l10n.fwupdErrorAlreadyPending;
+      case FwupdAuthFailedException:
+        return l10n.fwupdErrorAuthFailed;
+      case FwupdReadException:
+        return l10n.fwupdErrorRead;
+      case FwupdWriteException:
+        return l10n.fwupdErrorWrite;
+      case FwupdInvalidFileException:
+        return l10n.fwupdErrorInvalidFile;
+      case FwupdNotFoundException:
+        return l10n.fwupdErrorNotFound;
+      case FwupdNothingToDoException:
+        return l10n.fwupdErrorNothingToDo;
+      case FwupdNotSupportedException:
+        return l10n.fwupdErrorNotSupported;
+      case FwupdSignatureInvalidException:
+        return l10n.fwupdErrorSignatureInvalid;
+      case FwupdAcPowerRequiredException:
+        return l10n.fwupdErrorAcPowerRequired;
+      case FwupdPermissionDeniedException:
+        return l10n.fwupdErrorPermissionDenied;
+      case FwupdBrokenSystemException:
+        return l10n.fwupdErrorBrokenSystem;
+      case FwupdBatteryLevelTooLowException:
+        return l10n.fwupdErrorBatteryLevelTooLow;
+      case FwupdNeedsUserActionException:
+        return l10n.fwupdErrorNeedsUserAction;
+      // case FwupdAuthExpiredException:
+      //   return l10n.fwupdErrorAuthExpired;
+      default:
+        return l10n.fwupdErrorUnknown;
+    }
+  }
+}
