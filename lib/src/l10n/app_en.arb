@@ -66,7 +66,7 @@
   "fwupdErrorNothingToDo": "Nothing to do",
   "fwupdErrorNotSupported": "Action was not possible",
   "fwupdErrorSignatureInvalid": "Signature was invalid",
-  "fwupdErrorAcPowerRequired": "ac power was required",
+  "fwupdErrorAcPowerRequired": "AC power was required",
   "fwupdErrorPermissionDenied": "Permission was denied",
   "fwupdErrorBrokenSystem": "User has configured their system in a broken way",
   "fwupdErrorBatteryLevelTooLow": "The system battery level is too low",
