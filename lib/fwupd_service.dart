@@ -37,7 +37,8 @@ class FwupdService {
   final UbuntuSession _session;
   int? _downloadProgress;
   final _propertiesChanged = StreamController<List<String>>();
-  StreamSubscription<List<String>>? _propertiesSubscription;
+  StreamSubscription<List<String>>? _fwupdPropertiesSubscription;
+  StreamSubscription<List<String>>? _upowerPropertiesSubscription;
 
   FwupdStatus get status =>
       _downloadProgress != null ? FwupdStatus.downloading : _fwupd.status;
@@ -51,15 +52,18 @@ class FwupdService {
 
   Future<void> init() async {
     await _fwupd.connect();
-    _propertiesSubscription ??=
+    _fwupdPropertiesSubscription ??=
         _fwupd.propertiesChanged.listen(_propertiesChanged.add);
     await _upower.connect();
+    _upowerPropertiesSubscription ??=
+        _upower.propertiesChanged.listen(_propertiesChanged.add);
   }
 
   Future<void> dispose() async {
     _dio.close();
+    await _fwupdPropertiesSubscription?.cancel();
+    await _upowerPropertiesSubscription?.cancel();
     await _upower.close();
-    await _propertiesSubscription?.cancel();
     return _fwupd.close();
   }
 
