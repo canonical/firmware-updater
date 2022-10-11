@@ -58,7 +58,6 @@ void main() {
               title: title,
               message: message,
               onConfirm: completer.complete,
-              onCancel: () {},
             ),
             child: const Text('click me'),
           );

@@ -91,7 +91,7 @@ Future<DialogAction?> showConfirmationDialog(
       message: message,
       actionText: actionText,
       icon: const Icon(YaruIcons.question, size: 64.0),
-      onCancel: onCancel,
+      onCancel: onCancel ?? () {},
       onAction: onConfirm,
       closeable: false,
     );
