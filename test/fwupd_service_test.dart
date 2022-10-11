@@ -20,6 +20,7 @@ void main() {
     final session = MockUbuntuSession();
     when(client.propertiesChanged).thenAnswer((_) => const Stream.empty());
     final upower = MockUPowerClient();
+    when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
 
     final service = FwupdService(
       fwupd: client,
@@ -66,6 +67,7 @@ void main() {
 
     final session = MockUbuntuSession();
     final upower = MockUPowerClient();
+    when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
     final service = FwupdService(
       fwupd: fwupd,
       dio: dio,

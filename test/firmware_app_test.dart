@@ -28,11 +28,13 @@ void main() {
     FwupdStatus? status,
     int? percentage,
     String? version,
+    bool? onBattery,
   }) {
     final notifier = MockFwupdNotifier();
     when(notifier.status).thenReturn(status ?? FwupdStatus.idle);
     when(notifier.percentage).thenReturn(percentage ?? 0);
     when(notifier.version).thenReturn(version ?? 'v1.2.3');
+    when(notifier.onBattery).thenReturn(onBattery ?? false);
     return notifier;
   }
 
