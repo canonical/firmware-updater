@@ -45,7 +45,6 @@ class _FirmwareAppState extends State<FirmwareApp> {
             DetailPage.create(context, device: devices[index]),
         tileBuilder: (context, index, selected) =>
             DeviceTile.create(context, device: devices[index]),
-        titleBuilder: (context, index, selected) => Text(devices[index].name),
         leftPaneWidth: 400,
       ),
       empty: () => const Center(child: YaruCircularProgressIndicator()),
