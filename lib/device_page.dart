@@ -35,44 +35,6 @@ class DevicePage extends StatelessWidget {
     return _buildPadding(Text(text));
   }
 
-  static Widget _buildIconRow(
-    BuildContext context,
-    String vendor,
-    String name,
-    String description,
-    IconData icon,
-  ) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(
-          icon,
-          size: 64,
-        ),
-        const SizedBox(width: 16),
-        Flexible(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                vendor,
-                style: Theme.of(context).textTheme.labelLarge,
-              ),
-              Text(
-                name,
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              Text(
-                description,
-                style: Theme.of(context).textTheme.labelMedium,
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final model = context.watch<DeviceModel>();
