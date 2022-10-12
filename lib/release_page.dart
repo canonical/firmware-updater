@@ -89,6 +89,12 @@ class ReleasePage extends StatelessWidget {
                               model.selectedRelease = null;
                               await model.install(selected);
                               await notifier.refresh();
+
+                              // refresh [DeviceStore] to force updates of all
+                              // [DeviceModel]s even if fwupd didn't send an
+                              // appropriate DBus signal (possible bug in 1.7.5
+                              // on Ubuntu 22.04)
+                              // TODO: improve when better solution is found
                               await store.refresh();
                             },
                             onCancel: () {},
