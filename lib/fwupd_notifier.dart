@@ -38,6 +38,8 @@ class FwupdNotifier extends SafeChangeNotifier {
     });
   }
 
+  Future<void> refresh() => _service.refreshProperties();
+
   @override
   Future<void> dispose() async {
     await _propertiesChanged?.cancel();

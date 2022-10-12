@@ -63,6 +63,8 @@ class FwupdService {
     return _fwupd.close();
   }
 
+  Future<void> refreshProperties() => _fwupd.refreshPropertyCache();
+
   Future<File> _fetchRelease(FwupdRelease release) async {
     final remote = await _fwupd.getRemotes().then((remotes) {
       return remotes.firstWhere((remote) => remote.id == release.remoteId);
