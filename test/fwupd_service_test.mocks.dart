@@ -884,6 +884,15 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
   @override
+  _i9.Future<void> refreshPropertyCache() => (super.noSuchMethod(
+        Invocation.method(
+          #refreshPropertyCache,
+          [],
+        ),
+        returnValue: _i9.Future<void>.value(),
+        returnValueForMissingStub: _i9.Future<void>.value(),
+      ) as _i9.Future<void>);
+  @override
   _i9.Future<List<_i12.FwupdDevice>> getDevices() => (super.noSuchMethod(
         Invocation.method(
           #getDevices,
