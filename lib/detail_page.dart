@@ -19,6 +19,7 @@ class DetailPage extends StatefulWidget {
     required FwupdDevice device,
   }) {
     return ChangeNotifierProvider<DeviceModel>(
+      key: ValueKey(device.hashCode),
       create: (_) => DeviceModel(device, getService<FwupdService>()),
       child: const DetailPage(),
     );

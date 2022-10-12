@@ -6,6 +6,8 @@ import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'device_model.dart';
+import 'device_store.dart';
+import 'fwupd_notifier.dart';
 import 'fwupd_x.dart';
 import 'src/widgets/confirmation_dialog.dart';
 import 'src/widgets/release_card.dart';
@@ -82,9 +84,18 @@ class ReleasePage extends StatelessWidget {
                             message: dialogDesc,
                             actionText: action,
                             onConfirm: () async {
+                              final notifier = context.read<FwupdNotifier>();
+                              final store = context.read<DeviceStore>();
                               model.selectedRelease = null;
-                              model.state = DeviceState.busy;
                               await model.install(selected);
+                              await notifier.refresh();
+
+                              // refresh [DeviceStore] to force updates of all
+                              // [DeviceModel]s even if fwupd didn't send an
+                              // appropriate DBus signal (possible bug in 1.7.5
+                              // on Ubuntu 22.04)
+                              // TODO: improve when better solution is found
+                              await store.refresh();
                             },
                             onCancel: () {},
                           );

@@ -71,6 +71,7 @@ class DeviceModel extends SafeChangeNotifier {
 
   Future<void> install(FwupdRelease release) async {
     try {
+      state = DeviceState.busy;
       await _service.install(device, release);
       state = device.flags.contains(FwupdDeviceFlag.needsReboot)
           ? DeviceState.needsReboot

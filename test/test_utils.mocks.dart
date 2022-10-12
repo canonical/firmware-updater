@@ -88,6 +88,15 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
   @override
+  _i4.Future<void> refreshProperties() => (super.noSuchMethod(
+        Invocation.method(
+          #refreshProperties,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
   _i4.Future<void> activate(_i3.FwupdDevice? device) => (super.noSuchMethod(
         Invocation.method(
           #activate,
