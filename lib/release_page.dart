@@ -6,6 +6,7 @@ import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'device_model.dart';
+import 'device_store.dart';
 import 'fwupd_notifier.dart';
 import 'fwupd_x.dart';
 import 'src/widgets/confirmation_dialog.dart';
@@ -84,10 +85,11 @@ class ReleasePage extends StatelessWidget {
                             actionText: action,
                             onConfirm: () async {
                               final notifier = context.read<FwupdNotifier>();
+                              final store = context.read<DeviceStore>();
                               model.selectedRelease = null;
-                              model.state = DeviceState.busy;
                               await model.install(selected);
                               await notifier.refresh();
+                              await store.refresh();
                             },
                             onCancel: () {},
                           );
