@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 
-import '../../fwupd_x.dart';
-import 'refresh_button.dart';
-
 class AppProgressBar extends AppBar {
   AppProgressBar({
     super.key,
     required String title,
+    super.leading,
     double? height,
     double? progress,
     required FwupdStatus status,
-    required VoidCallback onRefresh,
   }) : super(
           title: Text(title),
           bottom: PreferredSize(
@@ -25,9 +22,5 @@ class AppProgressBar extends AppBar {
               child: LinearProgressIndicator(value: progress),
             ),
           ),
-          actions: <Widget>[
-            RefreshButton(isBusy: status.isBusy, onPressed: onRefresh),
-            const SizedBox(width: 8),
-          ],
         );
 }

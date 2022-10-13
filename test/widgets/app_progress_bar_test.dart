@@ -13,7 +13,6 @@ void main() {
           title: 'title',
           status: FwupdStatus.deviceWrite,
           progress: 0.5,
-          onRefresh: () {},
         ),
       ),
     ));
@@ -30,7 +29,6 @@ void main() {
         appBar: AppProgressBar(
           title: 'title',
           status: FwupdStatus.idle,
-          onRefresh: () {},
         ),
       ),
     ));

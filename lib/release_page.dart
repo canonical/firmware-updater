@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
-import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'device_model.dart';
@@ -52,13 +51,9 @@ class ReleasePage extends StatelessWidget {
 
     return model.state == DeviceState.busy
         ? const Center(child: YaruCircularProgressIndicator())
-        : Scaffold(
+        : YaruDetailPage(
             appBar: AppBar(
               title: Text('${device.name} ${device.version}'),
-              leading: IconButton(
-                onPressed: Navigator.of(context).pop,
-                icon: const Icon(YaruIcons.go_previous),
-              ),
             ),
             body: ListView(
               padding: const EdgeInsets.symmetric(horizontal: 16),
