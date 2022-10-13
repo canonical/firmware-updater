@@ -42,6 +42,7 @@ class DevicePage extends StatelessWidget {
     final device = model.device;
     final releases = model.releases ?? [];
     final l10n = AppLocalizations.of(context);
+    final fwupdIdle = notifier.status == FwupdStatus.idle;
     final deviceFlags = [
       for (final flag in device.flags) flag.localize(context)
     ].whereNotNull();
@@ -83,40 +84,48 @@ class DevicePage extends StatelessWidget {
               children: [
                 if (device.canVerify)
                   OutlinedButton(
-                    onPressed: () => showConfirmationDialog(
-                      context,
-                      title: l10n.updateChecksumsConfirm(device.name),
-                      message: l10n.updateChecksumsInfo,
-                      onConfirm: model.verifyUpdate,
-                      actionText: l10n.update,
-                    ),
+                    onPressed: fwupdIdle
+                        ? () => showConfirmationDialog(
+                              context,
+                              title: l10n.updateChecksumsConfirm(device.name),
+                              message: l10n.updateChecksumsInfo,
+                              onConfirm: model.verifyUpdate,
+                              actionText: l10n.update,
+                            )
+                        : null,
                     child: Text(l10n.updateChecksums),
                   ),
                 if (device.canVerify && device.checksum != null)
                   OutlinedButton(
-                    onPressed: () => showConfirmationDialog(
-                      context,
-                      title: l10n.verifyFirmwareConfirm(device.name),
-                      message: device.flags
-                              .contains(FwupdDeviceFlag.usableDuringUpdate)
-                          ? null
-                          : l10n.deviceUnavailable,
-                      onConfirm: model.verify,
-                    ),
+                    onPressed: fwupdIdle
+                        ? () => showConfirmationDialog(
+                              context,
+                              title: l10n.verifyFirmwareConfirm(device.name),
+                              message: device.flags.contains(
+                                      FwupdDeviceFlag.usableDuringUpdate)
+                                  ? null
+                                  : l10n.deviceUnavailable,
+                              onConfirm: model.verify,
+                            )
+                        : null,
                     child: Text(l10n.verifyFirmware),
                   ),
                 if (releases.isNotEmpty)
                   model.hasUpgrade()
                       ? ElevatedButton(
-                          onPressed: () => context
-                              .read<DeviceModel>()
-                              .selectedRelease = releases.first,
+                          onPressed: fwupdIdle
+                              ? () => context
+                                  .read<DeviceModel>()
+                                  .selectedRelease = releases.first
+                              : null,
                           child: Text(l10n.showUpdates),
                         )
                       : OutlinedButton(
-                          onPressed: () => context
-                              .read<DeviceModel>()
-                              .selectedRelease = releases.first,
+                          onPressed: fwupdIdle
+                              ? () => context
+                                  .read<DeviceModel>()
+                                  .selectedRelease = releases.first
+                              : null,
                           child: Text(l10n.showReleases),
                         ),
               ],
