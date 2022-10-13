@@ -102,6 +102,42 @@ extension FwupdDeviceFlagL10n on FwupdDeviceFlag {
   }
 }
 
+extension FwupdStatusL10n on FwupdStatus {
+  String localize(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    switch (this) {
+      case FwupdStatus.unknown:
+        return l10n.fwupdStatusUnknown;
+      case FwupdStatus.idle:
+        return l10n.fwupdStatusIdle;
+      case FwupdStatus.loading:
+        return l10n.fwupdStatusLoading;
+      case FwupdStatus.decompressing:
+        return l10n.fwupdStatusDecompressing;
+      case FwupdStatus.deviceRestart:
+        return l10n.fwupdStatusDeviceRestart;
+      case FwupdStatus.deviceWrite:
+        return l10n.fwupdStatusDeviceWrite;
+      case FwupdStatus.deviceVerify:
+        return l10n.fwupdStatusDeviceVerify;
+      case FwupdStatus.scheduling:
+        return l10n.fwupdStatusScheduling;
+      case FwupdStatus.downloading:
+        return l10n.fwupdStatusDownloading;
+      case FwupdStatus.deviceRead:
+        return l10n.fwupdStatusDeviceRead;
+      case FwupdStatus.deviceErase:
+        return l10n.fwupdStatusDeviceErase;
+      case FwupdStatus.waitingForAuth:
+        return l10n.fwupdStatusWaitingForAuth;
+      case FwupdStatus.deviceBusy:
+        return l10n.fwupdStatusDeviceBusy;
+      case FwupdStatus.shutdown:
+        return l10n.fwupdStatusShutdown;
+    }
+  }
+}
+
 extension FwupdExceptionL10n on FwupdException {
   String localize(BuildContext context) {
     final l10n = AppLocalizations.of(context);
