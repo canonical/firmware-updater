@@ -57,6 +57,7 @@ class FwupdService {
     await _upower.connect();
     _upowerPropertiesSubscription ??=
         _upower.propertiesChanged.listen(_propertiesChanged.add);
+    _propertiesChanged.add(['OnBattery']);
   }
 
   Future<void> dispose() async {
