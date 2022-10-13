@@ -17,6 +17,7 @@ class FwupdNotifier extends SafeChangeNotifier {
   FwupdStatus get status => _service.status;
   int get percentage => _service.percentage;
   String get version => _service.daemonVersion;
+  bool get onBattery => _service.onBattery;
 
   Future<void> init() async {
     _propertiesChanged ??= _service.propertiesChanged.listen((properties) {
@@ -28,6 +29,10 @@ class FwupdNotifier extends SafeChangeNotifier {
             break;
           case 'Percentage':
             log.debug('$percentage%');
+            notifyListeners();
+            break;
+          case 'OnBattery':
+            log.debug('on battery: $onBattery');
             notifyListeners();
             break;
           default:

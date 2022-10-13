@@ -122,6 +122,11 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         returnValue: '',
       ) as String);
   @override
+  bool get onBattery => (super.noSuchMethod(
+        Invocation.getter(#onBattery),
+        returnValue: false,
+      ) as bool);
+  @override
   bool get hasListeners => (super.noSuchMethod(
         Invocation.getter(#hasListeners),
         returnValue: false,

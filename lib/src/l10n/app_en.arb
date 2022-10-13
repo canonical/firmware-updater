@@ -1,5 +1,6 @@
 {
   "appTitle": "Firmware Updater",
+  "batteryWarning": "Warning: some device updates may only be available on external power!",
   "close": "Close",
   "cancel": "Cancel",
   "current": "Current",

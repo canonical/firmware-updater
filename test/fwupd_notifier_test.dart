@@ -23,6 +23,9 @@ void main() {
 
     when(service.daemonVersion).thenReturn('foo');
     expect(notifier.version, 'foo');
+
+    when(service.onBattery).thenReturn(true);
+    expect(notifier.onBattery, true);
   });
 
   test('notifies property changes', () async {
