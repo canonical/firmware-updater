@@ -74,4 +74,17 @@ void main() {
     expect(find.text('Device 2'), findsOneWidget);
     expect(find.text('Summary 2'), findsOneWidget);
   });
+
+  testWidgets('on battery', (tester) async {
+    registerMockService<FwupdService>(mockService());
+
+    final store = mockStore(devices: [
+      testDevice(id: '1', name: 'Device 1', summary: 'Summary 1'),
+      testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
+    ]);
+    await tester.pumpApp((_) =>
+        buildPage(store: store, notifier: mockNotifier(onBattery: true)));
+
+    expect(find.text(tester.lang.batteryWarning), findsOneWidget);
+  });
 }
