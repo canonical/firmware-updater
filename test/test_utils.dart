@@ -62,6 +62,11 @@ extension WidgetTesterX on WidgetTester {
     return AppLocalizations.of(widget);
   }
 
+  ThemeData get theme {
+    final widget = element(find.byType(context).first);
+    return Theme.of(widget);
+  }
+
   Future<void> pumpApp(WidgetBuilder builder) {
     binding.window.devicePixelRatioTestValue = 1;
     binding.window.physicalSizeTestValue = const Size(700, 850);
