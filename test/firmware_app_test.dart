@@ -14,7 +14,7 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 import 'firmware_app_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([DeviceStore, FwupdNotifier])
+@GenerateMocks([DeviceStore])
 void main() {
   DeviceStore mockStore({
     required List<FwupdDevice> devices,
@@ -22,20 +22,6 @@ void main() {
     final store = MockDeviceStore();
     when(store.devices).thenReturn(devices);
     return store;
-  }
-
-  FwupdNotifier mockNotifier({
-    FwupdStatus? status,
-    int? percentage,
-    String? version,
-    bool? onBattery,
-  }) {
-    final notifier = MockFwupdNotifier();
-    when(notifier.status).thenReturn(status ?? FwupdStatus.idle);
-    when(notifier.percentage).thenReturn(percentage ?? 0);
-    when(notifier.version).thenReturn(version ?? 'v1.2.3');
-    when(notifier.onBattery).thenReturn(onBattery ?? false);
-    return notifier;
   }
 
   Widget buildPage(

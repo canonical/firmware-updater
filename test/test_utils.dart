@@ -1,3 +1,4 @@
+import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -52,6 +53,21 @@ MockFwupdService mockService({
   when(service.propertiesChanged).thenAnswer((_) => const Stream.empty());
   when(service.onBattery).thenAnswer((_) => false);
   return service;
+}
+
+@GenerateMocks([FwupdNotifier])
+FwupdNotifier mockNotifier({
+  FwupdStatus? status,
+  int? percentage,
+  String? version,
+  bool? onBattery,
+}) {
+  final notifier = MockFwupdNotifier();
+  when(notifier.status).thenReturn(status ?? FwupdStatus.idle);
+  when(notifier.percentage).thenReturn(percentage ?? 0);
+  when(notifier.version).thenReturn(version ?? 'v1.2.3');
+  when(notifier.onBattery).thenReturn(onBattery ?? false);
+  return notifier;
 }
 
 extension WidgetTesterX on WidgetTester {
