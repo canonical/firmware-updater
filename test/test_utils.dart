@@ -13,6 +13,10 @@ FwupdDevice testDevice({
   String? name,
   String? summary,
   String? icon,
+  List<String>? guid,
+  String? vendor,
+  String? version,
+  String? versionLowest,
   Set<FwupdDeviceFlag>? flags,
 }) {
   return FwupdDevice(
@@ -20,6 +24,10 @@ FwupdDevice testDevice({
     name: name ?? '',
     summary: summary,
     icon: icon != null ? [icon] : [],
+    guid: guid ?? [],
+    vendor: vendor,
+    version: version,
+    versionLowest: versionLowest,
     plugin: '',
     flags: flags ?? {FwupdDeviceFlag.updatable},
   );
