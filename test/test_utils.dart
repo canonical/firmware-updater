@@ -18,6 +18,7 @@ FwupdDevice testDevice({
   String? vendor,
   String? version,
   String? versionLowest,
+  String? checksum,
   Set<FwupdDeviceFlag>? flags,
 }) {
   return FwupdDevice(
@@ -29,6 +30,7 @@ FwupdDevice testDevice({
     vendor: vendor,
     version: version,
     versionLowest: versionLowest,
+    checksum: checksum,
     plugin: '',
     flags: flags ?? {FwupdDeviceFlag.updatable},
   );
