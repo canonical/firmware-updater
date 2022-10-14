@@ -169,6 +169,7 @@ void main() {
 
       await tester.tap(find.text(tester.lang.cancel));
       verify(model.state = DeviceState.idle).called(1);
+      verifyNever(model.reboot());
     });
   });
 
