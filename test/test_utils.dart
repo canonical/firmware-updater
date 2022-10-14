@@ -1,3 +1,4 @@
+import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -13,6 +14,11 @@ FwupdDevice testDevice({
   String? name,
   String? summary,
   String? icon,
+  List<String>? guid,
+  String? vendor,
+  String? version,
+  String? versionLowest,
+  String? checksum,
   Set<FwupdDeviceFlag>? flags,
 }) {
   return FwupdDevice(
@@ -20,6 +26,11 @@ FwupdDevice testDevice({
     name: name ?? '',
     summary: summary,
     icon: icon != null ? [icon] : [],
+    guid: guid ?? [],
+    vendor: vendor,
+    version: version,
+    versionLowest: versionLowest,
+    checksum: checksum,
     plugin: '',
     flags: flags ?? {FwupdDeviceFlag.updatable},
   );
@@ -46,12 +57,32 @@ MockFwupdService mockService({
   return service;
 }
 
+@GenerateMocks([FwupdNotifier])
+FwupdNotifier mockNotifier({
+  FwupdStatus? status,
+  int? percentage,
+  String? version,
+  bool? onBattery,
+}) {
+  final notifier = MockFwupdNotifier();
+  when(notifier.status).thenReturn(status ?? FwupdStatus.idle);
+  when(notifier.percentage).thenReturn(percentage ?? 0);
+  when(notifier.version).thenReturn(version ?? 'v1.2.3');
+  when(notifier.onBattery).thenReturn(onBattery ?? false);
+  return notifier;
+}
+
 extension WidgetTesterX on WidgetTester {
   static Type context = Scaffold;
 
   AppLocalizations get lang {
     final widget = element(find.byType(context).first);
     return AppLocalizations.of(widget);
+  }
+
+  ThemeData get theme {
+    final widget = element(find.byType(context).first);
+    return Theme.of(widget);
   }
 
   Future<void> pumpApp(WidgetBuilder builder) {

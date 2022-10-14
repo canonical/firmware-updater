@@ -5,7 +5,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i4;
 import 'dart:io' as _i5;
+import 'dart:ui' as _i7;
 
+import 'package:firmware_updater/fwupd_notifier.dart' as _i6;
 import 'package:firmware_updater/fwupd_service.dart' as _i2;
 import 'package:fwupd/fwupd.dart' as _i3;
 import 'package:mockito/mockito.dart' as _i1;
@@ -225,4 +227,95 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+}
+
+/// A class which mocks [FwupdNotifier].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
+  MockFwupdNotifier() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i3.FwupdStatus get status => (super.noSuchMethod(
+        Invocation.getter(#status),
+        returnValue: _i3.FwupdStatus.unknown,
+      ) as _i3.FwupdStatus);
+  @override
+  int get percentage => (super.noSuchMethod(
+        Invocation.getter(#percentage),
+        returnValue: 0,
+      ) as int);
+  @override
+  String get version => (super.noSuchMethod(
+        Invocation.getter(#version),
+        returnValue: '',
+      ) as String);
+  @override
+  bool get onBattery => (super.noSuchMethod(
+        Invocation.getter(#onBattery),
+        returnValue: false,
+      ) as bool);
+  @override
+  bool get hasListeners => (super.noSuchMethod(
+        Invocation.getter(#hasListeners),
+        returnValue: false,
+      ) as bool);
+  @override
+  bool get isDisposed => (super.noSuchMethod(
+        Invocation.getter(#isDisposed),
+        returnValue: false,
+      ) as bool);
+  @override
+  _i4.Future<void> init() => (super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<void> refresh() => (super.noSuchMethod(
+        Invocation.method(
+          #refresh,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  _i4.Future<void> dispose() => (super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+  @override
+  void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void notifyListeners() => super.noSuchMethod(
+        Invocation.method(
+          #notifyListeners,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
 }
