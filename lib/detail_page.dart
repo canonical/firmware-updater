@@ -39,6 +39,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     final deviceModel = context.watch<DeviceModel>();
+    final navigator = Navigator.of(context);
     return ClipRect(
       child: Theme(
         data: Theme.of(context).copyWith(
@@ -46,8 +47,8 @@ class _DetailPageState extends State<DetailPage> {
         ),
         child: Navigator(
           pages: [
-            const MaterialPage(
-              child: DevicePage(),
+            MaterialPage(
+              child: DevicePage(parentNavigator: navigator),
             ),
             if (deviceModel.selectedRelease != null)
               const MaterialPage(
