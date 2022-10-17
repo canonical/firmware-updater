@@ -16,6 +16,23 @@ import 'test_utils.dart';
 
 @GenerateMocks([DeviceStore])
 void main() {
+  final devices = [
+    testDevice(
+      id: '1',
+      name: 'Device 1',
+      summary: 'Summary 1',
+      guid: [
+        '123e4567-e89b-12d3-a456-426614174000',
+        'a4f0aa5e-fdde-44d7-966c-40bd49385cc5',
+      ],
+      vendor: 'test vendor',
+      version: '1.0.0',
+      versionLowest: '0.0.1',
+      flags: {FwupdDeviceFlag.updatable, FwupdDeviceFlag.needsReboot},
+    ),
+    testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
+  ];
+
   DeviceStore mockStore({
     required List<FwupdDevice> devices,
   }) {
@@ -35,6 +52,14 @@ void main() {
     );
   }
 
+  void expectDevicePropertyList(WidgetTester tester) {
+    expect(find.text(tester.lang.fwupdDeviceFlagNeedsReboot), findsOneWidget);
+    expect(find.text(devices.first.guid[1]), findsOneWidget);
+    expect(find.text(devices.first.vendor!), findsOneWidget);
+    expect(find.text(devices.first.version!), findsOneWidget);
+    expect(find.text(devices.first.versionLowest!), findsOneWidget);
+  }
+
   testWidgets('loading', (tester) async {
     final store = mockStore(devices: []);
     await tester
@@ -43,49 +68,48 @@ void main() {
     expect(find.byType(YaruCircularProgressIndicator), findsOneWidget);
   });
 
-  testWidgets('data', (tester) async {
-    registerMockService<FwupdService>(mockService());
+  group('data', () {
+    testWidgets('landscape layout', (tester) async {
+      registerMockService<FwupdService>(mockService());
 
-    final devices = [
-      testDevice(
-        id: '1',
-        name: 'Device 1',
-        summary: 'Summary 1',
-        guid: [
-          '123e4567-e89b-12d3-a456-426614174000',
-          'a4f0aa5e-fdde-44d7-966c-40bd49385cc5',
-        ],
-        vendor: 'test vendor',
-        version: '1.0.0',
-        versionLowest: '0.0.1',
-        flags: {FwupdDeviceFlag.updatable, FwupdDeviceFlag.needsReboot},
-      ),
-      testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
-    ];
-    final store = mockStore(devices: devices);
-    await tester
-        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+      final store = mockStore(devices: devices);
+      await tester
+          .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
 
-    // First device appears twice in master detail layout
-    expect(find.text('Device 1'), findsNWidgets(2));
-    expect(find.text('Summary 1'), findsNWidgets(2));
-    expect(find.text(tester.lang.fwupdDeviceFlagNeedsReboot), findsOneWidget);
-    expect(find.text(devices.first.guid[1]), findsOneWidget);
-    expect(find.text(devices.first.vendor!), findsOneWidget);
-    expect(find.text(devices.first.version!), findsOneWidget);
-    expect(find.text(devices.first.versionLowest!), findsOneWidget);
+      expect(find.text(devices.first.name), findsNWidgets(2));
+      expect(find.text(devices.first.summary!), findsNWidgets(2));
+      expectDevicePropertyList(tester);
 
-    expect(find.text('Device 2'), findsOneWidget);
-    expect(find.text('Summary 2'), findsOneWidget);
+      expect(find.text(devices[1].name), findsOneWidget);
+      expect(find.text(devices[1].summary!), findsOneWidget);
+    });
+
+    testWidgets('portrait layout', (tester) async {
+      registerMockService<FwupdService>(mockService());
+
+      final store = mockStore(devices: devices);
+      await tester.pumpApp(
+          (_) => buildPage(store: store, notifier: mockNotifier()),
+          size: const Size(400, 850));
+
+      expect(find.text(devices.first.name), findsOneWidget);
+      expect(find.text(devices.first.summary!), findsOneWidget);
+      expect(find.text(devices[1].name), findsOneWidget);
+      expect(find.text(devices[1].summary!), findsOneWidget);
+      expect(find.text(tester.lang.currentVersion), findsNothing);
+
+      await tester.tap(find.text(devices.first.name));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(YaruBackButton), findsOneWidget);
+      expectDevicePropertyList(tester);
+    });
   });
 
   testWidgets('on battery', (tester) async {
     registerMockService<FwupdService>(mockService());
 
-    final store = mockStore(devices: [
-      testDevice(id: '1', name: 'Device 1', summary: 'Summary 1'),
-      testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
-    ]);
+    final store = mockStore(devices: devices);
     await tester.pumpApp((_) =>
         buildPage(store: store, notifier: mockNotifier(onBattery: true)));
 
