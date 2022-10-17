@@ -90,6 +90,11 @@ class DevicePage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          StatusBanner(
+            message: notifier.status.localize(context),
+            progress: notifier.percentage / 100.0,
+            visible: !fwupdIdle,
+          ),
           if (device.canVerify || releases.isNotEmpty)
             ButtonBar(
               mainAxisSize: MainAxisSize.min,
