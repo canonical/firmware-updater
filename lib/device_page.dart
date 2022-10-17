@@ -12,7 +12,9 @@ import 'fwupd_x.dart';
 import 'widgets.dart';
 
 class DevicePage extends StatelessWidget {
-  const DevicePage({super.key});
+  const DevicePage({super.key, this.parentNavigator});
+
+  final NavigatorState? parentNavigator;
 
   static Widget _buildPadding(Widget child) {
     return Padding(
@@ -85,124 +87,128 @@ class DevicePage extends StatelessWidget {
     return YaruDetailPage(
       appBar: AppBar(
         title: _buildAppBarTitle(context, device.name, device.summary),
-        leading: Icon(DeviceIcon.fromName(device.icon.firstOrNull)),
+        leading: parentNavigator?.canPop() == true
+            ? YaruBackButton(onPressed: parentNavigator!.pop)
+            : Icon(DeviceIcon.fromName(device.icon.firstOrNull)),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          StatusBanner(
-            message: notifier.status.localize(context),
-            progress: notifier.percentage / 100.0,
-            visible: !fwupdIdle,
-          ),
-          if (device.canVerify || releases.isNotEmpty)
-            ButtonBar(
-              mainAxisSize: MainAxisSize.min,
-              overflowButtonSpacing: 8.0,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            StatusBanner(
+              message: notifier.status.localize(context),
+              progress: notifier.percentage / 100.0,
+              visible: !fwupdIdle,
+            ),
+            if (device.canVerify || releases.isNotEmpty)
+              ButtonBar(
+                mainAxisSize: MainAxisSize.min,
+                overflowButtonSpacing: 8.0,
+                children: [
+                  if (device.canVerify)
+                    OutlinedButton(
+                      onPressed: fwupdIdle
+                          ? () => showConfirmationDialog(
+                                context,
+                                title: l10n.updateChecksumsConfirm(device.name),
+                                message: l10n.updateChecksumsInfo,
+                                onConfirm: model.verifyUpdate,
+                                actionText: l10n.update,
+                              )
+                          : null,
+                      child: Text(l10n.updateChecksums),
+                    ),
+                  if (device.canVerify && device.checksum != null)
+                    OutlinedButton(
+                      onPressed: fwupdIdle
+                          ? () => showConfirmationDialog(
+                                context,
+                                title: l10n.verifyFirmwareConfirm(device.name),
+                                message: device.flags.contains(
+                                        FwupdDeviceFlag.usableDuringUpdate)
+                                    ? null
+                                    : l10n.deviceUnavailable,
+                                onConfirm: model.verify,
+                              )
+                          : null,
+                      child: Text(l10n.verifyFirmware),
+                    ),
+                  if (releases.isNotEmpty)
+                    model.hasUpgrade()
+                        ? ElevatedButton(
+                            onPressed: fwupdIdle
+                                ? () => context
+                                    .read<DeviceModel>()
+                                    .selectedRelease = releases.first
+                                : null,
+                            child: Text(l10n.showUpdates),
+                          )
+                        : OutlinedButton(
+                            onPressed: fwupdIdle
+                                ? () => context
+                                    .read<DeviceModel>()
+                                    .selectedRelease = releases.first
+                                : null,
+                            child: Text(l10n.showReleases),
+                          ),
+                ],
+              ),
+            const SizedBox(height: 32),
+            Table(
+              columnWidths: const {
+                0: FlexColumnWidth(),
+                1: FixedColumnWidth(16),
+                2: FlexColumnWidth(2.0),
+              },
               children: [
-                if (device.canVerify)
-                  OutlinedButton(
-                    onPressed: fwupdIdle
-                        ? () => showConfirmationDialog(
-                              context,
-                              title: l10n.updateChecksumsConfirm(device.name),
-                              message: l10n.updateChecksumsInfo,
-                              onConfirm: model.verifyUpdate,
-                              actionText: l10n.update,
-                            )
-                        : null,
-                    child: Text(l10n.updateChecksums),
-                  ),
-                if (device.canVerify && device.checksum != null)
-                  OutlinedButton(
-                    onPressed: fwupdIdle
-                        ? () => showConfirmationDialog(
-                              context,
-                              title: l10n.verifyFirmwareConfirm(device.name),
-                              message: device.flags.contains(
-                                      FwupdDeviceFlag.usableDuringUpdate)
-                                  ? null
-                                  : l10n.deviceUnavailable,
-                              onConfirm: model.verify,
-                            )
-                        : null,
-                    child: Text(l10n.verifyFirmware),
-                  ),
-                if (releases.isNotEmpty)
-                  model.hasUpgrade()
-                      ? ElevatedButton(
-                          onPressed: fwupdIdle
-                              ? () => context
-                                  .read<DeviceModel>()
-                                  .selectedRelease = releases.first
-                              : null,
-                          child: Text(l10n.showUpdates),
-                        )
-                      : OutlinedButton(
-                          onPressed: fwupdIdle
-                              ? () => context
-                                  .read<DeviceModel>()
-                                  .selectedRelease = releases.first
-                              : null,
-                          child: Text(l10n.showReleases),
-                        ),
+                if (device.version != null)
+                  TableRow(children: [
+                    DevicePage._buildHeader(context, l10n.currentVersion),
+                    const SizedBox.shrink(),
+                    DevicePage._buildLabel(context, device.version!),
+                  ]),
+                if (device.versionLowest != null)
+                  TableRow(children: [
+                    DevicePage._buildHeader(context, l10n.minVersion),
+                    const SizedBox.shrink(),
+                    DevicePage._buildLabel(context, device.versionLowest!),
+                  ]),
+                if (device.vendor != null)
+                  TableRow(children: [
+                    DevicePage._buildHeader(context, l10n.vendor),
+                    const SizedBox.shrink(),
+                    DevicePage._buildLabel(context, device.vendor!),
+                  ]),
+                if (device.guid.isNotEmpty)
+                  TableRow(children: [
+                    DevicePage._buildHeader(context, l10n.guid),
+                    const SizedBox.shrink(),
+                    DevicePage._buildPadding(SelectableText(device.guid.first)),
+                  ]),
+                if (device.guid.length > 1)
+                  for (final guid in device.guid.skip(1))
+                    TableRow(children: [
+                      DevicePage._buildHeader(context, ''),
+                      const SizedBox.shrink(),
+                      DevicePage._buildPadding(SelectableText(guid)),
+                    ]),
+                if (deviceFlags.isNotEmpty)
+                  TableRow(children: [
+                    DevicePage._buildHeader(context, l10n.flags),
+                    const SizedBox.shrink(),
+                    DevicePage._buildPadding(Text(deviceFlags.first))
+                  ]),
+                if (deviceFlags.length > 1)
+                  for (final flag in deviceFlags.skip(1))
+                    TableRow(children: [
+                      DevicePage._buildHeader(context, ''),
+                      const SizedBox.shrink(),
+                      DevicePage._buildPadding(Text(flag))
+                    ]),
               ],
             ),
-          const SizedBox(height: 32),
-          Table(
-            columnWidths: const {
-              0: FlexColumnWidth(),
-              1: FixedColumnWidth(16),
-              2: FlexColumnWidth(2.0),
-            },
-            children: [
-              if (device.version != null)
-                TableRow(children: [
-                  DevicePage._buildHeader(context, l10n.currentVersion),
-                  const SizedBox.shrink(),
-                  DevicePage._buildLabel(context, device.version!),
-                ]),
-              if (device.versionLowest != null)
-                TableRow(children: [
-                  DevicePage._buildHeader(context, l10n.minVersion),
-                  const SizedBox.shrink(),
-                  DevicePage._buildLabel(context, device.versionLowest!),
-                ]),
-              if (device.vendor != null)
-                TableRow(children: [
-                  DevicePage._buildHeader(context, l10n.vendor),
-                  const SizedBox.shrink(),
-                  DevicePage._buildLabel(context, device.vendor!),
-                ]),
-              if (device.guid.isNotEmpty)
-                TableRow(children: [
-                  DevicePage._buildHeader(context, l10n.guid),
-                  const SizedBox.shrink(),
-                  DevicePage._buildPadding(SelectableText(device.guid.first)),
-                ]),
-              if (device.guid.length > 1)
-                for (final guid in device.guid.skip(1))
-                  TableRow(children: [
-                    DevicePage._buildHeader(context, ''),
-                    const SizedBox.shrink(),
-                    DevicePage._buildPadding(SelectableText(guid)),
-                  ]),
-              if (deviceFlags.isNotEmpty)
-                TableRow(children: [
-                  DevicePage._buildHeader(context, l10n.flags),
-                  const SizedBox.shrink(),
-                  DevicePage._buildPadding(Text(deviceFlags.first))
-                ]),
-              if (deviceFlags.length > 1)
-                for (final flag in deviceFlags.skip(1))
-                  TableRow(children: [
-                    DevicePage._buildHeader(context, ''),
-                    const SizedBox.shrink(),
-                    DevicePage._buildPadding(Text(flag))
-                  ]),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
