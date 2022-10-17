@@ -68,7 +68,7 @@ void main() {
 
     // First device appears twice in master detail layout
     expect(find.text('Device 1'), findsNWidgets(2));
-    expect(find.text('Summary 1'), findsOneWidget);
+    expect(find.text('Summary 1'), findsNWidgets(2));
     expect(find.text(tester.lang.fwupdDeviceFlagNeedsReboot), findsOneWidget);
     expect(find.text(devices.first.guid[1]), findsOneWidget);
     expect(find.text(devices.first.vendor!), findsOneWidget);
