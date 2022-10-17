@@ -35,6 +35,21 @@ class DevicePage extends StatelessWidget {
     return _buildPadding(Text(text));
   }
 
+  static Widget _buildAppBarTitle(
+      BuildContext context, String title, String? subtitle) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title),
+        if (subtitle != null)
+          Text(
+            subtitle,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final model = context.watch<DeviceModel>();
@@ -68,11 +83,9 @@ class DevicePage extends StatelessWidget {
       );
     }
     return YaruDetailPage(
-      appBar: AppProgressBar(
-        title: device.name,
+      appBar: AppBar(
+        title: _buildAppBarTitle(context, device.name, device.summary),
         leading: Icon(DeviceIcon.fromName(device.icon.firstOrNull)),
-        status: notifier.status,
-        progress: notifier.percentage / 100.0,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
