@@ -71,4 +71,34 @@ void main() {
     await deviceModel.verify();
     verify(service.verify(device)).called(1);
   });
+
+  test('verifyUpdate', () async {
+    final device = testDevice(id: 'a');
+
+    final service = mockService();
+
+    final deviceModel = DeviceModel(device, service);
+    await deviceModel.verifyUpdate();
+    verify(service.verifyUpdate(device)).called(1);
+  });
+
+  test('reboot', () async {
+    final device = testDevice(id: 'a');
+
+    final service = mockService();
+
+    final deviceModel = DeviceModel(device, service);
+    await deviceModel.reboot();
+    verify(service.reboot()).called(1);
+  });
+
+  test('onBattery', () async {
+    final device = testDevice(id: 'a');
+
+    final service = mockService();
+    when(service.onBattery).thenReturn(true);
+
+    final deviceModel = DeviceModel(device, service);
+    expect(deviceModel.onBattery, true);
+  });
 }
