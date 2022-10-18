@@ -126,11 +126,11 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
             _i4.Future<List<_i3.FwupdDevice>>.value(<_i3.FwupdDevice>[]),
       ) as _i4.Future<List<_i3.FwupdDevice>>);
   @override
-  _i4.Future<List<_i3.FwupdRelease>> getDowngrades(String? deviceId) =>
+  _i4.Future<List<_i3.FwupdRelease>> getDowngrades(_i3.FwupdDevice? device) =>
       (super.noSuchMethod(
         Invocation.method(
           #getDowngrades,
-          [deviceId],
+          [device],
         ),
         returnValue:
             _i4.Future<List<_i3.FwupdRelease>>.value(<_i3.FwupdRelease>[]),
@@ -145,11 +145,11 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
             _i4.Future<List<_i3.FwupdPlugin>>.value(<_i3.FwupdPlugin>[]),
       ) as _i4.Future<List<_i3.FwupdPlugin>>);
   @override
-  _i4.Future<List<_i3.FwupdRelease>> getReleases(String? deviceId) =>
+  _i4.Future<List<_i3.FwupdRelease>> getReleases(_i3.FwupdDevice? device) =>
       (super.noSuchMethod(
         Invocation.method(
           #getReleases,
-          [deviceId],
+          [device],
         ),
         returnValue:
             _i4.Future<List<_i3.FwupdRelease>>.value(<_i3.FwupdRelease>[]),
@@ -164,11 +164,11 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
             _i4.Future<List<_i3.FwupdRemote>>.value(<_i3.FwupdRemote>[]),
       ) as _i4.Future<List<_i3.FwupdRemote>>);
   @override
-  _i4.Future<List<_i3.FwupdRelease>> getUpgrades(String? deviceId) =>
+  _i4.Future<List<_i3.FwupdRelease>> getUpgrades(_i3.FwupdDevice? device) =>
       (super.noSuchMethod(
         Invocation.method(
           #getUpgrades,
-          [deviceId],
+          [device],
         ),
         returnValue:
             _i4.Future<List<_i3.FwupdRelease>>.value(<_i3.FwupdRelease>[]),

@@ -44,8 +44,8 @@ MockFwupdService mockService({
   final service = MockFwupdService();
   when(service.getDevices()).thenAnswer((_) async => devices ?? []);
   when(service.getReleases(any)).thenAnswer((i) async {
-    final id = i.positionalArguments[0];
-    final value = releases?[id];
+    final device = i.positionalArguments[0] as FwupdDevice;
+    final value = releases?[device.deviceId];
     if (value == null) throw const FwupdNothingToDoException();
     return value;
   });

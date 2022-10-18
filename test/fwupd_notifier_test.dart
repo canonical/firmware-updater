@@ -32,6 +32,7 @@ void main() {
     final service = mockService();
     when(service.status).thenReturn(FwupdStatus.loading);
     when(service.percentage).thenReturn(75);
+    when(service.onBattery).thenReturn(true);
 
     final notifier = FwupdNotifier(service);
     expect(notifier.status, FwupdStatus.loading);
@@ -52,6 +53,9 @@ void main() {
 
     propertiesChanged.add(['Percentage']);
     expect(wasNotified, 2);
+
+    propertiesChanged.add(['OnBattery']);
+    expect(wasNotified, 3);
   });
 
   test('cancels subscriptions', () async {
@@ -68,5 +72,17 @@ void main() {
     await notifier.dispose();
 
     expect(propertiesChanged.hasListener, isFalse);
+  });
+
+  test('refresh', () async {
+    final service = mockService();
+    final notifier = FwupdNotifier(service);
+
+    await notifier.init();
+    await notifier.refresh();
+
+    verify(service.refreshProperties()).called(1);
+
+    await notifier.dispose();
   });
 }
