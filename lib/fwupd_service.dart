@@ -126,20 +126,20 @@ class FwupdService {
 
   Future<List<FwupdDevice>> getDevices() => _fwupd.getDevices();
 
-  Future<List<FwupdRelease>> getDowngrades(String deviceId) {
-    return _fwupd.getDowngrades(deviceId);
+  Future<List<FwupdRelease>> getDowngrades(FwupdDevice device) {
+    return _fwupd.getDowngrades(device.id);
   }
 
   Future<List<FwupdPlugin>> getPlugins() => _fwupd.getPlugins();
 
-  Future<List<FwupdRelease>> getReleases(String deviceId) {
-    return _fwupd.getReleases(deviceId);
+  Future<List<FwupdRelease>> getReleases(FwupdDevice device) {
+    return _fwupd.getReleases(device.id);
   }
 
   Future<List<FwupdRemote>> getRemotes() => _fwupd.getRemotes();
 
-  Future<List<FwupdRelease>> getUpgrades(String deviceId) {
-    return _fwupd.getUpgrades(deviceId);
+  Future<List<FwupdRelease>> getUpgrades(FwupdDevice device) {
+    return _fwupd.getUpgrades(device.id);
   }
 
   Future<void> install(

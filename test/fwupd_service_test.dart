@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'dart:io';
 
+import 'package:dbus/dbus.dart';
 import 'package:dio/dio.dart';
 import 'package:file/memory.dart';
 import 'package:firmware_updater/fwupd_service.dart';
@@ -82,6 +84,132 @@ void main() {
     verify(dio.download(url, file.path,
             onReceiveProgress: anyNamed('onReceiveProgress')))
         .called(1);
+  });
+
+  test('fwupd methods', () async {
+    final fwupd = MockFwupdClient();
+    when(fwupd.propertiesChanged).thenAnswer((_) => const Stream.empty());
+    when(fwupd.getDowngrades(any)).thenAnswer((_) async => []);
+    when(fwupd.getReleases(any)).thenAnswer((_) async => []);
+    when(fwupd.getUpgrades(any)).thenAnswer((_) async => []);
+    when(fwupd.getDevices()).thenAnswer((_) async => []);
+    when(fwupd.getPlugins()).thenAnswer((_) async => []);
+    when(fwupd.getRemotes()).thenAnswer((_) async => []);
+
+    final upower = MockUPowerClient();
+    when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
+
+    final service = FwupdService(
+      fwupd: fwupd,
+      session: MockUbuntuSession(),
+      upower: upower,
+    );
+
+    final device = testDevice(id: 'a');
+
+    await service.init();
+
+    await service.refreshProperties();
+    verify(fwupd.refreshPropertyCache()).called(1);
+
+    await service.activate(device);
+    verify(fwupd.activate(device.deviceId)).called(1);
+
+    await service.clearResults(device);
+    verify(fwupd.clearResults(device.deviceId)).called(1);
+
+    await service.getDowngrades(device);
+    verify(fwupd.getDowngrades(device.deviceId)).called(1);
+
+    await service.getReleases(device);
+    verify(fwupd.getReleases(device.deviceId)).called(1);
+
+    await service.getUpgrades(device);
+    verify(fwupd.getUpgrades(device.deviceId)).called(1);
+
+    await service.getDevices();
+    verify(fwupd.getDevices()).called(1);
+
+    await service.getPlugins();
+    verify(fwupd.getPlugins()).called(1);
+
+    await service.getRemotes();
+    verify(fwupd.getRemotes()).called(1);
+
+    await service.unlock(device);
+    verify(fwupd.unlock(device.deviceId)).called(1);
+
+    await service.verify(device);
+    verify(fwupd.verify(device.deviceId)).called(1);
+
+    await service.verifyUpdate(device);
+    verify(fwupd.verifyUpdate(device.deviceId)).called(1);
+  });
+
+  test('onBattery', () async {
+    final fwupd = MockFwupdClient();
+    when(fwupd.propertiesChanged).thenAnswer((_) => const Stream.empty());
+
+    final upower = MockUPowerClient();
+    when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
+    when(upower.onBattery).thenReturn(true);
+
+    final service = FwupdService(
+      fwupd: fwupd,
+      session: MockUbuntuSession(),
+      upower: upower,
+    );
+
+    await service.init();
+    expect(service.onBattery, true);
+  });
+
+  test('reboot', () async {
+    final fwupd = MockFwupdClient();
+    when(fwupd.propertiesChanged).thenAnswer((_) => const Stream.empty());
+
+    final upower = MockUPowerClient();
+    when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
+
+    final session = MockUbuntuSession();
+
+    final service = FwupdService(
+      fwupd: fwupd,
+      session: session,
+      upower: upower,
+    );
+
+    await service.init();
+    await service.reboot();
+    verify(session.reboot()).called(1);
+  });
+
+  test('reboot cancelled', () async {
+    final fwupd = MockFwupdClient();
+    when(fwupd.propertiesChanged).thenAnswer((_) => const Stream.empty());
+
+    final upower = MockUPowerClient();
+    when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
+
+    final session = MockUbuntuSession();
+    when(session.reboot()).thenThrow(
+      DBusMethodResponseException(
+        DBusMethodErrorResponse(
+          'error',
+          [const DBusString('Operation was cancelled')],
+        ),
+      ),
+    );
+
+    final service = FwupdService(
+      fwupd: fwupd,
+      session: session,
+      upower: upower,
+    );
+
+    await service.init();
+    await service.reboot();
+    verify(session.reboot()).called(1);
   });
 }
 
