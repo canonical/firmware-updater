@@ -61,6 +61,7 @@ void main() {
   }
 
   testWidgets('loading', (tester) async {
+    registerMockService<FwupdService>(mockService());
     final store = mockStore(devices: []);
     await tester
         .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
