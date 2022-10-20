@@ -1,0 +1,14 @@
+name: fwupd_notifier
+description: A desktop notification service for fwupd.
+version: 0.0.1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.16.0
+dependencies:
+  collection: ^1.17.0
+  desktop_notifications: ^0.6.3
+  fwupd: ^0.2.2
