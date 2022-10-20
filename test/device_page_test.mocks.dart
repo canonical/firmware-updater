@@ -40,19 +40,6 @@ class MockDeviceModel extends _i1.Mock implements _i3.DeviceModel {
   }
 
   @override
-  _i3.DeviceState get state => (super.noSuchMethod(
-        Invocation.getter(#state),
-        returnValue: _i3.DeviceState.idle,
-      ) as _i3.DeviceState);
-  @override
-  set state(_i3.DeviceState? state) => super.noSuchMethod(
-        Invocation.setter(
-          #state,
-          state,
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
   set selectedRelease(_i2.FwupdRelease? release) => super.noSuchMethod(
         Invocation.setter(
           #selectedRelease,
@@ -96,15 +83,6 @@ class MockDeviceModel extends _i1.Mock implements _i3.DeviceModel {
   _i4.Future<void> dispose() => (super.noSuchMethod(
         Invocation.method(
           #dispose,
-          [],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
-  @override
-  _i4.Future<void> reboot() => (super.noSuchMethod(
-        Invocation.method(
-          #reboot,
           [],
         ),
         returnValue: _i4.Future<void>.value(),

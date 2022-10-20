@@ -60,6 +60,35 @@ void main() {
     expect(completer.isCompleted, isTrue);
   });
 
+  testWidgets('cancel confirmation dialog', (tester) async {
+    const title = 'title';
+    const message = 'message';
+    final completer = Completer<void>();
+    await tester.pumpApp((context) => Scaffold(
+          body: OutlinedButton(
+            onPressed: () => showConfirmationDialog(
+              context,
+              title: title,
+              message: message,
+              onCancel: completer.complete,
+            ),
+            child: const Text('click me'),
+          ),
+        ));
+    await tester.tap(find.text('click me'));
+    await tester.pumpAndSettle();
+    expect(find.byIcon(YaruIcons.question), findsOneWidget);
+    expect(find.text(title), findsOneWidget);
+    expect(find.text(message), findsOneWidget);
+
+    expect(find.text(tester.lang.ok), findsOneWidget);
+    final cancelButton = find.text(tester.lang.cancel);
+    expect(cancelButton, findsOneWidget);
+
+    await tester.tap(cancelButton);
+    expect(completer.isCompleted, isTrue);
+  });
+
   testWidgets('error dialog', (tester) async {
     const title = 'title';
     const message = 'message';

@@ -73,17 +73,9 @@ FwupdNotifier mockNotifier({
 }
 
 extension WidgetTesterX on WidgetTester {
-  static Type context = Scaffold;
-
-  AppLocalizations get lang {
-    final widget = element(find.byType(context).first);
-    return AppLocalizations.of(widget);
-  }
-
-  ThemeData get theme {
-    final widget = element(find.byType(context).first);
-    return Theme.of(widget);
-  }
+  BuildContext get context => element(find.byType(Scaffold).first);
+  AppLocalizations get lang => AppLocalizations.of(context);
+  ThemeData get theme => Theme.of(context);
 
   Future<void> pumpApp(WidgetBuilder builder,
       {Size size = const Size(700, 850)}) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
@@ -7,6 +8,7 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 import 'detail_page.dart';
 import 'device_store.dart';
 import 'device_tile.dart';
+import 'fwupd_l10n.dart';
 import 'fwupd_notifier.dart';
 import 'fwupd_service.dart';
 import 'widgets.dart';
@@ -35,6 +37,27 @@ class _FirmwareAppState extends State<FirmwareApp> {
     super.initState();
     context.read<DeviceStore>().init();
     context.read<FwupdNotifier>().init();
+    getService<FwupdService>()
+      ..registerErrorListener(_showError)
+      ..registerConfirmationListener(_getConfirmation);
+  }
+
+  void _showError(Exception e) {
+    showErrorDialog(
+      context,
+      title: AppLocalizations.of(context).installError,
+      message: e is FwupdException ? e.localize(context) : e.toString(),
+    );
+  }
+
+  Future<bool> _getConfirmation() async {
+    final response = await showConfirmationDialog(
+      context,
+      title: AppLocalizations.of(context).rebootConfirm,
+      actionText: AppLocalizations.of(context).reboot,
+    );
+
+    return response == DialogAction.action;
   }
 
   @override

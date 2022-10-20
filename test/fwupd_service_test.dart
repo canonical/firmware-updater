@@ -39,26 +39,11 @@ void main() {
     verify(upower.close()).called(1);
   });
 
-  test('download', () async {
+  group('download', () {
     const url = 'http://test.fake/myrelease.cab';
 
     final fs = MemoryFileSystem.test();
     final file = fs.file('${fs.systemTempDirectory.path}/myrelease.cab');
-    file.createSync(recursive: true);
-    expect(file.existsSync(), isTrue);
-
-    final dio = MockDio();
-    when(dio.download(url, file.path,
-            onReceiveProgress: anyNamed('onReceiveProgress')))
-        .thenAnswer((i) async {
-      i.namedArguments[#onReceiveProgress]!(0, 1);
-      return Response(requestOptions: RequestOptions(path: file.path));
-    });
-
-    final fwupd = MockFwupdClient();
-    when(fwupd.propertiesChanged).thenAnswer((_) => const Stream.empty());
-    when(fwupd.getRemotes()).thenAnswer((_) async =>
-        [FwupdRemote(id: 'myremote', kind: FwupdRemoteKind.download)]);
 
     final device = testDevice(id: 'mydevice');
     final release = FwupdRelease(
@@ -67,9 +52,11 @@ void main() {
       locations: const [url],
     );
 
+    final dio = MockDio();
+    final fwupd = MockFwupdClient();
     final session = MockUbuntuSession();
     final upower = MockUPowerClient();
-    when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
+
     final service = FwupdService(
       fwupd: fwupd,
       dio: dio,
@@ -77,13 +64,58 @@ void main() {
       session: session,
       upower: upower,
     );
-    await service.init();
 
-    await service.install(device, release, (f) => MockResourceHandle());
+    setUp(() async {
+      file.createSync(recursive: true);
+      expect(file.existsSync(), isTrue);
 
-    verify(dio.download(url, file.path,
-            onReceiveProgress: anyNamed('onReceiveProgress')))
-        .called(1);
+      when(dio.download(url, file.path,
+              onReceiveProgress: anyNamed('onReceiveProgress')))
+          .thenAnswer((i) async {
+        i.namedArguments[#onReceiveProgress]!(0, 1);
+        return Response(requestOptions: RequestOptions(path: file.path));
+      });
+
+      when(fwupd.propertiesChanged).thenAnswer((_) => const Stream.empty());
+      when(fwupd.getRemotes()).thenAnswer((_) async =>
+          [FwupdRemote(id: release.remoteId!, kind: FwupdRemoteKind.download)]);
+
+      when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
+
+      await service.init();
+    });
+    test('success', () async {
+      await service.install(device, release, (f) => MockResourceHandle());
+
+      verify(dio.download(url, file.path,
+              onReceiveProgress: anyNamed('onReceiveProgress')))
+          .called(1);
+      verifyNever(service.reboot());
+    });
+
+    test('error', () async {
+      when(dio.download(url, file.path,
+              onReceiveProgress: anyNamed('onReceiveProgress')))
+          .thenThrow(DioError(
+              requestOptions: RequestOptions(path: url), error: 'dio error'));
+
+      service.registerErrorListener(
+          expectAsync1((e) => expect(e, isInstanceOf<DioError>())));
+      await service.install(device, release, (f) => MockResourceHandle());
+      verifyNever(service.reboot());
+    });
+
+    test('reboot', () async {
+      service
+          .registerConfirmationListener(expectAsync0(() => Future.value(true)));
+      await service.install(
+          testDevice(
+              id: 'b',
+              flags: {FwupdDeviceFlag.updatable, FwupdDeviceFlag.needsReboot}),
+          release,
+          (f) => MockResourceHandle());
+      verify(service.reboot()).called(1);
+    });
   });
 
   test('fwupd methods', () async {

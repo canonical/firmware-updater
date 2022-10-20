@@ -49,64 +49,60 @@ class ReleasePage extends StatelessWidget {
       );
     }
 
-    return model.state == DeviceState.busy
-        ? const Center(child: YaruCircularProgressIndicator())
-        : YaruDetailPage(
-            appBar: AppBar(
-              title: Text('${device.name} ${device.version}'),
-              leading: Navigator.of(context).canPop()
-                  ? const YaruBackButton()
-                  : null,
-            ),
-            body: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              children: releases
-                  .map(
-                    (release) => ReleaseCard(
-                      release: release,
-                      selected: release == selected,
-                      onSelected: () =>
-                          context.read<DeviceModel>().selectedRelease = release,
-                    ),
-                  )
-                  .toList(),
-            ),
-            bottomNavigationBar: ButtonBar(
-              children: [
-                ElevatedButton(
-                  onPressed: selected != null
-                      ? () {
-                          showConfirmationDialog(
-                            context,
-                            title: dialogText,
-                            message: dialogDesc,
-                            actionText: action,
-                            onConfirm: () async {
-                              final notifier = context.read<FwupdNotifier>();
-                              final store = context.read<DeviceStore>();
-                              model.selectedRelease = null;
-                              await model.install(selected);
-                              await notifier.refresh();
+    return YaruDetailPage(
+      appBar: AppBar(
+        title: Text('${device.name} ${device.version}'),
+        leading: Navigator.of(context).canPop() ? const YaruBackButton() : null,
+      ),
+      body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        children: releases
+            .map(
+              (release) => ReleaseCard(
+                release: release,
+                selected: release == selected,
+                onSelected: () =>
+                    context.read<DeviceModel>().selectedRelease = release,
+              ),
+            )
+            .toList(),
+      ),
+      bottomNavigationBar: ButtonBar(
+        children: [
+          ElevatedButton(
+            onPressed: selected != null
+                ? () {
+                    showConfirmationDialog(
+                      context,
+                      title: dialogText,
+                      message: dialogDesc,
+                      actionText: action,
+                      onConfirm: () async {
+                        final notifier = context.read<FwupdNotifier>();
+                        final store = context.read<DeviceStore>();
+                        model.selectedRelease = null;
+                        await model.install(selected);
+                        await notifier.refresh();
 
-                              // refresh [DeviceStore] to force updates of all
-                              // [DeviceModel]s even if fwupd didn't send an
-                              // appropriate DBus signal (possible bug in 1.7.5
-                              // on Ubuntu 22.04)
-                              // TODO: improve when better solution is found
-                              await store.refresh();
-                            },
-                            onCancel: () {},
-                          );
-                        }
-                      : null,
-                  child: Text(action),
-                ),
-                OutlinedButton(
-                  onPressed: Navigator.of(context).pop,
-                  child: Text(l10n.cancel),
-                )
-              ],
-            ),
-          );
+                        // refresh [DeviceStore] to force updates of all
+                        // [DeviceModel]s even if fwupd didn't send an
+                        // appropriate DBus signal (possible bug in 1.7.5
+                        // on Ubuntu 22.04)
+                        // TODO: improve when better solution is found
+                        await store.refresh();
+                      },
+                      onCancel: () {},
+                    );
+                  }
+                : null,
+            child: Text(action),
+          ),
+          OutlinedButton(
+            onPressed: Navigator.of(context).pop,
+            child: Text(l10n.cancel),
+          )
+        ],
+      ),
+    );
   }
 }

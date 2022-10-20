@@ -13,15 +13,6 @@ class DeviceModel extends SafeChangeNotifier {
   FwupdDevice _device;
   List<FwupdRelease>? _releases;
   StreamSubscription? _sub;
-  FwupdException? _error;
-  FwupdException? get error => _error;
-
-  var _state = DeviceState.idle;
-  DeviceState get state => _state;
-  set state(DeviceState state) {
-    _state = state;
-    notifyListeners();
-  }
 
   Future<void> init() async {
     _sub =
@@ -34,8 +25,6 @@ class DeviceModel extends SafeChangeNotifier {
     await _sub?.cancel();
     super.dispose();
   }
-
-  Future<void> reboot() => _service.reboot();
 
   Future<void> update(FwupdDevice device) async {
     _device = device;
@@ -69,26 +58,8 @@ class DeviceModel extends SafeChangeNotifier {
   Future<void> verify() => _service.verify(_device);
   Future<void> verifyUpdate() => _service.verifyUpdate(_device);
 
-  Future<void> install(FwupdRelease release) async {
-    try {
-      state = DeviceState.busy;
-      await _service.install(device, release);
-      state = device.flags.contains(FwupdDeviceFlag.needsReboot)
-          ? DeviceState.needsReboot
-          : state = DeviceState.idle;
-    } on FwupdException catch (error) {
-      log.error('installation failed $error');
-      state = DeviceState.error;
-      _error = error;
-    }
-  }
+  Future<void> install(FwupdRelease release) =>
+      _service.install(device, release);
 
   bool hasUpgrade() => _releases?.any((r) => r.isUpgrade) == true;
-}
-
-enum DeviceState {
-  idle,
-  busy,
-  error,
-  needsReboot,
 }
