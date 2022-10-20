@@ -50,6 +50,18 @@ class FwupdService {
   Stream<FwupdDevice> get deviceRemoved => _fwupd.deviceRemoved;
   Stream<List<String>> get propertiesChanged => _propertiesChanged.stream;
 
+  Function(FwupdException)? _errorListener;
+  Future<bool> Function()? _confirmationListener;
+
+  void registerErrorListener(Function(FwupdException e) errorListener) {
+    _errorListener = errorListener;
+  }
+
+  void registerConfirmationListener(
+      Future<bool> Function() confirmationListener) {
+    _confirmationListener = confirmationListener;
+  }
+
   Future<void> init() async {
     await _fwupd.connect();
     _fwupdPropertiesSubscription ??=
@@ -152,15 +164,23 @@ class FwupdService {
     log.debug('on $device');
     final file = await _fetchRelease(release);
     resourceHandleFromFile ??= ResourceHandle.fromFile;
-    return _fwupd.install(
-      device.id,
-      resourceHandleFromFile(file.openSync()),
-      flags: {
-        if (release.isDowngrade) FwupdInstallFlag.allowOlder,
-        if (!release.isDowngrade && !release.isUpgrade)
-          FwupdInstallFlag.allowReinstall,
-      },
-    );
+    try {
+      await _fwupd.install(
+        device.id,
+        resourceHandleFromFile(file.openSync()),
+        flags: {
+          if (release.isDowngrade) FwupdInstallFlag.allowOlder,
+          if (!release.isDowngrade && !release.isUpgrade)
+            FwupdInstallFlag.allowReinstall,
+        },
+      );
+      if (device.flags.contains(FwupdDeviceFlag.needsReboot)) {
+        if (await _confirmationListener?.call() == true) await reboot();
+      }
+    } on FwupdException catch (e) {
+      _errorListener?.call(e);
+      if (_errorListener == null) rethrow;
+    }
   }
 
   bool get onBattery => _upower.onBattery;
