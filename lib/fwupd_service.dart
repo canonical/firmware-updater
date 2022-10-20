@@ -50,10 +50,10 @@ class FwupdService {
   Stream<FwupdDevice> get deviceRemoved => _fwupd.deviceRemoved;
   Stream<List<String>> get propertiesChanged => _propertiesChanged.stream;
 
-  Function(FwupdException)? _errorListener;
+  Function(Exception)? _errorListener;
   Future<bool> Function()? _confirmationListener;
 
-  void registerErrorListener(Function(FwupdException e) errorListener) {
+  void registerErrorListener(Function(Exception e) errorListener) {
     _errorListener = errorListener;
   }
 
@@ -113,8 +113,6 @@ class FwupdService {
       return await _dio.download(url, path, onReceiveProgress: (recvd, total) {
         _setDownloadProgress(100 * recvd ~/ total);
       }).then((response) => _fs.file(path));
-    } on DioError catch (e) {
-      throw Exception(e.message);
     } finally {
       _setDownloadProgress(null);
     }
@@ -162,9 +160,9 @@ class FwupdService {
   ]) async {
     log.debug('install $release');
     log.debug('on $device');
-    final file = await _fetchRelease(release);
-    resourceHandleFromFile ??= ResourceHandle.fromFile;
     try {
+      final file = await _fetchRelease(release);
+      resourceHandleFromFile ??= ResourceHandle.fromFile;
       await _fwupd.install(
         device.id,
         resourceHandleFromFile(file.openSync()),
@@ -177,7 +175,7 @@ class FwupdService {
       if (device.flags.contains(FwupdDeviceFlag.needsReboot)) {
         if (await _confirmationListener?.call() == true) await reboot();
       }
-    } on FwupdException catch (e) {
+    } on Exception catch (e) {
       _errorListener?.call(e);
       if (_errorListener == null) rethrow;
     }

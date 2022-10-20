@@ -42,11 +42,11 @@ class _FirmwareAppState extends State<FirmwareApp> {
       ..registerConfirmationListener(_getConfirmation);
   }
 
-  void _showError(FwupdException e) {
+  void _showError(Exception e) {
     showErrorDialog(
       context,
       title: AppLocalizations.of(context).installError,
-      message: e.localize(context),
+      message: e is FwupdException ? e.localize(context) : e.toString(),
     );
   }
 
