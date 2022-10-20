@@ -72,8 +72,7 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
         returnValue: false,
       ) as bool);
   @override
-  void registerErrorListener(
-          dynamic Function(_i3.FwupdException)? errorListener) =>
+  void registerErrorListener(dynamic Function(Exception)? errorListener) =>
       super.noSuchMethod(
         Invocation.method(
           #registerErrorListener,
