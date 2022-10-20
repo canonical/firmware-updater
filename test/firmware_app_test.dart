@@ -1,5 +1,6 @@
 import 'package:firmware_updater/device_store.dart';
 import 'package:firmware_updater/firmware_app.dart';
+import 'package:firmware_updater/fwupd_l10n.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter/material.dart';
@@ -115,5 +116,54 @@ void main() {
         buildPage(store: store, notifier: mockNotifier(onBattery: true)));
 
     expect(find.text(tester.lang.batteryWarning), findsOneWidget);
+  });
+
+  testWidgets('register callbacks', (tester) async {
+    final service = mockService();
+    registerMockService<FwupdService>(service);
+
+    final store = mockStore(devices: devices);
+    await tester
+        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+    verify(service.registerConfirmationListener(any)).called(1);
+    verify(service.registerErrorListener(any)).called(1);
+  });
+
+  testWidgets('dialogs', (tester) async {
+    final service = mockService();
+    registerMockService<FwupdService>(service);
+
+    final store = mockStore(devices: devices);
+
+    late final Future<bool> Function() confirmationListener;
+    when(service.registerConfirmationListener(any)).thenAnswer((i) {
+      confirmationListener =
+          i.positionalArguments[0] as Future<bool> Function();
+    });
+
+    late final Function(Exception) errorListener;
+    when(service.registerErrorListener(any)).thenAnswer((i) {
+      errorListener = i.positionalArguments[0] as Function(Exception);
+    });
+
+    await tester
+        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+
+    final result = confirmationListener();
+
+    await tester.pumpAndSettle();
+    expect(find.text(tester.lang.rebootConfirm), findsOneWidget);
+    expect(find.text(tester.lang.reboot), findsOneWidget);
+    expect(find.text(tester.lang.cancel), findsOneWidget);
+
+    await tester.tap(find.text(tester.lang.reboot));
+    expect(await result, true);
+
+    const exception = FwupdWriteException();
+    errorListener(exception);
+    await tester.pumpAndSettle();
+    expect(find.text(tester.lang.installError), findsOneWidget);
+    expect(find.text(tester.lang.close), findsOneWidget);
+    expect(find.text(exception.localize(tester.context)), findsOneWidget);
   });
 }
