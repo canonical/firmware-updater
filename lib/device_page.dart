@@ -64,26 +64,6 @@ class DevicePage extends StatelessWidget {
       for (final flag in device.flags) flag.localize(context)
     ].whereNotNull();
 
-    if (model.state == DeviceState.needsReboot) {
-      WidgetsBinding.instance.addPostFrameCallback(
-        (_) => showConfirmationDialog(
-          context,
-          title: l10n.rebootConfirm,
-          actionText: l10n.reboot,
-          onCancel: () => model.state = DeviceState.idle,
-          onConfirm: model.reboot,
-        ),
-      );
-    } else if (model.state == DeviceState.error) {
-      WidgetsBinding.instance.addPostFrameCallback(
-        (_) => showErrorDialog(
-          context,
-          title: l10n.installError,
-          message: model.error!.localize(context),
-          onClose: () => model.state = DeviceState.idle,
-        ),
-      );
-    }
     return YaruDetailPage(
       appBar: AppBar(
         title: _buildAppBarTitle(context, device.name, device.summary),
