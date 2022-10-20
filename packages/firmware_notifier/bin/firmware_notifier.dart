@@ -3,6 +3,9 @@ import 'package:fwupd_notifier/firmware_notifier.dart';
 
 void main(List<String> arguments) async {
   final client = NotificationsClient();
-  await sendUpdateNotification(client);
+  final notifications = await sendUpdateNotifications(client);
+  final closeReasons =
+      await Future.wait(notifications.map((n) => n.closeReason));
+  print(closeReasons);
   await client.close();
 }

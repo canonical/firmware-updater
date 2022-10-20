@@ -22,26 +22,16 @@ Future<Map<FwupdDevice, FwupdRelease>> getUpdates() async {
   return Map<FwupdDevice, FwupdRelease>.from(updates);
 }
 
-Future<Notification> sendUpdateNotification(NotificationsClient client) async {
+Future<List<Notification>> sendUpdateNotifications(
+    NotificationsClient client) async {
   final updates = await getUpdates();
-  late final String title;
-  late final String body;
 
-  if (updates.length == 1) {
-    final device = updates.entries.first.key;
-    final update = updates.entries.first.value;
-    title = 'Firmware update available for ${device.name}';
-    body =
-        '${device.name} can be upgraded from version ${device.version} to ${update.version}.';
-  } else if (updates.length > 1) {
-    title = 'Multiple firmware updates available';
-    body = updates.entries
-        .map<String>(
-          (e) =>
-              '${e.key.name} can be upgraded from version ${e.key.version} to ${e.value.version}.',
-        )
-        .fold('', (p, e) => '$p\n$e');
-  }
-
-  return client.notify(title, body: body, appIcon: 'software-update-available');
+  return Future.wait(updates.entries.map(
+    (e) => client.notify(
+      'Firmware update available for ${e.key.name}',
+      body:
+          '${e.key.name} can be upgraded from version ${e.key.version} to ${e.value.version}.',
+      appIcon: 'software-update-available',
+    ),
+  ));
 }
