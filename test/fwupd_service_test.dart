@@ -90,6 +90,7 @@ void main() {
       verify(dio.download(url, file.path,
               onReceiveProgress: anyNamed('onReceiveProgress')))
           .called(1);
+      verifyNever(service.reboot());
     });
 
     test('error', () async {
@@ -101,6 +102,19 @@ void main() {
       service.registerErrorListener(
           expectAsync1((e) => expect(e, isInstanceOf<DioError>())));
       await service.install(device, release, (f) => MockResourceHandle());
+      verifyNever(service.reboot());
+    });
+
+    test('reboot', () async {
+      service
+          .registerConfirmationListener(expectAsync0(() => Future.value(true)));
+      await service.install(
+          testDevice(
+              id: 'b',
+              flags: {FwupdDeviceFlag.updatable, FwupdDeviceFlag.needsReboot}),
+          release,
+          (f) => MockResourceHandle());
+      verify(service.reboot()).called(1);
     });
   });
 
