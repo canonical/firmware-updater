@@ -1,9 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:meta/meta.dart';
 
-Future<Map<FwupdDevice, FwupdRelease>> getUpdates() async {
-  final fwupdClient = FwupdClient();
+Future<Map<FwupdDevice, FwupdRelease>> getUpdates(
+    [@visibleForTesting FwupdClient? client]) async {
+  final fwupdClient = client ?? FwupdClient();
   await fwupdClient.connect();
 
   final devices = await fwupdClient.getDevices();
@@ -23,15 +25,14 @@ Future<Map<FwupdDevice, FwupdRelease>> getUpdates() async {
 }
 
 Future<List<Notification>> sendUpdateNotifications(
-    NotificationsClient client) async {
-  final updates = await getUpdates();
-
+    NotificationsClient client, Map<FwupdDevice, FwupdRelease> updates) async {
   return Future.wait(updates.entries.map(
-    (e) => client.notify(
-      'Firmware update available for ${e.key.name}',
-      body:
-          '${e.key.name} can be upgraded from version ${e.key.version} to ${e.value.version}.',
-      appIcon: 'software-update-available',
-    ),
+    (e) => client.notify('Firmware update available for ${e.key.name}',
+        body:
+            '${e.key.name} can be upgraded from version ${e.key.version} to ${e.value.version}.',
+        appIcon: 'software-update-available',
+        actions: [
+          NotificationAction('${e.key.deviceId}, ${e.value.version}', 'Install')
+        ]),
   ));
 }
