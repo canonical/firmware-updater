@@ -15,6 +15,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
     - run: flutter pub get
+    - run: flutter pub get packages/firmware_notifier/
     - run: flutter pub run build_runner build --delete-conflicting-outputs
     - run: ./.github/scripts/check-outdated-files.sh
 
@@ -25,6 +26,7 @@ jobs:
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
     - run: flutter pub get
+    - run: flutter pub get packages/firmware_notifier/
     - run: flutter pub run build_runner build --delete-conflicting-outputs
     - uses: peter-evans/create-pull-request@v4
       with:
