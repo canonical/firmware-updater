@@ -14,4 +14,4 @@ dependencies:
   desktop_notifications: ^0.6.3
   fwupd: ^0.2.2
   meta: ^1.8.0
-  mockito: ^5.3.2
+  mockito: 5.3.2
