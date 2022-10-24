@@ -40,7 +40,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
     context.read<FwupdNotifier>().init();
     final store = context.read<DeviceStore>();
     store.init();
-    final notifier = GtkApplicationNotifier();
+    final notifier = getService<GtkApplicationNotifier>();
     notifier.addCommandLineListener((args) {
       store.selectedDeviceId = args.firstOrNull;
       store.selectedReleaseVersion = args.length > 1 ? args[1] : null;
