@@ -1,6 +1,8 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:gtk_application/gtk_application.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
@@ -35,8 +37,14 @@ class _FirmwareAppState extends State<FirmwareApp> {
   @override
   void initState() {
     super.initState();
-    context.read<DeviceStore>().init();
     context.read<FwupdNotifier>().init();
+    final store = context.read<DeviceStore>();
+    store.init();
+    final notifier = getService<GtkApplicationNotifier>();
+    notifier.addCommandLineListener((args) {
+      store.selectedDeviceId = args.firstOrNull;
+      store.selectedReleaseVersion = args.length > 1 ? args[1] : null;
+    });
     getService<FwupdService>()
       ..registerErrorListener(_showError)
       ..registerConfirmationListener(_getConfirmation);
@@ -65,10 +73,16 @@ class _FirmwareAppState extends State<FirmwareApp> {
     final store = context.watch<DeviceStore>();
     final notifier = context.watch<FwupdNotifier>();
     final l10n = AppLocalizations.of(context);
+    final index =
+        store.devices.indexWhere((d) => d.deviceId == store.selectedDeviceId);
     return store.when(
       devices: (devices) => ErrorBanner(
         message: notifier.onBattery ? l10n.batteryWarning : null,
         child: YaruMasterDetailPage(
+          key: ValueKey(index),
+          initialIndex: index,
+          onSelected: (value) =>
+              store.selectedDeviceId = store.devices[value ?? 0].deviceId,
           length: devices.length,
           pageBuilder: (context, index) =>
               DetailPage.create(context, device: devices[index]),

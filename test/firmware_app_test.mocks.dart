@@ -8,6 +8,7 @@ import 'dart:ui' as _i5;
 
 import 'package:firmware_updater/device_store.dart' as _i2;
 import 'package:fwupd/fwupd.dart' as _i3;
+import 'package:gtk_application/src/notifier.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -34,6 +35,22 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         Invocation.getter(#devices),
         returnValue: <_i3.FwupdDevice>[],
       ) as List<_i3.FwupdDevice>);
+  @override
+  set selectedDeviceId(String? id) => super.noSuchMethod(
+        Invocation.setter(
+          #selectedDeviceId,
+          id,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  set selectedReleaseVersion(String? version) => super.noSuchMethod(
+        Invocation.setter(
+          #selectedReleaseVersion,
+          version,
+        ),
+        returnValueForMissingStub: null,
+      );
   @override
   bool get hasListeners => (super.noSuchMethod(
         Invocation.getter(#hasListeners),
@@ -92,6 +109,83 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         Invocation.method(
           #notifyListeners,
           [],
+        ),
+        returnValueForMissingStub: null,
+      );
+}
+
+/// A class which mocks [GtkApplicationNotifier].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockGtkApplicationNotifier extends _i1.Mock
+    implements _i6.GtkApplicationNotifier {
+  MockGtkApplicationNotifier() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  void addCommandLineListener(_i6.GtkCommandLineListener? listener) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #addCommandLineListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void removeCommandLineListener(_i6.GtkCommandLineListener? listener) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #removeCommandLineListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void addOpenListener(_i6.GtkOpenListener? listener) => super.noSuchMethod(
+        Invocation.method(
+          #addOpenListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void removeOpenListener(_i6.GtkOpenListener? listener) => super.noSuchMethod(
+        Invocation.method(
+          #removeOpenListener,
+          [listener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void dispose() => super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void notifyCommandLine(List<String>? args) => super.noSuchMethod(
+        Invocation.method(
+          #notifyCommandLine,
+          [args],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void notifyOpen({
+    required List<String>? files,
+    required String? hint,
+  }) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #notifyOpen,
+          [],
+          {
+            #files: files,
+            #hint: hint,
+          },
         ),
         returnValueForMissingStub: null,
       );

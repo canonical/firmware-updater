@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:gtk_application/gtk_application.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
@@ -15,6 +16,9 @@ Future<void> main() async {
     () => FwupdService()..init(),
     dispose: (s) => s.dispose(),
   );
+
+  registerService<GtkApplicationNotifier>(GtkApplicationNotifier.new,
+      dispose: (s) => s.dispose());
 
   runApp(YaruTheme(
     builder: (context, yaru, child) => MaterialApp(
