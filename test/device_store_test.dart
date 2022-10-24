@@ -87,4 +87,21 @@ void main() {
     expect(deviceAdded.hasListener, isFalse);
     expect(deviceRemoved.hasListener, isFalse);
   });
+
+  test('properties', () async {
+    final service = mockService();
+
+    final store = DeviceStore(service);
+    await store.init();
+
+    var updates = 0;
+    store.addListener(() => updates++);
+    store.selectedDeviceId = 'foo';
+    expect(store.selectedDeviceId, 'foo');
+
+    store.selectedReleaseVersion = 'bar';
+    expect(store.selectedReleaseVersion, 'bar');
+
+    expect(updates, 2);
+  });
 }

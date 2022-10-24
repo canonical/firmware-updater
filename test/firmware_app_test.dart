@@ -6,6 +6,7 @@ import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:gtk_application/gtk_application.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,7 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 import 'firmware_app_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([DeviceStore])
+@GenerateMocks([DeviceStore, GtkApplicationNotifier])
 void main() {
   final devices = [
     testDevice(
@@ -39,6 +40,8 @@ void main() {
   }) {
     final store = MockDeviceStore();
     when(store.devices).thenReturn(devices);
+    when(store.selectedDeviceId).thenReturn(null);
+    when(store.selectedReleaseVersion).thenReturn(null);
     return store;
   }
 
@@ -63,6 +66,8 @@ void main() {
 
   testWidgets('loading', (tester) async {
     registerMockService<FwupdService>(mockService());
+    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
+
     final store = mockStore(devices: []);
     await tester
         .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
@@ -73,6 +78,7 @@ void main() {
   group('data', () {
     testWidgets('landscape layout', (tester) async {
       registerMockService<FwupdService>(mockService());
+      registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
 
       final store = mockStore(devices: devices);
       await tester
@@ -88,6 +94,7 @@ void main() {
 
     testWidgets('portrait layout', (tester) async {
       registerMockService<FwupdService>(mockService());
+      registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
 
       final store = mockStore(devices: devices);
       await tester.pumpApp(
@@ -110,6 +117,7 @@ void main() {
 
   testWidgets('on battery', (tester) async {
     registerMockService<FwupdService>(mockService());
+    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
 
     final store = mockStore(devices: devices);
     await tester.pumpApp((_) =>
@@ -136,15 +144,13 @@ void main() {
     final store = mockStore(devices: devices);
 
     late final Future<bool> Function() confirmationListener;
-    when(service.registerConfirmationListener(any)).thenAnswer((i) {
-      confirmationListener =
-          i.positionalArguments[0] as Future<bool> Function();
-    });
+    when(service.registerConfirmationListener(any)).thenAnswer((i) =>
+        confirmationListener =
+            i.positionalArguments[0] as Future<bool> Function());
 
     late final Function(Exception) errorListener;
-    when(service.registerErrorListener(any)).thenAnswer((i) {
-      errorListener = i.positionalArguments[0] as Function(Exception);
-    });
+    when(service.registerErrorListener(any)).thenAnswer(
+        (i) => errorListener = i.positionalArguments[0] as Function(Exception));
 
     await tester
         .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
@@ -165,5 +171,25 @@ void main() {
     expect(find.text(tester.lang.installError), findsOneWidget);
     expect(find.text(tester.lang.close), findsOneWidget);
     expect(find.text(exception.localize(tester.context)), findsOneWidget);
+  });
+
+  testWidgets('gtk app notifier', (tester) async {
+    registerMockService<FwupdService>(mockService());
+    final gtkAppNotifier = MockGtkApplicationNotifier();
+    registerMockService<GtkApplicationNotifier>(gtkAppNotifier);
+
+    final store = mockStore(devices: []);
+    late final void Function(List<String>) cliListener;
+    when(gtkAppNotifier.addCommandLineListener(any)).thenAnswer((i) =>
+        cliListener =
+            i.positionalArguments.first as void Function(List<String>));
+
+    await tester
+        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+    verify(gtkAppNotifier.addCommandLineListener(any)).called(1);
+
+    cliListener(['foo', 'bar']);
+    verify(store.selectedDeviceId = 'foo').called(1);
+    verify(store.selectedReleaseVersion = 'bar').called(1);
   });
 }
