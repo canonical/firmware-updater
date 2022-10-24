@@ -16,8 +16,24 @@ class DeviceStore extends SafeChangeNotifier {
   var _devices = <FwupdDevice>[];
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
+  String? _selectedDeviceId;
+  String? _selectedReleaseVersion;
 
   List<FwupdDevice> get devices => _devices;
+  String? get selectedDeviceId => _selectedDeviceId;
+  String? get selectedReleaseVersion => _selectedReleaseVersion;
+
+  set selectedDeviceId(String? id) {
+    if (id == _selectedDeviceId) return;
+    _selectedDeviceId = id;
+    notifyListeners();
+  }
+
+  set selectedReleaseVersion(String? version) {
+    if (version == _selectedReleaseVersion) return;
+    _selectedReleaseVersion = version;
+    notifyListeners();
+  }
 
   Future<void> init() async {
     _deviceAdded = _service.deviceAdded.listen((device) {

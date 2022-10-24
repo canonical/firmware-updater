@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
@@ -6,6 +7,7 @@ import 'package:yaru/yaru.dart';
 
 import 'device_model.dart';
 import 'device_page.dart';
+import 'device_store.dart';
 import 'fwupd_service.dart';
 import 'release_page.dart';
 
@@ -39,7 +41,11 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     final deviceModel = context.watch<DeviceModel>();
+    final store = context.watch<DeviceStore>();
     final navigator = Navigator.of(context);
+    final release = deviceModel.releases
+        ?.singleWhereOrNull((r) => r.version == store.selectedReleaseVersion);
+    if (release != null) deviceModel.selectedRelease = release;
     return ClipRect(
       child: Theme(
         data: Theme.of(context).copyWith(
