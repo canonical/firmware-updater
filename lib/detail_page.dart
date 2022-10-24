@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
@@ -43,8 +42,7 @@ class _DetailPageState extends State<DetailPage> {
     final deviceModel = context.watch<DeviceModel>();
     final store = context.watch<DeviceStore>();
     final navigator = Navigator.of(context);
-    final release = deviceModel.releases
-        ?.singleWhereOrNull((r) => r.version == store.selectedReleaseVersion);
+    final release = deviceModel.findRelease(store.selectedReleaseVersion);
     if (release != null) deviceModel.selectedRelease = release;
     return ClipRect(
       child: Theme(

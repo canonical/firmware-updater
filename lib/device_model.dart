@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 
@@ -54,6 +55,9 @@ class DeviceModel extends SafeChangeNotifier {
               e is FwupdNothingToDoException || e is FwupdNotSupportedException,
         );
   }
+
+  FwupdRelease? findRelease(String? version) =>
+      releases?.singleWhereOrNull((r) => r.version == version);
 
   Future<void> verify() => _service.verify(_device);
   Future<void> verifyUpdate() => _service.verifyUpdate(_device);
