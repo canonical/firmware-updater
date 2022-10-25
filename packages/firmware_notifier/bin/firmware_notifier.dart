@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:desktop_notifications/desktop_notifications.dart';
 import 'package:firmware_notifier/firmware_notifier.dart';
 
@@ -7,7 +9,9 @@ void main(List<String> arguments) async {
   final notifications = await sendUpdateNotifications(client, updates);
 
   notifications.map((n) => n.action).forEach((action) async {
-    print('<run command for deviceId, version ${await action}>');
+    final args = (await action).split(', ');
+    await Process.start('firmware-updater', args,
+        mode: ProcessStartMode.detached);
   });
 
   await Future.wait(notifications.map((n) => n.closeReason));
