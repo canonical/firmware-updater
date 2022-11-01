@@ -40,6 +40,7 @@ FwupdDevice testDevice({
 MockFwupdService mockService({
   List<FwupdDevice>? devices,
   Map<String, List<FwupdRelease>>? releases,
+  List<FwupdDevice>? deviceRequests,
 }) {
   final service = MockFwupdService();
   when(service.getDevices()).thenAnswer((_) async => devices ?? []);
@@ -52,7 +53,9 @@ MockFwupdService mockService({
   when(service.deviceAdded).thenAnswer((_) => const Stream.empty());
   when(service.deviceChanged).thenAnswer((_) => const Stream.empty());
   when(service.deviceRemoved).thenAnswer((_) => const Stream.empty());
-  when(service.deviceRequest).thenAnswer((_) => const Stream.empty());
+  when(service.deviceRequest).thenAnswer((_) => deviceRequests != null
+      ? Stream.fromIterable(deviceRequests)
+      : const Stream.empty());
   when(service.propertiesChanged).thenAnswer((_) => const Stream.empty());
   when(service.onBattery).thenAnswer((_) => false);
   return service;

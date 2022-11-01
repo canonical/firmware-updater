@@ -129,6 +129,7 @@ void main() {
   testWidgets('register callbacks', (tester) async {
     final service = mockService();
     registerMockService<FwupdService>(service);
+    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
 
     final store = mockStore(devices: devices);
     await tester
@@ -138,8 +139,16 @@ void main() {
   });
 
   testWidgets('dialogs', (tester) async {
-    final service = mockService();
+    final deviceRequest = FwupdDevice(
+      deviceId: 'a',
+      name: 'Device A',
+      plugin: '',
+      updateMessage: 'foo',
+      updateImage: 'http://example.com/image.png',
+    );
+    final service = mockService(deviceRequests: [deviceRequest]);
     registerMockService<FwupdService>(service);
+    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
 
     final store = mockStore(devices: devices);
 
@@ -154,6 +163,12 @@ void main() {
 
     await tester
         .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+
+    await tester.pumpAndSettle();
+    expect(find.text(tester.lang.close), findsOneWidget);
+    expect(find.text(deviceRequest.updateMessage!), findsOneWidget);
+    expect(find.byType(Image), findsOneWidget);
+    await tester.tap(find.text(tester.lang.close));
 
     final result = confirmationListener();
 
