@@ -78,3 +78,4 @@ apps:
     plugs:
       - desktop
       - fwupd
+      - upower-observe
