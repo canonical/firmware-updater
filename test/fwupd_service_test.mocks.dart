@@ -870,6 +870,11 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Stream<_i12.FwupdDevice>.empty(),
       ) as _i9.Stream<_i12.FwupdDevice>);
   @override
+  _i9.Stream<_i12.FwupdDevice> get deviceRequest => (super.noSuchMethod(
+        Invocation.getter(#deviceRequest),
+        returnValue: _i9.Stream<_i12.FwupdDevice>.empty(),
+      ) as _i9.Stream<_i12.FwupdDevice>);
+  @override
   _i9.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
         Invocation.getter(#propertiesChanged),
         returnValue: _i9.Stream<List<String>>.empty(),
