@@ -10,6 +10,12 @@ icon: snap/firmware-updater.png
 architectures:
   - build-on: amd64
 
+slots:
+  dbus:
+    interface: dbus
+    name: com.canonical.firmware_updater
+    bus: session
+
 parts:
   flutter-git:
     source: https://github.com/flutter/flutter.git
@@ -21,6 +27,7 @@ parts:
       mkdir -p $SNAPCRAFT_PART_INSTALL/usr/libexec
       cp -r $SNAPCRAFT_PART_SRC $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter
       ln -s $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter/bin/flutter $SNAPCRAFT_PART_INSTALL/usr/bin/flutter
+      ln -s $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter/bin/dart $SNAPCRAFT_PART_INSTALL/usr/bin/dart
     build-packages:
       - clang
       - cmake
@@ -46,6 +53,16 @@ parts:
       mkdir -p $SNAPCRAFT_PART_INSTALL/bin/
       cp -r build/linux/*/release/bundle/* $SNAPCRAFT_PART_INSTALL/bin/
 
+  firmware-notifier:
+    after: [ flutter-git, firmware-updater ]
+    plugin: nil
+    source: ./packages/firmware_notifier/
+    override-build: |
+      set -eux
+      dart pub get
+      mkdir -p $SNAPCRAFT_PART_INSTALL/bin/
+      dart compile exe bin/firmware_notifier.dart -o $SNAPCRAFT_PART_INSTALL/bin/firmware-notifier
+
 apps:
   firmware-updater:
     command: bin/firmware-updater
@@ -54,3 +71,10 @@ apps:
     plugs:
       - fwupd
       - upower-observe
+
+  firmware-notifier:
+    command: bin/firmware-notifier
+    extensions: [gnome-3-38]
+    plugs:
+      - desktop
+      - fwupd
