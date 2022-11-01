@@ -62,6 +62,11 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
         returnValue: _i4.Stream<_i3.FwupdDevice>.empty(),
       ) as _i4.Stream<_i3.FwupdDevice>);
   @override
+  _i4.Stream<_i3.FwupdDevice> get deviceRequest => (super.noSuchMethod(
+        Invocation.getter(#deviceRequest),
+        returnValue: _i4.Stream<_i3.FwupdDevice>.empty(),
+      ) as _i4.Stream<_i3.FwupdDevice>);
+  @override
   _i4.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
         Invocation.getter(#propertiesChanged),
         returnValue: _i4.Stream<List<String>>.empty(),

@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
@@ -47,7 +46,17 @@ class _FirmwareAppState extends State<FirmwareApp> {
     });
     getService<FwupdService>()
       ..registerErrorListener(_showError)
-      ..registerConfirmationListener(_getConfirmation);
+      ..registerConfirmationListener(_getConfirmation)
+      ..deviceRequest.listen(_showRequest);
+  }
+
+  void _showRequest(FwupdDevice device) {
+    showDeviceRequestDialog(
+      context,
+      title: 'Device Request',
+      message: device.updateMessage,
+      imageUrl: device.updateImage,
+    );
   }
 
   void _showError(Exception e) {
