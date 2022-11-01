@@ -57,35 +57,35 @@ Future<DialogAction?> showGeneralDialog(
 
 Future<DialogAction?> showDeviceRequestDialog(
   BuildContext context, {
-  required String title,
   String? message,
   String? imageUrl,
-}) =>
-    showGeneralDialog(
-      context,
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          if (message != null) ...[
-            const SizedBox(height: 8),
-            Text(message),
-          ],
-          if (imageUrl != null) ...[
-            const SizedBox(height: 8),
-            Image.network(
-              imageUrl,
-              errorBuilder: (_, __, ___) =>
-                  const Icon(Icons.image_not_supported),
-            ),
-          ],
+}) {
+  final l10n = AppLocalizations.of(context);
+  return showGeneralDialog(
+    context,
+    body: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          l10n.deviceRequest,
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        if (message != null) ...[
+          const SizedBox(height: 8),
+          Text(message),
         ],
-      ),
-    );
+        if (imageUrl != null) ...[
+          const SizedBox(height: 8),
+          Image.network(
+            imageUrl,
+            errorBuilder: (_, __, ___) => const Icon(Icons.image_not_supported),
+          ),
+        ],
+      ],
+    ),
+  );
+}
 
 Future<DialogAction?> showMessageDialog(
   BuildContext context, {

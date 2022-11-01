@@ -54,7 +54,6 @@ class _FirmwareAppState extends State<FirmwareApp> {
   void _showRequest(FwupdDevice device) {
     showDeviceRequestDialog(
       context,
-      title: 'Device Request',
       message: device.updateMessage,
       imageUrl: device.updateImage,
     );

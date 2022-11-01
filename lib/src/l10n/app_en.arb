@@ -5,6 +5,7 @@
   "cancel": "Cancel",
   "current": "Current",
   "deviceUnavailable": "The device will be unavailable during this action.",
+  "deviceRequest": "Device request",
   "downgrade": "Downgrade",
   "downgradeConfirm": "Downgrade {name} from version {current} to {selected}?",
   "@downgradeConfirm": {
