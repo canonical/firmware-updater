@@ -4,12 +4,10 @@ import 'package:yaru_icons/yaru_icons.dart';
 
 enum DialogAction { action, cancel, close }
 
-Future<DialogAction?> showMessageDialog(
+Future<DialogAction?> showGeneralDialog(
   BuildContext context, {
-  required String title,
-  String? message,
+  required Widget body,
   String? actionText,
-  Icon? icon,
   VoidCallback? onAction,
   VoidCallback? onCancel,
   VoidCallback? onClose,
@@ -38,27 +36,7 @@ Future<DialogAction?> showMessageDialog(
       ],
       content: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 500),
-        child: Row(
-          children: [
-            if (icon != null) ...[icon, const SizedBox(width: 16)],
-            Flexible(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  if (message != null) ...[
-                    const SizedBox(height: 8),
-                    Text(message),
-                  ],
-                ],
-              ),
-            ),
-          ],
-        ),
+        child: body,
       ),
     ),
   );
@@ -76,6 +54,79 @@ Future<DialogAction?> showMessageDialog(
   }
   return result;
 }
+
+Future<DialogAction?> showDeviceRequestDialog(
+  BuildContext context, {
+  required String title,
+  String? message,
+  String? imageUrl,
+}) =>
+    showGeneralDialog(
+      context,
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            title,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          if (message != null) ...[
+            const SizedBox(height: 8),
+            Text(message),
+          ],
+          if (imageUrl != null) ...[
+            const SizedBox(height: 8),
+            Image.network(
+              imageUrl,
+              errorBuilder: (_, __, ___) =>
+                  const Icon(Icons.image_not_supported),
+            ),
+          ],
+        ],
+      ),
+    );
+
+Future<DialogAction?> showMessageDialog(
+  BuildContext context, {
+  required String title,
+  String? message,
+  String? actionText,
+  Icon? icon,
+  VoidCallback? onAction,
+  VoidCallback? onCancel,
+  VoidCallback? onClose,
+  bool closeable = true,
+}) =>
+    showGeneralDialog(
+      context,
+      body: Row(
+        children: [
+          if (icon != null) ...[icon, const SizedBox(width: 16)],
+          Flexible(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                if (message != null) ...[
+                  const SizedBox(height: 8),
+                  Text(message),
+                ],
+              ],
+            ),
+          ),
+        ],
+      ),
+      actionText: actionText,
+      closeable: closeable,
+      onAction: onAction,
+      onCancel: onCancel,
+      onClose: onClose,
+    );
 
 Future<DialogAction?> showConfirmationDialog(
   BuildContext context, {
