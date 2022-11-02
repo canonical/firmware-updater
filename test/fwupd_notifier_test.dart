@@ -60,28 +60,42 @@ void main() {
 
   test('cancels subscriptions', () async {
     final propertiesChanged = StreamController<List<String>>();
+    final deviceRequest = StreamController<FwupdDevice>();
 
     final service = mockService();
     when(service.propertiesChanged).thenAnswer((_) => propertiesChanged.stream);
+    when(service.deviceRequest).thenAnswer((_) => deviceRequest.stream);
 
     final notifier = FwupdNotifier(service);
     await notifier.init();
+    notifier.registerDeviceRequestListener((_) {});
 
     expect(propertiesChanged.hasListener, isTrue);
+    expect(deviceRequest.hasListener, isTrue);
 
     await notifier.dispose();
 
     expect(propertiesChanged.hasListener, isFalse);
+    expect(deviceRequest.hasListener, isFalse);
   });
 
-  test('refresh', () async {
+  test('daemon methods', () async {
     final service = mockService();
     final notifier = FwupdNotifier(service);
 
     await notifier.init();
-    await notifier.refresh();
 
+    await notifier.refresh();
     verify(service.refreshProperties()).called(1);
+
+    Future<bool> confirmationListener() async => false;
+    notifier.registerConfirmationListener(confirmationListener);
+    verify(service.registerConfirmationListener(confirmationListener))
+        .called(1);
+
+    void errorListener(Exception e) {}
+    notifier.registerErrorListener(errorListener);
+    verify(service.registerErrorListener(errorListener)).called(1);
 
     await notifier.dispose();
   });
