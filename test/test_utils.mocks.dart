@@ -62,6 +62,11 @@ class MockFwupdService extends _i1.Mock implements _i2.FwupdService {
         returnValue: _i4.Stream<_i3.FwupdDevice>.empty(),
       ) as _i4.Stream<_i3.FwupdDevice>);
   @override
+  _i4.Stream<_i3.FwupdDevice> get deviceRequest => (super.noSuchMethod(
+        Invocation.getter(#deviceRequest),
+        returnValue: _i4.Stream<_i3.FwupdDevice>.empty(),
+      ) as _i4.Stream<_i3.FwupdDevice>);
+  @override
   _i4.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
         Invocation.getter(#propertiesChanged),
         returnValue: _i4.Stream<List<String>>.empty(),
@@ -295,6 +300,35 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+  @override
+  void registerErrorListener(dynamic Function(Exception)? errorListener) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #registerErrorListener,
+          [errorListener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void registerConfirmationListener(
+          _i4.Future<bool> Function()? confirmationListener) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #registerConfirmationListener,
+          [confirmationListener],
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
+  void registerDeviceRequestListener(
+          dynamic Function(_i3.FwupdDevice)? deviceRequestListener) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #registerDeviceRequestListener,
+          [deviceRequestListener],
+        ),
+        returnValueForMissingStub: null,
+      );
   @override
   _i4.Future<void> refresh() => (super.noSuchMethod(
         Invocation.method(

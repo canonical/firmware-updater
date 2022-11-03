@@ -13,6 +13,7 @@ class FwupdNotifier extends SafeChangeNotifier {
 
   final FwupdService _service;
   StreamSubscription<List<String>>? _propertiesChanged;
+  StreamSubscription<FwupdDevice>? _deviceRequest;
 
   FwupdStatus get status => _service.status;
   int get percentage => _service.percentage;
@@ -43,12 +44,26 @@ class FwupdNotifier extends SafeChangeNotifier {
     });
   }
 
+  void registerErrorListener(Function(Exception) errorListener) =>
+      _service.registerErrorListener(errorListener);
+
+  void registerConfirmationListener(
+          Future<bool> Function() confirmationListener) =>
+      _service.registerConfirmationListener(confirmationListener);
+
+  void registerDeviceRequestListener(
+      Function(FwupdDevice) deviceRequestListener) {
+    _deviceRequest = _service.deviceRequest.listen(deviceRequestListener);
+  }
+
   Future<void> refresh() => _service.refreshProperties();
 
   @override
   Future<void> dispose() async {
     await _propertiesChanged?.cancel();
+    await _deviceRequest?.cancel();
     _propertiesChanged = null;
+    _deviceRequest = null;
     super.dispose();
   }
 }

@@ -52,13 +52,14 @@ MockFwupdService mockService({
   when(service.deviceAdded).thenAnswer((_) => const Stream.empty());
   when(service.deviceChanged).thenAnswer((_) => const Stream.empty());
   when(service.deviceRemoved).thenAnswer((_) => const Stream.empty());
+  when(service.deviceRequest).thenAnswer((_) => const Stream.empty());
   when(service.propertiesChanged).thenAnswer((_) => const Stream.empty());
   when(service.onBattery).thenAnswer((_) => false);
   return service;
 }
 
 @GenerateMocks([FwupdNotifier])
-FwupdNotifier mockNotifier({
+MockFwupdNotifier mockNotifier({
   FwupdStatus? status,
   int? percentage,
   String? version,

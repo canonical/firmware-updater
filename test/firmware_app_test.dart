@@ -129,34 +129,47 @@ void main() {
   testWidgets('register callbacks', (tester) async {
     final service = mockService();
     registerMockService<FwupdService>(service);
+    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
 
+    final notifier = mockNotifier();
     final store = mockStore(devices: devices);
-    await tester
-        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
-    verify(service.registerConfirmationListener(any)).called(1);
-    verify(service.registerErrorListener(any)).called(1);
+    await tester.pumpApp((_) => buildPage(store: store, notifier: notifier));
+    verify(notifier.registerConfirmationListener(any)).called(1);
+    verify(notifier.registerErrorListener(any)).called(1);
   });
 
   testWidgets('dialogs', (tester) async {
+    final deviceRequest = FwupdDevice(
+      deviceId: 'a',
+      name: 'Device A',
+      plugin: '',
+      updateMessage: 'foo',
+      updateImage: 'http://example.com/image.png',
+    );
     final service = mockService();
+    final notifier = mockNotifier();
     registerMockService<FwupdService>(service);
+    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
 
     final store = mockStore(devices: devices);
 
     late final Future<bool> Function() confirmationListener;
-    when(service.registerConfirmationListener(any)).thenAnswer((i) =>
+    when(notifier.registerConfirmationListener(any)).thenAnswer((i) =>
         confirmationListener =
             i.positionalArguments[0] as Future<bool> Function());
 
     late final Function(Exception) errorListener;
-    when(service.registerErrorListener(any)).thenAnswer(
+    when(notifier.registerErrorListener(any)).thenAnswer(
         (i) => errorListener = i.positionalArguments[0] as Function(Exception));
 
-    await tester
-        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+    late final Function(FwupdDevice) deviceRequestListener;
+    when(notifier.registerDeviceRequestListener(any)).thenAnswer((i) =>
+        deviceRequestListener =
+            i.positionalArguments[0] as Function(FwupdDevice));
+
+    await tester.pumpApp((_) => buildPage(store: store, notifier: notifier));
 
     final result = confirmationListener();
-
     await tester.pumpAndSettle();
     expect(find.text(tester.lang.rebootConfirm), findsOneWidget);
     expect(find.text(tester.lang.reboot), findsOneWidget);
@@ -171,6 +184,13 @@ void main() {
     expect(find.text(tester.lang.installError), findsOneWidget);
     expect(find.text(tester.lang.close), findsOneWidget);
     expect(find.text(exception.localize(tester.context)), findsOneWidget);
+    await tester.tap(find.text(tester.lang.close));
+
+    deviceRequestListener(deviceRequest);
+    await tester.pumpAndSettle();
+    expect(find.text(tester.lang.close), findsOneWidget);
+    expect(find.text(deviceRequest.updateMessage!), findsOneWidget);
+    expect(find.byType(Image), findsOneWidget);
   });
 
   testWidgets('gtk app notifier', (tester) async {

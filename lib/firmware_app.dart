@@ -37,17 +37,38 @@ class _FirmwareAppState extends State<FirmwareApp> {
   @override
   void initState() {
     super.initState();
-    context.read<FwupdNotifier>().init();
+    final fwupdNotifier = context.read<FwupdNotifier>();
     final store = context.read<DeviceStore>();
-    store.init();
-    final notifier = getService<GtkApplicationNotifier>();
-    notifier.addCommandLineListener((args) {
-      store.selectedDeviceId = args.firstOrNull;
-      store.selectedReleaseVersion = args.length > 1 ? args[1] : null;
-    });
-    getService<FwupdService>()
+    final gtkNotifier = getService<GtkApplicationNotifier>();
+
+    fwupdNotifier
+      ..init()
       ..registerErrorListener(_showError)
-      ..registerConfirmationListener(_getConfirmation);
+      ..registerConfirmationListener(_getConfirmation)
+      ..registerDeviceRequestListener(_showRequest);
+    store.init();
+    gtkNotifier.addCommandLineListener(_commandLineListener);
+  }
+
+  @override
+  void dispose() {
+    final gtkNotifier = getService<GtkApplicationNotifier>();
+    gtkNotifier.removeCommandLineListener(_commandLineListener);
+    super.dispose();
+  }
+
+  void _commandLineListener(List<String> args) {
+    final store = context.read<DeviceStore>();
+    store.selectedDeviceId = args.firstOrNull;
+    store.selectedReleaseVersion = args.length > 1 ? args[1] : null;
+  }
+
+  void _showRequest(FwupdDevice device) {
+    showDeviceRequestDialog(
+      context,
+      message: device.updateMessage,
+      imageUrl: device.updateImage,
+    );
   }
 
   void _showError(Exception e) {

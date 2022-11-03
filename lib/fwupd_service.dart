@@ -48,6 +48,7 @@ class FwupdService {
   Stream<FwupdDevice> get deviceAdded => _fwupd.deviceAdded;
   Stream<FwupdDevice> get deviceChanged => _fwupd.deviceChanged;
   Stream<FwupdDevice> get deviceRemoved => _fwupd.deviceRemoved;
+  Stream<FwupdDevice> get deviceRequest => _fwupd.deviceRequest;
   Stream<List<String>> get propertiesChanged => _propertiesChanged.stream;
 
   Function(Exception)? _errorListener;
