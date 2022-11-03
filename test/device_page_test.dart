@@ -1,5 +1,6 @@
 import 'package:firmware_updater/device_model.dart';
 import 'package:firmware_updater/device_page.dart';
+import 'package:firmware_updater/device_store.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'device_page_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([DeviceModel])
+@GenerateMocks([DeviceModel, DeviceStore])
 void main() {
   DeviceModel mockModel({
     required FwupdDevice device,
@@ -26,14 +27,18 @@ void main() {
     return model;
   }
 
+  DeviceStore mockStore() => MockDeviceStore();
+
   Widget buildPage({
     required DeviceModel model,
     required FwupdNotifier notifier,
+    required DeviceStore store,
   }) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<DeviceModel>.value(value: model),
-        ChangeNotifierProvider<FwupdNotifier>.value(value: notifier)
+        ChangeNotifierProvider<FwupdNotifier>.value(value: notifier),
+        ChangeNotifierProvider<DeviceStore>.value(value: store),
       ],
       child: const DevicePage(),
     );
@@ -44,7 +49,9 @@ void main() {
       final device = testDevice(id: 'a');
       final model = mockModel(device: device);
       final notifier = mockNotifier();
-      await tester.pumpApp((_) => buildPage(model: model, notifier: notifier));
+      final store = mockStore();
+      await tester.pumpApp(
+          (_) => buildPage(model: model, notifier: notifier, store: store));
 
       expect(find.text(tester.lang.showUpdates), findsNothing);
       expect(find.text(tester.lang.showReleases), findsNothing);
@@ -57,7 +64,9 @@ void main() {
       final releases = [FwupdRelease(name: 'test release')];
       final model = mockModel(device: device, releases: releases);
       final notifier = mockNotifier();
-      await tester.pumpApp((_) => buildPage(model: model, notifier: notifier));
+      final store = mockStore();
+      await tester.pumpApp(
+          (_) => buildPage(model: model, notifier: notifier, store: store));
 
       expect(find.text(tester.lang.showUpdates), findsNothing);
       expect(find.text(tester.lang.showReleases), findsOneWidget);
@@ -65,7 +74,7 @@ void main() {
       expect(find.text(tester.lang.updateChecksums), findsNothing);
 
       await tester.tap(find.text(tester.lang.showReleases));
-      verify(model.selectedRelease = releases.first).called(1);
+      verify(store.showReleases = true).called(1);
     });
 
     testWidgets('update available', (tester) async {
@@ -76,7 +85,9 @@ void main() {
       final model =
           mockModel(device: device, hasUpgrade: true, releases: releases);
       final notifier = mockNotifier();
-      await tester.pumpApp((_) => buildPage(model: model, notifier: notifier));
+      final store = mockStore();
+      await tester.pumpApp(
+          (_) => buildPage(model: model, notifier: notifier, store: store));
 
       expect(find.text(tester.lang.showUpdates), findsOneWidget);
       expect(find.text(tester.lang.showReleases), findsNothing);
@@ -84,7 +95,7 @@ void main() {
       expect(find.text(tester.lang.updateChecksums), findsNothing);
 
       await tester.tap(find.text(tester.lang.showUpdates));
-      verify(model.selectedRelease = releases.first).called(1);
+      verify(store.showReleases = true).called(1);
     });
 
     testWidgets('update checksum', (tester) async {
@@ -92,7 +103,9 @@ void main() {
           name: 'test device', id: 'a', flags: {FwupdDeviceFlag.canVerify});
       final model = mockModel(device: device);
       final notifier = mockNotifier();
-      await tester.pumpApp((_) => buildPage(model: model, notifier: notifier));
+      final store = mockStore();
+      await tester.pumpApp(
+          (_) => buildPage(model: model, notifier: notifier, store: store));
 
       expect(find.text(tester.lang.showUpdates), findsNothing);
       expect(find.text(tester.lang.showReleases), findsNothing);
@@ -117,7 +130,9 @@ void main() {
           id: 'a', flags: {FwupdDeviceFlag.canVerify}, checksum: '1337');
       final model = mockModel(device: device);
       final notifier = mockNotifier();
-      await tester.pumpApp((_) => buildPage(model: model, notifier: notifier));
+      final store = mockStore();
+      await tester.pumpApp(
+          (_) => buildPage(model: model, notifier: notifier, store: store));
 
       expect(find.text(tester.lang.showUpdates), findsNothing);
       expect(find.text(tester.lang.showReleases), findsNothing);

@@ -98,10 +98,6 @@ void main() {
     store.addListener(() => updates++);
     store.selectedDeviceId = 'foo';
     expect(store.selectedDeviceId, 'foo');
-
-    store.selectedReleaseVersion = 'bar';
-    expect(store.selectedReleaseVersion, 'bar');
-
-    expect(updates, 2);
+    expect(updates, 1);
   });
 }

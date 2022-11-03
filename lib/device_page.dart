@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'device_model.dart';
+import 'device_store.dart';
 import 'fwupd_l10n.dart';
 import 'fwupd_notifier.dart';
 import 'fwupd_x.dart';
@@ -118,16 +119,16 @@ class DevicePage extends StatelessWidget {
                         ? ElevatedButton(
                             onPressed: fwupdIdle
                                 ? () => context
-                                    .read<DeviceModel>()
-                                    .selectedRelease = releases.first
+                                    .read<DeviceStore>()
+                                    .showReleases = true
                                 : null,
                             child: Text(l10n.showUpdates),
                           )
                         : OutlinedButton(
                             onPressed: fwupdIdle
                                 ? () => context
-                                    .read<DeviceModel>()
-                                    .selectedRelease = releases.first
+                                    .read<DeviceStore>()
+                                    .showReleases = true
                                 : null,
                             child: Text(l10n.showReleases),
                           ),

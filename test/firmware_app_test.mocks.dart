@@ -31,6 +31,19 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
   }
 
   @override
+  bool get showReleases => (super.noSuchMethod(
+        Invocation.getter(#showReleases),
+        returnValue: false,
+      ) as bool);
+  @override
+  set showReleases(bool? value) => super.noSuchMethod(
+        Invocation.setter(
+          #showReleases,
+          value,
+        ),
+        returnValueForMissingStub: null,
+      );
+  @override
   List<_i3.FwupdDevice> get devices => (super.noSuchMethod(
         Invocation.getter(#devices),
         returnValue: <_i3.FwupdDevice>[],
@@ -40,14 +53,6 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         Invocation.setter(
           #selectedDeviceId,
           id,
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  set selectedReleaseVersion(String? version) => super.noSuchMethod(
-        Invocation.setter(
-          #selectedReleaseVersion,
-          version,
         ),
         returnValueForMissingStub: null,
       );

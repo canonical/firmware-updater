@@ -17,21 +17,21 @@ class DeviceStore extends SafeChangeNotifier {
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
   String? _selectedDeviceId;
-  String? _selectedReleaseVersion;
+  bool _showReleases = false;
+
+  bool get showReleases => _showReleases;
+  set showReleases(bool value) {
+    if (value == _showReleases) return;
+    _showReleases = value;
+    notifyListeners();
+  }
 
   List<FwupdDevice> get devices => _devices;
   String? get selectedDeviceId => _selectedDeviceId;
-  String? get selectedReleaseVersion => _selectedReleaseVersion;
 
   set selectedDeviceId(String? id) {
     if (id == _selectedDeviceId) return;
     _selectedDeviceId = id;
-    notifyListeners();
-  }
-
-  set selectedReleaseVersion(String? version) {
-    if (version == _selectedReleaseVersion) return;
-    _selectedReleaseVersion = version;
     notifyListeners();
   }
 

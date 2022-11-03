@@ -60,7 +60,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
   void _commandLineListener(List<String> args) {
     final store = context.read<DeviceStore>();
     store.selectedDeviceId = args.firstOrNull;
-    store.selectedReleaseVersion = args.length > 1 ? args[1] : null;
+    store.showReleases = args.isNotEmpty;
   }
 
   void _showRequest(FwupdDevice device) {
@@ -92,18 +92,22 @@ class _FirmwareAppState extends State<FirmwareApp> {
   @override
   Widget build(BuildContext context) {
     final store = context.watch<DeviceStore>();
-    final notifier = context.watch<FwupdNotifier>();
     final l10n = AppLocalizations.of(context);
     final index =
         store.devices.indexWhere((d) => d.deviceId == store.selectedDeviceId);
     return store.when(
       devices: (devices) => ErrorBanner(
-        message: notifier.onBattery ? l10n.batteryWarning : null,
+        message: context
+                .select<FwupdNotifier, bool>((notifier) => notifier.onBattery)
+            ? l10n.batteryWarning
+            : null,
         child: YaruMasterDetailPage(
           key: ValueKey(index),
           initialIndex: index,
-          onSelected: (value) =>
-              store.selectedDeviceId = store.devices[value ?? 0].deviceId,
+          onSelected: (value) {
+            store.selectedDeviceId = store.devices[value ?? 0].deviceId;
+            store.showReleases = false;
+          },
           length: devices.length,
           pageBuilder: (context, index) =>
               DetailPage.create(context, device: devices[index]),

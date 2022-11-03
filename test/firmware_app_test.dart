@@ -41,7 +41,7 @@ void main() {
     final store = MockDeviceStore();
     when(store.devices).thenReturn(devices);
     when(store.selectedDeviceId).thenReturn(null);
-    when(store.selectedReleaseVersion).thenReturn(null);
+    when(store.showReleases).thenReturn(false);
     return store;
   }
 
@@ -208,8 +208,7 @@ void main() {
         .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
     verify(gtkAppNotifier.addCommandLineListener(any)).called(1);
 
-    cliListener(['foo', 'bar']);
+    cliListener(['foo']);
     verify(store.selectedDeviceId = 'foo').called(1);
-    verify(store.selectedReleaseVersion = 'bar').called(1);
   });
 }
