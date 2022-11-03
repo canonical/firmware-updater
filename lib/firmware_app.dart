@@ -46,12 +46,21 @@ class _FirmwareAppState extends State<FirmwareApp> {
       ..registerErrorListener(_showError)
       ..registerConfirmationListener(_getConfirmation)
       ..registerDeviceRequestListener(_showRequest);
-
     store.init();
-    gtkNotifier.addCommandLineListener((args) {
-      store.selectedDeviceId = args.firstOrNull;
-      store.selectedReleaseVersion = args.length > 1 ? args[1] : null;
-    });
+    gtkNotifier.addCommandLineListener(_commandLineListener);
+  }
+
+  @override
+  void dispose() {
+    final gtkNotifier = getService<GtkApplicationNotifier>();
+    gtkNotifier.removeCommandLineListener(_commandLineListener);
+    super.dispose();
+  }
+
+  void _commandLineListener(List<String> args) {
+    final store = context.read<DeviceStore>();
+    store.selectedDeviceId = args.firstOrNull;
+    store.selectedReleaseVersion = args.length > 1 ? args[1] : null;
   }
 
   void _showRequest(FwupdDevice device) {
