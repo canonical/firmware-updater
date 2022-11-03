@@ -56,7 +56,10 @@ class _DetailPageState extends State<DetailPage> {
                 child: ReleasePage(),
               )
           ],
-          onPopPage: (route, result) => route.didPop(result),
+          onPopPage: (route, result) {
+            context.read<DeviceStore>().showReleases = false;
+            return route.didPop(result);
+          },
         ),
       ),
     );

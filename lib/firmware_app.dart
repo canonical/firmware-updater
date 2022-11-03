@@ -34,6 +34,8 @@ class FirmwareApp extends StatefulWidget {
 }
 
 class _FirmwareAppState extends State<FirmwareApp> {
+  final _controller = ValueNotifier<int>(0);
+
   @override
   void initState() {
     super.initState();
@@ -59,7 +61,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
 
   void _commandLineListener(List<String> args) {
     final store = context.read<DeviceStore>();
-    store.selectedDeviceId = args.firstOrNull;
+    _controller.value = store.indexOf(args.firstOrNull);
     store.showReleases = args.isNotEmpty;
   }
 
@@ -93,8 +95,6 @@ class _FirmwareAppState extends State<FirmwareApp> {
   Widget build(BuildContext context) {
     final store = context.watch<DeviceStore>();
     final l10n = AppLocalizations.of(context);
-    final index =
-        store.devices.indexWhere((d) => d.deviceId == store.selectedDeviceId);
     return store.when(
       devices: (devices) => ErrorBanner(
         message: context
@@ -102,10 +102,9 @@ class _FirmwareAppState extends State<FirmwareApp> {
             ? l10n.batteryWarning
             : null,
         child: YaruMasterDetailPage(
-          key: ValueKey(index),
-          initialIndex: index,
+          controller: _controller,
           onSelected: (value) {
-            store.selectedDeviceId = store.devices[value ?? 0].deviceId;
+            _controller.value = value ?? 0;
             store.showReleases = false;
           },
           length: devices.length,

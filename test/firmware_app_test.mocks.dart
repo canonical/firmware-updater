@@ -49,14 +49,6 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         returnValue: <_i3.FwupdDevice>[],
       ) as List<_i3.FwupdDevice>);
   @override
-  set selectedDeviceId(String? id) => super.noSuchMethod(
-        Invocation.setter(
-          #selectedDeviceId,
-          id,
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
   bool get hasListeners => (super.noSuchMethod(
         Invocation.getter(#hasListeners),
         returnValue: false,
@@ -66,6 +58,14 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         Invocation.getter(#isDisposed),
         returnValue: false,
       ) as bool);
+  @override
+  int indexOf(String? deviceId) => (super.noSuchMethod(
+        Invocation.method(
+          #indexOf,
+          [deviceId],
+        ),
+        returnValue: 0,
+      ) as int);
   @override
   _i4.Future<void> init() => (super.noSuchMethod(
         Invocation.method(

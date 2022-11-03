@@ -40,7 +40,6 @@ void main() {
   }) {
     final store = MockDeviceStore();
     when(store.devices).thenReturn(devices);
-    when(store.selectedDeviceId).thenReturn(null);
     when(store.showReleases).thenReturn(false);
     return store;
   }
@@ -199,6 +198,7 @@ void main() {
     registerMockService<GtkApplicationNotifier>(gtkAppNotifier);
 
     final store = mockStore(devices: []);
+    when(store.indexOf(any)).thenReturn(0);
     late final void Function(List<String>) cliListener;
     when(gtkAppNotifier.addCommandLineListener(any)).thenAnswer((i) =>
         cliListener =
@@ -209,6 +209,6 @@ void main() {
     verify(gtkAppNotifier.addCommandLineListener(any)).called(1);
 
     cliListener(['foo']);
-    verify(store.selectedDeviceId = 'foo').called(1);
+    verify(store.showReleases = true).called(1);
   });
 }

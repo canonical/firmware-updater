@@ -16,7 +16,6 @@ class DeviceStore extends SafeChangeNotifier {
   var _devices = <FwupdDevice>[];
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
-  String? _selectedDeviceId;
   bool _showReleases = false;
 
   bool get showReleases => _showReleases;
@@ -27,13 +26,8 @@ class DeviceStore extends SafeChangeNotifier {
   }
 
   List<FwupdDevice> get devices => _devices;
-  String? get selectedDeviceId => _selectedDeviceId;
-
-  set selectedDeviceId(String? id) {
-    if (id == _selectedDeviceId) return;
-    _selectedDeviceId = id;
-    notifyListeners();
-  }
+  int indexOf(String? deviceId) =>
+      _devices.indexWhere((d) => d.deviceId == deviceId);
 
   Future<void> init() async {
     _deviceAdded = _service.deviceAdded.listen((device) {
