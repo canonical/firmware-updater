@@ -3,10 +3,10 @@ version: git
 summary: Firmware Updater
 description: Update Firmware
 confinement: strict
-base: core20
+base: core22
 grade: devel
 license: GPL-3.0+
-icon: snap/firmware-updater.png
+icon: snap/local/firmware-updater.png
 architectures:
   - build-on: amd64
 
@@ -23,11 +23,11 @@ parts:
     source-depth: 1
     plugin: nil
     override-build: |
-      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/bin
-      mkdir -p $SNAPCRAFT_PART_INSTALL/usr/libexec
-      cp -r $SNAPCRAFT_PART_SRC $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter
-      ln -s $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter/bin/flutter $SNAPCRAFT_PART_INSTALL/usr/bin/flutter
-      ln -s $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter/bin/dart $SNAPCRAFT_PART_INSTALL/usr/bin/dart
+      mkdir -p $CRAFT_PART_INSTALL/usr/bin
+      mkdir -p $CRAFT_PART_INSTALL/usr/libexec
+      cp -r $CRAFT_PART_SRC $CRAFT_PART_INSTALL/usr/libexec/flutter
+      ln -s $CRAFT_PART_INSTALL/usr/libexec/flutter/bin/flutter $CRAFT_PART_INSTALL/usr/bin/flutter
+      ln -s $CRAFT_PART_INSTALL/usr/libexec/flutter/bin/dart $CRAFT_PART_INSTALL/usr/bin/dart
     build-packages:
       - clang
       - cmake
@@ -48,10 +48,10 @@ parts:
       flutter upgrade
       flutter config --enable-linux-desktop
       flutter doctor
-      flutter pub get
+      dart pub get
       flutter build linux --release -v
-      mkdir -p $SNAPCRAFT_PART_INSTALL/bin/
-      cp -r build/linux/*/release/bundle/* $SNAPCRAFT_PART_INSTALL/bin/
+      mkdir -p $CRAFT_PART_INSTALL/bin/
+      cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
 
   firmware-notifier:
     after: [ flutter-git, firmware-updater ]
@@ -60,21 +60,21 @@ parts:
     override-build: |
       set -eux
       dart pub get
-      mkdir -p $SNAPCRAFT_PART_INSTALL/bin/
-      dart compile exe bin/firmware_notifier.dart -o $SNAPCRAFT_PART_INSTALL/bin/firmware-notifier
+      mkdir -p $CRAFT_PART_INSTALL/bin/
+      dart compile exe bin/firmware_notifier.dart -o $CRAFT_PART_INSTALL/bin/firmware-notifier
 
 apps:
   firmware-updater:
     command: bin/firmware-updater
     desktop: bin/data/flutter_assets/assets/firmware-updater.desktop
-    extensions: [gnome-3-38]
+    extensions: [gnome]
     plugs:
       - fwupd
       - upower-observe
 
   firmware-notifier:
     command: bin/firmware-notifier
-    extensions: [gnome-3-38]
+    extensions: [gnome]
     plugs:
       - desktop
       - fwupd
