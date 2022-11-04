@@ -199,16 +199,16 @@ void main() {
 
     final store = mockStore(devices: []);
     when(store.indexOf(any)).thenReturn(0);
-    late final void Function(List<String>) cliListener;
+    late final Future<void> Function(List<String>) cliListener;
     when(gtkAppNotifier.addCommandLineListener(any)).thenAnswer((i) =>
         cliListener =
-            i.positionalArguments.first as void Function(List<String>));
+            i.positionalArguments.first as Future<void> Function(List<String>));
 
     await tester
         .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
     verify(gtkAppNotifier.addCommandLineListener(any)).called(1);
 
-    cliListener(['foo']);
+    await cliListener(['foo']);
     verify(store.showReleases = true).called(1);
   });
 }

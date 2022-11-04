@@ -34,7 +34,8 @@ class FirmwareApp extends StatefulWidget {
 }
 
 class _FirmwareAppState extends State<FirmwareApp> {
-  final _controller = ValueNotifier<int>(0);
+  final _controller = ValueNotifier<int>(-1);
+  late final Future _storeInitialized;
 
   @override
   void initState() {
@@ -48,7 +49,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
       ..registerErrorListener(_showError)
       ..registerConfirmationListener(_getConfirmation)
       ..registerDeviceRequestListener(_showRequest);
-    store.init();
+    _storeInitialized = store.init();
     gtkNotifier.addCommandLineListener(_commandLineListener);
   }
 
@@ -59,8 +60,9 @@ class _FirmwareAppState extends State<FirmwareApp> {
     super.dispose();
   }
 
-  void _commandLineListener(List<String> args) {
+  Future<void> _commandLineListener(List<String> args) async {
     final store = context.read<DeviceStore>();
+    await _storeInitialized;
     _controller.value = store.indexOf(args.firstOrNull);
     store.showReleases = args.isNotEmpty;
   }
@@ -104,9 +106,9 @@ class _FirmwareAppState extends State<FirmwareApp> {
         child: YaruMasterDetailPage(
           controller: _controller,
           onSelected: (value) {
-            _controller.value = value ?? 0;
             store.showReleases = false;
           },
+          initialIndex: _controller.value,
           length: devices.length,
           pageBuilder: (context, index) =>
               DetailPage.create(context, device: devices[index]),
