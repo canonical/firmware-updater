@@ -96,12 +96,21 @@ void main() {
 
     var updates = 0;
     store.addListener(() => updates++);
-    store.selectedDeviceId = 'foo';
-    expect(store.selectedDeviceId, 'foo');
+    store.showReleases = true;
+    expect(store.showReleases, true);
+    expect(updates, 1);
+  });
 
-    store.selectedReleaseVersion = 'bar';
-    expect(store.selectedReleaseVersion, 'bar');
+  test('helper methods', () async {
+    final devices = [
+      testDevice(id: 'a'),
+      testDevice(id: 'b'),
+    ];
+    final service = mockService(devices: devices);
+    final store = DeviceStore(service);
+    await store.init();
 
-    expect(updates, 2);
+    final index = store.indexOf(devices[1].deviceId);
+    expect(index, 1);
   });
 }

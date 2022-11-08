@@ -30,17 +30,6 @@ class DeviceModel extends SafeChangeNotifier {
   Future<void> update(FwupdDevice device) async {
     _device = device;
     _releases = await _fetchReleases();
-    if (_selectedRelease != null) {
-      _selectedRelease = _releases?.singleWhere(
-          (release) => release.version == _selectedRelease?.version);
-    }
-    notifyListeners();
-  }
-
-  FwupdRelease? _selectedRelease;
-  FwupdRelease? get selectedRelease => _selectedRelease;
-  set selectedRelease(FwupdRelease? release) {
-    _selectedRelease = release;
     notifyListeners();
   }
 

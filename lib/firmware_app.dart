@@ -34,6 +34,9 @@ class FirmwareApp extends StatefulWidget {
 }
 
 class _FirmwareAppState extends State<FirmwareApp> {
+  final _controller = ValueNotifier<int>(-1);
+  late final Future _storeInitialized;
+
   @override
   void initState() {
     super.initState();
@@ -46,7 +49,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
       ..registerErrorListener(_showError)
       ..registerConfirmationListener(_getConfirmation)
       ..registerDeviceRequestListener(_showRequest);
-    store.init();
+    _storeInitialized = store.init();
     gtkNotifier.addCommandLineListener(_commandLineListener);
   }
 
@@ -57,10 +60,11 @@ class _FirmwareAppState extends State<FirmwareApp> {
     super.dispose();
   }
 
-  void _commandLineListener(List<String> args) {
+  Future<void> _commandLineListener(List<String> args) async {
     final store = context.read<DeviceStore>();
-    store.selectedDeviceId = args.firstOrNull;
-    store.selectedReleaseVersion = args.length > 1 ? args[1] : null;
+    await _storeInitialized;
+    _controller.value = store.indexOf(args.firstOrNull);
+    store.showReleases = args.isNotEmpty;
   }
 
   void _showRequest(FwupdDevice device) {
@@ -92,18 +96,19 @@ class _FirmwareAppState extends State<FirmwareApp> {
   @override
   Widget build(BuildContext context) {
     final store = context.watch<DeviceStore>();
-    final notifier = context.watch<FwupdNotifier>();
     final l10n = AppLocalizations.of(context);
-    final index =
-        store.devices.indexWhere((d) => d.deviceId == store.selectedDeviceId);
     return store.when(
       devices: (devices) => ErrorBanner(
-        message: notifier.onBattery ? l10n.batteryWarning : null,
+        message: context
+                .select<FwupdNotifier, bool>((notifier) => notifier.onBattery)
+            ? l10n.batteryWarning
+            : null,
         child: YaruMasterDetailPage(
-          key: ValueKey(index),
-          initialIndex: index,
-          onSelected: (value) =>
-              store.selectedDeviceId = store.devices[value ?? 0].deviceId,
+          controller: _controller,
+          onSelected: (value) {
+            store.showReleases = false;
+          },
+          initialIndex: _controller.value,
           length: devices.length,
           pageBuilder: (context, index) =>
               DetailPage.create(context, device: devices[index]),

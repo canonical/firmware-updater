@@ -39,11 +39,7 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    final deviceModel = context.watch<DeviceModel>();
-    final store = context.watch<DeviceStore>();
     final navigator = Navigator.of(context);
-    final release = deviceModel.findRelease(store.selectedReleaseVersion);
-    if (release != null) deviceModel.selectedRelease = release;
     return ClipRect(
       child: Theme(
         data: Theme.of(context).copyWith(
@@ -54,12 +50,16 @@ class _DetailPageState extends State<DetailPage> {
             MaterialPage(
               child: DevicePage(parentNavigator: navigator),
             ),
-            if (deviceModel.selectedRelease != null)
+            if (context
+                .select<DeviceStore, bool>((store) => store.showReleases))
               const MaterialPage(
                 child: ReleasePage(),
               )
           ],
-          onPopPage: (route, result) => route.didPop(result),
+          onPopPage: (route, result) {
+            context.read<DeviceStore>().showReleases = false;
+            return route.didPop(result);
+          },
         ),
       ),
     );
