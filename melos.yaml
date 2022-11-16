@@ -1,0 +1,63 @@
+name: firmware_updater
+
+packages:
+  - .
+  - packages/**
+
+scripts:
+  # analyze all packages
+  analyze: >
+    melos exec -c 1 -- \
+      flutter analyze --fatal-infos .
+
+  # build all packages
+  build: >
+    melos exec -c 1 --fail-fast --flutter --dir-exists=linux -- \
+      flutter build linux
+
+  # collect coverage information for all packages
+  coverage: >
+    melos exec -c 1 --fail-fast --dir-exists=test --ignore='*builder*' -- \
+      flutter test --coverage && melos run coverage:cleanup
+
+  # cleanup generated files from coverage
+  coverage:cleanup: >
+    melos exec --file-exists=coverage/lcov.info -- \
+      lcov --remove coverage/lcov.info '**/*.g.dart' -o coverage/lcov.info
+
+  # format all packages
+  format: >
+    find . -name '*.dart' \
+      ! -name '*.g.dart' \
+      ! -path '*/.*/*' \
+      | xargs dart format --set-exit-if-changed
+
+  # run build_runner to generate code in all packages
+  generate: >
+    melos exec -c 1 --fail-fast --depends-on=build_runner -- \
+      flutter pub run build_runner build --delete-conflicting-outputs
+
+  # run gen-l10n to generate localizations in all packages
+  gen-l10n: >
+    melos exec -c 1 --fail-fast --dir-exists=lib/l10n -- \
+     flutter gen-l10n
+
+  # run integration tests in all packages
+  integration_test: >
+    melos exec -c 1 --fail-fast --dir-exists=integration_test -- \
+      flutter test integration_test
+
+  # run pub get in all packages
+  pub-get: >
+    melos exec -c 1 -- \
+      flutter pub get
+
+  # run tests in all packages
+  test: >
+    melos exec -c 1 --fail-fast --dir-exists=test -- \
+      flutter test
+
+  # runs pub upgrade in all packages
+  upgrade: >
+    melos exec -c 1 -- \
+      flutter pub upgrade
