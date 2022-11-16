@@ -41,7 +41,15 @@ void main() {
     final store = MockDeviceStore();
     when(store.devices).thenReturn(devices);
     when(store.showReleases).thenReturn(false);
+    when(store.indexOf(any)).thenAnswer((i) => devices.indexWhere(
+        (d) => d.deviceId == i.positionalArguments.single as String?));
     return store;
+  }
+
+  MockGtkApplicationNotifier mockGtkApplicationNotifier([List<String>? args]) {
+    final notifier = MockGtkApplicationNotifier();
+    when(notifier.commandLine).thenReturn(args ?? []);
+    return notifier;
   }
 
   Widget buildPage(
@@ -65,7 +73,7 @@ void main() {
 
   testWidgets('loading', (tester) async {
     registerMockService<FwupdService>(mockService());
-    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
+    registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
     final store = mockStore(devices: []);
     await tester
@@ -77,7 +85,7 @@ void main() {
   group('data', () {
     testWidgets('landscape layout', (tester) async {
       registerMockService<FwupdService>(mockService());
-      registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
+      registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
       final store = mockStore(devices: devices);
       await tester
@@ -93,7 +101,7 @@ void main() {
 
     testWidgets('portrait layout', (tester) async {
       registerMockService<FwupdService>(mockService());
-      registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
+      registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
       final store = mockStore(devices: devices);
       await tester.pumpApp(
@@ -116,7 +124,7 @@ void main() {
 
   testWidgets('on battery', (tester) async {
     registerMockService<FwupdService>(mockService());
-    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
+    registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
     final store = mockStore(devices: devices);
     await tester.pumpApp((_) =>
@@ -128,7 +136,7 @@ void main() {
   testWidgets('register callbacks', (tester) async {
     final service = mockService();
     registerMockService<FwupdService>(service);
-    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
+    registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
     final notifier = mockNotifier();
     final store = mockStore(devices: devices);
@@ -148,7 +156,7 @@ void main() {
     final service = mockService();
     final notifier = mockNotifier();
     registerMockService<FwupdService>(service);
-    registerMockService<GtkApplicationNotifier>(MockGtkApplicationNotifier());
+    registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
     final store = mockStore(devices: devices);
 
@@ -194,21 +202,21 @@ void main() {
 
   testWidgets('gtk app notifier', (tester) async {
     registerMockService<FwupdService>(mockService());
-    final gtkAppNotifier = MockGtkApplicationNotifier();
+    final gtkAppNotifier = mockGtkApplicationNotifier();
     registerMockService<GtkApplicationNotifier>(gtkAppNotifier);
 
     final store = mockStore(devices: []);
     when(store.indexOf(any)).thenReturn(0);
-    late final Future<void> Function(List<String>) cliListener;
+    late final void Function(List<String>) cliListener;
     when(gtkAppNotifier.addCommandLineListener(any)).thenAnswer((i) =>
         cliListener =
-            i.positionalArguments.first as Future<void> Function(List<String>));
+            i.positionalArguments.first as void Function(List<String>));
 
     await tester
         .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
     verify(gtkAppNotifier.addCommandLineListener(any)).called(1);
 
-    await cliListener(['foo']);
+    cliListener(['foo']);
     verify(store.showReleases = true).called(1);
   });
 }
