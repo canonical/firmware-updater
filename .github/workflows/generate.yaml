@@ -14,9 +14,21 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
-    - run: flutter pub get
-    - run: flutter pub get packages/firmware_notifier/
-    - run: flutter pub run build_runner build --delete-conflicting-outputs
+    - run: flutter pub global activate melos
+    - run: melos pub-get
+    - run: flutter pub get # Bad state: Unable to generate package graph
+    - run: melos run generate
+    - run: ./.github/scripts/check-outdated-files.sh
+
+  l10n:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - uses: subosito/flutter-action@v2
+    - run: flutter pub global activate melos
+    - run: melos pub-get
+    - run: melos run gen-l10n
     - run: ./.github/scripts/check-outdated-files.sh
 
   pull-request:
@@ -25,9 +37,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
-    - run: flutter pub get
-    - run: flutter pub get packages/firmware_notifier/
-    - run: flutter pub run build_runner build --delete-conflicting-outputs
+    - run: flutter pub global activate melos
+    - run: melos pub-get
+    - run: flutter pub get # Bad state: Unable to generate package graph
+    - run: melos run generate
+    - run: melos run gen-l10n
     - uses: peter-evans/create-pull-request@v4
       with:
         title: 'Regenerate files'

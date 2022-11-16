@@ -13,21 +13,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
-    - run: flutter pub get
-    - run: flutter pub get packages/firmware_notifier/
-    - run: flutter analyze
+    - run: flutter pub global activate melos
+    - run: melos pub-get
+    - run: melos run analyze
 
   format:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
     - uses: subosito/flutter-action@v2
-    - name: Run flutter format
-      run: |
-        find . -name '*.dart' \
-        ! -name '*.freezed.dart' \
-        ! -name '*.g.dart' \
-        ! -name '*.mocks.dart' \
-        ! -name '*_localizations*.dart' \
-        ! -path "*/.*/*" \
-        | xargs flutter format --set-exit-if-changed
+    - run: flutter pub global activate melos
+    - run: melos pub-get
+    - run: melos run format
