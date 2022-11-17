@@ -18,7 +18,7 @@ void main(List<String> arguments) async {
       values: [
         DBusObjectPath('/com/canonical/firmware_updater'),
         DBusArray(
-          DBusSignature.array(DBusSignature('y')),
+          DBusSignature.array(DBusSignature.byte),
           [
             DBusArray.byte([0]),
             for (final arg in args) DBusArray.byte(arg.runes.followedBy([0])),
@@ -26,7 +26,7 @@ void main(List<String> arguments) async {
         ),
         DBusDict.stringVariant({}),
       ],
-      replySignature: DBusSignature('i'),
+      replySignature: DBusSignature.int32,
     );
     await dbusClient.close();
   });
