@@ -74,25 +74,18 @@ static void my_application_activate(GApplication* application) {
   gtk_widget_grab_focus(GTK_WIDGET(view));
 }
 
-// Implements GApplication::local_command_line.
-static gboolean my_application_local_command_line(GApplication* application,
-                                                  gchar*** arguments,
-                                                  int* exit_status) {
-  MyApplication* self = MY_APPLICATION(application);
-  // Strip out the first argument as it is the binary name.
-  self->dart_entrypoint_arguments = g_strdupv(*arguments + 1);
+static gint my_application_command_line(GApplication *application, GApplicationCommandLine *command_line) {
+  MyApplication *self = MY_APPLICATION(application);
+  gchar **arguments = g_application_command_line_get_arguments(command_line, nullptr);
+  self->dart_entrypoint_arguments = g_strdupv(arguments + 1);
 
   g_autoptr(GError) error = nullptr;
   if (!g_application_register(application, nullptr, &error)) {
     g_warning("Failed to register: %s", error->message);
-    *exit_status = 1;
-    return TRUE;
+    return 1;
   }
-
   g_application_activate(application);
-  *exit_status = 0;
-
-  return FALSE;
+  return 0;
 }
 
 // Implements GObject::dispose.
@@ -104,8 +97,7 @@ static void my_application_dispose(GObject* object) {
 
 static void my_application_class_init(MyApplicationClass* klass) {
   G_APPLICATION_CLASS(klass)->activate = my_application_activate;
-  G_APPLICATION_CLASS(klass)->local_command_line =
-      my_application_local_command_line;
+  G_APPLICATION_CLASS(klass)->command_line = my_application_command_line;
   G_OBJECT_CLASS(klass)->dispose = my_application_dispose;
 }
 
