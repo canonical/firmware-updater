@@ -9,7 +9,7 @@ import 'package:yaru/yaru.dart';
 import 'firmware_app.dart';
 import 'fwupd_service.dart';
 
-Future<void> main() async {
+Future<void> main(List<String> args) async {
   Logger.setup(level: LogLevel.fromString(kDebugMode ? 'debug' : 'info'));
 
   registerService<FwupdService>(
@@ -17,7 +17,7 @@ Future<void> main() async {
     dispose: (s) => s.dispose(),
   );
 
-  registerService<GtkApplicationNotifier>(GtkApplicationNotifier.new,
+  registerService<GtkApplicationNotifier>(() => GtkApplicationNotifier(args),
       dispose: (s) => s.dispose());
 
   runApp(YaruTheme(
