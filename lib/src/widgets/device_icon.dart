@@ -3,7 +3,7 @@ import 'package:yaru_icons/yaru_icons.dart';
 
 const yaruIcons = <String, IconData>{
   'ac-adapter': YaruIcons.power,
-  'audio-card': YaruIcons.audio,
+  'audio-card': YaruIcons.audio_card,
   'audio-headphones': YaruIcons.headphones,
   'audio-headset': YaruIcons.headset,
   'audio-input-microphone': YaruIcons.microphone,
@@ -12,6 +12,7 @@ const yaruIcons = <String, IconData>{
   'battery': YaruIcons.battery_level_100,
   'camera-photo': YaruIcons.camera_photo,
   'camera-video': YaruIcons.camera_video,
+  'camera-web': YaruIcons.camera_web,
   'computer': YaruIcons.computer,
   'drive-harddisk': YaruIcons.drive_harddisk,
   'drive-harddisk-solidstate': YaruIcons.drive_solidstatedisk,
@@ -29,6 +30,7 @@ const yaruIcons = <String, IconData>{
   'media-optical': YaruIcons.media_optical,
   'media-removable': YaruIcons.media_removable,
   'media-tape': YaruIcons.media_tape,
+  'modem': YaruIcons.modem,
   'multimedia-player': YaruIcons.multimedia_player,
   'network-wired': YaruIcons.network_wired,
   'network-wireless': YaruIcons.network_wireless,
@@ -36,6 +38,7 @@ const yaruIcons = <String, IconData>{
   'phone': YaruIcons.phone_old,
   'printer': YaruIcons.printer,
   'printer-network': YaruIcons.printer_network,
+  'scanner': YaruIcons.scanner,
   'video-display': YaruIcons.desktop_display,
   'preferences-desktop-keyboard': YaruIcons.input_keyboard,
   'touchpad-disabled': YaruIcons.input_touchpad,
