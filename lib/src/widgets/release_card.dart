@@ -62,20 +62,31 @@ class ReleaseCard extends StatelessWidget {
     }
 
     return YaruSection(
+      margin: const EdgeInsets.symmetric(vertical: 8),
       width: double.infinity,
-      headline: Text(
-        release.version,
-        style: Theme.of(context).textTheme.headlineSmall,
+      headlinePadding: EdgeInsets.zero,
+      padding: const EdgeInsets.all(16),
+      headline: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            release.version,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          Visibility(
+            visible: release.version == device.version,
+            child: Text(
+              l10n.currentVersion,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+            ),
+          ),
+        ],
       ),
-      headerWidget: release.version == device.version
-          ? DefaultTextStyle.merge(
-              child: Text(l10n.currentVersion),
-              style: TextStyle(color: Theme.of(context).colorScheme.primary))
-          : null,
-      children: [
-        Align(
-          alignment: Alignment.topLeft,
-          child: Html(
+      child: Column(
+        children: [
+          Html(
             data: '${release.summary}${release.description}',
             style: {
               'body': Style(margin: EdgeInsets.zero),
@@ -83,21 +94,22 @@ class ReleaseCard extends StatelessWidget {
             },
             shrinkWrap: true,
           ),
-        ),
-        Align(
-          alignment: Alignment.bottomRight,
-          child: release.isUpgrade
-              ? ElevatedButton(
-                  onPressed: confirmAndInstall,
-                  child: Text(l10n.upgrade),
-                )
-              : OutlinedButton(
-                  onPressed: confirmAndInstall,
-                  child: Text(
-                      release.isDowngrade ? l10n.downgrade : l10n.reinstall),
-                ),
-        ),
-      ],
+          const SizedBox(height: 16),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: release.isUpgrade
+                ? ElevatedButton(
+                    onPressed: confirmAndInstall,
+                    child: Text(l10n.upgrade),
+                  )
+                : OutlinedButton(
+                    onPressed: confirmAndInstall,
+                    child: Text(
+                        release.isDowngrade ? l10n.downgrade : l10n.reinstall),
+                  ),
+          ),
+        ],
+      ),
     );
   }
 }
