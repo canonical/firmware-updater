@@ -85,6 +85,7 @@ class ReleaseCard extends StatelessWidget {
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Html(
             data: '${release.summary}${release.description}',
