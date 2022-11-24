@@ -11,7 +11,7 @@ architectures:
   - build-on: amd64
 
 slots:
-  dbus:
+  dbus-slot:
     interface: dbus
     name: com.canonical.firmware_updater
     bus: session
@@ -38,7 +38,7 @@ parts:
       - zip
     override-prime: ''
 
-  firmware-updater:
+  firmware-updater-app:
     after: [ flutter-git ]
     plugin: nil
     source: .
@@ -63,10 +63,21 @@ parts:
       mkdir -p $CRAFT_PART_INSTALL/bin/
       dart compile exe bin/firmware_notifier.dart -o $CRAFT_PART_INSTALL/bin/firmware-notifier
 
+  firmware-updater:
+    plugin: dump
+    source: ./launcher-script/
+
 apps:
   firmware-updater:
-    command: bin/firmware-updater
+    command: bin/launch-firmware-updater.sh
     desktop: bin/data/flutter_assets/assets/firmware-updater.desktop
+    extensions: [gnome]
+
+  firmware-updater-app:
+    command: bin/firmware-updater
+    daemon: dbus
+    daemon-scope: user
+    activates-on: [dbus-slot]
     extensions: [gnome]
     plugs:
       - fwupd
