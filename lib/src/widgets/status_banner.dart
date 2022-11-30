@@ -17,21 +17,25 @@ class StatusBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Visibility(
       visible: visible,
-      child: Column(
-        children: [
-          LinearProgressIndicator(value: progress),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(message, style: Theme.of(context).textTheme.caption),
-              const SizedBox(width: 8.0),
-              const SizedBox(
-                height: 24,
-                child: YaruCircularProgressIndicator(),
-              ),
-            ],
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Column(
+          children: [
+            YaruLinearProgressIndicator(value: progress),
+            const SizedBox(height: 8.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(message, style: Theme.of(context).textTheme.caption),
+                const SizedBox(width: 8.0),
+                const SizedBox(
+                  height: 24,
+                  child: YaruCircularProgressIndicator(strokeWidth: 3),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

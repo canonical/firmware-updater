@@ -15,9 +15,10 @@ void main() {
       ),
     ));
 
-    final indicator = find.byType(LinearProgressIndicator);
+    final indicator = find.byType(YaruLinearProgressIndicator);
     expect(indicator, findsOneWidget);
-    expect(tester.widget<LinearProgressIndicator>(indicator).value, progress);
+    expect(
+        tester.widget<YaruLinearProgressIndicator>(indicator).value, progress);
     expect(find.text(message), findsOneWidget);
     expect(find.byType(YaruCircularProgressIndicator), findsOneWidget);
   });
