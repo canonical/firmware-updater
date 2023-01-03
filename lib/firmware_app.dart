@@ -34,7 +34,8 @@ class FirmwareApp extends StatefulWidget {
 }
 
 class _FirmwareAppState extends State<FirmwareApp> {
-  final _controller = ValueNotifier<int>(-1);
+  YaruPageController? _controller;
+  bool _initialized = false;
 
   @override
   void initState() {
@@ -48,7 +49,13 @@ class _FirmwareAppState extends State<FirmwareApp> {
       ..registerErrorListener(_showError)
       ..registerConfirmationListener(_getConfirmation)
       ..registerDeviceRequestListener(_showRequest);
-    store.init().then((_) => _commandLineListener(gtkNotifier.commandLine!));
+    store.init().then((_) {
+      _controller = YaruPageController(length: store.devices.length);
+      _commandLineListener(gtkNotifier.commandLine!);
+      setState(() {
+        _initialized = true;
+      });
+    });
     gtkNotifier.addCommandLineListener(_commandLineListener);
   }
 
@@ -61,7 +68,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
 
   void _commandLineListener(List<String> args) {
     final store = context.read<DeviceStore>();
-    _controller.value = store.indexOf(args.firstOrNull);
+    _controller?.index = store.indexOf(args.firstOrNull);
     store.showReleases = args.isNotEmpty;
   }
 
@@ -95,26 +102,23 @@ class _FirmwareAppState extends State<FirmwareApp> {
   Widget build(BuildContext context) {
     final store = context.watch<DeviceStore>();
     final l10n = AppLocalizations.of(context);
-    return store.when(
-      devices: (devices) => ErrorBanner(
-        message: context
-                .select<FwupdNotifier, bool>((notifier) => notifier.onBattery)
-            ? l10n.batteryWarning
-            : null,
-        child: YaruMasterDetailPage(
-          controller: _controller,
-          onSelected: (value) {
-            store.showReleases = false;
-          },
-          initialIndex: _controller.value,
-          length: devices.length,
-          pageBuilder: (context, index) =>
-              DetailPage.create(context, device: devices[index]),
-          tileBuilder: (context, index, selected) =>
-              DeviceTile.create(context, device: devices[index]),
-        ),
-      ),
-      empty: () => const Center(child: YaruCircularProgressIndicator()),
-    );
+    return _initialized
+        ? ErrorBanner(
+            message: context.select<FwupdNotifier, bool>(
+                    (notifier) => notifier.onBattery)
+                ? l10n.batteryWarning
+                : null,
+            child: YaruMasterDetailPage(
+              controller: _controller,
+              onSelected: (value) {
+                store.showReleases = false;
+              },
+              pageBuilder: (context, index) =>
+                  DetailPage.create(context, device: store.devices[index]),
+              tileBuilder: (context, index, selected) =>
+                  DeviceTile.create(context, device: store.devices[index]),
+            ),
+          )
+        : const Center(child: YaruCircularProgressIndicator());
   }
 }
