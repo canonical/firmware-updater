@@ -90,6 +90,7 @@ void main() {
       final store = mockStore(devices: devices);
       await tester
           .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+      await tester.pumpAndSettle();
 
       expect(find.text(devices.first.name), findsNWidgets(2));
       expect(find.text(devices.first.summary!), findsNWidgets(2));
@@ -107,6 +108,7 @@ void main() {
       await tester.pumpApp(
           (_) => buildPage(store: store, notifier: mockNotifier()),
           size: const Size(400, 850));
+      await tester.pumpAndSettle();
 
       expect(find.text(devices.first.name), findsOneWidget);
       expect(find.text(devices.first.summary!), findsOneWidget);
@@ -129,6 +131,7 @@ void main() {
     final store = mockStore(devices: devices);
     await tester.pumpApp((_) =>
         buildPage(store: store, notifier: mockNotifier(onBattery: true)));
+    await tester.pumpAndSettle();
 
     expect(find.text(tester.lang.batteryWarning), findsOneWidget);
   });
