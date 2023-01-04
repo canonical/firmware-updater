@@ -13,7 +13,6 @@ const extraIcons = <String, IconData>{
   'input-dialpad': YaruIcons.dialpad,
   'media-removable': YaruIcons.drive_removable_media,
   'printer-network': YaruIcons.printer_network,
-  'preferences-desktop-keyboard': YaruIcons.keyboard,
   'touchpad-disabled': YaruIcons.touchpad,
   'thunderbolt': YaruIcons.thunderbolt
 };
