@@ -29,7 +29,7 @@ class DevicePage extends StatelessWidget {
       Text(
         text,
         textAlign: TextAlign.end,
-        style: Theme.of(context).textTheme.caption,
+        style: Theme.of(context).textTheme.bodySmall,
       ),
     );
   }

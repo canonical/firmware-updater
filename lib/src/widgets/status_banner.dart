@@ -23,7 +23,7 @@ class StatusBanner extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(message, style: Theme.of(context).textTheme.caption),
+              Text(message, style: Theme.of(context).textTheme.bodySmall),
               const SizedBox(width: 8.0),
               const SizedBox(
                 height: 24,
