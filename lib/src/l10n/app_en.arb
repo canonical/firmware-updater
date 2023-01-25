@@ -7,7 +7,7 @@
   "deviceUnavailable": "The device will be unavailable during this action.",
   "deviceRequest": "Device request",
   "downgrade": "Downgrade",
-  "downgradeConfirm": "Downgrade {name} from version {current} to {selected}?",
+  "downgradeConfirm": "Downgrade {name} from version {current} to {version2}?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -16,7 +16,7 @@
       "current": {
         "type": "String?"
       },
-      "selected": {
+      "version2": {
         "type": "String?"
       }
     }
@@ -121,7 +121,7 @@
   },
   "updateChecksumsInfo": "This will record the current cryptographic hashes as verified.",
   "upgrade": "Upgrade",
-  "upgradeConfirm": "Upgrade {name} from version {current} to {selected}?",
+  "upgradeConfirm": "Upgrade {name} from version {current} to {version2}?",
   "@upgradeConfirm": {
     "placeholders": {
       "name": {
@@ -130,7 +130,7 @@
       "current": {
         "type": "String?"
       },
-      "selected": {
+      "version2": {
         "type": "String?"
       }
     }
