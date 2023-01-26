@@ -22,6 +22,7 @@ class SmallChip extends StatelessWidget {
       backgroundColor: color ??
           Theme.of(context).disabledColor.withOpacity(
               Theme.of(context).brightness == Brightness.light ? 0.4 : 0.1),
+      side: BorderSide.none,
     );
   }
 }
