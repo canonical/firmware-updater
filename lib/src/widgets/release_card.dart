@@ -90,8 +90,8 @@ class ReleaseCard extends StatelessWidget {
           Html(
             data: '${release.summary}${release.description}',
             style: {
-              'body': Style(margin: EdgeInsets.zero),
-              'h3': Style(margin: EdgeInsets.zero)
+              'body': Style(margin: Margins.zero),
+              'h3': Style(margin: Margins.zero)
             },
             shrinkWrap: true,
           ),
