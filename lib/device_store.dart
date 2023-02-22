@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
@@ -16,8 +17,16 @@ class DeviceStore extends SafeChangeNotifier {
   var _devices = <FwupdDevice>[];
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
-  bool _showReleases = false;
 
+  String _searchQuery = '';
+  String get searchQuery => _searchQuery;
+  set searchQuery(String value) {
+    if (value == _searchQuery) return;
+    _searchQuery = value;
+    notifyListeners();
+  }
+
+  bool _showReleases = false;
   bool get showReleases => _showReleases;
   set showReleases(bool value) {
     if (value == _showReleases) return;
@@ -25,9 +34,11 @@ class DeviceStore extends SafeChangeNotifier {
     notifyListeners();
   }
 
-  List<FwupdDevice> get devices => _devices;
+  UnmodifiableListView<FwupdDevice> get devices =>
+      UnmodifiableListView(_devices.where((device) =>
+          device.name.toLowerCase().contains(_searchQuery.toLowerCase())));
   int indexOf(String? deviceId) =>
-      _devices.indexWhere((d) => d.deviceId == deviceId);
+      devices.indexWhere((d) => d.deviceId == deviceId);
 
   Future<void> init() async {
     _deviceAdded = _service.deviceAdded.listen((device) {
@@ -73,7 +84,7 @@ class DeviceStore extends SafeChangeNotifier {
 extension DeviceStoreWhen on DeviceStore {
   T when<T extends Object?>({
     required T Function() empty,
-    required T Function(List<FwupdDevice> devices) devices,
+    required T Function(UnmodifiableListView<FwupdDevice> devices) devices,
   }) {
     if (this.devices.isEmpty) {
       return empty();
