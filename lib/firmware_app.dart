@@ -50,7 +50,8 @@ class _FirmwareAppState extends State<FirmwareApp> {
       ..registerConfirmationListener(_getConfirmation)
       ..registerDeviceRequestListener(_showRequest);
     store.init().then((_) {
-      _controller = YaruPageController(length: store.devices.length);
+      _updateController();
+      store.addListener(_updateController);
       _commandLineListener(gtkNotifier.commandLine!);
       setState(() {
         _initialized = true;
@@ -63,7 +64,18 @@ class _FirmwareAppState extends State<FirmwareApp> {
   void dispose() {
     final gtkNotifier = getService<GtkApplicationNotifier>();
     gtkNotifier.removeCommandLineListener(_commandLineListener);
+    context.read<DeviceStore>().removeListener(_updateController);
     super.dispose();
+  }
+
+  void _updateController() {
+    final store = context.read<DeviceStore>();
+    final newLength = store.devices.length;
+    if (newLength != _controller?.length) {
+      _controller = YaruPageController(
+        length: newLength,
+      );
+    }
   }
 
   void _commandLineListener(List<String> args) {
@@ -109,15 +121,27 @@ class _FirmwareAppState extends State<FirmwareApp> {
                 ? l10n.batteryWarning
                 : null,
             child: YaruMasterDetailPage(
-              appBar: YaruWindowTitleBar(title: Text(l10n.appTitle)),
+              appBar: YaruWindowTitleBar(
+                title: TextFormField(
+                  initialValue: store.searchQuery,
+                  onChanged: (value) => store.searchQuery = value,
+                  autofocus: true,
+                ),
+              ),
               controller: _controller,
               onSelected: (value) {
                 store.showReleases = false;
               },
-              pageBuilder: (context, index) =>
-                  DetailPage.create(context, device: store.devices[index]),
-              tileBuilder: (context, index, selected) =>
-                  DeviceTile.create(context, device: store.devices[index]),
+              pageBuilder: (context, index) => store.when(
+                empty: () => const Text('empty'),
+                devices: (devices) =>
+                    DetailPage.create(context, device: devices[index]),
+              ),
+              tileBuilder: (context, index, selected) => store.when(
+                empty: () => const Text('empty'),
+                devices: (devices) =>
+                    DeviceTile.create(context, device: store.devices[index]),
+              ),
             ),
           )
         : const Center(child: YaruCircularProgressIndicator());
