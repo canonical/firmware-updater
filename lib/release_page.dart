@@ -17,7 +17,7 @@ class ReleasePage extends StatelessWidget {
     final releases = model.releases ?? [];
 
     return YaruDetailPage(
-      appBar: AppBar(
+      appBar: YaruWindowTitleBar(
         title: Text('${device.name} ${device.version}'),
         leading: Navigator.of(context).canPop() ? const YaruBackButton() : null,
       ),

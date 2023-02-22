@@ -109,6 +109,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
                 ? l10n.batteryWarning
                 : null,
             child: YaruMasterDetailPage(
+              appBar: YaruWindowTitleBar(title: Text(l10n.appTitle)),
               controller: _controller,
               onSelected: (value) {
                 store.showReleases = false;
