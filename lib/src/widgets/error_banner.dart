@@ -25,14 +25,15 @@ class _ErrorBannerState extends State<ErrorBanner> {
         children: [
           if (widget.message != null && _visible)
             Container(
-              color: Theme.of(context).colorScheme.error,
+              color: Theme.of(context).colorScheme.errorContainer,
               child: Row(
                 children: [
                   Expanded(
                     child: Text(
                       widget.message!,
                       style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                            color: Theme.of(context).colorScheme.onError,
+                            color:
+                                Theme.of(context).colorScheme.onErrorContainer,
                           ),
                       textAlign: TextAlign.center,
                     ),
@@ -45,7 +46,7 @@ class _ErrorBannerState extends State<ErrorBanner> {
                       horizontal: -4,
                       vertical: -4,
                     ),
-                    color: Theme.of(context).colorScheme.onError,
+                    color: Theme.of(context).colorScheme.onErrorContainer,
                   )
                 ],
               ),
