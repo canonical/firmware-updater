@@ -66,7 +66,7 @@ class DevicePage extends StatelessWidget {
     ].whereNotNull();
 
     return YaruDetailPage(
-      appBar: AppBar(
+      appBar: YaruWindowTitleBar(
         title: _buildAppBarTitle(context, device.name, device.summary),
         leading: parentNavigator?.canPop() == true
             ? YaruBackButton(onPressed: parentNavigator!.pop)
