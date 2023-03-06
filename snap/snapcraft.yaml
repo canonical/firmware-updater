@@ -74,9 +74,10 @@ apps:
     extensions: [gnome]
 
   firmware-updater-app:
-    command: bin/firmware-updater
-    daemon: dbus
-    daemon-scope: user
+    command: bin/firmware-updater --gapplication-service
+    passthrough:
+      daemon: dbus
+      daemon-scope: user
     activates-on: [dbus-slot]
     extensions: [gnome]
     plugs:
@@ -85,6 +86,10 @@ apps:
 
   firmware-notifier:
     command: bin/firmware-notifier
+    daemon: simple
+    passthrough:
+      daemon-scope: user
+    timer: '00:00-24:00/8'
     extensions: [gnome]
     plugs:
       - desktop
