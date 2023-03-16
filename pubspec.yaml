@@ -34,7 +34,7 @@ dependencies:
   ubuntu_service: ^0.2.0
   ubuntu_session: ^0.0.3
   upower: ^0.7.0
-  yaru: ^0.5.0
+  yaru: ^0.6.0
   yaru_colors: ^0.1.0
   yaru_icons: ^1.0.0
   yaru_widgets: ^2.0.0
