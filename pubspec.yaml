@@ -47,6 +47,7 @@ dev_dependencies:
   freezed: ^2.1.0+1
   integration_test:
     sdk: flutter
+  melos: ^3.0.0
   mockito: 5.3.2
 
 flutter:
