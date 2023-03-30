@@ -122,6 +122,18 @@ void main() {
       expect(find.byType(YaruBackButton), findsOneWidget);
       expectDevicePropertyList(tester);
     });
+
+    testWidgets('empty list', (tester) async {
+      registerMockService<FwupdService>(mockService());
+      registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
+
+      final store = mockStore(devices: []);
+      await tester
+          .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+      await tester.pumpAndSettle();
+
+      expect(find.text(tester.lang.noDevicesFound), findsOneWidget);
+    });
   });
 
   testWidgets('on battery', (tester) async {
