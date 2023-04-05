@@ -42,7 +42,7 @@ jobs:
     - run: flutter pub get # Bad state: Unable to generate package graph
     - run: melos run generate
     - run: melos run gen-l10n
-    - uses: peter-evans/create-pull-request@v4
+    - uses: peter-evans/create-pull-request@v5
       with:
         title: 'Regenerate files'
         commit-message: 'Regenerate files'
