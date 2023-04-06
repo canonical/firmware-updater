@@ -6,7 +6,7 @@ import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
-import 'package:gtk_application/gtk_application.dart';
+import 'package:gtk/gtk.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
