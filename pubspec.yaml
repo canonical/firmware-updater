@@ -21,7 +21,7 @@ dependencies:
     git:
       url: https://github.com/d-loose/fwupd.dart
       ref: refresh-property-cache
-  gtk_application: ^0.0.3
+  gtk: ^2.0.0
   handy_window: ^0.3.0
   meta: ^1.7.0
   path: ^1.8.0
