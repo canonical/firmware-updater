@@ -157,7 +157,7 @@ class FwupdService {
     FwupdDevice device,
     FwupdRelease release, [
     @visibleForTesting
-        ResourceHandle Function(RandomAccessFile file)? resourceHandleFromFile,
+    ResourceHandle Function(RandomAccessFile file)? resourceHandleFromFile,
   ]) async {
     log.debug('install $release');
     log.debug('on $device');

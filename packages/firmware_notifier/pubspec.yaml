@@ -2,7 +2,7 @@ name: firmware_notifier
 description: A desktop notification service for fwupd.
 publish_to: 'none'
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dev_dependencies:
   build_runner: ^2.3.2

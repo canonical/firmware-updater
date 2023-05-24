@@ -7,8 +7,8 @@ analyzer:
     - "**/*.mocks.dart"
     - "**/l10n/*.dart"
 
-  strong-mode:
-    implicit-casts: false
+  language:
+    strict-casts: false
 
 linter:
   rules:
