@@ -80,8 +80,8 @@ extension WidgetTesterX on WidgetTester {
 
   Future<void> pumpApp(WidgetBuilder builder,
       {Size size = const Size(700, 850)}) {
-    binding.window.devicePixelRatioTestValue = 1;
-    binding.window.physicalSizeTestValue = size;
+    view.devicePixelRatio = 1;
+    view.physicalSize = size;
     return pumpWidget(MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       home: Builder(builder: builder),
