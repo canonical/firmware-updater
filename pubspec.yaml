@@ -27,10 +27,7 @@ dependencies:
   path: ^1.8.0
   provider: ^6.0.0
   safe_change_notifier: ^0.2.0
-  ubuntu_logger:
-    git:
-      url: https://github.com/canonical/ubuntu-flutter-plugins.git
-      path: packages/ubuntu_logger
+  ubuntu_logger: ^0.0.2
   ubuntu_service: ^0.2.0
   ubuntu_session: ^0.0.4
   upower: ^0.7.0
