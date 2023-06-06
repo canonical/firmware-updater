@@ -111,9 +111,14 @@ class FwupdService {
     final path = p.join(_fs.systemTempDirectory.path, p.basename(url));
     log.debug('download $url to $path');
     try {
-      return await _dio.download(url, path, onReceiveProgress: (recvd, total) {
-        _setDownloadProgress(100 * recvd ~/ total);
-      }).then((response) => _fs.file(path));
+      return await _dio.download(
+        url,
+        path,
+        onReceiveProgress: (recvd, total) {
+          _setDownloadProgress(100 * recvd ~/ total);
+        },
+        options: Options(headers: {'User-Agent': 'firmware-updater'}),
+      ).then((response) => _fs.file(path));
     } finally {
       _setDownloadProgress(null);
     }
