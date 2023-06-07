@@ -69,9 +69,12 @@ void main() {
       file.createSync(recursive: true);
       expect(file.existsSync(), isTrue);
 
-      when(dio.download(url, file.path,
-              onReceiveProgress: anyNamed('onReceiveProgress')))
-          .thenAnswer((i) async {
+      when(dio.download(
+        url,
+        file.path,
+        onReceiveProgress: anyNamed('onReceiveProgress'),
+        options: anyNamed('options'),
+      )).thenAnswer((i) async {
         i.namedArguments[#onReceiveProgress]!(0, 1);
         return Response(requestOptions: RequestOptions(path: file.path));
       });
@@ -87,17 +90,23 @@ void main() {
     test('success', () async {
       await service.install(device, release, (f) => MockResourceHandle());
 
-      verify(dio.download(url, file.path,
-              onReceiveProgress: anyNamed('onReceiveProgress')))
-          .called(1);
+      verify(dio.download(
+        url,
+        file.path,
+        onReceiveProgress: anyNamed('onReceiveProgress'),
+        options: anyNamed('options'),
+      )).called(1);
       verifyNever(service.reboot());
     });
 
     test('error', () async {
-      when(dio.download(url, file.path,
-              onReceiveProgress: anyNamed('onReceiveProgress')))
-          .thenThrow(DioError(
-              requestOptions: RequestOptions(path: url), error: 'dio error'));
+      when(dio.download(
+        url,
+        file.path,
+        onReceiveProgress: anyNamed('onReceiveProgress'),
+        options: anyNamed('options'),
+      )).thenThrow(DioError(
+          requestOptions: RequestOptions(path: url), error: 'dio error'));
 
       service.registerErrorListener(
           expectAsync1((e) => expect(e, isInstanceOf<DioError>())));
