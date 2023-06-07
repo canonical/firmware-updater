@@ -117,7 +117,8 @@ class FwupdService {
         onReceiveProgress: (recvd, total) {
           _setDownloadProgress(100 * recvd ~/ total);
         },
-        options: Options(headers: {'User-Agent': 'firmware-updater'}),
+        options:
+            Options(headers: {HttpHeaders.userAgentHeader: 'firmware-updater'}),
       ).then((response) => _fs.file(path));
     } finally {
       _setDownloadProgress(null);
