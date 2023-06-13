@@ -64,10 +64,9 @@ class ReleaseCard extends StatelessWidget {
     return YaruSection(
       margin: const EdgeInsets.symmetric(vertical: 8),
       width: double.infinity,
-      headlinePadding: EdgeInsets.zero,
+      headlinePadding: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       headline: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Badge(
             isLabelVisible: release.isUpgrade,
@@ -81,11 +80,21 @@ class ReleaseCard extends StatelessWidget {
           ),
           Visibility(
             visible: release.version == device.version,
+            child: Chip(
+              label: Text(l10n.currentVersion),
+              labelStyle: Theme.of(context).textTheme.bodySmall,
+              labelPadding: EdgeInsets.zero,
+            ),
+          ),
+          const Spacer(),
+          FilledButton(
+            onPressed: confirmAndInstall,
             child: Text(
-              l10n.currentVersion,
-              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
+              release.isUpgrade
+                  ? l10n.update
+                  : release.isDowngrade
+                      ? l10n.downgrade
+                      : l10n.reinstall,
             ),
           ),
         ],
@@ -102,19 +111,6 @@ class ReleaseCard extends StatelessWidget {
             shrinkWrap: true,
           ),
           const SizedBox(height: 16),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: release.isUpgrade
-                ? ElevatedButton(
-                    onPressed: confirmAndInstall,
-                    child: Text(l10n.upgrade),
-                  )
-                : OutlinedButton(
-                    onPressed: confirmAndInstall,
-                    child: Text(
-                        release.isDowngrade ? l10n.downgrade : l10n.reinstall),
-                  ),
-          ),
         ],
       ),
     );
