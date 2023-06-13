@@ -35,6 +35,10 @@ class DeviceModel extends SafeChangeNotifier {
 
   FwupdDevice get device => _device;
   List<FwupdRelease>? get releases => _releases;
+  FwupdRelease? get latestRelease => _releases?.firstOrNull;
+  // TODO: ensure releases are in the correct order - it might be necessary to
+  // implement version comparison
+
   bool get onBattery => _service.onBattery;
 
   Future<List<FwupdRelease>> _fetchReleases() {
