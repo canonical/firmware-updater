@@ -69,9 +69,15 @@ class ReleaseCard extends StatelessWidget {
       headline: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            release.version,
-            style: Theme.of(context).textTheme.headlineSmall,
+          Badge(
+            isLabelVisible: release.isUpgrade,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(end: 8),
+              child: Text(
+                release.version,
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ),
           ),
           Visibility(
             visible: release.version == device.version,
