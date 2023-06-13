@@ -93,6 +93,7 @@
   "installError": "Failed to install firmware!",
   "noDevicesFound": "No devices found",
   "ok": "OK",
+  "olderVersions": "Older Versions",
   "reboot": "Reboot",
   "rebootConfirm": "The update requires a reboot to complete. Do you want to reboot now?",
   "reinstall": "Reinstall",
