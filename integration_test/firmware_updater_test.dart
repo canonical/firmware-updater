@@ -9,6 +9,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:ubuntu_test/ubuntu_test.dart';
+import 'package:yaru_widgets/widgets.dart';
 
 import '../test/test_utils.dart';
 
@@ -93,6 +94,9 @@ void main() {
       expect(find.devicePage(downgrade.version), findsNothing);
 
       await tester.pumpAndTapButton(tester.lang.showReleases);
+      await tester.pumpAndSettle();
+
+      await tester.pumpAndTapExpandable();
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapReleaseButton(downgrade.version);
@@ -240,6 +244,14 @@ extension IntegrationTester on WidgetTester {
     );
     await pumpUntil(button);
     return tap(button);
+  }
+
+  Future<void> pumpAndTapExpandable() async {
+    final expandable = find.descendant(
+        of: find.byType(YaruExpandable),
+        matching: find.text(lang.olderVersions));
+    await pumpUntil(expandable);
+    return tap(expandable);
   }
 }
 
