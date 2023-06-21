@@ -40,10 +40,7 @@ void main() {
       await tester.pumpAndTapButton(tester.lang.showUpdates);
       await tester.pumpAndSettle();
 
-      await tester.pumpAndTapReleaseCard(upgrade.version);
-      await tester.pumpAndSettle();
-
-      await tester.pumpAndTapButton(tester.lang.upgrade);
+      await tester.pumpAndTapReleaseButton(upgrade.version);
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapDialogButton(tester.lang.upgrade);
@@ -72,10 +69,7 @@ void main() {
       await tester.pumpAndTapButton(tester.lang.showReleases);
       await tester.pumpAndSettle();
 
-      await tester.pumpAndTapReleaseCard(reinstall.version);
-      await tester.pumpAndSettle();
-
-      await tester.pumpAndTapButton(tester.lang.reinstall);
+      await tester.pumpAndTapReleaseButton(reinstall.version);
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapDialogButton(tester.lang.reinstall);
@@ -101,10 +95,7 @@ void main() {
       await tester.pumpAndTapButton(tester.lang.showReleases);
       await tester.pumpAndSettle();
 
-      await tester.pumpAndTapReleaseCard(downgrade.version);
-      await tester.pumpAndSettle();
-
-      await tester.pumpAndTapButton(tester.lang.downgrade);
+      await tester.pumpAndTapReleaseButton(downgrade.version);
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapDialogButton(tester.lang.downgrade);
@@ -242,10 +233,13 @@ extension IntegrationTester on WidgetTester {
     return tap(button.first);
   }
 
-  Future<void> pumpAndTapReleaseCard(String version) async {
-    final card = find.widgetWithText(ReleaseCard, version);
-    await pumpUntil(card);
-    return tap(card);
+  Future<void> pumpAndTapReleaseButton(String version) async {
+    final button = find.descendant(
+      of: find.widgetWithText(ReleaseCard, version),
+      matching: find.byWidgetPredicate((widget) => widget is ButtonStyleButton),
+    );
+    await pumpUntil(button);
+    return tap(button);
   }
 }
 

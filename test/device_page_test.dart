@@ -5,30 +5,12 @@ import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 
-import 'device_page_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([DeviceModel, DeviceStore])
 void main() {
-  DeviceModel mockModel({
-    required FwupdDevice device,
-    bool? hasUpgrade,
-    List<FwupdRelease>? releases,
-    FwupdException? error,
-  }) {
-    final model = MockDeviceModel();
-    when(model.device).thenReturn(device);
-    when(model.hasUpgrade()).thenReturn(hasUpgrade ?? false);
-    when(model.releases).thenReturn(releases ?? []);
-    return model;
-  }
-
-  DeviceStore mockStore() => MockDeviceStore();
-
   Widget buildPage({
     required DeviceModel model,
     required FwupdNotifier notifier,

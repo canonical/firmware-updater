@@ -1,3 +1,5 @@
+import 'package:firmware_updater/device_model.dart';
+import 'package:firmware_updater/device_store.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter/material.dart';
@@ -72,6 +74,23 @@ MockFwupdNotifier mockNotifier({
   when(notifier.onBattery).thenReturn(onBattery ?? false);
   return notifier;
 }
+
+@GenerateMocks([DeviceModel])
+DeviceModel mockModel({
+  required FwupdDevice device,
+  bool? hasUpgrade,
+  List<FwupdRelease>? releases,
+  FwupdException? error,
+}) {
+  final model = MockDeviceModel();
+  when(model.device).thenReturn(device);
+  when(model.hasUpgrade()).thenReturn(hasUpgrade ?? false);
+  when(model.releases).thenReturn(releases ?? []);
+  return model;
+}
+
+@GenerateMocks([DeviceStore])
+DeviceStore mockStore() => MockDeviceStore();
 
 extension WidgetTesterX on WidgetTester {
   BuildContext get context => element(find.byType(Scaffold).first);
