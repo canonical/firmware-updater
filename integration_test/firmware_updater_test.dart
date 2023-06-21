@@ -8,6 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
+import 'package:ubuntu_test/ubuntu_test.dart';
 
 import '../test/test_utils.dart';
 
