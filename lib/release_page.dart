@@ -47,26 +47,22 @@ class ReleasePage extends StatelessWidget {
         leading: Navigator.of(context).canPop() ? const YaruBackButton() : null,
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-          child: Column(
-            children: [
-              Column(
-                children: currentReleases.map(buildReleaseCard).toList(),
-              ),
-              if (oldReleases.isNotEmpty)
-                YaruExpandable(
-                  expandButtonPosition: YaruExpandableButtonPosition.start,
-                  header: Text(l10n.olderVersions),
-                  child: Column(
-                    children: oldReleases
-                        .where((release) => release.isDowngrade)
-                        .map(buildReleaseCard)
-                        .toList(),
-                  ),
+        padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
+        child: Column(
+          children: [
+            ...currentReleases.map(buildReleaseCard).toList(),
+            if (oldReleases.isNotEmpty)
+              YaruExpandable(
+                expandButtonPosition: YaruExpandableButtonPosition.start,
+                header: Text(l10n.olderVersions),
+                child: Column(
+                  children: oldReleases
+                      .where((release) => release.isDowngrade)
+                      .map(buildReleaseCard)
+                      .toList(),
                 ),
-            ],
-          ),
+              ),
+          ],
         ),
       ),
     );
