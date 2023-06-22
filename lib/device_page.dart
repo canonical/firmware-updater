@@ -83,7 +83,7 @@ class DevicePage extends StatelessWidget {
             child: Text(l10n.updateToLatest),
           ),
         if (model.releases?.isNotEmpty ?? false)
-          OutlinedButton(
+          FilledButton(
             onPressed: enabled
                 ? () => context.read<DeviceStore>().showReleases = true
                 : null,
