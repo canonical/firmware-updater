@@ -58,5 +58,5 @@ class DeviceModel extends SafeChangeNotifier {
   Future<void> install(FwupdRelease release) =>
       _service.install(device, release);
 
-  bool hasUpgrade() => _releases?.any((r) => r.isUpgrade) == true;
+  bool get hasUpgrade => _releases?.any((r) => r.isUpgrade) == true;
 }

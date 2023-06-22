@@ -84,7 +84,7 @@ DeviceModel mockModel({
 }) {
   final model = MockDeviceModel();
   when(model.device).thenReturn(device);
-  when(model.hasUpgrade()).thenReturn(hasUpgrade ?? false);
+  when(model.hasUpgrade).thenReturn(hasUpgrade ?? false);
   when(model.releases).thenReturn(releases ?? []);
   return model;
 }

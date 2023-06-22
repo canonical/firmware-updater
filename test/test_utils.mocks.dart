@@ -407,6 +407,11 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         returnValue: false,
       ) as bool);
   @override
+  bool get hasUpgrade => (super.noSuchMethod(
+        Invocation.getter(#hasUpgrade),
+        returnValue: false,
+      ) as bool);
+  @override
   bool get hasListeners => (super.noSuchMethod(
         Invocation.getter(#hasListeners),
         returnValue: false,
@@ -470,14 +475,6 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
-  @override
-  bool hasUpgrade() => (super.noSuchMethod(
-        Invocation.method(
-          #hasUpgrade,
-          [],
-        ),
-        returnValue: false,
-      ) as bool);
   @override
   void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(

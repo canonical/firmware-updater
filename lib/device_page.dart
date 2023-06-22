@@ -111,7 +111,7 @@ class DevicePage extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         alignment: MainAxisAlignment.start,
                         children: [
-                          if (model.hasUpgrade())
+                          if (model.hasUpgrade)
                             ElevatedButton(
                               onPressed: fwupdIdle
                                   ? () => model.install(model.latestRelease!)
