@@ -53,6 +53,46 @@ class DevicePage extends StatelessWidget {
     );
   }
 
+  static Widget _buildButtonBar(
+      {required BuildContext context, bool enabled = true}) {
+    final model = context.read<DeviceModel>();
+    final l10n = AppLocalizations.of(context);
+    return ButtonBar(
+      mainAxisSize: MainAxisSize.min,
+      alignment: MainAxisAlignment.start,
+      children: [
+        if (model.hasUpgrade)
+          ElevatedButton(
+            onPressed: enabled
+                ? () => showConfirmationDialog(
+                      context,
+                      title: l10n.upgradeConfirm(
+                        model.device.name,
+                        model.device.version,
+                        model.latestRelease!.version,
+                      ),
+                      message: model.device.flags
+                              .contains(FwupdDeviceFlag.usableDuringUpdate)
+                          ? null
+                          : l10n.deviceUnavailable,
+                      actionText: l10n.upgrade,
+                      onConfirm: () => model.install(model.latestRelease!),
+                      onCancel: () {},
+                    )
+                : null,
+            child: Text(l10n.updateToLatest),
+          ),
+        if (model.releases?.isNotEmpty ?? false)
+          OutlinedButton(
+            onPressed: enabled
+                ? () => context.read<DeviceStore>().showReleases = true
+                : null,
+            child: Text(l10n.allVersions),
+          ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final model = context.watch<DeviceModel>();
@@ -107,28 +147,7 @@ class DevicePage extends StatelessWidget {
                     children: [
                       const SizedBox.shrink(),
                       const SizedBox.shrink(),
-                      ButtonBar(
-                        mainAxisSize: MainAxisSize.min,
-                        alignment: MainAxisAlignment.start,
-                        children: [
-                          if (model.hasUpgrade)
-                            ElevatedButton(
-                              onPressed: fwupdIdle
-                                  ? () => model.install(model.latestRelease!)
-                                  : null,
-                              child: Text(l10n.updateToLatest),
-                            ),
-                          if (releases.isNotEmpty)
-                            OutlinedButton(
-                              onPressed: fwupdIdle
-                                  ? () => context
-                                      .read<DeviceStore>()
-                                      .showReleases = true
-                                  : null,
-                              child: Text(l10n.allVersions),
-                            ),
-                        ],
-                      )
+                      _buildButtonBar(context: context, enabled: fwupdIdle),
                     ],
                   ),
                 if (device.versionLowest != null)
