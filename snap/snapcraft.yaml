@@ -75,8 +75,8 @@ apps:
 
   firmware-updater-app:
     command: bin/firmware-updater --gapplication-service
+    daemon: dbus
     passthrough:
-      daemon: dbus
       daemon-scope: user
     activates-on: [dbus-slot]
     extensions: [gnome]
