@@ -125,7 +125,6 @@
   },
   "updateChecksumsInfo": "This will record the current cryptographic hashes as verified.",
   "updateToLatest": "Update to Latest",
-  "upgrade": "Upgrade",
   "upgradeConfirm": "Upgrade {name} from version {current} to {version2}?",
   "@upgradeConfirm": {
     "placeholders": {

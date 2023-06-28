@@ -83,7 +83,7 @@ void main() {
       await tester.tap(find.text(tester.lang.updateToLatest));
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text(tester.lang.upgrade));
+      await tester.tap(find.text(tester.lang.update));
       verify(model.install(FwupdRelease(name: 'new release', version: '2.0.0')))
           .called(1);
     });

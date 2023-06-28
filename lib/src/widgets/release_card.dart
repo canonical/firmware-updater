@@ -37,7 +37,7 @@ class ReleaseCard extends StatelessWidget {
         release.version,
       );
     } else if (release.isUpgrade) {
-      action = l10n.upgrade;
+      action = l10n.update;
       dialogText = l10n.upgradeConfirm(
         device.name,
         device.version,
