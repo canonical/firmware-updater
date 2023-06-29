@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
+import 'package:yaru/yaru.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'device_model.dart';
@@ -34,8 +35,29 @@ class DevicePage extends StatelessWidget {
     );
   }
 
-  static Widget _buildLabel(BuildContext context, String text) {
-    return _buildPadding(Text(text));
+  static Widget _buildLabel(BuildContext context, String text,
+      [String? chipLabel]) {
+    return _buildPadding(chipLabel == null
+        ? Text(text)
+        : Row(
+            children: [
+              Text(text),
+              const SizedBox(width: 8),
+              Chip(
+                label: Text(chipLabel),
+                labelStyle: Theme.of(context)
+                    .textTheme
+                    .labelMedium
+                    ?.copyWith(color: Theme.of(context).colorScheme.secondary),
+                labelPadding: EdgeInsets.zero,
+                backgroundColor: Theme.of(context)
+                    .colorScheme
+                    .secondary
+                    .adjust(lightness: 0.64, saturation: 1),
+                side: BorderSide.none,
+              ),
+            ],
+          ));
   }
 
   static Widget _buildAppBarTitle(
@@ -140,7 +162,12 @@ class DevicePage extends StatelessWidget {
                     DevicePage._buildHeader(context, l10n.latestVersion),
                     const SizedBox.shrink(),
                     DevicePage._buildLabel(
-                        context, model.latestRelease!.version),
+                      context,
+                      model.latestRelease!.version,
+                      model.latestRelease!.version != model.device.version
+                          ? l10n.updateAvailable
+                          : null,
+                    ),
                   ]),
                 if (device.canVerify || releases.isNotEmpty)
                   TableRow(
