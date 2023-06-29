@@ -57,9 +57,9 @@ class _DetailPageState extends State<DetailPage> {
               )
           ],
           onPopPage: (route, result) {
-            context.read<DeviceStore>().showReleases = false;
             return route.didPop(result);
           },
+          observers: [HeroController()],
         ),
       ),
     );

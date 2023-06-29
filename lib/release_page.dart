@@ -44,7 +44,12 @@ class ReleasePage extends StatelessWidget {
     return YaruDetailPage(
       appBar: YaruWindowTitleBar(
         title: Text('${device.name} ${device.version}'),
-        leading: Navigator.of(context).canPop() ? const YaruBackButton() : null,
+        leading: Navigator.of(context).canPop()
+            ? YaruBackButton(
+                onPressed: () =>
+                    context.read<DeviceStore>().showReleases = false,
+              )
+            : null,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
