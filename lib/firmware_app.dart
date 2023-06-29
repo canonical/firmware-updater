@@ -116,7 +116,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
               },
               pageBuilder: (context, index) =>
                   DetailPage.create(context, device: store.devices[index]),
-              tileBuilder: (context, index, selected) =>
+              tileBuilder: (context, index, selected, availableWidth) =>
                   DeviceTile.create(context, device: store.devices[index]),
               emptyBuilder: (_) => Scaffold(
                 appBar: YaruWindowTitleBar(title: Text(l10n.appTitle)),
