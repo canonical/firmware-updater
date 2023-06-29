@@ -151,5 +151,6 @@
     }
   },
   "currentVersion": "Current Version",
-  "minVersion": "Minimum Version"
+  "minVersion": "Minimum Version",
+  "latestVersion": "Latest Version"
 }

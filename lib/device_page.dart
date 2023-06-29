@@ -137,7 +137,7 @@ class DevicePage extends StatelessWidget {
                   ]),
                 if (model.latestRelease != null)
                   TableRow(children: [
-                    DevicePage._buildHeader(context, 'Latest Version'),
+                    DevicePage._buildHeader(context, l10n.latestVersion),
                     const SizedBox.shrink(),
                     DevicePage._buildLabel(
                         context, model.latestRelease!.version),
