@@ -1,6 +1,8 @@
 {
+  "allVersions": "All Versions",
   "appTitle": "Firmware Updater",
   "batteryWarning": "Warning: some device updates may only be available on external power!",
+  "checksum": "Checksum",
   "close": "Close",
   "cancel": "Cancel",
   "current": "Current",
@@ -122,6 +124,7 @@
     }
   },
   "updateChecksumsInfo": "This will record the current cryptographic hashes as verified.",
+  "updateToLatest": "Update to Latest",
   "upgrade": "Upgrade",
   "upgradeConfirm": "Upgrade {name} from version {current} to {version2}?",
   "@upgradeConfirm": {
@@ -148,5 +151,6 @@
     }
   },
   "currentVersion": "Current Version",
-  "minVersion": "Minimum Version"
+  "minVersion": "Minimum Version",
+  "latestVersion": "Latest Version"
 }

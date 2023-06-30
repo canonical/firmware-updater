@@ -39,7 +39,7 @@ class _DeviceTileState extends State<DeviceTile> {
     final model = context.watch<DeviceModel>();
     return DeviceHeader(
       device: model.device,
-      hasUpgrade: model.hasUpgrade(),
+      hasUpgrade: model.hasUpgrade,
     );
   }
 }

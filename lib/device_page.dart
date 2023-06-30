@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
+import 'package:yaru/yaru.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import 'device_model.dart';
@@ -34,8 +35,29 @@ class DevicePage extends StatelessWidget {
     );
   }
 
-  static Widget _buildLabel(BuildContext context, String text) {
-    return _buildPadding(Text(text));
+  static Widget _buildLabel(BuildContext context, String text,
+      [String? chipLabel]) {
+    return _buildPadding(chipLabel == null
+        ? Text(text)
+        : Row(
+            children: [
+              Text(text),
+              const SizedBox(width: 8),
+              Chip(
+                label: Text(chipLabel),
+                labelStyle: Theme.of(context)
+                    .textTheme
+                    .labelMedium
+                    ?.copyWith(color: Theme.of(context).colorScheme.secondary),
+                labelPadding: EdgeInsets.zero,
+                backgroundColor: Theme.of(context)
+                    .colorScheme
+                    .secondary
+                    .adjust(lightness: 0.64, saturation: 1),
+                side: BorderSide.none,
+              ),
+            ],
+          ));
   }
 
   static Widget _buildAppBarTitle(
@@ -48,6 +70,46 @@ class DevicePage extends StatelessWidget {
           Text(
             subtitle,
             style: Theme.of(context).textTheme.bodySmall,
+          ),
+      ],
+    );
+  }
+
+  static Widget _buildButtonBar(
+      {required BuildContext context, bool enabled = true}) {
+    final model = context.read<DeviceModel>();
+    final l10n = AppLocalizations.of(context);
+    return ButtonBar(
+      mainAxisSize: MainAxisSize.min,
+      alignment: MainAxisAlignment.start,
+      children: [
+        if (model.hasUpgrade)
+          ElevatedButton(
+            onPressed: enabled
+                ? () => showConfirmationDialog(
+                      context,
+                      title: l10n.upgradeConfirm(
+                        model.device.name,
+                        model.device.version,
+                        model.latestRelease!.version,
+                      ),
+                      message: model.device.flags
+                              .contains(FwupdDeviceFlag.usableDuringUpdate)
+                          ? null
+                          : l10n.deviceUnavailable,
+                      actionText: l10n.upgrade,
+                      onConfirm: () => model.install(model.latestRelease!),
+                      onCancel: () {},
+                    )
+                : null,
+            child: Text(l10n.updateToLatest),
+          ),
+        if (model.releases?.isNotEmpty ?? false)
+          FilledButton(
+            onPressed: enabled
+                ? () => context.read<DeviceStore>().showReleases = true
+                : null,
+            child: Text(l10n.allVersions),
           ),
       ],
     );
@@ -81,59 +143,6 @@ class DevicePage extends StatelessWidget {
               progress: notifier.percentage / 100.0,
               visible: !fwupdIdle,
             ),
-            if (device.canVerify || releases.isNotEmpty)
-              ButtonBar(
-                mainAxisSize: MainAxisSize.min,
-                overflowButtonSpacing: 8.0,
-                children: [
-                  if (device.canVerify)
-                    OutlinedButton(
-                      onPressed: fwupdIdle
-                          ? () => showConfirmationDialog(
-                                context,
-                                title: l10n.updateChecksumsConfirm(device.name),
-                                message: l10n.updateChecksumsInfo,
-                                onConfirm: model.verifyUpdate,
-                                actionText: l10n.update,
-                              )
-                          : null,
-                      child: Text(l10n.updateChecksums),
-                    ),
-                  if (device.canVerify && device.checksum != null)
-                    OutlinedButton(
-                      onPressed: fwupdIdle
-                          ? () => showConfirmationDialog(
-                                context,
-                                title: l10n.verifyFirmwareConfirm(device.name),
-                                message: device.flags.contains(
-                                        FwupdDeviceFlag.usableDuringUpdate)
-                                    ? null
-                                    : l10n.deviceUnavailable,
-                                onConfirm: model.verify,
-                              )
-                          : null,
-                      child: Text(l10n.verifyFirmware),
-                    ),
-                  if (releases.isNotEmpty)
-                    model.hasUpgrade()
-                        ? ElevatedButton(
-                            onPressed: fwupdIdle
-                                ? () => context
-                                    .read<DeviceStore>()
-                                    .showReleases = true
-                                : null,
-                            child: Text(l10n.showUpdates),
-                          )
-                        : OutlinedButton(
-                            onPressed: fwupdIdle
-                                ? () => context
-                                    .read<DeviceStore>()
-                                    .showReleases = true
-                                : null,
-                            child: Text(l10n.showReleases),
-                          ),
-                ],
-              ),
             const SizedBox(height: 32),
             Table(
               columnWidths: const {
@@ -148,6 +157,26 @@ class DevicePage extends StatelessWidget {
                     const SizedBox.shrink(),
                     DevicePage._buildLabel(context, device.version!),
                   ]),
+                if (model.latestRelease != null)
+                  TableRow(children: [
+                    DevicePage._buildHeader(context, l10n.latestVersion),
+                    const SizedBox.shrink(),
+                    DevicePage._buildLabel(
+                      context,
+                      model.latestRelease!.version,
+                      model.latestRelease!.version != model.device.version
+                          ? l10n.updateAvailable
+                          : null,
+                    ),
+                  ]),
+                if (device.canVerify || releases.isNotEmpty)
+                  TableRow(
+                    children: [
+                      const SizedBox.shrink(),
+                      const SizedBox.shrink(),
+                      _buildButtonBar(context: context, enabled: fwupdIdle),
+                    ],
+                  ),
                 if (device.versionLowest != null)
                   TableRow(children: [
                     DevicePage._buildHeader(context, l10n.minVersion),
@@ -186,6 +215,48 @@ class DevicePage extends StatelessWidget {
                       const SizedBox.shrink(),
                       DevicePage._buildPadding(Text(flag))
                     ]),
+                if (device.canVerify)
+                  TableRow(children: [
+                    DevicePage._buildHeader(context, l10n.checksum),
+                    const SizedBox.shrink(),
+                    ButtonBar(
+                      mainAxisSize: MainAxisSize.min,
+                      alignment: MainAxisAlignment.start,
+                      overflowButtonSpacing: 8.0,
+                      children: [
+                        OutlinedButton(
+                          onPressed: fwupdIdle
+                              ? () => showConfirmationDialog(
+                                    context,
+                                    title: l10n
+                                        .updateChecksumsConfirm(device.name),
+                                    message: l10n.updateChecksumsInfo,
+                                    onConfirm: model.verifyUpdate,
+                                    actionText: l10n.update,
+                                  )
+                              : null,
+                          child: Text(l10n.updateChecksums),
+                        ),
+                        if (device.checksum != null)
+                          OutlinedButton(
+                            onPressed: fwupdIdle
+                                ? () => showConfirmationDialog(
+                                      context,
+                                      title: l10n
+                                          .verifyFirmwareConfirm(device.name),
+                                      message: device.flags.contains(
+                                              FwupdDeviceFlag
+                                                  .usableDuringUpdate)
+                                          ? null
+                                          : l10n.deviceUnavailable,
+                                      onConfirm: model.verify,
+                                    )
+                                : null,
+                            child: Text(l10n.verifyFirmware),
+                          ),
+                      ],
+                    )
+                  ])
               ],
             ),
           ],

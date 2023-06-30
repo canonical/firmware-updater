@@ -35,49 +35,57 @@ void main() {
       await tester.pumpApp(
           (_) => buildPage(model: model, notifier: notifier, store: store));
 
-      expect(find.text(tester.lang.showUpdates), findsNothing);
-      expect(find.text(tester.lang.showReleases), findsNothing);
+      expect(find.text(tester.lang.updateToLatest), findsNothing);
+      expect(find.text(tester.lang.allVersions), findsNothing);
       expect(find.text(tester.lang.verifyFirmware), findsNothing);
       expect(find.text(tester.lang.updateChecksums), findsNothing);
     });
 
     testWidgets('releases available', (tester) async {
-      final device = testDevice(id: 'a');
-      final releases = [FwupdRelease(name: 'test release')];
+      final device = testDevice(id: 'a', version: '1.0.0');
+      final releases = [FwupdRelease(name: 'test release', version: '1.0.0')];
       final model = mockModel(device: device, releases: releases);
       final notifier = mockNotifier();
       final store = mockStore();
       await tester.pumpApp(
           (_) => buildPage(model: model, notifier: notifier, store: store));
 
-      expect(find.text(tester.lang.showUpdates), findsNothing);
-      expect(find.text(tester.lang.showReleases), findsOneWidget);
+      expect(find.text(tester.lang.updateToLatest), findsNothing);
+      expect(find.text(tester.lang.allVersions), findsOneWidget);
       expect(find.text(tester.lang.verifyFirmware), findsNothing);
       expect(find.text(tester.lang.updateChecksums), findsNothing);
 
-      await tester.tap(find.text(tester.lang.showReleases));
+      await tester.tap(find.text(tester.lang.allVersions));
       verify(store.showReleases = true).called(1);
     });
 
     testWidgets('update available', (tester) async {
-      final device = testDevice(
-        id: 'a',
+      final device = testDevice(id: 'a', version: '1.0.0');
+      final releases = [
+        FwupdRelease(name: 'new release', version: '2.0.0'),
+        FwupdRelease(name: 'test release', version: '1.0.0'),
+      ];
+      final model = mockModel(
+        device: device,
+        hasUpgrade: true,
+        releases: releases,
       );
-      final releases = [FwupdRelease(name: 'test release')];
-      final model =
-          mockModel(device: device, hasUpgrade: true, releases: releases);
       final notifier = mockNotifier();
       final store = mockStore();
       await tester.pumpApp(
           (_) => buildPage(model: model, notifier: notifier, store: store));
 
-      expect(find.text(tester.lang.showUpdates), findsOneWidget);
-      expect(find.text(tester.lang.showReleases), findsNothing);
+      expect(find.text(tester.lang.updateToLatest), findsOneWidget);
+      expect(find.text(tester.lang.allVersions), findsOneWidget);
       expect(find.text(tester.lang.verifyFirmware), findsNothing);
       expect(find.text(tester.lang.updateChecksums), findsNothing);
 
-      await tester.tap(find.text(tester.lang.showUpdates));
-      verify(store.showReleases = true).called(1);
+      await tester.tap(find.text(tester.lang.updateToLatest));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text(tester.lang.upgrade));
+      verify(model.install(FwupdRelease(name: 'new release', version: '2.0.0')))
+          .called(1);
     });
 
     testWidgets('update checksum', (tester) async {
@@ -89,8 +97,8 @@ void main() {
       await tester.pumpApp(
           (_) => buildPage(model: model, notifier: notifier, store: store));
 
-      expect(find.text(tester.lang.showUpdates), findsNothing);
-      expect(find.text(tester.lang.showReleases), findsNothing);
+      expect(find.text(tester.lang.updateToLatest), findsNothing);
+      expect(find.text(tester.lang.allVersions), findsNothing);
       expect(find.text(tester.lang.verifyFirmware), findsNothing);
       expect(find.text(tester.lang.updateChecksums), findsOneWidget);
 
@@ -116,8 +124,8 @@ void main() {
       await tester.pumpApp(
           (_) => buildPage(model: model, notifier: notifier, store: store));
 
-      expect(find.text(tester.lang.showUpdates), findsNothing);
-      expect(find.text(tester.lang.showReleases), findsNothing);
+      expect(find.text(tester.lang.updateToLatest), findsNothing);
+      expect(find.text(tester.lang.allVersions), findsNothing);
       expect(find.text(tester.lang.verifyFirmware), findsOneWidget);
       expect(find.text(tester.lang.updateChecksums), findsOneWidget);
 

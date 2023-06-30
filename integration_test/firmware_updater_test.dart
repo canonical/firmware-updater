@@ -36,12 +36,7 @@ void main() {
       await tester.pumpAndTapDeviceHeader('Fake webcam');
       await tester.pumpAndSettle();
 
-      expect(find.devicePage(upgrade.version), findsNothing);
-
-      await tester.pumpAndTapButton(tester.lang.showUpdates);
-      await tester.pumpAndSettle();
-
-      await tester.pumpAndTapReleaseButton(upgrade.version);
+      await tester.pumpAndTapButton(tester.lang.updateToLatest);
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapDialogButton(tester.lang.upgrade);
@@ -65,9 +60,7 @@ void main() {
       await tester.pumpAndTapDeviceHeader('Fake webcam');
       await tester.pumpAndSettle();
 
-      expect(find.devicePage(reinstall.version), findsOneWidget);
-
-      await tester.pumpAndTapButton(tester.lang.showReleases);
+      await tester.pumpAndTapButton(tester.lang.allVersions);
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapReleaseButton(reinstall.version);
@@ -93,7 +86,7 @@ void main() {
 
       expect(find.devicePage(downgrade.version), findsNothing);
 
-      await tester.pumpAndTapButton(tester.lang.showReleases);
+      await tester.pumpAndTapButton(tester.lang.allVersions);
       await tester.pumpAndSettle();
 
       await tester.pumpAndTapExpandable();
