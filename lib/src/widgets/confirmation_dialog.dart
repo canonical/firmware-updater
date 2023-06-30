@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 
 enum DialogAction { action, cancel, close }
+
+const kMaxWidth = 500.0;
 
 Future<DialogAction?> showGeneralDialog(
   BuildContext context, {
@@ -35,7 +38,7 @@ Future<DialogAction?> showGeneralDialog(
           ),
       ],
       content: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 500),
+        constraints: const BoxConstraints(maxWidth: kMaxWidth),
         child: body,
       ),
     ),
@@ -108,9 +111,21 @@ Future<DialogAction?> showMessageDialog(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: Theme.of(context).textTheme.titleMedium,
+                SizedBox(
+                  height:
+                      Theme.of(context).textTheme.titleMedium!.fontSize! * 1.5,
+                  width: kMaxWidth,
+                  child: Html(
+                    data: title,
+                    style: {
+                      'body': Style(
+                        margin: Margins.zero,
+                        fontSize: FontSize(
+                          Theme.of(context).textTheme.titleMedium!.fontSize!,
+                        ),
+                      ),
+                    },
+                  ),
                 ),
                 if (message != null) ...[
                   const SizedBox(height: 8),
@@ -135,13 +150,14 @@ Future<DialogAction?> showConfirmationDialog(
   String? actionText,
   VoidCallback? onConfirm,
   VoidCallback? onCancel,
+  IconData? icon = YaruIcons.question,
 }) =>
     showMessageDialog(
       context,
       title: title,
       message: message,
       actionText: actionText,
-      icon: const Icon(YaruIcons.question, size: 64.0),
+      icon: Icon(icon, size: 64.0),
       onCancel: onCancel ?? () {},
       onAction: onConfirm ?? () {},
       closeable: false,

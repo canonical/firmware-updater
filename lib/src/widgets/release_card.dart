@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 import '../../fwupd_x.dart';
@@ -33,14 +34,12 @@ class ReleaseCard extends StatelessWidget {
       action = l10n.downgrade;
       dialogText = l10n.downgradeConfirm(
         device.name,
-        device.version,
         release.version,
       );
     } else if (release.isUpgrade) {
-      action = l10n.upgrade;
-      dialogText = l10n.upgradeConfirm(
+      action = l10n.update;
+      dialogText = l10n.updateConfirm(
         device.name,
-        device.version,
         release.version,
       );
     } else {
@@ -58,6 +57,7 @@ class ReleaseCard extends StatelessWidget {
         actionText: action,
         onConfirm: onInstall,
         onCancel: () {},
+        icon: YaruIcons.sync,
       );
     }
 

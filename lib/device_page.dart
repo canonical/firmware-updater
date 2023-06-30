@@ -88,16 +88,15 @@ class DevicePage extends StatelessWidget {
             onPressed: enabled
                 ? () => showConfirmationDialog(
                       context,
-                      title: l10n.upgradeConfirm(
+                      title: l10n.updateConfirm(
                         model.device.name,
                         model.device.version,
-                        model.latestRelease!.version,
                       ),
                       message: model.device.flags
                               .contains(FwupdDeviceFlag.usableDuringUpdate)
                           ? null
                           : l10n.deviceUnavailable,
-                      actionText: l10n.upgrade,
+                      actionText: l10n.update,
                       onConfirm: () => model.install(model.latestRelease!),
                       onCancel: () {},
                     )

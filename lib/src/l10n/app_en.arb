@@ -9,16 +9,13 @@
   "deviceUnavailable": "The device will be unavailable during this action.",
   "deviceRequest": "Device request",
   "downgrade": "Downgrade",
-  "downgradeConfirm": "Downgrade {name} from version {current} to {version2}?",
+  "downgradeConfirm": "Downgrade <b>{name}</b> to <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
         "type": "String"
       },
-      "current": {
-        "type": "String?"
-      },
-      "version2": {
+      "version": {
         "type": "String?"
       }
     }
@@ -99,7 +96,7 @@
   "reboot": "Reboot",
   "rebootConfirm": "The update requires a reboot to complete. Do you want to reboot now?",
   "reinstall": "Reinstall",
-  "reinstallConfirm": "Reinstall {name} version {current}?",
+  "reinstallConfirm": "Reinstall <b>{name}</b> version <b>{current}</b>?",
   "@reinstallConfirm": {
     "placeholders": {
       "name": {
@@ -125,17 +122,13 @@
   },
   "updateChecksumsInfo": "This will record the current cryptographic hashes as verified.",
   "updateToLatest": "Update to Latest",
-  "upgrade": "Upgrade",
-  "upgradeConfirm": "Upgrade {name} from version {current} to {version2}?",
-  "@upgradeConfirm": {
+  "updateConfirm": "Update <b>{name}</b> to <b>{version}</b>?",
+  "@updateConfirm": {
     "placeholders": {
       "name": {
         "type": "String"
       },
-      "current": {
-        "type": "String?"
-      },
-      "version2": {
+      "version": {
         "type": "String?"
       }
     }

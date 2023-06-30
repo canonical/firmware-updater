@@ -39,7 +39,7 @@ void main() {
       await tester.pumpAndTapButton(tester.lang.updateToLatest);
       await tester.pumpAndSettle();
 
-      await tester.pumpAndTapDialogButton(tester.lang.upgrade);
+      await tester.pumpAndTapDialogButton(tester.lang.update);
       await client.testInstallation(webcam, upgrade);
     });
 
