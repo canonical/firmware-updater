@@ -9,7 +9,7 @@ environment:
 dependencies:
   collection: ^1.15.0
   dbus: ^0.7.3
-  dio: ^4.0.0
+  dio: ^5.0.0
   file: ^6.1.2
   flutter:
     sdk: flutter
