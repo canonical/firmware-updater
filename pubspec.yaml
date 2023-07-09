@@ -46,7 +46,7 @@ dev_dependencies:
   integration_test:
     sdk: flutter
   melos: ^3.0.0
-  mockito: 5.4.0
+  mockito: 5.4.2
 
 flutter:
   generate: true
