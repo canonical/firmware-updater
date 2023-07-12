@@ -4,7 +4,7 @@ summary: Firmware Updater
 description: Update Firmware
 confinement: strict
 base: core22
-grade: devel
+grade: stable
 license: GPL-3.0+
 icon: snap/local/firmware-updater.png
 architectures:
