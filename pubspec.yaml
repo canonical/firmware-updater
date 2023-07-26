@@ -27,7 +27,7 @@ dependencies:
   path: ^1.8.0
   provider: ^6.0.0
   safe_change_notifier: ^0.2.0
-  ubuntu_logger: ^0.0.2
+  ubuntu_logger: ^0.1.0
   ubuntu_service: ^0.2.0
   ubuntu_session: ^0.0.4
   ubuntu_test: ^0.1.0-beta.4
