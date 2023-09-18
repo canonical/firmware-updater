@@ -43,12 +43,10 @@ parts:
     plugin: nil
     source: .
     override-build: |
-      set -eux
-      flutter channel stable
-      flutter upgrade
-      flutter config --enable-linux-desktop
-      flutter doctor
-      dart pub get
+      # when building locally artifacts can pollute the container and cause builds to fail
+      # this helps increase reliability for local builds
+      flutter clean
+      flutter pub get
       flutter build linux --release -v
       mkdir -p $CRAFT_PART_INSTALL/bin/
       cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
