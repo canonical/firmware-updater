@@ -83,6 +83,7 @@ apps:
     extensions: [gnome]
     plugs:
       - fwupd
+      - shutdown
       - upower-observe
 
   firmware-notifier:
