@@ -97,6 +97,7 @@ class MockNotificationsClient extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i2.Notification>);
+
   @override
   _i3.Future<List<String>> getCapabilities() => (super.noSuchMethod(
         Invocation.method(
@@ -105,6 +106,7 @@ class MockNotificationsClient extends _i1.Mock
         ),
         returnValue: _i3.Future<List<String>>.value(<String>[]),
       ) as _i3.Future<List<String>>);
+
   @override
   _i3.Future<_i2.NotificationsServerInformation> getServerInformation() =>
       (super.noSuchMethod(
@@ -121,6 +123,7 @@ class MockNotificationsClient extends _i1.Mock
           ),
         )),
       ) as _i3.Future<_i2.NotificationsServerInformation>);
+
   @override
   _i3.Future<void> close() => (super.noSuchMethod(
         Invocation.method(
@@ -145,61 +148,73 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         Invocation.getter(#daemonVersion),
         returnValue: '',
       ) as String);
+
   @override
   String get hostProduct => (super.noSuchMethod(
         Invocation.getter(#hostProduct),
         returnValue: '',
       ) as String);
+
   @override
   String get hostMachineId => (super.noSuchMethod(
         Invocation.getter(#hostMachineId),
         returnValue: '',
       ) as String);
+
   @override
   String get hostSecurityId => (super.noSuchMethod(
         Invocation.getter(#hostSecurityId),
         returnValue: '',
       ) as String);
+
   @override
   bool get tainted => (super.noSuchMethod(
         Invocation.getter(#tainted),
         returnValue: false,
       ) as bool);
+
   @override
   bool get interactive => (super.noSuchMethod(
         Invocation.getter(#interactive),
         returnValue: false,
       ) as bool);
+
   @override
   _i4.FwupdStatus get status => (super.noSuchMethod(
         Invocation.getter(#status),
         returnValue: _i4.FwupdStatus.unknown,
       ) as _i4.FwupdStatus);
+
   @override
   int get percentage => (super.noSuchMethod(
         Invocation.getter(#percentage),
         returnValue: 0,
       ) as int);
+
   @override
   _i3.Stream<_i5.FwupdDevice> get deviceAdded => (super.noSuchMethod(
         Invocation.getter(#deviceAdded),
         returnValue: _i3.Stream<_i5.FwupdDevice>.empty(),
       ) as _i3.Stream<_i5.FwupdDevice>);
+
   @override
   _i3.Stream<_i5.FwupdDevice> get deviceChanged => (super.noSuchMethod(
         Invocation.getter(#deviceChanged),
         returnValue: _i3.Stream<_i5.FwupdDevice>.empty(),
       ) as _i3.Stream<_i5.FwupdDevice>);
+
   @override
   _i3.Stream<_i5.FwupdDevice> get deviceRemoved => (super.noSuchMethod(
         Invocation.getter(#deviceRemoved),
         returnValue: _i3.Stream<_i5.FwupdDevice>.empty(),
       ) as _i3.Stream<_i5.FwupdDevice>);
+
   @override
   _i3.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
         Invocation.getter(#propertiesChanged),
         returnValue: _i3.Stream<List<String>>.empty(),
       ) as _i3.Stream<List<String>>);
+
   @override
   _i3.Future<void> connect() => (super.noSuchMethod(
         Invocation.method(
@@ -209,6 +224,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
   @override
   _i3.Future<List<_i5.FwupdDevice>> getDevices() => (super.noSuchMethod(
         Invocation.method(
@@ -218,6 +234,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue:
             _i3.Future<List<_i5.FwupdDevice>>.value(<_i5.FwupdDevice>[]),
       ) as _i3.Future<List<_i5.FwupdDevice>>);
+
   @override
   _i3.Future<List<_i6.FwupdPlugin>> getPlugins() => (super.noSuchMethod(
         Invocation.method(
@@ -227,6 +244,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue:
             _i3.Future<List<_i6.FwupdPlugin>>.value(<_i6.FwupdPlugin>[]),
       ) as _i3.Future<List<_i6.FwupdPlugin>>);
+
   @override
   _i3.Future<List<_i7.FwupdRelease>> getReleases(String? deviceId) =>
       (super.noSuchMethod(
@@ -237,6 +255,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue:
             _i3.Future<List<_i7.FwupdRelease>>.value(<_i7.FwupdRelease>[]),
       ) as _i3.Future<List<_i7.FwupdRelease>>);
+
   @override
   _i3.Future<List<_i7.FwupdRelease>> getDowngrades(String? deviceId) =>
       (super.noSuchMethod(
@@ -247,6 +266,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue:
             _i3.Future<List<_i7.FwupdRelease>>.value(<_i7.FwupdRelease>[]),
       ) as _i3.Future<List<_i7.FwupdRelease>>);
+
   @override
   _i3.Future<List<_i7.FwupdRelease>> getUpgrades(String? deviceId) =>
       (super.noSuchMethod(
@@ -257,6 +277,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue:
             _i3.Future<List<_i7.FwupdRelease>>.value(<_i7.FwupdRelease>[]),
       ) as _i3.Future<List<_i7.FwupdRelease>>);
+
   @override
   _i3.Future<Map<_i5.FwupdDevice, List<_i7.FwupdRelease>>> getDetails(
           _i8.ResourceHandle? handle) =>
@@ -269,6 +290,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
             _i3.Future<Map<_i5.FwupdDevice, List<_i7.FwupdRelease>>>.value(
                 <_i5.FwupdDevice, List<_i7.FwupdRelease>>{}),
       ) as _i3.Future<Map<_i5.FwupdDevice, List<_i7.FwupdRelease>>>);
+
   @override
   _i3.Future<void> install(
     String? id,
@@ -287,6 +309,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
   @override
   _i3.Future<void> verify(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -296,6 +319,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
   @override
   _i3.Future<void> verifyUpdate(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -305,6 +329,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
   @override
   _i3.Future<void> unlock(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -314,6 +339,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
   @override
   _i3.Future<void> activate(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -323,6 +349,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
   @override
   _i3.Future<List<_i9.FwupdRemote>> getRemotes() => (super.noSuchMethod(
         Invocation.method(
@@ -332,6 +359,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue:
             _i3.Future<List<_i9.FwupdRemote>>.value(<_i9.FwupdRemote>[]),
       ) as _i3.Future<List<_i9.FwupdRemote>>);
+
   @override
   _i3.Future<List<String>> getApprovedFirmware() => (super.noSuchMethod(
         Invocation.method(
@@ -340,6 +368,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         ),
         returnValue: _i3.Future<List<String>>.value(<String>[]),
       ) as _i3.Future<List<String>>);
+
   @override
   _i3.Future<void> setApprovedFirmware(List<String>? checksums) =>
       (super.noSuchMethod(
@@ -350,6 +379,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
   @override
   _i3.Future<List<String>> getBlockedFirmware() => (super.noSuchMethod(
         Invocation.method(
@@ -358,6 +388,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         ),
         returnValue: _i3.Future<List<String>>.value(<String>[]),
       ) as _i3.Future<List<String>>);
+
   @override
   _i3.Future<void> setBlockedFirmware(List<String>? checksums) =>
       (super.noSuchMethod(
@@ -368,6 +399,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
   @override
   _i3.Future<void> clearResults(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -377,6 +409,7 @@ class MockFwupdClient extends _i1.Mock implements _i4.FwupdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
   @override
   _i3.Future<void> close() => (super.noSuchMethod(
         Invocation.method(
