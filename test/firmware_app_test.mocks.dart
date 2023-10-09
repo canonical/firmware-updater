@@ -35,6 +35,7 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         Invocation.getter(#showReleases),
         returnValue: false,
       ) as bool);
+
   @override
   set showReleases(bool? value) => super.noSuchMethod(
         Invocation.setter(
@@ -43,21 +44,25 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   List<_i3.FwupdDevice> get devices => (super.noSuchMethod(
         Invocation.getter(#devices),
         returnValue: <_i3.FwupdDevice>[],
       ) as List<_i3.FwupdDevice>);
+
   @override
   bool get hasListeners => (super.noSuchMethod(
         Invocation.getter(#hasListeners),
         returnValue: false,
       ) as bool);
+
   @override
   bool get isDisposed => (super.noSuchMethod(
         Invocation.getter(#isDisposed),
         returnValue: false,
       ) as bool);
+
   @override
   int indexOf(String? deviceId) => (super.noSuchMethod(
         Invocation.method(
@@ -66,6 +71,7 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         ),
         returnValue: 0,
       ) as int);
+
   @override
   _i4.Future<void> init() => (super.noSuchMethod(
         Invocation.method(
@@ -75,6 +81,7 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> refresh() => (super.noSuchMethod(
         Invocation.method(
@@ -84,6 +91,7 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> dispose() => (super.noSuchMethod(
         Invocation.method(
@@ -93,6 +101,7 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   void addListener(_i5.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
@@ -101,6 +110,7 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void removeListener(_i5.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
@@ -109,6 +119,7 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void notifyListeners() => super.noSuchMethod(
         Invocation.method(
@@ -137,6 +148,7 @@ class MockGtkApplicationNotifier extends _i1.Mock
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void removeCommandLineListener(_i6.GtkCommandLineListener? listener) =>
       super.noSuchMethod(
@@ -146,6 +158,7 @@ class MockGtkApplicationNotifier extends _i1.Mock
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void addOpenListener(_i6.GtkOpenListener? listener) => super.noSuchMethod(
         Invocation.method(
@@ -154,6 +167,7 @@ class MockGtkApplicationNotifier extends _i1.Mock
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void removeOpenListener(_i6.GtkOpenListener? listener) => super.noSuchMethod(
         Invocation.method(
@@ -162,6 +176,7 @@ class MockGtkApplicationNotifier extends _i1.Mock
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void dispose() => super.noSuchMethod(
         Invocation.method(
@@ -170,6 +185,7 @@ class MockGtkApplicationNotifier extends _i1.Mock
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void notifyCommandLine(List<String>? args) => super.noSuchMethod(
         Invocation.method(
@@ -178,6 +194,7 @@ class MockGtkApplicationNotifier extends _i1.Mock
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void notifyOpen({
     required List<String>? files,

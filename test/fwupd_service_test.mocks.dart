@@ -121,6 +121,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           Invocation.getter(#options),
         ),
       ) as _i2.BaseOptions);
+
   @override
   set options(_i2.BaseOptions? _options) => super.noSuchMethod(
         Invocation.setter(
@@ -129,6 +130,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   _i3.HttpClientAdapter get httpClientAdapter => (super.noSuchMethod(
         Invocation.getter(#httpClientAdapter),
@@ -137,6 +139,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           Invocation.getter(#httpClientAdapter),
         ),
       ) as _i3.HttpClientAdapter);
+
   @override
   set httpClientAdapter(_i3.HttpClientAdapter? _httpClientAdapter) =>
       super.noSuchMethod(
@@ -146,6 +149,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   _i4.Transformer get transformer => (super.noSuchMethod(
         Invocation.getter(#transformer),
@@ -154,6 +158,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           Invocation.getter(#transformer),
         ),
       ) as _i4.Transformer);
+
   @override
   set transformer(_i4.Transformer? _transformer) => super.noSuchMethod(
         Invocation.setter(
@@ -162,6 +167,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   _i5.Interceptors get interceptors => (super.noSuchMethod(
         Invocation.getter(#interceptors),
@@ -170,6 +176,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           Invocation.getter(#interceptors),
         ),
       ) as _i5.Interceptors);
+
   @override
   void close({bool? force = false}) => super.noSuchMethod(
         Invocation.method(
@@ -179,6 +186,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   _i9.Future<_i6.Response<T>> get<T>(
     String? path, {
@@ -212,6 +220,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> getUri<T>(
     Uri? uri, {
@@ -242,6 +251,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> post<T>(
     String? path, {
@@ -281,6 +291,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> postUri<T>(
     Uri? uri, {
@@ -317,6 +328,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> put<T>(
     String? path, {
@@ -356,6 +368,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> putUri<T>(
     Uri? uri, {
@@ -392,6 +405,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> head<T>(
     String? path, {
@@ -425,6 +439,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> headUri<T>(
     Uri? uri, {
@@ -455,6 +470,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> delete<T>(
     String? path, {
@@ -488,6 +504,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> deleteUri<T>(
     Uri? uri, {
@@ -518,6 +535,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> patch<T>(
     String? path, {
@@ -557,6 +575,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> patchUri<T>(
     Uri? uri, {
@@ -593,6 +612,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   void lock() => super.noSuchMethod(
         Invocation.method(
@@ -601,6 +621,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void unlock() => super.noSuchMethod(
         Invocation.method(
@@ -609,6 +630,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void clear() => super.noSuchMethod(
         Invocation.method(
@@ -617,6 +639,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   _i9.Future<_i6.Response<dynamic>> download(
     String? urlPath,
@@ -667,6 +690,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<dynamic>>);
+
   @override
   _i9.Future<_i6.Response<dynamic>> downloadUri(
     Uri? uri,
@@ -714,6 +738,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<dynamic>>);
+
   @override
   _i9.Future<_i6.Response<T>> request<T>(
     String? path, {
@@ -753,6 +778,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> requestUri<T>(
     Uri? uri, {
@@ -789,6 +815,7 @@ class MockDio extends _i1.Mock implements _i8.Dio {
           ),
         )),
       ) as _i9.Future<_i6.Response<T>>);
+
   @override
   _i9.Future<_i6.Response<T>> fetch<T>(_i2.RequestOptions? requestOptions) =>
       (super.noSuchMethod(
@@ -819,66 +846,79 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         Invocation.getter(#daemonVersion),
         returnValue: '',
       ) as String);
+
   @override
   String get hostProduct => (super.noSuchMethod(
         Invocation.getter(#hostProduct),
         returnValue: '',
       ) as String);
+
   @override
   String get hostMachineId => (super.noSuchMethod(
         Invocation.getter(#hostMachineId),
         returnValue: '',
       ) as String);
+
   @override
   String get hostSecurityId => (super.noSuchMethod(
         Invocation.getter(#hostSecurityId),
         returnValue: '',
       ) as String);
+
   @override
   bool get tainted => (super.noSuchMethod(
         Invocation.getter(#tainted),
         returnValue: false,
       ) as bool);
+
   @override
   bool get interactive => (super.noSuchMethod(
         Invocation.getter(#interactive),
         returnValue: false,
       ) as bool);
+
   @override
   _i11.FwupdStatus get status => (super.noSuchMethod(
         Invocation.getter(#status),
         returnValue: _i11.FwupdStatus.unknown,
       ) as _i11.FwupdStatus);
+
   @override
   int get percentage => (super.noSuchMethod(
         Invocation.getter(#percentage),
         returnValue: 0,
       ) as int);
+
   @override
   _i9.Stream<_i12.FwupdDevice> get deviceAdded => (super.noSuchMethod(
         Invocation.getter(#deviceAdded),
         returnValue: _i9.Stream<_i12.FwupdDevice>.empty(),
       ) as _i9.Stream<_i12.FwupdDevice>);
+
   @override
   _i9.Stream<_i12.FwupdDevice> get deviceChanged => (super.noSuchMethod(
         Invocation.getter(#deviceChanged),
         returnValue: _i9.Stream<_i12.FwupdDevice>.empty(),
       ) as _i9.Stream<_i12.FwupdDevice>);
+
   @override
   _i9.Stream<_i12.FwupdDevice> get deviceRemoved => (super.noSuchMethod(
         Invocation.getter(#deviceRemoved),
         returnValue: _i9.Stream<_i12.FwupdDevice>.empty(),
       ) as _i9.Stream<_i12.FwupdDevice>);
+
   @override
   _i9.Stream<_i12.FwupdDevice> get deviceRequest => (super.noSuchMethod(
         Invocation.getter(#deviceRequest),
         returnValue: _i9.Stream<_i12.FwupdDevice>.empty(),
       ) as _i9.Stream<_i12.FwupdDevice>);
+
   @override
   _i9.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
         Invocation.getter(#propertiesChanged),
         returnValue: _i9.Stream<List<String>>.empty(),
       ) as _i9.Stream<List<String>>);
+
   @override
   _i9.Future<void> connect() => (super.noSuchMethod(
         Invocation.method(
@@ -888,6 +928,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<void> refreshPropertyCache() => (super.noSuchMethod(
         Invocation.method(
@@ -897,6 +938,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<List<_i12.FwupdDevice>> getDevices() => (super.noSuchMethod(
         Invocation.method(
@@ -906,6 +948,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue:
             _i9.Future<List<_i12.FwupdDevice>>.value(<_i12.FwupdDevice>[]),
       ) as _i9.Future<List<_i12.FwupdDevice>>);
+
   @override
   _i9.Future<List<_i13.FwupdPlugin>> getPlugins() => (super.noSuchMethod(
         Invocation.method(
@@ -915,6 +958,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue:
             _i9.Future<List<_i13.FwupdPlugin>>.value(<_i13.FwupdPlugin>[]),
       ) as _i9.Future<List<_i13.FwupdPlugin>>);
+
   @override
   _i9.Future<List<_i14.FwupdRelease>> getReleases(String? deviceId) =>
       (super.noSuchMethod(
@@ -925,6 +969,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue:
             _i9.Future<List<_i14.FwupdRelease>>.value(<_i14.FwupdRelease>[]),
       ) as _i9.Future<List<_i14.FwupdRelease>>);
+
   @override
   _i9.Future<List<_i14.FwupdRelease>> getDowngrades(String? deviceId) =>
       (super.noSuchMethod(
@@ -935,6 +980,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue:
             _i9.Future<List<_i14.FwupdRelease>>.value(<_i14.FwupdRelease>[]),
       ) as _i9.Future<List<_i14.FwupdRelease>>);
+
   @override
   _i9.Future<List<_i14.FwupdRelease>> getUpgrades(String? deviceId) =>
       (super.noSuchMethod(
@@ -945,6 +991,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue:
             _i9.Future<List<_i14.FwupdRelease>>.value(<_i14.FwupdRelease>[]),
       ) as _i9.Future<List<_i14.FwupdRelease>>);
+
   @override
   _i9.Future<Map<_i12.FwupdDevice, List<_i14.FwupdRelease>>> getDetails(
           _i15.ResourceHandle? handle) =>
@@ -957,6 +1004,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
             _i9.Future<Map<_i12.FwupdDevice, List<_i14.FwupdRelease>>>.value(
                 <_i12.FwupdDevice, List<_i14.FwupdRelease>>{}),
       ) as _i9.Future<Map<_i12.FwupdDevice, List<_i14.FwupdRelease>>>);
+
   @override
   _i9.Future<void> install(
     String? id,
@@ -975,6 +1023,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<void> verify(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -984,6 +1033,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<void> verifyUpdate(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -993,6 +1043,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<void> unlock(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -1002,6 +1053,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<void> activate(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -1011,6 +1063,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<List<_i16.FwupdRemote>> getRemotes() => (super.noSuchMethod(
         Invocation.method(
@@ -1020,6 +1073,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue:
             _i9.Future<List<_i16.FwupdRemote>>.value(<_i16.FwupdRemote>[]),
       ) as _i9.Future<List<_i16.FwupdRemote>>);
+
   @override
   _i9.Future<List<String>> getApprovedFirmware() => (super.noSuchMethod(
         Invocation.method(
@@ -1028,6 +1082,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         ),
         returnValue: _i9.Future<List<String>>.value(<String>[]),
       ) as _i9.Future<List<String>>);
+
   @override
   _i9.Future<void> setApprovedFirmware(List<String>? checksums) =>
       (super.noSuchMethod(
@@ -1038,6 +1093,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<List<String>> getBlockedFirmware() => (super.noSuchMethod(
         Invocation.method(
@@ -1046,6 +1102,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         ),
         returnValue: _i9.Future<List<String>>.value(<String>[]),
       ) as _i9.Future<List<String>>);
+
   @override
   _i9.Future<void> setBlockedFirmware(List<String>? checksums) =>
       (super.noSuchMethod(
@@ -1056,6 +1113,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<void> clearResults(String? id) => (super.noSuchMethod(
         Invocation.method(
@@ -1065,6 +1123,7 @@ class MockFwupdClient extends _i1.Mock implements _i11.FwupdClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<void> close() => (super.noSuchMethod(
         Invocation.method(
@@ -1089,6 +1148,7 @@ class MockUbuntuSession extends _i1.Mock implements _i17.UbuntuSession {
         Invocation.getter(#desktop),
         returnValue: _i17.UbuntuDesktop.gnome,
       ) as _i17.UbuntuDesktop);
+
   @override
   _i9.Future<void> logout() => (super.noSuchMethod(
         Invocation.method(
@@ -1098,6 +1158,7 @@ class MockUbuntuSession extends _i1.Mock implements _i17.UbuntuSession {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<void> reboot() => (super.noSuchMethod(
         Invocation.method(
@@ -1107,6 +1168,7 @@ class MockUbuntuSession extends _i1.Mock implements _i17.UbuntuSession {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<void> shutdown() => (super.noSuchMethod(
         Invocation.method(
@@ -1134,6 +1196,7 @@ class MockUPowerClient extends _i1.Mock implements _i7.UPowerClient {
           Invocation.getter(#kbdBacklight),
         ),
       ) as _i7.UPowerKbdBacklight);
+
   @override
   set kbdBacklight(_i7.UPowerKbdBacklight? _kbdBacklight) => super.noSuchMethod(
         Invocation.setter(
@@ -1142,31 +1205,37 @@ class MockUPowerClient extends _i1.Mock implements _i7.UPowerClient {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   String get daemonVersion => (super.noSuchMethod(
         Invocation.getter(#daemonVersion),
         returnValue: '',
       ) as String);
+
   @override
   bool get onBattery => (super.noSuchMethod(
         Invocation.getter(#onBattery),
         returnValue: false,
       ) as bool);
+
   @override
   bool get lidIsPresent => (super.noSuchMethod(
         Invocation.getter(#lidIsPresent),
         returnValue: false,
       ) as bool);
+
   @override
   bool get lidIsClosed => (super.noSuchMethod(
         Invocation.getter(#lidIsClosed),
         returnValue: false,
       ) as bool);
+
   @override
   List<_i7.UPowerDevice> get devices => (super.noSuchMethod(
         Invocation.getter(#devices),
         returnValue: <_i7.UPowerDevice>[],
       ) as List<_i7.UPowerDevice>);
+
   @override
   _i7.UPowerDevice get displayDevice => (super.noSuchMethod(
         Invocation.getter(#displayDevice),
@@ -1175,21 +1244,25 @@ class MockUPowerClient extends _i1.Mock implements _i7.UPowerClient {
           Invocation.getter(#displayDevice),
         ),
       ) as _i7.UPowerDevice);
+
   @override
   _i9.Stream<_i7.UPowerDevice> get deviceAdded => (super.noSuchMethod(
         Invocation.getter(#deviceAdded),
         returnValue: _i9.Stream<_i7.UPowerDevice>.empty(),
       ) as _i9.Stream<_i7.UPowerDevice>);
+
   @override
   _i9.Stream<_i7.UPowerDevice> get deviceRemoved => (super.noSuchMethod(
         Invocation.getter(#deviceRemoved),
         returnValue: _i9.Stream<_i7.UPowerDevice>.empty(),
       ) as _i9.Stream<_i7.UPowerDevice>);
+
   @override
   _i9.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
         Invocation.getter(#propertiesChanged),
         returnValue: _i9.Stream<List<String>>.empty(),
       ) as _i9.Stream<List<String>>);
+
   @override
   _i9.Future<void> connect() => (super.noSuchMethod(
         Invocation.method(
@@ -1199,6 +1272,7 @@ class MockUPowerClient extends _i1.Mock implements _i7.UPowerClient {
         returnValue: _i9.Future<void>.value(),
         returnValueForMissingStub: _i9.Future<void>.value(),
       ) as _i9.Future<void>);
+
   @override
   _i9.Future<String> getCriticalAction() => (super.noSuchMethod(
         Invocation.method(
@@ -1207,6 +1281,7 @@ class MockUPowerClient extends _i1.Mock implements _i7.UPowerClient {
         ),
         returnValue: _i9.Future<String>.value(''),
       ) as _i9.Future<String>);
+
   @override
   _i9.Future<void> close() => (super.noSuchMethod(
         Invocation.method(

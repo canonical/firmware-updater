@@ -48,46 +48,55 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         Invocation.getter(#status),
         returnValue: _i2.FwupdStatus.unknown,
       ) as _i2.FwupdStatus);
+
   @override
   int get percentage => (super.noSuchMethod(
         Invocation.getter(#percentage),
         returnValue: 0,
       ) as int);
+
   @override
   String get daemonVersion => (super.noSuchMethod(
         Invocation.getter(#daemonVersion),
         returnValue: '',
       ) as String);
+
   @override
   _i4.Stream<_i2.FwupdDevice> get deviceAdded => (super.noSuchMethod(
         Invocation.getter(#deviceAdded),
         returnValue: _i4.Stream<_i2.FwupdDevice>.empty(),
       ) as _i4.Stream<_i2.FwupdDevice>);
+
   @override
   _i4.Stream<_i2.FwupdDevice> get deviceChanged => (super.noSuchMethod(
         Invocation.getter(#deviceChanged),
         returnValue: _i4.Stream<_i2.FwupdDevice>.empty(),
       ) as _i4.Stream<_i2.FwupdDevice>);
+
   @override
   _i4.Stream<_i2.FwupdDevice> get deviceRemoved => (super.noSuchMethod(
         Invocation.getter(#deviceRemoved),
         returnValue: _i4.Stream<_i2.FwupdDevice>.empty(),
       ) as _i4.Stream<_i2.FwupdDevice>);
+
   @override
   _i4.Stream<_i2.FwupdDevice> get deviceRequest => (super.noSuchMethod(
         Invocation.getter(#deviceRequest),
         returnValue: _i4.Stream<_i2.FwupdDevice>.empty(),
       ) as _i4.Stream<_i2.FwupdDevice>);
+
   @override
   _i4.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
         Invocation.getter(#propertiesChanged),
         returnValue: _i4.Stream<List<String>>.empty(),
       ) as _i4.Stream<List<String>>);
+
   @override
   bool get onBattery => (super.noSuchMethod(
         Invocation.getter(#onBattery),
         returnValue: false,
       ) as bool);
+
   @override
   void registerErrorListener(dynamic Function(Exception)? errorListener) =>
       super.noSuchMethod(
@@ -97,6 +106,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void registerConfirmationListener(
           _i4.Future<bool> Function()? confirmationListener) =>
@@ -107,6 +117,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   _i4.Future<void> init() => (super.noSuchMethod(
         Invocation.method(
@@ -116,6 +127,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> dispose() => (super.noSuchMethod(
         Invocation.method(
@@ -125,6 +137,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> refreshProperties() => (super.noSuchMethod(
         Invocation.method(
@@ -134,6 +147,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> activate(_i2.FwupdDevice? device) => (super.noSuchMethod(
         Invocation.method(
@@ -143,6 +157,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> clearResults(_i2.FwupdDevice? device) => (super.noSuchMethod(
         Invocation.method(
@@ -152,6 +167,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<List<_i2.FwupdDevice>> getDevices() => (super.noSuchMethod(
         Invocation.method(
@@ -161,6 +177,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue:
             _i4.Future<List<_i2.FwupdDevice>>.value(<_i2.FwupdDevice>[]),
       ) as _i4.Future<List<_i2.FwupdDevice>>);
+
   @override
   _i4.Future<List<_i2.FwupdRelease>> getDowngrades(_i2.FwupdDevice? device) =>
       (super.noSuchMethod(
@@ -171,6 +188,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue:
             _i4.Future<List<_i2.FwupdRelease>>.value(<_i2.FwupdRelease>[]),
       ) as _i4.Future<List<_i2.FwupdRelease>>);
+
   @override
   _i4.Future<List<_i2.FwupdPlugin>> getPlugins() => (super.noSuchMethod(
         Invocation.method(
@@ -180,6 +198,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue:
             _i4.Future<List<_i2.FwupdPlugin>>.value(<_i2.FwupdPlugin>[]),
       ) as _i4.Future<List<_i2.FwupdPlugin>>);
+
   @override
   _i4.Future<List<_i2.FwupdRelease>> getReleases(_i2.FwupdDevice? device) =>
       (super.noSuchMethod(
@@ -190,6 +209,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue:
             _i4.Future<List<_i2.FwupdRelease>>.value(<_i2.FwupdRelease>[]),
       ) as _i4.Future<List<_i2.FwupdRelease>>);
+
   @override
   _i4.Future<List<_i2.FwupdRemote>> getRemotes() => (super.noSuchMethod(
         Invocation.method(
@@ -199,6 +219,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue:
             _i4.Future<List<_i2.FwupdRemote>>.value(<_i2.FwupdRemote>[]),
       ) as _i4.Future<List<_i2.FwupdRemote>>);
+
   @override
   _i4.Future<List<_i2.FwupdRelease>> getUpgrades(_i2.FwupdDevice? device) =>
       (super.noSuchMethod(
@@ -209,6 +230,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue:
             _i4.Future<List<_i2.FwupdRelease>>.value(<_i2.FwupdRelease>[]),
       ) as _i4.Future<List<_i2.FwupdRelease>>);
+
   @override
   _i4.Future<void> install(
     _i2.FwupdDevice? device,
@@ -227,6 +249,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> unlock(_i2.FwupdDevice? device) => (super.noSuchMethod(
         Invocation.method(
@@ -236,6 +259,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> verify(_i2.FwupdDevice? device) => (super.noSuchMethod(
         Invocation.method(
@@ -245,6 +269,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> verifyUpdate(_i2.FwupdDevice? device) => (super.noSuchMethod(
         Invocation.method(
@@ -254,6 +279,7 @@ class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> reboot() => (super.noSuchMethod(
         Invocation.method(
@@ -278,31 +304,37 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         Invocation.getter(#status),
         returnValue: _i2.FwupdStatus.unknown,
       ) as _i2.FwupdStatus);
+
   @override
   int get percentage => (super.noSuchMethod(
         Invocation.getter(#percentage),
         returnValue: 0,
       ) as int);
+
   @override
   String get version => (super.noSuchMethod(
         Invocation.getter(#version),
         returnValue: '',
       ) as String);
+
   @override
   bool get onBattery => (super.noSuchMethod(
         Invocation.getter(#onBattery),
         returnValue: false,
       ) as bool);
+
   @override
   bool get hasListeners => (super.noSuchMethod(
         Invocation.getter(#hasListeners),
         returnValue: false,
       ) as bool);
+
   @override
   bool get isDisposed => (super.noSuchMethod(
         Invocation.getter(#isDisposed),
         returnValue: false,
       ) as bool);
+
   @override
   _i4.Future<void> init() => (super.noSuchMethod(
         Invocation.method(
@@ -312,6 +344,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   void registerErrorListener(dynamic Function(Exception)? errorListener) =>
       super.noSuchMethod(
@@ -321,6 +354,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void registerConfirmationListener(
           _i4.Future<bool> Function()? confirmationListener) =>
@@ -331,6 +365,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void registerDeviceRequestListener(
           dynamic Function(_i2.FwupdDevice)? deviceRequestListener) =>
@@ -341,6 +376,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   _i4.Future<void> refresh() => (super.noSuchMethod(
         Invocation.method(
@@ -350,6 +386,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> dispose() => (super.noSuchMethod(
         Invocation.method(
@@ -359,6 +396,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
@@ -367,6 +405,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
@@ -375,6 +414,7 @@ class MockFwupdNotifier extends _i1.Mock implements _i6.FwupdNotifier {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void notifyListeners() => super.noSuchMethod(
         Invocation.method(
@@ -401,26 +441,31 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
           Invocation.getter(#device),
         ),
       ) as _i2.FwupdDevice);
+
   @override
   bool get onBattery => (super.noSuchMethod(
         Invocation.getter(#onBattery),
         returnValue: false,
       ) as bool);
+
   @override
   bool get hasUpgrade => (super.noSuchMethod(
         Invocation.getter(#hasUpgrade),
         returnValue: false,
       ) as bool);
+
   @override
   bool get hasListeners => (super.noSuchMethod(
         Invocation.getter(#hasListeners),
         returnValue: false,
       ) as bool);
+
   @override
   bool get isDisposed => (super.noSuchMethod(
         Invocation.getter(#isDisposed),
         returnValue: false,
       ) as bool);
+
   @override
   _i4.Future<void> init() => (super.noSuchMethod(
         Invocation.method(
@@ -430,6 +475,7 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> dispose() => (super.noSuchMethod(
         Invocation.method(
@@ -439,6 +485,7 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> update(_i2.FwupdDevice? device) => (super.noSuchMethod(
         Invocation.method(
@@ -448,6 +495,7 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> verify() => (super.noSuchMethod(
         Invocation.method(
@@ -457,6 +505,7 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> verifyUpdate() => (super.noSuchMethod(
         Invocation.method(
@@ -466,6 +515,7 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> install(_i2.FwupdRelease? release) => (super.noSuchMethod(
         Invocation.method(
@@ -475,6 +525,7 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
@@ -483,6 +534,7 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
@@ -491,6 +543,7 @@ class MockDeviceModel extends _i1.Mock implements _i8.DeviceModel {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void notifyListeners() => super.noSuchMethod(
         Invocation.method(
@@ -514,6 +567,7 @@ class MockDeviceStore extends _i1.Mock implements _i9.DeviceStore {
         Invocation.getter(#showReleases),
         returnValue: false,
       ) as bool);
+
   @override
   set showReleases(bool? value) => super.noSuchMethod(
         Invocation.setter(
@@ -522,21 +576,25 @@ class MockDeviceStore extends _i1.Mock implements _i9.DeviceStore {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   List<_i2.FwupdDevice> get devices => (super.noSuchMethod(
         Invocation.getter(#devices),
         returnValue: <_i2.FwupdDevice>[],
       ) as List<_i2.FwupdDevice>);
+
   @override
   bool get hasListeners => (super.noSuchMethod(
         Invocation.getter(#hasListeners),
         returnValue: false,
       ) as bool);
+
   @override
   bool get isDisposed => (super.noSuchMethod(
         Invocation.getter(#isDisposed),
         returnValue: false,
       ) as bool);
+
   @override
   int indexOf(String? deviceId) => (super.noSuchMethod(
         Invocation.method(
@@ -545,6 +603,7 @@ class MockDeviceStore extends _i1.Mock implements _i9.DeviceStore {
         ),
         returnValue: 0,
       ) as int);
+
   @override
   _i4.Future<void> init() => (super.noSuchMethod(
         Invocation.method(
@@ -554,6 +613,7 @@ class MockDeviceStore extends _i1.Mock implements _i9.DeviceStore {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> refresh() => (super.noSuchMethod(
         Invocation.method(
@@ -563,6 +623,7 @@ class MockDeviceStore extends _i1.Mock implements _i9.DeviceStore {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   _i4.Future<void> dispose() => (super.noSuchMethod(
         Invocation.method(
@@ -572,6 +633,7 @@ class MockDeviceStore extends _i1.Mock implements _i9.DeviceStore {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
   @override
   void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
@@ -580,6 +642,7 @@ class MockDeviceStore extends _i1.Mock implements _i9.DeviceStore {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
@@ -588,6 +651,7 @@ class MockDeviceStore extends _i1.Mock implements _i9.DeviceStore {
         ),
         returnValueForMissingStub: null,
       );
+
   @override
   void notifyListeners() => super.noSuchMethod(
         Invocation.method(
