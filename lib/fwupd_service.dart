@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:collection/collection.dart';
 import 'package:dbus/dbus.dart';
 import 'package:dio/dio.dart';
 import 'package:file/file.dart';
@@ -10,7 +9,6 @@ import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:ubuntu_logger/ubuntu_logger.dart';
-import 'package:ubuntu_session/ubuntu_session.dart';
 import 'package:upower/upower.dart';
 
 import 'fwupd_x.dart';
@@ -22,19 +20,19 @@ class FwupdService {
     @visibleForTesting FwupdClient? fwupd,
     @visibleForTesting Dio? dio,
     @visibleForTesting FileSystem? fs,
-    @visibleForTesting UbuntuSession? session,
+    @visibleForTesting DBusClient? dbus,
     @visibleForTesting UPowerClient? upower,
   })  : _dio = dio ?? Dio(),
         _fs = fs ?? const LocalFileSystem(),
         _fwupd = fwupd ?? FwupdClient(),
-        _session = session ?? UbuntuSession(),
+        _dbus = dbus ?? DBusClient.system(),
         _upower = upower ?? UPowerClient();
 
   final Dio _dio;
   final FileSystem _fs;
   final FwupdClient _fwupd;
   final UPowerClient _upower;
-  final UbuntuSession _session;
+  final DBusClient _dbus;
   int? _downloadProgress;
   final _propertiesChanged = StreamController<List<String>>();
   StreamSubscription<List<String>>? _fwupdPropertiesSubscription;
@@ -205,16 +203,12 @@ class FwupdService {
     return _fwupd.verifyUpdate(device.id);
   }
 
-  Future<void> reboot() async {
-    try {
-      await _session.reboot();
-    } on DBusMethodResponseException catch (error) {
-      if (error.response.values.firstOrNull?.asString() ==
-          'Operation was cancelled') {
-        log.debug('reboot cancelled by user');
-      } else {
-        rethrow;
-      }
-    }
-  }
+  Future<void> reboot() => _dbus.callMethod(
+        destination: 'org.freedesktop.login1',
+        path: DBusObjectPath('/org/freedesktop/login1'),
+        interface: 'org.freedesktop.login1.Manager',
+        name: 'Reboot',
+        values: [const DBusBoolean(true)],
+        replySignature: DBusSignature(''),
+      );
 }
