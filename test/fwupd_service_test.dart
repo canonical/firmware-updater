@@ -9,24 +9,23 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:ubuntu_session/ubuntu_session.dart';
 import 'package:upower/upower.dart';
 
 import 'fwupd_service_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([Dio, FwupdClient, UbuntuSession, UPowerClient])
+@GenerateMocks([Dio, FwupdClient, DBusClient, UPowerClient])
 void main() {
   test('connects and closes the fwupd client', () async {
     final client = MockFwupdClient();
-    final session = MockUbuntuSession();
+    final dbus = MockDBusClient();
     when(client.propertiesChanged).thenAnswer((_) => const Stream.empty());
     final upower = MockUPowerClient();
     when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
 
     final service = FwupdService(
       fwupd: client,
-      session: session,
+      dbus: dbus,
       upower: upower,
     );
 
@@ -54,14 +53,22 @@ void main() {
 
     final dio = MockDio();
     final fwupd = MockFwupdClient();
-    final session = MockUbuntuSession();
+    final dbus = MockDBusClient();
+    when(dbus.callMethod(
+      destination: anyNamed('destination'),
+      path: anyNamed('path'),
+      interface: anyNamed('interface'),
+      name: anyNamed('name'),
+      values: anyNamed('values'),
+      replySignature: anyNamed('replySignature'),
+    )).thenAnswer((_) async => DBusMethodSuccessResponse());
     final upower = MockUPowerClient();
 
     final service = FwupdService(
       fwupd: fwupd,
       dio: dio,
       fs: fs,
-      session: session,
+      dbus: dbus,
       upower: upower,
     );
 
@@ -142,7 +149,7 @@ void main() {
 
     final service = FwupdService(
       fwupd: fwupd,
-      session: MockUbuntuSession(),
+      dbus: MockDBusClient(),
       upower: upower,
     );
 
@@ -197,7 +204,7 @@ void main() {
 
     final service = FwupdService(
       fwupd: fwupd,
-      session: MockUbuntuSession(),
+      dbus: MockDBusClient(),
       upower: upower,
     );
 
@@ -212,45 +219,32 @@ void main() {
     final upower = MockUPowerClient();
     when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
 
-    final session = MockUbuntuSession();
+    final dbus = MockDBusClient();
+    when(dbus.callMethod(
+      destination: anyNamed('destination'),
+      path: anyNamed('path'),
+      interface: anyNamed('interface'),
+      name: anyNamed('name'),
+      values: anyNamed('values'),
+      replySignature: anyNamed('replySignature'),
+    )).thenAnswer((_) async => DBusMethodSuccessResponse());
 
     final service = FwupdService(
       fwupd: fwupd,
-      session: session,
+      dbus: dbus,
       upower: upower,
     );
 
     await service.init();
     await service.reboot();
-    verify(session.reboot()).called(1);
-  });
-
-  test('reboot cancelled', () async {
-    final fwupd = MockFwupdClient();
-    when(fwupd.propertiesChanged).thenAnswer((_) => const Stream.empty());
-
-    final upower = MockUPowerClient();
-    when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
-
-    final session = MockUbuntuSession();
-    when(session.reboot()).thenThrow(
-      DBusMethodResponseException(
-        DBusMethodErrorResponse(
-          'error',
-          [const DBusString('Operation was cancelled')],
-        ),
-      ),
-    );
-
-    final service = FwupdService(
-      fwupd: fwupd,
-      session: session,
-      upower: upower,
-    );
-
-    await service.init();
-    await service.reboot();
-    verify(session.reboot()).called(1);
+    verify(dbus.callMethod(
+      destination: 'org.freedesktop.login1',
+      path: DBusObjectPath('/org/freedesktop/login1'),
+      interface: 'org.freedesktop.login1.Manager',
+      name: 'Reboot',
+      values: [const DBusBoolean(true)],
+      replySignature: DBusSignature(''),
+    )).called(1);
   });
 }
 
