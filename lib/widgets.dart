@@ -1,8 +1,8 @@
 export 'src/widgets/app_progress_bar.dart';
-export 'src/widgets/confirmation_dialog.dart';
 export 'src/widgets/device_header.dart';
 export 'src/widgets/device_icon.dart';
 export 'src/widgets/device_panel_list.dart';
+export 'src/widgets/dialogs.dart';
 export 'src/widgets/error_banner.dart';
 export 'src/widgets/option_card.dart';
 export 'src/widgets/refresh_button.dart';
