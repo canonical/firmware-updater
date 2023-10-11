@@ -3,19 +3,24 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 
-enum DialogAction { action, cancel, close }
+enum DialogAction { primaryAction, secondaryAction, cancel, close }
 
 const kMaxWidth = 500.0;
 
 Future<DialogAction?> showGeneralDialog(
   BuildContext context, {
   required Widget body,
-  String? actionText,
-  VoidCallback? onAction,
+  String? primaryActionText,
+  String? secondaryActionText,
+  String? cancelText,
+  VoidCallback? onPrimaryAction,
+  VoidCallback? onSecondaryAction,
   VoidCallback? onCancel,
   VoidCallback? onClose,
   bool closeable = true,
 }) async {
+  assert((secondaryActionText == null) == (onSecondaryAction == null),
+      'must specify either both `secondaryActionText` and `onSecondaryAction` or none of those');
   final l10n = AppLocalizations.of(context);
   final result = await showDialog<DialogAction>(
     context: context,
@@ -29,12 +34,19 @@ Future<DialogAction?> showGeneralDialog(
         if (onCancel != null)
           OutlinedButton(
             onPressed: () => Navigator.of(context).pop(DialogAction.cancel),
-            child: Text(l10n.cancel),
+            child: Text(cancelText ?? l10n.cancel),
           ),
-        if (onAction != null)
+        if (onSecondaryAction != null)
+          OutlinedButton(
+            onPressed: () =>
+                Navigator.of(context).pop(DialogAction.secondaryAction),
+            child: Text(secondaryActionText!),
+          ),
+        if (onPrimaryAction != null)
           ElevatedButton(
-            onPressed: () => Navigator.of(context).pop(DialogAction.action),
-            child: Text(actionText ?? l10n.ok),
+            onPressed: () =>
+                Navigator.of(context).pop(DialogAction.primaryAction),
+            child: Text(primaryActionText ?? l10n.ok),
           ),
       ],
       content: ConstrainedBox(
@@ -44,8 +56,11 @@ Future<DialogAction?> showGeneralDialog(
     ),
   );
   switch (result) {
-    case DialogAction.action:
-      onAction!();
+    case DialogAction.primaryAction:
+      onPrimaryAction!();
+      break;
+    case DialogAction.secondaryAction:
+      onSecondaryAction!();
       break;
     case DialogAction.cancel:
       onCancel!();
@@ -95,11 +110,13 @@ Future<DialogAction?> showMessageDialog(
   required String title,
   String? message,
   String? actionText,
+  String? cancelText,
   Icon? icon,
   VoidCallback? onAction,
   VoidCallback? onCancel,
   VoidCallback? onClose,
   bool closeable = true,
+  bool isPrimaryAction = true,
 }) =>
     showGeneralDialog(
       context,
@@ -136,9 +153,12 @@ Future<DialogAction?> showMessageDialog(
           ),
         ],
       ),
-      actionText: actionText,
       closeable: closeable,
-      onAction: onAction,
+      primaryActionText: isPrimaryAction ? actionText : null,
+      onPrimaryAction: isPrimaryAction ? onAction : null,
+      secondaryActionText: isPrimaryAction ? null : actionText,
+      onSecondaryAction: isPrimaryAction ? null : onAction,
+      cancelText: cancelText,
       onCancel: onCancel,
       onClose: onClose,
     );
@@ -148,19 +168,23 @@ Future<DialogAction?> showConfirmationDialog(
   required String title,
   String? message,
   String? actionText,
+  String? cancelText,
   VoidCallback? onConfirm,
   VoidCallback? onCancel,
   IconData? icon = YaruIcons.question,
+  bool isPrimaryAction = true,
 }) =>
     showMessageDialog(
       context,
       title: title,
       message: message,
       actionText: actionText,
+      cancelText: cancelText,
       icon: Icon(icon, size: 64.0),
       onCancel: onCancel ?? () {},
       onAction: onConfirm ?? () {},
       closeable: false,
+      isPrimaryAction: isPrimaryAction,
     );
 
 Future<DialogAction?> showErrorDialog(
