@@ -7,6 +7,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
+import 'package:ubuntu_test/ubuntu_test.dart';
 
 import 'test_utils.dart';
 
@@ -60,7 +61,7 @@ void main() {
     });
 
     testWidgets('update available', (tester) async {
-      final device = testDevice(id: 'a', version: '1.0.0');
+      final device = testDevice(id: 'a', version: '1.0.0', name: 'test device');
       final releases = [
         FwupdRelease(name: 'new release', version: '2.0.0'),
         FwupdRelease(name: 'test release', version: '1.0.0'),
@@ -82,6 +83,9 @@ void main() {
 
       await tester.tap(find.text(tester.lang.updateToLatest));
       await tester.pumpAndSettle();
+
+      expect(find.html(tester.lang.updateConfirm('test device', '2.0.0')),
+          findsOneWidget);
 
       await tester.tap(find.text(tester.lang.update));
       verify(model.install(FwupdRelease(name: 'new release', version: '2.0.0')))
