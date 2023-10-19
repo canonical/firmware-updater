@@ -90,7 +90,7 @@ class DevicePage extends StatelessWidget {
                       context,
                       title: l10n.updateConfirm(
                         model.device.name,
-                        model.device.version,
+                        model.latestRelease?.version,
                       ),
                       message: model.device.flags
                               .contains(FwupdDeviceFlag.usableDuringUpdate)
