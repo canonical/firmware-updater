@@ -193,11 +193,11 @@ void main() {
 
     final result = confirmationListener();
     await tester.pumpAndSettle();
-    expect(find.text(tester.lang.rebootConfirm), findsOneWidget);
-    expect(find.text(tester.lang.reboot), findsOneWidget);
-    expect(find.text(tester.lang.cancel), findsOneWidget);
+    expect(find.text(tester.lang.rebootConfirmMessage), findsOneWidget);
+    expect(find.text(tester.lang.rebootNow), findsOneWidget);
+    expect(find.text(tester.lang.rebootLater), findsOneWidget);
 
-    await tester.tap(find.text(tester.lang.reboot));
+    await tester.tap(find.text(tester.lang.rebootNow));
     expect(await result, true);
 
     const exception = FwupdWriteException();

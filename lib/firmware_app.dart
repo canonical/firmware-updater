@@ -89,13 +89,17 @@ class _FirmwareAppState extends State<FirmwareApp> {
   }
 
   Future<bool> _getConfirmation() async {
+    final l10n = AppLocalizations.of(context);
     final response = await showConfirmationDialog(
       context,
-      title: AppLocalizations.of(context).rebootConfirm,
-      actionText: AppLocalizations.of(context).reboot,
+      message: l10n.rebootConfirmMessage,
+      title: l10n.rebootConfirmTitle,
+      actionText: l10n.rebootNow,
+      cancelText: l10n.rebootLater,
+      isPrimaryAction: false,
     );
 
-    return response == DialogAction.action;
+    return response == DialogAction.secondaryAction;
   }
 
   @override

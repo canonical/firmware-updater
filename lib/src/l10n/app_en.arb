@@ -93,8 +93,10 @@
   "noDevicesFound": "No devices found",
   "ok": "OK",
   "olderVersions": "Older Versions",
-  "reboot": "Reboot",
-  "rebootConfirm": "The update requires a reboot to complete. Do you want to reboot now?",
+  "rebootLater": "Restart later",
+  "rebootNow": "Restart now",
+  "rebootConfirmMessage": "You must restart your device to complete the update. Make sure your device is plugged in or fully charged. Save your files before you restart to avoid losing data.",
+  "rebootConfirmTitle": "Restart to complete this update",
   "reinstall": "Reinstall",
   "reinstallConfirm": "Reinstall <b>{name}</b> version <b>{current}</b>?",
   "@reinstallConfirm": {
