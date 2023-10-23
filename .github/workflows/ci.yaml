@@ -7,20 +7,13 @@ on:
   pull_request:
   workflow_dispatch:
 
-env:
-  FLUTTER_VERSION: '3.10.x'
-
 jobs:
   analyze:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter-version: ${{env.FLUTTER_VERSION}}
+      - uses: asdf-vm/actions/install@v2
+      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
       - run: flutter pub global activate melos
       - run: melos pub get
       - run: melos analyze
@@ -29,12 +22,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter-version: ${{env.FLUTTER_VERSION}}
+      - uses: asdf-vm/actions/install@v2
+      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
       - run: flutter pub global activate melos
       - run: melos pub get
       - run: melos format
@@ -43,12 +32,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter-version: ${{env.FLUTTER_VERSION}}
+      - uses: asdf-vm/actions/install@v2
+      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
       - run: flutter pub global activate melos
       - run: melos pub get
       - run: melos generate
@@ -69,12 +54,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter-version: ${{env.FLUTTER_VERSION}}
+      - uses: asdf-vm/actions/install@v2
+      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
       - run: flutter pub global activate melos
       - run: melos pub get
       - run: melos gen-l10n
@@ -95,12 +76,8 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: 'stable'
-          flutter-version: ${{env.FLUTTER_VERSION}}
+      - uses: asdf-vm/actions/install@v2
+      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
       - run: sudo apt update && sudo apt install -y lcov
       - run: flutter pub global activate melos
       - run: melos pub get
@@ -113,10 +90,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
-    - uses: subosito/flutter-action@v2
-      with:
-        channel: 'stable'
-        flutter-version: ${{env.FLUTTER_VERSION}}
+    - uses: asdf-vm/actions/install@v2
     - run: sudo apt update
     - run: sudo apt install -y clang cmake curl dbus dbus-x11 fwupd fwupd-tests gsettings-desktop-schemas libgtk-3-dev ninja-build pkg-config unzip upower xvfb
       env:
@@ -126,6 +100,7 @@ jobs:
         sudo sed -i 's/DisabledPlugins=.*/DisabledPlugins=invalid;bios/g' /etc/fwupd/daemon.conf
         echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus" >> $GITHUB_ENV
         echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
+        echo "FLUTTER_ROOT=$(asdf where flutter)" >> $GITHUB_ENV
         gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
     - run: sudo fwupdmgr enable-remote fwupd-tests
     - run: sudo fwupdmgr get-devices
