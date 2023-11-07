@@ -87,8 +87,8 @@ void main() {
       });
 
       when(fwupd.propertiesChanged).thenAnswer((_) => const Stream.empty());
-      when(fwupd.getRemotes()).thenAnswer((_) async =>
-          [FwupdRemote(id: release.remoteId!, kind: FwupdRemoteKind.download)]);
+      when(fwupd.getRemotes()).thenAnswer(
+          (_) async => [FwupdRemote(id: release.remoteId!, kind: FwupdRemoteKind.download)]);
 
       when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
 
@@ -112,22 +112,17 @@ void main() {
         file.path,
         onReceiveProgress: anyNamed('onReceiveProgress'),
         options: anyNamed('options'),
-      )).thenThrow(DioError(
-          requestOptions: RequestOptions(path: url), error: 'dio error'));
+      )).thenThrow(DioException(requestOptions: RequestOptions(path: url), error: 'dio error'));
 
-      service.registerErrorListener(
-          expectAsync1((e) => expect(e, isInstanceOf<DioError>())));
+      service.registerErrorListener(expectAsync1((e) => expect(e, isInstanceOf<DioException>())));
       await service.install(device, release, (f) => MockResourceHandle());
       verifyNever(service.reboot());
     });
 
     test('reboot', () async {
-      service
-          .registerConfirmationListener(expectAsync0(() => Future.value(true)));
+      service.registerConfirmationListener(expectAsync0(() => Future.value(true)));
       await service.install(
-          testDevice(
-              id: 'b',
-              flags: {FwupdDeviceFlag.updatable, FwupdDeviceFlag.needsReboot}),
+          testDevice(id: 'b', flags: {FwupdDeviceFlag.updatable, FwupdDeviceFlag.needsReboot}),
           release,
           (f) => MockResourceHandle());
       verify(service.reboot()).called(1);
