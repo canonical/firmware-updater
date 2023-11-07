@@ -142,39 +142,39 @@ extension FwupdExceptionL10n on FwupdException {
   String localize(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     switch (runtimeType) {
-      case FwupdInternalException:
+      case const (FwupdInternalException):
         return l10n.fwupdErrorInternal;
-      case FwupdVersionNewerException:
+      case const (FwupdVersionNewerException):
         return l10n.fwupdErrorVersionNewer;
-      case FwupdVersionSameException:
+      case const (FwupdVersionSameException):
         return l10n.fwupdErrorVersionSame;
-      case FwupdAlreadyPendingException:
+      case const (FwupdAlreadyPendingException):
         return l10n.fwupdErrorAlreadyPending;
-      case FwupdAuthFailedException:
+      case const (FwupdAuthFailedException):
         return l10n.fwupdErrorAuthFailed;
-      case FwupdReadException:
+      case const (FwupdReadException):
         return l10n.fwupdErrorRead;
-      case FwupdWriteException:
+      case const (FwupdWriteException):
         return l10n.fwupdErrorWrite;
-      case FwupdInvalidFileException:
+      case const (FwupdInvalidFileException):
         return l10n.fwupdErrorInvalidFile;
-      case FwupdNotFoundException:
+      case const (FwupdNotFoundException):
         return l10n.fwupdErrorNotFound;
-      case FwupdNothingToDoException:
+      case const (FwupdNothingToDoException):
         return l10n.fwupdErrorNothingToDo;
-      case FwupdNotSupportedException:
+      case const (FwupdNotSupportedException):
         return l10n.fwupdErrorNotSupported;
-      case FwupdSignatureInvalidException:
+      case const (FwupdSignatureInvalidException):
         return l10n.fwupdErrorSignatureInvalid;
-      case FwupdAcPowerRequiredException:
+      case const (FwupdAcPowerRequiredException):
         return l10n.fwupdErrorAcPowerRequired;
-      case FwupdPermissionDeniedException:
+      case const (FwupdPermissionDeniedException):
         return l10n.fwupdErrorPermissionDenied;
-      case FwupdBrokenSystemException:
+      case const (FwupdBrokenSystemException):
         return l10n.fwupdErrorBrokenSystem;
-      case FwupdBatteryLevelTooLowException:
+      case const (FwupdBatteryLevelTooLowException):
         return l10n.fwupdErrorBatteryLevelTooLow;
-      case FwupdNeedsUserActionException:
+      case const (FwupdNeedsUserActionException):
         return l10n.fwupdErrorNeedsUserAction;
       // case FwupdAuthExpiredException:
       //   return l10n.fwupdErrorAuthExpired;
