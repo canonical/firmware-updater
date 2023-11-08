@@ -55,7 +55,7 @@ class ReleasePage extends StatelessWidget {
         padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
         child: Column(
           children: [
-            ...currentReleases.map(buildReleaseCard).toList(),
+            ...currentReleases.map(buildReleaseCard),
             if (oldReleases.isNotEmpty)
               YaruExpandable(
                 expandButtonPosition: YaruExpandableButtonPosition.start,

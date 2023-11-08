@@ -112,11 +112,11 @@ void main() {
         file.path,
         onReceiveProgress: anyNamed('onReceiveProgress'),
         options: anyNamed('options'),
-      )).thenThrow(DioError(
+      )).thenThrow(DioException(
           requestOptions: RequestOptions(path: url), error: 'dio error'));
 
       service.registerErrorListener(
-          expectAsync1((e) => expect(e, isInstanceOf<DioError>())));
+          expectAsync1((e) => expect(e, isInstanceOf<DioException>())));
       await service.install(device, release, (f) => MockResourceHandle());
       verifyNever(service.reboot());
     });

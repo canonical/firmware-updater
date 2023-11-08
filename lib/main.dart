@@ -20,15 +20,17 @@ Future<void> main(List<String> args) async {
   registerService<GtkApplicationNotifier>(() => GtkApplicationNotifier(args),
       dispose: (s) => s.dispose());
 
-  runApp(YaruTheme(
-    builder: (context, yaru, child) => MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: yaru.theme,
-      darkTheme: yaru.darkTheme,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
-      routes: const {'/': FirmwareApp.create},
+  runApp(
+    YaruTheme(
+      builder: (context, yaru, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: yaru.theme,
+        darkTheme: yaru.darkTheme,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
+        routes: const {'/': FirmwareApp.create},
+      ),
     ),
-  ));
+  );
 }
