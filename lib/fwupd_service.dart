@@ -11,6 +11,7 @@ import 'package:path/path.dart' as p;
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:upower/upower.dart';
 
+import 'dryrun_service.dart';
 import 'fwupd_x.dart';
 
 final log = Logger('fwupd_service');
@@ -32,6 +33,7 @@ class FwupdService {
   final FileSystem _fs;
   final FwupdClient _fwupd;
   final UPowerClient _upower;
+  final DryrunService _dryrunService = DryrunService();
   final DBusClient _dbus;
   int? _downloadProgress;
   final _propertiesChanged = StreamController<List<String>>();
@@ -139,7 +141,11 @@ class FwupdService {
     return _fwupd.clearResults(device.id);
   }
 
-  Future<List<FwupdDevice>> getDevices() => _fwupd.getDevices();
+  Future<List<FwupdDevice>> getDevices() async {
+    return _dryrunService.isDryRunEnabled
+        ? _dryrunService.getFakeDevices()
+        : _fwupd.getDevices();
+  }
 
   Future<List<FwupdRelease>> getDowngrades(FwupdDevice device) {
     return _fwupd.getDowngrades(device.id);

@@ -6,6 +6,7 @@ import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
 
+import 'dryrun_service.dart';
 import 'firmware_app.dart';
 import 'fwupd_service.dart';
 
@@ -15,6 +16,10 @@ Future<void> main(List<String> args) async {
   registerService<FwupdService>(
     () => FwupdService()..init(),
     dispose: (s) => s.dispose(),
+  );
+
+  registerService<DryrunService>(
+    () => DryrunService()..init(),
   );
 
   registerService<GtkApplicationNotifier>(() => GtkApplicationNotifier(args),
