@@ -4,14 +4,14 @@ import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
-import 'fwupd_service.dart';
+import 'operation_handler.dart';
 
 final log = Logger('fwupd_notifier');
 
 class FwupdNotifier extends SafeChangeNotifier {
   FwupdNotifier(this._service);
 
-  final FwupdService _service;
+  final OperationHandler _service;
   StreamSubscription<List<String>>? _propertiesChanged;
   StreamSubscription<FwupdDevice>? _deviceRequest;
 

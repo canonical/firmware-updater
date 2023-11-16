@@ -10,6 +10,7 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 import 'detail_page.dart';
 import 'device_store.dart';
 import 'device_tile.dart';
+import 'dryrun_service.dart';
 import 'fwupd_l10n.dart';
 import 'fwupd_notifier.dart';
 import 'fwupd_service.dart';
@@ -19,7 +20,9 @@ class FirmwareApp extends StatefulWidget {
   const FirmwareApp({super.key});
 
   static Widget create(BuildContext context) {
-    final service = getService<FwupdService>();
+    final service = const bool.fromEnvironment('DRY_RUN')
+        ? getService<DryrunService>()
+        : getService<FwupdService>();
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => DeviceStore(service)),

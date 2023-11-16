@@ -4,13 +4,13 @@ import 'package:collection/collection.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 
-import 'fwupd_service.dart';
 import 'fwupd_x.dart';
+import 'operation_handler.dart';
 
 class DeviceModel extends SafeChangeNotifier {
   DeviceModel(this._device, this._service);
 
-  final FwupdService _service;
+  final OperationHandler _service;
   FwupdDevice _device;
   List<FwupdRelease>? _releases;
   StreamSubscription? _sub;

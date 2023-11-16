@@ -10,13 +10,12 @@ import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:upower/upower.dart';
-
-import 'dryrun_service.dart';
 import 'fwupd_x.dart';
+import 'operation_handler.dart';
 
 final log = Logger('fwupd_service');
 
-class FwupdService {
+class FwupdService extends OperationHandler {
   FwupdService({
     @visibleForTesting FwupdClient? fwupd,
     @visibleForTesting Dio? dio,
@@ -33,36 +32,46 @@ class FwupdService {
   final FileSystem _fs;
   final FwupdClient _fwupd;
   final UPowerClient _upower;
-  final DryrunService _dryrunService = DryrunService();
   final DBusClient _dbus;
   int? _downloadProgress;
   final _propertiesChanged = StreamController<List<String>>();
   StreamSubscription<List<String>>? _fwupdPropertiesSubscription;
   StreamSubscription<List<String>>? _upowerPropertiesSubscription;
 
+  @override
   FwupdStatus get status =>
       _downloadProgress != null ? FwupdStatus.downloading : _fwupd.status;
+  @override
   int get percentage => _downloadProgress ?? _fwupd.percentage;
+  @override
   String get daemonVersion => _fwupd.daemonVersion;
 
+  @override
   Stream<FwupdDevice> get deviceAdded => _fwupd.deviceAdded;
+  @override
   Stream<FwupdDevice> get deviceChanged => _fwupd.deviceChanged;
+  @override
   Stream<FwupdDevice> get deviceRemoved => _fwupd.deviceRemoved;
+  @override
   Stream<FwupdDevice> get deviceRequest => _fwupd.deviceRequest;
+  @override
   Stream<List<String>> get propertiesChanged => _propertiesChanged.stream;
 
   Function(Exception)? _errorListener;
   Future<bool> Function()? _confirmationListener;
 
+  @override
   void registerErrorListener(Function(Exception e) errorListener) {
     _errorListener = errorListener;
   }
 
+  @override
   void registerConfirmationListener(
       Future<bool> Function() confirmationListener) {
     _confirmationListener = confirmationListener;
   }
 
+  @override
   Future<void> init() async {
     await _fwupd.connect();
     _fwupdPropertiesSubscription ??=
@@ -73,6 +82,7 @@ class FwupdService {
     _propertiesChanged.add(['OnBattery']);
   }
 
+  @override
   Future<void> dispose() async {
     _dio.close();
     await _fwupdPropertiesSubscription?.cancel();
@@ -81,6 +91,7 @@ class FwupdService {
     return _fwupd.close();
   }
 
+  @override
   Future<void> refreshProperties() => _fwupd.refreshPropertyCache();
 
   Future<File> _fetchRelease(FwupdRelease release) async {
@@ -131,38 +142,43 @@ class FwupdService {
     _propertiesChanged.add(['Percentage']);
   }
 
+  @override
   Future<void> activate(FwupdDevice device) {
     log.debug('activate $device');
     return _fwupd.activate(device.id);
   }
 
+  @override
   Future<void> clearResults(FwupdDevice device) {
     log.debug('clearResults $device');
     return _fwupd.clearResults(device.id);
   }
 
-  Future<List<FwupdDevice>> getDevices() async {
-    return _dryrunService.isDryRunEnabled
-        ? _dryrunService.getFakeDevices()
-        : _fwupd.getDevices();
-  }
+  @override
+  Future<List<FwupdDevice>> getDevices() => _fwupd.getDevices();
 
+  @override
   Future<List<FwupdRelease>> getDowngrades(FwupdDevice device) {
     return _fwupd.getDowngrades(device.id);
   }
 
+  @override
   Future<List<FwupdPlugin>> getPlugins() => _fwupd.getPlugins();
 
+  @override
   Future<List<FwupdRelease>> getReleases(FwupdDevice device) {
     return _fwupd.getReleases(device.id);
   }
 
+  @override
   Future<List<FwupdRemote>> getRemotes() => _fwupd.getRemotes();
 
+  @override
   Future<List<FwupdRelease>> getUpgrades(FwupdDevice device) {
     return _fwupd.getUpgrades(device.id);
   }
 
+  @override
   Future<void> install(
     FwupdDevice device,
     FwupdRelease release, [
@@ -192,23 +208,28 @@ class FwupdService {
     }
   }
 
+  @override
   bool get onBattery => _upower.onBattery;
 
+  @override
   Future<void> unlock(FwupdDevice device) {
     log.debug('unlock $device');
     return _fwupd.unlock(device.id);
   }
 
+  @override
   Future<void> verify(FwupdDevice device) {
     log.debug('verify $device');
     return _fwupd.verify(device.id);
   }
 
+  @override
   Future<void> verifyUpdate(FwupdDevice device) {
     log.debug('verifyUpdate $device');
     return _fwupd.verifyUpdate(device.id);
   }
 
+  @override
   Future<void> reboot() => _dbus.callMethod(
         destination: 'org.freedesktop.login1',
         path: DBusObjectPath('/org/freedesktop/login1'),

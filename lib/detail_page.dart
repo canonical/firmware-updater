@@ -7,6 +7,7 @@ import 'package:yaru/yaru.dart';
 import 'device_model.dart';
 import 'device_page.dart';
 import 'device_store.dart';
+import 'dryrun_service.dart';
 import 'fwupd_service.dart';
 import 'release_page.dart';
 
@@ -21,7 +22,11 @@ class DetailPage extends StatefulWidget {
   }) {
     return ChangeNotifierProvider<DeviceModel>(
       key: ValueKey(device.hashCode),
-      create: (_) => DeviceModel(device, getService<FwupdService>()),
+      create: (_) => DeviceModel(
+          device,
+          const bool.fromEnvironment('DRY_RUN')
+              ? getService<DryrunService>()
+              : getService<FwupdService>()),
       child: const DetailPage(),
     );
   }

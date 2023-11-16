@@ -13,13 +13,14 @@ import 'fwupd_service.dart';
 Future<void> main(List<String> args) async {
   Logger.setup(level: LogLevel.fromString(kDebugMode ? 'debug' : 'info'));
 
+  if (const bool.fromEnvironment('DRY_RUN')) {
+    registerService<DryrunService>(() => DryrunService()..init(),
+        dispose: (s) => s.dispose());
+  }
+
   registerService<FwupdService>(
     () => FwupdService()..init(),
     dispose: (s) => s.dispose(),
-  );
-
-  registerService<DryrunService>(
-    () => DryrunService()..init(),
   );
 
   registerService<GtkApplicationNotifier>(() => GtkApplicationNotifier(args),
