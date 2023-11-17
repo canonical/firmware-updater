@@ -7,8 +7,8 @@ import 'package:yaru/yaru.dart';
 import 'device_model.dart';
 import 'device_page.dart';
 import 'device_store.dart';
-import 'dryrun_service.dart';
-import 'fwupd_service.dart';
+import 'fwupd_dbus_service.dart';
+import 'fwupd_mock_service.dart';
 import 'release_page.dart';
 
 class DetailPage extends StatefulWidget {
@@ -24,9 +24,9 @@ class DetailPage extends StatefulWidget {
       key: ValueKey(device.hashCode),
       create: (_) => DeviceModel(
           device,
-          const bool.fromEnvironment('DRY_RUN')
-              ? getService<DryrunService>()
-              : getService<FwupdService>()),
+          hasService<FwupdMockService>()
+              ? getService<FwupdMockService>()
+              : getService<FwupdDbusService>()),
       child: const DetailPage(),
     );
   }

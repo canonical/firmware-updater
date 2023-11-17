@@ -9,7 +9,9 @@ import 'operation_handler.dart';
 final log = Logger('fwupd_service');
 
 // Mainly no-op methods for testing
-class DryrunService extends OperationHandler {
+class FwupdMockService extends OperationHandler {
+  String? simulateYamlFilePath;
+
   @override
   Future<void> activate(FwupdDevice device) {
     return Future.value();
@@ -47,14 +49,12 @@ class DryrunService extends OperationHandler {
 
   @override
   Future<List<FwupdDevice>> getDevices() {
-    const yamlPath = String.fromEnvironment('YAML_FILE_PATH');
-
-    if (yamlPath.isEmpty) {
+    if ((simulateYamlFilePath ?? '').isEmpty) {
       log.debug('No YAML file path provided');
       return Future.value([]);
     }
 
-    final file = File(yamlPath);
+    final file = File(simulateYamlFilePath!);
     final YamlList doc = loadYaml(file.readAsStringSync());
 
     return Future.value([

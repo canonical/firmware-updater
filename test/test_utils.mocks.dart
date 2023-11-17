@@ -9,8 +9,8 @@ import 'dart:ui' as _i7;
 
 import 'package:firmware_updater/device_model.dart' as _i8;
 import 'package:firmware_updater/device_store.dart' as _i9;
+import 'package:firmware_updater/fwupd_dbus_service.dart' as _i3;
 import 'package:firmware_updater/fwupd_notifier.dart' as _i6;
-import 'package:firmware_updater/fwupd_service.dart' as _i3;
 import 'package:fwupd/fwupd.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -35,11 +35,11 @@ class _FakeFwupdDevice_0 extends _i1.SmartFake implements _i2.FwupdDevice {
         );
 }
 
-/// A class which mocks [FwupdService].
+/// A class which mocks [FwupdDbusService].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFwupdService extends _i1.Mock implements _i3.FwupdService {
-  MockFwupdService() {
+class MockFwupdDbusService extends _i1.Mock implements _i3.FwupdDbusService {
+  MockFwupdDbusService() {
     _i1.throwOnMissingStub(this);
   }
 

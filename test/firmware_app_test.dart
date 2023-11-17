@@ -1,8 +1,8 @@
 import 'package:firmware_updater/device_store.dart';
 import 'package:firmware_updater/firmware_app.dart';
+import 'package:firmware_updater/fwupd_dbus_service.dart';
 import 'package:firmware_updater/fwupd_l10n.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
-import 'package:firmware_updater/fwupd_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -72,7 +72,7 @@ void main() {
   }
 
   testWidgets('loading', (tester) async {
-    registerMockService<FwupdService>(mockService());
+    registerMockService<FwupdDbusService>(mockService());
     registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
     final store = mockStore(devices: []);
@@ -84,7 +84,7 @@ void main() {
 
   group('data', () {
     testWidgets('landscape layout', (tester) async {
-      registerMockService<FwupdService>(mockService());
+      registerMockService<FwupdDbusService>(mockService());
       registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
       final store = mockStore(devices: devices);
@@ -101,7 +101,7 @@ void main() {
     });
 
     testWidgets('portrait layout', (tester) async {
-      registerMockService<FwupdService>(mockService());
+      registerMockService<FwupdDbusService>(mockService());
       registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
       final store = mockStore(devices: devices);
@@ -124,7 +124,7 @@ void main() {
     });
 
     testWidgets('empty list', (tester) async {
-      registerMockService<FwupdService>(mockService());
+      registerMockService<FwupdDbusService>(mockService());
       registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
       final store = mockStore(devices: []);
@@ -137,7 +137,7 @@ void main() {
   });
 
   testWidgets('on battery', (tester) async {
-    registerMockService<FwupdService>(mockService());
+    registerMockService<FwupdDbusService>(mockService());
     registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
     final store = mockStore(devices: devices);
@@ -150,7 +150,7 @@ void main() {
 
   testWidgets('register callbacks', (tester) async {
     final service = mockService();
-    registerMockService<FwupdService>(service);
+    registerMockService<FwupdDbusService>(service);
     registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
     final notifier = mockNotifier();
@@ -170,7 +170,7 @@ void main() {
     );
     final service = mockService();
     final notifier = mockNotifier();
-    registerMockService<FwupdService>(service);
+    registerMockService<FwupdDbusService>(service);
     registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
     final store = mockStore(devices: devices);
@@ -216,7 +216,7 @@ void main() {
   });
 
   testWidgets('gtk app notifier', (tester) async {
-    registerMockService<FwupdService>(mockService());
+    registerMockService<FwupdDbusService>(mockService());
     final gtkAppNotifier = mockGtkApplicationNotifier();
     registerMockService<GtkApplicationNotifier>(gtkAppNotifier);
 

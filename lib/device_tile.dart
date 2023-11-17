@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 
 import 'device_model.dart';
-import 'fwupd_service.dart';
+import 'fwupd_dbus_service.dart';
 import 'widgets.dart';
 
 class DeviceTile extends StatefulWidget {
@@ -18,7 +18,7 @@ class DeviceTile extends StatefulWidget {
   }) {
     return ChangeNotifierProvider<DeviceModel>(
       key: ValueKey(device.hashCode),
-      create: (_) => DeviceModel(device, getService<FwupdService>()),
+      create: (_) => DeviceModel(device, getService<FwupdDbusService>()),
       child: const DeviceTile(),
     );
   }

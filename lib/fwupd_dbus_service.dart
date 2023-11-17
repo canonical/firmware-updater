@@ -15,8 +15,8 @@ import 'operation_handler.dart';
 
 final log = Logger('fwupd_service');
 
-class FwupdService extends OperationHandler {
-  FwupdService({
+class FwupdDbusService extends OperationHandler {
+  FwupdDbusService({
     @visibleForTesting FwupdClient? fwupd,
     @visibleForTesting Dio? dio,
     @visibleForTesting FileSystem? fs,

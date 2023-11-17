@@ -4,17 +4,22 @@ import 'dart:io';
 import 'package:dbus/dbus.dart';
 import 'package:dio/dio.dart';
 import 'package:file/memory.dart';
-import 'package:firmware_updater/fwupd_service.dart';
+import 'package:firmware_updater/fwupd_dbus_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:upower/upower.dart';
 
-import 'fwupd_service_test.mocks.dart';
+import 'fwupd_dbus_service_test.mocks.dart';
 import 'test_utils.dart';
 
-@GenerateMocks([Dio, FwupdClient, DBusClient, UPowerClient])
+@GenerateNiceMocks([
+  MockSpec<Dio>(),
+  MockSpec<FwupdClient>(),
+  MockSpec<DBusClient>(),
+  MockSpec<UPowerClient>()
+])
 void main() {
   test('connects and closes the fwupd client', () async {
     final client = MockFwupdClient();
@@ -23,7 +28,7 @@ void main() {
     final upower = MockUPowerClient();
     when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
 
-    final service = FwupdService(
+    final service = FwupdDbusService(
       fwupd: client,
       dbus: dbus,
       upower: upower,
@@ -64,7 +69,7 @@ void main() {
     )).thenAnswer((_) async => DBusMethodSuccessResponse());
     final upower = MockUPowerClient();
 
-    final service = FwupdService(
+    final service = FwupdDbusService(
       fwupd: fwupd,
       dio: dio,
       fs: fs,
@@ -147,7 +152,7 @@ void main() {
     final upower = MockUPowerClient();
     when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
 
-    final service = FwupdService(
+    final service = FwupdDbusService(
       fwupd: fwupd,
       dbus: MockDBusClient(),
       upower: upower,
@@ -202,7 +207,7 @@ void main() {
     when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
     when(upower.onBattery).thenReturn(true);
 
-    final service = FwupdService(
+    final service = FwupdDbusService(
       fwupd: fwupd,
       dbus: MockDBusClient(),
       upower: upower,
@@ -229,7 +234,7 @@ void main() {
       replySignature: anyNamed('replySignature'),
     )).thenAnswer((_) async => DBusMethodSuccessResponse());
 
-    final service = FwupdService(
+    final service = FwupdDbusService(
       fwupd: fwupd,
       dbus: dbus,
       upower: upower,

@@ -6,20 +6,24 @@ import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
 
-import 'dryrun_service.dart';
 import 'firmware_app.dart';
-import 'fwupd_service.dart';
+import 'fwupd_dbus_service.dart';
+import 'fwupd_mock_service.dart';
 
 Future<void> main(List<String> args) async {
   Logger.setup(level: LogLevel.fromString(kDebugMode ? 'debug' : 'info'));
 
-  if (const bool.fromEnvironment('DRY_RUN')) {
-    registerService<DryrunService>(() => DryrunService()..init(),
-        dispose: (s) => s.dispose());
+  for (final element in args) {
+    if (element.startsWith('--simulate=')) {
+      registerService<FwupdMockService>(() => FwupdMockService()..init(),
+          dispose: (s) => s.dispose());
+      getService<FwupdMockService>().simulateYamlFilePath =
+          element.split('=').last;
+    }
   }
 
-  registerService<FwupdService>(
-    () => FwupdService()..init(),
+  registerService<FwupdDbusService>(
+    () => FwupdDbusService()..init(),
     dispose: (s) => s.dispose(),
   );
 
