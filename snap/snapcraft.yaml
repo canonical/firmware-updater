@@ -43,7 +43,7 @@ parts:
   firmware-updater-app:
     after: [ flutter-git ]
     plugin: nil
-    source: .
+    source: ./packages/firmware_updater/
     override-build: |
       # when building locally artifacts can pollute the container and cause builds to fail
       # this helps increase reliability for local builds
@@ -71,7 +71,7 @@ parts:
 
 apps:
   firmware-updater:
-    command: bin/launch-firmware-updater.sh
+    command: bin/launch-firmware-updater.t sh
     desktop: bin/data/flutter_assets/assets/firmware-updater.desktop
     extensions: [gnome]
 

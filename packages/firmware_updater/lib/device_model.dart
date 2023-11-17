@@ -13,7 +13,7 @@ class DeviceModel extends SafeChangeNotifier {
   final FwupdService _service;
   FwupdDevice _device;
   List<FwupdRelease>? _releases;
-  StreamSubscription? _sub;
+  StreamSubscription<FwupdDevice>? _sub;
 
   Future<void> init() async {
     _sub =
