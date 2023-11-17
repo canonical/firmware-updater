@@ -71,7 +71,7 @@ parts:
 
 apps:
   firmware-updater:
-    command: bin/launch-firmware-updater.t sh
+    command: bin/launch-firmware-updater.sh
     desktop: bin/data/flutter_assets/assets/firmware-updater.desktop
     extensions: [gnome]
 
