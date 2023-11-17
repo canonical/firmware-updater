@@ -95,4 +95,4 @@ jobs:
           gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
       - run: sudo fwupdmgr enable-remote fwupd-tests
       - run: sudo fwupdmgr get-devices
-      - run: sudo -E xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' $FLUTTER_ROOT/bin/flutter test packages/firmware_updater/bin/firmware_updater_test.dart
+      - run: sudo -E xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' $FLUTTER_ROOT/bin/flutter test packages/firmware_updater/integration_test
