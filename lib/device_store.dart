@@ -5,14 +5,14 @@ import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 
 import 'fwupd_x.dart';
-import 'operation_handler.dart';
+import 'fwupd_service.dart';
 
 final log = Logger('device_store');
 
 class DeviceStore extends SafeChangeNotifier {
   DeviceStore(this._service);
 
-  final OperationHandler _service;
+  final FwupdService _service;
   var _devices = <FwupdDevice>[];
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceRemoved;

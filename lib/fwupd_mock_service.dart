@@ -4,12 +4,12 @@ import 'package:fwupd/fwupd.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:yaml/yaml.dart';
 
-import 'operation_handler.dart';
+import 'fwupd_service.dart';
 
 final log = Logger('fwupd_service');
 
 // Mainly no-op methods for testing
-class FwupdMockService extends OperationHandler {
+class FwupdMockService extends FwupdService {
   String? simulateYamlFilePath;
 
   @override

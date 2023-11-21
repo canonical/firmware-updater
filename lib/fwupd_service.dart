@@ -4,8 +4,8 @@ import 'dart:io';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 
-abstract class OperationHandler {
-  OperationHandler();
+abstract class FwupdService {
+  FwupdService();
 
   FwupdStatus get status;
   int get percentage;
