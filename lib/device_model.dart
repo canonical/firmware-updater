@@ -4,8 +4,8 @@ import 'package:collection/collection.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 
-import 'fwupd_x.dart';
 import 'fwupd_service.dart';
+import 'fwupd_x.dart';
 
 class DeviceModel extends SafeChangeNotifier {
   DeviceModel(this._device, this._service);

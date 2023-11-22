@@ -10,8 +10,9 @@ import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:upower/upower.dart';
+
+import 'fwupd_service.dart';
 import 'fwupd_x.dart';
-import 'operation_handler.dart';
 
 final log = Logger('fwupd_service');
 
