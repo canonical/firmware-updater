@@ -215,47 +215,54 @@ class DevicePage extends StatelessWidget {
                       DevicePage._buildPadding(Text(flag))
                     ]),
                 if (device.canVerify)
-                  TableRow(children: [
-                    DevicePage._buildHeader(context, l10n.checksum),
-                    const SizedBox.shrink(),
-                    ButtonBar(
-                      mainAxisSize: MainAxisSize.min,
-                      alignment: MainAxisAlignment.start,
-                      overflowButtonSpacing: 8.0,
-                      children: [
-                        OutlinedButton(
-                          onPressed: fwupdIdle
-                              ? () => showConfirmationDialog(
-                                    context,
-                                    title: l10n
-                                        .updateChecksumsConfirm(device.name),
-                                    message: l10n.updateChecksumsInfo,
-                                    onConfirm: model.verifyUpdate,
-                                    actionText: l10n.update,
-                                  )
-                              : null,
-                          child: Text(l10n.updateChecksums),
+                  TableRow(
+                    children: [
+                      DevicePage._buildHeader(context, l10n.checksum),
+                      const SizedBox.shrink(),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8),
+                        child: ButtonBar(
+                          mainAxisSize: MainAxisSize.min,
+                          alignment: MainAxisAlignment.start,
+                          overflowButtonSpacing: 8.0,
+                          buttonPadding: EdgeInsets.zero,
+                          children: [
+                            OutlinedButton(
+                              onPressed: fwupdIdle
+                                  ? () => showConfirmationDialog(
+                                        context,
+                                        title: l10n.updateChecksumsConfirm(
+                                            device.name),
+                                        message: l10n.updateChecksumsInfo,
+                                        onConfirm: model.verifyUpdate,
+                                        actionText: l10n.update,
+                                      )
+                                  : null,
+                              child: Text(l10n.updateChecksums),
+                            ),
+                            const SizedBox(width: 8),
+                            if (device.checksum != null)
+                              OutlinedButton(
+                                onPressed: fwupdIdle
+                                    ? () => showConfirmationDialog(
+                                          context,
+                                          title: l10n.verifyFirmwareConfirm(
+                                              device.name),
+                                          message: device.flags.contains(
+                                                  FwupdDeviceFlag
+                                                      .usableDuringUpdate)
+                                              ? null
+                                              : l10n.deviceUnavailable,
+                                          onConfirm: model.verify,
+                                        )
+                                    : null,
+                                child: Text(l10n.verifyFirmware),
+                              ),
+                          ],
                         ),
-                        if (device.checksum != null)
-                          OutlinedButton(
-                            onPressed: fwupdIdle
-                                ? () => showConfirmationDialog(
-                                      context,
-                                      title: l10n
-                                          .verifyFirmwareConfirm(device.name),
-                                      message: device.flags.contains(
-                                              FwupdDeviceFlag
-                                                  .usableDuringUpdate)
-                                          ? null
-                                          : l10n.deviceUnavailable,
-                                      onConfirm: model.verify,
-                                    )
-                                : null,
-                            child: Text(l10n.verifyFirmware),
-                          ),
-                      ],
-                    )
-                  ])
+                      ),
+                    ],
+                  )
               ],
             ),
           ],
