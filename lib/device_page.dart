@@ -79,38 +79,45 @@ class DevicePage extends StatelessWidget {
       {required BuildContext context, bool enabled = true}) {
     final model = context.read<DeviceModel>();
     final l10n = AppLocalizations.of(context);
-    return ButtonBar(
-      mainAxisSize: MainAxisSize.min,
-      alignment: MainAxisAlignment.start,
-      children: [
-        if (model.hasUpgrade)
-          ElevatedButton(
-            onPressed: enabled
-                ? () => showConfirmationDialog(
-                      context,
-                      title: l10n.updateConfirm(
-                        model.device.name,
-                        model.latestRelease?.version,
-                      ),
-                      message: model.device.flags
-                              .contains(FwupdDeviceFlag.usableDuringUpdate)
-                          ? null
-                          : l10n.deviceUnavailable,
-                      actionText: l10n.update,
-                      onConfirm: () => model.install(model.latestRelease!),
-                      onCancel: () {},
-                    )
-                : null,
-            child: Text(l10n.updateToLatest),
-          ),
-        if (model.releases?.isNotEmpty ?? false)
-          FilledButton(
-            onPressed: enabled
-                ? () => context.read<DeviceStore>().showReleases = true
-                : null,
-            child: Text(l10n.allVersions),
-          ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+      child: ButtonBar(
+        mainAxisSize: MainAxisSize.min,
+        alignment: MainAxisAlignment.start,
+        buttonPadding: EdgeInsets.zero,
+        children: [
+          if (model.hasUpgrade)
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: ElevatedButton(
+                onPressed: enabled
+                    ? () => showConfirmationDialog(
+                          context,
+                          title: l10n.updateConfirm(
+                            model.device.name,
+                            model.latestRelease?.version,
+                          ),
+                          message: model.device.flags
+                                  .contains(FwupdDeviceFlag.usableDuringUpdate)
+                              ? null
+                              : l10n.deviceUnavailable,
+                          actionText: l10n.update,
+                          onConfirm: () => model.install(model.latestRelease!),
+                          onCancel: () {},
+                        )
+                    : null,
+                child: Text(l10n.updateToLatest),
+              ),
+            ),
+          if (model.releases?.isNotEmpty ?? false)
+            FilledButton(
+              onPressed: enabled
+                  ? () => context.read<DeviceStore>().showReleases = true
+                  : null,
+              child: Text(l10n.allVersions),
+            ),
+        ],
+      ),
     );
   }
 
