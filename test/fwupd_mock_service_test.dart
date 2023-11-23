@@ -38,32 +38,33 @@ void main() {
     });
 
     test('Should return empty device list by default', () async {
-      var devices = await simulateService.getDevices();
+      final devices = await simulateService.getDevices();
       expect(devices, isEmpty);
     });
 
     test('getDowngrades', () async {
-      var devices = await simulateService.getDowngrades(fakeDevicesList.first);
+      final devices =
+          await simulateService.getDowngrades(fakeDevicesList.first);
       expect(devices, isEmpty);
     });
 
     test('getPlugins', () async {
-      var devices = await simulateService.getPlugins();
+      final devices = await simulateService.getPlugins();
       expect(devices, isEmpty);
     });
 
     test('getReleases', () async {
-      var devices = await simulateService.getReleases(fakeDevicesList.first);
+      final devices = await simulateService.getReleases(fakeDevicesList.first);
       expect(devices, isEmpty);
     });
 
     test('getRemotes', () async {
-      var devices = await simulateService.getRemotes();
+      final devices = await simulateService.getRemotes();
       expect(devices, isEmpty);
     });
 
     test('getUpgrades', () async {
-      var devices = await simulateService.getUpgrades(fakeDevicesList.first);
+      final devices = await simulateService.getUpgrades(fakeDevicesList.first);
       expect(devices, isEmpty);
     });
 
