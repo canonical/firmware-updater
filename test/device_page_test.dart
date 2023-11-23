@@ -109,7 +109,7 @@ void main() {
       await tester.tap(find.text(tester.lang.updateChecksums));
       await tester.pumpAndSettle();
 
-      expect(find.text(tester.lang.updateChecksumsConfirm(device.name)),
+      expect(find.html(tester.lang.updateChecksumsConfirm(device.name)),
           findsOneWidget);
       expect(find.text(tester.lang.updateChecksumsInfo), findsOneWidget);
       expect(find.text(tester.lang.update), findsOneWidget);
