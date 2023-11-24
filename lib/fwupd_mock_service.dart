@@ -10,6 +10,8 @@ final log = Logger('fwupd_service');
 
 // Mainly no-op methods for testing
 class FwupdMockService extends FwupdService {
+  FwupdMockService({this.simulateYamlFilePath});
+
   String? simulateYamlFilePath;
 
   @override

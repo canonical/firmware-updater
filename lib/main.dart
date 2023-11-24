@@ -15,10 +15,10 @@ Future<void> main(List<String> args) async {
 
   for (final element in args) {
     if (element.startsWith('--simulate=')) {
-      registerService<FwupdMockService>(() => FwupdMockService()..init(),
+      registerService<FwupdMockService>(
+          () => FwupdMockService(simulateYamlFilePath: element.split('=').last)
+            ..init(),
           dispose: (s) => s.dispose());
-      getService<FwupdMockService>().simulateYamlFilePath =
-          element.split('=').last;
     }
   }
 

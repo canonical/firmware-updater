@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firmware_updater/fwupd_mock_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -5,28 +7,72 @@ import 'package:fwupd/fwupd.dart';
 import 'test_utils.dart';
 
 void main() {
-  final fakeDevicesList = [
-    testDevice(
-      id: '1',
-      name: 'Device 1',
-      summary: 'Summary 1',
-      guid: [
-        '123e4567-e89b-12d3-a456-426614174000',
-        'a4f0aa5e-fdde-44d7-966c-40bd49385cc5',
-      ],
-      vendor: 'test vendor',
-      version: '1.0.0',
-      versionLowest: '0.0.1',
-      flags: {FwupdDeviceFlag.updatable, FwupdDeviceFlag.needsReboot},
-    ),
-    testDevice(id: '2', name: 'Device 2', summary: 'Summary 2'),
-  ];
-
-  group('FwupdMockService', () {
+  group('FwupdMockService - No Devices', () {
     late FwupdMockService simulateService;
+    late File file;
 
-    setUp(() {
-      simulateService = FwupdMockService();
+    setUp(() async {
+      file = File('./test/tmp_test.yaml');
+      file.writeAsStringSync('''
+---
+- checksum: null
+  created: 2023-11-07 14:56:27.000Z
+  deviceId: 08d460be0f1f9f128413f816022a6439e0078018
+  flags: 
+      - FwupdDeviceFlag.updatable
+      - FwupdDeviceFlag.requireAc
+      - FwupdDeviceFlag.supported
+      - FwupdDeviceFlag.registered
+      - FwupdDeviceFlag.canVerify
+      - FwupdDeviceFlag.canVerifyImage
+  guid: b585990a-003e-5270-89d5-3705a17f9a43
+  icon: preferences-desktop-keyboard
+  modified: null
+  name: 'Integrated Webcam'
+  parentDeviceId: null
+  plugin: test
+  protocol: com.acme.test
+  summary: Fake webcam
+  updateState: FwupdUpdateState.unknown
+  vendor: ACME Corp.
+  vendorId: USB:0x046D
+  version: 1.2.2
+  versionBootloader: 0.1.2
+  versionFormat: FwupdVersionFormat.triplet
+  versionLowest: 1.2.0
+
+- checksum: null
+  created: 2023-11-07 14:56:27.000Z
+  deviceId: 08d460be0f1f9f128413f816022a6439e0078018
+  flags: 
+      - FwupdDeviceFlag.updatable
+      - FwupdDeviceFlag.requireAc
+      - FwupdDeviceFlag.supported
+      - FwupdDeviceFlag.registered
+      - FwupdDeviceFlag.canVerify
+      - FwupdDeviceFlag.canVerifyImage
+  guid: b585990a-003e-5270-89d5-3705a17f9a43
+  icon: preferences-desktop-keyboard
+  modified: null
+  name: 'MuSuperDuperDevice'
+  parentDeviceId: null
+  plugin: test
+  protocol: com.acme.test
+  summary: A new fake device
+  updateState: FwupdUpdateState.unknown
+  vendor: ACME Corp.
+  vendorId: USB:0x046D
+  version: 1.2.2
+  versionBootloader: 0.1.2
+  versionFormat: FwupdVersionFormat.triplet
+  versionLowest: 1.2.0''');
+      simulateService = FwupdMockService(simulateYamlFilePath: file.path);
+    });
+
+    tearDown(() async {
+      expect(await file.exists(), isTrue);
+      await file.delete();
+      await simulateService.dispose();
     });
 
     test('Should initialize without error', () async {
@@ -39,13 +85,14 @@ void main() {
 
     test('Should return empty device list by default', () async {
       final devices = await simulateService.getDevices();
-      expect(devices, isEmpty);
+      expect(devices, isNotEmpty);
+      expect(devices.length, greaterThan(1));
     });
 
     test('getDowngrades', () async {
-      final devices =
-          await simulateService.getDowngrades(fakeDevicesList.first);
-      expect(devices, isEmpty);
+      final devices = await simulateService.getDevices();
+      final releases = await simulateService.getDowngrades(devices.first);
+      expect(releases, isEmpty);
     });
 
     test('getPlugins', () async {
@@ -54,8 +101,9 @@ void main() {
     });
 
     test('getReleases', () async {
-      final devices = await simulateService.getReleases(fakeDevicesList.first);
-      expect(devices, isEmpty);
+      final devices = await simulateService.getDevices();
+      final releases = await simulateService.getReleases(devices.first);
+      expect(releases, isEmpty);
     });
 
     test('getRemotes', () async {
@@ -64,8 +112,9 @@ void main() {
     });
 
     test('getUpgrades', () async {
-      final devices = await simulateService.getUpgrades(fakeDevicesList.first);
-      expect(devices, isEmpty);
+      final devices = await simulateService.getDevices();
+      final releases = await simulateService.getUpgrades(devices.first);
+      expect(releases, isEmpty);
     });
 
     test('reboot', () async {
@@ -77,15 +126,18 @@ void main() {
     });
 
     test('unlock', () async {
-      await simulateService.unlock(fakeDevicesList.first);
+      final devices = await simulateService.getDevices();
+      await simulateService.unlock(devices.first);
     });
 
     test('verify', () async {
-      await simulateService.verify(fakeDevicesList.first);
+      final devices = await simulateService.getDevices();
+      await simulateService.verify(devices.first);
     });
 
     test('verifyUpdate', () async {
-      await simulateService.verifyUpdate(fakeDevicesList.first);
+      final devices = await simulateService.getDevices();
+      await simulateService.verifyUpdate(devices.first);
     });
   });
 }
