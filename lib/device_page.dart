@@ -37,27 +37,42 @@ class DevicePage extends StatelessWidget {
 
   static Widget _buildLabel(BuildContext context, String text,
       [String? chipLabel]) {
-    return _buildPadding(chipLabel == null
-        ? Text(text)
-        : Row(
-            children: [
-              Text(text),
-              const SizedBox(width: 8),
-              Chip(
-                label: Text(chipLabel),
-                labelStyle: Theme.of(context)
-                    .textTheme
-                    .labelMedium
-                    ?.copyWith(color: Theme.of(context).colorScheme.secondary),
-                labelPadding: EdgeInsets.zero,
-                backgroundColor: Theme.of(context)
-                    .colorScheme
-                    .secondary
-                    .adjust(lightness: 0.64, saturation: 1),
-                side: BorderSide.none,
-              ),
-            ],
-          ));
+    final lightChipLabelColor = Theme.of(context).colorScheme.secondary;
+    final darkChipLabelColor = lightChipLabelColor.copyWith(lightness: .65);
+
+    final lightChipBackgroundColor = Theme.of(context)
+        .colorScheme
+        .secondary
+        .adjust(lightness: 0.64, saturation: 1);
+
+    final darkChipBackgroundColor =
+        lightChipBackgroundColor.copyWith(lightness: .4, alpha: 0.3);
+
+    return _buildPadding(
+      chipLabel == null
+          ? Text(text)
+          : Row(
+              children: [
+                Text(text),
+                const SizedBox(width: 8),
+                Chip(
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  label: Text(chipLabel),
+                  labelStyle: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? lightChipLabelColor
+                          : darkChipLabelColor),
+                  labelPadding: EdgeInsets.zero,
+                  visualDensity: const VisualDensity(vertical: -4),
+                  backgroundColor:
+                      Theme.of(context).brightness == Brightness.light
+                          ? lightChipBackgroundColor
+                          : darkChipBackgroundColor,
+                  side: BorderSide.none,
+                ),
+              ],
+            ),
+    );
   }
 
   static Widget _buildAppBarTitle(
