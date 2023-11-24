@@ -166,6 +166,7 @@ class DevicePage extends StatelessWidget {
             ),
             const SizedBox(height: 32),
             Table(
+              defaultVerticalAlignment: TableCellVerticalAlignment.middle,
               columnWidths: const {
                 0: FlexColumnWidth(),
                 1: FixedColumnWidth(16),
