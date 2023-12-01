@@ -114,7 +114,7 @@
   "update": "Update",
   "updateAvailable": "Update available",
   "updateChecksums": "Update Checksums",
-  "updateChecksumsConfirm": "Update device checksums of {name}?",
+  "updateChecksumsConfirm": "Update device checksums of <b>{name}</b>?",
   "@updateChecksumsConfirm": {
     "placeholders": {
       "name": {

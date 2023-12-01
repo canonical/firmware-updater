@@ -57,7 +57,7 @@ class ReleaseCard extends StatelessWidget {
         actionText: action,
         onConfirm: onInstall,
         onCancel: () {},
-        icon: YaruIcons.sync,
+        icon: YaruIcons.update_available,
       );
     }
 
