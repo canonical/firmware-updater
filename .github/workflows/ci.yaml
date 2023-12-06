@@ -11,7 +11,7 @@ jobs:
   analyze:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: asdf-vm/actions/install@v2
       - uses: bluefireteam/melos-action@v2
       - run: melos analyze
@@ -19,7 +19,7 @@ jobs:
   format:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: asdf-vm/actions/install@v2
       - uses: bluefireteam/melos-action@v2
       - run: melos format
@@ -27,7 +27,7 @@ jobs:
   mocks:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: asdf-vm/actions/install@v2
       - uses: bluefireteam/melos-action@v2
       - run: melos generate
@@ -47,7 +47,7 @@ jobs:
   l10n:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: asdf-vm/actions/install@v2
       - uses: bluefireteam/melos-action@v2
       - run: melos gen-l10n
@@ -67,7 +67,7 @@ jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: asdf-vm/actions/install@v2
       - uses: bluefireteam/melos-action@v2
       - run: sudo apt update && sudo apt install -y lcov
@@ -79,7 +79,7 @@ jobs:
   integration:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: asdf-vm/actions/install@v2
       - uses: bluefireteam/melos-action@v2
       - run: sudo apt update
