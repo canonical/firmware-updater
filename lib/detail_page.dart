@@ -7,7 +7,8 @@ import 'package:yaru/yaru.dart';
 import 'device_model.dart';
 import 'device_page.dart';
 import 'device_store.dart';
-import 'fwupd_service.dart';
+import 'fwupd_dbus_service.dart';
+import 'fwupd_mock_service.dart';
 import 'release_page.dart';
 
 class DetailPage extends StatefulWidget {
@@ -21,7 +22,11 @@ class DetailPage extends StatefulWidget {
   }) {
     return ChangeNotifierProvider<DeviceModel>(
       key: ValueKey(device.hashCode),
-      create: (_) => DeviceModel(device, getService<FwupdService>()),
+      create: (_) => DeviceModel(
+          device,
+          hasService<FwupdMockService>()
+              ? getService<FwupdMockService>()
+              : getService<FwupdDbusService>()),
       child: const DetailPage(),
     );
   }

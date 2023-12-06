@@ -7,13 +7,23 @@ import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
 
 import 'firmware_app.dart';
-import 'fwupd_service.dart';
+import 'fwupd_dbus_service.dart';
+import 'fwupd_mock_service.dart';
 
 Future<void> main(List<String> args) async {
   Logger.setup(level: LogLevel.fromString(kDebugMode ? 'debug' : 'info'));
 
-  registerService<FwupdService>(
-    () => FwupdService()..init(),
+  for (final element in args) {
+    if (element.startsWith('--simulate=')) {
+      registerService<FwupdMockService>(
+          () => FwupdMockService(simulateYamlFilePath: element.split('=').last)
+            ..init(),
+          dispose: (s) => s.dispose());
+    }
+  }
+
+  registerService<FwupdDbusService>(
+    () => FwupdDbusService()..init(),
     dispose: (s) => s.dispose(),
   );
 

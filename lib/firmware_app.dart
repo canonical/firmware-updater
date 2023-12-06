@@ -10,16 +10,20 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 import 'detail_page.dart';
 import 'device_store.dart';
 import 'device_tile.dart';
+import 'fwupd_dbus_service.dart';
 import 'fwupd_l10n.dart';
+import 'fwupd_mock_service.dart';
 import 'fwupd_notifier.dart';
-import 'fwupd_service.dart';
 import 'widgets.dart';
 
 class FirmwareApp extends StatefulWidget {
   const FirmwareApp({super.key});
 
   static Widget create(BuildContext context) {
-    final service = getService<FwupdService>();
+    final service = hasService<FwupdMockService>()
+        ? getService<FwupdMockService>()
+        : getService<FwupdDbusService>();
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => DeviceStore(service)),
