@@ -57,38 +57,39 @@ class FwupdMockService extends FwupdService {
     }
 
     final file = File(simulateYamlFilePath!);
-    final YamlList doc = loadYaml(file.readAsStringSync());
+    final doc = loadYaml(file.readAsStringSync()) as YamlList;
 
     return Future.value([
       for (final device in doc)
         FwupdDevice(
-          deviceId: device['deviceId'],
-          name: device['name'],
-          vendor: device['vendor'],
-          version: device['version'],
-          versionBootloader: device['versionBootloader'],
-          versionLowest: device['versionLowest'],
+          deviceId: device['deviceId'] as String,
+          name: device['name'] as String,
+          vendor: device['vendor'] as String?,
+          version: device['version'] as String?,
+          versionBootloader: device['versionBootloader'] as String?,
+          versionLowest: device['versionLowest'] as String?,
           versionFormat: FwupdVersionFormat.values
               .firstWhere((e) => e.toString() == device['versionFormat']),
-          protocol: device['protocol'],
-          plugin: device['plugin'],
-          guid: [device['guid']],
-          vendorId: device['vendorId'],
-          icon: [device['icon']],
-          checksum: device['checksum'],
+          protocol: device['protocol'] as String?,
+          plugin: device['plugin'] as String,
+          guid: device['guid'] == null ? [] : [device['guid'] as String],
+          vendorId: device['vendorId'] as String?,
+          icon: device['icon'] == null ? [] : [device['icon'] as String],
+          checksum: device['checksum'] as String?,
           created: (device['created'] != null)
-              ? DateTime.parse(device['created'])
+              ? DateTime.parse(device['created'] as String)
               : null,
           modified: (device['modified'] != null)
-              ? DateTime.parse(device['modified'])
+              ? DateTime.parse(device['modified'] as String)
               : null,
-          parentDeviceId: device['parentDeviceId'],
+          parentDeviceId: device['parentDeviceId'] as String?,
           flags: (device['flags'] as YamlList)
               .value
-              .map((e) => FwupdDeviceFlag.values
-                  .firstWhere((f) => f.toString() == e.toString()))
+              .map((e) => FwupdDeviceFlag.values.firstWhere(
+                    (f) => f.toString() == e.toString(),
+                  ))
               .toSet(),
-          summary: device['summary'],
+          summary: device['summary'] as String?,
           updateState: FwupdUpdateState.values
               .firstWhere((e) => e.toString() == device['updateState']),
         ),

@@ -1,7 +1,6 @@
-name: firmware_updater
+name: firmware_updater_workspace
 
 packages:
-  - .
   - packages/**
 
 scripts:

@@ -13,9 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: asdf-vm/actions/install@v2
-      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-      - run: flutter pub global activate melos
-      - run: melos pub get
+      - uses: bluefireteam/melos-action@v2
       - run: melos analyze
 
   format:
@@ -23,9 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: asdf-vm/actions/install@v2
-      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-      - run: flutter pub global activate melos
-      - run: melos pub get
+      - uses: bluefireteam/melos-action@v2
       - run: melos format
 
   mocks:
@@ -33,9 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: asdf-vm/actions/install@v2
-      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-      - run: flutter pub global activate melos
-      - run: melos pub get
+      - uses: bluefireteam/melos-action@v2
       - run: melos generate
       - name: Check for outdated mocks
         if: github.event_name != 'push'
@@ -55,9 +49,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: asdf-vm/actions/install@v2
-      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-      - run: flutter pub global activate melos
-      - run: melos pub get
+      - uses: bluefireteam/melos-action@v2
       - run: melos gen-l10n
       - name: Check for outdated l10n
         if: github.event_name == 'pull_request'
@@ -77,10 +69,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: asdf-vm/actions/install@v2
-      - run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+      - uses: bluefireteam/melos-action@v2
       - run: sudo apt update && sudo apt install -y lcov
-      - run: flutter pub global activate melos
-      - run: melos pub get
       - run: melos coverage
       - uses: codecov/codecov-action@v3
         with:
@@ -89,19 +79,23 @@ jobs:
   integration:
     runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v3
-    - uses: asdf-vm/actions/install@v2
-    - run: sudo apt update
-    - run: sudo apt install -y clang cmake curl dbus dbus-x11 fwupd fwupd-tests gsettings-desktop-schemas libgtk-3-dev ninja-build pkg-config unzip upower xvfb
-      env:
-        DEBIAN_FRONTEND: noninteractive
-    - name: Prepare environment
-      run: |
-        sudo sed -i 's/DisabledPlugins=.*/DisabledPlugins=invalid;bios/g' /etc/fwupd/daemon.conf
-        echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus" >> $GITHUB_ENV
-        echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
-        echo "FLUTTER_ROOT=$(asdf where flutter)" >> $GITHUB_ENV
-        gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
-    - run: sudo fwupdmgr enable-remote fwupd-tests
-    - run: sudo fwupdmgr get-devices
-    - run: sudo -E xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' $FLUTTER_ROOT/bin/flutter test integration_test
+      - uses: actions/checkout@v3
+      - uses: asdf-vm/actions/install@v2
+      - uses: bluefireteam/melos-action@v2
+      - run: sudo apt update
+      - run: sudo apt install -y clang cmake curl dbus dbus-x11 fwupd fwupd-tests gsettings-desktop-schemas libgtk-3-dev ninja-build pkg-config unzip upower xvfb
+        env:
+          DEBIAN_FRONTEND: noninteractive
+      - name: Prepare environment
+        run: |
+          sudo sed -i 's/DisabledPlugins=.*/DisabledPlugins=invalid;bios/g' /etc/fwupd/daemon.conf
+          echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus" >> $GITHUB_ENV
+          echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
+          echo "FLUTTER_ROOT=$(asdf where flutter)" >> $GITHUB_ENV
+          gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
+      - run: sudo fwupdmgr enable-remote fwupd-tests
+      - run: sudo fwupdmgr get-devices
+      - run: |
+          cd packages/firmware_updater && \
+          sudo -E xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' \
+          $FLUTTER_ROOT/bin/flutter test integration_test
