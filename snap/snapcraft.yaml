@@ -67,7 +67,7 @@ parts:
 
   firmware-updater:
     plugin: dump
-    source: ./launcher-script/
+    source: ./packages/firmware_updater/launcher-script/
 
 apps:
   firmware-updater:
