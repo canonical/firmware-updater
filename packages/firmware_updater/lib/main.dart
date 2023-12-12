@@ -1,3 +1,6 @@
+import 'package:firmware_updater/firmware_app.dart';
+import 'package:firmware_updater/fwupd_dbus_service.dart';
+import 'package:firmware_updater/fwupd_mock_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -5,10 +8,6 @@ import 'package:gtk/gtk.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
-
-import 'firmware_app.dart';
-import 'fwupd_dbus_service.dart';
-import 'fwupd_mock_service.dart';
 
 Future<void> main(List<String> args) async {
   Logger.setup(level: LogLevel.fromString(kDebugMode ? 'debug' : 'info'));

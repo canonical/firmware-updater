@@ -4,9 +4,7 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 
 class RefreshButton extends StatelessWidget {
   const RefreshButton({
-    super.key,
-    required this.isBusy,
-    required this.onPressed,
+    required this.isBusy, required this.onPressed, super.key,
   });
 
   final bool isBusy;

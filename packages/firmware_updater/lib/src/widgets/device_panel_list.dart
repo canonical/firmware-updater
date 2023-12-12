@@ -5,10 +5,10 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 
 class DevicePanelList extends StatefulWidget {
   const DevicePanelList({
-    super.key,
     required this.devices,
     required this.headerBuilder,
     required this.bodyBuilder,
+    super.key,
   });
 
   final List<FwupdDevice> devices;
@@ -34,7 +34,7 @@ class _DevicePanelListState extends State<DevicePanelList> {
         for (var i = 0; i < widget.devices.length; ++i)
           ExpansionPanel(
             canTapOnHeader: true,
-            isExpanded: _expansions[i] == true,
+            isExpanded: _expansions[i] ?? false,
             headerBuilder: (context, isExpanded) => widget.headerBuilder(
               context,
               widget.devices[i],

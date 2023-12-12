@@ -1,15 +1,12 @@
 import 'package:collection/collection.dart';
+import 'package:firmware_updater/src/widgets/device_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
-import 'device_icon.dart';
-
 class DeviceHeader extends StatelessWidget {
   const DeviceHeader({
-    super.key,
-    required this.device,
-    required this.hasUpgrade,
+    required this.device, required this.hasUpgrade, super.key,
   });
 
   final FwupdDevice device;

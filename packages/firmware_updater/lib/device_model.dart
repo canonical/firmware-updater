@@ -1,11 +1,10 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
+import 'package:firmware_updater/fwupd_service.dart';
+import 'package:firmware_updater/fwupd_x.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
-
-import 'fwupd_service.dart';
-import 'fwupd_x.dart';
 
 class DeviceModel extends SafeChangeNotifier {
   DeviceModel(this._device, this._service);
@@ -58,5 +57,5 @@ class DeviceModel extends SafeChangeNotifier {
   Future<void> install(FwupdRelease release) =>
       _service.install(device, release);
 
-  bool get hasUpgrade => _releases?.any((r) => r.isUpgrade) == true;
+  bool get hasUpgrade => _releases?.any((r) => r.isUpgrade) ?? false;
 }

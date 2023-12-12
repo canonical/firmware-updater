@@ -5,14 +5,13 @@ import 'package:dbus/dbus.dart';
 import 'package:dio/dio.dart';
 import 'package:file/file.dart';
 import 'package:file/local.dart';
+import 'package:firmware_updater/fwupd_service.dart';
+import 'package:firmware_updater/fwupd_x.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:upower/upower.dart';
-
-import 'fwupd_service.dart';
-import 'fwupd_x.dart';
 
 final log = Logger('fwupd_service');
 
@@ -201,7 +200,7 @@ class FwupdDbusService extends FwupdService {
         },
       );
       if (device.flags.contains(FwupdDeviceFlag.needsReboot)) {
-        if (await _confirmationListener?.call() == true) await reboot();
+        if (await _confirmationListener?.call() ?? false) await reboot();
       }
     } on Exception catch (e) {
       _errorListener?.call(e);

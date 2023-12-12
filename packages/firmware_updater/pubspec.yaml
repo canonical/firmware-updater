@@ -4,7 +4,7 @@ publish_to: "none"
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
-  flutter: 3.13.7
+  flutter: ">=3.13.7"
 
 dependencies:
   collection: ^1.17.2
@@ -45,7 +45,7 @@ dev_dependencies:
   integration_test:
     sdk: flutter
   mockito: 5.4.2
-  ubuntu_lints: ^0.1.0
+  ubuntu_lints: ^0.3.0
 
 flutter:
   generate: true
