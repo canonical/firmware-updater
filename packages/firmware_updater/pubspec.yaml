@@ -45,7 +45,7 @@ dev_dependencies:
   integration_test:
     sdk: flutter
   mockito: 5.4.2
-  ubuntu_lints: ^0.1.0
+  ubuntu_lints: ^0.3.0
 
 flutter:
   generate: true
