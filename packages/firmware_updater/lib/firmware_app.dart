@@ -1,4 +1,12 @@
 import 'package:collection/collection.dart';
+import 'package:firmware_updater/detail_page.dart';
+import 'package:firmware_updater/device_store.dart';
+import 'package:firmware_updater/device_tile.dart';
+import 'package:firmware_updater/fwupd_dbus_service.dart';
+import 'package:firmware_updater/fwupd_l10n.dart';
+import 'package:firmware_updater/fwupd_mock_service.dart';
+import 'package:firmware_updater/fwupd_notifier.dart';
+import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
@@ -6,15 +14,6 @@ import 'package:gtk/gtk.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
-
-import 'detail_page.dart';
-import 'device_store.dart';
-import 'device_tile.dart';
-import 'fwupd_dbus_service.dart';
-import 'fwupd_l10n.dart';
-import 'fwupd_mock_service.dart';
-import 'fwupd_notifier.dart';
-import 'widgets.dart';
 
 class FirmwareApp extends StatefulWidget {
   const FirmwareApp({super.key});

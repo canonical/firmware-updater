@@ -1,17 +1,16 @@
 import 'package:collection/collection.dart';
+import 'package:firmware_updater/device_model.dart';
+import 'package:firmware_updater/device_store.dart';
+import 'package:firmware_updater/fwupd_l10n.dart';
+import 'package:firmware_updater/fwupd_notifier.dart';
+import 'package:firmware_updater/fwupd_x.dart';
+import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:yaru/yaru.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
-
-import 'device_model.dart';
-import 'device_store.dart';
-import 'fwupd_l10n.dart';
-import 'fwupd_notifier.dart';
-import 'fwupd_x.dart';
-import 'widgets.dart';
 
 class DevicePage extends StatelessWidget {
   const DevicePage({super.key, this.parentNavigator});
@@ -151,7 +150,7 @@ class DevicePage extends StatelessWidget {
     return YaruDetailPage(
       appBar: YaruWindowTitleBar(
         title: _buildAppBarTitle(context, device.name, device.summary),
-        leading: parentNavigator?.canPop() == true
+        leading: parentNavigator?.canPop() ?? false
             ? YaruBackButton(onPressed: parentNavigator!.pop)
             : Icon(DeviceIcon.fromName(device.icon.firstOrNull)),
       ),

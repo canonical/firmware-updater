@@ -1,11 +1,10 @@
 import 'dart:async';
 
+import 'package:firmware_updater/fwupd_service.dart';
+import 'package:firmware_updater/fwupd_x.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
-
-import 'fwupd_service.dart';
-import 'fwupd_x.dart';
 
 final log = Logger('device_store');
 

@@ -3,8 +3,8 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 
 class StatusBanner extends StatelessWidget {
   const StatusBanner({
-    super.key,
     required this.message,
+    super.key,
     this.progress,
     this.visible = true,
   });

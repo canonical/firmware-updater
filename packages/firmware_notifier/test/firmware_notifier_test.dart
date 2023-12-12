@@ -17,7 +17,7 @@ void main() {
       '0': [
         FwupdRelease(
           name: 'newRelease',
-          flags: {FwupdReleaseFlag.isUpgrade},
+          flags: const {FwupdReleaseFlag.isUpgrade},
         ),
         FwupdRelease(
           name: 'oldRelease',
@@ -45,9 +45,9 @@ void main() {
         .thenAnswer((_) async => Notification(NotificationsClient(), 0));
     final updates = {
       FwupdDevice(deviceId: '0', name: 'a', plugin: ''): FwupdRelease(
-          name: 'newRelease_a', flags: {FwupdReleaseFlag.isUpgrade}),
+          name: 'newRelease_a', flags: const {FwupdReleaseFlag.isUpgrade}),
       FwupdDevice(deviceId: '1', name: 'b', plugin: ''): FwupdRelease(
-          name: 'newRelease_b', flags: {FwupdReleaseFlag.isUpgrade}),
+          name: 'newRelease_b', flags: const {FwupdReleaseFlag.isUpgrade}),
     };
 
     sendUpdateNotifications(client, updates);

@@ -1,3 +1,5 @@
+import 'package:firmware_updater/fwupd_x.dart';
+import 'package:firmware_updater/src/widgets/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -5,14 +7,11 @@ import 'package:fwupd/fwupd.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
-import '../../fwupd_x.dart';
-import 'dialogs.dart';
-
 class ReleaseCard extends StatelessWidget {
   const ReleaseCard({
-    super.key,
     required this.release,
     required this.device,
+    super.key,
     this.onInstall,
   });
 
