@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class SmallChip extends StatelessWidget {
   const SmallChip({
-    required this.text, super.key,
+    required this.text,
+    super.key,
     this.color,
   });
 

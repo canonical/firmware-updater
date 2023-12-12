@@ -3,7 +3,9 @@ import 'package:fwupd/fwupd.dart';
 
 class StatusBar extends StatelessWidget {
   const StatusBar({
-    required this.status, required this.daemonVersion, super.key,
+    required this.status,
+    required this.daemonVersion,
+    super.key,
   });
 
   final FwupdStatus status;

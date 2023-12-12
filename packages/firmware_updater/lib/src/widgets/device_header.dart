@@ -6,7 +6,9 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 
 class DeviceHeader extends StatelessWidget {
   const DeviceHeader({
-    required this.device, required this.hasUpgrade, super.key,
+    required this.device,
+    required this.hasUpgrade,
+    super.key,
   });
 
   final FwupdDevice device;

@@ -3,7 +3,9 @@ import 'package:fwupd/fwupd.dart';
 
 class AppProgressBar extends AppBar {
   AppProgressBar({
-    required String title, required FwupdStatus status, super.key,
+    required String title,
+    required FwupdStatus status,
+    super.key,
     super.leading,
     double? height,
     double? progress,

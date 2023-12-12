@@ -9,7 +9,9 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 
 class ReleaseCard extends StatelessWidget {
   const ReleaseCard({
-    required this.release, required this.device, super.key,
+    required this.release,
+    required this.device,
+    super.key,
     this.onInstall,
   });
 

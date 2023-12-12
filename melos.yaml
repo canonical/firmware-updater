@@ -38,7 +38,7 @@ scripts:
     find . -name '*.dart' \
       ! -name '*.g.dart' \
       ! -path '*/.*/*' \
-      | xargs dart format --set-exit-if-changed
+      | xargs dart format
 
   # run build_runner to generate code in all packages
   generate: >
