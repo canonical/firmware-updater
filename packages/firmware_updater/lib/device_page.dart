@@ -10,6 +10,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:yaru/yaru.dart';
+import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 class DevicePage extends StatelessWidget {
@@ -111,6 +112,7 @@ class DevicePage extends StatelessWidget {
                             model.device.name,
                             model.latestRelease?.version,
                           ),
+                          icon: YaruIcons.update_available,
                           message: model.device.flags
                                   .contains(FwupdDeviceFlag.usableDuringUpdate)
                               ? null
