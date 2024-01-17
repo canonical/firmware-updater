@@ -147,5 +147,9 @@
   },
   "currentVersion": "Current Version",
   "minVersion": "Minimum Version",
-  "latestVersion": "Latest Version"
+  "latestVersion": "Latest Version",
+  "acPowerTitle": "You are currently on battery power",
+  "acPowerMustBeSupplied": "BIOS and other updates can't commence on battery power.\nPlug into A/C power and restart this app to perform those updates if available.",
+  "legacyBootTitle": "Legacy Boot Mode is selected in the BIOS",
+  "legacyBootCantUpdateInThisMode": "BIOS and other updates can't commence in this mode.\nSwitch to UEFI Boot Mode in the BIOS to proceed.\nNote - this may require an OS reinstall."
 }
