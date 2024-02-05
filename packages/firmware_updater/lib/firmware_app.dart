@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:collection/collection.dart';
 import 'package:firmware_updater/detail_page.dart';
 import 'package:firmware_updater/device_store.dart';
@@ -9,6 +8,7 @@ import 'package:firmware_updater/fwupd_mock_service.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:gtk/gtk.dart';
@@ -63,7 +63,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
     });
     gtkNotifier.addCommandLineListener(_commandLineListener);
 
-    Future.delayed(const Duration(seconds: 1), () async {
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
       final l10n = AppLocalizations.of(context);
       if (_onBattery) {
         await _showAlertDialog(l10n.acPowerTitle, l10n.acPowerMustBeSupplied);

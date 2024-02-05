@@ -145,7 +145,7 @@ void main() {
         buildPage(store: store, notifier: mockNotifier(onBattery: true)));
     await tester.pumpAndSettle();
 
-    expect(find.text(tester.lang.batteryWarning), findsOneWidget);
+    expect(find.text(tester.lang.acPowerMustBeSupplied), findsOneWidget);
   });
 
   testWidgets('register callbacks', (tester) async {
