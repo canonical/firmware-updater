@@ -8,6 +8,7 @@ import 'package:firmware_updater/fwupd_mock_service.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:gtk/gtk.dart';
@@ -39,6 +40,7 @@ class FirmwareApp extends StatefulWidget {
 class _FirmwareAppState extends State<FirmwareApp> {
   YaruPageController? _controller;
   bool _initialized = false;
+  bool _onBattery = false;
 
   @override
   void initState() {
@@ -60,6 +62,36 @@ class _FirmwareAppState extends State<FirmwareApp> {
       });
     });
     gtkNotifier.addCommandLineListener(_commandLineListener);
+
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      final l10n = AppLocalizations.of(context);
+      if (_onBattery) {
+        await _showAlertDialog(l10n.acPowerTitle, l10n.acPowerMustBeSupplied);
+      }
+    });
+  }
+
+  Future<dynamic> _showAlertDialog(String titleP, String contentP) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        final l10n = AppLocalizations.of(context);
+        // return object of type Dialog
+        return AlertDialog(
+          title: Text(titleP),
+          content: Text(contentP),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            TextButton(
+              child: Text(l10n.ok),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -109,12 +141,10 @@ class _FirmwareAppState extends State<FirmwareApp> {
   Widget build(BuildContext context) {
     final store = context.watch<DeviceStore>();
     final l10n = AppLocalizations.of(context);
+    _onBattery =
+        context.select<FwupdNotifier, bool>((notifier) => notifier.onBattery);
     return _initialized
-        ? ErrorBanner(
-            message: context.select<FwupdNotifier, bool>(
-                    (notifier) => notifier.onBattery)
-                ? l10n.batteryWarning
-                : null,
+        ? Center(
             child: YaruMasterDetailPage(
               appBar: YaruWindowTitleBar(title: Text(l10n.appTitle)),
               controller: _controller,
