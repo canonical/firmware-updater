@@ -110,7 +110,7 @@
   "@fwupdDeviceFlagUnreachable": {},
   "fwupdErrorInternal": "Внутренняя ошибка",
   "@fwupdErrorInternal": {},
-  "fwupdDeviceFlagUnsignedPayload": "Не подписанная полезная нагрузка",
+  "fwupdDeviceFlagUnsignedPayload": "Рабочая нагрузка не подписана",
   "@fwupdDeviceFlagUnsignedPayload": {},
   "fwupdErrorVersionSame": "Установлена та же версия прошивки",
   "@fwupdErrorVersionSame": {},
