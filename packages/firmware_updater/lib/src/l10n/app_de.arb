@@ -1,4 +1,6 @@
 {
   "appTitle": "Firmware-Aktualisierer",
-  "@appTitle": {}
+  "@appTitle": {},
+  "allVersions": "Alle Versionen",
+  "@allVersions": {}
 }
