@@ -45,7 +45,7 @@ class ReleaseCard extends StatelessWidget {
       action = l10n.reinstall;
       dialogText = l10n.reinstallConfirm(
         device.name,
-        device.version,
+        device.version ?? '',
       );
     }
     void confirmAndInstall() {

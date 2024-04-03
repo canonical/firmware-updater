@@ -110,7 +110,7 @@ class DevicePage extends StatelessWidget {
                           context,
                           title: l10n.updateConfirm(
                             model.device.name,
-                            model.latestRelease?.version,
+                            model.latestRelease?.version ?? '',
                           ),
                           icon: YaruIcons.update_available,
                           message: model.device.flags
