@@ -1,4 +1,5 @@
 {
+  "@@locale": "en",
   "allVersions": "All Versions",
   "appTitle": "Firmware Updater",
   "batteryWarning": "Warning: some device updates may only be available on external power!",
@@ -16,7 +17,7 @@
         "type": "String"
       },
       "version": {
-        "type": "String?"
+        "type": "String"
       }
     }
   },
@@ -105,7 +106,7 @@
         "type": "String"
       },
       "current": {
-        "type": "String?"
+        "type": "String"
       }
     }
   },
@@ -131,7 +132,7 @@
         "type": "String"
       },
       "version": {
-        "type": "String?"
+        "type": "String"
       }
     }
   },
