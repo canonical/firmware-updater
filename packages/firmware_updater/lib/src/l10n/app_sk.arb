@@ -177,7 +177,7 @@
   "@fwupdErrorInvalidFile": {},
   "fwupdErrorNotSupported": "Akcia nebola možná",
   "@fwupdErrorNotSupported": {},
-  "fwupdErrorAcPowerRequired": "Je potrebné napájanie striedavým prúdom",
+  "fwupdErrorAcPowerRequired": "Je potrebné napájanie zo zásuvky",
   "@fwupdErrorAcPowerRequired": {},
   "fwupdErrorPermissionDenied": "Povolenie bolo zamietnuté",
   "@fwupdErrorPermissionDenied": {},
