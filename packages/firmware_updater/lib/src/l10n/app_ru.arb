@@ -20,7 +20,7 @@
   "@deviceUnavailable": {},
   "deviceRequest": "Запрос устройства",
   "@deviceRequest": {},
-  "flags": "Флаги",
+  "flags": "Метки",
   "@flags": {},
   "fwupdDeviceFlagUpdatable": "Можно обновлять",
   "@fwupdDeviceFlagUpdatable": {},
@@ -142,7 +142,7 @@
   "@fwupdDeviceFlagNeedsActivation": {},
   "fwupdDeviceFlagDualImage": "Обновление этапов устройства",
   "@fwupdDeviceFlagDualImage": {},
-  "fwupdDeviceFlagSelfRecovery": "Устройство может восстанавливать неисправности записи",
+  "fwupdDeviceFlagSelfRecovery": "Устройство может восстанавливать неисправности флеш-памяти",
   "@fwupdDeviceFlagSelfRecovery": {},
   "fwupdDeviceFlagInstallAllReleases": "Устройство необходимо для установки всех представленных выпусков",
   "@fwupdDeviceFlagInstallAllReleases": {},
@@ -152,7 +152,7 @@
   "@fwupdDeviceFlagWildcardInstall": {},
   "fwupdDeviceFlagOnlyVersionUpgrade": "Разрешено только обновление версий",
   "@fwupdDeviceFlagOnlyVersionUpgrade": {},
-  "fwupdDeviceFlagAffectsFde": "Секреты полного шифрования диска могут быть недействительны при обновлении",
+  "fwupdDeviceFlagAffectsFde": "Секретность полного шифрования диска может быть недействительна при обновлении",
   "@fwupdDeviceFlagAffectsFde": {},
   "fwupdDeviceFlagEndOfLife": "Конец срока службы",
   "@fwupdDeviceFlagEndOfLife": {},
@@ -219,5 +219,34 @@
         "type": "String"
       }
     }
-  }
+  },
+  "updateConfirm": "Обновить <b>{name}</b> до версии <b>{version}</b>?",
+  "@updateConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "vendor": "Производитель",
+  "@vendor": {},
+  "currentVersion": "Текущая версия",
+  "@currentVersion": {},
+  "verifyFirmwareConfirm": "Проверить контрольные суммы прошивки {name}?",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyFirmware": "Проверить прошивку",
+  "@verifyFirmware": {},
+  "minVersion": "Минимальная версия",
+  "@minVersion": {},
+  "latestVersion": "Последняя версия",
+  "@latestVersion": {}
 }
