@@ -1,3 +1,9 @@
 {
-  "@@locale": "fi"
+  "@@locale": "fi",
+  "close": "Sulje",
+  "@close": {},
+  "allVersions": "Kaikki versiot",
+  "@allVersions": {},
+  "appTitle": "Laiteohjelmiston päivitys",
+  "@appTitle": {}
 }
