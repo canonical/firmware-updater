@@ -35,7 +35,7 @@
   "@fwupdDeviceFlagCanVerify": {},
   "fwupdDeviceFlagDualImage": "Aktualizácie v zariadení",
   "@fwupdDeviceFlagDualImage": {},
-  "fwupdDeviceFlagSelfRecovery": "Zariadenie môže obnoviť zlyhania flash",
+  "fwupdDeviceFlagSelfRecovery": "Zariadenie môže obnoviť zlyhania pamäte",
   "@fwupdDeviceFlagSelfRecovery": {},
   "fwupdDeviceFlagUsableDuringUpdate": "Zariadenie je použiteľné počas trvania aktualizácie",
   "@fwupdDeviceFlagUsableDuringUpdate": {},
