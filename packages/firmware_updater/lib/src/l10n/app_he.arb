@@ -1,3 +1,162 @@
 {
-  "@@locale": "he"
+  "@@locale": "he",
+  "allVersions": "כל הגרסאות",
+  "@allVersions": {},
+  "batteryWarning": "אזהרה: חלק מעדכוני ההתקנים יהיו זמינים רק בחיבור למקור חשמל חיצוני!",
+  "@batteryWarning": {},
+  "cancel": "ביטול",
+  "@cancel": {},
+  "current": "נוכחי",
+  "@current": {},
+  "deviceRequest": "בקשת התקן",
+  "@deviceRequest": {},
+  "fwupdDeviceFlagInternal": "התקן פנימי",
+  "@fwupdDeviceFlagInternal": {},
+  "fwupdDeviceFlagUpdatable": "ניתן לעדכן",
+  "@fwupdDeviceFlagUpdatable": {},
+  "fwupdDeviceFlagLocked": "ההתקן נעול",
+  "@fwupdDeviceFlagLocked": {},
+  "fwupdDeviceFlagSupported": "נתמך בשרת המרוחק",
+  "@fwupdDeviceFlagSupported": {},
+  "fwupdDeviceFlagNeedsBootloader": "דורש מנהל אתחול",
+  "@fwupdDeviceFlagNeedsBootloader": {},
+  "fwupdDeviceFlagRegistered": "רשום",
+  "@fwupdDeviceFlagRegistered": {},
+  "fwupdDeviceFlagNotified": "המשתמש קיבל הודעה",
+  "@fwupdDeviceFlagNotified": {},
+  "fwupdDeviceFlagIsBootloader": "במצב מנהל אתחול",
+  "@fwupdDeviceFlagIsBootloader": {},
+  "fwupdDeviceFlagWaitForReplug": "החומרה ממתינה לחיבור מחדש",
+  "@fwupdDeviceFlagWaitForReplug": {},
+  "fwupdStatusDeviceRestart": "ההתקן מופעל מחדש",
+  "@fwupdStatusDeviceRestart": {},
+  "fwupdStatusDecompressing": "הקושחה נפרסת",
+  "@fwupdStatusDecompressing": {},
+  "fwupdStatusDeviceRead": "מתבצעת קריאה מההתקן",
+  "@fwupdStatusDeviceRead": {},
+  "fwupdStatusScheduling": "עדכון בלתי מקוון מתוזמן",
+  "@fwupdStatusScheduling": {},
+  "fwupdStatusShutdown": "הסוכן נכבה",
+  "@fwupdStatusShutdown": {},
+  "fwupdStatusDeviceBusy": "ההתקן עסוק",
+  "@fwupdStatusDeviceBusy": {},
+  "fwupdStatusWaitingForAuth": "בהמתנה לאימות",
+  "@fwupdStatusWaitingForAuth": {},
+  "noDevicesFound": "לא נמצאו התקנים",
+  "@noDevicesFound": {},
+  "reinstall": "התקנה מחדש",
+  "@reinstall": {},
+  "rebootConfirmTitle": "הפעלה מחדש תשלים את העדכון",
+  "@rebootConfirmTitle": {},
+  "rebootNow": "להפעיל מחדש כעת",
+  "@rebootNow": {},
+  "update": "עדכון",
+  "@update": {},
+  "showUpdates": "הצגת עדכונים",
+  "@showUpdates": {},
+  "showReleases": "הצגת מהדורות",
+  "@showReleases": {},
+  "reinstallConfirm": "להתקין את <b>{name}</b> מחדש בגרסה <b>{current}</b>?",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "updateToLatest": "עדכון לעדכני ביותר",
+  "@updateToLatest": {},
+  "updateAvailable": "יש עדכון",
+  "@updateAvailable": {},
+  "currentVersion": "הגרסה הנוכחית",
+  "@currentVersion": {},
+  "verifyFirmwareConfirm": "לאמת את סיכומי הביקורת של {name}?",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyFirmware": "אימות קושחה",
+  "@verifyFirmware": {},
+  "vendor": "ספק",
+  "@vendor": {},
+  "updateConfirm": "לעדכן את <b>{name}</b> לגרסה <b>{version}</b>?",
+  "@updateConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "latestVersion": "הגרסה העדכנית ביותר",
+  "@latestVersion": {},
+  "minVersion": "הגרסה המזערית",
+  "@minVersion": {},
+  "downgradeConfirm": "לשנמך את <b>{name}</b> לגרסה <b>{version}</b>?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "flags": "דגלונים",
+  "@flags": {},
+  "fwupdDeviceFlagNeedsReboot": "דורש הפעלה מחדש לאחר ההתקנה",
+  "@fwupdDeviceFlagNeedsReboot": {},
+  "fwupdDeviceFlagOnlyOffline": "עדכון דורש הפעלה מחדש",
+  "@fwupdDeviceFlagOnlyOffline": {},
+  "fwupdDeviceFlagNeedsShutdown": "דורש כיבוי לאחר ההתקנה",
+  "@fwupdDeviceFlagNeedsShutdown": {},
+  "fwupdDeviceFlagRequireAc": "המערכת דורשת מקור חשמל חיצוני",
+  "@fwupdDeviceFlagRequireAc": {},
+  "fwupdDeviceFlagReported": "דווח לשרת המרוחק",
+  "@fwupdDeviceFlagReported": {},
+  "fwupdDeviceFlagInstallParentFirst": "להתקין קודם להתקן ההורה",
+  "@fwupdDeviceFlagInstallParentFirst": {},
+  "fwupdStatusIdle": "בהמתנה",
+  "@fwupdStatusIdle": {},
+  "fwupdStatusDeviceErase": "ההתקן נמחק",
+  "@fwupdStatusDeviceErase": {},
+  "fwupdStatusDeviceWrite": "מתבצעת כתיבה להתקן",
+  "@fwupdStatusDeviceWrite": {},
+  "fwupdStatusLoading": "המשאב נטען",
+  "@fwupdStatusLoading": {},
+  "fwupdStatusUnknown": "מצב לא ידוע",
+  "@fwupdStatusUnknown": {},
+  "updateChecksums": "עדכון סיכומי ביקורת",
+  "@updateChecksums": {},
+  "fwupdStatusDownloading": "קובץ יורד",
+  "@fwupdStatusDownloading": {},
+  "fwupdErrorUnknown": "שגיאה לא ידועה",
+  "@fwupdErrorUnknown": {},
+  "rebootLater": "להפעיל מחדש אחר כך",
+  "@rebootLater": {},
+  "olderVersions": "גרסאות ישנות יותר",
+  "@olderVersions": {},
+  "ok": "אישור",
+  "@ok": {},
+  "installError": "התקנת הקושחה נכשלה!",
+  "@installError": {},
+  "appTitle": "מעדכן קושחה",
+  "@appTitle": {},
+  "checksum": "סיכום ביקורת",
+  "@checksum": {},
+  "close": "סגירה",
+  "@close": {},
+  "deviceUnavailable": "ההתקן לא יהיה זמין במהלך הפעולה הזאת.",
+  "@deviceUnavailable": {},
+  "downgrade": "שנמוך",
+  "@downgrade": {}
 }
