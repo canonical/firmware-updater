@@ -44,7 +44,10 @@ MockFwupdDbusService mockService({
   Map<String, List<FwupdRelease>>? releases,
 }) {
   final service = MockFwupdDbusService();
-  when(service.getDevices()).thenAnswer((_) async => devices ?? []);
+  when(service.getDevices()).thenAnswer((_) async {
+    if (devices == null) throw const FwupdNothingToDoException();
+    return devices;
+  });
   when(service.getReleases(any)).thenAnswer((i) async {
     final device = i.positionalArguments[0] as FwupdDevice;
     final value = releases?[device.deviceId];

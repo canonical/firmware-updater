@@ -115,4 +115,12 @@ void main() {
     final index = store.indexOf(devices[1].deviceId);
     expect(index, 1);
   });
+
+  test('no detected devices', () async {
+    final service = mockService();
+    final store = DeviceStore(service);
+    await store.init();
+
+    expect(store.devices, isEmpty);
+  });
 }
