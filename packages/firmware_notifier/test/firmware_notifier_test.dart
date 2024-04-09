@@ -57,4 +57,16 @@ void main() {
             body: anyNamed('body')))
         .called(2);
   });
+
+  test('no detected devices', () async {
+    final client = MockFwupdClient();
+    when(client.getDevices()).thenAnswer((_) async {
+      throw const FwupdNothingToDoException();
+      // ignore: dead_code
+      return []; // the mock needs the correct return type
+    });
+
+    final updates = await getUpdates(client);
+    expect(updates, isEmpty);
+  });
 }

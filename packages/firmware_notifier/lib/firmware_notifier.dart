@@ -8,7 +8,10 @@ Future<Map<FwupdDevice, FwupdRelease>> getUpdates(
   final fwupdClient = client ?? FwupdClient();
   await fwupdClient.connect();
 
-  final devices = await fwupdClient.getDevices();
+  final devices = await fwupdClient.getDevices().catchError(
+        (_) => Future.value(<FwupdDevice>[]),
+        test: (e) => e is FwupdNothingToDoException,
+      );
   final updates = {
     for (final device in devices)
       device: (await fwupdClient.getReleases(device.deviceId).catchError(

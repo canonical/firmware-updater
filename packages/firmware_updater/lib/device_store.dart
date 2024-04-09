@@ -52,11 +52,16 @@ class DeviceStore extends SafeChangeNotifier {
   }
 
   Future<void> refresh() {
-    return _service.getDevices().then((devices) {
-      _devices = devices.where((device) => device.isUpdatable).toList();
-      log.debug('${_devices.length} devices');
-      notifyListeners();
-    });
+    return _service.getDevices().then(
+      (devices) {
+        _devices = devices.where((device) => device.isUpdatable).toList();
+        log.debug('${_devices.length} devices');
+        notifyListeners();
+      },
+      onError: (e) {
+        log.error('failed to get devices: $e');
+      },
+    );
   }
 
   @override
