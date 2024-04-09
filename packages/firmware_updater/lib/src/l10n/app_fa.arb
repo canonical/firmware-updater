@@ -1,3 +1,7 @@
 {
-  "@@locale": "fa"
+  "@@locale": "fa",
+  "close": "بستن",
+  "@close": {},
+  "ok": "قبول",
+  "@ok": {}
 }

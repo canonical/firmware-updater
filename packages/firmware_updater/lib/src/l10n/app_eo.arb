@@ -1,3 +1,112 @@
 {
-  "@@locale": "eo"
+  "@@locale": "eo",
+  "update": "Ĝisdatigi",
+  "@update": {},
+  "reinstall": "Reinstali",
+  "@reinstall": {},
+  "ok": "Bone",
+  "@ok": {},
+  "olderVersions": "Malnovaj versioj",
+  "@olderVersions": {},
+  "fwupdDeviceFlagNotified": "La uzanto estis sciigita",
+  "@fwupdDeviceFlagNotified": {},
+  "fwupdDeviceFlagUnreachable": "La aparato ne estas atingebla",
+  "@fwupdDeviceFlagUnreachable": {},
+  "fwupdDeviceFlagSignedPayload": "Subskribita ŝarĝo",
+  "@fwupdDeviceFlagSignedPayload": {},
+  "fwupdDeviceFlagUnsignedPayload": "Nesubskribita ŝarĝo",
+  "@fwupdDeviceFlagUnsignedPayload": {},
+  "fwupdErrorInvalidFile": "Nevalida dosierformo",
+  "@fwupdErrorInvalidFile": {},
+  "fwupdErrorBrokenSystem": "La uzanto misagordis sian sistemon",
+  "@fwupdErrorBrokenSystem": {},
+  "close": "Fermi",
+  "@close": {},
+  "checksum": "Kontrolsumo",
+  "@checksum": {},
+  "current": "Aktuala",
+  "@current": {},
+  "flags": "Flagoj",
+  "@flags": {},
+  "fwupdDeviceFlagRegistered": "Registrita",
+  "@fwupdDeviceFlagRegistered": {},
+  "fwupdDeviceFlagTrusted": "Fidata",
+  "@fwupdDeviceFlagTrusted": {},
+  "fwupdDeviceFlagEndOfLife": "Fino de vivo",
+  "@fwupdDeviceFlagEndOfLife": {},
+  "fwupdStatusDecompressing": "Maldensigante mikroprogramon",
+  "@fwupdStatusDecompressing": {},
+  "fwupdStatusDeviceErase": "Forviŝante aparaton",
+  "@fwupdStatusDeviceErase": {},
+  "rebootNow": "Restartigi nun",
+  "@rebootNow": {},
+  "installError": "Malsukcesis instali mikroprogramon!",
+  "@installError": {},
+  "reinstallConfirm": "Ĉu reinstali la version <b>{current}</b> de <b>{name}</b>?",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "updateConfirm": "Ĉu ĝisdatigi <b>{name}</b> al <b>{version}</b>?",
+  "@updateConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "minVersion": "Minimuma versio",
+  "@minVersion": {},
+  "currentVersion": "Aktuala versio",
+  "@currentVersion": {},
+  "latestVersion": "Plej nova versio",
+  "@latestVersion": {},
+  "fwupdStatusUnknown": "Nekonata stato",
+  "@fwupdStatusUnknown": {},
+  "cancel": "Nuligi",
+  "@cancel": {},
+  "allVersions": "Ĉiuj versioj",
+  "@allVersions": {},
+  "fwupdDeviceFlagInternal": "Interna aparato",
+  "@fwupdDeviceFlagInternal": {},
+  "fwupdDeviceFlagUpdatable": "Ĝisdatigebla",
+  "@fwupdDeviceFlagUpdatable": {},
+  "downgrade": "Malĝisdatigi",
+  "@downgrade": {},
+  "downgradeConfirm": "Ĉu malĝisdatigi <b>{name}</b> al <b>{version}</b>?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "fwupdErrorUnknown": "Nekonata eraro",
+  "@fwupdErrorUnknown": {},
+  "fwupdStatusIdle": "Senokupa",
+  "@fwupdStatusIdle": {},
+  "fwupdErrorInternal": "Interna eraro",
+  "@fwupdErrorInternal": {},
+  "fwupdStatusDeviceRestart": "Restartigante la aparaton",
+  "@fwupdStatusDeviceRestart": {},
+  "fwupdStatusDeviceWrite": "Skribante sur aparaton",
+  "@fwupdStatusDeviceWrite": {},
+  "appTitle": "Ĝisdatigilo de mikroprogramoj",
+  "@appTitle": {},
+  "rebootLater": "Restartigi poste",
+  "@rebootLater": {},
+  "updateToLatest": "Ĝisdatigi al la plej nova versio",
+  "@updateToLatest": {}
 }

@@ -1,3 +1,142 @@
 {
-  "@@locale": "fr"
+  "@@locale": "fr",
+  "close": "Fermer",
+  "@close": {},
+  "downgrade": "Rétrograder",
+  "@downgrade": {},
+  "flags": "Attributs",
+  "@flags": {},
+  "fwupdDeviceFlagInternal": "Périphérique interne",
+  "@fwupdDeviceFlagInternal": {},
+  "fwupdDeviceFlagUpdatable": "Peut être mis à jour",
+  "@fwupdDeviceFlagUpdatable": {},
+  "fwupdDeviceFlagOnlyOffline": "La mise à jour requiert un redémarrage",
+  "@fwupdDeviceFlagOnlyOffline": {},
+  "fwupdDeviceFlagNeedsReboot": "Nécessite un redémarrage après installation",
+  "@fwupdDeviceFlagNeedsReboot": {},
+  "fwupdDeviceFlagNotified": "Utilisateur notifié",
+  "@fwupdDeviceFlagNotified": {},
+  "fwupdDeviceFlagInstallParentFirst": "Installer sur l’appareil parent en premier",
+  "@fwupdDeviceFlagInstallParentFirst": {},
+  "allVersions": "Toutes les versions",
+  "@allVersions": {},
+  "checksum": "Somme de contrôle",
+  "@checksum": {},
+  "cancel": "Annuler",
+  "@cancel": {},
+  "fwupdDeviceFlagRequireAc": "Le système nécessite une source d’alimentation externe",
+  "@fwupdDeviceFlagRequireAc": {},
+  "downgradeConfirm": "Rétrograder <b>{name}</b> vers <b>{version}</b> ?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "fwupdDeviceFlagLocked": "L’appareil est verrouillé",
+  "@fwupdDeviceFlagLocked": {},
+  "fwupdDeviceFlagNeedsBootloader": "Nécessite un chargeur de démarrage",
+  "@fwupdDeviceFlagNeedsBootloader": {},
+  "fwupdDeviceFlagRegistered": "Enregistré",
+  "@fwupdDeviceFlagRegistered": {},
+  "fwupdDeviceFlagNeedsShutdown": "Nécessite une extinction après installation",
+  "@fwupdDeviceFlagNeedsShutdown": {},
+  "fwupdDeviceFlagIsBootloader": "Est en mode chargeur de démarrage",
+  "@fwupdDeviceFlagIsBootloader": {},
+  "fwupdDeviceFlagWaitForReplug": "Le matériel attend d’être rebranché",
+  "@fwupdDeviceFlagWaitForReplug": {},
+  "fwupdDeviceFlagIgnoreValidation": "Ignorer les contrôles de sécurité de la validation",
+  "@fwupdDeviceFlagIgnoreValidation": {},
+  "fwupdDeviceFlagTrusted": "De confiance",
+  "@fwupdDeviceFlagTrusted": {},
+  "fwupdDeviceFlagNeedsActivation": "La mise à jour de l’appareil nécessite une activation",
+  "@fwupdDeviceFlagNeedsActivation": {},
+  "fwupdDeviceFlagWillDisappear": "L’appareil ne ré-apparaîtra pas après la mise à jour",
+  "@fwupdDeviceFlagWillDisappear": {},
+  "fwupdErrorInternal": "Erreur interne",
+  "@fwupdErrorInternal": {},
+  "fwupdErrorNothingToDo": "Rien à faire",
+  "@fwupdErrorNothingToDo": {},
+  "fwupdDeviceFlagCanVerify": "La vérification par hachage cryptographique est disponible",
+  "@fwupdDeviceFlagCanVerify": {},
+  "fwupdDeviceFlagUsableDuringUpdate": "L’appareil est utilisable durant la mise à jour",
+  "@fwupdDeviceFlagUsableDuringUpdate": {},
+  "fwupdDeviceFlagOnlyVersionUpgrade": "Seules les versions plus récentes sont autorisées",
+  "@fwupdDeviceFlagOnlyVersionUpgrade": {},
+  "fwupdDeviceFlagUnreachable": "L’appareil est inaccessible",
+  "@fwupdDeviceFlagUnreachable": {},
+  "fwupdStatusDeviceRestart": "Redémarrage de l’appareil",
+  "@fwupdStatusDeviceRestart": {},
+  "guid": "GUIDs",
+  "@guid": {},
+  "installError": "Échec de l’installation du micrologiciel !",
+  "@installError": {},
+  "olderVersions": "Anciennes versions",
+  "@olderVersions": {},
+  "rebootNow": "Redémarrer maintenant",
+  "@rebootNow": {},
+  "showUpdates": "Afficher les mises à jour",
+  "@showUpdates": {},
+  "update": "Mise à jour",
+  "@update": {},
+  "vendor": "Vendeur",
+  "@vendor": {},
+  "verifyFirmware": "Vérifier le micrologiciel",
+  "@verifyFirmware": {},
+  "currentVersion": "Version actuelle",
+  "@currentVersion": {},
+  "latestVersion": "Dernière version",
+  "@latestVersion": {},
+  "verifyFirmwareConfirm": "Vérifier la somme de contrôle du micrologiciel nommé {name} ?",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "minVersion": "Version minimale",
+  "@minVersion": {},
+  "updateToLatest": "Mettre à jour vers la version la plus récente",
+  "@updateToLatest": {},
+  "updateConfirm": "Mettre à jour <b>{name}</b> vers <b>{version}</b> ?",
+  "@updateConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "updateAvailable": "Mise à jour disponible",
+  "@updateAvailable": {},
+  "fwupdErrorUnknown": "Erreur inconnue",
+  "@fwupdErrorUnknown": {},
+  "fwupdStatusIdle": "En attente",
+  "@fwupdStatusIdle": {},
+  "noDevicesFound": "Aucun périphérique détecté",
+  "@noDevicesFound": {},
+  "rebootLater": "Redémarrer plus tard",
+  "@rebootLater": {},
+  "rebootConfirmTitle": "Redémarrez pour finir cette mise à jour",
+  "@rebootConfirmTitle": {},
+  "reinstall": "Réinstaller",
+  "@reinstall": {},
+  "reinstallConfirm": "Réinstaller <b>{name}</b> version <b>{current}</b> ?",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  }
 }
