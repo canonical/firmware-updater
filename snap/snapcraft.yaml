@@ -9,6 +9,7 @@ license: GPL-3.0+
 icon: snap/local/firmware-updater.png
 architectures:
   - build-on: amd64
+  - build-on: arm64
 
 slots:
   dbus-slot:
