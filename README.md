@@ -1,14 +1,24 @@
-# Firmware Updater
+# Welcome to Firmware Updater
 
-[![CI](https://github.com/canonical/firmware-updater/workflows/Build/badge.svg)](https://github.com/canonical/firmware-updater/actions/workflows/build.yaml)
-[![CI](https://github.com/canonical/firmware-updater/workflows/Analysis/badge.svg)](https://github.com/canonical/firmware-updater/actions/workflows/analysis.yaml)
-[![CI](https://github.com/canonical/firmware-updater/workflows/Test/badge.svg)](https://github.com/canonical/firmware-updater/actions/workflows/test.yaml)
-[![codecov](https://codecov.io/gh/canonical/firmware-updater/branch/main/graph/badge.svg?token=P9E44EW5RM)](https://codecov.io/gh/canonical/firmware-updater)
+[actions-image]: https://github.com/canonical/firmware-updater/actions/workflows/ci.yaml/badge.svg
+[actions-url]: https://github.com/canonical/firmware-updater/actions/workflows/ci.yaml
 
-An experimental firmware updater UI made with [Flutter](https://flutter.dev/) and based on [fwupd](https://pub.dev/packages/fwupd).
+[license-image]: https://img.shields.io/badge/License-GPL3.0-blue.svg
 
-<a href="https://snapcraft.io/firmware-updater">
-<img border="0" align="middle" alt="Snap Store Badge" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" width=200>
-</a>
+[codecov-image]: https://codecov.io/gh/canonical/firmware-updater/branch/main/graph/badge.svg?token=P9E44EW5RM
+[codecov-url]: https://codecov.io/gh/canonical/firmware-updater
 
-![firmware-updater](https://raw.githubusercontent.com/canonical/firmware-updater/main/firmware-updater.png "screenshot")
+[weblate-image]: https://hosted.weblate.org/widget/ubuntu-desktop-translations/firmware-updater/svg-badge.svg
+[weblate-url]: https://hosted.weblate.org/projects/ubuntu-desktop-translations/firmware-updater/
+
+
+[![Code quality][actions-image]][actions-url]
+[![License][license-image]](LICENSE)
+[![Code coverage][codecov-image]][codecov-url]
+[![Translation status][weblate-image]][weblate-url]
+
+This is the code repository for **Firmware Updater**
+
+## Get involved
+
+This is an [open source](LICENSE) project and we warmly welcome community contributions, suggestions, and constructive feedback. If you're interested in contributing, please take a look at our [Contribution guidelines](CONTRIBUTING.md) first.
