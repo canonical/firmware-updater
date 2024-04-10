@@ -186,5 +186,19 @@
   "fwupdErrorAuthExpired": "由于授权凭证已过期，获取授权失败",
   "@fwupdErrorAuthExpired": {},
   "deviceRequest": "设备请求",
-  "@deviceRequest": {}
+  "@deviceRequest": {},
+  "fwupdDeviceFlagSupported": "远程服务器支持",
+  "@fwupdDeviceFlagSupported": {},
+  "fwupdDeviceFlagReported": "已报告给远程服务器",
+  "@fwupdDeviceFlagReported": {},
+  "fwupdDeviceFlagNotified": "用户已被通知",
+  "@fwupdDeviceFlagNotified": {},
+  "fwupdDeviceFlagInstallParentFirst": "先安装到上级设备",
+  "@fwupdDeviceFlagInstallParentFirst": {},
+  "fwupdDeviceFlagTrusted": "已信任",
+  "@fwupdDeviceFlagTrusted": {},
+  "fwupdDeviceFlagNeedsActivation": "设备更新需要激活",
+  "@fwupdDeviceFlagNeedsActivation": {},
+  "fwupdDeviceFlagWillDisappear": "设备在更新完成后不会重新显示",
+  "@fwupdDeviceFlagWillDisappear": {}
 }
