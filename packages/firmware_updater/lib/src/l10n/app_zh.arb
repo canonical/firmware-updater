@@ -200,5 +200,51 @@
   "fwupdDeviceFlagNeedsActivation": "设备更新需要激活",
   "@fwupdDeviceFlagNeedsActivation": {},
   "fwupdDeviceFlagWillDisappear": "设备在更新完成后不会重新显示",
-  "@fwupdDeviceFlagWillDisappear": {}
+  "@fwupdDeviceFlagWillDisappear": {},
+  "fwupdDeviceFlagVersionCheckRequired": "设备固件需要检查版本",
+  "@fwupdDeviceFlagVersionCheckRequired": {},
+  "fwupdDeviceFlagHasMultipleBranches": "设备支持将固件迁移至另一个不同的分支",
+  "@fwupdDeviceFlagHasMultipleBranches": {},
+  "fwupdErrorAlreadyPending": "已设置为离线安装",
+  "@fwupdErrorAlreadyPending": {},
+  "fwupdErrorAuthFailed": "鉴权失败",
+  "@fwupdErrorAuthFailed": {},
+  "fwupdStatusScheduling": "正在计划离线更新",
+  "@fwupdStatusScheduling": {},
+  "noDevicesFound": "未找到设备",
+  "@noDevicesFound": {},
+  "olderVersions": "旧版本",
+  "@olderVersions": {},
+  "rebootConfirmTitle": "重启以完成本次更新",
+  "@rebootConfirmTitle": {},
+  "reinstall": "重新安装",
+  "@reinstall": {},
+  "showReleases": "查看发行版本",
+  "@showReleases": {},
+  "showUpdates": "查看更新",
+  "@showUpdates": {},
+  "update": "更新",
+  "@update": {},
+  "updateChecksums": "更新校验和",
+  "@updateChecksums": {},
+  "updateChecksumsConfirm": "要更新 <b>{name}</b> 的设备校验和吗？",
+  "@updateChecksumsConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyFirmwareConfirm": "要校验 {name} 的固件校验和吗？",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fwupdDeviceFlagInstallAllReleases": "设备需要安装已提供的所有发行版本",
+  "@fwupdDeviceFlagInstallAllReleases": {},
+  "updateChecksumsInfo": "这将记录当前加密哈希值的状态为已验证。",
+  "@updateChecksumsInfo": {}
 }
