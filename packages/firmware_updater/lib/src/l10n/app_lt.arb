@@ -1,5 +1,15 @@
 {
   "@@locale": "lt",
   "allVersions": "Visos versijos",
-  "@allVersions": {}
+  "@allVersions": {},
+  "appTitle": "Programinės aparatinės įrangos atnaujinimo įrankis",
+  "@appTitle": {},
+  "checksum": "Kontrolinė suma",
+  "@checksum": {},
+  "close": "Užverti",
+  "@close": {},
+  "batteryWarning": "Įspėjimas: tam tikri įrenginio atnaujinimai gali būti prieinami tik naudojant išorinį elektros maitinimą!",
+  "@batteryWarning": {},
+  "cancel": "Atsisakyti",
+  "@cancel": {}
 }
