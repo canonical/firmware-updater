@@ -1,3 +1,5 @@
 {
-  "@@locale": "lt"
+  "@@locale": "lt",
+  "allVersions": "Visos versijos",
+  "@allVersions": {}
 }
