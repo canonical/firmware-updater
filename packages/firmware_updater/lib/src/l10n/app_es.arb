@@ -1,3 +1,192 @@
 {
-  "@@locale": "es"
+  "@@locale": "es",
+  "allVersions": "Todas las Versiones",
+  "@allVersions": {},
+  "appTitle": "Actualizador de Firmware",
+  "@appTitle": {},
+  "batteryWarning": "Advertencia: algunas actualizaciones de dispositivos pueden estar solo disponibles con energia externa!",
+  "@batteryWarning": {},
+  "checksum": "Resumen",
+  "@checksum": {},
+  "close": "Cerrar",
+  "@close": {},
+  "cancel": "Cancelar",
+  "@cancel": {},
+  "deviceRequest": "Solicitud de dispositivo",
+  "@deviceRequest": {},
+  "downgrade": "Degradar actualización",
+  "@downgrade": {},
+  "flags": "Banderas",
+  "@flags": {},
+  "fwupdDeviceFlagInternal": "Dispositivo interno",
+  "@fwupdDeviceFlagInternal": {},
+  "fwupdDeviceFlagUpdatable": "Actualizable",
+  "@fwupdDeviceFlagUpdatable": {},
+  "fwupdDeviceFlagOnlyOffline": "Actualización requiere reinicio",
+  "@fwupdDeviceFlagOnlyOffline": {},
+  "fwupdDeviceFlagRequireAc": "Sistema requiere fuente de poder externa",
+  "@fwupdDeviceFlagRequireAc": {},
+  "fwupdDeviceFlagLocked": "Dispositivo bloqueado",
+  "@fwupdDeviceFlagLocked": {},
+  "fwupdDeviceFlagSupported": "Soporte en servidor remoto",
+  "@fwupdDeviceFlagSupported": {},
+  "fwupdDeviceFlagNeedsBootloader": "Requiere un cargador de arranque",
+  "@fwupdDeviceFlagNeedsBootloader": {},
+  "fwupdDeviceFlagRegistered": "Registrado",
+  "@fwupdDeviceFlagRegistered": {},
+  "fwupdDeviceFlagNeedsReboot": "Necesita un reinicio despues de la instalación",
+  "@fwupdDeviceFlagNeedsReboot": {},
+  "fwupdDeviceFlagNeedsShutdown": "Necesita apagar despues de la instalación",
+  "@fwupdDeviceFlagNeedsShutdown": {},
+  "fwupdDeviceFlagInstallParentFirst": "Instalar el dispositivo padre primero",
+  "@fwupdDeviceFlagInstallParentFirst": {},
+  "fwupdDeviceFlagIgnoreValidation": "Ignorar validación de chequeo de seguridad",
+  "@fwupdDeviceFlagIgnoreValidation": {},
+  "fwupdDeviceFlagTrusted": "Confiable",
+  "@fwupdDeviceFlagTrusted": {},
+  "fwupdDeviceFlagNeedsActivation": "Acutalización de dispositivo necesita activación",
+  "@fwupdDeviceFlagNeedsActivation": {},
+  "fwupdErrorBrokenSystem": "El usuario ha configurado su sistema de una manera erronea",
+  "@fwupdErrorBrokenSystem": {},
+  "fwupdErrorBatteryLevelTooLow": "El nivel de la bateria del sistema es demasiado baja",
+  "@fwupdErrorBatteryLevelTooLow": {},
+  "fwupdErrorNeedsUserAction": "El usuario necesita realizar una acción para completar la actualización",
+  "@fwupdErrorNeedsUserAction": {},
+  "fwupdErrorAuthExpired": "Falla al obtener la autorización, las credenciales han expirado",
+  "@fwupdErrorAuthExpired": {},
+  "fwupdErrorUnknown": "Error desconocido",
+  "@fwupdErrorUnknown": {},
+  "fwupdStatusUnknown": "Estado desconocido",
+  "@fwupdStatusUnknown": {},
+  "fwupdStatusIdle": "Inactivo",
+  "@fwupdStatusIdle": {},
+  "fwupdStatusLoading": "Cargado una fuente",
+  "@fwupdStatusLoading": {},
+  "fwupdStatusDeviceWrite": "Escribiendo a un dispositivo",
+  "@fwupdStatusDeviceWrite": {},
+  "fwupdStatusDeviceVerify": "Verificando (leyendo) un dispositivo",
+  "@fwupdStatusDeviceVerify": {},
+  "fwupdStatusScheduling": "Programando una actualización fuera de linea",
+  "@fwupdStatusScheduling": {},
+  "rebootConfirmTitle": "Reinicie para completar esta actualización",
+  "@rebootConfirmTitle": {},
+  "reinstall": "Reinstalar",
+  "@reinstall": {},
+  "showReleases": "Mostrar lanzamientos",
+  "@showReleases": {},
+  "reinstallConfirm": "Reinstalar <b>{name}</b> versión <b>{current}</b>?",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "showUpdates": "Mostrar Actualizaciones",
+  "@showUpdates": {},
+  "update": "Actualizar",
+  "@update": {},
+  "updateAvailable": "Actualización disponible",
+  "@updateAvailable": {},
+  "updateChecksums": "Actualizar sumas de control",
+  "@updateChecksums": {},
+  "updateChecksumsConfirm": "Actualizar sumas de control de <b>{name}</b>? de dispositivo",
+  "@updateChecksumsConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "updateToLatest": "Actualizar a lo mas reciente",
+  "@updateToLatest": {},
+  "verifyFirmwareConfirm": "Verificar checksum de firmware de {name}?",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "currentVersion": "Versión actual",
+  "@currentVersion": {},
+  "minVersion": "Version minima",
+  "@minVersion": {},
+  "latestVersion": "Ultima versión",
+  "@latestVersion": {},
+  "current": "Actual",
+  "@current": {},
+  "deviceUnavailable": "El dispositivo no estará disponible durante esta acción.",
+  "@deviceUnavailable": {},
+  "downgradeConfirm": "Degradar actualización <b>{name}</b> a <b>{version}</b>?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "fwupdDeviceFlagReported": "Se reporta con servidor remoto",
+  "@fwupdDeviceFlagReported": {},
+  "fwupdDeviceFlagNotified": "El usuario ha sido notificado",
+  "@fwupdDeviceFlagNotified": {},
+  "fwupdDeviceFlagIsBootloader": "Esta en modo de arranque",
+  "@fwupdDeviceFlagIsBootloader": {},
+  "fwupdDeviceFlagWaitForReplug": "El hardware espera a ser reconectado",
+  "@fwupdDeviceFlagWaitForReplug": {},
+  "fwupdStatusDownloading": "El archivo se esta degradando",
+  "@fwupdStatusDownloading": {},
+  "fwupdStatusWaitingForAuth": "Esperando por autenticación",
+  "@fwupdStatusWaitingForAuth": {},
+  "fwupdStatusDecompressing": "Descomprimiendo el firmware",
+  "@fwupdStatusDecompressing": {},
+  "fwupdStatusDeviceBusy": "El dispositivo esta ocupado",
+  "@fwupdStatusDeviceBusy": {},
+  "fwupdStatusDeviceRestart": "Reiniciando el dispositivo",
+  "@fwupdStatusDeviceRestart": {},
+  "fwupdStatusDeviceErase": "Borrando un dispositivo",
+  "@fwupdStatusDeviceErase": {},
+  "fwupdStatusShutdown": "El demonio se esta apagando",
+  "@fwupdStatusShutdown": {},
+  "fwupdStatusDeviceRead": "Leyendo desde un dispositivo",
+  "@fwupdStatusDeviceRead": {},
+  "installError": "Falla al instalar actualización!",
+  "@installError": {},
+  "guid": "Identificador unico global",
+  "@guid": {},
+  "olderVersions": "Versiones anteriores",
+  "@olderVersions": {},
+  "rebootLater": "Reiniciar mas tarde",
+  "@rebootLater": {},
+  "noDevicesFound": "No se encontró dispositivo",
+  "@noDevicesFound": {},
+  "ok": "Ok",
+  "@ok": {},
+  "rebootNow": "Reiniciar ahora",
+  "@rebootNow": {},
+  "rebootConfirmMessage": "Debe reiniciar el dispositivo para completar la actualización. Asegurese que su dispositivo esta conectado o completamente cargado. Salve sus archivos antes de reiniciar para evitar perder datos.",
+  "@rebootConfirmMessage": {},
+  "updateChecksumsInfo": "Esto registrará los hashes criptográficos actuales según lo verificado.",
+  "@updateChecksumsInfo": {},
+  "updateConfirm": "Actualizar <b>{name}</b> a<b>{version}</b>?",
+  "@updateConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "vendor": "Vendedor",
+  "@vendor": {},
+  "verifyFirmware": "Verificar Firmware",
+  "@verifyFirmware": {}
 }
