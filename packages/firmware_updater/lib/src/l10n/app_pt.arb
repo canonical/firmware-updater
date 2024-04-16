@@ -1,3 +1,9 @@
 {
-  "@@locale": "pt"
+  "@@locale": "pt",
+  "close": "Fechar",
+  "@close": {},
+  "current": "Atual",
+  "@current": {},
+  "cancel": "Cancelar",
+  "@cancel": {}
 }
