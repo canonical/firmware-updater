@@ -1,5 +1,7 @@
 {
   "@@locale": "oc",
   "close": "Tampar",
-  "@close": {}
+  "@close": {},
+  "ok": "Validar",
+  "@ok": {}
 }

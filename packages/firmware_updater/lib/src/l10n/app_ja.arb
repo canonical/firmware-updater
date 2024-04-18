@@ -1,5 +1,166 @@
 {
   "@@locale": "ja",
   "close": "閉じる",
-  "@close": {}
+  "@close": {},
+  "allVersions": "すべてのバージョン",
+  "@allVersions": {},
+  "checksum": "Checksum",
+  "@checksum": {},
+  "appTitle": "ファームウェアのアップデート",
+  "@appTitle": {},
+  "downgrade": "ダウングレード",
+  "@downgrade": {},
+  "downgradeConfirm": "<b>{name}</b> から <b>{version}</b> へダウングレードしますか？",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "deviceUnavailable": "操作中はデバイスを使用できません。",
+  "@deviceUnavailable": {},
+  "fwupdDeviceFlagInternal": "",
+  "@fwupdDeviceFlagInternal": {},
+  "fwupdDeviceFlagSupported": "",
+  "@fwupdDeviceFlagSupported": {},
+  "fwupdDeviceFlagRegistered": "",
+  "@fwupdDeviceFlagRegistered": {},
+  "fwupdDeviceFlagNeedsReboot": "",
+  "@fwupdDeviceFlagNeedsReboot": {},
+  "fwupdDeviceFlagNeedsShutdown": "",
+  "@fwupdDeviceFlagNeedsShutdown": {},
+  "fwupdDeviceFlagIsBootloader": "",
+  "@fwupdDeviceFlagIsBootloader": {},
+  "fwupdDeviceFlagWaitForReplug": "",
+  "@fwupdDeviceFlagWaitForReplug": {},
+  "fwupdDeviceFlagNeedsActivation": "",
+  "@fwupdDeviceFlagNeedsActivation": {},
+  "fwupdDeviceFlagCanVerify": "",
+  "@fwupdDeviceFlagCanVerify": {},
+  "fwupdDeviceFlagDualImage": "",
+  "@fwupdDeviceFlagDualImage": {},
+  "fwupdDeviceFlagUsableDuringUpdate": "",
+  "@fwupdDeviceFlagUsableDuringUpdate": {},
+  "ok": "OK",
+  "@ok": {},
+  "guid": "GUID",
+  "@guid": {},
+  "installError": "ファームウェアのインストールに失敗しました！",
+  "@installError": {},
+  "noDevicesFound": "デバイスが見つかりません",
+  "@noDevicesFound": {},
+  "olderVersions": "古いバージョン",
+  "@olderVersions": {},
+  "rebootLater": "後ほど再起動",
+  "@rebootLater": {},
+  "rebootConfirmTitle": "アップデートを完了するために再起動",
+  "@rebootConfirmTitle": {},
+  "reinstall": "再インストール",
+  "@reinstall": {},
+  "showReleases": "リリースを表示",
+  "@showReleases": {},
+  "showUpdates": "アップデートを表示",
+  "@showUpdates": {},
+  "updateChecksums": "チェックサムのアップデート",
+  "@updateChecksums": {},
+  "updateChecksumsConfirm": "<b>{name}</b> のチェックサムをアップデートしますか？",
+  "@updateChecksumsConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "updateChecksumsInfo": "現在の暗号化ハッシュを認証で使用するのに保存じます。",
+  "@updateChecksumsInfo": {},
+  "updateToLatest": "最新版にアップデート",
+  "@updateToLatest": {},
+  "vendor": "ベンダー",
+  "@vendor": {},
+  "currentVersion": "現在のバージョン",
+  "@currentVersion": {},
+  "minVersion": "最小バージョン",
+  "@minVersion": {},
+  "latestVersion": "最新バージョン",
+  "@latestVersion": {},
+  "cancel": "キャンセル",
+  "@cancel": {},
+  "batteryWarning": "注意: デバイスによってはアップデートに外部電源が必要な場合があります！",
+  "@batteryWarning": {},
+  "deviceRequest": "デバイスのリクエスト",
+  "@deviceRequest": {},
+  "current": "現在",
+  "@current": {},
+  "flags": "フラグ",
+  "@flags": {},
+  "fwupdDeviceFlagUpdatable": "",
+  "@fwupdDeviceFlagUpdatable": {},
+  "fwupdDeviceFlagOnlyOffline": "",
+  "@fwupdDeviceFlagOnlyOffline": {},
+  "fwupdDeviceFlagNeedsBootloader": "",
+  "@fwupdDeviceFlagNeedsBootloader": {},
+  "fwupdDeviceFlagNotified": "",
+  "@fwupdDeviceFlagNotified": {},
+  "fwupdDeviceFlagRequireAc": "",
+  "@fwupdDeviceFlagRequireAc": {},
+  "fwupdDeviceFlagInstallParentFirst": "",
+  "@fwupdDeviceFlagInstallParentFirst": {},
+  "fwupdDeviceFlagWillDisappear": "",
+  "@fwupdDeviceFlagWillDisappear": {},
+  "fwupdDeviceFlagIgnoreValidation": "",
+  "@fwupdDeviceFlagIgnoreValidation": {},
+  "fwupdDeviceFlagTrusted": "",
+  "@fwupdDeviceFlagTrusted": {},
+  "fwupdDeviceFlagSelfRecovery": "",
+  "@fwupdDeviceFlagSelfRecovery": {},
+  "fwupdDeviceFlagVersionCheckRequired": "",
+  "@fwupdDeviceFlagVersionCheckRequired": {},
+  "fwupdDeviceFlagLocked": "",
+  "@fwupdDeviceFlagLocked": {},
+  "fwupdDeviceFlagReported": "",
+  "@fwupdDeviceFlagReported": {},
+  "rebootNow": "今すぐ再起動",
+  "@rebootNow": {},
+  "rebootConfirmMessage": "デバイスのアップデートを完了するには再起動が必要です。デバイスに電力を供給するか、満タンまで充電してください。再起動前にファイルを保存すると、データを失うことはないでしょう。",
+  "@rebootConfirmMessage": {},
+  "reinstallConfirm": "<b>{name}</b> バージョン <b>{current}</b> を再インストールしますか？",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "updateAvailable": "アップデートがあります",
+  "@updateAvailable": {},
+  "update": "アップデート",
+  "@update": {},
+  "updateConfirm": "<b>{name}</b> を <b>{version}</b> にアップデートしますか？",
+  "@updateConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyFirmware": "ファームウェアの照合",
+  "@verifyFirmware": {},
+  "verifyFirmwareConfirm": "{name} のファームウェアチェックサムを照合しますか？",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }
