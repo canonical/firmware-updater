@@ -85,5 +85,168 @@
   "fwupdErrorInternal": "Interner Fehler",
   "@fwupdErrorInternal": {},
   "fwupdErrorVersionNewer": "Neuere Firmware-Version installiert",
-  "@fwupdErrorVersionNewer": {}
+  "@fwupdErrorVersionNewer": {},
+  "fwupdDeviceFlagSelfRecovery": "Gerät kann Flash-Fehler beheben",
+  "@fwupdDeviceFlagSelfRecovery": {},
+  "fwupdDeviceFlagInstallAllReleases": "Gerät ist erforderlich, um alle bereitgestellten Versionen zu installieren",
+  "@fwupdDeviceFlagInstallAllReleases": {},
+  "fwupdDeviceFlagHasMultipleBranches": "Gerät unterstützt den Wechsel zu einem anderen Zweig der Firmware",
+  "@fwupdDeviceFlagHasMultipleBranches": {},
+  "rebootConfirmMessage": "Sie müssen Ihr Gerät neu starten, um die Aktualisierung abzuschließen. Vergewissern Sie sich, dass Ihr Gerät an das Stromnetz angeschlossen oder vollständig aufgeladen ist. Speichern Sie Ihre Dateien vor dem Neustart, um Datenverluste zu vermeiden.",
+  "@rebootConfirmMessage": {},
+  "downgrade": "Herabstufen",
+  "@downgrade": {},
+  "downgradeConfirm": "<b>{name}</b> auf <b>{version}</b> herabstufen?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "deviceRequest": "Geräteanforderung",
+  "@deviceRequest": {},
+  "flags": "Bitschalter",
+  "@flags": {},
+  "fwupdDeviceFlagSupported": "Unterstützt auf entferntem Server",
+  "@fwupdDeviceFlagSupported": {},
+  "fwupdDeviceFlagWaitForReplug": "Die Hardware wartet darauf, neu angeschlossen zu werden",
+  "@fwupdDeviceFlagWaitForReplug": {},
+  "fwupdDeviceFlagReported": "An den entfernten Server gemeldet",
+  "@fwupdDeviceFlagReported": {},
+  "fwupdDeviceFlagIgnoreValidation": "Validierungssicherheitsprüfungen ignorieren",
+  "@fwupdDeviceFlagIgnoreValidation": {},
+  "fwupdDeviceFlagNeedsActivation": "Geräteaktualisierung erfordert Aktivierung",
+  "@fwupdDeviceFlagNeedsActivation": {},
+  "fwupdDeviceFlagDualImage": "Das Gerät wird aktualisiert",
+  "@fwupdDeviceFlagDualImage": {},
+  "fwupdDeviceFlagBackupBeforeInstall": "Gerät sichert die Firmware vor der Installation",
+  "@fwupdDeviceFlagBackupBeforeInstall": {},
+  "fwupdDeviceFlagOnlyVersionUpgrade": "Nur Versionshochstufungen sind erlaubt",
+  "@fwupdDeviceFlagOnlyVersionUpgrade": {},
+  "fwupdDeviceFlagEndOfLife": "Lebensende",
+  "@fwupdDeviceFlagEndOfLife": {},
+  "fwupdErrorAlreadyPending": "Bereits zur Offline-Installation vorgesehen",
+  "@fwupdErrorAlreadyPending": {},
+  "fwupdErrorAuthFailed": "Authentifizierung fehlgeschlagen",
+  "@fwupdErrorAuthFailed": {},
+  "fwupdErrorRead": "Lesen vom Gerät fehlgeschlagen",
+  "@fwupdErrorRead": {},
+  "fwupdErrorWrite": "Schreiben auf das Gerät fehlgeschlagen",
+  "@fwupdErrorWrite": {},
+  "fwupdErrorAcPowerRequired": "Netzstrom war erforderlich",
+  "@fwupdErrorAcPowerRequired": {},
+  "fwupdErrorNeedsUserAction": "Der Benutzer muss eine Aktion durchführen, um die Aktualisierung abzuschließen",
+  "@fwupdErrorNeedsUserAction": {},
+  "fwupdErrorAuthExpired": "Autorisierung fehlgeschlagen, da die Anmeldedaten abgelaufen sind",
+  "@fwupdErrorAuthExpired": {},
+  "fwupdStatusUnknown": "Unbekannter Status",
+  "@fwupdStatusUnknown": {},
+  "fwupdStatusIdle": "Untätig",
+  "@fwupdStatusIdle": {},
+  "fwupdStatusLoading": "Ressource wird geladen",
+  "@fwupdStatusLoading": {},
+  "fwupdStatusDecompressing": "Firmware wird dekomprimiert",
+  "@fwupdStatusDecompressing": {},
+  "fwupdStatusDeviceRestart": "Gerät wird neu gestartet",
+  "@fwupdStatusDeviceRestart": {},
+  "fwupdStatusDeviceWrite": "Auf ein Gerät wird geschrieben",
+  "@fwupdStatusDeviceWrite": {},
+  "fwupdStatusDeviceVerify": "Gerät wird verifiziert (gelesen)",
+  "@fwupdStatusDeviceVerify": {},
+  "fwupdStatusScheduling": "Offline-Aktualisierung wird geplant",
+  "@fwupdStatusScheduling": {},
+  "fwupdStatusDownloading": "Eine Datei wird heruntergeladen",
+  "@fwupdStatusDownloading": {},
+  "fwupdStatusDeviceRead": "Von einem Gerät wird gelesen",
+  "@fwupdStatusDeviceRead": {},
+  "fwupdStatusDeviceErase": "Gerät wird gelöscht",
+  "@fwupdStatusDeviceErase": {},
+  "fwupdStatusWaitingForAuth": "Auf Authentifizierung wird gewartet",
+  "@fwupdStatusWaitingForAuth": {},
+  "fwupdStatusDeviceBusy": "Das Gerät ist beschäftigt",
+  "@fwupdStatusDeviceBusy": {},
+  "fwupdStatusShutdown": "Der Daemon wird heruntergefahren",
+  "@fwupdStatusShutdown": {},
+  "guid": "GUIDs",
+  "@guid": {},
+  "installError": "Firmware konnte nicht installiert werden!",
+  "@installError": {},
+  "noDevicesFound": "Keine Geräte gefunden",
+  "@noDevicesFound": {},
+  "olderVersions": "Ältere Versionen",
+  "@olderVersions": {},
+  "rebootLater": "Später neu starten",
+  "@rebootLater": {},
+  "showUpdates": "Aktualisierungen anzeigen",
+  "@showUpdates": {},
+  "update": "Aktualisierung",
+  "@update": {},
+  "updateAvailable": "Aktualisierung verfügbar",
+  "@updateAvailable": {},
+  "rebootNow": "Jetzt neu starten",
+  "@rebootNow": {},
+  "rebootConfirmTitle": "Zum Abschließen dieser Aktualisierung neu starten",
+  "@rebootConfirmTitle": {},
+  "reinstall": "Neu installieren",
+  "@reinstall": {},
+  "reinstallConfirm": "<b>{name}</b> Version <b>{current}</b> neu installieren?",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "showReleases": "Veröffentlichungen anzeigen",
+  "@showReleases": {},
+  "updateConfirm": "<b>{name}</b> auf <b>{version}</b> aktualisieren?",
+  "@updateConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "verifyFirmware": "Firmware verifizieren",
+  "@verifyFirmware": {},
+  "verifyFirmwareConfirm": "Firmware-Prüfsummen von {name} verifizieren?",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "updateChecksums": "Prüfsummen aktualisieren",
+  "@updateChecksums": {},
+  "updateChecksumsConfirm": "Geräteprüfsummen von <b>{name}</b> aktualisieren?",
+  "@updateChecksumsConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "updateChecksumsInfo": "Damit werden die aktuellen kryptografischen Hashwerte als verifiziert festgehalten.",
+  "@updateChecksumsInfo": {},
+  "updateToLatest": "Auf den neuesten Stand aktualisieren",
+  "@updateToLatest": {},
+  "vendor": "Anbieter",
+  "@vendor": {},
+  "currentVersion": "Aktuelle Version",
+  "@currentVersion": {},
+  "latestVersion": "Neueste Version",
+  "@latestVersion": {},
+  "minVersion": "Mindestversion",
+  "@minVersion": {}
 }
