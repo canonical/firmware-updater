@@ -1,3 +1,7 @@
 {
-  "@@locale": "tr"
+  "@@locale": "tr",
+  "allVersions": "Tüm Sürümler",
+  "@allVersions": {},
+  "appTitle": "Yazılım Güncelleyici",
+  "@appTitle": {}
 }
