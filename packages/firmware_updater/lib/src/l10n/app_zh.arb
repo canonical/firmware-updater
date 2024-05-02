@@ -134,7 +134,7 @@
   "@fwupdDeviceFlagLocked": {},
   "fwupdDeviceFlagRegistered": "已注册",
   "@fwupdDeviceFlagRegistered": {},
-  "fwupdDeviceFlagCanVerify": "可使用哈希验证",
+  "fwupdDeviceFlagCanVerify": "哈希验证可用",
   "@fwupdDeviceFlagCanVerify": {},
   "fwupdDeviceFlagIgnoreValidation": "忽略安全检查",
   "@fwupdDeviceFlagIgnoreValidation": {},
@@ -246,5 +246,7 @@
   "fwupdDeviceFlagInstallAllReleases": "设备需要安装已提供的所有发行版本",
   "@fwupdDeviceFlagInstallAllReleases": {},
   "updateChecksumsInfo": "这将记录当前加密哈希值的状态为已验证。",
-  "@updateChecksumsInfo": {}
+  "@updateChecksumsInfo": {},
+  "fwupdDeviceFlagDualImage": "设备阶段更新",
+  "@fwupdDeviceFlagDualImage": {}
 }
