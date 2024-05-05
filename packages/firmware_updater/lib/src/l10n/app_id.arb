@@ -1,3 +1,7 @@
 {
-  "@@locale": "id"
+  "@@locale": "id",
+  "close": "Tutup",
+  "@close": {},
+  "ok": "Ok",
+  "@ok": {}
 }
