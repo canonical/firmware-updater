@@ -85,7 +85,7 @@
   "@fwupdStatusDeviceBusy": {},
   "fwupdStatusWaitingForAuth": "正在等待鉴权",
   "@fwupdStatusWaitingForAuth": {},
-  "ok": "确定",
+  "ok": "好",
   "@ok": {},
   "installError": "无法安装固件！",
   "@installError": {},
