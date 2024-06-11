@@ -3,5 +3,7 @@
   "allVersions": "Tüm Sürümler",
   "@allVersions": {},
   "appTitle": "Yazılım Güncelleyici",
-  "@appTitle": {}
+  "@appTitle": {},
+  "close": "Kapat",
+  "@close": {}
 }
