@@ -1,16 +1,26 @@
+import 'dart:io';
+
 import 'package:firmware_updater/firmware_app.dart';
 import 'package:firmware_updater/fwupd_dbus_service.dart';
 import 'package:firmware_updater/fwupd_mock_service.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gtk/gtk.dart';
+import 'package:path/path.dart' as p;
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
+import 'package:xdg_directories/xdg_directories.dart' as xdg;
 import 'package:yaru/yaru.dart';
 
 Future<void> main(List<String> args) async {
-  Logger.setup(level: LogLevel.fromString(kDebugMode ? 'debug' : 'info'));
+  final binaryName = p.basename(Platform.resolvedExecutable);
+  Logger.setup(
+    path: p.join(
+      xdg.dataHome.path,
+      binaryName,
+      '$binaryName.log',
+    ),
+  );
 
   for (final element in args) {
     if (element.startsWith('--simulate=')) {
