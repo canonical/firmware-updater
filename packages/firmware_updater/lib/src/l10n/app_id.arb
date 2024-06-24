@@ -236,5 +236,17 @@
     }
   },
   "currentVersion": "Versi Saat Ini",
-  "@currentVersion": {}
+  "@currentVersion": {},
+  "appTitle": "Pembaruan Firmware",
+  "@appTitle": {},
+  "flags": "Bendera",
+  "@flags": {},
+  "fwupdDeviceFlagDualImage": "Pembaruan tahapan perangkat",
+  "@fwupdDeviceFlagDualImage": {},
+  "fwupdDeviceFlagEndOfLife": "Akhir hidup",
+  "@fwupdDeviceFlagEndOfLife": {},
+  "fwupdDeviceFlagSignedPayload": "Muatan yang Ditandatangani",
+  "@fwupdDeviceFlagSignedPayload": {},
+  "fwupdDeviceFlagUnsignedPayload": "Muatan yang Ditandatangani",
+  "@fwupdDeviceFlagUnsignedPayload": {}
 }
