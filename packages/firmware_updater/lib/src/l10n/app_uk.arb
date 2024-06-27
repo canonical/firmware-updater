@@ -1,3 +1,5 @@
 {
-  "@@locale": "uk"
+  "@@locale": "uk",
+  "close": "Закрити",
+  "@close": {}
 }
