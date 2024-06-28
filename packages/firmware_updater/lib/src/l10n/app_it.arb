@@ -1,3 +1,7 @@
 {
-  "@@locale": "it"
+  "@@locale": "it",
+  "close": "Chiudi",
+  "@close": {},
+  "ok": "OK",
+  "@ok": {}
 }
