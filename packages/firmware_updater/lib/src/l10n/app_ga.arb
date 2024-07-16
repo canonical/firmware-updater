@@ -1,3 +1,7 @@
 {
-  "@@locale": "ga"
+  "@@locale": "ga",
+  "close": "Dún",
+  "@close": {},
+  "ok": "Ceart go leor",
+  "@ok": {}
 }
