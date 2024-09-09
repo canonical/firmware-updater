@@ -87,5 +87,7 @@
   "fwupdErrorInternal": "Intern feil",
   "@fwupdErrorInternal": {},
   "fwupdDeviceFlagEndOfLife": "Levetidsslutt",
-  "@fwupdDeviceFlagEndOfLife": {}
+  "@fwupdDeviceFlagEndOfLife": {},
+  "cancel": "Avbryt",
+  "@cancel": {}
 }
