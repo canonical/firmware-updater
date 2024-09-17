@@ -140,12 +140,19 @@ void main() {
     registerMockService<FwupdDbusService>(mockService());
     registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
+    // Check to make sure the AC-power warning dialog is displayed
     final store = mockStore(devices: devices);
     await tester.pumpApp((_) =>
         buildPage(store: store, notifier: mockNotifier(onBattery: true)));
     await tester.pumpAndSettle();
 
-    expect(find.text(tester.lang.batteryWarning), findsOneWidget);
+    expect(find.text(tester.lang.acPowerMustBeSupplied), findsOneWidget);
+
+    // Make sure the dialog is dismissed by pressing the "OK" button
+    // (The OK button is the only TextButton on the dialog)
+    await tester.tap(find.byType(TextButton));
+    await tester.pumpAndSettle();
+    expect(find.text(tester.lang.acPowerMustBeSupplied), findsNothing);
   });
 
   testWidgets('register callbacks', (tester) async {
