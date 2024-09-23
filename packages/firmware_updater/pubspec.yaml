@@ -28,7 +28,7 @@ dependencies:
   provider: ^6.0.5
   safe_change_notifier: ^0.3.1
   ubuntu_logger: ^0.1.0
-  ubuntu_service: ^0.3.0
+  ubuntu_service: ^0.4.0
   ubuntu_test: ^0.1.0-beta.4
   upower: ^0.7.0
   yaml: ^3.1.2
