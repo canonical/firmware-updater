@@ -29,7 +29,7 @@ dependencies:
   safe_change_notifier: ^0.3.1
   ubuntu_logger: ^0.1.0
   ubuntu_service: ^0.3.0
-  ubuntu_test: ^0.1.0-beta.4
+  ubuntu_test: ^0.2.0
   upower: ^0.7.0
   yaml: ^3.1.2
   yaru: ^1.1.0
