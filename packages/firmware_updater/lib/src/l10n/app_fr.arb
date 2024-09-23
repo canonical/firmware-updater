@@ -242,5 +242,7 @@
   "fwupdErrorRead": "Échec de lecture depuis l'appareil",
   "@fwupdErrorRead": {},
   "fwupdErrorWrite": "Échec d'écriture sur l'appareil",
-  "@fwupdErrorWrite": {}
+  "@fwupdErrorWrite": {},
+  "appTitle": "Mise à jour de microgiciel",
+  "@appTitle": {}
 }
