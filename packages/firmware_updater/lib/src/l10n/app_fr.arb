@@ -243,6 +243,6 @@
   "@fwupdErrorRead": {},
   "fwupdErrorWrite": "Échec d'écriture sur l'appareil",
   "@fwupdErrorWrite": {},
-  "appTitle": "Mise à jour de microgiciel",
+  "appTitle": "Mise à jour des microgiciels",
   "@appTitle": {}
 }
