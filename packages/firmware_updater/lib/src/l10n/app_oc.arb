@@ -3,5 +3,7 @@
   "close": "Tampar",
   "@close": {},
   "ok": "Validar",
-  "@ok": {}
+  "@ok": {},
+  "allVersions": "Totas las versions",
+  "@allVersions": {}
 }
