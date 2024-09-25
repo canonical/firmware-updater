@@ -2,6 +2,7 @@
 Type=Application
 Version=1.0
 Name=Firmware Updater
+Name[ru]=Обновление прошивок
 Comment=Manage firmware on your device
 Keywords=firmware;
 #use sh because pkexec is broken under xfce/lxce http://pad.lv/1193526
