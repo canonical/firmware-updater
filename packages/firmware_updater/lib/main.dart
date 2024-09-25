@@ -15,9 +15,10 @@ Future<void> main(List<String> args) async {
   for (final element in args) {
     if (element.startsWith('--simulate=')) {
       registerService<FwupdMockService>(
-          () => FwupdMockService(simulateYamlFilePath: element.split('=').last)
-            ..init(),
-          dispose: (s) => s.dispose());
+        () => FwupdMockService(simulateYamlFilePath: element.split('=').last)
+          ..init(),
+        dispose: (s) => s.dispose(),
+      );
     }
   }
 
@@ -26,8 +27,10 @@ Future<void> main(List<String> args) async {
     dispose: (s) => s.dispose(),
   );
 
-  registerService<GtkApplicationNotifier>(() => GtkApplicationNotifier(args),
-      dispose: (s) => s.dispose());
+  registerService<GtkApplicationNotifier>(
+    () => GtkApplicationNotifier(args),
+    dispose: (s) => s.dispose(),
+  );
 
   runApp(
     YaruTheme(

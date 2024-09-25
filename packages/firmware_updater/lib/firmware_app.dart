@@ -13,7 +13,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:gtk/gtk.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/yaru.dart';
 
 class FirmwareApp extends StatefulWidget {
   const FirmwareApp({super.key});
@@ -112,7 +112,8 @@ class _FirmwareAppState extends State<FirmwareApp> {
     return _initialized
         ? ErrorBanner(
             message: context.select<FwupdNotifier, bool>(
-                    (notifier) => notifier.onBattery)
+              (notifier) => notifier.onBattery,
+            )
                 ? l10n.batteryWarning
                 : null,
             child: YaruMasterDetailPage(

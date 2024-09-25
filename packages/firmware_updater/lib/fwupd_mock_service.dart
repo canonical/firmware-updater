@@ -84,9 +84,11 @@ class FwupdMockService extends FwupdService {
           parentDeviceId: device['parentDeviceId'] as String?,
           flags: (device['flags'] as YamlList)
               .value
-              .map((e) => FwupdDeviceFlag.values.firstWhere(
-                    (f) => f.toString() == e.toString(),
-                  ))
+              .map(
+                (e) => FwupdDeviceFlag.values.firstWhere(
+                  (f) => f.toString() == e.toString(),
+                ),
+              )
               .toSet(),
           summary: device['summary'] as String?,
           updateState: FwupdUpdateState.values
@@ -121,9 +123,11 @@ class FwupdMockService extends FwupdService {
   }
 
   @override
-  Future<void> install(FwupdDevice device, FwupdRelease release,
-      [ResourceHandle Function(RandomAccessFile file)?
-          resourceHandleFromFile]) {
+  Future<void> install(
+    FwupdDevice device,
+    FwupdRelease release, [
+    ResourceHandle Function(RandomAccessFile file)? resourceHandleFromFile,
+  ]) {
     return Future.value();
   }
 
@@ -145,7 +149,8 @@ class FwupdMockService extends FwupdService {
 
   @override
   void registerConfirmationListener(
-      Future<bool> Function() confirmationListener) {}
+    Future<bool> Function() confirmationListener,
+  ) {}
 
   @override
   void registerErrorListener(Function(Exception e) errorListener) {}

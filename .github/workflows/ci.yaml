@@ -98,4 +98,4 @@ jobs:
       - run: |
           cd packages/firmware_updater && \
           sudo -E xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' \
-          $FLUTTER_ROOT/bin/flutter test integration_test
+          flutter test integration_test

@@ -21,7 +21,7 @@ void main() {
         ),
         FwupdRelease(
           name: 'oldRelease',
-        )
+        ),
       ],
     };
 
@@ -33,29 +33,41 @@ void main() {
     expect(updates.length, 1);
     expect(updates.entries.first.key, devices.first);
     expect(
-        updates.entries.first.value, releases[devices.first.deviceId]!.first);
+      updates.entries.first.value,
+      releases[devices.first.deviceId]!.first,
+    );
   });
 
   test('show notifications', () {
     final client = MockNotificationsClient();
-    when(client.notify(any,
-            actions: anyNamed('actions'),
-            appIcon: 'software-update-available',
-            body: anyNamed('body')))
-        .thenAnswer((_) async => Notification(NotificationsClient(), 0));
+    when(
+      client.notify(
+        any,
+        actions: anyNamed('actions'),
+        appIcon: 'software-update-available',
+        body: anyNamed('body'),
+      ),
+    ).thenAnswer((_) async => Notification(NotificationsClient(), 0));
     final updates = {
       FwupdDevice(deviceId: '0', name: 'a', plugin: ''): FwupdRelease(
-          name: 'newRelease_a', flags: const {FwupdReleaseFlag.isUpgrade}),
+        name: 'newRelease_a',
+        flags: const {FwupdReleaseFlag.isUpgrade},
+      ),
       FwupdDevice(deviceId: '1', name: 'b', plugin: ''): FwupdRelease(
-          name: 'newRelease_b', flags: const {FwupdReleaseFlag.isUpgrade}),
+        name: 'newRelease_b',
+        flags: const {FwupdReleaseFlag.isUpgrade},
+      ),
     };
 
     sendUpdateNotifications(client, updates);
-    verify(client.notify(any,
-            actions: anyNamed('actions'),
-            appIcon: 'software-update-available',
-            body: anyNamed('body')))
-        .called(2);
+    verify(
+      client.notify(
+        any,
+        actions: anyNamed('actions'),
+        appIcon: 'software-update-available',
+        body: anyNamed('body'),
+      ),
+    ).called(2);
   });
 
   test('no detected devices', () async {

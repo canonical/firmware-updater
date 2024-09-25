@@ -21,7 +21,8 @@ abstract class FwupdService {
   void registerErrorListener(Function(Exception e) errorListener);
 
   void registerConfirmationListener(
-      Future<bool> Function() confirmationListener);
+    Future<bool> Function() confirmationListener,
+  );
 
   Future<void> init();
 

@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
-import 'package:yaru_icons/yaru_icons.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/yaru.dart';
 
 class ReleaseCard extends StatelessWidget {
   const ReleaseCard({
@@ -105,7 +104,7 @@ class ReleaseCard extends StatelessWidget {
             data: '${release.summary}${release.description}',
             style: {
               'body': Style(margin: Margins.zero),
-              'h3': Style(margin: Margins.zero)
+              'h3': Style(margin: Margins.zero),
             },
             shrinkWrap: true,
           ),

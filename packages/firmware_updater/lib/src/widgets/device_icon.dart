@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:yaru_icons/yaru_icons.dart';
+import 'package:yaru/yaru.dart';
 
 const extraIcons = <String, IconData>{
   'ac-adapter': YaruIcons.power,
@@ -14,7 +14,7 @@ const extraIcons = <String, IconData>{
   'media-removable': YaruIcons.drive_removable_media,
   'printer-network': YaruIcons.printer_network,
   'touchpad-disabled': YaruIcons.touchpad,
-  'thunderbolt': YaruIcons.thunderbolt
+  'thunderbolt': YaruIcons.thunderbolt,
 };
 
 // TODO: https://specifications.freedesktop.org/icon-theme-spec/icon-theme-spec-latest.html

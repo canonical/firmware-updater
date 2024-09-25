@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:yaru_icons/yaru_icons.dart';
+import 'package:yaru/yaru.dart';
 
 import '../test_utils.dart';
 
@@ -12,17 +12,19 @@ void main() {
     const icon = Icons.info;
     const title = 'title';
     const message = 'message';
-    await tester.pumpApp((context) => Scaffold(
-          body: OutlinedButton(
-            onPressed: () => showMessageDialog(
-              context,
-              title: title,
-              message: message,
-              icon: const Icon(icon),
-            ),
-            child: const Text('click me'),
+    await tester.pumpApp(
+      (context) => Scaffold(
+        body: OutlinedButton(
+          onPressed: () => showMessageDialog(
+            context,
+            title: title,
+            message: message,
+            icon: const Icon(icon),
           ),
-        ));
+          child: const Text('click me'),
+        ),
+      ),
+    );
     await tester.tap(find.text('click me'));
     await tester.pumpAndSettle();
     expect(find.byIcon(icon), findsOneWidget);
@@ -35,17 +37,19 @@ void main() {
     const title = 'title';
     const message = 'message';
     final completer = Completer<void>();
-    await tester.pumpApp((context) => Scaffold(
-          body: OutlinedButton(
-            onPressed: () => showConfirmationDialog(
-              context,
-              title: title,
-              message: message,
-              onConfirm: completer.complete,
-            ),
-            child: const Text('click me'),
+    await tester.pumpApp(
+      (context) => Scaffold(
+        body: OutlinedButton(
+          onPressed: () => showConfirmationDialog(
+            context,
+            title: title,
+            message: message,
+            onConfirm: completer.complete,
           ),
-        ));
+          child: const Text('click me'),
+        ),
+      ),
+    );
     await tester.tap(find.text('click me'));
     await tester.pumpAndSettle();
     expect(find.byIcon(YaruIcons.question), findsOneWidget);
@@ -64,17 +68,19 @@ void main() {
     const title = 'title';
     const message = 'message';
     final completer = Completer<void>();
-    await tester.pumpApp((context) => Scaffold(
-          body: OutlinedButton(
-            onPressed: () => showConfirmationDialog(
-              context,
-              title: title,
-              message: message,
-              onCancel: completer.complete,
-            ),
-            child: const Text('click me'),
+    await tester.pumpApp(
+      (context) => Scaffold(
+        body: OutlinedButton(
+          onPressed: () => showConfirmationDialog(
+            context,
+            title: title,
+            message: message,
+            onCancel: completer.complete,
           ),
-        ));
+          child: const Text('click me'),
+        ),
+      ),
+    );
     await tester.tap(find.text('click me'));
     await tester.pumpAndSettle();
     expect(find.byIcon(YaruIcons.question), findsOneWidget);
@@ -93,23 +99,27 @@ void main() {
     const title = 'title';
     const message = 'message';
     final completer = Completer<void>();
-    await tester.pumpApp((context) => Scaffold(
-          body: OutlinedButton(
-            onPressed: () => showErrorDialog(
-              context,
-              title: title,
-              message: message,
-              onClose: completer.complete,
-            ),
-            child: const Text('click me'),
+    await tester.pumpApp(
+      (context) => Scaffold(
+        body: OutlinedButton(
+          onPressed: () => showErrorDialog(
+            context,
+            title: title,
+            message: message,
+            onClose: completer.complete,
           ),
-        ));
+          child: const Text('click me'),
+        ),
+      ),
+    );
     await tester.tap(find.text('click me'));
     await tester.pumpAndSettle();
     final errorIcon = find.byIcon(YaruIcons.error);
     expect(errorIcon, findsOneWidget);
-    expect((tester.firstWidget(errorIcon) as Icon).color,
-        tester.theme.colorScheme.error);
+    expect(
+      (tester.firstWidget(errorIcon) as Icon).color,
+      tester.theme.colorScheme.error,
+    );
     expect(find.text(title), findsOneWidget);
     expect(find.text(message), findsOneWidget);
 

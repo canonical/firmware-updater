@@ -10,8 +10,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 import 'package:yaru/yaru.dart';
-import 'package:yaru_icons/yaru_icons.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
 
 class DevicePage extends StatelessWidget {
   const DevicePage({super.key, this.parentNavigator});
@@ -35,8 +33,11 @@ class DevicePage extends StatelessWidget {
     );
   }
 
-  static Widget _buildLabel(BuildContext context, String text,
-      [String? chipLabel]) {
+  static Widget _buildLabel(
+    BuildContext context,
+    String text, [
+    String? chipLabel,
+  ]) {
     final lightChipLabelColor = Theme.of(context).colorScheme.secondary;
     final darkChipLabelColor = lightChipLabelColor.copyWith(lightness: .65);
 
@@ -59,9 +60,10 @@ class DevicePage extends StatelessWidget {
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   label: Text(chipLabel),
                   labelStyle: Theme.of(context).textTheme.labelMedium?.copyWith(
-                      color: Theme.of(context).brightness == Brightness.light
-                          ? lightChipLabelColor
-                          : darkChipLabelColor),
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? lightChipLabelColor
+                            : darkChipLabelColor,
+                      ),
                   labelPadding: EdgeInsets.zero,
                   visualDensity: const VisualDensity(vertical: -4),
                   backgroundColor:
@@ -76,7 +78,10 @@ class DevicePage extends StatelessWidget {
   }
 
   static Widget _buildAppBarTitle(
-      BuildContext context, String title, String? subtitle) {
+    BuildContext context,
+    String title,
+    String? subtitle,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -90,16 +95,16 @@ class DevicePage extends StatelessWidget {
     );
   }
 
-  static Widget _buildButtonBar(
-      {required BuildContext context, bool enabled = true}) {
+  static Widget _buildButtonBar({
+    required BuildContext context,
+    bool enabled = true,
+  }) {
     final model = context.read<DeviceModel>();
     final l10n = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-      child: ButtonBar(
-        mainAxisSize: MainAxisSize.min,
+      child: OverflowBar(
         alignment: MainAxisAlignment.start,
-        buttonPadding: EdgeInsets.zero,
         children: [
           if (model.hasUpgrade)
             Padding(
@@ -146,7 +151,7 @@ class DevicePage extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final fwupdIdle = notifier.status == FwupdStatus.idle;
     final deviceFlags = [
-      for (final flag in device.flags) flag.localize(context)
+      for (final flag in device.flags) flag.localize(context),
     ].whereNotNull();
 
     return YaruDetailPage(
@@ -175,23 +180,27 @@ class DevicePage extends StatelessWidget {
               },
               children: [
                 if (device.version != null)
-                  TableRow(children: [
-                    DevicePage._buildHeader(context, l10n.currentVersion),
-                    const SizedBox.shrink(),
-                    DevicePage._buildLabel(context, device.version!),
-                  ]),
+                  TableRow(
+                    children: [
+                      DevicePage._buildHeader(context, l10n.currentVersion),
+                      const SizedBox.shrink(),
+                      DevicePage._buildLabel(context, device.version!),
+                    ],
+                  ),
                 if (model.latestRelease != null)
-                  TableRow(children: [
-                    DevicePage._buildHeader(context, l10n.latestVersion),
-                    const SizedBox.shrink(),
-                    DevicePage._buildLabel(
-                      context,
-                      model.latestRelease!.version,
-                      model.latestRelease!.version != model.device.version
-                          ? l10n.updateAvailable
-                          : null,
-                    ),
-                  ]),
+                  TableRow(
+                    children: [
+                      DevicePage._buildHeader(context, l10n.latestVersion),
+                      const SizedBox.shrink(),
+                      DevicePage._buildLabel(
+                        context,
+                        model.latestRelease!.version,
+                        model.latestRelease!.version != model.device.version
+                            ? l10n.updateAvailable
+                            : null,
+                      ),
+                    ],
+                  ),
                 if (device.canVerify || releases.isNotEmpty)
                   TableRow(
                     children: [
@@ -201,43 +210,57 @@ class DevicePage extends StatelessWidget {
                     ],
                   ),
                 if (device.versionLowest != null)
-                  TableRow(children: [
-                    DevicePage._buildHeader(context, l10n.minVersion),
-                    const SizedBox.shrink(),
-                    DevicePage._buildLabel(context, device.versionLowest!),
-                  ]),
+                  TableRow(
+                    children: [
+                      DevicePage._buildHeader(context, l10n.minVersion),
+                      const SizedBox.shrink(),
+                      DevicePage._buildLabel(context, device.versionLowest!),
+                    ],
+                  ),
                 if (device.vendor != null)
-                  TableRow(children: [
-                    DevicePage._buildHeader(context, l10n.vendor),
-                    const SizedBox.shrink(),
-                    DevicePage._buildLabel(context, device.vendor!),
-                  ]),
+                  TableRow(
+                    children: [
+                      DevicePage._buildHeader(context, l10n.vendor),
+                      const SizedBox.shrink(),
+                      DevicePage._buildLabel(context, device.vendor!),
+                    ],
+                  ),
                 if (device.guid.isNotEmpty)
-                  TableRow(children: [
-                    DevicePage._buildHeader(context, l10n.guid),
-                    const SizedBox.shrink(),
-                    DevicePage._buildPadding(SelectableText(device.guid.first)),
-                  ]),
+                  TableRow(
+                    children: [
+                      DevicePage._buildHeader(context, l10n.guid),
+                      const SizedBox.shrink(),
+                      DevicePage._buildPadding(
+                        SelectableText(device.guid.first),
+                      ),
+                    ],
+                  ),
                 if (device.guid.length > 1)
                   for (final guid in device.guid.skip(1))
-                    TableRow(children: [
-                      DevicePage._buildHeader(context, ''),
-                      const SizedBox.shrink(),
-                      DevicePage._buildPadding(SelectableText(guid)),
-                    ]),
+                    TableRow(
+                      children: [
+                        DevicePage._buildHeader(context, ''),
+                        const SizedBox.shrink(),
+                        DevicePage._buildPadding(SelectableText(guid)),
+                      ],
+                    ),
                 if (deviceFlags.isNotEmpty)
-                  TableRow(children: [
-                    DevicePage._buildHeader(context, l10n.flags),
-                    const SizedBox.shrink(),
-                    DevicePage._buildPadding(Text(deviceFlags.first))
-                  ]),
+                  TableRow(
+                    children: [
+                      DevicePage._buildHeader(context, l10n.flags),
+                      const SizedBox.shrink(),
+                      DevicePage._buildPadding(Text(deviceFlags.first)),
+                    ],
+                  ),
                 if (deviceFlags.length > 1)
                   for (final flag in deviceFlags.skip(1))
-                    TableRow(children: [
-                      DevicePage._buildHeader(context, ''),
-                      const SizedBox.shrink(),
-                      DevicePage._buildPadding(Text(flag))
-                    ]),
+                    TableRow(
+                      children: [
+                        DevicePage._buildHeader(context, ''),
+                        const SizedBox.shrink(),
+                        DevicePage._buildPadding(Text(flag)),
+                      ],
+                    ),
                 if (device.canVerify)
                   TableRow(
                     children: [
@@ -245,18 +268,16 @@ class DevicePage extends StatelessWidget {
                       const SizedBox.shrink(),
                       Padding(
                         padding: const EdgeInsets.only(top: 8),
-                        child: ButtonBar(
-                          mainAxisSize: MainAxisSize.min,
+                        child: OverflowBar(
                           alignment: MainAxisAlignment.start,
-                          overflowButtonSpacing: 8.0,
-                          buttonPadding: EdgeInsets.zero,
                           children: [
                             OutlinedButton(
                               onPressed: fwupdIdle
                                   ? () => showConfirmationDialog(
                                         context,
                                         title: l10n.updateChecksumsConfirm(
-                                            device.name),
+                                          device.name,
+                                        ),
                                         message: l10n.updateChecksumsInfo,
                                         onConfirm: model.verifyUpdate,
                                         actionText: l10n.update,
@@ -271,10 +292,11 @@ class DevicePage extends StatelessWidget {
                                     ? () => showConfirmationDialog(
                                           context,
                                           title: l10n.verifyFirmwareConfirm(
-                                              device.name),
+                                            device.name,
+                                          ),
                                           message: device.flags.contains(
-                                                  FwupdDeviceFlag
-                                                      .usableDuringUpdate)
+                                            FwupdDeviceFlag.usableDuringUpdate,
+                                          )
                                               ? null
                                               : l10n.deviceUnavailable,
                                           onConfirm: model.verify,
@@ -286,7 +308,7 @@ class DevicePage extends StatelessWidget {
                         ),
                       ),
                     ],
-                  )
+                  ),
               ],
             ),
           ],

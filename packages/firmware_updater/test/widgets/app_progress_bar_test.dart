@@ -6,16 +6,18 @@ import 'package:fwupd/fwupd.dart';
 
 void main() {
   testWidgets('has progress', (tester) async {
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: GlobalMaterialLocalizations.delegates,
-      home: Scaffold(
-        appBar: AppProgressBar(
-          title: 'title',
-          status: FwupdStatus.deviceWrite,
-          progress: 0.5,
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: GlobalMaterialLocalizations.delegates,
+        home: Scaffold(
+          appBar: AppProgressBar(
+            title: 'title',
+            status: FwupdStatus.deviceWrite,
+            progress: 0.5,
+          ),
         ),
       ),
-    ));
+    );
 
     final indicator = find.byType(LinearProgressIndicator);
     expect(indicator, findsOneWidget);
@@ -23,15 +25,17 @@ void main() {
   });
 
   testWidgets('no progress', (tester) async {
-    await tester.pumpWidget(MaterialApp(
-      localizationsDelegates: GlobalMaterialLocalizations.delegates,
-      home: Scaffold(
-        appBar: AppProgressBar(
-          title: 'title',
-          status: FwupdStatus.idle,
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: GlobalMaterialLocalizations.delegates,
+        home: Scaffold(
+          appBar: AppProgressBar(
+            title: 'title',
+            status: FwupdStatus.idle,
+          ),
         ),
       ),
-    ));
+    );
 
     expect(find.byType(LinearProgressIndicator), findsNothing);
   });

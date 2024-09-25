@@ -22,10 +22,11 @@ class DetailPage extends StatefulWidget {
     return ChangeNotifierProvider<DeviceModel>(
       key: ValueKey(device.hashCode),
       create: (_) => DeviceModel(
-          device,
-          hasService<FwupdMockService>()
-              ? getService<FwupdMockService>()
-              : getService<FwupdDbusService>()),
+        device,
+        hasService<FwupdMockService>()
+            ? getService<FwupdMockService>()
+            : getService<FwupdDbusService>(),
+      ),
       child: const DetailPage(),
     );
   }
@@ -44,25 +45,24 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     final navigator = Navigator.of(context);
+    final pages = [
+      MaterialPage(
+        child: DevicePage(parentNavigator: navigator),
+      ),
+      if (context.select<DeviceStore, bool>((store) => store.showReleases))
+        const MaterialPage(
+          child: ReleasePage(),
+        ),
+    ];
+
     return ClipRect(
       child: Theme(
         data: Theme.of(context).copyWith(
           pageTransitionsTheme: YaruPageTransitionsTheme.horizontal,
         ),
         child: Navigator(
-          pages: [
-            MaterialPage(
-              child: DevicePage(parentNavigator: navigator),
-            ),
-            if (context
-                .select<DeviceStore, bool>((store) => store.showReleases))
-              const MaterialPage(
-                child: ReleasePage(),
-              )
-          ],
-          onPopPage: (route, result) {
-            return route.didPop(result);
-          },
+          pages: pages,
+          onDidRemovePage: pages.remove,
           observers: [HeroController()],
         ),
       ),
