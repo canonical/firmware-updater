@@ -86,16 +86,24 @@ jobs:
       - run: sudo apt install -y clang cmake curl dbus dbus-x11 fwupd fwupd-tests gsettings-desktop-schemas libgtk-3-dev ninja-build pkg-config unzip upower xvfb
         env:
           DEBIAN_FRONTEND: noninteractive
+
+      - name: Flutter version
+        run: flutter --version
+
       - name: Prepare environment
         run: |
           sudo sed -i 's/DisabledPlugins=.*/DisabledPlugins=invalid;bios/g' /etc/fwupd/daemon.conf
           echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus" >> $GITHUB_ENV
           echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
-          echo "FLUTTER_ROOT=$(asdf where flutter)" >> $GITHUB_ENV
           gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
-      - run: sudo fwupdmgr enable-remote fwupd-tests
-      - run: sudo fwupdmgr get-devices
-      - run: |
+
+      - name: Setup fwupd tests
+        run: |
+          sudo fwupdmgr enable-remote fwupd-tests
+          sudo fwupdmgr get-devices
+
+      - name: Run integration tests
+        run: |
           cd packages/firmware_updater && \
-          sudo -E xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' \
+          sudo -E env PATH=$PATH xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' \
           flutter test integration_test
