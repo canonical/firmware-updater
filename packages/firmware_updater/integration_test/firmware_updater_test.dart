@@ -9,7 +9,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:ubuntu_test/ubuntu_test.dart';
-import 'package:yaru_widgets/widgets.dart';
+import 'package:yaru/yaru.dart';
 
 import '../test/test_utils.dart';
 
@@ -102,8 +102,11 @@ void main() {
     testWidgets('update checksum', (tester) async {
       final webcam = await client.findDevice((d) => d.summary == 'Fake webcam');
       expect(webcam, isNotNull, reason: 'Install fwupd-tests (Fake webcam).');
-      expect(webcam!.checksum, isNull,
-          reason: 'Fake webcam already has a checksum');
+      expect(
+        webcam!.checksum,
+        isNull,
+        reason: 'Fake webcam already has a checksum',
+      );
 
       await app.main([]);
       await tester.pumpAndSettle();
@@ -167,14 +170,16 @@ extension IntegrationClient on FwupdClient {
       );
     }
 
-    final updateState = await findDevice((d) =>
-            d.deviceId == device.deviceId && d.version == release.version)
-        .then((d) => d?.updateState);
+    final updateState = await findDevice(
+      (d) => d.deviceId == device.deviceId && d.version == release.version,
+    ).then((d) => d?.updateState);
     if (updateState != FwupdUpdateState.success) {
       await expectLater(
         deviceChanged
-            .where((d) =>
-                d.deviceId == device.deviceId && d.version == release.version)
+            .where(
+              (d) =>
+                  d.deviceId == device.deviceId && d.version == release.version,
+            )
             .map((d) => d.updateState),
         emitsThrough(FwupdUpdateState.success),
       );
@@ -211,10 +216,12 @@ extension IntegrationTester on WidgetTester {
   }
 
   Future<void> pumpAndTapDialogButton(String text) {
-    return _pumpAndTapButtonOfFinder(find.descendant(
-      of: find.byType(AlertDialog),
-      matching: find.text(text),
-    ));
+    return _pumpAndTapButtonOfFinder(
+      find.descendant(
+        of: find.byType(AlertDialog),
+        matching: find.text(text),
+      ),
+    );
   }
 
   Future<void> _pumpAndTapButtonOfFinder(Finder finder) async {
@@ -224,7 +231,8 @@ extension IntegrationTester on WidgetTester {
     );
     if (button.evaluate().length > 1) {
       debugPrint(
-          'WARNING: Found multiple buttons in $finder. Assuming the first.');
+        'WARNING: Found multiple buttons in $finder. Assuming the first.',
+      );
     }
     await pumpUntil(button.first);
     return tap(button.first);
@@ -241,8 +249,9 @@ extension IntegrationTester on WidgetTester {
 
   Future<void> pumpAndTapExpandable() async {
     final expandable = find.descendant(
-        of: find.byType(YaruExpandable),
-        matching: find.text(lang.olderVersions));
+      of: find.byType(YaruExpandable),
+      matching: find.text(lang.olderVersions),
+    );
     await pumpUntil(expandable);
     return tap(expandable);
   }

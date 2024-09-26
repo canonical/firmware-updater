@@ -18,7 +18,7 @@ import 'test_utils.dart';
   MockSpec<Dio>(),
   MockSpec<FwupdClient>(),
   MockSpec<DBusClient>(),
-  MockSpec<UPowerClient>()
+  MockSpec<UPowerClient>(),
 ])
 void main() {
   test('connects and closes the fwupd client', () async {
@@ -59,14 +59,16 @@ void main() {
     final dio = MockDio();
     final fwupd = MockFwupdClient();
     final dbus = MockDBusClient();
-    when(dbus.callMethod(
-      destination: anyNamed('destination'),
-      path: anyNamed('path'),
-      interface: anyNamed('interface'),
-      name: anyNamed('name'),
-      values: anyNamed('values'),
-      replySignature: anyNamed('replySignature'),
-    )).thenAnswer((_) async => DBusMethodSuccessResponse());
+    when(
+      dbus.callMethod(
+        destination: anyNamed('destination'),
+        path: anyNamed('path'),
+        interface: anyNamed('interface'),
+        name: anyNamed('name'),
+        values: anyNamed('values'),
+        replySignature: anyNamed('replySignature'),
+      ),
+    ).thenAnswer((_) async => DBusMethodSuccessResponse());
     final upower = MockUPowerClient();
 
     final service = FwupdDbusService(
@@ -81,19 +83,24 @@ void main() {
       file.createSync(recursive: true);
       expect(file.existsSync(), isTrue);
 
-      when(dio.download(
-        url,
-        file.path,
-        onReceiveProgress: anyNamed('onReceiveProgress'),
-        options: anyNamed('options'),
-      )).thenAnswer((i) async {
+      when(
+        dio.download(
+          url,
+          file.path,
+          onReceiveProgress: anyNamed('onReceiveProgress'),
+          options: anyNamed('options'),
+        ),
+      ).thenAnswer((i) async {
         i.namedArguments[#onReceiveProgress]!(0, 1);
         return Response(requestOptions: RequestOptions(path: file.path));
       });
 
       when(fwupd.propertiesChanged).thenAnswer((_) => const Stream.empty());
-      when(fwupd.getRemotes()).thenAnswer((_) async =>
-          [FwupdRemote(id: release.remoteId!, kind: FwupdRemoteKind.download)]);
+      when(fwupd.getRemotes()).thenAnswer(
+        (_) async => [
+          FwupdRemote(id: release.remoteId!, kind: FwupdRemoteKind.download),
+        ],
+      );
 
       when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
 
@@ -102,26 +109,35 @@ void main() {
     test('success', () async {
       await service.install(device, release, (f) => MockResourceHandle());
 
-      verify(dio.download(
-        url,
-        file.path,
-        onReceiveProgress: anyNamed('onReceiveProgress'),
-        options: anyNamed('options'),
-      )).called(1);
+      verify(
+        dio.download(
+          url,
+          file.path,
+          onReceiveProgress: anyNamed('onReceiveProgress'),
+          options: anyNamed('options'),
+        ),
+      ).called(1);
       verifyNever(service.reboot());
     });
 
     test('error', () async {
-      when(dio.download(
-        url,
-        file.path,
-        onReceiveProgress: anyNamed('onReceiveProgress'),
-        options: anyNamed('options'),
-      )).thenThrow(DioException(
-          requestOptions: RequestOptions(path: url), error: 'dio error'));
+      when(
+        dio.download(
+          url,
+          file.path,
+          onReceiveProgress: anyNamed('onReceiveProgress'),
+          options: anyNamed('options'),
+        ),
+      ).thenThrow(
+        DioException(
+          requestOptions: RequestOptions(path: url),
+          error: 'dio error',
+        ),
+      );
 
       service.registerErrorListener(
-          expectAsync1((e) => expect(e, isInstanceOf<DioException>())));
+        expectAsync1((e) => expect(e, isInstanceOf<DioException>())),
+      );
       await service.install(device, release, (f) => MockResourceHandle());
       verifyNever(service.reboot());
     });
@@ -130,11 +146,13 @@ void main() {
       service
           .registerConfirmationListener(expectAsync0(() => Future.value(true)));
       await service.install(
-          testDevice(
-              id: 'b',
-              flags: {FwupdDeviceFlag.updatable, FwupdDeviceFlag.needsReboot}),
-          release,
-          (f) => MockResourceHandle());
+        testDevice(
+          id: 'b',
+          flags: {FwupdDeviceFlag.updatable, FwupdDeviceFlag.needsReboot},
+        ),
+        release,
+        (f) => MockResourceHandle(),
+      );
       verify(service.reboot()).called(1);
     });
   });
@@ -225,14 +243,16 @@ void main() {
     when(upower.propertiesChanged).thenAnswer((_) => const Stream.empty());
 
     final dbus = MockDBusClient();
-    when(dbus.callMethod(
-      destination: anyNamed('destination'),
-      path: anyNamed('path'),
-      interface: anyNamed('interface'),
-      name: anyNamed('name'),
-      values: anyNamed('values'),
-      replySignature: anyNamed('replySignature'),
-    )).thenAnswer((_) async => DBusMethodSuccessResponse());
+    when(
+      dbus.callMethod(
+        destination: anyNamed('destination'),
+        path: anyNamed('path'),
+        interface: anyNamed('interface'),
+        name: anyNamed('name'),
+        values: anyNamed('values'),
+        replySignature: anyNamed('replySignature'),
+      ),
+    ).thenAnswer((_) async => DBusMethodSuccessResponse());
 
     final service = FwupdDbusService(
       fwupd: fwupd,
@@ -242,14 +262,16 @@ void main() {
 
     await service.init();
     await service.reboot();
-    verify(dbus.callMethod(
-      destination: 'org.freedesktop.login1',
-      path: DBusObjectPath('/org/freedesktop/login1'),
-      interface: 'org.freedesktop.login1.Manager',
-      name: 'Reboot',
-      values: [const DBusBoolean(true)],
-      replySignature: DBusSignature(''),
-    )).called(1);
+    verify(
+      dbus.callMethod(
+        destination: 'org.freedesktop.login1',
+        path: DBusObjectPath('/org/freedesktop/login1'),
+        interface: 'org.freedesktop.login1.Manager',
+        name: 'Reboot',
+        values: [const DBusBoolean(true)],
+        replySignature: DBusSignature(''),
+      ),
+    ).called(1);
   });
 }
 

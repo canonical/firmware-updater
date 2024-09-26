@@ -34,7 +34,8 @@ void main() {
       final notifier = mockNotifier();
       final store = mockStore();
       await tester.pumpApp(
-          (_) => buildPage(model: model, notifier: notifier, store: store));
+        (_) => buildPage(model: model, notifier: notifier, store: store),
+      );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
       expect(find.text(tester.lang.allVersions), findsNothing);
@@ -49,7 +50,8 @@ void main() {
       final notifier = mockNotifier();
       final store = mockStore();
       await tester.pumpApp(
-          (_) => buildPage(model: model, notifier: notifier, store: store));
+        (_) => buildPage(model: model, notifier: notifier, store: store),
+      );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
       expect(find.text(tester.lang.allVersions), findsOneWidget);
@@ -74,7 +76,8 @@ void main() {
       final notifier = mockNotifier();
       final store = mockStore();
       await tester.pumpApp(
-          (_) => buildPage(model: model, notifier: notifier, store: store));
+        (_) => buildPage(model: model, notifier: notifier, store: store),
+      );
 
       expect(find.text(tester.lang.updateToLatest), findsOneWidget);
       expect(find.text(tester.lang.allVersions), findsOneWidget);
@@ -84,8 +87,10 @@ void main() {
       await tester.tap(find.text(tester.lang.updateToLatest));
       await tester.pumpAndSettle();
 
-      expect(find.html(tester.lang.updateConfirm('test device', '2.0.0')),
-          findsOneWidget);
+      expect(
+        find.html(tester.lang.updateConfirm('test device', '2.0.0')),
+        findsOneWidget,
+      );
 
       await tester.tap(find.text(tester.lang.update));
       verify(model.install(FwupdRelease(name: 'new release', version: '2.0.0')))
@@ -94,12 +99,16 @@ void main() {
 
     testWidgets('update checksum', (tester) async {
       final device = testDevice(
-          name: 'test device', id: 'a', flags: {FwupdDeviceFlag.canVerify});
+        name: 'test device',
+        id: 'a',
+        flags: {FwupdDeviceFlag.canVerify},
+      );
       final model = mockModel(device: device);
       final notifier = mockNotifier();
       final store = mockStore();
       await tester.pumpApp(
-          (_) => buildPage(model: model, notifier: notifier, store: store));
+        (_) => buildPage(model: model, notifier: notifier, store: store),
+      );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
       expect(find.text(tester.lang.allVersions), findsNothing);
@@ -109,8 +118,10 @@ void main() {
       await tester.tap(find.text(tester.lang.updateChecksums));
       await tester.pumpAndSettle();
 
-      expect(find.html(tester.lang.updateChecksumsConfirm(device.name)),
-          findsOneWidget);
+      expect(
+        find.html(tester.lang.updateChecksumsConfirm(device.name)),
+        findsOneWidget,
+      );
       expect(find.text(tester.lang.updateChecksumsInfo), findsOneWidget);
       expect(find.text(tester.lang.update), findsOneWidget);
       expect(find.text(tester.lang.cancel), findsOneWidget);
@@ -121,12 +132,16 @@ void main() {
 
     testWidgets('verify checksum', (tester) async {
       final device = testDevice(
-          id: 'a', flags: {FwupdDeviceFlag.canVerify}, checksum: '1337');
+        id: 'a',
+        flags: {FwupdDeviceFlag.canVerify},
+        checksum: '1337',
+      );
       final model = mockModel(device: device);
       final notifier = mockNotifier();
       final store = mockStore();
       await tester.pumpApp(
-          (_) => buildPage(model: model, notifier: notifier, store: store));
+        (_) => buildPage(model: model, notifier: notifier, store: store),
+      );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
       expect(find.text(tester.lang.allVersions), findsNothing);
@@ -136,8 +151,10 @@ void main() {
       await tester.tap(find.text(tester.lang.verifyFirmware));
       await tester.pumpAndSettle();
 
-      expect(find.text(tester.lang.verifyFirmwareConfirm(device.name)),
-          findsOneWidget);
+      expect(
+        find.text(tester.lang.verifyFirmwareConfirm(device.name)),
+        findsOneWidget,
+      );
       expect(find.text(tester.lang.ok), findsOneWidget);
       expect(find.text(tester.lang.cancel), findsOneWidget);
 

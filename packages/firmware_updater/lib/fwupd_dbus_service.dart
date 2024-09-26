@@ -67,7 +67,8 @@ class FwupdDbusService extends FwupdService {
 
   @override
   void registerConfirmationListener(
-      Future<bool> Function() confirmationListener) {
+    Future<bool> Function() confirmationListener,
+  ) {
     _confirmationListener = confirmationListener;
   }
 

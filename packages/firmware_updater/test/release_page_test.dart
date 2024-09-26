@@ -27,27 +27,31 @@ void main() {
 
   testWidgets('dropdown', (tester) async {
     final device = testDevice(id: 'a', version: '2');
-    final model = mockModel(device: device, releases: [
-      FwupdRelease(
-        name: 'new release',
-        flags: const {FwupdReleaseFlag.isUpgrade},
-        version: '3.0.0',
-      ),
-      FwupdRelease(
-        name: 'current release',
-        flags: const {FwupdReleaseFlag.isUpgrade},
-        version: '2.0.0',
-      ),
-      FwupdRelease(
-        name: 'old release',
-        flags: const {FwupdReleaseFlag.isDowngrade},
-        version: '1.0.0',
-      ),
-    ]);
+    final model = mockModel(
+      device: device,
+      releases: [
+        FwupdRelease(
+          name: 'new release',
+          flags: const {FwupdReleaseFlag.isUpgrade},
+          version: '3.0.0',
+        ),
+        FwupdRelease(
+          name: 'current release',
+          flags: const {FwupdReleaseFlag.isUpgrade},
+          version: '2.0.0',
+        ),
+        FwupdRelease(
+          name: 'old release',
+          flags: const {FwupdReleaseFlag.isDowngrade},
+          version: '1.0.0',
+        ),
+      ],
+    );
     final notifier = mockNotifier();
     final store = mockStore();
     await tester.pumpApp(
-        (_) => buildPage(model: model, notifier: notifier, store: store));
+      (_) => buildPage(model: model, notifier: notifier, store: store),
+    );
 
     expect(find.text('3.0.0').hitTestable(), findsOneWidget);
     expect(find.text('2.0.0').hitTestable(), findsOneWidget);

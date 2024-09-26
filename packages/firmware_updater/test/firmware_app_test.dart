@@ -11,7 +11,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_service/ubuntu_service.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/yaru.dart';
 
 import 'firmware_app_test.mocks.dart';
 import 'test_utils.dart';
@@ -41,8 +41,11 @@ void main() {
     final store = MockDeviceStore();
     when(store.devices).thenReturn(devices);
     when(store.showReleases).thenReturn(false);
-    when(store.indexOf(any)).thenAnswer((i) => devices.indexWhere(
-        (d) => d.deviceId == i.positionalArguments.single as String?));
+    when(store.indexOf(any)).thenAnswer(
+      (i) => devices.indexWhere(
+        (d) => d.deviceId == i.positionalArguments.single as String?,
+      ),
+    );
     return store;
   }
 
@@ -52,8 +55,10 @@ void main() {
     return notifier;
   }
 
-  Widget buildPage(
-      {required DeviceStore store, required FwupdNotifier notifier}) {
+  Widget buildPage({
+    required DeviceStore store,
+    required FwupdNotifier notifier,
+  }) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<DeviceStore>.value(value: store),
@@ -106,8 +111,9 @@ void main() {
 
       final store = mockStore(devices: devices);
       await tester.pumpApp(
-          (_) => buildPage(store: store, notifier: mockNotifier()),
-          size: const Size(400, 850));
+        (_) => buildPage(store: store, notifier: mockNotifier()),
+        size: const Size(400, 850),
+      );
       await tester.pumpAndSettle();
 
       expect(find.text(devices.first.name), findsOneWidget);
@@ -141,8 +147,9 @@ void main() {
     registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
 
     final store = mockStore(devices: devices);
-    await tester.pumpApp((_) =>
-        buildPage(store: store, notifier: mockNotifier(onBattery: true)));
+    await tester.pumpApp(
+      (_) => buildPage(store: store, notifier: mockNotifier(onBattery: true)),
+    );
     await tester.pumpAndSettle();
 
     expect(find.text(tester.lang.batteryWarning), findsOneWidget);
@@ -176,18 +183,21 @@ void main() {
     final store = mockStore(devices: devices);
 
     late final Future<bool> Function() confirmationListener;
-    when(notifier.registerConfirmationListener(any)).thenAnswer((i) =>
-        confirmationListener =
-            i.positionalArguments[0] as Future<bool> Function());
+    when(notifier.registerConfirmationListener(any)).thenAnswer(
+      (i) => confirmationListener =
+          i.positionalArguments[0] as Future<bool> Function(),
+    );
 
     late final Function(Exception) errorListener;
     when(notifier.registerErrorListener(any)).thenAnswer(
-        (i) => errorListener = i.positionalArguments[0] as Function(Exception));
+      (i) => errorListener = i.positionalArguments[0] as Function(Exception),
+    );
 
     late final Function(FwupdDevice) deviceRequestListener;
-    when(notifier.registerDeviceRequestListener(any)).thenAnswer((i) =>
-        deviceRequestListener =
-            i.positionalArguments[0] as Function(FwupdDevice));
+    when(notifier.registerDeviceRequestListener(any)).thenAnswer(
+      (i) => deviceRequestListener =
+          i.positionalArguments[0] as Function(FwupdDevice),
+    );
 
     await tester.pumpApp((_) => buildPage(store: store, notifier: notifier));
 
@@ -223,9 +233,10 @@ void main() {
     final store = mockStore(devices: []);
     when(store.indexOf(any)).thenReturn(0);
     late final void Function(List<String>) cliListener;
-    when(gtkAppNotifier.addCommandLineListener(any)).thenAnswer((i) =>
-        cliListener =
-            i.positionalArguments.first as void Function(List<String>));
+    when(gtkAppNotifier.addCommandLineListener(any)).thenAnswer(
+      (i) => cliListener =
+          i.positionalArguments.first as void Function(List<String>),
+    );
 
     await tester
         .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));

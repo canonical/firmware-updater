@@ -47,7 +47,7 @@ class _ErrorBannerState extends State<ErrorBanner> {
                       vertical: -4,
                     ),
                     color: Theme.of(context).colorScheme.onErrorContainer,
-                  )
+                  ),
                 ],
               ),
             ),

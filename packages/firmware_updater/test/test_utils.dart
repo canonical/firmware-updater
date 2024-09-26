@@ -101,13 +101,17 @@ extension WidgetTesterX on WidgetTester {
   AppLocalizations get lang => AppLocalizations.of(context);
   ThemeData get theme => Theme.of(context);
 
-  Future<void> pumpApp(WidgetBuilder builder,
-      {Size size = const Size(700, 850)}) {
+  Future<void> pumpApp(
+    WidgetBuilder builder, {
+    Size size = const Size(700, 850),
+  }) {
     view.devicePixelRatio = 1;
     view.physicalSize = size;
-    return pumpWidget(MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      home: Builder(builder: builder),
-    ));
+    return pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        home: Builder(builder: builder),
+      ),
+    );
   }
 }

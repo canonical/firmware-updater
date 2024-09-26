@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:yaru_icons/yaru_icons.dart';
+import 'package:yaru/yaru.dart';
 
 enum DialogAction { primaryAction, secondaryAction, cancel, close }
 
@@ -19,8 +19,10 @@ Future<DialogAction?> showGeneralDialog(
   VoidCallback? onClose,
   bool closeable = true,
 }) async {
-  assert((secondaryActionText == null) == (onSecondaryAction == null),
-      'must specify either both `secondaryActionText` and `onSecondaryAction` or none of those');
+  assert(
+    (secondaryActionText == null) == (onSecondaryAction == null),
+    'must specify either both `secondaryActionText` and `onSecondaryAction` or none of those',
+  );
   final l10n = AppLocalizations.of(context);
   final result = await showDialog<DialogAction>(
     context: context,
@@ -197,7 +199,10 @@ Future<DialogAction?> showErrorDialog(
       context,
       title: title,
       message: message,
-      icon: Icon(YaruIcons.error,
-          size: 64.0, color: Theme.of(context).colorScheme.error),
+      icon: Icon(
+        YaruIcons.error,
+        size: 64.0,
+        color: Theme.of(context).colorScheme.error,
+      ),
       onClose: onClose,
     );
