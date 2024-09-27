@@ -1,3 +1,93 @@
 {
-  "@@locale": "nb"
+  "@@locale": "nb",
+  "allVersions": "Alle versjoner",
+  "@allVersions": {},
+  "appTitle": "Fastvare-oppgraderer",
+  "@appTitle": {},
+  "checksum": "Sjekksum",
+  "@checksum": {},
+  "close": "Lukk",
+  "@close": {},
+  "current": "Nåværende",
+  "@current": {},
+  "deviceRequest": "Enhetsforespørsel",
+  "@deviceRequest": {},
+  "downgrade": "Nedgrader",
+  "@downgrade": {},
+  "downgradeConfirm": "Nedgrader <b>{name}</b> til <b>{version}</b>?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "flags": "Flagg",
+  "@flags": {},
+  "fwupdDeviceFlagInternal": "Internenhet",
+  "@fwupdDeviceFlagInternal": {},
+  "fwupdDeviceFlagLocked": "Enheten er låst",
+  "@fwupdDeviceFlagLocked": {},
+  "fwupdDeviceFlagNeedsBootloader": "Krever en oppstartslaster",
+  "@fwupdDeviceFlagNeedsBootloader": {},
+  "fwupdDeviceFlagRegistered": "Registrert",
+  "@fwupdDeviceFlagRegistered": {},
+  "fwupdDeviceFlagNotified": "Brukeren har fått beskjed",
+  "@fwupdDeviceFlagNotified": {},
+  "fwupdDeviceFlagTrusted": "Betrodd",
+  "@fwupdDeviceFlagTrusted": {},
+  "fwupdErrorSignatureInvalid": "Ugyldig signatur",
+  "@fwupdErrorSignatureInvalid": {},
+  "fwupdStatusUnknown": "Ukjent tilstand",
+  "@fwupdStatusUnknown": {},
+  "fwupdErrorUnknown": "Ukjent feil",
+  "@fwupdErrorUnknown": {},
+  "fwupdStatusDecompressing": "Pakker ut fastvare …",
+  "@fwupdStatusDecompressing": {},
+  "fwupdStatusDeviceBusy": "Enheten er opptatt",
+  "@fwupdStatusDeviceBusy": {},
+  "guid": "GUID-er",
+  "@guid": {},
+  "noDevicesFound": "Fant ingen enheter",
+  "@noDevicesFound": {},
+  "ok": "OK",
+  "@ok": {},
+  "olderVersions": "Eldre versjoner",
+  "@olderVersions": {},
+  "rebootNow": "Omstart nå",
+  "@rebootNow": {},
+  "reinstall": "Reinstaller",
+  "@reinstall": {},
+  "reinstallConfirm": "Reinstaller <b>{name}</b> versjon <b>{current}</b>?",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "showReleases": "Vis utgivelser",
+  "@showReleases": {},
+  "updateChecksums": "Oppdater sjekksummer",
+  "@updateChecksums": {},
+  "currentVersion": "Nåværende versjon",
+  "@currentVersion": {},
+  "latestVersion": "Seneste versjon",
+  "@latestVersion": {},
+  "minVersion": "Minimumsversjon",
+  "@minVersion": {},
+  "fwupdDeviceFlagUnreachable": "Enheten kan ikke nås",
+  "@fwupdDeviceFlagUnreachable": {},
+  "fwupdErrorInternal": "Intern feil",
+  "@fwupdErrorInternal": {},
+  "fwupdDeviceFlagEndOfLife": "Levetidsslutt",
+  "@fwupdDeviceFlagEndOfLife": {},
+  "cancel": "Avbryt",
+  "@cancel": {}
 }

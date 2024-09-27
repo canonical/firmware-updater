@@ -205,7 +205,7 @@
   "@rebootNow": {},
   "rebootConfirmTitle": "Aktualizáciu dokončíte reštartovaním",
   "@rebootConfirmTitle": {},
-  "rebootConfirmMessage": "Na dokončenie aktualizácie musíte reštartovať zariadenie . Uistite sa, že je vaše zariadenie zapojené alebo plne nabité. Pred reštartovaním si uložte súbory, aby ste predišli strate údajov.",
+  "rebootConfirmMessage": "Na dokončenie aktualizácie musíte reštartovať zariadenie. Uistite sa, že je vaše zariadenie zapojené alebo plne nabité. Pred reštartovaním si uložte súbory, aby ste predišli strate údajov.",
   "@rebootConfirmMessage": {},
   "updateToLatest": "Aktualizovať na najnovšie",
   "@updateToLatest": {},
