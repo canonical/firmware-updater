@@ -3,13 +3,13 @@ version: git
 summary: Firmware Updater
 description: Update Firmware
 confinement: strict
-base: core24
+base: core22
 grade: stable
 license: GPL-3.0+
 icon: snap/local/firmware-updater.png
-platforms:
-  amd64:
-  arm64:
+architectures:
+  - build-on: amd64
+  - build-on: arm64
 
 slots:
   dbus-slot:
@@ -29,7 +29,6 @@ parts:
       - clang
       - cmake
       - curl
-      - git
       - libgtk-3-dev
       - ninja-build
       - unzip
