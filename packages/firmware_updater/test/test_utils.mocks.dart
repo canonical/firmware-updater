@@ -47,6 +47,15 @@ class MockFwupdDbusService extends _i1.Mock implements _i3.FwupdDbusService {
   }
 
   @override
+  String get userAgent => (super.noSuchMethod(
+        Invocation.getter(#userAgent),
+        returnValue: _i4.dummyValue<String>(
+          this,
+          Invocation.getter(#userAgent),
+        ),
+      ) as String);
+
+  @override
   _i2.FwupdStatus get status => (super.noSuchMethod(
         Invocation.getter(#status),
         returnValue: _i2.FwupdStatus.unknown,
