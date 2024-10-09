@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:dbus/dbus.dart';
 import 'package:dio/dio.dart';
 import 'package:file/file.dart';
@@ -22,21 +23,36 @@ class FwupdDbusService extends FwupdService {
     @visibleForTesting FileSystem? fs,
     @visibleForTesting DBusClient? dbus,
     @visibleForTesting UPowerClient? upower,
+    @visibleForTesting String? localeName,
+    @visibleForTesting Map<String, String>? env,
+    @visibleForTesting
+    Future<ProcessResult> Function(String, List<String>)? runProcess,
   })  : _dio = dio ?? Dio(),
         _fs = fs ?? const LocalFileSystem(),
         _fwupd = fwupd ?? FwupdClient(),
         _dbus = dbus ?? DBusClient.system(),
-        _upower = upower ?? UPowerClient();
+        _upower = upower ?? UPowerClient(),
+        _localeName = localeName ?? Platform.localeName,
+        _env = env ?? Platform.environment,
+        _runProcess = runProcess ?? Process.run;
 
   final Dio _dio;
   final FileSystem _fs;
   final FwupdClient _fwupd;
   final UPowerClient _upower;
   final DBusClient _dbus;
+  final String _localeName;
+  final Map<String, String> _env;
+  final Future<ProcessResult> Function(String, List<String>) _runProcess;
   int? _downloadProgress;
   final _propertiesChanged = StreamController<List<String>>();
   StreamSubscription<List<String>>? _fwupdPropertiesSubscription;
   StreamSubscription<List<String>>? _upowerPropertiesSubscription;
+
+  late final String _userAgent;
+
+  @visibleForTesting
+  String get userAgent => _userAgent;
 
   @override
   FwupdStatus get status =>
@@ -81,6 +97,7 @@ class FwupdDbusService extends FwupdService {
     _upowerPropertiesSubscription ??=
         _upower.propertiesChanged.listen(_propertiesChanged.add);
     _propertiesChanged.add(['OnBattery']);
+    _userAgent = await _generateUserAgent();
   }
 
   @override
@@ -94,6 +111,35 @@ class FwupdDbusService extends FwupdService {
 
   @override
   Future<void> refreshProperties() => _fwupd.refreshPropertyCache();
+
+  Future<String> _generateUserAgent() async {
+    const releaseFilePath = '/etc/lsb-release';
+    final parsedLocale = _localeName.split('.').first.replaceFirst('_', '-');
+    final snapName = _env['SNAP_NAME'] ?? 'firmware-updater';
+    final snapVersion = _env['SNAP_VERSION'] ?? 'dev';
+    final lsbRelease =
+        await _fs.file(releaseFilePath).readAsLines().onError((error, _) {
+              log.error('Could not read $releaseFilePath: $error');
+              return [];
+            }).then(
+              (lines) => lines
+                  .singleWhereOrNull(
+                    (line) => line.startsWith('DISTRIB_DESCRIPTION'),
+                  )
+                  ?.split('=')
+                  .last
+                  .replaceAll('"', ''),
+            ) ??
+            'Unknown Distribution';
+    final uname = await _runProcess('uname', ['-smr']).then((result) {
+          final fields = (result.stdout as String).split(' ');
+          if (result.exitCode != 0 || fields.length != 3) return null;
+          return '${fields[0]} ${fields[2]} ${fields[1]}';
+        }) ??
+        'Linux';
+
+    return '$snapName/$snapVersion ($uname; $parsedLocale; $lsbRelease) fwupd/$daemonVersion';
+  }
 
   Future<File> _fetchRelease(FwupdRelease release) async {
     final remote = await _fwupd.getRemotes().then((remotes) {
@@ -129,8 +175,7 @@ class FwupdDbusService extends FwupdService {
         onReceiveProgress: (recvd, total) {
           _setDownloadProgress(100 * recvd ~/ total);
         },
-        options:
-            Options(headers: {HttpHeaders.userAgentHeader: 'firmware-updater'}),
+        options: Options(headers: {HttpHeaders.userAgentHeader: _userAgent}),
       ).then((response) => _fs.file(path));
     } finally {
       _setDownloadProgress(null);

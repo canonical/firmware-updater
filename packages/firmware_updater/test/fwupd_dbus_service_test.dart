@@ -273,6 +273,111 @@ void main() {
       ),
     ).called(1);
   });
+
+  group('user agent', () {
+    final testCases = <({
+      String name,
+      String localeName,
+      String fwupdVersion,
+      String unameOutput,
+      String lsbRelease,
+      Map<String, String> env,
+      String expectedUserAgent,
+    })>[
+      (
+        name: 'Ubuntu 24.04.1 LTS',
+        localeName: 'en_US.UTF-8',
+        fwupdVersion: '1.9.24',
+        unameOutput: 'Linux 6.8.0-45-generic x86_64',
+        lsbRelease: '''
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=24.04
+DISTRIB_CODENAME=noble
+DISTRIB_DESCRIPTION="Ubuntu 24.04.1 LTS"
+''',
+        env: {
+          'SNAP_NAME': 'firmware-updater',
+          'SNAP_VERSION': '0+git.0000000',
+        },
+        expectedUserAgent:
+            'firmware-updater/0+git.0000000 (Linux x86_64 6.8.0-45-generic; en-US; Ubuntu 24.04.1 LTS) fwupd/1.9.24',
+      ),
+      (
+        name: 'outside snap confinment',
+        localeName: 'en_US.UTF-8',
+        fwupdVersion: '1.9.24',
+        unameOutput: 'Linux 6.8.0-45-generic x86_64',
+        lsbRelease: '''
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=24.04
+DISTRIB_CODENAME=noble
+DISTRIB_DESCRIPTION="Ubuntu 24.04.1 LTS"
+''',
+        env: {},
+        expectedUserAgent:
+            'firmware-updater/dev (Linux x86_64 6.8.0-45-generic; en-US; Ubuntu 24.04.1 LTS) fwupd/1.9.24',
+      ),
+      (
+        name: 'Fallbacks',
+        localeName: 'en_US.UTF-8',
+        fwupdVersion: '1.9.24',
+        unameOutput: '',
+        lsbRelease: '',
+        env: {},
+        expectedUserAgent:
+            'firmware-updater/dev (Linux; en-US; Unknown Distribution) fwupd/1.9.24',
+      ),
+    ];
+
+    for (final testCase in testCases) {
+      test(testCase.name, () async {
+        final fwupd = MockFwupdClient();
+        when(fwupd.daemonVersion).thenReturn(testCase.fwupdVersion);
+
+        final upower = MockUPowerClient();
+        final dbus = MockDBusClient();
+
+        final mockProcess = MockProcess();
+        when(mockProcess.run('uname', ['-smr'])).thenAnswer(
+          (_) async => ProcessResult(0, 0, testCase.unameOutput, ''),
+        );
+
+        final fs = MemoryFileSystem.test();
+        final lsbReleaseFile = await fs
+            .file('/etc/lsb-release')
+            .create(recursive: true)
+            .then((file) => file.writeAsString(testCase.lsbRelease));
+
+        expect(lsbReleaseFile.existsSync(), isTrue);
+
+        final service = FwupdDbusService(
+          fwupd: fwupd,
+          upower: upower,
+          dbus: dbus,
+          fs: fs,
+          localeName: testCase.localeName,
+          env: testCase.env,
+          runProcess: mockProcess.run,
+        );
+
+        await service.init();
+        expect(service.userAgent, equals(testCase.expectedUserAgent));
+      });
+    }
+  });
 }
 
 class MockResourceHandle extends Mock implements ResourceHandle {}
+
+abstract class _Process {
+  Future<ProcessResult> run(String? executable, List<String>? arguments);
+}
+
+class MockProcess extends Mock implements _Process {
+  @override
+  Future<ProcessResult> run(String? executable, List<String>? arguments) =>
+      super.noSuchMethod(
+        Invocation.method(#run, [executable, arguments]),
+        returnValue: Future.value(ProcessResult(0, 0, '', '')),
+      ) as Future<ProcessResult>;
+}
