@@ -132,7 +132,7 @@ class FwupdDbusService extends FwupdService {
             ) ??
             'Unknown Distribution';
     final uname = await _runProcess('uname', ['-smr']).then((result) {
-          final fields = (result.stdout as String).split(' ');
+          final fields = (result.stdout as String).trim().split(' ');
           if (result.exitCode != 0 || fields.length != 3) return null;
           return '${fields[0]} ${fields[2]} ${fields[1]}';
         }) ??

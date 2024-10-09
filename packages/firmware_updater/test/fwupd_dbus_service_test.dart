@@ -306,7 +306,7 @@ DISTRIB_DESCRIPTION="Ubuntu 24.04.1 LTS"
         name: 'outside snap confinment',
         localeName: 'en_US.UTF-8',
         fwupdVersion: '1.9.24',
-        unameOutput: 'Linux 6.8.0-45-generic x86_64',
+        unameOutput: 'Linux 6.8.0-45-generic x86_64\n',
         lsbRelease: '''
 DISTRIB_ID=Ubuntu
 DISTRIB_RELEASE=24.04
