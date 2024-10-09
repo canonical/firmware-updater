@@ -49,7 +49,7 @@ class FwupdDbusService extends FwupdService {
   StreamSubscription<List<String>>? _fwupdPropertiesSubscription;
   StreamSubscription<List<String>>? _upowerPropertiesSubscription;
 
-  late final String _userAgent;
+  late String _userAgent;
 
   @visibleForTesting
   String get userAgent => _userAgent;
