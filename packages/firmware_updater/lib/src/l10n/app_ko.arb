@@ -1,3 +1,42 @@
 {
-  "@@locale": "ko"
+  "@@locale": "ko",
+  "appTitle": "펌웨어 업데이터",
+  "@appTitle": {},
+  "allVersions": "모든 버전",
+  "@allVersions": {},
+  "batteryWarning": "경고: 일부 장치 업데이트는 전원에 연결한 상태에서만 가능합니다!",
+  "@batteryWarning": {},
+  "checksum": "체크섬",
+  "@checksum": {},
+  "close": "닫기",
+  "@close": {},
+  "cancel": "취소",
+  "@cancel": {},
+  "current": "현재",
+  "@current": {},
+  "deviceUnavailable": "이 동작 중에는 장치를 사용할 수 없습니다.",
+  "@deviceUnavailable": {},
+  "deviceRequest": "장치 요청",
+  "@deviceRequest": {},
+  "downgrade": "다운그레이드",
+  "@downgrade": {},
+  "downgradeConfirm": "<b>{name}</b> 을(를) <b>{version}</b> 버전으로 다운그레이드 하겠습니까?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "fwupdDeviceFlagNeedsBootloader": "부트로더 필요",
+  "@fwupdDeviceFlagNeedsBootloader": {},
+  "fwupdDeviceFlagRegistered": "등록됨",
+  "@fwupdDeviceFlagRegistered": {},
+  "fwupdDeviceFlagNeedsReboot": "설치 후 재부팅 필요",
+  "@fwupdDeviceFlagNeedsReboot": {},
+  "flags": "플래그",
+  "@flags": {}
 }
