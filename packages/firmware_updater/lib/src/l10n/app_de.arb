@@ -38,7 +38,7 @@
   "@fwupdDeviceFlagTrusted": {},
   "fwupdDeviceFlagCanVerify": "Kryptografische Hash-Verifizierung ist verfügbar",
   "@fwupdDeviceFlagCanVerify": {},
-  "fwupdDeviceFlagUsableDuringUpdate": "Gerät ist für die Dauer der Aktualisierung nutzbar",
+  "fwupdDeviceFlagUsableDuringUpdate": "Gerät ist während der Dauer der Aktualisierung nutzbar",
   "@fwupdDeviceFlagUsableDuringUpdate": {},
   "fwupdDeviceFlagVersionCheckRequired": "Gerätefirmware muss eine Versionsprüfung haben",
   "@fwupdDeviceFlagVersionCheckRequired": {},
