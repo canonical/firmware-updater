@@ -2,7 +2,7 @@ name: firmware_updater_workspace
 sdkPath: .fvm/flutter_sdk
 
 packages:
-  - packages/*
+  - apps/*
 
 command:
   bootstrap:
@@ -14,12 +14,12 @@ command:
       ubuntu_lints: ^0.4.0
 
 scripts:
-  # build all packages
+  # build all apps
   build: >
     melos exec -c 1 --fail-fast --flutter --dir-exists=linux -- \
       fvm flutter build linux
 
-  # collect coverage information for all packages
+  # collect coverage information for all apps
   coverage: >
     melos exec -c 1 --fail-fast --dir-exists=test -- \
       fvm flutter test --coverage && melos run coverage:cleanup
@@ -35,7 +35,7 @@ scripts:
         '**/*.pb*.dart' \
         -o coverage/lcov.info
 
-  # format all packages
+  # format all apps
   format:exclude: >
     find . -name '*.dart' \
       ! -name '*.freezed.dart' \
@@ -46,28 +46,28 @@ scripts:
       ! -path '*/.*/*' \
       | xargs fvm dart format --set-exit-if-changed
 
-  # run build_runner to generate code in all packages
+  # run build_runner to generate code in all apps
   generate: >
     melos exec -c 1 --fail-fast --depends-on=build_runner -- \
       fvm dart run build_runner build --delete-conflicting-outputs
 
-  # run gen-l10n to generate localizations in all packages
+  # run gen-l10n to generate localizations in all apps
   gen-l10n: >
     melos exec -c 1 --fail-fast --depends-on=flutter_localizations -- \
      fvm flutter gen-l10n
 
-  # run integration tests in all packages
+  # run integration tests in all apps
   integration_test: >
     melos exec -c 1 --fail-fast --dir-exists=integration_test -- \
       fvm flutter test integration_test
 
-  # runs "flutter pub <arg(s)>" in all packages
+  # runs "flutter pub <arg(s)>" in all apps
   pub: melos exec -c 1 -- fvm flutter pub "$@"
 
-  # run tests in all packages
+  # run tests in all apps
   test: >
     melos exec -c 1 --fail-fast --dir-exists=test -- \
       fvm flutter test
 
-  # run pub upgrade in all packages
+  # run pub upgrade in all apps
   upgrade: melos pub upgrade
