@@ -1,9 +1,8 @@
 import 'package:firmware_updater/device_model.dart';
-import 'package:firmware_updater/device_page.dart';
 import 'package:firmware_updater/device_store.dart';
 import 'package:firmware_updater/fwupd_dbus_service.dart';
 import 'package:firmware_updater/fwupd_mock_service.dart';
-import 'package:firmware_updater/release_page.dart';
+import 'package:firmware_updater/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +13,9 @@ class DetailPage extends StatefulWidget {
   const DetailPage({
     super.key,
   });
+
+  @override
+  State<DetailPage> createState() => _DetailPageState();
 
   static Widget create(
     BuildContext context, {
@@ -30,18 +32,9 @@ class DetailPage extends StatefulWidget {
       child: const DetailPage(),
     );
   }
-
-  @override
-  State<DetailPage> createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<DeviceModel>().init();
-  }
-
   @override
   Widget build(BuildContext context) {
     final navigator = Navigator.of(context);
@@ -67,5 +60,11 @@ class _DetailPageState extends State<DetailPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<DeviceModel>().init();
   }
 }

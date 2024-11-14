@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
-import 'package:firmware_updater/device_page.dart';
 import 'package:firmware_updater/fwupd_x.dart';
 import 'package:firmware_updater/main.dart' as app;
+import 'package:firmware_updater/pages.dart';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -204,15 +204,20 @@ extension IntegrationClient on FwupdClient {
   }
 }
 
+extension IntegrationFinder on CommonFinders {
+  Finder deviceHeader(String text) => find.widgetWithText(DeviceHeader, text);
+  Finder devicePage(String text) => find.widgetWithText(DevicePage, text);
+}
+
 extension IntegrationTester on WidgetTester {
+  Future<void> pumpAndTapButton(String text) {
+    return _pumpAndTapButtonOfFinder(find.text(text));
+  }
+
   Future<void> pumpAndTapDeviceHeader(String text) async {
     final header = find.deviceHeader(text);
     await pumpUntil(header);
     return tap(header);
-  }
-
-  Future<void> pumpAndTapButton(String text) {
-    return _pumpAndTapButtonOfFinder(find.text(text));
   }
 
   Future<void> pumpAndTapDialogButton(String text) {
@@ -222,6 +227,24 @@ extension IntegrationTester on WidgetTester {
         matching: find.text(text),
       ),
     );
+  }
+
+  Future<void> pumpAndTapExpandable() async {
+    final expandable = find.descendant(
+      of: find.byType(YaruExpandable),
+      matching: find.text(lang.olderVersions),
+    );
+    await pumpUntil(expandable);
+    return tap(expandable);
+  }
+
+  Future<void> pumpAndTapReleaseButton(String version) async {
+    final button = find.descendant(
+      of: find.widgetWithText(ReleaseCard, version),
+      matching: find.byWidgetPredicate((widget) => widget is ButtonStyleButton),
+    );
+    await pumpUntil(button);
+    return tap(button);
   }
 
   Future<void> _pumpAndTapButtonOfFinder(Finder finder) async {
@@ -237,27 +260,4 @@ extension IntegrationTester on WidgetTester {
     await pumpUntil(button.first);
     return tap(button.first);
   }
-
-  Future<void> pumpAndTapReleaseButton(String version) async {
-    final button = find.descendant(
-      of: find.widgetWithText(ReleaseCard, version),
-      matching: find.byWidgetPredicate((widget) => widget is ButtonStyleButton),
-    );
-    await pumpUntil(button);
-    return tap(button);
-  }
-
-  Future<void> pumpAndTapExpandable() async {
-    final expandable = find.descendant(
-      of: find.byType(YaruExpandable),
-      matching: find.text(lang.olderVersions),
-    );
-    await pumpUntil(expandable);
-    return tap(expandable);
-  }
-}
-
-extension IntegrationFinder on CommonFinders {
-  Finder deviceHeader(String text) => find.widgetWithText(DeviceHeader, text);
-  Finder devicePage(String text) => find.widgetWithText(DevicePage, text);
 }
