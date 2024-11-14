@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:firmware_updater/src/widgets/device_icon.dart';
+import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:yaru/yaru.dart';
