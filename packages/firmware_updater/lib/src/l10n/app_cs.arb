@@ -51,7 +51,7 @@
       }
     }
   },
-  "ok": "Budiž",
+  "ok": "OK",
   "@ok": {},
   "noDevicesFound": "Nenalezena žádná zařízení",
   "@noDevicesFound": {},
@@ -71,7 +71,7 @@
   "@fwupdErrorWrite": {},
   "fwupdErrorInvalidFile": "Neplatný formát souboru",
   "@fwupdErrorInvalidFile": {},
-  "fwupdErrorNotFound": "Neexistuje žádné shodné zařízení",
+  "fwupdErrorNotFound": "Neexistuje žádné odpovídající zařízení",
   "@fwupdErrorNotFound": {},
   "fwupdDeviceFlagAffectsFde": "Při aktualizaci mohou být zneplatněny tajné klíče pro celodiskové šifrování",
   "@fwupdDeviceFlagAffectsFde": {},
@@ -101,9 +101,9 @@
   "@current": {},
   "deviceRequest": "Požadavek zařízení",
   "@deviceRequest": {},
-  "downgrade": "Snížení verze",
+  "downgrade": "Návrat ke starší verzi",
   "@downgrade": {},
-  "downgradeConfirm": "Snížit verzi <b>{name}</b> na <b>{version}</b>?",
+  "downgradeConfirm": "Vrátit verzi na <b>{name}</b> na <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -174,7 +174,7 @@
   "@fwupdErrorAcPowerRequired": {},
   "fwupdErrorNeedsUserAction": "K dokončení aktualizace musí uživatel provést akci",
   "@fwupdErrorNeedsUserAction": {},
-  "fwupdErrorBatteryLevelTooLow": "Úroveň baterie systému je příliš nízká",
+  "fwupdErrorBatteryLevelTooLow": "Akumulátor, napájející systém, není dostatečně nabitý",
   "@fwupdErrorBatteryLevelTooLow": {},
   "fwupdErrorBrokenSystem": "Uživatel nakonfiguroval svůj systém nefunkčním způsobem",
   "@fwupdErrorBrokenSystem": {},
@@ -202,7 +202,7 @@
   "@fwupdStatusDeviceErase": {},
   "guid": "GUID",
   "@guid": {},
-  "fwupdStatusShutdown": "Démon se vypíná",
+  "fwupdStatusShutdown": "Proces služby se vypíná",
   "@fwupdStatusShutdown": {},
   "rebootConfirmTitle": "Pro dokončení této aktualizace proveďte restart",
   "@rebootConfirmTitle": {},
