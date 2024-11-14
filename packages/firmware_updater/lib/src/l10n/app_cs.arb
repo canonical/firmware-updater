@@ -91,7 +91,7 @@
   "@fwupdDeviceFlagCanVerify": {},
   "fwupdDeviceFlagSelfRecovery": "Zařízení se dovede vzpamatovat z nezdaru při zápisu firmwaru",
   "@fwupdDeviceFlagSelfRecovery": {},
-  "appTitle": "Aktualizátor firmwaru",
+  "appTitle": "Nástroj pro aktualizaci firmware",
   "@appTitle": {},
   "batteryWarning": "Upozornění: Některé aktualizace zařízení mohou být dostupné pouze při externím napájení!",
   "@batteryWarning": {},
