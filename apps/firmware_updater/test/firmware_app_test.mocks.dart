@@ -6,7 +6,7 @@
 import 'dart:async' as _i4;
 import 'dart:ui' as _i5;
 
-import 'package:firmware_updater/device_store.dart' as _i2;
+import 'package:firmware_updater/pages/device_store.dart' as _i2;
 import 'package:fwupd/fwupd.dart' as _i3;
 import 'package:gtk/src/gtk_application_notifier.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;

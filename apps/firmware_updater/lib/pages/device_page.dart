@@ -1,9 +1,8 @@
 import 'package:collection/collection.dart';
-import 'package:firmware_updater/device_model.dart';
-import 'package:firmware_updater/device_store.dart';
 import 'package:firmware_updater/fwupd_l10n.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:firmware_updater/fwupd_x.dart';
+import 'package:firmware_updater/pages.dart';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -12,135 +11,9 @@ import 'package:provider/provider.dart';
 import 'package:yaru/yaru.dart';
 
 class DevicePage extends StatelessWidget {
-  const DevicePage({super.key, this.parentNavigator});
-
   final NavigatorState? parentNavigator;
 
-  static Widget _buildPadding(Widget child) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: child,
-    );
-  }
-
-  static Widget _buildHeader(BuildContext context, String text) {
-    return _buildPadding(
-      Text(
-        text,
-        textAlign: TextAlign.end,
-        style: Theme.of(context).textTheme.bodySmall,
-      ),
-    );
-  }
-
-  static Widget _buildLabel(
-    BuildContext context,
-    String text, [
-    String? chipLabel,
-  ]) {
-    final lightChipLabelColor = Theme.of(context).colorScheme.secondary;
-    final darkChipLabelColor = lightChipLabelColor.copyWith(lightness: .65);
-
-    final lightChipBackgroundColor = Theme.of(context)
-        .colorScheme
-        .secondary
-        .adjust(lightness: 0.64, saturation: 1);
-
-    final darkChipBackgroundColor =
-        lightChipBackgroundColor.copyWith(lightness: .4, alpha: 0.3);
-
-    return _buildPadding(
-      chipLabel == null
-          ? Text(text)
-          : Row(
-              children: [
-                Text(text),
-                const SizedBox(width: 8),
-                Chip(
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  label: Text(chipLabel),
-                  labelStyle: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: Theme.of(context).brightness == Brightness.light
-                            ? lightChipLabelColor
-                            : darkChipLabelColor,
-                      ),
-                  labelPadding: EdgeInsets.zero,
-                  visualDensity: const VisualDensity(vertical: -4),
-                  backgroundColor:
-                      Theme.of(context).brightness == Brightness.light
-                          ? lightChipBackgroundColor
-                          : darkChipBackgroundColor,
-                  side: BorderSide.none,
-                ),
-              ],
-            ),
-    );
-  }
-
-  static Widget _buildAppBarTitle(
-    BuildContext context,
-    String title,
-    String? subtitle,
-  ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(title),
-        if (subtitle != null)
-          Text(
-            subtitle,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-      ],
-    );
-  }
-
-  static Widget _buildButtonBar({
-    required BuildContext context,
-    bool enabled = true,
-  }) {
-    final model = context.read<DeviceModel>();
-    final l10n = AppLocalizations.of(context);
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-      child: OverflowBar(
-        alignment: MainAxisAlignment.start,
-        children: [
-          if (model.hasUpgrade)
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: ElevatedButton(
-                onPressed: enabled
-                    ? () => showConfirmationDialog(
-                          context,
-                          title: l10n.updateConfirm(
-                            model.device.name,
-                            model.latestRelease?.version ?? '',
-                          ),
-                          icon: YaruIcons.update_available,
-                          message: model.device.flags
-                                  .contains(FwupdDeviceFlag.usableDuringUpdate)
-                              ? null
-                              : l10n.deviceUnavailable,
-                          actionText: l10n.update,
-                          onConfirm: () => model.install(model.latestRelease!),
-                          onCancel: () {},
-                        )
-                    : null,
-                child: Text(l10n.updateToLatest),
-              ),
-            ),
-          if (model.releases?.isNotEmpty ?? false)
-            FilledButton(
-              onPressed: enabled
-                  ? () => context.read<DeviceStore>().showReleases = true
-                  : null,
-              child: Text(l10n.allVersions),
-            ),
-        ],
-      ),
-    );
-  }
+  const DevicePage({super.key, this.parentNavigator});
 
   @override
   Widget build(BuildContext context) {
@@ -314,6 +187,132 @@ class DevicePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  static Widget _buildAppBarTitle(
+    BuildContext context,
+    String title,
+    String? subtitle,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title),
+        if (subtitle != null)
+          Text(
+            subtitle,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+      ],
+    );
+  }
+
+  static Widget _buildButtonBar({
+    required BuildContext context,
+    bool enabled = true,
+  }) {
+    final model = context.read<DeviceModel>();
+    final l10n = AppLocalizations.of(context);
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+      child: OverflowBar(
+        alignment: MainAxisAlignment.start,
+        children: [
+          if (model.hasUpgrade)
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: ElevatedButton(
+                onPressed: enabled
+                    ? () => showConfirmationDialog(
+                          context,
+                          title: l10n.updateConfirm(
+                            model.device.name,
+                            model.latestRelease?.version ?? '',
+                          ),
+                          icon: YaruIcons.update_available,
+                          message: model.device.flags
+                                  .contains(FwupdDeviceFlag.usableDuringUpdate)
+                              ? null
+                              : l10n.deviceUnavailable,
+                          actionText: l10n.update,
+                          onConfirm: () => model.install(model.latestRelease!),
+                          onCancel: () {},
+                        )
+                    : null,
+                child: Text(l10n.updateToLatest),
+              ),
+            ),
+          if (model.releases?.isNotEmpty ?? false)
+            FilledButton(
+              onPressed: enabled
+                  ? () => context.read<DeviceStore>().showReleases = true
+                  : null,
+              child: Text(l10n.allVersions),
+            ),
+        ],
+      ),
+    );
+  }
+
+  static Widget _buildHeader(BuildContext context, String text) {
+    return _buildPadding(
+      Text(
+        text,
+        textAlign: TextAlign.end,
+        style: Theme.of(context).textTheme.bodySmall,
+      ),
+    );
+  }
+
+  static Widget _buildLabel(
+    BuildContext context,
+    String text, [
+    String? chipLabel,
+  ]) {
+    final lightChipLabelColor = Theme.of(context).colorScheme.secondary;
+    final darkChipLabelColor = lightChipLabelColor.copyWith(lightness: .65);
+
+    final lightChipBackgroundColor = Theme.of(context)
+        .colorScheme
+        .secondary
+        .adjust(lightness: 0.64, saturation: 1);
+
+    final darkChipBackgroundColor =
+        lightChipBackgroundColor.copyWith(lightness: .4, alpha: 0.3);
+
+    return _buildPadding(
+      chipLabel == null
+          ? Text(text)
+          : Row(
+              children: [
+                Text(text),
+                const SizedBox(width: 8),
+                Chip(
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  label: Text(chipLabel),
+                  labelStyle: Theme.of(context).textTheme.labelMedium?.copyWith(
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? lightChipLabelColor
+                            : darkChipLabelColor,
+                      ),
+                  labelPadding: EdgeInsets.zero,
+                  visualDensity: const VisualDensity(vertical: -4),
+                  backgroundColor:
+                      Theme.of(context).brightness == Brightness.light
+                          ? lightChipBackgroundColor
+                          : darkChipBackgroundColor,
+                  side: BorderSide.none,
+                ),
+              ],
+            ),
+    );
+  }
+
+  static Widget _buildPadding(Widget child) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: child,
     );
   }
 }

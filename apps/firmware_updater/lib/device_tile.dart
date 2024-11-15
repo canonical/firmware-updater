@@ -1,4 +1,4 @@
-import 'package:firmware_updater/device_model.dart';
+import 'package:firmware_updater/pages.dart';
 import 'package:firmware_updater/services.dart';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';

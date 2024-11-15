@@ -2,7 +2,7 @@
 
 import 'dart:async';
 
-import 'package:firmware_updater/device_store.dart';
+import 'package:firmware_updater/pages.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/mockito.dart';

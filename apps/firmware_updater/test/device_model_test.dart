@@ -1,4 +1,4 @@
-import 'package:firmware_updater/device_model.dart';
+import 'package:firmware_updater/pages.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/mockito.dart';

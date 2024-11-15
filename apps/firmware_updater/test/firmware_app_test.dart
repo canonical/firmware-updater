@@ -1,7 +1,7 @@
-import 'package:firmware_updater/device_store.dart';
 import 'package:firmware_updater/firmware_app.dart';
 import 'package:firmware_updater/fwupd_l10n.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
+import 'package:firmware_updater/pages.dart';
 import 'package:firmware_updater/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
