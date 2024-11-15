@@ -1,5 +1,4 @@
 import 'package:collection/collection.dart';
-import 'package:firmware_updater/device_tile.dart';
 import 'package:firmware_updater/fwupd_l10n.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
 import 'package:firmware_updater/pages.dart';
