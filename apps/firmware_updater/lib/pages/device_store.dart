@@ -9,13 +9,13 @@ import 'package:ubuntu_logger/ubuntu_logger.dart';
 final log = Logger('device_store');
 
 class DeviceStore extends SafeChangeNotifier {
+  DeviceStore(this._service);
   final FwupdService _service;
 
   var _devices = <FwupdDevice>[];
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
   bool _showReleases = false;
-  DeviceStore(this._service);
 
   List<FwupdDevice> get devices => _devices;
   bool get showReleases => _showReleases;
@@ -25,6 +25,7 @@ class DeviceStore extends SafeChangeNotifier {
     _showReleases = value;
     notifyListeners();
   }
+
   @override
   Future<void> dispose() async {
     await _deviceAdded?.cancel();

@@ -17,24 +17,6 @@ import 'package:upower/upower.dart';
 final log = Logger('fwupd_service');
 
 class FwupdDbusService extends FwupdService {
-  final Dio _dio;
-
-  final FileSystem _fs;
-  final FwupdClient _fwupd;
-  final UPowerClient _upower;
-  final DBusClient _dbus;
-  final String _localeName;
-  final Map<String, String> _env;
-  final Future<ProcessResult> Function(String, List<String>) _runProcess;
-  int? _downloadProgress;
-  final _propertiesChanged = StreamController<List<String>>();
-  StreamSubscription<List<String>>? _fwupdPropertiesSubscription;
-  StreamSubscription<List<String>>? _upowerPropertiesSubscription;
-  late String _userAgent;
-
-  Function(Exception)? _errorListener;
-
-  Future<bool> Function()? _confirmationListener;
 
   FwupdDbusService({
     @visibleForTesting FwupdClient? fwupd,
@@ -54,6 +36,24 @@ class FwupdDbusService extends FwupdService {
         _localeName = localeName ?? Platform.localeName,
         _env = env ?? Platform.environment,
         _runProcess = runProcess ?? Process.run;
+  final Dio _dio;
+
+  final FileSystem _fs;
+  final FwupdClient _fwupd;
+  final UPowerClient _upower;
+  final DBusClient _dbus;
+  final String _localeName;
+  final Map<String, String> _env;
+  final Future<ProcessResult> Function(String, List<String>) _runProcess;
+  int? _downloadProgress;
+  final _propertiesChanged = StreamController<List<String>>();
+  StreamSubscription<List<String>>? _fwupdPropertiesSubscription;
+  StreamSubscription<List<String>>? _upowerPropertiesSubscription;
+  late String _userAgent;
+
+  Function(Exception)? _errorListener;
+
+  Future<bool> Function()? _confirmationListener;
   @override
   String get daemonVersion => _fwupd.daemonVersion;
   @override

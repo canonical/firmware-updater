@@ -7,12 +7,12 @@ import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 
 class DeviceModel extends SafeChangeNotifier {
+  DeviceModel(this._device, this._service);
   final FwupdService _service;
 
   FwupdDevice _device;
   List<FwupdRelease>? _releases;
   StreamSubscription<FwupdDevice>? _sub;
-  DeviceModel(this._device, this._service);
 
   FwupdDevice get device => _device;
 
@@ -30,6 +30,7 @@ class DeviceModel extends SafeChangeNotifier {
     await _sub?.cancel();
     super.dispose();
   }
+
   FwupdRelease? findRelease(String? version) =>
       releases?.singleWhereOrNull((r) => r.version == version);
 
@@ -47,6 +48,7 @@ class DeviceModel extends SafeChangeNotifier {
     _releases = await _fetchReleases();
     notifyListeners();
   }
+
   Future<void> verify() => _service.verify(_device);
 
   Future<void> verifyUpdate() => _service.verifyUpdate(_device);
