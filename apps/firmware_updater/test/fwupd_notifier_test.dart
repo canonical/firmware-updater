@@ -2,7 +2,7 @@
 
 import 'dart:async';
 
-import 'package:firmware_updater/fwupd_notifier.dart';
+import 'package:firmware_updater/app.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/mockito.dart';

@@ -7,7 +7,7 @@ import 'dart:async' as _i4;
 import 'dart:io' as _i9;
 import 'dart:ui' as _i5;
 
-import 'package:firmware_updater/fwupd_notifier.dart' as _i6;
+import 'package:firmware_updater/app.dart' as _i6;
 import 'package:firmware_updater/pages/device_model.dart' as _i3;
 import 'package:firmware_updater/pages/device_store.dart' as _i10;
 import 'package:firmware_updater/services.dart' as _i8;
@@ -313,27 +313,6 @@ class MockFwupdDbusService extends _i1.Mock implements _i8.FwupdDbusService {
   }
 
   @override
-  String get userAgent => (super.noSuchMethod(
-        Invocation.getter(#userAgent),
-        returnValue: _i7.dummyValue<String>(
-          this,
-          Invocation.getter(#userAgent),
-        ),
-      ) as String);
-
-  @override
-  _i2.FwupdStatus get status => (super.noSuchMethod(
-        Invocation.getter(#status),
-        returnValue: _i2.FwupdStatus.unknown,
-      ) as _i2.FwupdStatus);
-
-  @override
-  int get percentage => (super.noSuchMethod(
-        Invocation.getter(#percentage),
-        returnValue: 0,
-      ) as int);
-
-  @override
   String get daemonVersion => (super.noSuchMethod(
         Invocation.getter(#daemonVersion),
         returnValue: _i7.dummyValue<String>(
@@ -367,67 +346,37 @@ class MockFwupdDbusService extends _i1.Mock implements _i8.FwupdDbusService {
       ) as _i4.Stream<_i2.FwupdDevice>);
 
   @override
-  _i4.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
-        Invocation.getter(#propertiesChanged),
-        returnValue: _i4.Stream<List<String>>.empty(),
-      ) as _i4.Stream<List<String>>);
-
-  @override
   bool get onBattery => (super.noSuchMethod(
         Invocation.getter(#onBattery),
         returnValue: false,
       ) as bool);
 
   @override
-  void registerErrorListener(dynamic Function(Exception)? errorListener) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #registerErrorListener,
-          [errorListener],
-        ),
-        returnValueForMissingStub: null,
-      );
+  int get percentage => (super.noSuchMethod(
+        Invocation.getter(#percentage),
+        returnValue: 0,
+      ) as int);
 
   @override
-  void registerConfirmationListener(
-          _i4.Future<bool> Function()? confirmationListener) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #registerConfirmationListener,
-          [confirmationListener],
-        ),
-        returnValueForMissingStub: null,
-      );
+  _i4.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
+        Invocation.getter(#propertiesChanged),
+        returnValue: _i4.Stream<List<String>>.empty(),
+      ) as _i4.Stream<List<String>>);
 
   @override
-  _i4.Future<void> init() => (super.noSuchMethod(
-        Invocation.method(
-          #init,
-          [],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i2.FwupdStatus get status => (super.noSuchMethod(
+        Invocation.getter(#status),
+        returnValue: _i2.FwupdStatus.unknown,
+      ) as _i2.FwupdStatus);
 
   @override
-  _i4.Future<void> dispose() => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [],
+  String get userAgent => (super.noSuchMethod(
+        Invocation.getter(#userAgent),
+        returnValue: _i7.dummyValue<String>(
+          this,
+          Invocation.getter(#userAgent),
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
-
-  @override
-  _i4.Future<void> refreshProperties() => (super.noSuchMethod(
-        Invocation.method(
-          #refreshProperties,
-          [],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+      ) as String);
 
   @override
   _i4.Future<void> activate(_i2.FwupdDevice? device) => (super.noSuchMethod(
@@ -444,6 +393,16 @@ class MockFwupdDbusService extends _i1.Mock implements _i8.FwupdDbusService {
         Invocation.method(
           #clearResults,
           [device],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> dispose() => (super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
         ),
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
@@ -513,6 +472,16 @@ class MockFwupdDbusService extends _i1.Mock implements _i8.FwupdDbusService {
       ) as _i4.Future<List<_i2.FwupdRelease>>);
 
   @override
+  _i4.Future<void> init() => (super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
   _i4.Future<void> install(
     _i2.FwupdDevice? device,
     _i2.FwupdRelease? release, [
@@ -530,6 +499,47 @@ class MockFwupdDbusService extends _i1.Mock implements _i8.FwupdDbusService {
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),
       ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> reboot() => (super.noSuchMethod(
+        Invocation.method(
+          #reboot,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> refreshProperties() => (super.noSuchMethod(
+        Invocation.method(
+          #refreshProperties,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  void registerConfirmationListener(
+          _i4.Future<bool> Function()? confirmationListener) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #registerConfirmationListener,
+          [confirmationListener],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void registerErrorListener(dynamic Function(Exception)? errorListener) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #registerErrorListener,
+          [errorListener],
+        ),
+        returnValueForMissingStub: null,
+      );
 
   @override
   _i4.Future<void> unlock(_i2.FwupdDevice? device) => (super.noSuchMethod(
@@ -556,16 +566,6 @@ class MockFwupdDbusService extends _i1.Mock implements _i8.FwupdDbusService {
         Invocation.method(
           #verifyUpdate,
           [device],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
-
-  @override
-  _i4.Future<void> reboot() => (super.noSuchMethod(
-        Invocation.method(
-          #reboot,
-          [],
         ),
         returnValue: _i4.Future<void>.value(),
         returnValueForMissingStub: _i4.Future<void>.value(),

@@ -1,4 +1,4 @@
-import 'package:firmware_updater/fwupd_notifier.dart';
+import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

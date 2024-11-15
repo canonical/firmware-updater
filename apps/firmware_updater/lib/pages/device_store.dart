@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:firmware_updater/fwupd_x.dart';
+import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/services.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';

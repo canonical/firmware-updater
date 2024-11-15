@@ -1,5 +1,5 @@
 import 'package:collection/collection.dart';
-import 'package:firmware_updater/fwupd_x.dart';
+import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/main.dart' as app;
 import 'package:firmware_updater/pages.dart';
 import 'package:firmware_updater/widgets.dart';

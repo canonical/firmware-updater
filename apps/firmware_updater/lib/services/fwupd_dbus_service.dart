@@ -6,8 +6,8 @@ import 'package:dbus/dbus.dart';
 import 'package:dio/dio.dart';
 import 'package:file/file.dart';
 import 'package:file/local.dart';
+import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/services.dart';
-import 'package:firmware_updater/fwupd_x.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
@@ -17,6 +17,25 @@ import 'package:upower/upower.dart';
 final log = Logger('fwupd_service');
 
 class FwupdDbusService extends FwupdService {
+  final Dio _dio;
+
+  final FileSystem _fs;
+  final FwupdClient _fwupd;
+  final UPowerClient _upower;
+  final DBusClient _dbus;
+  final String _localeName;
+  final Map<String, String> _env;
+  final Future<ProcessResult> Function(String, List<String>) _runProcess;
+  int? _downloadProgress;
+  final _propertiesChanged = StreamController<List<String>>();
+  StreamSubscription<List<String>>? _fwupdPropertiesSubscription;
+  StreamSubscription<List<String>>? _upowerPropertiesSubscription;
+  late String _userAgent;
+
+  Function(Exception)? _errorListener;
+
+  Future<bool> Function()? _confirmationListener;
+
   FwupdDbusService({
     @visibleForTesting FwupdClient? fwupd,
     @visibleForTesting Dio? dio,
@@ -35,35 +54,11 @@ class FwupdDbusService extends FwupdService {
         _localeName = localeName ?? Platform.localeName,
         _env = env ?? Platform.environment,
         _runProcess = runProcess ?? Process.run;
-
-  final Dio _dio;
-  final FileSystem _fs;
-  final FwupdClient _fwupd;
-  final UPowerClient _upower;
-  final DBusClient _dbus;
-  final String _localeName;
-  final Map<String, String> _env;
-  final Future<ProcessResult> Function(String, List<String>) _runProcess;
-  int? _downloadProgress;
-  final _propertiesChanged = StreamController<List<String>>();
-  StreamSubscription<List<String>>? _fwupdPropertiesSubscription;
-  StreamSubscription<List<String>>? _upowerPropertiesSubscription;
-
-  late String _userAgent;
-
-  @visibleForTesting
-  String get userAgent => _userAgent;
-
-  @override
-  FwupdStatus get status =>
-      _downloadProgress != null ? FwupdStatus.downloading : _fwupd.status;
-  @override
-  int get percentage => _downloadProgress ?? _fwupd.percentage;
   @override
   String get daemonVersion => _fwupd.daemonVersion;
-
   @override
   Stream<FwupdDevice> get deviceAdded => _fwupd.deviceAdded;
+
   @override
   Stream<FwupdDevice> get deviceChanged => _fwupd.deviceChanged;
   @override
@@ -71,122 +66,18 @@ class FwupdDbusService extends FwupdService {
   @override
   Stream<FwupdDevice> get deviceRequest => _fwupd.deviceRequest;
   @override
+  bool get onBattery => _upower.onBattery;
+  @override
+  int get percentage => _downloadProgress ?? _fwupd.percentage;
+
+  @override
   Stream<List<String>> get propertiesChanged => _propertiesChanged.stream;
-
-  Function(Exception)? _errorListener;
-  Future<bool> Function()? _confirmationListener;
-
   @override
-  void registerErrorListener(Function(Exception e) errorListener) {
-    _errorListener = errorListener;
-  }
+  FwupdStatus get status =>
+      _downloadProgress != null ? FwupdStatus.downloading : _fwupd.status;
 
-  @override
-  void registerConfirmationListener(
-    Future<bool> Function() confirmationListener,
-  ) {
-    _confirmationListener = confirmationListener;
-  }
-
-  @override
-  Future<void> init() async {
-    await _fwupd.connect();
-    _fwupdPropertiesSubscription ??=
-        _fwupd.propertiesChanged.listen(_propertiesChanged.add);
-    await _upower.connect();
-    _upowerPropertiesSubscription ??=
-        _upower.propertiesChanged.listen(_propertiesChanged.add);
-    _propertiesChanged.add(['OnBattery']);
-    _userAgent = await _generateUserAgent();
-  }
-
-  @override
-  Future<void> dispose() async {
-    _dio.close();
-    await _fwupdPropertiesSubscription?.cancel();
-    await _upowerPropertiesSubscription?.cancel();
-    await _upower.close();
-    return _fwupd.close();
-  }
-
-  @override
-  Future<void> refreshProperties() => _fwupd.refreshPropertyCache();
-
-  Future<String> _generateUserAgent() async {
-    const releaseFilePath = '/etc/lsb-release';
-    final parsedLocale = _localeName.split('.').first.replaceFirst('_', '-');
-    final snapName = _env['SNAP_NAME'] ?? 'firmware-updater';
-    final snapVersion = _env['SNAP_VERSION'] ?? 'dev';
-    final lsbRelease =
-        await _fs.file(releaseFilePath).readAsLines().onError((error, _) {
-              log.error('Could not read $releaseFilePath: $error');
-              return [];
-            }).then(
-              (lines) => lines
-                  .singleWhereOrNull(
-                    (line) => line.startsWith('DISTRIB_DESCRIPTION'),
-                  )
-                  ?.split('=')
-                  .last
-                  .replaceAll('"', ''),
-            ) ??
-            'Unknown Distribution';
-    final uname = await _runProcess('uname', ['-smr']).then((result) {
-          final fields = (result.stdout as String).trim().split(' ');
-          if (result.exitCode != 0 || fields.length != 3) return null;
-          return '${fields[0]} ${fields[2]} ${fields[1]}';
-        }) ??
-        'Linux';
-
-    return '$snapName/$snapVersion ($uname; $parsedLocale; $lsbRelease) fwupd/$daemonVersion';
-  }
-
-  Future<File> _fetchRelease(FwupdRelease release) async {
-    final remote = await _fwupd.getRemotes().then((remotes) {
-      return remotes.firstWhere((remote) => remote.id == release.remoteId);
-    });
-
-    assert(release.locations.isNotEmpty, 'TODO: handle multiple locations');
-
-    late final File file;
-    switch (remote.kind) {
-      case FwupdRemoteKind.download:
-        // TODO:
-        // - should the .cab be stored in the cache directory?
-        file = await _downloadRelease(release.locations.first);
-        break;
-      case FwupdRemoteKind.local:
-        final cache = p.dirname(remote.filenameCache ?? '');
-        file = _fs.file(p.join(cache, release.locations.first));
-        break;
-      default:
-        throw UnimplementedError('Remote kind ${remote.kind} not implemented');
-    }
-    return file;
-  }
-
-  Future<File> _downloadRelease(String url) async {
-    final path = p.join(_fs.systemTempDirectory.path, p.basename(url));
-    log.debug('download $url to $path');
-    try {
-      return await _dio.download(
-        url,
-        path,
-        onReceiveProgress: (recvd, total) {
-          _setDownloadProgress(100 * recvd ~/ total);
-        },
-        options: Options(headers: {HttpHeaders.userAgentHeader: _userAgent}),
-      ).then((response) => _fs.file(path));
-    } finally {
-      _setDownloadProgress(null);
-    }
-  }
-
-  void _setDownloadProgress(int? progress) {
-    if (_downloadProgress == progress) return;
-    _downloadProgress = progress;
-    _propertiesChanged.add(['Percentage']);
-  }
+  @visibleForTesting
+  String get userAgent => _userAgent;
 
   @override
   Future<void> activate(FwupdDevice device) {
@@ -198,6 +89,15 @@ class FwupdDbusService extends FwupdService {
   Future<void> clearResults(FwupdDevice device) {
     log.debug('clearResults $device');
     return _fwupd.clearResults(device.id);
+  }
+
+  @override
+  Future<void> dispose() async {
+    _dio.close();
+    await _fwupdPropertiesSubscription?.cancel();
+    await _upowerPropertiesSubscription?.cancel();
+    await _upower.close();
+    return _fwupd.close();
   }
 
   @override
@@ -222,6 +122,18 @@ class FwupdDbusService extends FwupdService {
   @override
   Future<List<FwupdRelease>> getUpgrades(FwupdDevice device) {
     return _fwupd.getUpgrades(device.id);
+  }
+
+  @override
+  Future<void> init() async {
+    await _fwupd.connect();
+    _fwupdPropertiesSubscription ??=
+        _fwupd.propertiesChanged.listen(_propertiesChanged.add);
+    await _upower.connect();
+    _upowerPropertiesSubscription ??=
+        _upower.propertiesChanged.listen(_propertiesChanged.add);
+    _propertiesChanged.add(['OnBattery']);
+    _userAgent = await _generateUserAgent();
   }
 
   @override
@@ -255,7 +167,29 @@ class FwupdDbusService extends FwupdService {
   }
 
   @override
-  bool get onBattery => _upower.onBattery;
+  Future<void> reboot() => _dbus.callMethod(
+        destination: 'org.freedesktop.login1',
+        path: DBusObjectPath('/org/freedesktop/login1'),
+        interface: 'org.freedesktop.login1.Manager',
+        name: 'Reboot',
+        values: [const DBusBoolean(true)],
+        replySignature: DBusSignature(''),
+      );
+
+  @override
+  Future<void> refreshProperties() => _fwupd.refreshPropertyCache();
+
+  @override
+  void registerConfirmationListener(
+    Future<bool> Function() confirmationListener,
+  ) {
+    _confirmationListener = confirmationListener;
+  }
+
+  @override
+  void registerErrorListener(Function(Exception e) errorListener) {
+    _errorListener = errorListener;
+  }
 
   @override
   Future<void> unlock(FwupdDevice device) {
@@ -275,13 +209,79 @@ class FwupdDbusService extends FwupdService {
     return _fwupd.verifyUpdate(device.id);
   }
 
-  @override
-  Future<void> reboot() => _dbus.callMethod(
-        destination: 'org.freedesktop.login1',
-        path: DBusObjectPath('/org/freedesktop/login1'),
-        interface: 'org.freedesktop.login1.Manager',
-        name: 'Reboot',
-        values: [const DBusBoolean(true)],
-        replySignature: DBusSignature(''),
-      );
+  Future<File> _downloadRelease(String url) async {
+    final path = p.join(_fs.systemTempDirectory.path, p.basename(url));
+    log.debug('download $url to $path');
+    try {
+      return await _dio.download(
+        url,
+        path,
+        onReceiveProgress: (recvd, total) {
+          _setDownloadProgress(100 * recvd ~/ total);
+        },
+        options: Options(headers: {HttpHeaders.userAgentHeader: _userAgent}),
+      ).then((response) => _fs.file(path));
+    } finally {
+      _setDownloadProgress(null);
+    }
+  }
+
+  Future<File> _fetchRelease(FwupdRelease release) async {
+    final remote = await _fwupd.getRemotes().then((remotes) {
+      return remotes.firstWhere((remote) => remote.id == release.remoteId);
+    });
+
+    assert(release.locations.isNotEmpty, 'TODO: handle multiple locations');
+
+    late final File file;
+    switch (remote.kind) {
+      case FwupdRemoteKind.download:
+        // TODO:
+        // - should the .cab be stored in the cache directory?
+        file = await _downloadRelease(release.locations.first);
+        break;
+      case FwupdRemoteKind.local:
+        final cache = p.dirname(remote.filenameCache ?? '');
+        file = _fs.file(p.join(cache, release.locations.first));
+        break;
+      default:
+        throw UnimplementedError('Remote kind ${remote.kind} not implemented');
+    }
+    return file;
+  }
+
+  Future<String> _generateUserAgent() async {
+    const releaseFilePath = '/etc/lsb-release';
+    final parsedLocale = _localeName.split('.').first.replaceFirst('_', '-');
+    final snapName = _env['SNAP_NAME'] ?? 'firmware-updater';
+    final snapVersion = _env['SNAP_VERSION'] ?? 'dev';
+    final lsbRelease =
+        await _fs.file(releaseFilePath).readAsLines().onError((error, _) {
+              log.error('Could not read $releaseFilePath: $error');
+              return [];
+            }).then(
+              (lines) => lines
+                  .singleWhereOrNull(
+                    (line) => line.startsWith('DISTRIB_DESCRIPTION'),
+                  )
+                  ?.split('=')
+                  .last
+                  .replaceAll('"', ''),
+            ) ??
+            'Unknown Distribution';
+    final uname = await _runProcess('uname', ['-smr']).then((result) {
+          final fields = (result.stdout as String).trim().split(' ');
+          if (result.exitCode != 0 || fields.length != 3) return null;
+          return '${fields[0]} ${fields[2]} ${fields[1]}';
+        }) ??
+        'Linux';
+
+    return '$snapName/$snapVersion ($uname; $parsedLocale; $lsbRelease) fwupd/$daemonVersion';
+  }
+
+  void _setDownloadProgress(int? progress) {
+    if (_downloadProgress == progress) return;
+    _downloadProgress = progress;
+    _propertiesChanged.add(['Percentage']);
+  }
 }
