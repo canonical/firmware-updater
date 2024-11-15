@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:firmware_updater/fwupd_service.dart';
+import 'package:firmware_updater/services/fwupd_service.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:yaml/yaml.dart';

@@ -1,7 +1,7 @@
 import 'package:firmware_updater/device_model.dart';
 import 'package:firmware_updater/device_store.dart';
-import 'package:firmware_updater/fwupd_dbus_service.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
+import 'package:firmware_updater/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -11,31 +11,34 @@ import 'package:mockito/mockito.dart';
 
 import 'test_utils.mocks.dart';
 
-FwupdDevice testDevice({
-  required String id,
-  String? name,
-  String? summary,
-  String? icon,
-  List<String>? guid,
-  String? vendor,
-  String? version,
-  String? versionLowest,
-  String? checksum,
-  Set<FwupdDeviceFlag>? flags,
+@GenerateMocks([DeviceModel])
+DeviceModel mockModel({
+  required FwupdDevice device,
+  bool? hasUpgrade,
+  List<FwupdRelease>? releases,
+  FwupdException? error,
 }) {
-  return FwupdDevice(
-    deviceId: id,
-    name: name ?? '',
-    summary: summary,
-    icon: icon != null ? [icon] : [],
-    guid: guid ?? [],
-    vendor: vendor,
-    version: version,
-    versionLowest: versionLowest,
-    checksum: checksum,
-    plugin: '',
-    flags: flags ?? {FwupdDeviceFlag.updatable},
-  );
+  final model = MockDeviceModel();
+  when(model.device).thenReturn(device);
+  when(model.hasUpgrade).thenReturn(hasUpgrade ?? false);
+  when(model.releases).thenReturn(releases ?? []);
+  when(model.latestRelease).thenReturn(releases?.firstOrNull);
+  return model;
+}
+
+@GenerateMocks([FwupdNotifier])
+MockFwupdNotifier mockNotifier({
+  FwupdStatus? status,
+  int? percentage,
+  String? version,
+  bool? onBattery,
+}) {
+  final notifier = MockFwupdNotifier();
+  when(notifier.status).thenReturn(status ?? FwupdStatus.idle);
+  when(notifier.percentage).thenReturn(percentage ?? 0);
+  when(notifier.version).thenReturn(version ?? 'v1.2.3');
+  when(notifier.onBattery).thenReturn(onBattery ?? false);
+  return notifier;
 }
 
 @GenerateMocks([FwupdDbusService])
@@ -63,38 +66,35 @@ MockFwupdDbusService mockService({
   return service;
 }
 
-@GenerateMocks([FwupdNotifier])
-MockFwupdNotifier mockNotifier({
-  FwupdStatus? status,
-  int? percentage,
-  String? version,
-  bool? onBattery,
-}) {
-  final notifier = MockFwupdNotifier();
-  when(notifier.status).thenReturn(status ?? FwupdStatus.idle);
-  when(notifier.percentage).thenReturn(percentage ?? 0);
-  when(notifier.version).thenReturn(version ?? 'v1.2.3');
-  when(notifier.onBattery).thenReturn(onBattery ?? false);
-  return notifier;
-}
-
-@GenerateMocks([DeviceModel])
-DeviceModel mockModel({
-  required FwupdDevice device,
-  bool? hasUpgrade,
-  List<FwupdRelease>? releases,
-  FwupdException? error,
-}) {
-  final model = MockDeviceModel();
-  when(model.device).thenReturn(device);
-  when(model.hasUpgrade).thenReturn(hasUpgrade ?? false);
-  when(model.releases).thenReturn(releases ?? []);
-  when(model.latestRelease).thenReturn(releases?.firstOrNull);
-  return model;
-}
-
 @GenerateMocks([DeviceStore])
 DeviceStore mockStore() => MockDeviceStore();
+
+FwupdDevice testDevice({
+  required String id,
+  String? name,
+  String? summary,
+  String? icon,
+  List<String>? guid,
+  String? vendor,
+  String? version,
+  String? versionLowest,
+  String? checksum,
+  Set<FwupdDeviceFlag>? flags,
+}) {
+  return FwupdDevice(
+    deviceId: id,
+    name: name ?? '',
+    summary: summary,
+    icon: icon != null ? [icon] : [],
+    guid: guid ?? [],
+    vendor: vendor,
+    version: version,
+    versionLowest: versionLowest,
+    checksum: checksum,
+    plugin: '',
+    flags: flags ?? {FwupdDeviceFlag.updatable},
+  );
+}
 
 extension WidgetTesterX on WidgetTester {
   BuildContext get context => element(find.byType(Scaffold).first);

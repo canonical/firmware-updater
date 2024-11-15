@@ -33,6 +33,12 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
   }
 
   @override
+  List<_i3.FwupdDevice> get devices => (super.noSuchMethod(
+        Invocation.getter(#devices),
+        returnValue: <_i3.FwupdDevice>[],
+      ) as List<_i3.FwupdDevice>);
+
+  @override
   bool get showReleases => (super.noSuchMethod(
         Invocation.getter(#showReleases),
         returnValue: false,
@@ -48,12 +54,6 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
       );
 
   @override
-  List<_i3.FwupdDevice> get devices => (super.noSuchMethod(
-        Invocation.getter(#devices),
-        returnValue: <_i3.FwupdDevice>[],
-      ) as List<_i3.FwupdDevice>);
-
-  @override
   bool get hasListeners => (super.noSuchMethod(
         Invocation.getter(#hasListeners),
         returnValue: false,
@@ -64,6 +64,16 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
         Invocation.getter(#isDisposed),
         returnValue: false,
       ) as bool);
+
+  @override
+  _i4.Future<void> dispose() => (super.noSuchMethod(
+        Invocation.method(
+          #dispose,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 
   @override
   int indexOf(String? deviceId) => (super.noSuchMethod(
@@ -88,16 +98,6 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
   _i4.Future<void> refresh() => (super.noSuchMethod(
         Invocation.method(
           #refresh,
-          [],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
-
-  @override
-  _i4.Future<void> dispose() => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
           [],
         ),
         returnValue: _i4.Future<void>.value(),

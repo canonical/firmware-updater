@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:firmware_updater/fwupd_service.dart';
 import 'package:firmware_updater/fwupd_x.dart';
+import 'package:firmware_updater/services.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
@@ -9,22 +9,31 @@ import 'package:ubuntu_logger/ubuntu_logger.dart';
 final log = Logger('device_store');
 
 class DeviceStore extends SafeChangeNotifier {
-  DeviceStore(this._service);
-
   final FwupdService _service;
+
   var _devices = <FwupdDevice>[];
   StreamSubscription<FwupdDevice>? _deviceAdded;
   StreamSubscription<FwupdDevice>? _deviceRemoved;
   bool _showReleases = false;
+  DeviceStore(this._service);
 
+  List<FwupdDevice> get devices => _devices;
   bool get showReleases => _showReleases;
+
   set showReleases(bool value) {
     if (value == _showReleases) return;
     _showReleases = value;
     notifyListeners();
   }
+  @override
+  Future<void> dispose() async {
+    await _deviceAdded?.cancel();
+    await _deviceRemoved?.cancel();
+    _deviceAdded = null;
+    _deviceRemoved = null;
+    super.dispose();
+  }
 
-  List<FwupdDevice> get devices => _devices;
   int indexOf(String? deviceId) =>
       _devices.indexWhere((d) => d.deviceId == deviceId);
 
@@ -62,15 +71,6 @@ class DeviceStore extends SafeChangeNotifier {
         log.error('failed to get devices: $e');
       },
     );
-  }
-
-  @override
-  Future<void> dispose() async {
-    await _deviceAdded?.cancel();
-    await _deviceRemoved?.cancel();
-    _deviceAdded = null;
-    _deviceRemoved = null;
-    super.dispose();
   }
 }
 

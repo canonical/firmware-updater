@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:dbus/dbus.dart';
 import 'package:dio/dio.dart';
 import 'package:file/memory.dart';
-import 'package:firmware_updater/fwupd_dbus_service.dart';
+import 'package:firmware_updater/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';

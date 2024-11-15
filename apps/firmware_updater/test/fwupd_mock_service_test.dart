@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:firmware_updater/fwupd_mock_service.dart';
+import 'package:firmware_updater/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

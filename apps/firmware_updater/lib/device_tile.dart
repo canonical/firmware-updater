@@ -1,10 +1,9 @@
 import 'package:firmware_updater/device_model.dart';
-import 'package:firmware_updater/fwupd_dbus_service.dart';
+import 'package:firmware_updater/services.dart';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
-import 'package:ubuntu_service/ubuntu_service.dart';
 
 class DeviceTile extends StatefulWidget {
   const DeviceTile({

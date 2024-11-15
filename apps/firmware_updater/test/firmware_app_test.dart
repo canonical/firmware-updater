@@ -1,8 +1,8 @@
 import 'package:firmware_updater/device_store.dart';
 import 'package:firmware_updater/firmware_app.dart';
-import 'package:firmware_updater/fwupd_dbus_service.dart';
 import 'package:firmware_updater/fwupd_l10n.dart';
 import 'package:firmware_updater/fwupd_notifier.dart';
+import 'package:firmware_updater/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -10,7 +10,6 @@ import 'package:gtk/gtk.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
-import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
 
 import 'firmware_app_test.mocks.dart';

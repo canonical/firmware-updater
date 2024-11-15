@@ -1,12 +1,10 @@
 import 'package:firmware_updater/device_model.dart';
 import 'package:firmware_updater/device_store.dart';
-import 'package:firmware_updater/fwupd_dbus_service.dart';
-import 'package:firmware_updater/fwupd_mock_service.dart';
 import 'package:firmware_updater/pages.dart';
+import 'package:firmware_updater/services.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
-import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:yaru/yaru.dart';
 
 class DetailPage extends StatefulWidget {
