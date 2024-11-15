@@ -104,6 +104,6 @@ jobs:
 
       - name: Run integration tests
         run: |
-          cd packages/firmware_updater && \
+          cd apps/firmware_updater && \
           sudo -E env PATH=$PATH xvfb-run -a -s '-screen 0 1024x768x24 +extension GLX' \
           flutter test integration_test

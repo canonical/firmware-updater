@@ -52,7 +52,7 @@ parts:
       fvm dart pub global run melos bootstrap
       set -e
 
-      cd packages/firmware_updater
+      cd apps/firmware_updater
       fvm flutter build linux --release -v
       mkdir -p $CRAFT_PART_INSTALL/bin/
       cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
@@ -75,7 +75,7 @@ parts:
       fvm dart pub global run melos bootstrap
       set -e
 
-      cd packages/firmware_notifier
+      cd apps/firmware_notifier
       mkdir -p $CRAFT_PART_INSTALL/bin/
       fvm dart compile exe bin/firmware_notifier.dart -o $CRAFT_PART_INSTALL/bin/firmware-notifier
 
