@@ -6,7 +6,6 @@ import 'package:dbus/dbus.dart';
 import 'package:dio/dio.dart';
 import 'package:file/file.dart';
 import 'package:file/local.dart';
-import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/services.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';

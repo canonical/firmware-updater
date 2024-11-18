@@ -1,13 +1,12 @@
 import 'package:collection/collection.dart';
-import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/main.dart' as app;
 import 'package:firmware_updater/pages.dart';
+import 'package:firmware_updater/services.dart';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:ubuntu_service/ubuntu_service.dart';
 import 'package:ubuntu_test/ubuntu_test.dart';
 import 'package:yaru/yaru.dart';
 
