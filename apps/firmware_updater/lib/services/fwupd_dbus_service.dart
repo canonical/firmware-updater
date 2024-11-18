@@ -16,7 +16,6 @@ import 'package:upower/upower.dart';
 final log = Logger('fwupd_service');
 
 class FwupdDbusService extends FwupdService {
-
   FwupdDbusService({
     @visibleForTesting FwupdClient? fwupd,
     @visibleForTesting Dio? dio,

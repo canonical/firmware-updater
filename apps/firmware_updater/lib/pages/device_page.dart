@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 import 'package:yaru/yaru.dart';
 
 class DevicePage extends StatelessWidget {
-
   const DevicePage({super.key, this.parentNavigator});
   final NavigatorState? parentNavigator;
 
