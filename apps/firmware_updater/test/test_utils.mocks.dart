@@ -7,7 +7,7 @@ import 'dart:async' as _i4;
 import 'dart:io' as _i9;
 import 'dart:ui' as _i5;
 
-import 'package:firmware_updater/app.dart' as _i6;
+import 'package:firmware_updater/app/fwupd_notifier.dart' as _i6;
 import 'package:firmware_updater/pages/device_model.dart' as _i3;
 import 'package:firmware_updater/pages/device_store.dart' as _i10;
 import 'package:firmware_updater/services.dart' as _i8;
