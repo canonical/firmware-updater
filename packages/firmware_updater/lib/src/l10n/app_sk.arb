@@ -2,7 +2,7 @@
   "@@locale": "sk",
   "flags": "Charakteristiky",
   "@flags": {},
-  "downgradeConfirm": "Prejsť na nižšiu verziu <b>{name}</b> na <b>{version}</b>?",
+  "downgradeConfirm": "Prejsť na staršiu verziu <b>{name}</b> na <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -91,7 +91,7 @@
   "@guid": {},
   "noDevicesFound": "Nenašli sa žiadne zariadenia",
   "@noDevicesFound": {},
-  "ok": "OK",
+  "ok": "Ok",
   "@ok": {},
   "olderVersions": "Staršie verzie",
   "@olderVersions": {},
@@ -135,7 +135,7 @@
   "@current": {},
   "deviceUnavailable": "Počas tejto akcie bude zariadenie nedostupné.",
   "@deviceUnavailable": {},
-  "downgrade": "Prechod na nižšiu verziu",
+  "downgrade": "Prechod na staršiu verziu",
   "@downgrade": {},
   "deviceRequest": "Požiadavka zariadenia",
   "@deviceRequest": {},
