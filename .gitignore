@@ -31,7 +31,6 @@
 .pub/
 */**/build/
 /coverage/
-pubspec.lock
 
 # Linux related
 generated_plugin_registrant.*
