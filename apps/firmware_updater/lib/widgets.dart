@@ -4,6 +4,7 @@ export 'widgets/device_icon.dart';
 export 'widgets/device_tile.dart';
 export 'widgets/dialogs.dart';
 export 'widgets/error_banner.dart';
+export 'widgets/fwupd_l10n.dart';
 export 'widgets/option_card.dart';
 export 'widgets/refresh_button.dart';
 export 'widgets/release_card.dart';
