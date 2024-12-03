@@ -38,5 +38,19 @@
   "fwupdDeviceFlagNeedsReboot": "설치 후 재부팅 필요",
   "@fwupdDeviceFlagNeedsReboot": {},
   "flags": "플래그",
-  "@flags": {}
+  "@flags": {},
+  "fwupdDeviceFlagUpdatable": "업데이트 가능",
+  "@fwupdDeviceFlagUpdatable": {},
+  "fwupdDeviceFlagOnlyOffline": "업데이트하려면 다시 시작해야 합니다",
+  "@fwupdDeviceFlagOnlyOffline": {},
+  "fwupdDeviceFlagRequireAc": "시스템에 외부 전원을 연결해야 합니다",
+  "@fwupdDeviceFlagRequireAc": {},
+  "fwupdDeviceFlagLocked": "장치가 잠겼습니다",
+  "@fwupdDeviceFlagLocked": {},
+  "fwupdDeviceFlagSupported": "원격 서버에서 지원",
+  "@fwupdDeviceFlagSupported": {},
+  "fwupdDeviceFlagNeedsShutdown": "설치 후에 시스템 종료 필요",
+  "@fwupdDeviceFlagNeedsShutdown": {},
+  "fwupdDeviceFlagReported": "원격 서버에 보고됨",
+  "@fwupdDeviceFlagReported": {}
 }
