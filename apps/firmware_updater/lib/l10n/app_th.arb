@@ -1,5 +1,42 @@
 {
   "@@locale": "th",
   "close": "ปิด",
-  "@close": {}
+  "@close": {},
+  "allVersions": "รุ่นทั้งหมด",
+  "@allVersions": {},
+  "current": "ปัจจุบัน",
+  "@current": {},
+  "deviceUnavailable": "อุปกรณ์จะไม่สามารถใช้การได้ระหว่างการกระทำนี้",
+  "@deviceUnavailable": {},
+  "downgradeConfirm": "ต้องการดาวน์เกรด <b>{name}</b> เป็นรุ่น <b>{version}</b> หรือไม่?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "appTitle": "เครื่องมือปรับรุ่นเฟิร์มแวร์",
+  "@appTitle": {},
+  "checksum": "ผลรวมตรวจสอบ",
+  "@checksum": {},
+  "batteryWarning": "คำเตือน: การปรับรุ่นอุปกรณ์บางรายการอาจติดตั้งได้ก็ต่อเมื่อใช้พลังงานจากแหล่งอื่นเท่านั้น!",
+  "@batteryWarning": {},
+  "cancel": "ยกเลิก",
+  "@cancel": {},
+  "deviceRequest": "คำขอจากอุปกรณ์",
+  "@deviceRequest": {},
+  "downgrade": "ดาวน์เกรด",
+  "@downgrade": {},
+  "flags": "แฟล็ก",
+  "@flags": {},
+  "fwupdDeviceFlagInternal": "อุปกรณ์ภายใน",
+  "@fwupdDeviceFlagInternal": {},
+  "fwupdDeviceFlagUpdatable": "ปรับรุ่นได้",
+  "@fwupdDeviceFlagUpdatable": {},
+  "fwupdDeviceFlagOnlyOffline": "การปรับรุ่นต้องการให้เริ่มระบบใหม่",
+  "@fwupdDeviceFlagOnlyOffline": {}
 }
