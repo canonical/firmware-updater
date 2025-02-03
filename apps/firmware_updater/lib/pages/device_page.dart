@@ -149,7 +149,7 @@ class DevicePage extends StatelessWidget {
                                         title: l10n.updateChecksumsConfirm(
                                           device.name,
                                         ),
-                                        message: l10n.updateChecksumsInfo,
+                                        body: Text(l10n.updateChecksumsInfo),
                                         onConfirm: model.verifyUpdate,
                                         actionText: l10n.update,
                                       )
@@ -165,11 +165,11 @@ class DevicePage extends StatelessWidget {
                                           title: l10n.verifyFirmwareConfirm(
                                             device.name,
                                           ),
-                                          message: device.flags.contains(
+                                          body: device.flags.contains(
                                             FwupdDeviceFlag.usableDuringUpdate,
                                           )
                                               ? null
-                                              : l10n.deviceUnavailable,
+                                              : Text(l10n.deviceUnavailable),
                                           onConfirm: model.verify,
                                         )
                                     : null,
@@ -222,20 +222,11 @@ class DevicePage extends StatelessWidget {
               padding: const EdgeInsets.only(right: 8.0),
               child: ElevatedButton(
                 onPressed: enabled
-                    ? () => showConfirmationDialog(
+                    ? () => confirmAndInstall(
                           context,
-                          title: l10n.updateConfirm(
-                            model.device.name,
-                            model.latestRelease?.version ?? '',
-                          ),
-                          icon: YaruIcons.update_available,
-                          message: model.device.flags
-                                  .contains(FwupdDeviceFlag.usableDuringUpdate)
-                              ? null
-                              : l10n.deviceUnavailable,
-                          actionText: l10n.update,
-                          onConfirm: () => model.install(model.latestRelease!),
-                          onCancel: () {},
+                          release: model.latestRelease!,
+                          device: model.device,
+                          onInstall: () => model.install(model.latestRelease!),
                         )
                     : null,
                 child: Text(l10n.updateToLatest),

@@ -1,5 +1,8 @@
 {
   "@@locale": "en",
+  "affectsFdeWarningTitle": "You might lose all your data without recovery keys",
+  "affectsFdeWarningBody": "Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.\n\nYou need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer. Learn more.",
+  "affectsFdeCheckbox": "I have recovery keys for all my encrypted drives",
   "allVersions": "All Versions",
   "appTitle": "Firmware Updater",
   "batteryWarning": "Warning: some device updates may only be available on external power!",

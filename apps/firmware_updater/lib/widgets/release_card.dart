@@ -22,43 +22,6 @@ class ReleaseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
-    final String action;
-    final String dialogText;
-    final dialogDesc = device.flags.contains(FwupdDeviceFlag.usableDuringUpdate)
-        ? null
-        : l10n.deviceUnavailable;
-
-    if (release.isDowngrade) {
-      action = l10n.downgrade;
-      dialogText = l10n.downgradeConfirm(
-        device.name,
-        release.version,
-      );
-    } else if (release.isUpgrade) {
-      action = l10n.update;
-      dialogText = l10n.updateConfirm(
-        device.name,
-        release.version,
-      );
-    } else {
-      action = l10n.reinstall;
-      dialogText = l10n.reinstallConfirm(
-        device.name,
-        device.version ?? '',
-      );
-    }
-    void confirmAndInstall() {
-      showConfirmationDialog(
-        context,
-        title: dialogText,
-        message: dialogDesc,
-        actionText: action,
-        onConfirm: onInstall,
-        onCancel: () {},
-        icon: YaruIcons.update_available,
-      );
-    }
-
     return YaruSection(
       margin: const EdgeInsets.symmetric(vertical: 8),
       width: double.infinity,
@@ -86,7 +49,12 @@ class ReleaseCard extends StatelessWidget {
           ),
           const Spacer(),
           FilledButton(
-            onPressed: confirmAndInstall,
+            onPressed: () => confirmAndInstall(
+              context,
+              release: release,
+              device: device,
+              onInstall: onInstall,
+            ),
             child: Text(
               release.isUpgrade
                   ? l10n.update

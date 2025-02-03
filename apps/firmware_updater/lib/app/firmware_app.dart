@@ -104,7 +104,7 @@ class _FirmwareAppState extends State<FirmwareApp> {
     final l10n = AppLocalizations.of(context);
     final response = await showConfirmationDialog(
       context,
-      message: l10n.rebootConfirmMessage,
+      body: Text(l10n.rebootConfirmMessage),
       title: l10n.rebootConfirmTitle,
       actionText: l10n.rebootNow,
       cancelText: l10n.rebootLater,
