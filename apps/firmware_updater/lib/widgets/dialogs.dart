@@ -297,6 +297,7 @@ class _CheckboxConfirmationDialogState
                       title: Text(
                         widget.checkboxText!,
                         maxLines: 2,
+                        style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       value: confirmed,
                       onChanged: _setConfirmed,
@@ -339,7 +340,15 @@ void confirmAndInstall(
       YaruInfoBox(
         yaruInfoType: YaruInfoType.warning,
         title: Text(l10n.affectsFdeWarningTitle),
-        child: Text(l10n.affectsFdeWarningBody),
+        titleTextStyle: Theme.of(context).textTheme.titleSmall,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 8),
+            Text(l10n.affectsFdeWarningBody),
+          ],
+        ),
       ),
     ],
   ];
