@@ -346,7 +346,9 @@ void confirmAndInstall(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 8),
-            Text(l10n.affectsFdeWarningBody),
+            Text(l10n.affectsFdeWarningBody1),
+            const SizedBox(height: 8),
+            Text(l10n.affectsFdeWarningBody2),
           ],
         ),
       ),
