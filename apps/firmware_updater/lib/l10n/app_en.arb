@@ -1,5 +1,9 @@
 {
   "@@locale": "en",
+  "affectsFdeWarningTitle": "You may lose all your data without recovery keys",
+  "affectsFdeWarningBody1": "Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.",
+  "affectsFdeWarningBody2": "You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.",
+  "affectsFdeCheckbox": "I have recovery keys for all my encrypted drives",
   "allVersions": "All Versions",
   "appTitle": "Firmware Updater",
   "batteryWarning": "Warning: some device updates may only be available on external power!",
@@ -10,7 +14,7 @@
   "deviceUnavailable": "The device will be unavailable during this action.",
   "deviceRequest": "Device request",
   "downgrade": "Downgrade",
-  "downgradeConfirm": "Downgrade <b>{name}</b> to <b>{version}</b>?",
+  "downgradeConfirm": "Downgrade <b>{name}</b> to version <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -125,7 +129,7 @@
   },
   "updateChecksumsInfo": "This will record the current cryptographic hashes as verified.",
   "updateToLatest": "Update to Latest",
-  "updateConfirm": "Update <b>{name}</b> to <b>{version}</b>?",
+  "updateConfirm": "Update <b>{name}</b> to version <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {

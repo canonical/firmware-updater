@@ -6,6 +6,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_test/ubuntu_test.dart';
+import 'package:yaru/yaru.dart';
 
 import 'test_utils.dart';
 
@@ -63,8 +64,15 @@ void main() {
     testWidgets('update available', (tester) async {
       final device = testDevice(id: 'a', version: '1.0.0', name: 'test device');
       final releases = [
-        FwupdRelease(name: 'new release', version: '2.0.0'),
-        FwupdRelease(name: 'test release', version: '1.0.0'),
+        FwupdRelease(
+          name: 'new release',
+          version: '2.0.0',
+          flags: {FwupdReleaseFlag.isUpgrade},
+        ),
+        FwupdRelease(
+          name: 'test release',
+          version: '1.0.0',
+        ),
       ];
       final model = mockModel(
         device: device,
@@ -91,8 +99,77 @@ void main() {
       );
 
       await tester.tap(find.text(tester.lang.update));
-      verify(model.install(FwupdRelease(name: 'new release', version: '2.0.0')))
-          .called(1);
+      verify(model.install(releases[0])).called(1);
+    });
+
+    testWidgets('update available affecting tpm fde', (tester) async {
+      final device = testDevice(
+        id: 'a',
+        version: '1.0.0',
+        name: 'test device',
+        flags: {FwupdDeviceFlag.affectsFde},
+      );
+      final releases = [
+        FwupdRelease(
+          name: 'new release',
+          version: '2.0.0',
+          flags: {FwupdReleaseFlag.isUpgrade},
+        ),
+        FwupdRelease(
+          name: 'test release',
+          version: '1.0.0',
+        ),
+      ];
+      final model = mockModel(
+        device: device,
+        hasUpgrade: true,
+        releases: releases,
+      );
+      final notifier = mockNotifier();
+      final store = mockStore();
+      await tester.pumpApp(
+        (_) => buildPage(model: model, notifier: notifier, store: store),
+      );
+
+      expect(find.text(tester.lang.updateToLatest), findsOneWidget);
+      expect(find.text(tester.lang.allVersions), findsOneWidget);
+      expect(find.text(tester.lang.verifyFirmware), findsNothing);
+      expect(find.text(tester.lang.updateChecksums), findsNothing);
+
+      await tester.tap(find.text(tester.lang.updateToLatest));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.html(tester.lang.updateConfirm('test device', '2.0.0')),
+        findsOneWidget,
+      );
+
+      expect(
+        tester
+            .widget<ElevatedButton>(
+              find.widgetWithText(ElevatedButton, tester.lang.update),
+            )
+            .enabled,
+        isFalse,
+      );
+
+      final checkbox = find.byType(YaruCheckbox);
+      expect(checkbox, findsOneWidget);
+
+      await tester.tap(checkbox);
+      await tester.pumpAndSettle();
+
+      expect(
+        tester
+            .widget<ElevatedButton>(
+              find.widgetWithText(ElevatedButton, tester.lang.update),
+            )
+            .enabled,
+        isTrue,
+      );
+
+      await tester.tap(find.text(tester.lang.update));
+      verify(model.install(releases[0])).called(1);
     });
 
     testWidgets('update checksum', (tester) async {

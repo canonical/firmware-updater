@@ -18,7 +18,7 @@ void main() {
           onPressed: () => showMessageDialog(
             context,
             title: title,
-            message: message,
+            body: Text(message),
             icon: const Icon(icon),
           ),
           child: const Text('click me'),
@@ -43,7 +43,7 @@ void main() {
           onPressed: () => showConfirmationDialog(
             context,
             title: title,
-            message: message,
+            body: Text(message),
             onConfirm: completer.complete,
           ),
           child: const Text('click me'),
@@ -74,7 +74,7 @@ void main() {
           onPressed: () => showConfirmationDialog(
             context,
             title: title,
-            message: message,
+            body: Text(message),
             onCancel: completer.complete,
           ),
           child: const Text('click me'),
@@ -127,6 +127,48 @@ void main() {
     expect(closeButton, findsOneWidget);
 
     await tester.tap(closeButton);
+    expect(completer.isCompleted, isTrue);
+  });
+
+  testWidgets('checkbox confirmation dialog', (tester) async {
+    const title = 'title';
+    const message = 'message';
+    final completer = Completer<void>();
+    await tester.pumpApp(
+      (context) => Scaffold(
+        body: OutlinedButton(
+          onPressed: () => showConfirmAndInstallDialog(
+            context,
+            title: title,
+            body: Text(message),
+            onConfirm: completer.complete,
+            checkboxText: 'require checkbox',
+          ),
+          child: const Text('click me'),
+        ),
+      ),
+    );
+    await tester.tap(find.text('click me'));
+    await tester.pumpAndSettle();
+    expect(find.byIcon(YaruIcons.update_available), findsOneWidget);
+    expect(find.text(title), findsOneWidget);
+    expect(find.text(message), findsOneWidget);
+
+    final okButton = find.text(tester.lang.ok);
+    expect(okButton, findsOneWidget);
+    expect(find.text(tester.lang.cancel), findsOneWidget);
+
+    // The OK button shouldn't do anything until we've hit the checkbox
+    await tester.tap(okButton);
+    expect(completer.isCompleted, isFalse);
+
+    final checkbox = find.byType(YaruCheckbox);
+    expect(checkbox, findsOneWidget);
+
+    await tester.tap(checkbox);
+    await tester.pumpAndSettle();
+
+    await tester.tap(okButton);
     expect(completer.isCompleted, isTrue);
   });
 }
