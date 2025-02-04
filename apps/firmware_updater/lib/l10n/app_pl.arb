@@ -191,7 +191,7 @@
   },
   "updateChecksumsInfo": "Spowoduje to zarejestrowanie bieżących skrótów kryptograficznych jako zweryfikowanych.",
   "@updateChecksumsInfo": {},
-  "updateConfirm": "Zaktualizować <b>{name}</b> do <b>{version}</b>?",
+  "updateConfirm": "Zaktualizować <b>{name}</b> do wersji <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -232,7 +232,7 @@
   "@deviceUnavailable": {},
   "deviceRequest": "Żądanie urządzenia",
   "@deviceRequest": {},
-  "downgradeConfirm": "Obniżyć wersję <b>{name}</b> na <b>{version}</b>?",
+  "downgradeConfirm": "Obniżyć <b>{name}</b> do wersji <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
