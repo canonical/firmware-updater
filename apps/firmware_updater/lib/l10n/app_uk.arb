@@ -22,7 +22,7 @@
   "@deviceRequest": {},
   "downgrade": "Пониження",
   "@downgrade": {},
-  "downgradeConfirm": "Понизити <b>{name}</b> до <b>{version}</b>?",
+  "downgradeConfirm": "Понизити <b>{name}</b> до версії<b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -220,7 +220,7 @@
   "@updateChecksumsInfo": {},
   "updateToLatest": "Оновити до останнього",
   "@updateToLatest": {},
-  "updateConfirm": "Оновити <b>{name}</b> до <b>{version}</b>?",
+  "updateConfirm": "Оновити <b>{name}</b> до версії<b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -248,5 +248,13 @@
   "minVersion": "Мінімальна версія",
   "@minVersion": {},
   "latestVersion": "Остання версія",
-  "@latestVersion": {}
+  "@latestVersion": {},
+  "affectsFdeWarningBody2": "Вам потрібні ключі відновлення, оскільки ви ввімкнули апаратне шифрування в Ubuntu або інших операційних системах на цьому комп'ютері.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeCheckbox": "У мене є ключі відновлення для всіх моїх зашифрованих дисків",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody1": "Переконайтеся, що у вас є ключі відновлення для всіх зашифрованих дисків. Вам потрібно буде ввести їх під час завантаження після оновлення прошивки.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningTitle": "Без ключів відновлення ви можете втратити всі свої дані",
+  "@affectsFdeWarningTitle": {}
 }
