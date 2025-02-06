@@ -64,6 +64,8 @@ Future<void> main(List<String> args) async {
               secondary: YaruColors.dark.success,
             ),
           ),
+          highContrastTheme: yaruHighContrastLight,
+          highContrastDarkTheme: yaruHighContrastDark,
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
