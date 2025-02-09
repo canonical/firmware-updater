@@ -53,7 +53,7 @@
       }
     }
   },
-  "updateConfirm": "Ĉu ĝisdatigi <b>{name}</b> al <b>{version}</b>?",
+  "updateConfirm": "Ĉu ĝisdatigi <b>{name}</b> al versio <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -82,7 +82,7 @@
   "@fwupdDeviceFlagUpdatable": {},
   "downgrade": "Malĝisdatigi",
   "@downgrade": {},
-  "downgradeConfirm": "Ĉu malĝisdatigi <b>{name}</b> al <b>{version}</b>?",
+  "downgradeConfirm": "Ĉu malĝisdatigi <b>{name}</b> al versio <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -248,5 +248,13 @@
   "fwupdErrorNeedsUserAction": "La uzanto devas fari ion por kompletigi la ĝisdatigon",
   "@fwupdErrorNeedsUserAction": {},
   "fwupdErrorAuthExpired": "Malsukcesis aŭtentigi pro eksvalidiĝinta akreditilo",
-  "@fwupdErrorAuthExpired": {}
+  "@fwupdErrorAuthExpired": {},
+  "affectsFdeWarningTitle": "Vi eble perdos ĉiom da datenoj sen restaŭra ŝlosilo",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeCheckbox": "Mi havas restaŭrajn ŝlosilojn por ĉiuj ĉifritaj diskoj",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody2": "Restaŭraj ŝlosiloj necesas, ĉar vi ŝaltis aparatan ĉifradon en Ubuntu aŭ alia mastruma sistemo sur ĉi tiu komputilo.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeWarningBody1": "Certigu, ke vi havas restaŭrajn ŝlosilojn por ĉiuj el viaj ĉifritaj diskoj. Vi devos tajpi ilin dum startado post ĝisdatigo de mikroprogramo.",
+  "@affectsFdeWarningBody1": {}
 }
