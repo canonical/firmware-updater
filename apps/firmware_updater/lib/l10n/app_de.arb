@@ -96,7 +96,7 @@
   "@rebootConfirmMessage": {},
   "downgrade": "Herabstufen",
   "@downgrade": {},
-  "downgradeConfirm": "<b>{name}</b> auf <b>{version}</b> herabstufen?",
+  "downgradeConfirm": "<b>{name}</b> auf Version <b>{version}</b> herabstufen?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -206,7 +206,7 @@
   },
   "showReleases": "Veröffentlichungen anzeigen",
   "@showReleases": {},
-  "updateConfirm": "<b>{name}</b> auf <b>{version}</b> aktualisieren?",
+  "updateConfirm": "<b>{name}</b> auf Version <b>{version}</b> aktualisieren?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -248,5 +248,13 @@
   "latestVersion": "Neueste Version",
   "@latestVersion": {},
   "minVersion": "Mindestversion",
-  "@minVersion": {}
+  "@minVersion": {},
+  "affectsFdeCheckbox": "Ich habe Wiederherstellungsschlüssel für alle meine verschlüsselten Laufwerke",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody1": "Stellen Sie sicher, dass Sie Wiederherstellungsschlüssel für alle verschlüsselten Laufwerke haben. Sie müssen diese beim Hochfahren nach der Aktualisierung der Firmware eingeben.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningTitle": "Ohne Wiederherstellungsschlüssel können Sie alle Ihre Daten verlieren",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody2": "Sie benötigen Wiederherstellungsschlüssel, weil Sie die hardwaregestützte Verschlüsselung in Ubuntu oder anderen Betriebssystemen auf diesem Computer aktiviert haben.",
+  "@affectsFdeWarningBody2": {}
 }
