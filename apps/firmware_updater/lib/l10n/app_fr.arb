@@ -26,7 +26,7 @@
   "@cancel": {},
   "fwupdDeviceFlagRequireAc": "Le système nécessite une source d’alimentation externe",
   "@fwupdDeviceFlagRequireAc": {},
-  "downgradeConfirm": "Rétrograder <b>{name}</b> vers <b>{version}</b> ?",
+  "downgradeConfirm": "Rétrograder <b>{name}</b> vers version<b>{version}</b> ?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -103,7 +103,7 @@
   "@minVersion": {},
   "updateToLatest": "Mettre à jour vers la version la plus récente",
   "@updateToLatest": {},
-  "updateConfirm": "Mettre à jour <b>{name}</b> vers <b>{version}</b> ?",
+  "updateConfirm": "Mettre à jour <b>{name}</b> vers version<b>{version}</b> ?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -243,10 +243,18 @@
   "@fwupdErrorRead": {},
   "fwupdErrorWrite": "Échec d'écriture sur l'appareil",
   "@fwupdErrorWrite": {},
-  "appTitle": "Mise à jour de microgiciel",
+  "appTitle": "Actualiseur de micrologiciel",
   "@appTitle": {},
   "fwupdDeviceFlagSignedPayload": "Charge utile signée",
   "@fwupdDeviceFlagSignedPayload": {},
   "fwupdDeviceFlagUnsignedPayload": "Charge utile non signée",
-  "@fwupdDeviceFlagUnsignedPayload": {}
+  "@fwupdDeviceFlagUnsignedPayload": {},
+  "affectsFdeWarningTitle": "Vous risquez de perdre toutes vos données sans clés de récupération",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeCheckbox": "J’ai les clés de récupération pour tous mes disques cryptés",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody2": "Vous avez besoin de clés de récupération parce que vous avez activé le chiffrement sur le matériel dans Ubuntu ou d’autres systèmes d’exploitation sur cet ordinateur.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeWarningBody1": "Assurez-vous d’avoir les clés de récupération pour tous vos disques chiffrés. Vous devrez les entrer au démarrage après la mise à jour du micrologiciel.",
+  "@affectsFdeWarningBody1": {}
 }

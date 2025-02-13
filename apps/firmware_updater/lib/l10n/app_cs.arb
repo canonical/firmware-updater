@@ -103,7 +103,7 @@
   "@deviceRequest": {},
   "downgrade": "Návrat ke starší verzi",
   "@downgrade": {},
-  "downgradeConfirm": "Vrátit verzi na <b>{name}</b> na <b>{version}</b>?",
+  "downgradeConfirm": "Vrátit <b>{name}</b> na verzi <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -232,7 +232,7 @@
   "@verifyFirmware": {},
   "vendor": "Výrobce",
   "@vendor": {},
-  "updateConfirm": "Aktualizovat <b>{name}</b> na <b>{version}</b>?",
+  "updateConfirm": "Aktualizovat <b>{name}</b> na verzi <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -248,5 +248,13 @@
   "minVersion": "Minimální verze",
   "@minVersion": {},
   "currentVersion": "Stávající verze",
-  "@currentVersion": {}
+  "@currentVersion": {},
+  "affectsFdeCheckbox": "Mám klíče pro obnovení pro všechny své šifrované disky",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody2": "Obnovovací klíče potřebujete, protože jste na tomto počítači povolili hardwarově podporované šifrování v Ubuntu nebo jiných operačních systémech.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeWarningTitle": "Bez klíčů pro obnovení můžete přijít o všechna data",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "Ujistěte se, že máte klíče pro obnovení pro všechny šifrované disky. Budete je muset zadat při spouštění po aktualizaci firmwaru.",
+  "@affectsFdeWarningBody1": {}
 }
