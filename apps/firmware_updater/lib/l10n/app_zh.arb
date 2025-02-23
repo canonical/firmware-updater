@@ -248,5 +248,9 @@
   "updateChecksumsInfo": "这将记录当前加密哈希值的状态为已验证。",
   "@updateChecksumsInfo": {},
   "fwupdDeviceFlagDualImage": "设备阶段更新",
-  "@fwupdDeviceFlagDualImage": {}
+  "@fwupdDeviceFlagDualImage": {},
+  "affectsFdeWarningTitle": "没有恢复密钥，您可能丢失所有数据",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "请确保您有所有加密驱动器的恢复密钥。更新固件后您将需要在启动时输入它们。",
+  "@affectsFdeWarningBody1": {}
 }
