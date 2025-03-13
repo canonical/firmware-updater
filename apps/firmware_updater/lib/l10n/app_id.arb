@@ -10,7 +10,7 @@
   "@checksum": {},
   "deviceRequest": "Permintaan perangkat",
   "@deviceRequest": {},
-  "downgradeConfirm": "Turunkan versi <b>{name}</b> ke <b>{version}</b>?",
+  "downgradeConfirm": "Turun tingkatkan <b>{name}</b> ke versi <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -214,7 +214,7 @@
   "@fwupdStatusDeviceRestart": {},
   "updateToLatest": "Perbarui ke Paling Baru",
   "@updateToLatest": {},
-  "updateConfirm": "Perbarui <b>{name}</b> ke <b>{version}</b>?",
+  "updateConfirm": "Perbarui <b>{name}</b> ke versi <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -248,5 +248,13 @@
   "fwupdDeviceFlagSignedPayload": "Muatan yang Ditandatangani",
   "@fwupdDeviceFlagSignedPayload": {},
   "fwupdDeviceFlagUnsignedPayload": "Muatan yang Ditandatangani",
-  "@fwupdDeviceFlagUnsignedPayload": {}
+  "@fwupdDeviceFlagUnsignedPayload": {},
+  "affectsFdeWarningBody2": "Anda membutuhkan kunci pemulihan karena Anda telah mengaktifkan enkripsi yang didukung perangkat keras di Ubuntu atau sistem operasi lainnya di komputer ini.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeCheckbox": "Saya memiliki kunci pemulihan untuk semua drive terenkripsi saya",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody1": "Pastikan Anda memiliki kunci pemulihan untuk semua drive terenkripsi Anda. Anda harus memasukkannya saat boot setelah memperbarui firmware.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningTitle": "Anda bisa kehilangan semua data Anda tanpa kunci pemulihan",
+  "@affectsFdeWarningTitle": {}
 }
