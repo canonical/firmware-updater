@@ -248,5 +248,7 @@
   "rebootConfirmMessage": "Vos cal reaviar vòstre periferic per completar la mesa a jorn. Asseguratz-vos que vòstre periferic es brancat o complètament cargat. Enregistratz vòstres fichièrs abans de lo reaviar per evitar de pèrdre de donadas.",
   "@rebootConfirmMessage": {},
   "updateChecksumsInfo": "Aquò salvarà las somas criptograficas actualas coma verificadas.",
-  "@updateChecksumsInfo": {}
+  "@updateChecksumsInfo": {},
+  "affectsFdeWarningTitle": "Poiriatz pèrdre totas vòstras donadas sens clau de recuperacion",
+  "@affectsFdeWarningTitle": {}
 }
