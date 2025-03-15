@@ -86,7 +86,7 @@
   "@deviceRequest": {},
   "downgrade": "Nedgradera",
   "@downgrade": {},
-  "downgradeConfirm": "Nedgradera <b>{name}</b> till <b>{version}</b>?",
+  "downgradeConfirm": "Nedgradera <b>{name}</b> till version <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -220,7 +220,7 @@
   "@updateChecksumsInfo": {},
   "updateToLatest": "Uppdatera till senaste",
   "@updateToLatest": {},
-  "updateConfirm": "Uppdatera <b>{name}</b> till <b>{version}</b>?",
+  "updateConfirm": "Uppdatera <b>{name}</b> till version <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -248,5 +248,13 @@
   "minVersion": "Minimal version",
   "@minVersion": {},
   "fwupdDeviceFlagWillDisappear": "Enheten kommer inte att dyka upp igen efter att uppdateringen är klar",
-  "@fwupdDeviceFlagWillDisappear": {}
+  "@fwupdDeviceFlagWillDisappear": {},
+  "affectsFdeWarningTitle": "Du kan förlora all din data utan återställningsnycklar",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeCheckbox": "Jag har återställningsnycklar för alla mina krypterade enheter",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody1": "Se till att du har återställningsnycklar för alla dina krypterade enheter. Du måste ange dem vid uppstart efter uppdatering av fast programvara.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "Du behöver återställningsnycklar eftersom du har aktiverat hårdvarustödd kryptering i Ubuntu eller andra operativsystem på den här datorn.",
+  "@affectsFdeWarningBody2": {}
 }

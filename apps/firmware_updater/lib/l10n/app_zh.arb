@@ -248,5 +248,13 @@
   "updateChecksumsInfo": "这将记录当前加密哈希值的状态为已验证。",
   "@updateChecksumsInfo": {},
   "fwupdDeviceFlagDualImage": "设备阶段更新",
-  "@fwupdDeviceFlagDualImage": {}
+  "@fwupdDeviceFlagDualImage": {},
+  "affectsFdeWarningTitle": "没有恢复密钥，您可能丢失所有数据",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "请确保您有所有加密驱动器的恢复密钥。更新固件后您将需要在启动时输入它们。",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeCheckbox": "我拥有我所有加密磁盘的恢复密钥",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody2": "您需要恢复密钥，因为您的计算机在 Ubuntu 或其他操作系统上启用了硬件支持的加密。",
+  "@affectsFdeWarningBody2": {}
 }
