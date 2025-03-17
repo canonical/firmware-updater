@@ -1,10 +1,9 @@
-name: CLA
-on: [pull_request_target]
+name: cla-check
+on: [pull_request]
 
 jobs:
-  check:
-    if: contains(fromJson('["weblate", "renovate[bot]"]'), github.event.pull_request.user.login) == false
-    runs-on: ubuntu-22.04
+  cla-check:
+    runs-on: ubuntu-latest
     steps:
       - name: Check if CLA signed
-        uses: canonical/has-signed-canonical-cla@v1
+        uses: canonical/has-signed-canonical-cla@v2
