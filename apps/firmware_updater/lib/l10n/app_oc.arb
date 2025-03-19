@@ -22,7 +22,7 @@
   "@deviceUnavailable": {},
   "deviceRequest": "Requèsta de periferic",
   "@deviceRequest": {},
-  "downgradeConfirm": "Tornar <b>{name}</b> a <b>{version}</b> ?",
+  "downgradeConfirm": "Tornar <b>{name}</b> a la version <b>{version}</b> ?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -250,5 +250,7 @@
   "updateChecksumsInfo": "Aquò salvarà las somas criptograficas actualas coma verificadas.",
   "@updateChecksumsInfo": {},
   "affectsFdeWarningTitle": "Poiriatz pèrdre totas vòstras donadas sens clau de recuperacion",
-  "@affectsFdeWarningTitle": {}
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeCheckbox": "Ai las claus de recuperacion per totes mos disques chifras",
+  "@affectsFdeCheckbox": {}
 }
