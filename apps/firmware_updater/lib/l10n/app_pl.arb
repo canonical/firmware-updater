@@ -191,7 +191,7 @@
   },
   "updateChecksumsInfo": "Spowoduje to zarejestrowanie bieżących skrótów kryptograficznych jako zweryfikowanych.",
   "@updateChecksumsInfo": {},
-  "updateConfirm": "Zaktualizować <b>{name}</b> do <b>{version}</b>?",
+  "updateConfirm": "Zaktualizować <b>{name}</b> do wersji <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -232,7 +232,7 @@
   "@deviceUnavailable": {},
   "deviceRequest": "Żądanie urządzenia",
   "@deviceRequest": {},
-  "downgradeConfirm": "Obniżyć wersję <b>{name}</b> na <b>{version}</b>?",
+  "downgradeConfirm": "Obniżyć <b>{name}</b> do wersji <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -248,5 +248,13 @@
   "fwupdDeviceFlagRequireAc": "System wymaga zewnętrznego źródła zasilania",
   "@fwupdDeviceFlagRequireAc": {},
   "fwupdDeviceFlagSupported": "Obsługiwane na serwerze zdalnym",
-  "@fwupdDeviceFlagSupported": {}
+  "@fwupdDeviceFlagSupported": {},
+  "affectsFdeWarningBody1": "Upewnij się, że masz klucze odzyskiwania do wszystkich zaszyfrowanych dysków. Wymagane będzie wpisanie ich podczas rozruchu po aktualizacji oprogramowania układowego.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeCheckbox": "Mam klucze odzyskiwania do wszystkich moich zaszyfrowanych dysków",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningTitle": "Bez kluczy odzyskiwania możesz utracić wszystkie swoje dane",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody2": "Potrzebujesz kluczy odzyskiwania, ponieważ w Ubuntu lub innym systemie operacyjnym na tym komputerze włączono szyfrowanie sprzętowe.",
+  "@affectsFdeWarningBody2": {}
 }
