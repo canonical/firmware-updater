@@ -132,5 +132,123 @@
   "fwupdStatusDeviceRestart": "장치 재시작 중",
   "@fwupdStatusDeviceRestart": {},
   "fwupdStatusDeviceWrite": "장치에 쓰는 중",
-  "@fwupdStatusDeviceWrite": {}
+  "@fwupdStatusDeviceWrite": {},
+  "fwupdStatusDeviceBusy": "장치가 바쁩니다",
+  "@fwupdStatusDeviceBusy": {},
+  "fwupdStatusDeviceRead": "장치에서 읽어오는 중",
+  "@fwupdStatusDeviceRead": {},
+  "fwupdStatusDeviceVerify": "장치 검증(읽기) 중",
+  "@fwupdStatusDeviceVerify": {},
+  "fwupdStatusDownloading": "파일 다운로드 중",
+  "@fwupdStatusDownloading": {},
+  "fwupdStatusDeviceErase": "장치 삭제 중",
+  "@fwupdStatusDeviceErase": {},
+  "fwupdStatusWaitingForAuth": "인증을 기다리는 중",
+  "@fwupdStatusWaitingForAuth": {},
+  "fwupdStatusShutdown": "데몬을 종료하는 중",
+  "@fwupdStatusShutdown": {},
+  "guid": "GUID",
+  "@guid": {},
+  "installError": "펌웨어를 설치할 수 없습니다!",
+  "@installError": {},
+  "rebootNow": "지금 다시 시작",
+  "@rebootNow": {},
+  "update": "업데이트",
+  "@update": {},
+  "updateChecksums": "체크섬 업데이트",
+  "@updateChecksums": {},
+  "vendor": "제조사",
+  "@vendor": {},
+  "latestVersion": "최신 버전",
+  "@latestVersion": {},
+  "updateAvailable": "업데이트 사용 가능",
+  "@updateAvailable": {},
+  "rebootConfirmMessage": "업데이트를 완료하려면 반드시 장치를 다시 시작해야 합니다. 장치에 플러그가 연결되어 있거나 완전히 충전되어 있는지 확인하십시오. 데이터 손실을 방지하려면 다시 시작하기 전 파일을 저장하십시오.",
+  "@rebootConfirmMessage": {},
+  "rebootConfirmTitle": "업데이트 완료를 위해 다시 시작",
+  "@rebootConfirmTitle": {},
+  "verifyFirmwareConfirm": "{name} 장치의 펌웨어 체크섬을 검증하시겠습니까?",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "updateConfirm": "<b>{name}</b> 장치를 <b>{version}</b> 버전으로 업데이트하시겠습니까?",
+  "@updateConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "currentVersion": "현재 버전",
+  "@currentVersion": {},
+  "verifyFirmware": "펌웨어 검증",
+  "@verifyFirmware": {},
+  "minVersion": "최소 버전",
+  "@minVersion": {},
+  "rebootLater": "나중에 다시 시작",
+  "@rebootLater": {},
+  "fwupdDeviceFlagInstallParentFirst": "부모 장치에 먼저 설치하십시오",
+  "@fwupdDeviceFlagInstallParentFirst": {},
+  "fwupdDeviceFlagInstallAllReleases": "장치에 제공된 모든 버전을 설치해야 합니다",
+  "@fwupdDeviceFlagInstallAllReleases": {},
+  "fwupdDeviceFlagVersionCheckRequired": "기기 펌웨어의 버전을 확인해야 합니다",
+  "@fwupdDeviceFlagVersionCheckRequired": {},
+  "fwupdDeviceFlagBackupBeforeInstall": "설치 전 기기에서 펌웨어를 백업합니다",
+  "@fwupdDeviceFlagBackupBeforeInstall": {},
+  "fwupdDeviceFlagHasMultipleBranches": "장치가 다른 분기의 펌웨어로의 변경을 지원합니다",
+  "@fwupdDeviceFlagHasMultipleBranches": {},
+  "fwupdDeviceFlagWildcardInstall": "같은 종류의 모든 장치는 동시에 업데이트됩니다",
+  "@fwupdDeviceFlagWildcardInstall": {},
+  "fwupdErrorAuthFailed": "인증에 실패했습니다",
+  "@fwupdErrorAuthFailed": {},
+  "fwupdErrorVersionSame": "동일한 펌웨어 버전이 설치되어 있습니다",
+  "@fwupdErrorVersionSame": {},
+  "fwupdErrorVersionNewer": "더 높은 버전의 펌웨어가 설치되어 있습니다",
+  "@fwupdErrorVersionNewer": {},
+  "fwupdErrorAlreadyPending": "이미 오프라인에서 설치하도록 설정되어 있습니다",
+  "@fwupdErrorAlreadyPending": {},
+  "fwupdErrorNotFound": "일치하는 장치가 존재하지 않습니다",
+  "@fwupdErrorNotFound": {},
+  "noDevicesFound": "장치가 없습니다",
+  "@noDevicesFound": {},
+  "ok": "확인",
+  "@ok": {},
+  "olderVersions": "이전 버전",
+  "@olderVersions": {},
+  "reinstall": "재설치",
+  "@reinstall": {},
+  "reinstallConfirm": "<b>{name}</b> 장치에 <b>{current}</b> 버전을 다시 설치하시겠습니까?",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "showReleases": "출시 정보 확인",
+  "@showReleases": {},
+  "showUpdates": "업데이트 정보 확인",
+  "@showUpdates": {},
+  "updateChecksumsConfirm": "<b>{name}</b> 장치의 체크섬을 업데이트하시겠습니까?",
+  "@updateChecksumsConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "updateChecksumsInfo": "이 작업은 현재 암호 해시를 인증된 것으로 기록합니다.",
+  "@updateChecksumsInfo": {},
+  "updateToLatest": "최신 버전으로 업데이트",
+  "@updateToLatest": {}
 }
