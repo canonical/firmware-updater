@@ -121,7 +121,7 @@
   "@current": {},
   "deviceUnavailable": "El dispositivo no estará disponible durante esta operación.",
   "@deviceUnavailable": {},
-  "downgradeConfirm": "¿Quiere desactualizar <b>{name}</b> a <b>{version}</b>?",
+  "downgradeConfirm": "¿Quiere degradar <b>{name}</b> a <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
