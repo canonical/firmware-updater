@@ -2,7 +2,7 @@
   "@@locale": "es",
   "allVersions": "Todas las versiones",
   "@allVersions": {},
-  "appTitle": "Actualización del firmware",
+  "appTitle": "Actualizador del firmware",
   "@appTitle": {},
   "batteryWarning": "Advertencia: ¡es posible que algunas actualizaciones del dispositivo solo estén disponibles con alimentación externa!",
   "@batteryWarning": {},
@@ -16,7 +16,7 @@
   "@deviceRequest": {},
   "downgrade": "Desactualizar",
   "@downgrade": {},
-  "flags": "Indicaciones",
+  "flags": "Indicadores",
   "@flags": {},
   "fwupdDeviceFlagInternal": "Dispositivo interno",
   "@fwupdDeviceFlagInternal": {},
@@ -36,11 +36,11 @@
   "@fwupdDeviceFlagRegistered": {},
   "fwupdDeviceFlagNeedsReboot": "Necesita un reinicio despues de la instalación",
   "@fwupdDeviceFlagNeedsReboot": {},
-  "fwupdDeviceFlagNeedsShutdown": "Necesita apagar despues de la instalación",
+  "fwupdDeviceFlagNeedsShutdown": "Necesita apagar tras la instalación",
   "@fwupdDeviceFlagNeedsShutdown": {},
   "fwupdDeviceFlagInstallParentFirst": "Instalar en el dispositivo principal primero",
   "@fwupdDeviceFlagInstallParentFirst": {},
-  "fwupdDeviceFlagIgnoreValidation": "Ignorar comprobaciones de seguridad de validación",
+  "fwupdDeviceFlagIgnoreValidation": "Descartar validación de comprobaciones de seguridad",
   "@fwupdDeviceFlagIgnoreValidation": {},
   "fwupdDeviceFlagTrusted": "Confiable",
   "@fwupdDeviceFlagTrusted": {},
@@ -121,7 +121,7 @@
   "@current": {},
   "deviceUnavailable": "El dispositivo no estará disponible durante esta operación.",
   "@deviceUnavailable": {},
-  "downgradeConfirm": "¿Quiere desactualizar <b>{name}</b> a <b>{version}</b>?",
+  "downgradeConfirm": "¿Quiere degradar <b>{name}</b> a <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -174,7 +174,7 @@
   "@rebootConfirmMessage": {},
   "updateChecksumsInfo": "Esto grabará las sumas criptográficas actuales como verificadas.",
   "@updateChecksumsInfo": {},
-  "updateConfirm": "¿Quiere actualizar <b>{name}</b> a la <b>{version}</b>?",
+  "updateConfirm": "¿Quiere actualizar <b>{name}</b> a la versión <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -185,7 +185,7 @@
       }
     }
   },
-  "vendor": "Fabricante",
+  "vendor": "Proveedor",
   "@vendor": {},
   "verifyFirmware": "Verificar firmware",
   "@verifyFirmware": {},
@@ -241,12 +241,20 @@
   "@fwupdDeviceFlagUnreachable": {},
   "fwupdErrorInternal": "Error interno",
   "@fwupdErrorInternal": {},
-  "fwupdErrorVersionNewer": "Se instaló una versión más reciente del fírmwer",
+  "fwupdErrorVersionNewer": "Se instaló una versión más reciente del firmware",
   "@fwupdErrorVersionNewer": {},
   "fwupdErrorVersionSame": "Se instaló la misma versión del firmware",
   "@fwupdErrorVersionSame": {},
   "fwupdErrorWrite": "No se pudo escribir en el dispositivo",
   "@fwupdErrorWrite": {},
   "fwupdErrorNotFound": "No existe ningún dispositivo que coincida",
-  "@fwupdErrorNotFound": {}
+  "@fwupdErrorNotFound": {},
+  "affectsFdeWarningTitle": "Puede perder todos sus datos sin claves de recuperación",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "Asegúrese que tenga claves de recuperación para todas sus unidades cifradas. Necesitar introducirlas al arrancar tras actualizar el firmware.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "Necesita las claves de recuperación porque ha habilitado el cifrado del hardware respaldado en Ubuntu u otro sistema operativo en este equipo.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeCheckbox": "Tengo claves de recuperación para todas mis unidades cifradas",
+  "@affectsFdeCheckbox": {}
 }

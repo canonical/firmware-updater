@@ -6,7 +6,7 @@
   "@ok": {},
   "allVersions": "Totas las versions",
   "@allVersions": {},
-  "appTitle": "Utilitari de mesa a jorn de micrologicial",
+  "appTitle": "Actualizador de micrologicial",
   "@appTitle": {},
   "batteryWarning": "Atencion : d’unas mesas a jorn de periferic pòdon èsser disponiblas sonque sus alimentacion extèrna !",
   "@batteryWarning": {},
@@ -22,7 +22,7 @@
   "@deviceUnavailable": {},
   "deviceRequest": "Requèsta de periferic",
   "@deviceRequest": {},
-  "downgradeConfirm": "Tornar <b>{name}</b> a <b>{version}</b> ?",
+  "downgradeConfirm": "Tornar <b>{name}</b> a la version <b>{version}</b> ?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -224,7 +224,7 @@
   "@fwupdStatusDownloading": {},
   "fwupdStatusShutdown": "Lo demòni s’arrèsta",
   "@fwupdStatusShutdown": {},
-  "installError": "Fracàs de l’installacion del micrologicial.",
+  "installError": "Fracàs de l’installacion del micrologicial !",
   "@installError": {},
   "updateConfirm": "Metre a jorn <b>{name}</b> a la version <b>{version}</b> ?",
   "@updateConfirm": {
@@ -248,5 +248,13 @@
   "rebootConfirmMessage": "Vos cal reaviar vòstre periferic per completar la mesa a jorn. Asseguratz-vos que vòstre periferic es brancat o complètament cargat. Enregistratz vòstres fichièrs abans de lo reaviar per evitar de pèrdre de donadas.",
   "@rebootConfirmMessage": {},
   "updateChecksumsInfo": "Aquò salvarà las somas criptograficas actualas coma verificadas.",
-  "@updateChecksumsInfo": {}
+  "@updateChecksumsInfo": {},
+  "affectsFdeWarningTitle": "Poiriatz pèrdre totas vòstras donadas sens clau de recuperacion",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeCheckbox": "Ai las claus de recuperacion per totes mos disques chifras",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody1": "Asseguratz-vos d'aver las claus de recuperacion per totes vòstres disques chifrats. Las vos calrà picar a l'aviada aprèp la mesa a jorn del logicial.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "Avètz besonh de claus de recuperacion per çò qu'avètz activat lo chiframent material dins Ubuntu o d'autres sistèmas operatius sus aqueste ordenador.",
+  "@affectsFdeWarningBody2": {}
 }

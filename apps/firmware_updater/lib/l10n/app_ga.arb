@@ -6,7 +6,7 @@
   "@ok": {},
   "allVersions": "Gach Leagan",
   "@allVersions": {},
-  "appTitle": "Nuashonróir Firmware",
+  "appTitle": "Nuashonróir Dochtearraí",
   "@appTitle": {},
   "batteryWarning": "Rabhadh: d'fhéadfadh roinnt nuashonruithe gléis a bheith ar fáil ach amháin ar chumhacht sheachtrach!",
   "@batteryWarning": {},
@@ -16,7 +16,7 @@
   "@cancel": {},
   "downgrade": "Íosghrádú",
   "@downgrade": {},
-  "downgradeConfirm": "Íosghrádaigh <b>{name}</b> go <b>{version}</b>?",
+  "downgradeConfirm": "Íosghrádaigh <b>{name}</b> go leagan <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -154,7 +154,7 @@
   "@vendor": {},
   "verifyFirmware": "Fíoraigh Firmware",
   "@verifyFirmware": {},
-  "updateConfirm": "Nuashonraigh <b>{name}</b> go <b>{version}</b>?",
+  "updateConfirm": "Nuashonraigh <b>{name}</b> go leagan <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -248,5 +248,13 @@
   "rebootNow": "Atosaigh anois",
   "@rebootNow": {},
   "rebootConfirmMessage": "Ní mór duit do ghléas a atosú chun an nuashonrú a chomhlánú. Cinntigh go bhfuil do ghléas plugáilte isteach nó luchtaithe go hiomlán. Sábháil do chomhaid sula n-atosóidh tú chun nach gcaillfidh tú sonraí.",
-  "@rebootConfirmMessage": {}
+  "@rebootConfirmMessage": {},
+  "affectsFdeWarningTitle": "Seans go gcaillfidh tú do shonraí go léir gan eochracha athshlánaithe",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeCheckbox": "Tá eochracha athshlánaithe agam do mo thiomáineann criptithe go léir",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody2": "Teastaíonn eochracha athshlánaithe uait toisc go bhfuil criptiú crua-earraí cumasaithe agat in Ubuntu nó i gcórais oibriúcháin eile ar an ríomhaire seo.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeWarningBody1": "Cinntigh go bhfuil eochracha athshlánaithe agat le haghaidh do thiomáineann criptithe go léir. Beidh ort iad a chur isteach ar tosaithe tar éis an firmware a nuashonrú.",
+  "@affectsFdeWarningBody1": {}
 }

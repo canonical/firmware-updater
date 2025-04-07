@@ -248,5 +248,13 @@
   "minVersion": "Miinimumversioon",
   "@minVersion": {},
   "latestVersion": "Viimane versioon",
-  "@latestVersion": {}
+  "@latestVersion": {},
+  "affectsFdeWarningTitle": "Ilma taastevõtmeteta võid kaotada ligipääsu oma andmetele",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "Palun kontrolli, et sul on olemas taastevõtmed kõikide sinu krüptitud andmekandjate jaoks. Peale püsivara uuendamist pead need taaskäivitamisel sisestama.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "Sa vajad taastevõtmeid, sest kasutad Ubuntus või muudes selle arvuti operatsioonisüsteemides raudvarapõhist krüptimist.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeCheckbox": "Mul on taastevõtmed kõikide minu krüptitud andmekandjate jaoks",
+  "@affectsFdeCheckbox": {}
 }

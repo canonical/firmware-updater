@@ -248,5 +248,13 @@
   "fwupdErrorBatteryLevelTooLow": "סוללת המערכת חלשה מדי",
   "@fwupdErrorBatteryLevelTooLow": {},
   "rebootConfirmMessage": "יש להפעיל את ההתקן שלך מחדש כדי להשלים את העדכון. נא לוודא שההתקן שלך מחובר או טעון במלואו. נא לשמור את הקבצים שלך בטרם הפעלה מחדש כדי למנוע אובדן מידע.",
-  "@rebootConfirmMessage": {}
+  "@rebootConfirmMessage": {},
+  "affectsFdeCheckbox": "יש לי מפתחות שחזור לכל הכוננים המוצפנים שלי",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningTitle": "ללא מפתחות שחזור כל הנתונים שלך עלולים ללכת לאיבוד",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "נא לוודא שיש לך את מפתחות השחזור לכל הכוננים המוצפנים שלך. יש למלא אותם מחדש בזמן העלייה לאחר עדכון קושחה.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "צריך מפתחות שחזור כיוון שהפעלת הצפנה בגיבוי חומרה באובונטו או במערכות הפעלה אחרות במחשב הזה.",
+  "@affectsFdeWarningBody2": {}
 }

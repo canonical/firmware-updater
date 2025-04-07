@@ -248,5 +248,13 @@
   "minVersion": "Минимальная версия",
   "@minVersion": {},
   "latestVersion": "Последняя версия",
-  "@latestVersion": {}
+  "@latestVersion": {},
+  "affectsFdeWarningTitle": "Без ключей восстановления вы можете потерять все свои данные",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "Убедитесь, что у вас есть ключи восстановления для всех зашифрованных дисков. Вам нужно будет ввести их при загрузке после обновлений прошивки.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "Вам необходимы ключи восстановления, потому что вы включили аппаратное шифрование в Ubuntu или других операционных системах на этом компьютере.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeCheckbox": "У меня есть ключи восстановления для всех моих зашифрованных дисков",
+  "@affectsFdeCheckbox": {}
 }

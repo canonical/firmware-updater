@@ -248,5 +248,13 @@
   "minVersion": "Legkisebb verzió",
   "@minVersion": {},
   "latestVersion": "Legújabb verzió",
-  "@latestVersion": {}
+  "@latestVersion": {},
+  "affectsFdeCheckbox": "Rendelkezem helyreállítási kulcsokkal az összes titkosított meghajtómhoz",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningTitle": "Helyreállítási kulcsok nélkül elveszítheti az összes adatát",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "Győződjön meg arról, hogy rendelkezik-e helyreállítási kulcsokkal az összes titkosított meghajtóhoz. Ezeket a belső vezérlőprogram frissítése után, a rendszerindításkor kell megadni.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "Azért van szüksége helyreállítási kulcsokra, mert engedélyezte a hardveres titkosítást az Ubuntuban vagy a számítógépen lévő más operációs rendszerekben.",
+  "@affectsFdeWarningBody2": {}
 }
