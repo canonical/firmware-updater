@@ -168,7 +168,7 @@
       }
     }
   },
-  "verifyFirmwareConfirm": "{பெயர் of இன் ஃபார்ம்வேர் செக்சம்களை சரிபார்க்கவா?",
+  "verifyFirmwareConfirm": "Verify firmware checksums of {name}?",
   "@verifyFirmwareConfirm": {
     "placeholders": {
       "name": {
