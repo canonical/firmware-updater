@@ -3,6 +3,7 @@ on: [pull_request]
 
 jobs:
   cla-check:
+    if: github.event.pull_request.user.login != 'weblate'
     runs-on: ubuntu-latest
     steps:
       - name: Check if CLA signed
