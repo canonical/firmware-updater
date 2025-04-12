@@ -7,5 +7,21 @@
   "cancel": "Cancelar",
   "@cancel": {},
   "allVersions": "Todas as versões",
-  "@allVersions": {}
+  "@allVersions": {},
+  "affectsFdeWarningBody1": "Certifique-se de que tem as chaves de recuperação de todas as suas unidades encriptadas. Vai precisar de as introduzir no arranque após atualizar o firmware.",
+  "@affectsFdeWarningBody1": {},
+  "deviceRequest": "Pedido de dispositivo",
+  "@deviceRequest": {},
+  "batteryWarning": "Aviso: algumas actualizações de dispositivos podem estar disponíveis apenas com alimentação externa!",
+  "@batteryWarning": {},
+  "deviceUnavailable": "O dispositivo ficará indisponível durante esta acção.",
+  "@deviceUnavailable": {},
+  "affectsFdeCheckbox": "Tenho as chaves de recuperação de todas as minhas unidades encriptadas",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningBody2": "Precisa das chaves de recuperação porque ativou a encriptação suportada por hardware no Ubuntu ou noutros sistemas operativos neste computador.",
+  "@affectsFdeWarningBody2": {},
+  "checksum": "Soma de verificação",
+  "@checksum": {},
+  "affectsFdeWarningTitle": "Pode perder todos os seus dados se não tiver as chaves de recuperação",
+  "@affectsFdeWarningTitle": {}
 }
