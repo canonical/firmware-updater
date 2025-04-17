@@ -32,7 +32,7 @@ class _OptionCardState extends State<OptionCard> {
         borderRadius: BorderRadius.circular(6),
         border: Border.all(
           color: widget.selected
-              ? Theme.of(context).primaryColor.withOpacity(0.5)
+              ? Theme.of(context).primaryColor.withValues(alpha: 0.5)
               : Theme.of(context)
                   .colorScheme
                   .onSurface

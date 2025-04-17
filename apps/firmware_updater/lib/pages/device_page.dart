@@ -23,7 +23,7 @@ class DevicePage extends StatelessWidget {
     final fwupdIdle = notifier.status == FwupdStatus.idle;
     final deviceFlags = [
       for (final flag in device.flags) flag.localize(context),
-    ].whereNotNull();
+    ].nonNulls;
 
     return YaruDetailPage(
       appBar: YaruWindowTitleBar(
