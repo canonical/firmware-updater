@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:yaru/yaru.dart';
 
 enum DialogAction { primaryAction, secondaryAction, cancel, close }
 
 const kMaxWidth = 500.0;
+const fdeLink =
+    'https://discourse.ubuntu.com/t/hardware-backed-encryption-and-recovery-keys-in-ubuntu-desktop/58243';
 
 Future<DialogAction?> showGeneralDialog(
   BuildContext context, {
@@ -349,6 +352,19 @@ void confirmAndInstall(
             Text(l10n.affectsFdeWarningBody1),
             const SizedBox(height: 8),
             Text(l10n.affectsFdeWarningBody2),
+            MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: () => launchUrlString(fdeLink),
+                child: Text(
+                  l10n.affectsFdeLinkLabel,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .copyWith(color: Theme.of(context).colorScheme.link),
+                ),
+              ),
+            ),
           ],
         ),
       ),
