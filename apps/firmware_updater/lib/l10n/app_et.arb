@@ -34,7 +34,7 @@
   "@updateAvailable": {},
   "verifyFirmware": "Verifitseeri püsivara",
   "@verifyFirmware": {},
-  "updateChecksumsConfirm": "Kas uuendame <b>{name}</b> seadme kontrollsummad?",
+  "updateChecksumsConfirm": "Kas uuendame <b>{name}</b> seadme kontrollsummasid?",
   "@updateChecksumsConfirm": {
     "placeholders": {
       "name": {
@@ -175,19 +175,19 @@
   "@fwupdStatusLoading": {},
   "fwupdStatusDecompressing": "Pakime püsivara lahti",
   "@fwupdStatusDecompressing": {},
-  "fwupdStatusDeviceRestart": "Taaskäivitame seadet",
+  "fwupdStatusDeviceRestart": "Taaskäivitan seadet",
   "@fwupdStatusDeviceRestart": {},
-  "fwupdStatusDeviceWrite": "Kirjutame sedamesse",
+  "fwupdStatusDeviceWrite": "Kirjutan seadmesse",
   "@fwupdStatusDeviceWrite": {},
   "fwupdStatusDeviceVerify": "Verifitseerime (andmeid lugedes) seadet",
   "@fwupdStatusDeviceVerify": {},
-  "fwupdStatusScheduling": "Ajastame vallasrežiimis uuendust",
+  "fwupdStatusScheduling": "Ajastan vallasrežiimis uuendust",
   "@fwupdStatusScheduling": {},
   "fwupdStatusDeviceRead": "Loeme seadmest andmeid",
   "@fwupdStatusDeviceRead": {},
-  "fwupdStatusDeviceErase": "Kustutame seadmest andmeid",
+  "fwupdStatusDeviceErase": "Kustutan seadmest andmeid",
   "@fwupdStatusDeviceErase": {},
-  "fwupdStatusWaitingForAuth": "Ootame autentimist",
+  "fwupdStatusWaitingForAuth": "Ootan autentimist",
   "@fwupdStatusWaitingForAuth": {},
   "fwupdStatusDeviceBusy": "Seade on hõivatud",
   "@fwupdStatusDeviceBusy": {},
@@ -205,7 +205,7 @@
   "@rebootConfirmTitle": {},
   "reinstall": "Paigalda uuesti",
   "@reinstall": {},
-  "reinstallConfirm": "Pais paigaldame uuesti <b>{name}</b> versiooni <b>{current}</b>?",
+  "reinstallConfirm": "Kas paigaldame uuesti <b>{name}</b> versiooni <b>{current}</b>?",
   "@reinstallConfirm": {
     "placeholders": {
       "name": {
@@ -235,7 +235,7 @@
       }
     }
   },
-  "verifyFirmwareConfirm": "Kas verifitseerime {name} püsivara kontrollsummad?",
+  "verifyFirmwareConfirm": "Kas verifitseerime {name} püsivara kontrollsummasid?",
   "@verifyFirmwareConfirm": {
     "placeholders": {
       "name": {
@@ -256,5 +256,7 @@
   "affectsFdeWarningBody2": "Sa vajad taastevõtmeid, sest kasutad Ubuntus või muudes selle arvuti operatsioonisüsteemides raudvarapõhist krüptimist.",
   "@affectsFdeWarningBody2": {},
   "affectsFdeCheckbox": "Mul on taastevõtmed kõikide minu krüptitud andmekandjate jaoks",
-  "@affectsFdeCheckbox": {}
+  "@affectsFdeCheckbox": {},
+  "affectsFdeLinkLabel": "Lisateave",
+  "@affectsFdeLinkLabel": {}
 }
