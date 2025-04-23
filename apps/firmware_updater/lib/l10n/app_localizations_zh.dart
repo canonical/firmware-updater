@@ -21,6 +21,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get affectsFdeCheckbox => '我拥有我所有加密磁盘的恢复密钥';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => '全部版本';
 
   @override

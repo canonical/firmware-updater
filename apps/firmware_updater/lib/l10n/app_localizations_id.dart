@@ -21,6 +21,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get affectsFdeCheckbox => 'Saya memiliki kunci pemulihan untuk semua drive terenkripsi saya';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Semua versi';
 
   @override
