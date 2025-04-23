@@ -256,5 +256,7 @@
   "affectsFdeWarningBody2": "U hebt herstelcodes nodig omdat u hardwarematige versleuteling hebt ingeschakeld in Ubuntu of andere besturingssystemen op deze computer.",
   "@affectsFdeWarningBody2": {},
   "affectsFdeCheckbox": "Ik heb herstelcodes voor al mijn versleutelde schijven",
-  "@affectsFdeCheckbox": {}
+  "@affectsFdeCheckbox": {},
+  "affectsFdeLinkLabel": "Meer informatie",
+  "@affectsFdeLinkLabel": {}
 }
