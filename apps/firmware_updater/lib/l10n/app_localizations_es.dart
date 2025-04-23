@@ -21,6 +21,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get affectsFdeCheckbox => 'Tengo claves de recuperación para todas mis unidades cifradas';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Todas las versiones';
 
   @override

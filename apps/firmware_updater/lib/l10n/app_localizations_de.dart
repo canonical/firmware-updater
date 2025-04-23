@@ -21,6 +21,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get affectsFdeCheckbox => 'Ich habe Wiederherstellungsschlüssel für alle meine verschlüsselten Laufwerke';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Alle Versionen';
 
   @override

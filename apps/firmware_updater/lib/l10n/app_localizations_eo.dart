@@ -21,6 +21,9 @@ class AppLocalizationsEo extends AppLocalizations {
   String get affectsFdeCheckbox => 'Mi havas restaŭrajn ŝlosilojn por ĉiuj ĉifritaj diskoj';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Ĉiuj versioj';
 
   @override

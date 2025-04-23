@@ -21,6 +21,9 @@ class AppLocalizationsSk extends AppLocalizations {
   String get affectsFdeCheckbox => 'Pre všetky moje šifrované disky mám kľúče na obnovenie';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Všetky verzie';
 
   @override

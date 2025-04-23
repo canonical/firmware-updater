@@ -21,6 +21,9 @@ class AppLocalizationsTa extends AppLocalizations {
   String get affectsFdeCheckbox => 'எனது அனைத்து மறைகுறியாக்கப்பட்ட இயக்கிகளுக்கும் மீட்பு விசைகள் உள்ளன';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'அனைத்து பதிப்புகளும்';
 
   @override

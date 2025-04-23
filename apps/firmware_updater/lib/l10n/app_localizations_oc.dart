@@ -21,6 +21,9 @@ class AppLocalizationsOc extends AppLocalizations {
   String get affectsFdeCheckbox => 'Ai las claus de recuperacion per totes mos disques chifras';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Totas las versions';
 
   @override

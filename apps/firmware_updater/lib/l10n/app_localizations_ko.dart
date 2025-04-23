@@ -21,6 +21,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get affectsFdeCheckbox => '모든 암호화된 드라이브에 대한 복구 키를 보유하고 있습니다';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => '모든 버전';
 
   @override

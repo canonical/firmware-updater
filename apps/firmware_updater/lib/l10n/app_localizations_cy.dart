@@ -21,6 +21,9 @@ class AppLocalizationsCy extends AppLocalizations {
   String get affectsFdeCheckbox => 'I have recovery keys for all my encrypted drives';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'All Versions';
 
   @override

@@ -21,6 +21,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get affectsFdeCheckbox => 'Ik heb herstelcodes voor al mijn versleutelde schijven';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Alle Versies';
 
   @override

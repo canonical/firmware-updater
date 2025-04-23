@@ -21,6 +21,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get affectsFdeCheckbox => 'Jag har återställningsnycklar för alla mina krypterade enheter';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Alla versioner';
 
   @override

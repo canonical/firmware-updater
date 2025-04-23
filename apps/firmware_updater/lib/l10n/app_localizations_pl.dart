@@ -21,6 +21,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get affectsFdeCheckbox => 'Mam klucze odzyskiwania do wszystkich moich zaszyfrowanych dysków';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Wszystkie wersje';
 
   @override
