@@ -256,5 +256,7 @@
   "affectsFdeWarningBody1": "Переконайтеся, що у вас є ключі відновлення для всіх зашифрованих дисків. Вам потрібно буде ввести їх під час завантаження після оновлення прошивки.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeWarningTitle": "Без ключів відновлення ви можете втратити всі свої дані",
-  "@affectsFdeWarningTitle": {}
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeLinkLabel": "Докладніше",
+  "@affectsFdeLinkLabel": {}
 }
