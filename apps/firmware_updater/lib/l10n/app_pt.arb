@@ -23,5 +23,17 @@
   "checksum": "Soma de verificação",
   "@checksum": {},
   "affectsFdeWarningTitle": "Pode perder todos os seus dados se não tiver as chaves de recuperação",
-  "@affectsFdeWarningTitle": {}
+  "@affectsFdeWarningTitle": {},
+  "downgrade": "Downgrade",
+  "@downgrade": {},
+  "fwupdDeviceFlagUpdatable": "Atualizável",
+  "@fwupdDeviceFlagUpdatable": {},
+  "fwupdDeviceFlagOnlyOffline": "A atualização requer um reinício",
+  "@fwupdDeviceFlagOnlyOffline": {},
+  "affectsFdeLinkLabel": "Saber mais",
+  "@affectsFdeLinkLabel": {},
+  "flags": "Flags",
+  "@flags": {},
+  "fwupdDeviceFlagInternal": "Dispositivo interno",
+  "@fwupdDeviceFlagInternal": {}
 }
