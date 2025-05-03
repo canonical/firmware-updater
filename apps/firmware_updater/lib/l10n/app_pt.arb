@@ -66,5 +66,7 @@
   "fwupdDeviceFlagNeedsShutdown": "Tem de encerrar depois da instalação",
   "@fwupdDeviceFlagNeedsShutdown": {},
   "minVersion": "Versão Mínima",
-  "@minVersion": {}
+  "@minVersion": {},
+  "fwupdDeviceFlagLocked": "Dispositivo está bloqueado",
+  "@fwupdDeviceFlagLocked": {}
 }
