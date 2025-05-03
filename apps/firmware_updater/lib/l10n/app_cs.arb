@@ -256,5 +256,7 @@
   "affectsFdeWarningTitle": "Bez klíčů pro obnovení můžete přijít o všechna data",
   "@affectsFdeWarningTitle": {},
   "affectsFdeWarningBody1": "Ujistěte se, že máte klíče pro obnovení pro všechny šifrované disky. Budete je muset zadat při spouštění po aktualizaci firmwaru.",
-  "@affectsFdeWarningBody1": {}
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeLinkLabel": "Dozvědět se více",
+  "@affectsFdeLinkLabel": {}
 }
