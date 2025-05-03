@@ -256,5 +256,7 @@
   "affectsFdeWarningBody1": "Asseguratz-vos d'aver las claus de recuperacion per totes vòstres disques chifrats. Las vos calrà picar a l'aviada aprèp la mesa a jorn del logicial.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeWarningBody2": "Avètz besonh de claus de recuperacion per çò qu'avètz activat lo chiframent material dins Ubuntu o d'autres sistèmas operatius sus aqueste ordenador.",
-  "@affectsFdeWarningBody2": {}
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeLinkLabel": "Ne saber mai",
+  "@affectsFdeLinkLabel": {}
 }
