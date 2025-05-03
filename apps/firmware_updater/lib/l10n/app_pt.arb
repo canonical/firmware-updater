@@ -35,5 +35,36 @@
   "flags": "Flags",
   "@flags": {},
   "fwupdDeviceFlagInternal": "Dispositivo interno",
-  "@fwupdDeviceFlagInternal": {}
+  "@fwupdDeviceFlagInternal": {},
+  "appTitle": "Atualizador de Firmware",
+  "@appTitle": {},
+  "fwupdDeviceFlagRegistered": "Registado",
+  "@fwupdDeviceFlagRegistered": {},
+  "currentVersion": "Versão Atual",
+  "@currentVersion": {},
+  "fwupdErrorInternal": "Erro interno",
+  "@fwupdErrorInternal": {},
+  "vendor": "Empresa",
+  "@vendor": {},
+  "verifyFirmware": "Verificar Firmware",
+  "@verifyFirmware": {},
+  "latestVersion": "Última Versão",
+  "@latestVersion": {},
+  "downgradeConfirm": "Reverter <b>{name}</b> para versão <b>{version}</b>?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "fwupdDeviceFlagNeedsReboot": "Tem de reiniciar depois da instalação",
+  "@fwupdDeviceFlagNeedsReboot": {},
+  "fwupdDeviceFlagNeedsShutdown": "Tem de encerrar depois da instalação",
+  "@fwupdDeviceFlagNeedsShutdown": {},
+  "minVersion": "Versão Mínima",
+  "@minVersion": {}
 }
