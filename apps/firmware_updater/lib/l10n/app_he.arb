@@ -256,5 +256,7 @@
   "affectsFdeWarningBody1": "נא לוודא שיש לך את מפתחות השחזור לכל הכוננים המוצפנים שלך. יש למלא אותם מחדש בזמן העלייה לאחר עדכון קושחה.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeWarningBody2": "צריך מפתחות שחזור כיוון שהפעלת הצפנה בגיבוי חומרה באובונטו או במערכות הפעלה אחרות במחשב הזה.",
-  "@affectsFdeWarningBody2": {}
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeLinkLabel": "מידע נוסף",
+  "@affectsFdeLinkLabel": {}
 }

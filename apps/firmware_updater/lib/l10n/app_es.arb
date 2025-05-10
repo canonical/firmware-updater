@@ -121,7 +121,7 @@
   "@current": {},
   "deviceUnavailable": "El dispositivo no estará disponible durante esta operación.",
   "@deviceUnavailable": {},
-  "downgradeConfirm": "¿Quiere degradar <b>{name}</b> a <b>{version}</b>?",
+  "downgradeConfirm": "¿Quiere desactualizar <b>{name}</b> a <b>{version}</b>?",
   "@downgradeConfirm": {
     "placeholders": {
       "name": {
@@ -256,5 +256,7 @@
   "affectsFdeWarningBody2": "Necesita las claves de recuperación porque ha habilitado el cifrado del hardware respaldado en Ubuntu u otro sistema operativo en este equipo.",
   "@affectsFdeWarningBody2": {},
   "affectsFdeCheckbox": "Tengo claves de recuperación para todas mis unidades cifradas",
-  "@affectsFdeCheckbox": {}
+  "@affectsFdeCheckbox": {},
+  "affectsFdeLinkLabel": "Saber más",
+  "@affectsFdeLinkLabel": {}
 }
