@@ -256,5 +256,7 @@
   "affectsFdeWarningTitle": "Bez kluczy odzyskiwania możesz utracić wszystkie swoje dane",
   "@affectsFdeWarningTitle": {},
   "affectsFdeWarningBody2": "Potrzebujesz kluczy odzyskiwania, ponieważ w Ubuntu lub innym systemie operacyjnym na tym komputerze włączono szyfrowanie sprzętowe.",
-  "@affectsFdeWarningBody2": {}
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeLinkLabel": "Dowiedz się więcej",
+  "@affectsFdeLinkLabel": {}
 }

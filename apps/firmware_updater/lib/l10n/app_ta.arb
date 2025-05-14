@@ -168,7 +168,7 @@
       }
     }
   },
-  "verifyFirmwareConfirm": "Verify firmware checksums of {name}?",
+  "verifyFirmwareConfirm": "{name} இன் ஃபார்ம்வேர் செக்சம்களை சரிபார்க்கவா?",
   "@verifyFirmwareConfirm": {
     "placeholders": {
       "name": {
@@ -230,7 +230,7 @@
   "@installError": {},
   "ok": "சரி",
   "@ok": {},
-  "olderVersions": "Older Versions",
+  "olderVersions": "பழைய பதிப்புகள்",
   "@olderVersions": {},
   "showUpdates": "புதுப்பிப்புகளைக் காட்டு",
   "@showUpdates": {},
