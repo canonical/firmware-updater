@@ -256,5 +256,7 @@
   "minVersion": "குறைந்தபட்ச பதிப்பு",
   "@minVersion": {},
   "latestVersion": "அண்மைக் கால பதிப்பு",
-  "@latestVersion": {}
+  "@latestVersion": {},
+  "affectsFdeLinkLabel": "மேலும் அறிக",
+  "@affectsFdeLinkLabel": {}
 }
