@@ -5,5 +5,17 @@
   "appTitle": "Yazılım Güncelleyici",
   "@appTitle": {},
   "close": "Kapat",
-  "@close": {}
+  "@close": {},
+  "affectsFdeCheckbox": "Tüm şifreli sürücülerim için kurtarma anahtarlarım var",
+  "@affectsFdeCheckbox": {},
+  "checksum": "Sağlama toplamı",
+  "@checksum": {},
+  "deviceRequest": "Cihaz isteği",
+  "@deviceRequest": {},
+  "affectsFdeLinkLabel": "Daha fazla bilgi edinin",
+  "@affectsFdeLinkLabel": {},
+  "cancel": "İptal et",
+  "@cancel": {},
+  "downgrade": "Düşür",
+  "@downgrade": {}
 }
