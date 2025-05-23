@@ -248,5 +248,15 @@
   "fwupdDeviceFlagSelfRecovery": "მოწყობილობას შეუძლია ფლეშის ჩავარდნების აღდგენა",
   "@fwupdDeviceFlagSelfRecovery": {},
   "fwupdDeviceFlagAffectsFde": "განახლებისას, შესაძლოა, სრული დისკის საიდუმლოებები არასწორი გახდეს",
-  "@fwupdDeviceFlagAffectsFde": {}
+  "@fwupdDeviceFlagAffectsFde": {},
+  "affectsFdeCheckbox": "მე მაქვს აღდგენის გასაღებები ყველა ჩემი დაშიფრული დისკისთვის",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeWarningTitle": "აღდგენის გასაღებების გარეშე, შეიძლება, მონაცემები სრულად დაკარგოთ",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "დარწმუნდით, რომ გაქვთ აღდგენის გასაღებები ყველა თქვენი დაშიფრული დისკისთვის. შეიძლება, მისი შეყვანა მიკროკოდის განახლების შემდეგ, ჩატვირთვისას დაგჭირდეთ.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "აღდგენის გასაღებები გჭირდებათ, რადგან ჩართეთ აპარატურის მიერ მხარდაჭერილი დაშიფვრა Ubuntu-ზე, ან სხვა ოპერაციულ სისტემაზე ამ კომპიუტერზე.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeLinkLabel": "მეტის გაგება",
+  "@affectsFdeLinkLabel": {}
 }

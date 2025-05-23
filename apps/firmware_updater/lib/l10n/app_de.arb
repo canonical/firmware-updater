@@ -74,7 +74,7 @@
   "@ok": {},
   "allVersions": "Alle Versionen",
   "@allVersions": {},
-  "appTitle": "Firmware-Aktualisierer",
+  "appTitle": "Firmware-Aktualisierungsprogramm",
   "@appTitle": {},
   "fwupdDeviceFlagNeedsBootloader": "Erfordert einen Bootloader",
   "@fwupdDeviceFlagNeedsBootloader": {},
@@ -256,5 +256,7 @@
   "affectsFdeWarningTitle": "Ohne Wiederherstellungsschlüssel können Sie alle Ihre Daten verlieren",
   "@affectsFdeWarningTitle": {},
   "affectsFdeWarningBody2": "Sie benötigen Wiederherstellungsschlüssel, weil Sie die hardwaregestützte Verschlüsselung in Ubuntu oder anderen Betriebssystemen auf diesem Computer aktiviert haben.",
-  "@affectsFdeWarningBody2": {}
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeLinkLabel": "Mehr erfahren",
+  "@affectsFdeLinkLabel": {}
 }
