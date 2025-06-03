@@ -30,7 +30,7 @@
   "@reinstall": {},
   "showUpdates": "Mostra actualitzacións",
   "@showUpdates": {},
-  "updateConfirm": "Actualitzar <b>{name}</b> a la versió </b> {version}</b>?",
+  "updateConfirm": "Actualitza <b>{name}</b> a la versió </b> {version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -112,5 +112,151 @@
   "minVersion": "Versió mínima",
   "@minVersion": {},
   "latestVersion": "Última versió",
-  "@latestVersion": {}
+  "@latestVersion": {},
+  "affectsFdeWarningTitle": "Podeu perdre totes les dades sense claus de recuperació",
+  "@affectsFdeWarningTitle": {},
+  "batteryWarning": "Advertiment: algunes actualitzacions de dispositiu potser sols estan disponibles amb alimentació externa.",
+  "@batteryWarning": {},
+  "checksum": "Suma de comprovació",
+  "@checksum": {},
+  "appTitle": "Actualitzador del firmware",
+  "@appTitle": {},
+  "deviceRequest": "Sol·licitud de dispositiu",
+  "@deviceRequest": {},
+  "fwupdDeviceFlagRequireAc": "El sistema requereix una font d'alimentació externa",
+  "@fwupdDeviceFlagRequireAc": {},
+  "fwupdDeviceFlagLocked": "El dispositiu està bloquejat",
+  "@fwupdDeviceFlagLocked": {},
+  "fwupdDeviceFlagSupported": "Admès al servidor remot",
+  "@fwupdDeviceFlagSupported": {},
+  "fwupdDeviceFlagNeedsBootloader": "Requereix un carregador d'arrencada",
+  "@fwupdDeviceFlagNeedsBootloader": {},
+  "fwupdDeviceFlagInstallParentFirst": "Instal·la primer al dispositiu pare",
+  "@fwupdDeviceFlagInstallParentFirst": {},
+  "fwupdDeviceFlagIsBootloader": "Està en mode carregador d'arrancada",
+  "@fwupdDeviceFlagIsBootloader": {},
+  "fwupdErrorNotFound": "No existeix cap dispositiu que concordi",
+  "@fwupdErrorNotFound": {},
+  "fwupdStatusDecompressing": "S'està descomprimint el firmware",
+  "@fwupdStatusDecompressing": {},
+  "affectsFdeWarningBody1": "Assegureu-vos de tenir les claus de recuperació per a totes les vostres unitats xifrades. Cal introduir-les en arrencar després d'actualitzar el firmware.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "Us calen les claus de recuperació perquè heu habilitat el xifrat recolzat per maquinari a l'Ubuntu o altres sistemes operatius a aquest ordinador.",
+  "@affectsFdeWarningBody2": {},
+  "fwupdDeviceFlagUsableDuringUpdate": "El dispositiu pot usar-se durant l'actualització",
+  "@fwupdDeviceFlagUsableDuringUpdate": {},
+  "fwupdDeviceFlagNeedsReboot": "Cal un reinici després de la instal·lació",
+  "@fwupdDeviceFlagNeedsReboot": {},
+  "affectsFdeCheckbox": "Tinc claus de recuperació per a totes les meves unitats xifrades",
+  "@affectsFdeCheckbox": {},
+  "fwupdErrorVersionSame": "S'ha instal·lat la mateixa versió del firmware",
+  "@fwupdErrorVersionSame": {},
+  "fwupdDeviceFlagNeedsShutdown": "Cal apagar després de la instal·lació",
+  "@fwupdDeviceFlagNeedsShutdown": {},
+  "fwupdDeviceFlagReported": "S'ha informat al servidor remot",
+  "@fwupdDeviceFlagReported": {},
+  "showReleases": "Mostra els alliberaments",
+  "@showReleases": {},
+  "fwupdDeviceFlagHasMultipleBranches": "El dispositiu suporta el canvi a diferents branques del firmware",
+  "@fwupdDeviceFlagHasMultipleBranches": {},
+  "current": "Actual",
+  "@current": {},
+  "downgrade": "Desactualitza",
+  "@downgrade": {},
+  "downgradeConfirm": "Voleu desactualitzar <b>{name}</b> a <b>{version}</b>?",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "affectsFdeLinkLabel": "Sabeu més",
+  "@affectsFdeLinkLabel": {},
+  "flags": "Indicadors",
+  "@flags": {},
+  "fwupdDeviceFlagUpdatable": "Actualitzable",
+  "@fwupdDeviceFlagUpdatable": {},
+  "fwupdDeviceFlagOnlyOffline": "L'actualització requereix un reinici",
+  "@fwupdDeviceFlagOnlyOffline": {},
+  "fwupdDeviceFlagIgnoreValidation": "Ignora les comprovacions de validacions de seguretat",
+  "@fwupdDeviceFlagIgnoreValidation": {},
+  "fwupdDeviceFlagTrusted": "Confiable",
+  "@fwupdDeviceFlagTrusted": {},
+  "fwupdDeviceFlagCanVerify": "La verificació de suma criptogràfica està disponible",
+  "@fwupdDeviceFlagCanVerify": {},
+  "fwupdDeviceFlagDualImage": "El dispositiu fa les actualitzacions per fases",
+  "@fwupdDeviceFlagDualImage": {},
+  "fwupdDeviceFlagSelfRecovery": "El dispositiu pot recuperar-se de fallades d'instal·lació",
+  "@fwupdDeviceFlagSelfRecovery": {},
+  "fwupdDeviceFlagBackupBeforeInstall": "El dispositiu farà una còpia de seguretat del firmware bans de la instal·lació",
+  "@fwupdDeviceFlagBackupBeforeInstall": {},
+  "fwupdDeviceFlagOnlyVersionUpgrade": "Sol es permeten les actualitzacions de versió",
+  "@fwupdDeviceFlagOnlyVersionUpgrade": {},
+  "fwupdErrorVersionNewer": "S'ha instal·lat una versió més recent del firmware",
+  "@fwupdErrorVersionNewer": {},
+  "fwupdErrorAlreadyPending": "Ja s'ha establert la instal·lació fora de línia",
+  "@fwupdErrorAlreadyPending": {},
+  "fwupdErrorNotSupported": "L'acció no era possible",
+  "@fwupdErrorNotSupported": {},
+  "fwupdErrorAcPowerRequired": "Es requeria alimentació CA",
+  "@fwupdErrorAcPowerRequired": {},
+  "fwupdErrorBrokenSystem": "L'usuari ha configurat el sistema d'una manera errònia",
+  "@fwupdErrorBrokenSystem": {},
+  "fwupdErrorAuthExpired": "No s'ha pogut autenticar perquè les credencials han expirat",
+  "@fwupdErrorAuthExpired": {},
+  "fwupdStatusDeviceVerify": "S'està verificant (llegint) un dispositiu",
+  "@fwupdStatusDeviceVerify": {},
+  "fwupdStatusWaitingForAuth": "S'està esperant l'autenticació",
+  "@fwupdStatusWaitingForAuth": {},
+  "installError": "No s'ha pogut instal·lar el firmware.",
+  "@installError": {},
+  "rebootConfirmTitle": "Reinicia per completar l'actualització",
+  "@rebootConfirmTitle": {},
+  "reinstallConfirm": "Voleu reinstal·lar <b>{name}</b>, versió <b>{current}</b>?",
+  "@reinstallConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "current": {
+        "type": "String"
+      }
+    }
+  },
+  "updateChecksums": "Actualitza les sumes de comprovació",
+  "@updateChecksums": {},
+  "verifyFirmware": "Verifica el firmware",
+  "@verifyFirmware": {},
+  "fwupdDeviceFlagInstallAllReleases": "Es requereix que el dispositiu instal·li totes les versions proporcionades",
+  "@fwupdDeviceFlagInstallAllReleases": {},
+  "fwupdDeviceFlagVersionCheckRequired": "Cal verificar la versió del firmware del dispositiu",
+  "@fwupdDeviceFlagVersionCheckRequired": {},
+  "fwupdStatusShutdown": "S'està apagant el dimoni",
+  "@fwupdStatusShutdown": {},
+  "rebootConfirmMessage": "Heu de reiniciar el dispositiu per completar l'actualització. Assegureu-vos que el dispositiu està endollat o completament carregat. Deseu els vostres fitxers abans de reiniciar per evitar la pèrdua de dades.",
+  "@rebootConfirmMessage": {},
+  "updateChecksumsInfo": "Això enregistrarà les sumes criptogràfiques actuals com a verificades.",
+  "@updateChecksumsInfo": {},
+  "updateChecksumsConfirm": "Voleu actualitzar les sumes de comprovació de dispositiu de <b>{name}</b>?",
+  "@updateChecksumsConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "updateToLatest": "Actualitza a l'última versió",
+  "@updateToLatest": {},
+  "verifyFirmwareConfirm": "Voleu verificar les sumes de comprovació de firmware de {name}?",
+  "@verifyFirmwareConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }
