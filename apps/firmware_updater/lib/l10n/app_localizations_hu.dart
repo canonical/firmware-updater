@@ -21,6 +21,9 @@ class AppLocalizationsHu extends AppLocalizations {
   String get affectsFdeCheckbox => 'Rendelkezem helyreállítási kulcsokkal az összes titkosított meghajtómhoz';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Összes verzió';
 
   @override

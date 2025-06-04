@@ -263,6 +263,12 @@ abstract class AppLocalizations {
   /// **'I have recovery keys for all my encrypted drives'**
   String get affectsFdeCheckbox;
 
+  /// No description provided for @affectsFdeLinkLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Learn more'**
+  String get affectsFdeLinkLabel;
+
   /// No description provided for @allVersions.
   ///
   /// In en, this message translates to:

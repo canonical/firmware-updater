@@ -21,6 +21,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get affectsFdeCheckbox => 'Mul on taastevõtmed kõikide minu krüptitud andmekandjate jaoks';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'Kõik versioonid';
 
   @override

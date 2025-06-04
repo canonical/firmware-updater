@@ -21,6 +21,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get affectsFdeCheckbox => 'יש לי מפתחות שחזור לכל הכוננים המוצפנים שלי';
 
   @override
+  String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
   String get allVersions => 'כל הגרסאות';
 
   @override
