@@ -18,10 +18,13 @@ class AppLocalizationsKm extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'អ្នក​ត្រូវ​ការ​សោ​សង្គ្រោះ​ព្រោះ​អ្នក​បាន​បើក​ការ​អ៊ិនគ្រីប​ដែល​គាំទ្រ​ដោយ​ផ្នែករឹង​ក្នុង​អ៊ូប៊ុនទូ ឬ​ប្រព័ន្ធ​ប្រតិបត្តិការ​ផ្សេង​ទៀត​នៅ​លើ​កុំព្យូទ័រ​នេះ។';
 
   @override
-  String get affectsFdeCheckbox => 'ខ្ញុំ​មាន​សោ​សង្គ្រោះ​សម្រាប់​ថាស​ដែល​បាន​អ៊ិនគ្រីប​ទាំងអស់​របស់​ខ្ញុំ';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'ស្វែងយល់បន្ថែម';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'ជំនាន់ទាំងអស់';

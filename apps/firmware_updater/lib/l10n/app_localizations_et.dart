@@ -18,10 +18,13 @@ class AppLocalizationsEt extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Sa vajad taastevõtmeid, sest kasutad Ubuntus või muudes selle arvuti operatsioonisüsteemides raudvarapõhist krüptimist.';
 
   @override
-  String get affectsFdeCheckbox => 'Mul on taastevõtmed kõikide minu krüptitud andmekandjate jaoks';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Lisateave';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Kõik versioonid';

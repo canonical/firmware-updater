@@ -18,10 +18,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Anda membutuhkan kunci pemulihan karena Anda telah mengaktifkan enkripsi yang didukung perangkat keras di Ubuntu atau sistem operasi lainnya di komputer ini.';
 
   @override
-  String get affectsFdeCheckbox => 'Saya memiliki kunci pemulihan untuk semua drive terenkripsi saya';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Semua versi';

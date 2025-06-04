@@ -2,11 +2,14 @@ import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/l10n/app_localizations.dart';
 import 'package:firmware_updater/pages.dart';
 import 'package:firmware_updater/services.dart';
+import 'package:firmware_updater/widgets/recovery_key_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 
 import 'test_utils.mocks.dart';
 
@@ -68,6 +71,16 @@ MockFwupdDbusService mockService({
 @GenerateMocks([DeviceStore])
 DeviceStore mockStore() => MockDeviceStore();
 
+@GenerateMocks([RecoveryKeyModel])
+RecoveryKeyModel mockRecoveryKeyModel({String? validKey}) {
+  final model = MockRecoveryKeyModel();
+  when(model.checkRecoveryKey(any)).thenAnswer(
+    (i) async =>
+        validKey != null ? i.positionalArguments.first == validKey : true,
+  );
+  return model;
+}
+
 FwupdDevice testDevice({
   required String id,
   String? name,
@@ -103,14 +116,16 @@ extension WidgetTesterX on WidgetTester {
   Future<void> pumpApp(
     WidgetBuilder builder, {
     Size size = const Size(700, 850),
+    List<SingleChildWidget>? providers,
   }) {
     view.devicePixelRatio = 1;
     view.physicalSize = size;
+    final app = MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      home: Builder(builder: builder),
+    );
     return pumpWidget(
-      MaterialApp(
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        home: Builder(builder: builder),
-      ),
+      providers != null ? MultiProvider(providers: providers, child: app) : app,
     );
   }
 }

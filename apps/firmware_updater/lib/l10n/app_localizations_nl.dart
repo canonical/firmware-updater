@@ -18,10 +18,13 @@ class AppLocalizationsNl extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'U hebt herstelcodes nodig omdat u hardwarematige versleuteling hebt ingeschakeld in Ubuntu of andere besturingssystemen op deze computer.';
 
   @override
-  String get affectsFdeCheckbox => 'Ik heb herstelcodes voor al mijn versleutelde schijven';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Meer informatie';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Alle Versies';

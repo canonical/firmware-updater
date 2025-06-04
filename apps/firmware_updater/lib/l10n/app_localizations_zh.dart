@@ -18,10 +18,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get affectsFdeWarningBody2 => '您需要恢复密钥，因为您的计算机在 Ubuntu 或其他操作系统上启用了硬件支持的加密。';
 
   @override
-  String get affectsFdeCheckbox => '我拥有我所有加密磁盘的恢复密钥';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => '全部版本';
@@ -361,9 +364,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get affectsFdeWarningBody2 => '您需要復原金鑰，因為您在這台電腦的 Ubuntu 或其他作業系統中啟用了硬體支援加密。';
-
-  @override
-  String get affectsFdeCheckbox => '我有所有加密硬碟機的復原金鑰';
 
   @override
   String get affectsFdeLinkLabel => '了解更多';

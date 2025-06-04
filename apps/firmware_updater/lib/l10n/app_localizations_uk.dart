@@ -18,10 +18,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Вам потрібні ключі відновлення, оскільки ви ввімкнули апаратне шифрування в Ubuntu або інших операційних системах на цьому комп\'ютері.';
 
   @override
-  String get affectsFdeCheckbox => 'У мене є ключі відновлення для всіх моїх зашифрованих дисків';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Докладніше';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Всі версії';

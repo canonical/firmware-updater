@@ -18,10 +18,13 @@ class AppLocalizationsHu extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Azért van szüksége helyreállítási kulcsokra, mert engedélyezte a hardveres titkosítást az Ubuntuban vagy a számítógépen lévő más operációs rendszerekben.';
 
   @override
-  String get affectsFdeCheckbox => 'Rendelkezem helyreállítási kulcsokkal az összes titkosított meghajtómhoz';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Összes verzió';

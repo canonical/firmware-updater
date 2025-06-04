@@ -18,10 +18,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Necesita las claves de recuperación porque ha habilitado el cifrado del hardware respaldado en Ubuntu u otro sistema operativo en este equipo.';
 
   @override
-  String get affectsFdeCheckbox => 'Tengo claves de recuperación para todas mis unidades cifradas';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Saber más';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Todas las versiones';

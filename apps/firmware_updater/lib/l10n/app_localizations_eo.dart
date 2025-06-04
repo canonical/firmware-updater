@@ -18,10 +18,13 @@ class AppLocalizationsEo extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Restaŭraj ŝlosiloj necesas, ĉar vi ŝaltis aparatan ĉifradon en Ubuntu aŭ alia mastruma sistemo sur ĉi tiu komputilo.';
 
   @override
-  String get affectsFdeCheckbox => 'Mi havas restaŭrajn ŝlosilojn por ĉiuj ĉifritaj diskoj';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Lerni plu';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Ĉiuj versioj';

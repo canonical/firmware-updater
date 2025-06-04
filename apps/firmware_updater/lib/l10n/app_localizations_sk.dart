@@ -18,10 +18,13 @@ class AppLocalizationsSk extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Kľúče na obnovenie sú nevyhnutné, pretože ste povolili hardvérové šifrovanie v systéme Ubuntu alebo v iných operačných systémoch na tomto počítači.';
 
   @override
-  String get affectsFdeCheckbox => 'Pre všetky moje šifrované disky mám kľúče na obnovenie';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Zistiť viac';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Všetky verzie';

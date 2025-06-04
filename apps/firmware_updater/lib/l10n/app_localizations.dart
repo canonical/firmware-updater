@@ -248,26 +248,32 @@ abstract class AppLocalizations {
   /// No description provided for @affectsFdeWarningBody1.
   ///
   /// In en, this message translates to:
-  /// **'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.'**
+  /// **'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.'**
   String get affectsFdeWarningBody1;
 
   /// No description provided for @affectsFdeWarningBody2.
   ///
   /// In en, this message translates to:
-  /// **'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.'**
+  /// **'You need to provide a recovery key because you enabled hardware-backed encryption.'**
   String get affectsFdeWarningBody2;
 
-  /// No description provided for @affectsFdeCheckbox.
+  /// No description provided for @affectsFdeTextFieldLabel.
   ///
   /// In en, this message translates to:
-  /// **'I have recovery keys for all my encrypted drives'**
-  String get affectsFdeCheckbox;
+  /// **'Enter your recovery key'**
+  String get affectsFdeTextFieldLabel;
 
   /// No description provided for @affectsFdeLinkLabel.
   ///
   /// In en, this message translates to:
   /// **'Learn more'**
   String get affectsFdeLinkLabel;
+
+  /// No description provided for @affectsFdeIncorrectKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Recovery key does not work, check or replace it in the Security Center'**
+  String get affectsFdeIncorrectKey;
 
   /// No description provided for @allVersions.
   ///

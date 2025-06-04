@@ -18,10 +18,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Sie benötigen Wiederherstellungsschlüssel, weil Sie die hardwaregestützte Verschlüsselung in Ubuntu oder anderen Betriebssystemen auf diesem Computer aktiviert haben.';
 
   @override
-  String get affectsFdeCheckbox => 'Ich habe Wiederherstellungsschlüssel für alle meine verschlüsselten Laufwerke';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Mehr erfahren';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Alle Versionen';

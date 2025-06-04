@@ -1,8 +1,10 @@
 import 'package:firmware_updater/l10n/app_localizations.dart';
 import 'package:firmware_updater/services.dart';
+import 'package:firmware_updater/widgets/recovery_key_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:yaru/yaru.dart';
 
@@ -212,12 +214,12 @@ Future<DialogAction?> showErrorDialog(
       onClose: onClose,
     );
 
-class CheckboxConfirmationDialog extends StatefulWidget {
-  const CheckboxConfirmationDialog({
+class RecoveryKeyConfirmationDialog extends StatefulWidget {
+  const RecoveryKeyConfirmationDialog({
     required this.title,
     this.body,
     this.actionText,
-    this.checkboxText,
+    this.checkRecoveryKey = false,
     this.onConfirm,
     super.key,
   });
@@ -225,29 +227,35 @@ class CheckboxConfirmationDialog extends StatefulWidget {
   final String title;
   final Widget? body;
   final String? actionText;
-  final String? checkboxText;
+  final bool checkRecoveryKey;
   final VoidCallback? onConfirm;
 
   @override
-  State<CheckboxConfirmationDialog> createState() =>
-      _CheckboxConfirmationDialogState();
+  State<RecoveryKeyConfirmationDialog> createState() =>
+      _RecoveryKeyConfirmationDialogState();
 }
 
-class _CheckboxConfirmationDialogState
-    extends State<CheckboxConfirmationDialog> {
-  bool _confirmed = false;
-  bool get confirmed => _confirmed;
+class _RecoveryKeyConfirmationDialogState
+    extends State<RecoveryKeyConfirmationDialog> {
+  bool _loading = false;
+  String? _error;
 
-  void _setConfirmed(bool? confirmed) {
-    if (confirmed == null || _confirmed == confirmed) return;
-    setState(() => _confirmed = confirmed);
+  void _setLoading(bool? loading) {
+    if (loading == null || _loading == loading) return;
+    setState(() => _loading = loading);
   }
 
-  bool get actionable => widget.checkboxText == null || confirmed;
+  void _setError(String? error) {
+    if (_error == error) return;
+    setState(() => _error = error);
+  }
+
+  String _recoveryKey = '';
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final model = context.read<RecoveryKeyModel>();
 
     return AlertDialog(
       actions: [
@@ -256,9 +264,21 @@ class _CheckboxConfirmationDialogState
           child: Text(l10n.cancel),
         ),
         ElevatedButton(
-          onPressed: actionable
-              ? () => Navigator.of(context).pop(DialogAction.primaryAction)
-              : null,
+          onPressed: _loading
+              ? null
+              : () async {
+                  if (!widget.checkRecoveryKey) {
+                    Navigator.of(context).pop(DialogAction.primaryAction);
+                  }
+                  _setLoading(true);
+                  final result = await model.checkRecoveryKey(_recoveryKey);
+                  if (!result) {
+                    _setLoading(false);
+                    _setError(l10n.affectsFdeIncorrectKey);
+                  } else if (context.mounted) {
+                    Navigator.of(context).pop(DialogAction.primaryAction);
+                  }
+                },
           child: Text(widget.actionText ?? l10n.ok),
         ),
       ],
@@ -294,16 +314,30 @@ class _CheckboxConfirmationDialogState
                     const SizedBox(height: 8),
                     widget.body!,
                   ],
-                  if (widget.checkboxText != null) ...[
+                  if (widget.checkRecoveryKey) ...[
                     const SizedBox(height: 8),
-                    YaruCheckButton(
-                      title: Text(
-                        widget.checkboxText!,
-                        maxLines: 2,
-                        style: Theme.of(context).textTheme.bodyMedium,
+                    TextField(
+                      enabled: !_loading,
+                      decoration: InputDecoration(
+                        hintText:
+                            'XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX-XXXXX',
+                        labelText: l10n.affectsFdeTextFieldLabel,
+                        errorText: _error,
+                        errorMaxLines: 2,
                       ),
-                      value: confirmed,
-                      onChanged: _setConfirmed,
+                      onChanged: (text) async {
+                        _setError(null);
+                        _recoveryKey = text;
+                      },
+                      style: TextStyle(
+                        inherit: false,
+                        fontFamily: 'Ubuntu Mono',
+                        fontSize:
+                            Theme.of(context).textTheme.bodyMedium!.fontSize,
+                        height: 20 / 14,
+                        textBaseline: TextBaseline.alphabetic,
+                        color: Theme.of(context).colorScheme.onSurface,
+                      ),
                     ),
                   ],
                 ],
@@ -326,19 +360,14 @@ void confirmAndInstall(
 
   final String actionText;
   final String dialogText;
-  final String? checkboxText;
 
-  if (device.flags.contains(FwupdDeviceFlag.affectsFde)) {
-    checkboxText = l10n.affectsFdeCheckbox;
-  } else {
-    checkboxText = null;
-  }
+  final affectsFde = device.flags.contains(FwupdDeviceFlag.affectsFde);
 
   final children = [
     if (!device.flags.contains(FwupdDeviceFlag.usableDuringUpdate)) ...[
       Text(l10n.deviceUnavailable),
     ],
-    if (device.flags.contains(FwupdDeviceFlag.affectsFde)) ...[
+    if (affectsFde) ...[
       const SizedBox(height: 8),
       YaruInfoBox(
         yaruInfoType: YaruInfoType.warning,
@@ -406,7 +435,7 @@ void confirmAndInstall(
     title: dialogText,
     body: body,
     actionText: actionText,
-    checkboxText: checkboxText,
+    checkRecoveryKey: affectsFde,
     onConfirm: onInstall,
   );
 }
@@ -417,16 +446,16 @@ Future<DialogAction?> showConfirmAndInstallDialog(
   VoidCallback? onConfirm,
   Widget? body,
   String? actionText,
-  String? checkboxText,
+  bool checkRecoveryKey = false,
 }) async {
   final result = await showDialog<DialogAction>(
     context: context,
-    builder: (context) => CheckboxConfirmationDialog(
+    builder: (context) => RecoveryKeyConfirmationDialog(
       title: title,
       body: body,
       onConfirm: onConfirm,
       actionText: actionText,
-      checkboxText: checkboxText,
+      checkRecoveryKey: checkRecoveryKey,
     ),
   );
 

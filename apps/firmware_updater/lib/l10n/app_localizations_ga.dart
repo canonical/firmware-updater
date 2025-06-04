@@ -18,10 +18,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Teastaíonn eochracha athshlánaithe uait toisc go bhfuil criptiú crua-earraí cumasaithe agat in Ubuntu nó i gcórais oibriúcháin eile ar an ríomhaire seo.';
 
   @override
-  String get affectsFdeCheckbox => 'Tá eochracha athshlánaithe agam do mo thiomáineann criptithe go léir';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Foghlaim níos mó';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Gach Leagan';
