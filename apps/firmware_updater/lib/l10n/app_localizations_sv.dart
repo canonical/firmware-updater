@@ -18,10 +18,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Du behöver återställningsnycklar eftersom du har aktiverat hårdvarustödd kryptering i Ubuntu eller andra operativsystem på den här datorn.';
 
   @override
-  String get affectsFdeCheckbox => 'Jag har återställningsnycklar för alla mina krypterade enheter';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Läs mer';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Alla versioner';

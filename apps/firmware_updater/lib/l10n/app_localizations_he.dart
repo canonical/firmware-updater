@@ -18,10 +18,13 @@ class AppLocalizationsHe extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'צריך מפתחות שחזור כיוון שהפעלת הצפנה בגיבוי חומרה באובונטו או במערכות הפעלה אחרות במחשב הזה.';
 
   @override
-  String get affectsFdeCheckbox => 'יש לי מפתחות שחזור לכל הכוננים המוצפנים שלי';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'מידע נוסף';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'כל הגרסאות';

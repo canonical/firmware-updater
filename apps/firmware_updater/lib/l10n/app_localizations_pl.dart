@@ -18,10 +18,13 @@ class AppLocalizationsPl extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Potrzebujesz kluczy odzyskiwania, ponieważ w Ubuntu lub innym systemie operacyjnym na tym komputerze włączono szyfrowanie sprzętowe.';
 
   @override
-  String get affectsFdeCheckbox => 'Mam klucze odzyskiwania do wszystkich moich zaszyfrowanych dysków';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Dowiedz się więcej';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Wszystkie wersje';

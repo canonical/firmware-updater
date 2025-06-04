@@ -18,10 +18,13 @@ class AppLocalizationsEl extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Χρειάζεστε τα κλειδιά επαναφοράς επειδή έχετε ενεργοποιήσει την κρυπτογράφηση δίσκου στο Ubuntu η σε αλλά λειτουργικά συστήματα σε αυτόν τον υπολογιστή.';
 
   @override
-  String get affectsFdeCheckbox => 'Έχω όλα τα κλειδιά για τους κρυπτογραφημένους δίσκους μου';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Όλες οι Εκδόσεις';

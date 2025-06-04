@@ -18,10 +18,13 @@ class AppLocalizationsTa extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'இந்த கணினியில் உபுண்டு அல்லது பிற இயக்க முறைமைகளில் வன்பொருள் உதவி குறியாக்கத்தை இயக்கியுள்ளதால் உங்களுக்கு மீட்பு விசைகள் தேவை.';
 
   @override
-  String get affectsFdeCheckbox => 'எனது அனைத்து மறைகுறியாக்கப்பட்ட இயக்கிகளுக்கும் மீட்பு விசைகள் உள்ளன';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'மேலும் அறிக';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'அனைத்து பதிப்புகளும்';

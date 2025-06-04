@@ -12,16 +12,19 @@ class AppLocalizationsGu extends AppLocalizations {
   String get affectsFdeWarningTitle => 'You may lose all your data without recovery keys';
 
   @override
-  String get affectsFdeWarningBody1 => 'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.';
+  String get affectsFdeWarningBody1 => 'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.';
 
   @override
-  String get affectsFdeWarningBody2 => 'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.';
+  String get affectsFdeWarningBody2 => 'You need to provide a recovery key because you enabled hardware-backed encryption.';
 
   @override
-  String get affectsFdeCheckbox => 'I have recovery keys for all my encrypted drives';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'All Versions';
