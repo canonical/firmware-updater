@@ -30,7 +30,7 @@
   "@reinstall": {},
   "showUpdates": "Mostra actualitzacións",
   "@showUpdates": {},
-  "updateConfirm": "Actualitza <b>{name}</b> a la versió </b> {version}</b>?",
+  "updateConfirm": "Actualitza <b>{name}</b> a la versió <b>{version}</b>?",
   "@updateConfirm": {
     "placeholders": {
       "name": {
@@ -47,7 +47,7 @@
   "@allVersions": {},
   "cancel": "Cancel·la",
   "@cancel": {},
-  "deviceUnavailable": "El dispositiu no estarà disponible durant aquesta acció",
+  "deviceUnavailable": "El dispositiu no estarà disponible durant aquesta acció.",
   "@deviceUnavailable": {},
   "fwupdDeviceFlagInternal": "Dispositiu intern",
   "@fwupdDeviceFlagInternal": {},
