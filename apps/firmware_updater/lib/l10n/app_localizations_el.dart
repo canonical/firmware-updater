@@ -9,40 +9,40 @@ class AppLocalizationsEl extends AppLocalizations {
   AppLocalizationsEl([String locale = 'el']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'You may lose all your data without recovery keys';
+  String get affectsFdeWarningTitle => 'Μπορεί να χάσετε τα δεδομένα σας χωρίς κλειδιά επαναφοράς';
 
   @override
-  String get affectsFdeWarningBody1 => 'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.';
+  String get affectsFdeWarningBody1 => 'Βεβαιωθείτε πως έχετε όλα τα κλειδιά επαναφοράς των κρυπτογραφημένων δίσκων σας.Θα τους χρειαστείτε για να συνδεθείτε μετά από αναβάθμιση.';
 
   @override
-  String get affectsFdeWarningBody2 => 'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.';
+  String get affectsFdeWarningBody2 => 'Χρειάζεστε τα κλειδιά επαναφοράς επειδή έχετε ενεργοποιήσει την κρυπτογράφηση δίσκου στο Ubuntu η σε αλλά λειτουργικά συστήματα σε αυτόν τον υπολογιστή.';
 
   @override
-  String get affectsFdeCheckbox => 'I have recovery keys for all my encrypted drives';
+  String get affectsFdeCheckbox => 'Έχω όλα τα κλειδιά για τους κρυπτογραφημένους δίσκους μου';
 
   @override
   String get affectsFdeLinkLabel => 'Learn more';
 
   @override
-  String get allVersions => 'All Versions';
+  String get allVersions => 'Όλες οι Εκδόσεις';
 
   @override
-  String get appTitle => 'Firmware Updater';
+  String get appTitle => 'Ενημέρωση Λογισμικού';
 
   @override
-  String get batteryWarning => 'Warning: some device updates may only be available on external power!';
+  String get batteryWarning => 'Προειδοποίηση:κάποιες συσκευές μπορούν να ενημερωθούν σε πλήρη ισχύ!';
 
   @override
   String get checksum => 'Checksum';
 
   @override
-  String get close => 'Close';
+  String get close => 'Κλείσιμο';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'Ακύρωση';
 
   @override
-  String get current => 'Current';
+  String get current => 'Τρέχον';
 
   @override
   String get deviceUnavailable => 'The device will be unavailable during this action.';
@@ -74,28 +74,28 @@ class AppLocalizationsEl extends AppLocalizations {
   String get fwupdDeviceFlagRequireAc => 'System requires external power source';
 
   @override
-  String get fwupdDeviceFlagLocked => 'Device is locked';
+  String get fwupdDeviceFlagLocked => 'Η συσκευή είναι κλειδωμένη';
 
   @override
-  String get fwupdDeviceFlagSupported => 'Supported on remote server';
+  String get fwupdDeviceFlagSupported => 'Υποστηρίζεται σε απομακρυσμένο διακομιστή';
 
   @override
   String get fwupdDeviceFlagNeedsBootloader => 'Requires a bootloader';
 
   @override
-  String get fwupdDeviceFlagRegistered => 'Registered';
+  String get fwupdDeviceFlagRegistered => 'Εγγεγραμμένος';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Needs a reboot after installation';
+  String get fwupdDeviceFlagNeedsReboot => 'Χρειάζεται επανεκκίνηση μετά την εγκατάσταση';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Needs shutdown after installation';
+  String get fwupdDeviceFlagNeedsShutdown => 'Χρειάζεται τερματισμός μετά την εγκατάσταση';
 
   @override
   String get fwupdDeviceFlagReported => 'Reported to remote server';
 
   @override
-  String get fwupdDeviceFlagNotified => 'User has been notified';
+  String get fwupdDeviceFlagNotified => 'Ο χρήστης έχει ειδοποιηθεί';
 
   @override
   String get fwupdDeviceFlagInstallParentFirst => 'Install to parent device first';
@@ -110,10 +110,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get fwupdDeviceFlagIgnoreValidation => 'Ignore validation safety checks';
 
   @override
-  String get fwupdDeviceFlagTrusted => 'Trusted';
+  String get fwupdDeviceFlagTrusted => 'Έμπιστο';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Device update needs activation';
+  String get fwupdDeviceFlagNeedsActivation => 'Συσκευή χρειάζεται ενημέρωση μετά την ενεργοποίηση';
 
   @override
   String get fwupdDeviceFlagWillDisappear => 'Device will not re-appear after update completes';
@@ -272,7 +272,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get noDevicesFound => 'No devices found';
 
   @override
-  String get ok => 'OK';
+  String get ok => 'ΟΚ';
 
   @override
   String get olderVersions => 'Older Versions';

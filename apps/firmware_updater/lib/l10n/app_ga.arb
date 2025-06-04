@@ -256,5 +256,7 @@
   "affectsFdeWarningBody2": "Teastaíonn eochracha athshlánaithe uait toisc go bhfuil criptiú crua-earraí cumasaithe agat in Ubuntu nó i gcórais oibriúcháin eile ar an ríomhaire seo.",
   "@affectsFdeWarningBody2": {},
   "affectsFdeWarningBody1": "Cinntigh go bhfuil eochracha athshlánaithe agat le haghaidh do thiomáineann criptithe go léir. Beidh ort iad a chur isteach ar tosaithe tar éis an firmware a nuashonrú.",
-  "@affectsFdeWarningBody1": {}
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeLinkLabel": "Foghlaim níos mó",
+  "@affectsFdeLinkLabel": {}
 }

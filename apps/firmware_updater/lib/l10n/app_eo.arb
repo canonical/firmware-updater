@@ -256,5 +256,7 @@
   "affectsFdeWarningBody2": "Restaŭraj ŝlosiloj necesas, ĉar vi ŝaltis aparatan ĉifradon en Ubuntu aŭ alia mastruma sistemo sur ĉi tiu komputilo.",
   "@affectsFdeWarningBody2": {},
   "affectsFdeWarningBody1": "Certigu, ke vi havas restaŭrajn ŝlosilojn por ĉiuj el viaj ĉifritaj diskoj. Vi devos tajpi ilin dum startado post ĝisdatigo de mikroprogramo.",
-  "@affectsFdeWarningBody1": {}
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeLinkLabel": "Lerni plu",
+  "@affectsFdeLinkLabel": {}
 }

@@ -18,10 +18,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.';
 
   @override
-  String get affectsFdeCheckbox => 'I have recovery keys for all my encrypted drives';
+  String get affectsFdeCheckbox => 'Tüm şifreli sürücülerim için kurtarma anahtarlarım var';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Daha fazla bilgi edinin';
 
   @override
   String get allVersions => 'Tüm Sürümler';
@@ -33,13 +33,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get batteryWarning => 'Warning: some device updates may only be available on external power!';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'Sağlama toplamı';
 
   @override
   String get close => 'Kapat';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'İptal et';
 
   @override
   String get current => 'Current';
@@ -48,10 +48,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get deviceUnavailable => 'The device will be unavailable during this action.';
 
   @override
-  String get deviceRequest => 'Device request';
+  String get deviceRequest => 'Cihaz isteği';
 
   @override
-  String get downgrade => 'Downgrade';
+  String get downgrade => 'Düşür';
 
   @override
   String downgradeConfirm(String name, String version) {

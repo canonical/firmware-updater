@@ -256,5 +256,7 @@
   "affectsFdeWarningBody2": "Вам необходимы ключи восстановления, потому что вы включили аппаратное шифрование в Ubuntu или других операционных системах на этом компьютере.",
   "@affectsFdeWarningBody2": {},
   "affectsFdeCheckbox": "У меня есть ключи восстановления для всех моих зашифрованных дисков",
-  "@affectsFdeCheckbox": {}
+  "@affectsFdeCheckbox": {},
+  "affectsFdeLinkLabel": "Узнать больше",
+  "@affectsFdeLinkLabel": {}
 }

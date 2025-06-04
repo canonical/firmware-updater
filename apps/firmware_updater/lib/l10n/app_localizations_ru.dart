@@ -21,7 +21,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get affectsFdeCheckbox => 'У меня есть ключи восстановления для всех моих зашифрованных дисков';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Узнать больше';
 
   @override
   String get allVersions => 'Все версии';

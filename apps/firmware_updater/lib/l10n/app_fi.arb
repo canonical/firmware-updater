@@ -113,7 +113,7 @@
   "@fwupdDeviceFlagRequireAc": {},
   "fwupdDeviceFlagSupported": "Tuettu etäpalvelimella",
   "@fwupdDeviceFlagSupported": {},
-  "fwupdDeviceFlagNeedsShutdown": "Tarvitsee sammutatmisen asennuksen jälkeen",
+  "fwupdDeviceFlagNeedsShutdown": "Tarvitsee sammuttamisen asennuksen jälkeen",
   "@fwupdDeviceFlagNeedsShutdown": {},
   "fwupdDeviceFlagReported": "Tehty ilmoitus etäpalvelimelle",
   "@fwupdDeviceFlagReported": {},
@@ -175,7 +175,7 @@
   "@noDevicesFound": {},
   "olderVersions": "Vanhemmat versiot",
   "@olderVersions": {},
-  "rebootNow": "Käynnistä uudelleen myöhemmin",
+  "rebootNow": "Käynnistä uudelleen nyt",
   "@rebootNow": {},
   "rebootConfirmMessage": "Laite tulee käynnistää uudelelleen päivityksen viimeistelemiseksi. Varmista, että laite on kytketty verkkovirtaan tai täyteen ladattu. Tallenna tiedostosi ennen uudelleen käynnistystä.",
   "@rebootConfirmMessage": {},
@@ -248,5 +248,15 @@
         "type": "String"
       }
     }
-  }
+  },
+  "affectsFdeWarningTitle": "Kaikki tiedot voidaan menettää ilman palautusavaimia",
+  "@affectsFdeWarningTitle": {},
+  "affectsFdeWarningBody1": "Varmista että sinulla on palautusavaimet kaikille salatuille asemille. Sinun tulee syöttää ne käynnistettäessä laiteohjelmiston päivttämisen jälkeen.",
+  "@affectsFdeWarningBody1": {},
+  "affectsFdeWarningBody2": "Tarvitse palautusavaimia, koska tällä tietokoneella on Ubuntun tai muun käyttöjärjestelmän käytössä laitevarmennettu salaus.",
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeCheckbox": "Minulla on palautusavaimet kaikille salatuille asemille",
+  "@affectsFdeCheckbox": {},
+  "affectsFdeLinkLabel": "Lue lisää",
+  "@affectsFdeLinkLabel": {}
 }

@@ -9,31 +9,31 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'You may lose all your data without recovery keys';
+  String get affectsFdeWarningTitle => 'Pode perder todos os seus dados se não tiver as chaves de recuperação';
 
   @override
-  String get affectsFdeWarningBody1 => 'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.';
+  String get affectsFdeWarningBody1 => 'Certifique-se de que tem as chaves de recuperação de todas as suas unidades encriptadas. Vai precisar de as introduzir no arranque após atualizar o firmware.';
 
   @override
-  String get affectsFdeWarningBody2 => 'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.';
+  String get affectsFdeWarningBody2 => 'Precisa das chaves de recuperação porque ativou a encriptação suportada por hardware no Ubuntu ou noutros sistemas operativos neste computador.';
 
   @override
-  String get affectsFdeCheckbox => 'I have recovery keys for all my encrypted drives';
+  String get affectsFdeCheckbox => 'Tenho as chaves de recuperação de todas as minhas unidades encriptadas';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Saber mais';
 
   @override
   String get allVersions => 'Todas as versões';
 
   @override
-  String get appTitle => 'Firmware Updater';
+  String get appTitle => 'Atualizador de Firmware';
 
   @override
-  String get batteryWarning => 'Warning: some device updates may only be available on external power!';
+  String get batteryWarning => 'Aviso: algumas actualizações de dispositivos podem estar disponíveis apenas com alimentação externa!';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'Soma de verificação';
 
   @override
   String get close => 'Fechar';
@@ -45,36 +45,36 @@ class AppLocalizationsPt extends AppLocalizations {
   String get current => 'Atual';
 
   @override
-  String get deviceUnavailable => 'The device will be unavailable during this action.';
+  String get deviceUnavailable => 'O dispositivo ficará indisponível durante esta acção.';
 
   @override
-  String get deviceRequest => 'Device request';
+  String get deviceRequest => 'Pedido de dispositivo';
 
   @override
   String get downgrade => 'Downgrade';
 
   @override
   String downgradeConfirm(String name, String version) {
-    return 'Downgrade <b>$name</b> to version <b>$version</b>?';
+    return 'Reverter <b>$name</b> para versão <b>$version</b>?';
   }
 
   @override
   String get flags => 'Flags';
 
   @override
-  String get fwupdDeviceFlagInternal => 'Internal device';
+  String get fwupdDeviceFlagInternal => 'Dispositivo interno';
 
   @override
-  String get fwupdDeviceFlagUpdatable => 'Updatable';
+  String get fwupdDeviceFlagUpdatable => 'Atualizável';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Update requires a reboot';
+  String get fwupdDeviceFlagOnlyOffline => 'A atualização requer um reinício';
 
   @override
   String get fwupdDeviceFlagRequireAc => 'System requires external power source';
 
   @override
-  String get fwupdDeviceFlagLocked => 'Device is locked';
+  String get fwupdDeviceFlagLocked => 'Dispositivo está bloqueado';
 
   @override
   String get fwupdDeviceFlagSupported => 'Supported on remote server';
@@ -83,13 +83,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fwupdDeviceFlagNeedsBootloader => 'Requires a bootloader';
 
   @override
-  String get fwupdDeviceFlagRegistered => 'Registered';
+  String get fwupdDeviceFlagRegistered => 'Registado';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Needs a reboot after installation';
+  String get fwupdDeviceFlagNeedsReboot => 'Tem de reiniciar depois da instalação';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Needs shutdown after installation';
+  String get fwupdDeviceFlagNeedsShutdown => 'Tem de encerrar depois da instalação';
 
   @override
   String get fwupdDeviceFlagReported => 'Reported to remote server';
@@ -164,7 +164,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fwupdDeviceFlagUnsignedPayload => 'Unsigned Payload';
 
   @override
-  String get fwupdErrorInternal => 'Internal error';
+  String get fwupdErrorInternal => 'Erro interno';
 
   @override
   String get fwupdErrorVersionNewer => 'Installed newer firmware version';
@@ -329,10 +329,10 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get vendor => 'Vendor';
+  String get vendor => 'Empresa';
 
   @override
-  String get verifyFirmware => 'Verify Firmware';
+  String get verifyFirmware => 'Verificar Firmware';
 
   @override
   String verifyFirmwareConfirm(String name) {
@@ -340,13 +340,13 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get currentVersion => 'Current Version';
+  String get currentVersion => 'Versão Atual';
 
   @override
-  String get minVersion => 'Minimum Version';
+  String get minVersion => 'Versão Mínima';
 
   @override
-  String get latestVersion => 'Latest Version';
+  String get latestVersion => 'Última Versão';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).

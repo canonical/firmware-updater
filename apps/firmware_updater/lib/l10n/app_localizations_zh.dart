@@ -366,6 +366,9 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get affectsFdeCheckbox => '我有所有加密硬碟機的復原金鑰';
 
   @override
+  String get affectsFdeLinkLabel => '了解更多';
+
+  @override
   String get allVersions => '所有版本';
 
   @override

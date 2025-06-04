@@ -21,7 +21,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get affectsFdeCheckbox => 'Tá eochracha athshlánaithe agam do mo thiomáineann criptithe go léir';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Foghlaim níos mó';
 
   @override
   String get allVersions => 'Gach Leagan';
