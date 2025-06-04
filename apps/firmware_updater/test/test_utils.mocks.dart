@@ -11,6 +11,7 @@ import 'package:firmware_updater/app/fwupd_notifier.dart' as _i6;
 import 'package:firmware_updater/pages/device_model.dart' as _i3;
 import 'package:firmware_updater/pages/device_store.dart' as _i10;
 import 'package:firmware_updater/services.dart' as _i8;
+import 'package:firmware_updater/widgets/recovery_key_model.dart' as _i11;
 import 'package:fwupd/fwupd.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
@@ -679,4 +680,22 @@ class MockDeviceStore extends _i1.Mock implements _i10.DeviceStore {
         ),
         returnValueForMissingStub: null,
       );
+}
+
+/// A class which mocks [RecoveryKeyModel].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockRecoveryKeyModel extends _i1.Mock implements _i11.RecoveryKeyModel {
+  MockRecoveryKeyModel() {
+    _i1.throwOnMissingStub(this);
+  }
+
+  @override
+  _i4.Future<bool> checkRecoveryKey(String? recoveryKey) => (super.noSuchMethod(
+        Invocation.method(
+          #checkRecoveryKey,
+          [recoveryKey],
+        ),
+        returnValue: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
 }

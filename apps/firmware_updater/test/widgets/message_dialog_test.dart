@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 import 'package:yaru/yaru.dart';
 
 import '../test_utils.dart';
@@ -130,10 +131,11 @@ void main() {
     expect(completer.isCompleted, isTrue);
   });
 
-  testWidgets('checkbox confirmation dialog', (tester) async {
+  testWidgets('recovery key confirmation dialog', (tester) async {
     const title = 'title';
     const message = 'message';
     final completer = Completer<void>();
+    final recoveryKeyModel = mockRecoveryKeyModel(validKey: 'valid key');
     await tester.pumpApp(
       (context) => Scaffold(
         body: OutlinedButton(
@@ -142,11 +144,12 @@ void main() {
             title: title,
             body: Text(message),
             onConfirm: completer.complete,
-            checkboxText: 'require checkbox',
+            checkRecoveryKey: true,
           ),
           child: const Text('click me'),
         ),
       ),
+      providers: [Provider(create: (_) => recoveryKeyModel)],
     );
     await tester.tap(find.text('click me'));
     await tester.pumpAndSettle();
@@ -158,16 +161,18 @@ void main() {
     expect(okButton, findsOneWidget);
     expect(find.text(tester.lang.cancel), findsOneWidget);
 
-    // The OK button shouldn't do anything until we've hit the checkbox
     await tester.tap(okButton);
+    await tester.pumpAndSettle();
     expect(completer.isCompleted, isFalse);
 
-    final checkbox = find.byType(YaruCheckbox);
-    expect(checkbox, findsOneWidget);
-
-    await tester.tap(checkbox);
+    final textField = find.byType(TextField);
+    await tester.enterText(textField, 'invalid key');
+    await tester.tap(okButton);
     await tester.pumpAndSettle();
+    expect(completer.isCompleted, isFalse);
+    expect(find.text(tester.lang.affectsFdeIncorrectKey), findsOneWidget);
 
+    await tester.enterText(textField, 'valid key');
     await tester.tap(okButton);
     expect(completer.isCompleted, isTrue);
   });
