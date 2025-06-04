@@ -21,7 +21,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get affectsFdeCheckbox => 'J’ai les clés de récupération pour tous mes disques cryptés';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'En savoir plus';
 
   @override
   String get allVersions => 'Toutes les versions';

@@ -9,19 +9,19 @@ class AppLocalizationsFi extends AppLocalizations {
   AppLocalizationsFi([String locale = 'fi']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'You may lose all your data without recovery keys';
+  String get affectsFdeWarningTitle => 'Kaikki tiedot voidaan menettää ilman palautusavaimia';
 
   @override
-  String get affectsFdeWarningBody1 => 'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.';
+  String get affectsFdeWarningBody1 => 'Varmista että sinulla on palautusavaimet kaikille salatuille asemille. Sinun tulee syöttää ne käynnistettäessä laiteohjelmiston päivttämisen jälkeen.';
 
   @override
-  String get affectsFdeWarningBody2 => 'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.';
+  String get affectsFdeWarningBody2 => 'Tarvitse palautusavaimia, koska tällä tietokoneella on Ubuntun tai muun käyttöjärjestelmän käytössä laitevarmennettu salaus.';
 
   @override
-  String get affectsFdeCheckbox => 'I have recovery keys for all my encrypted drives';
+  String get affectsFdeCheckbox => 'Minulla on palautusavaimet kaikille salatuille asemille';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Lue lisää';
 
   @override
   String get allVersions => 'Kaikki versiot';
@@ -89,7 +89,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fwupdDeviceFlagNeedsReboot => 'Tarvitsee uudelleen käynnistämisen asennuksen jälkeen';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Tarvitsee sammutatmisen asennuksen jälkeen';
+  String get fwupdDeviceFlagNeedsShutdown => 'Tarvitsee sammuttamisen asennuksen jälkeen';
 
   @override
   String get fwupdDeviceFlagReported => 'Tehty ilmoitus etäpalvelimelle';
@@ -281,7 +281,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get rebootLater => 'Käynnistä uudelleen myöhemmin';
 
   @override
-  String get rebootNow => 'Käynnistä uudelleen myöhemmin';
+  String get rebootNow => 'Käynnistä uudelleen nyt';
 
   @override
   String get rebootConfirmMessage => 'Laite tulee käynnistää uudelelleen päivityksen viimeistelemiseksi. Varmista, että laite on kytketty verkkovirtaan tai täyteen ladattu. Tallenna tiedostosi ennen uudelleen käynnistystä.';

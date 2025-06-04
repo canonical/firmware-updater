@@ -9,19 +9,19 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Zonder herstelcodes kun je al je gegevens verliezen';
+  String get affectsFdeWarningTitle => 'Zonder herstelcodes kunt u al uw gegevens verliezen';
 
   @override
-  String get affectsFdeWarningBody1 => 'Zorg ervoor dat je herstelcodes hebt voor al je versleutelde schijven. Je moet ze bij het opstarten invoeren na het updaten van de firmware.';
+  String get affectsFdeWarningBody1 => 'Zorg ervoor dat u herstelcodes hebt voor al uw versleutelde schijven. Na het updaten van de firmware moet u deze bij het opstarten invoeren.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Je hebt herstelcodes nodig omdat je hardwarematige versleuteling hebt ingeschakeld in Ubuntu of andere besturingssystemen op deze computer.';
+  String get affectsFdeWarningBody2 => 'U hebt herstelcodes nodig omdat u hardwarematige versleuteling hebt ingeschakeld in Ubuntu of andere besturingssystemen op deze computer.';
 
   @override
   String get affectsFdeCheckbox => 'Ik heb herstelcodes voor al mijn versleutelde schijven';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Meer informatie';
 
   @override
   String get allVersions => 'Alle Versies';
@@ -284,7 +284,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get rebootNow => 'Nu herstarten';
 
   @override
-  String get rebootConfirmMessage => 'Het apparaat moet herstart worden om de update te voltooien. Zorg ervoor dat het apparaat insteekt of volledig opgeladen is. Bewaar je bestanden voor het herstarten om geen data te verliezen.';
+  String get rebootConfirmMessage => 'Het apparaat moet herstart worden om de update te voltooien. Zorg ervoor dat het apparaat insteekt of volledig opgeladen is. Sla uw bestanden op voor het herstarten om geen data te verliezen.';
 
   @override
   String get rebootConfirmTitle => 'Herstart om de update te voltooien';

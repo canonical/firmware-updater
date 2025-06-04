@@ -21,7 +21,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get affectsFdeCheckbox => 'எனது அனைத்து மறைகுறியாக்கப்பட்ட இயக்கிகளுக்கும் மீட்பு விசைகள் உள்ளன';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'மேலும் அறிக';
 
   @override
   String get allVersions => 'அனைத்து பதிப்புகளும்';
@@ -275,7 +275,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get ok => 'சரி';
 
   @override
-  String get olderVersions => 'Older Versions';
+  String get olderVersions => 'பழைய பதிப்புகள்';
 
   @override
   String get rebootLater => 'பின்னர் மறுதொடக்கம் செய்யுங்கள்';
@@ -336,7 +336,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Verify firmware checksums of $name?';
+    return '$name இன் ஃபார்ம்வேர் செக்சம்களை சரிபார்க்கவா?';
   }
 
   @override

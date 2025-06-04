@@ -21,7 +21,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get affectsFdeCheckbox => 'Mul on taastevõtmed kõikide minu krüptitud andmekandjate jaoks';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Lisateave';
 
   @override
   String get allVersions => 'Kõik versioonid';
@@ -233,16 +233,16 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fwupdStatusDecompressing => 'Pakime püsivara lahti';
 
   @override
-  String get fwupdStatusDeviceRestart => 'Taaskäivitame seadet';
+  String get fwupdStatusDeviceRestart => 'Taaskäivitan seadet';
 
   @override
-  String get fwupdStatusDeviceWrite => 'Kirjutame sedamesse';
+  String get fwupdStatusDeviceWrite => 'Kirjutan seadmesse';
 
   @override
   String get fwupdStatusDeviceVerify => 'Verifitseerime (andmeid lugedes) seadet';
 
   @override
-  String get fwupdStatusScheduling => 'Ajastame vallasrežiimis uuendust';
+  String get fwupdStatusScheduling => 'Ajastan vallasrežiimis uuendust';
 
   @override
   String get fwupdStatusDownloading => 'Fail on allalaadimisel';
@@ -251,10 +251,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fwupdStatusDeviceRead => 'Loeme seadmest andmeid';
 
   @override
-  String get fwupdStatusDeviceErase => 'Kustutame seadmest andmeid';
+  String get fwupdStatusDeviceErase => 'Kustutan seadmest andmeid';
 
   @override
-  String get fwupdStatusWaitingForAuth => 'Ootame autentimist';
+  String get fwupdStatusWaitingForAuth => 'Ootan autentimist';
 
   @override
   String get fwupdStatusDeviceBusy => 'Seade on hõivatud';
@@ -294,7 +294,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String reinstallConfirm(String name, String current) {
-    return 'Pais paigaldame uuesti <b>$name</b> versiooni <b>$current</b>?';
+    return 'Kas paigaldame uuesti <b>$name</b> versiooni <b>$current</b>?';
   }
 
   @override
@@ -314,7 +314,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String updateChecksumsConfirm(String name) {
-    return 'Kas uuendame <b>$name</b> seadme kontrollsummad?';
+    return 'Kas uuendame <b>$name</b> seadme kontrollsummasid?';
   }
 
   @override
@@ -336,7 +336,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Kas verifitseerime $name püsivara kontrollsummad?';
+    return 'Kas verifitseerime $name püsivara kontrollsummasid?';
   }
 
   @override

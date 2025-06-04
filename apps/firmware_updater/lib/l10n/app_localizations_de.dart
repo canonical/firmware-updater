@@ -21,13 +21,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get affectsFdeCheckbox => 'Ich habe Wiederherstellungsschlüssel für alle meine verschlüsselten Laufwerke';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Mehr erfahren';
 
   @override
   String get allVersions => 'Alle Versionen';
 
   @override
-  String get appTitle => 'Firmware-Aktualisierer';
+  String get appTitle => 'Firmware-Aktualisierungsprogramm';
 
   @override
   String get batteryWarning => 'Warnung: manche Geräteaktualisierungen sind möglicherweise nur bei externer Stromversorgung verfügbar!';

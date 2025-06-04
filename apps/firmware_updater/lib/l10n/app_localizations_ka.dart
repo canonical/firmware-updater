@@ -9,19 +9,19 @@ class AppLocalizationsKa extends AppLocalizations {
   AppLocalizationsKa([String locale = 'ka']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'You may lose all your data without recovery keys';
+  String get affectsFdeWarningTitle => 'აღდგენის გასაღებების გარეშე, შეიძლება, მონაცემები სრულად დაკარგოთ';
 
   @override
-  String get affectsFdeWarningBody1 => 'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.';
+  String get affectsFdeWarningBody1 => 'დარწმუნდით, რომ გაქვთ აღდგენის გასაღებები ყველა თქვენი დაშიფრული დისკისთვის. შეიძლება, მისი შეყვანა მიკროკოდის განახლების შემდეგ, ჩატვირთვისას დაგჭირდეთ.';
 
   @override
-  String get affectsFdeWarningBody2 => 'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.';
+  String get affectsFdeWarningBody2 => 'აღდგენის გასაღებები გჭირდებათ, რადგან ჩართეთ აპარატურის მიერ მხარდაჭერილი დაშიფვრა Ubuntu-ზე, ან სხვა ოპერაციულ სისტემაზე ამ კომპიუტერზე.';
 
   @override
-  String get affectsFdeCheckbox => 'I have recovery keys for all my encrypted drives';
+  String get affectsFdeCheckbox => 'მე მაქვს აღდგენის გასაღებები ყველა ჩემი დაშიფრული დისკისთვის';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'მეტის გაგება';
 
   @override
   String get allVersions => 'ყველა ვერსია';

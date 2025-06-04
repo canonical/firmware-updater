@@ -9,43 +9,43 @@ class AppLocalizationsKm extends AppLocalizations {
   AppLocalizationsKm([String locale = 'km']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'You may lose all your data without recovery keys';
+  String get affectsFdeWarningTitle => 'អ្នកអាចនឹងបាត់បង់ទិន្នន័យរបស់អ្នកទាំងអស់ដោយគ្មានសោសង្គ្រោះ';
 
   @override
-  String get affectsFdeWarningBody1 => 'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.';
+  String get affectsFdeWarningBody1 => 'សូមប្រាកដថាអ្នកមានសោសង្គ្រោះសម្រាប់ដ្រាយដែលបានអ៊ិនគ្រីបរបស់អ្នកទាំងអស់។ អ្នកនឹងត្រូវបញ្ចូលពួកវានៅពេលចាប់ផ្ដើមបន្ទាប់ពីធ្វើបច្ចុប្បន្នភាពកម្មវិធីបង្កប់។';
 
   @override
-  String get affectsFdeWarningBody2 => 'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.';
+  String get affectsFdeWarningBody2 => 'អ្នក​ត្រូវ​ការ​សោ​សង្គ្រោះ​ព្រោះ​អ្នក​បាន​បើក​ការ​អ៊ិនគ្រីប​ដែល​គាំទ្រ​ដោយ​ផ្នែករឹង​ក្នុង​អ៊ូប៊ុនទូ ឬ​ប្រព័ន្ធ​ប្រតិបត្តិការ​ផ្សេង​ទៀត​នៅ​លើ​កុំព្យូទ័រ​នេះ។';
 
   @override
-  String get affectsFdeCheckbox => 'I have recovery keys for all my encrypted drives';
+  String get affectsFdeCheckbox => 'ខ្ញុំ​មាន​សោ​សង្គ្រោះ​សម្រាប់​ថាស​ដែល​បាន​អ៊ិនគ្រីប​ទាំងអស់​របស់​ខ្ញុំ';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'ស្វែងយល់បន្ថែម';
 
   @override
-  String get allVersions => 'All Versions';
+  String get allVersions => 'ជំនាន់ទាំងអស់';
 
   @override
-  String get appTitle => 'Firmware Updater';
+  String get appTitle => 'កម្មវិធីធ្វើបច្ចុប្បន្នភាពកម្មវិធីបង្កប់';
 
   @override
-  String get batteryWarning => 'Warning: some device updates may only be available on external power!';
+  String get batteryWarning => 'ការព្រមាន៖ ការអាប់ដេតឧបករណ៍មួយចំនួនអាចមាននៅលើថាមពលខាងក្រៅតែប៉ុណ្ណោះ!';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'មូលប្បទានប័ត្រ';
 
   @override
-  String get close => 'Close';
+  String get close => 'បិទ';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'បោះបង់';
 
   @override
-  String get current => 'Current';
+  String get current => 'បច្ចុប្បន្ន';
 
   @override
-  String get deviceUnavailable => 'The device will be unavailable during this action.';
+  String get deviceUnavailable => 'ឧបករណ៍នឹងមិនអាចប្រើបានទេក្នុងអំឡុងពេលសកម្មភាពនេះ។';
 
   @override
   String get deviceRequest => 'Device request';
@@ -272,7 +272,7 @@ class AppLocalizationsKm extends AppLocalizations {
   String get noDevicesFound => 'No devices found';
 
   @override
-  String get ok => 'OK';
+  String get ok => 'យល់ព្រម';
 
   @override
   String get olderVersions => 'Older Versions';

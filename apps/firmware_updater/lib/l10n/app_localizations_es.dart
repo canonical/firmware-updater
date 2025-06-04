@@ -21,7 +21,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get affectsFdeCheckbox => 'Tengo claves de recuperación para todas mis unidades cifradas';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Saber más';
 
   @override
   String get allVersions => 'Todas las versiones';
@@ -55,7 +55,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String downgradeConfirm(String name, String version) {
-    return '¿Quiere degradar <b>$name</b> a <b>$version</b>?';
+    return '¿Quiere desactualizar <b>$name</b> a <b>$version</b>?';
   }
 
   @override
