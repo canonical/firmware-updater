@@ -28,7 +28,7 @@
   "@ok": {},
   "reinstall": "Reinstal·lar",
   "@reinstall": {},
-  "showUpdates": "Mostra actualitzacións",
+  "showUpdates": "Mostra actualitzacions",
   "@showUpdates": {},
   "updateConfirm": "Actualitza <b>{name}</b> a la versió <b>{version}</b>?",
   "@updateConfirm": {
