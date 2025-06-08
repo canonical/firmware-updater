@@ -256,5 +256,7 @@
   "affectsFdeWarningBody1": "Győződjön meg arról, hogy rendelkezik-e helyreállítási kulcsokkal az összes titkosított meghajtóhoz. Ezeket a belső vezérlőprogram frissítése után, a rendszerindításkor kell megadni.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeWarningBody2": "Azért van szüksége helyreállítási kulcsokra, mert engedélyezte a hardveres titkosítást az Ubuntuban vagy a számítógépen lévő más operációs rendszerekben.",
-  "@affectsFdeWarningBody2": {}
+  "@affectsFdeWarningBody2": {},
+  "affectsFdeLinkLabel": "Tudjon meg többet",
+  "@affectsFdeLinkLabel": {}
 }
