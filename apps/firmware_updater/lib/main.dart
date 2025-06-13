@@ -42,7 +42,7 @@ Future<void> main(List<String> args) async {
     dispose: (s) => s.dispose(),
   );
 
-  registerService<RecoveryKeyService>(RecoveryKeyMockService.new);
+  registerService<RecoveryKeyService>(RecoveryKeySnapdService.new);
 
   runApp(
     YaruTheme(

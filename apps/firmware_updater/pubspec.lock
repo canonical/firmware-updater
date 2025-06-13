@@ -786,6 +786,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  snapd:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: systems-volumes-api
+      resolved-ref: fbebfcb14b09d289deabb33c84ee4d8197bb310a
+      url: "https://github.com/canonical/snapd.dart"
+    source: git
+    version: "0.7.1"
   source_gen:
     dependency: transitive
     description:
