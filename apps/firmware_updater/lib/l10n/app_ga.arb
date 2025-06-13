@@ -253,10 +253,14 @@
   "@affectsFdeWarningTitle": {},
   "affectsFdeCheckbox": "Tá eochracha athshlánaithe agam do mo thiomáineann criptithe go léir",
   "@affectsFdeCheckbox": {},
-  "affectsFdeWarningBody2": "Teastaíonn eochracha athshlánaithe uait toisc go bhfuil criptiú crua-earraí cumasaithe agat in Ubuntu nó i gcórais oibriúcháin eile ar an ríomhaire seo.",
+  "affectsFdeWarningBody2": "Ní mór duit eochair aisghabhála a sholáthar mar gur chumasaigh tú criptiú atá bunaithe ar chrua-earraí.",
   "@affectsFdeWarningBody2": {},
-  "affectsFdeWarningBody1": "Cinntigh go bhfuil eochracha athshlánaithe agat le haghaidh do thiomáineann criptithe go léir. Beidh ort iad a chur isteach ar tosaithe tar éis an firmware a nuashonrú.",
+  "affectsFdeWarningBody1": "B’fhéidir go mbeidh ort é a iontráil ag an tosaithe tar éis an fhirmchlár a nuashonrú. Déan cinnte go bhfuil eochracha aisghabhála agat freisin le haghaidh aon tiomántán criptithe eile ar an ríomhaire seo.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeLinkLabel": "Foghlaim níos mó",
-  "@affectsFdeLinkLabel": {}
+  "@affectsFdeLinkLabel": {},
+  "affectsFdeTextFieldLabel": "Cuir isteach d'eochair aisghabhála",
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "Ní oibríonn an eochair aisghabhála, seiceáil nó cuir ceann eile ina háit san Ionad Slándála",
+  "@affectsFdeIncorrectKey": {}
 }
