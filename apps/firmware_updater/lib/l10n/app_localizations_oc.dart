@@ -18,10 +18,13 @@ class AppLocalizationsOc extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Avètz besonh de claus de recuperacion per çò qu\'avètz activat lo chiframent material dins Ubuntu o d\'autres sistèmas operatius sus aqueste ordenador.';
 
   @override
-  String get affectsFdeCheckbox => 'Ai las claus de recuperacion per totes mos disques chifras';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Ne saber mai';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Totas las versions';

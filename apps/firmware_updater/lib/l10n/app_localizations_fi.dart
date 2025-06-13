@@ -18,10 +18,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Tarvitse palautusavaimia, koska tällä tietokoneella on Ubuntun tai muun käyttöjärjestelmän käytössä laitevarmennettu salaus.';
 
   @override
-  String get affectsFdeCheckbox => 'Minulla on palautusavaimet kaikille salatuille asemille';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Lue lisää';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Kaikki versiot';

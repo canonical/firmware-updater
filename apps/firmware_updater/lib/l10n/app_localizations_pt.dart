@@ -18,10 +18,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Precisa das chaves de recuperação porque ativou a encriptação suportada por hardware no Ubuntu ou noutros sistemas operativos neste computador.';
 
   @override
-  String get affectsFdeCheckbox => 'Tenho as chaves de recuperação de todas as minhas unidades encriptadas';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Saber mais';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Todas as versões';

@@ -18,10 +18,13 @@ class AppLocalizationsKa extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'აღდგენის გასაღებები გჭირდებათ, რადგან ჩართეთ აპარატურის მიერ მხარდაჭერილი დაშიფვრა Ubuntu-ზე, ან სხვა ოპერაციულ სისტემაზე ამ კომპიუტერზე.';
 
   @override
-  String get affectsFdeCheckbox => 'მე მაქვს აღდგენის გასაღებები ყველა ჩემი დაშიფრული დისკისთვის';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'მეტის გაგება';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'ყველა ვერსია';

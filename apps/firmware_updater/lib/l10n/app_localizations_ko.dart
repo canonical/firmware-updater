@@ -18,10 +18,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Ubuntu나 이 컴퓨터에 있는 다른 운영 체제에서 하드웨어 기반 암호화를 활성화하였기 때문에 복구 키가 필요합니다.';
 
   @override
-  String get affectsFdeCheckbox => '모든 암호화된 드라이브에 대한 복구 키를 보유하고 있습니다';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Learn more';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => '모든 버전';

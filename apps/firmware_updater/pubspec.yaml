@@ -27,6 +27,10 @@ dependencies:
   path: ^1.8.3
   provider: ^6.0.5
   safe_change_notifier: ^0.4.0
+  snapd:
+    git:
+      url: https://github.com/canonical/snapd.dart
+      ref: systems-volumes-api
   ubuntu_logger: ^0.2.0
   ubuntu_service: ^0.4.0
   ubuntu_test: ^0.2.3

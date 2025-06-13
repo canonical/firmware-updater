@@ -18,10 +18,13 @@ class AppLocalizationsCa extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Us calen les claus de recuperació perquè heu habilitat el xifrat recolzat per maquinari a l\'Ubuntu o altres sistemes operatius a aquest ordinador.';
 
   @override
-  String get affectsFdeCheckbox => 'Tinc claus de recuperació per a totes les meves unitats xifrades';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'Sabeu més';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Totes les versions';

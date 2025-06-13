@@ -18,10 +18,13 @@ class AppLocalizationsFr extends AppLocalizations {
   String get affectsFdeWarningBody2 => 'Vous avez besoin de clés de récupération parce que vous avez activé le chiffrement sur le matériel dans Ubuntu ou d’autres systèmes d’exploitation sur cet ordinateur.';
 
   @override
-  String get affectsFdeCheckbox => 'J’ai les clés de récupération pour tous mes disques cryptés';
+  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
   String get affectsFdeLinkLabel => 'En savoir plus';
+
+  @override
+  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Toutes les versions';
