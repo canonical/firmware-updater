@@ -251,12 +251,16 @@
   "@minVersion": {},
   "affectsFdeCheckbox": "Ich habe Wiederherstellungsschlüssel für alle meine verschlüsselten Laufwerke",
   "@affectsFdeCheckbox": {},
-  "affectsFdeWarningBody1": "Stellen Sie sicher, dass Sie Wiederherstellungsschlüssel für alle verschlüsselten Laufwerke haben. Sie müssen diese beim Hochfahren nach der Aktualisierung der Firmware eingeben.",
+  "affectsFdeWarningBody1": "Möglicherweise müssen Sie ihn nach der Aktualisierung der Firmware beim Hochfahren eingeben. Stellen Sie sicher, dass Sie auch Wiederherstellungsschlüssel für alle anderen verschlüsselten Laufwerke auf diesem Computer haben.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeWarningTitle": "Ohne Wiederherstellungsschlüssel können Sie alle Ihre Daten verlieren",
   "@affectsFdeWarningTitle": {},
-  "affectsFdeWarningBody2": "Sie benötigen Wiederherstellungsschlüssel, weil Sie die hardwaregestützte Verschlüsselung in Ubuntu oder anderen Betriebssystemen auf diesem Computer aktiviert haben.",
+  "affectsFdeWarningBody2": "Sie müssen einen Wiederherstellungsschlüssel angeben, da Sie die hardwaregestützte Verschlüsselung aktiviert haben.",
   "@affectsFdeWarningBody2": {},
   "affectsFdeLinkLabel": "Mehr erfahren",
-  "@affectsFdeLinkLabel": {}
+  "@affectsFdeLinkLabel": {},
+  "affectsFdeTextFieldLabel": "Geben Sie Ihren Wiederherstellungsschlüssel ein",
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "Der Wiederherstellungsschlüssel funktioniert nicht, überprüfen oder ersetzen Sie ihn im Sicherheitszentrum",
+  "@affectsFdeIncorrectKey": {}
 }
