@@ -251,12 +251,16 @@
   "@latestVersion": {},
   "affectsFdeWarningTitle": "Ilma taastevõtmeteta võid kaotada ligipääsu oma andmetele",
   "@affectsFdeWarningTitle": {},
-  "affectsFdeWarningBody1": "Palun kontrolli, et sul on olemas taastevõtmed kõikide sinu krüptitud andmekandjate jaoks. Peale püsivara uuendamist pead need taaskäivitamisel sisestama.",
+  "affectsFdeWarningBody1": "Peale püsivara uuendamist pead need taaskäivitamisel sisestama. Palun kontrolli, et sul on olemas taastevõtmed ka kõikide muude selle arvuti krüptitud andmekandjate jaoks.",
   "@affectsFdeWarningBody1": {},
-  "affectsFdeWarningBody2": "Sa vajad taastevõtmeid, sest kasutad Ubuntus või muudes selle arvuti operatsioonisüsteemides raudvarapõhist krüptimist.",
+  "affectsFdeWarningBody2": "Kuna kasutad siin arvutis raudvarapõhist krüptimist, siis pead sisestama taastevõtme.",
   "@affectsFdeWarningBody2": {},
   "affectsFdeCheckbox": "Mul on taastevõtmed kõikide minu krüptitud andmekandjate jaoks",
   "@affectsFdeCheckbox": {},
   "affectsFdeLinkLabel": "Lisateave",
-  "@affectsFdeLinkLabel": {}
+  "@affectsFdeLinkLabel": {},
+  "affectsFdeTextFieldLabel": "Palun sisesta oma taastevõti",
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "Taastevõti ei toimi, palun kontrolli Andmeturbekeskusest tema õigsust või vajadusel asenda ta",
+  "@affectsFdeIncorrectKey": {}
 }
