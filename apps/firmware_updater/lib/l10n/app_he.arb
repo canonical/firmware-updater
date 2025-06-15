@@ -253,7 +253,7 @@
   "@affectsFdeCheckbox": {},
   "affectsFdeWarningTitle": "ללא מפתחות שחזור כל הנתונים שלך עלולים ללכת לאיבוד",
   "@affectsFdeWarningTitle": {},
-  "affectsFdeWarningBody1": "יכול להיות שיהיה עליך למלא אותו לאחר עדכון קושחה. רצוי לוודא שיש לך גם מפתחות שחזור לכל שאר הכוננים המוצפנים במחשב הזה.",
+  "affectsFdeWarningBody1": "יכול להיות שיש למלא אותו לאחר עדכון קושחה. רצוי לוודא שיש לך גם מפתחות שחזור לכל שאר הכוננים המוצפנים במחשב הזה.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeWarningBody2": "צריך לספק מפתח שחזור כיוון שהפעלת הצפנה שמגובה בחומרה.",
   "@affectsFdeWarningBody2": {},
