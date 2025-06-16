@@ -9,13 +9,16 @@ class AppLocalizationsHe extends AppLocalizations {
   AppLocalizationsHe([String locale = 'he']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'ללא מפתחות שחזור כל הנתונים שלך עלולים ללכת לאיבוד';
+  String get affectsFdeWarningTitle =>
+      'ללא מפתחות שחזור כל הנתונים שלך עלולים ללכת לאיבוד';
 
   @override
-  String get affectsFdeWarningBody1 => 'נא לוודא שיש לך את מפתחות השחזור לכל הכוננים המוצפנים שלך. יש למלא אותם מחדש בזמן העלייה לאחר עדכון קושחה.';
+  String get affectsFdeWarningBody1 =>
+      'נא לוודא שיש לך את מפתחות השחזור לכל הכוננים המוצפנים שלך. יש למלא אותם מחדש בזמן העלייה לאחר עדכון קושחה.';
 
   @override
-  String get affectsFdeWarningBody2 => 'צריך מפתחות שחזור כיוון שהפעלת הצפנה בגיבוי חומרה באובונטו או במערכות הפעלה אחרות במחשב הזה.';
+  String get affectsFdeWarningBody2 =>
+      'צריך מפתחות שחזור כיוון שהפעלת הצפנה בגיבוי חומרה באובונטו או במערכות הפעלה אחרות במחשב הזה.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get affectsFdeLinkLabel => 'מידע נוסף';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'כל הגרסאות';
@@ -33,7 +37,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get appTitle => 'מעדכן הקושחה';
 
   @override
-  String get batteryWarning => 'אזהרה: חלק מעדכוני ההתקנים יהיו זמינים רק בחיבור למקור חשמל חיצוני!';
+  String get batteryWarning =>
+      'אזהרה: חלק מעדכוני ההתקנים יהיו זמינים רק בחיבור למקור חשמל חיצוני!';
 
   @override
   String get checksum => 'סיכום ביקורת';
@@ -110,7 +115,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get fwupdDeviceFlagWaitForReplug => 'החומרה ממתינה לחיבור מחדש';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'התעלמות מבדיקות בטיחות של תיקוף';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'התעלמות מבדיקות בטיחות של תיקוף';
 
   @override
   String get fwupdDeviceFlagTrusted => 'מהימן';
@@ -119,7 +125,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get fwupdDeviceFlagNeedsActivation => 'עדכון ההתקן דורש הפעלה';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'ההתקן לא יופיע מחדש לאחר השלמת העדכון';
+  String get fwupdDeviceFlagWillDisappear =>
+      'ההתקן לא יופיע מחדש לאחר השלמת העדכון';
 
   @override
   String get fwupdDeviceFlagCanVerify => 'אימות הגיבוב הקריפטוגרפי זמין';
@@ -134,19 +141,24 @@ class AppLocalizationsHe extends AppLocalizations {
   String get fwupdDeviceFlagUsableDuringUpdate => 'ההתקן שמיש במשך העדכון';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'קושחת ההתקן נחוצה לצורך בדיקת גרסה';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'קושחת ההתקן נחוצה לצורך בדיקת גרסה';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'ההתקן נחוץ כדי להתקין את כל המהדורות שסופקו';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'ההתקן נחוץ כדי להתקין את כל המהדורות שסופקו';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'ההתקן תומך בהחלפה לענף או קושחה אחרים';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'ההתקן תומך בהחלפה לענף או קושחה אחרים';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'ההתקן יגבה את הקושחה לפני ההתקנה';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'ההתקן יגבה את הקושחה לפני ההתקנה';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'כל ההתקנים מאותו הסוג יעודכנו בו־זמנית';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'כל ההתקנים מאותו הסוג יעודכנו בו־זמנית';
 
   @override
   String get fwupdDeviceFlagOnlyVersionUpgrade => 'מותר לעדכן רק את הגרסאות';
@@ -155,7 +167,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get fwupdDeviceFlagUnreachable => 'ההתקן לא נגיש';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'סודות הצפנת כונן מלא יפקעו בעת עדכון';
+  String get fwupdDeviceFlagAffectsFde =>
+      'סודות הצפנת כונן מלא יפקעו בעת עדכון';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'סוף החיים';
@@ -218,7 +231,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get fwupdErrorNeedsUserAction => 'על המשתמש לבצע פעולה להשלמת העדכון';
 
   @override
-  String get fwupdErrorAuthExpired => 'משיכת האימות נכשלה כיוון שפרטי הגישה פקעו';
+  String get fwupdErrorAuthExpired =>
+      'משיכת האימות נכשלה כיוון שפרטי הגישה פקעו';
 
   @override
   String get fwupdErrorUnknown => 'שגיאה לא ידועה';
@@ -287,7 +301,8 @@ class AppLocalizationsHe extends AppLocalizations {
   String get rebootNow => 'להפעיל מחדש כעת';
 
   @override
-  String get rebootConfirmMessage => 'יש להפעיל את ההתקן שלך מחדש כדי להשלים את העדכון. נא לוודא שההתקן שלך מחובר או טעון במלואו. נא לשמור את הקבצים שלך בטרם הפעלה מחדש כדי למנוע אובדן מידע.';
+  String get rebootConfirmMessage =>
+      'יש להפעיל את ההתקן שלך מחדש כדי להשלים את העדכון. נא לוודא שההתקן שלך מחובר או טעון במלואו. נא לשמור את הקבצים שלך בטרם הפעלה מחדש כדי למנוע אובדן מידע.';
 
   @override
   String get rebootConfirmTitle => 'הפעלה מחדש תשלים את העדכון';
@@ -321,7 +336,8 @@ class AppLocalizationsHe extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'הפעולה הזאת תתעד את הגיבובים הקריפטוגרפיים כמאומתים.';
+  String get updateChecksumsInfo =>
+      'הפעולה הזאת תתעד את הגיבובים הקריפטוגרפיים כמאומתים.';
 
   @override
   String get updateToLatest => 'עדכון לעדכני ביותר';

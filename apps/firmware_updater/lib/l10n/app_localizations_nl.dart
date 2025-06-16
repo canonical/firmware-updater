@@ -9,13 +9,16 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Zonder herstelcodes kunt u al uw gegevens verliezen';
+  String get affectsFdeWarningTitle =>
+      'Zonder herstelcodes kunt u al uw gegevens verliezen';
 
   @override
-  String get affectsFdeWarningBody1 => 'Zorg ervoor dat u herstelcodes hebt voor al uw versleutelde schijven. Na het updaten van de firmware moet u deze bij het opstarten invoeren.';
+  String get affectsFdeWarningBody1 =>
+      'Zorg ervoor dat u herstelcodes hebt voor al uw versleutelde schijven. Na het updaten van de firmware moet u deze bij het opstarten invoeren.';
 
   @override
-  String get affectsFdeWarningBody2 => 'U hebt herstelcodes nodig omdat u hardwarematige versleuteling hebt ingeschakeld in Ubuntu of andere besturingssystemen op deze computer.';
+  String get affectsFdeWarningBody2 =>
+      'U hebt herstelcodes nodig omdat u hardwarematige versleuteling hebt ingeschakeld in Ubuntu of andere besturingssystemen op deze computer.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Meer informatie';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Alle Versies';
@@ -33,7 +37,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get appTitle => 'Firmware Updater';
 
   @override
-  String get batteryWarning => 'Waarschuwing: sommige apparaatupdates zijn mogelijk alleen beschikbaar tijdens het opladen!';
+  String get batteryWarning =>
+      'Waarschuwing: sommige apparaatupdates zijn mogelijk alleen beschikbaar tijdens het opladen!';
 
   @override
   String get checksum => 'Checksom';
@@ -48,7 +53,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get current => 'Huidig';
 
   @override
-  String get deviceUnavailable => 'Het apparaat zal niet bruikbaar zijn tijdens deze actie.';
+  String get deviceUnavailable =>
+      'Het apparaat zal niet bruikbaar zijn tijdens deze actie.';
 
   @override
   String get deviceRequest => 'Apparaatverzoek';
@@ -74,7 +80,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fwupdDeviceFlagOnlyOffline => 'Herstarten vereist voor update';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Systeem heeft externe voedingsbron nodig';
+  String get fwupdDeviceFlagRequireAc =>
+      'Systeem heeft externe voedingsbron nodig';
 
   @override
   String get fwupdDeviceFlagLocked => 'Apparaat is op slot';
@@ -89,7 +96,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Geregistreerd';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Heropstarten vereist na installatie';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Heropstarten vereist na installatie';
 
   @override
   String get fwupdDeviceFlagNeedsShutdown => 'Afsluiten vereist na installatie';
@@ -101,61 +109,77 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Gebruiker werd op de hoogte gesteld';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Installeer eerst op het moederapparaat';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Installeer eerst op het moederapparaat';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Is in bootloadermodus';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Hardware wacht op nieuwe aansluiting';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Hardware wacht op nieuwe aansluiting';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Negeer validatie veiligheidscontroles';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Negeer validatie veiligheidscontroles';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Vertrouwd';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Apparaatupdate heeft activatie nodig';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Apparaatupdate heeft activatie nodig';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Apparaat zal niet opnieuw getoond worden nadat de update voltooid';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Apparaat zal niet opnieuw getoond worden nadat de update voltooid';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Cryptografische hash verificatie is beschikbaar';
+  String get fwupdDeviceFlagCanVerify =>
+      'Cryptografische hash verificatie is beschikbaar';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Apparaat bereidt zich voor op updates';
+  String get fwupdDeviceFlagDualImage =>
+      'Apparaat bereidt zich voor op updates';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Apparaat kan flashfouten herstellen';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Apparaat kan flashfouten herstellen';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Apparaat is bruikbaar tijdens het installeren van de update';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Apparaat is bruikbaar tijdens het installeren van de update';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Apparaat firmware is nodig om een versiecheck te doen';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Apparaat firmware is nodig om een versiecheck te doen';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Apparaat moet alle verstrekte versies te installeren';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Apparaat moet alle verstrekte versies te installeren';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Apparaat ondersteunt wisselen naar een andere tak van de firmware';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Apparaat ondersteunt wisselen naar een andere tak van de firmware';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Apparaat zal de firmware back-uppen voor het installeren';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Apparaat zal de firmware back-uppen voor het installeren';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Alle apparaten van hetzelfde type zullen op hetzelfde moment geüpdatet worden';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Alle apparaten van hetzelfde type zullen op hetzelfde moment geüpdatet worden';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Enkel versie-upgrades zijn toegestaan';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Enkel versie-upgrades zijn toegestaan';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Apparaat is onbereikbaar';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Volledige schijnencryptiegeheimen kunnen geïnvalideerd worden tijdens het updaten';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Volledige schijnencryptiegeheimen kunnen geïnvalideerd worden tijdens het updaten';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Wordt niet meer geüpdatet';
@@ -209,16 +233,20 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Toestemmingsaanvraag afgewezen';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Gebruiker heeft het systeem geconfigureerd op een ongeldige wijze';
+  String get fwupdErrorBrokenSystem =>
+      'Gebruiker heeft het systeem geconfigureerd op een ongeldige wijze';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Te weinig batterijduur beschikbaar';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Te weinig batterijduur beschikbaar';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Gebruiker moet een actie doen om de update te doen voltooien';
+  String get fwupdErrorNeedsUserAction =>
+      'Gebruiker moet een actie doen om de update te doen voltooien';
 
   @override
-  String get fwupdErrorAuthExpired => 'Authentificatie mislukt door vervallen credentials';
+  String get fwupdErrorAuthExpired =>
+      'Authentificatie mislukt door vervallen credentials';
 
   @override
   String get fwupdErrorUnknown => 'Onbekende fout';
@@ -242,7 +270,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get fwupdStatusDeviceWrite => 'Naar een apparaat aan het schrijven';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Een apparaat aan het verifiëren (uitlezen)';
+  String get fwupdStatusDeviceVerify =>
+      'Een apparaat aan het verifiëren (uitlezen)';
 
   @override
   String get fwupdStatusScheduling => 'Een offline-update aan het inplannen';
@@ -287,7 +316,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get rebootNow => 'Nu herstarten';
 
   @override
-  String get rebootConfirmMessage => 'Het apparaat moet herstart worden om de update te voltooien. Zorg ervoor dat het apparaat insteekt of volledig opgeladen is. Sla uw bestanden op voor het herstarten om geen data te verliezen.';
+  String get rebootConfirmMessage =>
+      'Het apparaat moet herstart worden om de update te voltooien. Zorg ervoor dat het apparaat insteekt of volledig opgeladen is. Sla uw bestanden op voor het herstarten om geen data te verliezen.';
 
   @override
   String get rebootConfirmTitle => 'Herstart om de update te voltooien';
@@ -321,7 +351,8 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Dit zal de huidige cryptografische hashes als geverifieerd opnemen.';
+  String get updateChecksumsInfo =>
+      'Dit zal de huidige cryptografische hashes als geverifieerd opnemen.';
 
   @override
   String get updateToLatest => 'Naar de Nieuwste Versie Updaten';

@@ -9,13 +9,16 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Pode perder todos os seus dados se não tiver as chaves de recuperação';
+  String get affectsFdeWarningTitle =>
+      'Pode perder todos os seus dados se não tiver as chaves de recuperação';
 
   @override
-  String get affectsFdeWarningBody1 => 'Certifique-se de que tem as chaves de recuperação de todas as suas unidades encriptadas. Vai precisar de as introduzir no arranque após atualizar o firmware.';
+  String get affectsFdeWarningBody1 =>
+      'Certifique-se de que tem as chaves de recuperação de todas as suas unidades encriptadas. Vai precisar de as introduzir no arranque após atualizar o firmware.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Precisa das chaves de recuperação porque ativou a encriptação suportada por hardware no Ubuntu ou noutros sistemas operativos neste computador.';
+  String get affectsFdeWarningBody2 =>
+      'Precisa das chaves de recuperação porque ativou a encriptação suportada por hardware no Ubuntu ou noutros sistemas operativos neste computador.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Saber mais';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Todas as versões';
@@ -33,7 +37,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get appTitle => 'Atualizador de Firmware';
 
   @override
-  String get batteryWarning => 'Aviso: algumas actualizações de dispositivos podem estar disponíveis apenas com alimentação externa!';
+  String get batteryWarning =>
+      'Aviso: algumas actualizações de dispositivos podem estar disponíveis apenas com alimentação externa!';
 
   @override
   String get checksum => 'Soma de verificação';
@@ -48,7 +53,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get current => 'Atual';
 
   @override
-  String get deviceUnavailable => 'O dispositivo ficará indisponível durante esta acção.';
+  String get deviceUnavailable =>
+      'O dispositivo ficará indisponível durante esta acção.';
 
   @override
   String get deviceRequest => 'Pedido de dispositivo';
@@ -74,7 +80,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fwupdDeviceFlagOnlyOffline => 'A atualização requer um reinício';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'System requires external power source';
+  String get fwupdDeviceFlagRequireAc =>
+      'System requires external power source';
 
   @override
   String get fwupdDeviceFlagLocked => 'Dispositivo está bloqueado';
@@ -89,10 +96,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Registado';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Tem de reiniciar depois da instalação';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Tem de reiniciar depois da instalação';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Tem de encerrar depois da instalação';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Tem de encerrar depois da instalação';
 
   @override
   String get fwupdDeviceFlagReported => 'Reported to remote server';
@@ -101,16 +110,19 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'User has been notified';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Install to parent device first';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Install to parent device first';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Is in bootloader mode';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Hardware is waiting to be replugged';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Hardware is waiting to be replugged';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Ignore validation safety checks';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Ignore validation safety checks';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Trusted';
@@ -119,10 +131,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fwupdDeviceFlagNeedsActivation => 'Device update needs activation';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Device will not re-appear after update completes';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Device will not re-appear after update completes';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Cryptographic hash verification is available';
+  String get fwupdDeviceFlagCanVerify =>
+      'Cryptographic hash verification is available';
 
   @override
   String get fwupdDeviceFlagDualImage => 'Device stages updates';
@@ -131,31 +145,39 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fwupdDeviceFlagSelfRecovery => 'Device can recover flash failures';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Device is usable for the duration of the update';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Device is usable for the duration of the update';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Device firmware is required to have a version check';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Device firmware is required to have a version check';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Device is required to install all provided releases';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Device is required to install all provided releases';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Device supports switching to a different branch of firmware';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Device supports switching to a different branch of firmware';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Device will backup firmware before installing';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Device will backup firmware before installing';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'All devices of the same type will be updated at the same time';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'All devices of the same type will be updated at the same time';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Only version upgrades are allowed';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Only version upgrades are allowed';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Device is unreachable';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Full disk encryption secrets may be invalidated when updating';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Full disk encryption secrets may be invalidated when updating';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'End of life';
@@ -209,16 +231,20 @@ class AppLocalizationsPt extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Permission was denied';
 
   @override
-  String get fwupdErrorBrokenSystem => 'User has configured their system in a broken way';
+  String get fwupdErrorBrokenSystem =>
+      'User has configured their system in a broken way';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'The system battery level is too low';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'The system battery level is too low';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'User needs to do an action to complete the update';
+  String get fwupdErrorNeedsUserAction =>
+      'User needs to do an action to complete the update';
 
   @override
-  String get fwupdErrorAuthExpired => 'Failed to get auth as credentials have expired';
+  String get fwupdErrorAuthExpired =>
+      'Failed to get auth as credentials have expired';
 
   @override
   String get fwupdErrorUnknown => 'Unknown error';
@@ -287,7 +313,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get rebootNow => 'Restart now';
 
   @override
-  String get rebootConfirmMessage => 'You must restart your device to complete the update. Make sure your device is plugged in or fully charged. Save your files before you restart to avoid losing data.';
+  String get rebootConfirmMessage =>
+      'You must restart your device to complete the update. Make sure your device is plugged in or fully charged. Save your files before you restart to avoid losing data.';
 
   @override
   String get rebootConfirmTitle => 'Restart to complete this update';
@@ -321,7 +348,8 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'This will record the current cryptographic hashes as verified.';
+  String get updateChecksumsInfo =>
+      'This will record the current cryptographic hashes as verified.';
 
   @override
   String get updateToLatest => 'Update to Latest';
@@ -354,7 +382,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
-  AppLocalizationsPtBr(): super('pt_BR');
+  AppLocalizationsPtBr() : super('pt_BR');
 
   @override
   String get allVersions => 'Todas as Versões';
@@ -363,7 +391,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get appTitle => 'Atualizador de Firmware';
 
   @override
-  String get batteryWarning => 'Aviso: algumas atualizações de dispositivos podem estar disponíveis apenas com alimentação de energia externa!';
+  String get batteryWarning =>
+      'Aviso: algumas atualizações de dispositivos podem estar disponíveis apenas com alimentação de energia externa!';
 
   @override
   String get checksum => 'Soma de verificação';
@@ -378,7 +407,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get current => 'Atual';
 
   @override
-  String get deviceUnavailable => 'O dispositivo ficará indisponível durante esta ação.';
+  String get deviceUnavailable =>
+      'O dispositivo ficará indisponível durante esta ação.';
 
   @override
   String get deviceRequest => 'Solicitação de dispositivo';
@@ -401,10 +431,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get fwupdDeviceFlagUpdatable => 'Atualizável';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Atualização requer uma reinicialização';
+  String get fwupdDeviceFlagOnlyOffline =>
+      'Atualização requer uma reinicialização';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'O sistema requer fonte de alimentação externa';
+  String get fwupdDeviceFlagRequireAc =>
+      'O sistema requer fonte de alimentação externa';
 
   @override
   String get fwupdDeviceFlagLocked => 'O dispositivo está bloqueado';
@@ -413,16 +445,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get fwupdDeviceFlagSupported => 'Suportado no servidor remoto';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => 'Requer um carregador de inicialização';
+  String get fwupdDeviceFlagNeedsBootloader =>
+      'Requer um carregador de inicialização';
 
   @override
   String get fwupdDeviceFlagRegistered => 'Registrado';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Requer uma reinicialização após a instalação';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Requer uma reinicialização após a instalação';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Requer um desligamento após a instalação';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Requer um desligamento após a instalação';
 
   @override
   String get fwupdDeviceFlagReported => 'Reportado ao servidor remoto';
@@ -431,61 +466,77 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get fwupdDeviceFlagNotified => 'O usuário foi notificado';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Instalar primeiro no dispositivo pai';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Instalar primeiro no dispositivo pai';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Está no modo bootloader';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'O hardware está aguardando para ser reconectado';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'O hardware está aguardando para ser reconectado';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Ignorar verificações de validação de segurança';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Ignorar verificações de validação de segurança';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Confiável';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Atualização de dispositivo precisa de ativação';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Atualização de dispositivo precisa de ativação';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'O dispositivo não reaparecerá após a conclusão da atualização';
+  String get fwupdDeviceFlagWillDisappear =>
+      'O dispositivo não reaparecerá após a conclusão da atualização';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'A verificação de hash criptográfico está disponível';
+  String get fwupdDeviceFlagCanVerify =>
+      'A verificação de hash criptográfico está disponível';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Atualizações de estágios do dispositivo';
+  String get fwupdDeviceFlagDualImage =>
+      'Atualizações de estágios do dispositivo';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'O dispositivo pode recuperar falhas de flash';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'O dispositivo pode recuperar falhas de flash';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'O dispositivo pode ser usado durante a atualização';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'O dispositivo pode ser usado durante a atualização';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'O firmware do dispositivo é necessário para verificar a versão';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'O firmware do dispositivo é necessário para verificar a versão';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'O dispositivo é necessário para instalar todas as versões fornecidas';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'O dispositivo é necessário para instalar todas as versões fornecidas';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'O dispositivo suporta a mudança para uma ramificação diferente de firmware';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'O dispositivo suporta a mudança para uma ramificação diferente de firmware';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'O dispositivo fará backup do firmware antes da instalação';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'O dispositivo fará backup do firmware antes da instalação';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Todos os dispositivos do mesmo tipo serão atualizados ao mesmo tempo';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Todos os dispositivos do mesmo tipo serão atualizados ao mesmo tempo';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Somente atualizações de versão são permitidas';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Somente atualizações de versão são permitidas';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'O dispositivo está inacessível';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Segredos de criptografia de disco completo podem ser invalidados durante a atualização';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Segredos de criptografia de disco completo podem ser invalidados durante a atualização';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Fim da vida útil';
@@ -500,13 +551,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get fwupdErrorInternal => 'Erro interno';
 
   @override
-  String get fwupdErrorVersionNewer => 'Versão de firmware mais recente instalada';
+  String get fwupdErrorVersionNewer =>
+      'Versão de firmware mais recente instalada';
 
   @override
   String get fwupdErrorVersionSame => 'Instalada a mesma versão de firmware';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Já definido para ser instalado offline';
+  String get fwupdErrorAlreadyPending =>
+      'Já definido para ser instalado offline';
 
   @override
   String get fwupdErrorAuthFailed => 'Falha ao obter autenticação';
@@ -521,7 +574,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get fwupdErrorInvalidFile => 'Formato de arquivo inválido';
 
   @override
-  String get fwupdErrorNotFound => 'Não existe nenhum dispositivo correspondente';
+  String get fwupdErrorNotFound =>
+      'Não existe nenhum dispositivo correspondente';
 
   @override
   String get fwupdErrorNothingToDo => 'Nada a fazer';
@@ -539,16 +593,20 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get fwupdErrorPermissionDenied => 'A permissão foi negada';
 
   @override
-  String get fwupdErrorBrokenSystem => 'O usuário configurou seu sistema de forma quebrada';
+  String get fwupdErrorBrokenSystem =>
+      'O usuário configurou seu sistema de forma quebrada';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'O nível da bateria do sistema é muito baixo';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'O nível da bateria do sistema é muito baixo';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'O usuário precisa executar uma ação para concluir a atualização';
+  String get fwupdErrorNeedsUserAction =>
+      'O usuário precisa executar uma ação para concluir a atualização';
 
   @override
-  String get fwupdErrorAuthExpired => 'Falha ao obter a autenticação porque as credenciais expiraram';
+  String get fwupdErrorAuthExpired =>
+      'Falha ao obter a autenticação porque as credenciais expiraram';
 
   @override
   String get fwupdErrorUnknown => 'Erro desconhecido';
@@ -617,7 +675,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get rebootNow => 'Reiniciar agora';
 
   @override
-  String get rebootConfirmMessage => 'Você deve reiniciar seu dispositivo para concluir a atualização. Certifique-se de que seu dispositivo esteja conectado ou totalmente carregado. Salve seus arquivos antes de reiniciar para evitar perda de dados.';
+  String get rebootConfirmMessage =>
+      'Você deve reiniciar seu dispositivo para concluir a atualização. Certifique-se de que seu dispositivo esteja conectado ou totalmente carregado. Salve seus arquivos antes de reiniciar para evitar perda de dados.';
 
   @override
   String get rebootConfirmTitle => 'Reinicie para concluir esta atualização';
@@ -651,7 +710,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   }
 
   @override
-  String get updateChecksumsInfo => 'Isso registrará os hashes criptográficos atuais conforme verificados.';
+  String get updateChecksumsInfo =>
+      'Isso registrará os hashes criptográficos atuais conforme verificados.';
 
   @override
   String get updateToLatest => 'Atualizar para o Mais Recente';

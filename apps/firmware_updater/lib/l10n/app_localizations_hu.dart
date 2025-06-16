@@ -9,13 +9,16 @@ class AppLocalizationsHu extends AppLocalizations {
   AppLocalizationsHu([String locale = 'hu']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Helyreállítási kulcsok nélkül elveszítheti az összes adatát';
+  String get affectsFdeWarningTitle =>
+      'Helyreállítási kulcsok nélkül elveszítheti az összes adatát';
 
   @override
-  String get affectsFdeWarningBody1 => 'Győződjön meg arról, hogy rendelkezik-e helyreállítási kulcsokkal az összes titkosított meghajtóhoz. Ezeket a belső vezérlőprogram frissítése után, a rendszerindításkor kell megadni.';
+  String get affectsFdeWarningBody1 =>
+      'Győződjön meg arról, hogy rendelkezik-e helyreállítási kulcsokkal az összes titkosított meghajtóhoz. Ezeket a belső vezérlőprogram frissítése után, a rendszerindításkor kell megadni.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Azért van szüksége helyreállítási kulcsokra, mert engedélyezte a hardveres titkosítást az Ubuntuban vagy a számítógépen lévő más operációs rendszerekben.';
+  String get affectsFdeWarningBody2 =>
+      'Azért van szüksége helyreállítási kulcsokra, mert engedélyezte a hardveres titkosítást az Ubuntuban vagy a számítógépen lévő más operációs rendszerekben.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Learn more';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Összes verzió';
@@ -33,7 +37,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get appTitle => 'Belsővezérlőprogram-frissítő';
 
   @override
-  String get batteryWarning => 'Figyelmeztetés: néhány eszközfrissítés csak külső tápellátás mellett érhető el!';
+  String get batteryWarning =>
+      'Figyelmeztetés: néhány eszközfrissítés csak külső tápellátás mellett érhető el!';
 
   @override
   String get checksum => 'Ellenőrzőösszeg';
@@ -48,7 +53,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get current => 'Jelenlegi';
 
   @override
-  String get deviceUnavailable => 'Az eszköz elérhetetlen lesz a művelet alatt.';
+  String get deviceUnavailable =>
+      'Az eszköz elérhetetlen lesz a művelet alatt.';
 
   @override
   String get deviceRequest => 'Eszközkérés';
@@ -74,7 +80,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get fwupdDeviceFlagOnlyOffline => 'A frissítés újraindítást igényel';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'A rendszer külső energiaforrást igényel';
+  String get fwupdDeviceFlagRequireAc =>
+      'A rendszer külső energiaforrást igényel';
 
   @override
   String get fwupdDeviceFlagLocked => 'Az eszköz zárolva van';
@@ -89,10 +96,12 @@ class AppLocalizationsHu extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Regisztrálva';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Újraindítást igényel a telepítés után';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Újraindítást igényel a telepítés után';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Leállítást igényel a telepítés után';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Leállítást igényel a telepítés után';
 
   @override
   String get fwupdDeviceFlagReported => 'Jelentve a távoli kiszolgálónak';
@@ -101,61 +110,76 @@ class AppLocalizationsHu extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'A felhasználó értesítve';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Telepítés először a szülő eszközre';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Telepítés először a szülő eszközre';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Rendszerbetöltő módban van';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'A hardver újracsatlakoztatásra vár';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'A hardver újracsatlakoztatásra vár';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Biztonsági ellenőrzések mellőzése';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Biztonsági ellenőrzések mellőzése';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Megbízható';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Az eszközfrissítés aktiválást igényel';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Az eszközfrissítés aktiválást igényel';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Az eszköz nem fog újra megjelenni a frissítés befejezése után';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Az eszköz nem fog újra megjelenni a frissítés befejezése után';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Kriptográfiaikivonat-ellenőrzés érhető el';
+  String get fwupdDeviceFlagCanVerify =>
+      'Kriptográfiaikivonat-ellenőrzés érhető el';
 
   @override
   String get fwupdDeviceFlagDualImage => 'Az eszköz szakaszosan frissít';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Az eszköz képes helyreállítani a beírási hibákat';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Az eszköz képes helyreállítani a beírási hibákat';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Az eszköz használható a frissítés ideje alatt';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Az eszköz használható a frissítés ideje alatt';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Az eszköz belső vezérlőprogramja szükséges a verzió-ellenőrzéshez';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Az eszköz belső vezérlőprogramja szükséges a verzió-ellenőrzéshez';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Eszköz szükséges az összes szolgáltatott kiadás telepítéséhez';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Eszköz szükséges az összes szolgáltatott kiadás telepítéséhez';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Az eszköz támogatja a belső vezérlőprogram különböző ágainak váltását';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Az eszköz támogatja a belső vezérlőprogram különböző ágainak váltását';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Az eszköz biztonsági mentést fog készíteni a belső vezérlőprogramról a telepítés előtt';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Az eszköz biztonsági mentést fog készíteni a belső vezérlőprogramról a telepítés előtt';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Az összes azonos típusú eszköz egyszerre lesz frissítve';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Az összes azonos típusú eszköz egyszerre lesz frissítve';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Csak verziófrissítések engedélyezettek';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Csak verziófrissítések engedélyezettek';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Az eszköz elérhetetlen';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'A teljes lemeztitkosítás titkai érvénytelenné válhatnak a frissítésekor';
+  String get fwupdDeviceFlagAffectsFde =>
+      'A teljes lemeztitkosítás titkai érvénytelenné válhatnak a frissítésekor';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Életciklus vége';
@@ -170,13 +194,16 @@ class AppLocalizationsHu extends AppLocalizations {
   String get fwupdErrorInternal => 'Belső hiba';
 
   @override
-  String get fwupdErrorVersionNewer => 'Újabb belsővezérlőprogram-verzió telepítve';
+  String get fwupdErrorVersionNewer =>
+      'Újabb belsővezérlőprogram-verzió telepítve';
 
   @override
-  String get fwupdErrorVersionSame => 'Azonos belsővezérlőprogram-verzió telepítve';
+  String get fwupdErrorVersionSame =>
+      'Azonos belsővezérlőprogram-verzió telepítve';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Már be van állítva kapcsolat nélküli frissítéshez';
+  String get fwupdErrorAlreadyPending =>
+      'Már be van állítva kapcsolat nélküli frissítéshez';
 
   @override
   String get fwupdErrorAuthFailed => 'Nem sikerült lekérni a hitelesítést';
@@ -209,16 +236,20 @@ class AppLocalizationsHu extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'A hozzáférés meg volt tagadva';
 
   @override
-  String get fwupdErrorBrokenSystem => 'A felhasználó hibásan állította be a rendszerét';
+  String get fwupdErrorBrokenSystem =>
+      'A felhasználó hibásan állította be a rendszerét';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'A rendszer akkumulátorszintje túl alacsony';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'A rendszer akkumulátorszintje túl alacsony';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'A felhasználónak műveletet kell végrehajtania a frissítés befejezéséhez';
+  String get fwupdErrorNeedsUserAction =>
+      'A felhasználónak műveletet kell végrehajtania a frissítés befejezéséhez';
 
   @override
-  String get fwupdErrorAuthExpired => 'Nem sikerült lekérni a hitelesítést, mivel a hitelesítési adatok lejártak';
+  String get fwupdErrorAuthExpired =>
+      'Nem sikerült lekérni a hitelesítést, mivel a hitelesítési adatok lejártak';
 
   @override
   String get fwupdErrorUnknown => 'Ismeretlen hiba';
@@ -245,7 +276,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get fwupdStatusDeviceVerify => 'Egy eszköz ellenőrzése (olvasása)';
 
   @override
-  String get fwupdStatusScheduling => 'Egy kapcsolat nélküli frissítés ütemezése';
+  String get fwupdStatusScheduling =>
+      'Egy kapcsolat nélküli frissítés ütemezése';
 
   @override
   String get fwupdStatusDownloading => 'Egy fájl letöltése folyamatban van';
@@ -269,7 +301,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get guid => 'GUID-ok';
 
   @override
-  String get installError => 'Nem sikerült telepíteni a belső vezérlőprogramot!';
+  String get installError =>
+      'Nem sikerült telepíteni a belső vezérlőprogramot!';
 
   @override
   String get noDevicesFound => 'Nem találhatók eszközök';
@@ -287,7 +320,8 @@ class AppLocalizationsHu extends AppLocalizations {
   String get rebootNow => 'Újraindítás most';
 
   @override
-  String get rebootConfirmMessage => 'Újra kell indítania az eszközt a frissítés befejezéséhez. Győződjön meg arról, hogy az eszköz be van-e dugva vagy teljesen fel van-e töltve. Mentse el a fájlokat az újraindítás előtt, hogy elkerülje az adatvesztést.';
+  String get rebootConfirmMessage =>
+      'Újra kell indítania az eszközt a frissítés befejezéséhez. Győződjön meg arról, hogy az eszköz be van-e dugva vagy teljesen fel van-e töltve. Mentse el a fájlokat az újraindítás előtt, hogy elkerülje az adatvesztést.';
 
   @override
   String get rebootConfirmTitle => 'Újraindítás a frissítés befejezéséhez';
@@ -321,7 +355,8 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Ez feljegyzi a jelenlegi kriptográfiai kivonatokat ellenőrzöttként.';
+  String get updateChecksumsInfo =>
+      'Ez feljegyzi a jelenlegi kriptográfiai kivonatokat ellenőrzöttként.';
 
   @override
   String get updateToLatest => 'Frissítés a legújabbra';

@@ -9,13 +9,16 @@ class AppLocalizationsGa extends AppLocalizations {
   AppLocalizationsGa([String locale = 'ga']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Seans go gcaillfidh tú do shonraí go léir gan eochracha athshlánaithe';
+  String get affectsFdeWarningTitle =>
+      'Seans go gcaillfidh tú do shonraí go léir gan eochracha athshlánaithe';
 
   @override
-  String get affectsFdeWarningBody1 => 'Cinntigh go bhfuil eochracha athshlánaithe agat le haghaidh do thiomáineann criptithe go léir. Beidh ort iad a chur isteach ar tosaithe tar éis an firmware a nuashonrú.';
+  String get affectsFdeWarningBody1 =>
+      'Cinntigh go bhfuil eochracha athshlánaithe agat le haghaidh do thiomáineann criptithe go léir. Beidh ort iad a chur isteach ar tosaithe tar éis an firmware a nuashonrú.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Teastaíonn eochracha athshlánaithe uait toisc go bhfuil criptiú crua-earraí cumasaithe agat in Ubuntu nó i gcórais oibriúcháin eile ar an ríomhaire seo.';
+  String get affectsFdeWarningBody2 =>
+      'Teastaíonn eochracha athshlánaithe uait toisc go bhfuil criptiú crua-earraí cumasaithe agat in Ubuntu nó i gcórais oibriúcháin eile ar an ríomhaire seo.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsGa extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Foghlaim níos mó';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Gach Leagan';
@@ -33,7 +37,8 @@ class AppLocalizationsGa extends AppLocalizations {
   String get appTitle => 'Nuashonróir Dochtearraí';
 
   @override
-  String get batteryWarning => 'Rabhadh: d\'fhéadfadh roinnt nuashonruithe gléis a bheith ar fáil ach amháin ar chumhacht sheachtrach!';
+  String get batteryWarning =>
+      'Rabhadh: d\'fhéadfadh roinnt nuashonruithe gléis a bheith ar fáil ach amháin ar chumhacht sheachtrach!';
 
   @override
   String get checksum => 'Seiceálacha';
@@ -48,7 +53,8 @@ class AppLocalizationsGa extends AppLocalizations {
   String get current => 'Reatha';
 
   @override
-  String get deviceUnavailable => 'Ní bheidh an gléas ar fáil le linn an ghnímh seo.';
+  String get deviceUnavailable =>
+      'Ní bheidh an gléas ar fáil le linn an ghnímh seo.';
 
   @override
   String get deviceRequest => 'Iarratas ar ghléas';
@@ -71,10 +77,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get fwupdDeviceFlagUpdatable => 'In-athnuaite';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Tá athbhútáil de dhíth chun nuashonrú a dhéanamh';
+  String get fwupdDeviceFlagOnlyOffline =>
+      'Tá athbhútáil de dhíth chun nuashonrú a dhéanamh';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Éilíonn an córas foinse cumhachta seachtrach';
+  String get fwupdDeviceFlagRequireAc =>
+      'Éilíonn an córas foinse cumhachta seachtrach';
 
   @override
   String get fwupdDeviceFlagLocked => 'Tá an gléas faoi ghlas';
@@ -89,10 +97,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Cláraithe';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Riachtanais atosaigh tar éis a shuiteáil';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Riachtanais atosaigh tar éis a shuiteáil';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Múchadh riachtanais tar éis suiteála';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Múchadh riachtanais tar éis suiteála';
 
   @override
   String get fwupdDeviceFlagReported => 'Tuairiscíodh don fhreastalaí cianda';
@@ -101,61 +111,76 @@ class AppLocalizationsGa extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Cuireadh an t-úsáideoir ar an eolas';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Suiteáil an máthairghléas ar dtús';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Suiteáil an máthairghléas ar dtús';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'An bhfuil i mód bootloader';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Tá crua-earraí ag fanacht le hathphlugáil';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Tá crua-earraí ag fanacht le hathphlugáil';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Déan neamhaird de sheiceálacha sábháilteachta bailíochtaithe';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Déan neamhaird de sheiceálacha sábháilteachta bailíochtaithe';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Iontaofa';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Gníomhachtú de dhíth ar nuashonrú gléis';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Gníomhachtú de dhíth ar nuashonrú gléis';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Ní thaispeánfar an gléas arís tar éis don nuashonrú a bheith críochnaithe';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Ní thaispeánfar an gléas arís tar éis don nuashonrú a bheith críochnaithe';
 
   @override
   String get fwupdDeviceFlagCanVerify => 'Tá fíorú cripteagrafach hash ar fáil';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Nuashonruithe ar chéimeanna an ghléis';
+  String get fwupdDeviceFlagDualImage =>
+      'Nuashonruithe ar chéimeanna an ghléis';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Is féidir le gléas a ghnóthú teipeanna flash';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Is féidir le gléas a ghnóthú teipeanna flash';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Tá an gléas inúsáidte ar feadh ré an nuashonraithe';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Tá an gléas inúsáidte ar feadh ré an nuashonraithe';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Ní mór seiceáil leagain a bheith ag firmware gléis';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Ní mór seiceáil leagain a bheith ag firmware gléis';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Ní mór don ghléas gach eisiúint a chuirtear ar fáil a shuiteáil';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Ní mór don ghléas gach eisiúint a chuirtear ar fáil a shuiteáil';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Tacaíonn gléas aistriú chuig brainse eile de firmware';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Tacaíonn gléas aistriú chuig brainse eile de firmware';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Déanfaidh an gléas firmware cúltaca sula suiteálfar é';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Déanfaidh an gléas firmware cúltaca sula suiteálfar é';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Déanfar gach feiste den chineál céanna a nuashonrú ag an am céanna';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Déanfar gach feiste den chineál céanna a nuashonrú ag an am céanna';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Ní cheadaítear ach uasghrádú leagain';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Ní cheadaítear ach uasghrádú leagain';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Ní féidir an gléas a úsáid';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Is féidir rúin chriptithe diosca iomlána a chur ó bhail agus iad á nuashonrú';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Is féidir rúin chriptithe diosca iomlána a chur ó bhail agus iad á nuashonrú';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Deireadh a shaoil';
@@ -209,16 +234,20 @@ class AppLocalizationsGa extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Diúltaíodh cead';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Tá a gcóras cumraithe ag an úsáideoir ar bhealach briste';
+  String get fwupdErrorBrokenSystem =>
+      'Tá a gcóras cumraithe ag an úsáideoir ar bhealach briste';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Tá leibhéal ceallraí an chórais ró-íseal';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Tá leibhéal ceallraí an chórais ró-íseal';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Ní mór don úsáideoir gníomh a dhéanamh chun an nuashonrú a chur i gcrích';
+  String get fwupdErrorNeedsUserAction =>
+      'Ní mór don úsáideoir gníomh a dhéanamh chun an nuashonrú a chur i gcrích';
 
   @override
-  String get fwupdErrorAuthExpired => 'Theip ar údarú a fháil toisc go bhfuil dintiúir imithe in éag';
+  String get fwupdErrorAuthExpired =>
+      'Theip ar údarú a fháil toisc go bhfuil dintiúir imithe in éag';
 
   @override
   String get fwupdErrorUnknown => 'Earráid anaithnid';
@@ -287,10 +316,12 @@ class AppLocalizationsGa extends AppLocalizations {
   String get rebootNow => 'Atosaigh anois';
 
   @override
-  String get rebootConfirmMessage => 'Ní mór duit do ghléas a atosú chun an nuashonrú a chomhlánú. Cinntigh go bhfuil do ghléas plugáilte isteach nó luchtaithe go hiomlán. Sábháil do chomhaid sula n-atosóidh tú chun nach gcaillfidh tú sonraí.';
+  String get rebootConfirmMessage =>
+      'Ní mór duit do ghléas a atosú chun an nuashonrú a chomhlánú. Cinntigh go bhfuil do ghléas plugáilte isteach nó luchtaithe go hiomlán. Sábháil do chomhaid sula n-atosóidh tú chun nach gcaillfidh tú sonraí.';
 
   @override
-  String get rebootConfirmTitle => 'Atosaigh chun an nuashonrú seo a chur i gcrích';
+  String get rebootConfirmTitle =>
+      'Atosaigh chun an nuashonrú seo a chur i gcrích';
 
   @override
   String get reinstall => 'Athshuiteáil';
@@ -321,7 +352,8 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Déanfaidh sé seo taifead ar na hashes cripteagrafacha reatha mar a fhíoraítear iad.';
+  String get updateChecksumsInfo =>
+      'Déanfaidh sé seo taifead ar na hashes cripteagrafacha reatha mar a fhíoraítear iad.';
 
   @override
   String get updateToLatest => 'Nuashonrú ar an gceann is déanaí';
