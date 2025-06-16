@@ -9,13 +9,16 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Vous risquez de perdre toutes vos données sans clés de récupération';
+  String get affectsFdeWarningTitle =>
+      'Vous risquez de perdre toutes vos données sans clés de récupération';
 
   @override
-  String get affectsFdeWarningBody1 => 'Assurez-vous d’avoir les clés de récupération pour tous vos disques chiffrés. Vous devrez les entrer au démarrage après la mise à jour du micrologiciel.';
+  String get affectsFdeWarningBody1 =>
+      'Assurez-vous d’avoir les clés de récupération pour tous vos disques chiffrés. Vous devrez les entrer au démarrage après la mise à jour du micrologiciel.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Vous avez besoin de clés de récupération parce que vous avez activé le chiffrement sur le matériel dans Ubuntu ou d’autres systèmes d’exploitation sur cet ordinateur.';
+  String get affectsFdeWarningBody2 =>
+      'Vous avez besoin de clés de récupération parce que vous avez activé le chiffrement sur le matériel dans Ubuntu ou d’autres systèmes d’exploitation sur cet ordinateur.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get affectsFdeLinkLabel => 'En savoir plus';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Toutes les versions';
@@ -33,7 +37,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get appTitle => 'Actualiseur de micrologiciel';
 
   @override
-  String get batteryWarning => 'Attention : certaines mises à jour d\'appareils peuvent être disponibles uniquement sur alimentation externe !';
+  String get batteryWarning =>
+      'Attention : certaines mises à jour d\'appareils peuvent être disponibles uniquement sur alimentation externe !';
 
   @override
   String get checksum => 'Somme de contrôle';
@@ -48,7 +53,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get current => 'Actuel';
 
   @override
-  String get deviceUnavailable => 'Cet appareil sera indisponible pendant cette action.';
+  String get deviceUnavailable =>
+      'Cet appareil sera indisponible pendant cette action.';
 
   @override
   String get deviceRequest => 'Demande d\'appareil';
@@ -71,28 +77,34 @@ class AppLocalizationsFr extends AppLocalizations {
   String get fwupdDeviceFlagUpdatable => 'Peut être mis à jour';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'La mise à jour requiert un redémarrage';
+  String get fwupdDeviceFlagOnlyOffline =>
+      'La mise à jour requiert un redémarrage';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Le système nécessite une source d’alimentation externe';
+  String get fwupdDeviceFlagRequireAc =>
+      'Le système nécessite une source d’alimentation externe';
 
   @override
   String get fwupdDeviceFlagLocked => 'L’appareil est verrouillé';
 
   @override
-  String get fwupdDeviceFlagSupported => 'Pris en charge sur le serveur distant';
+  String get fwupdDeviceFlagSupported =>
+      'Pris en charge sur le serveur distant';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => 'Nécessite un chargeur de démarrage';
+  String get fwupdDeviceFlagNeedsBootloader =>
+      'Nécessite un chargeur de démarrage';
 
   @override
   String get fwupdDeviceFlagRegistered => 'Enregistré';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Nécessite un redémarrage après installation';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Nécessite un redémarrage après installation';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Nécessite une extinction après installation';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Nécessite une extinction après installation';
 
   @override
   String get fwupdDeviceFlagReported => 'Signalé au serveur distant';
@@ -101,61 +113,77 @@ class AppLocalizationsFr extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Utilisateur notifié';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Installer sur l’appareil parent en premier';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Installer sur l’appareil parent en premier';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Est en mode chargeur de démarrage';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Le matériel attend d’être rebranché';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Le matériel attend d’être rebranché';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Ignorer les contrôles de sécurité de la validation';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Ignorer les contrôles de sécurité de la validation';
 
   @override
   String get fwupdDeviceFlagTrusted => 'De confiance';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'La mise à jour de l’appareil nécessite une activation';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'La mise à jour de l’appareil nécessite une activation';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'L’appareil ne ré-apparaîtra pas après la mise à jour';
+  String get fwupdDeviceFlagWillDisappear =>
+      'L’appareil ne ré-apparaîtra pas après la mise à jour';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'La vérification par hachage cryptographique est disponible';
+  String get fwupdDeviceFlagCanVerify =>
+      'La vérification par hachage cryptographique est disponible';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Mises à jour des étapes de l\'appareil';
+  String get fwupdDeviceFlagDualImage =>
+      'Mises à jour des étapes de l\'appareil';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'L\'appareil peut se récupérer si panne de flashage';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'L\'appareil peut se récupérer si panne de flashage';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'L’appareil est utilisable durant la mise à jour';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'L’appareil est utilisable durant la mise à jour';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Le micrologiciel de l\'appareil doit faire l\'objet d\'une vérification de version';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Le micrologiciel de l\'appareil doit faire l\'objet d\'une vérification de version';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'L\'appareil est requis pour installer toutes les versions fournies';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'L\'appareil est requis pour installer toutes les versions fournies';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'L\'appareil prend en charge le passage à une autre branche de micrologiciel';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'L\'appareil prend en charge le passage à une autre branche de micrologiciel';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'L\'appareil sauvegardera le micrologiciel avant l\'installation';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'L\'appareil sauvegardera le micrologiciel avant l\'installation';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Tous les appareils du même type seront mis à jour en même temps';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Tous les appareils du même type seront mis à jour en même temps';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Seules les versions plus récentes sont autorisées';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Seules les versions plus récentes sont autorisées';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'L’appareil est inaccessible';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Les secrets de chiffrement complet du disque risquent d\'être invalidés lors de la mise à jour';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Les secrets de chiffrement complet du disque risquent d\'être invalidés lors de la mise à jour';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Fin de vie';
@@ -170,16 +198,20 @@ class AppLocalizationsFr extends AppLocalizations {
   String get fwupdErrorInternal => 'Erreur interne';
 
   @override
-  String get fwupdErrorVersionNewer => 'Version du micrologiciel plus récente installée';
+  String get fwupdErrorVersionNewer =>
+      'Version du micrologiciel plus récente installée';
 
   @override
-  String get fwupdErrorVersionSame => 'Installé la même version du micrologiciel';
+  String get fwupdErrorVersionSame =>
+      'Installé la même version du micrologiciel';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Déjà configuré pour être installé hors ligne';
+  String get fwupdErrorAlreadyPending =>
+      'Déjà configuré pour être installé hors ligne';
 
   @override
-  String get fwupdErrorAuthFailed => 'Échec de l\'obtention de l\'authentification';
+  String get fwupdErrorAuthFailed =>
+      'Échec de l\'obtention de l\'authentification';
 
   @override
   String get fwupdErrorRead => 'Échec de lecture depuis l\'appareil';
@@ -209,16 +241,20 @@ class AppLocalizationsFr extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Autorisation a été refusée';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Utilisateur a configuré son système de manière incorrecte';
+  String get fwupdErrorBrokenSystem =>
+      'Utilisateur a configuré son système de manière incorrecte';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Niveau batterie système trop faible';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Niveau batterie système trop faible';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Utilisateur doit effectuer action pour terminer mise à jour';
+  String get fwupdErrorNeedsUserAction =>
+      'Utilisateur doit effectuer action pour terminer mise à jour';
 
   @override
-  String get fwupdErrorAuthExpired => 'Échec d\'obtention d\'authentification car informations d\'identification expirées';
+  String get fwupdErrorAuthExpired =>
+      'Échec d\'obtention d\'authentification car informations d\'identification expirées';
 
   @override
   String get fwupdErrorUnknown => 'Erreur inconnue';
@@ -248,7 +284,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get fwupdStatusScheduling => 'Planification de mise à jour hors ligne';
 
   @override
-  String get fwupdStatusDownloading => 'Un fichier est en cours de téléchargement';
+  String get fwupdStatusDownloading =>
+      'Un fichier est en cours de téléchargement';
 
   @override
   String get fwupdStatusDeviceRead => 'Lecture depuis un appareil';
@@ -287,7 +324,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get rebootNow => 'Redémarrer maintenant';
 
   @override
-  String get rebootConfirmMessage => 'Vous devez redémarrer votre appareil pour terminer la mise à jour. Assurez-vous que votre appareil est branché ou complètement chargé. Enregistrez vos fichiers avant de redémarrer pour éviter de perdre des données.';
+  String get rebootConfirmMessage =>
+      'Vous devez redémarrer votre appareil pour terminer la mise à jour. Assurez-vous que votre appareil est branché ou complètement chargé. Enregistrez vos fichiers avant de redémarrer pour éviter de perdre des données.';
 
   @override
   String get rebootConfirmTitle => 'Redémarrez pour finir cette mise à jour';
@@ -321,7 +359,8 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Cela enregistrera les hachages cryptographiques actuels tels que vérifiés.';
+  String get updateChecksumsInfo =>
+      'Cela enregistrera les hachages cryptographiques actuels tels que vérifiés.';
 
   @override
   String get updateToLatest => 'Mettre à jour vers la version la plus récente';

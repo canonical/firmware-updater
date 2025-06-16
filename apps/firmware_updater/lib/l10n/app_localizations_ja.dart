@@ -9,13 +9,16 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'You may lose all your data without recovery keys';
+  String get affectsFdeWarningTitle =>
+      'You may lose all your data without recovery keys';
 
   @override
-  String get affectsFdeWarningBody1 => 'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.';
+  String get affectsFdeWarningBody1 =>
+      'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.';
 
   @override
-  String get affectsFdeWarningBody2 => 'You need to provide a recovery key because you enabled hardware-backed encryption.';
+  String get affectsFdeWarningBody2 =>
+      'You need to provide a recovery key because you enabled hardware-backed encryption.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Learn more';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'すべてのバージョン';
@@ -137,25 +141,31 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fwupdDeviceFlagVersionCheckRequired => '';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Device is required to install all provided releases';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Device is required to install all provided releases';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Device supports switching to a different branch of firmware';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Device supports switching to a different branch of firmware';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Device will backup firmware before installing';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Device will backup firmware before installing';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'All devices of the same type will be updated at the same time';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'All devices of the same type will be updated at the same time';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Only version upgrades are allowed';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Only version upgrades are allowed';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Device is unreachable';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Full disk encryption secrets may be invalidated when updating';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Full disk encryption secrets may be invalidated when updating';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'End of life';
@@ -209,16 +219,20 @@ class AppLocalizationsJa extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Permission was denied';
 
   @override
-  String get fwupdErrorBrokenSystem => 'User has configured their system in a broken way';
+  String get fwupdErrorBrokenSystem =>
+      'User has configured their system in a broken way';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'The system battery level is too low';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'The system battery level is too low';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'User needs to do an action to complete the update';
+  String get fwupdErrorNeedsUserAction =>
+      'User needs to do an action to complete the update';
 
   @override
-  String get fwupdErrorAuthExpired => 'Failed to get auth as credentials have expired';
+  String get fwupdErrorAuthExpired =>
+      'Failed to get auth as credentials have expired';
 
   @override
   String get fwupdErrorUnknown => 'Unknown error';
@@ -287,7 +301,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get rebootNow => '今すぐ再起動';
 
   @override
-  String get rebootConfirmMessage => 'デバイスのアップデートを完了するには再起動が必要です。デバイスに電力を供給するか、満タンまで充電してください。再起動前にファイルを保存すると、データを失うことはないでしょう。';
+  String get rebootConfirmMessage =>
+      'デバイスのアップデートを完了するには再起動が必要です。デバイスに電力を供給するか、満タンまで充電してください。再起動前にファイルを保存すると、データを失うことはないでしょう。';
 
   @override
   String get rebootConfirmTitle => 'アップデートを完了するために再起動';

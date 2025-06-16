@@ -9,13 +9,16 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Без ключей восстановления вы можете потерять все свои данные';
+  String get affectsFdeWarningTitle =>
+      'Без ключей восстановления вы можете потерять все свои данные';
 
   @override
-  String get affectsFdeWarningBody1 => 'Убедитесь, что у вас есть ключи восстановления для всех зашифрованных дисков. Вам нужно будет ввести их при загрузке после обновлений прошивки.';
+  String get affectsFdeWarningBody1 =>
+      'Убедитесь, что у вас есть ключи восстановления для всех зашифрованных дисков. Вам нужно будет ввести их при загрузке после обновлений прошивки.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Вам необходимы ключи восстановления, потому что вы включили аппаратное шифрование в Ubuntu или других операционных системах на этом компьютере.';
+  String get affectsFdeWarningBody2 =>
+      'Вам необходимы ключи восстановления, потому что вы включили аппаратное шифрование в Ubuntu или других операционных системах на этом компьютере.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Узнать больше';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Все версии';
@@ -33,7 +37,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get appTitle => 'Обновление прошивок';
 
   @override
-  String get batteryWarning => 'Внимание: некоторые обновления устройств могут быть доступны только при внешнем питании!';
+  String get batteryWarning =>
+      'Внимание: некоторые обновления устройств могут быть доступны только при внешнем питании!';
 
   @override
   String get checksum => 'Контрольная сумма';
@@ -48,7 +53,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get current => 'Текущая';
 
   @override
-  String get deviceUnavailable => 'Во время этого действия устройство будет недоступно.';
+  String get deviceUnavailable =>
+      'Во время этого действия устройство будет недоступно.';
 
   @override
   String get deviceRequest => 'Запрос устройства';
@@ -74,7 +80,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fwupdDeviceFlagOnlyOffline => 'Обновление требует перезагрузки';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Система требует внешнего источника питания';
+  String get fwupdDeviceFlagRequireAc =>
+      'Система требует внешнего источника питания';
 
   @override
   String get fwupdDeviceFlagLocked => 'Устройство заблокировано';
@@ -89,10 +96,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Зарегистрировано';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Требуется перезагрузка после установки';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Требуется перезагрузка после установки';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Требуется выключение после установки';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Требуется выключение после установки';
 
   @override
   String get fwupdDeviceFlagReported => 'Сообщается на удаленный сервер';
@@ -101,61 +110,76 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Пользователь был уведомлен';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Сначала устанавливается на родительское устройство';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Сначала устанавливается на родительское устройство';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Находится в режиме загрузчика';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Оборудование ожидает повторного подсоединения';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Оборудование ожидает повторного подсоединения';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Игнорировать проверки безопасности при валидации';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Игнорировать проверки безопасности при валидации';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Доверено';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Обновление устройства требует активации';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Обновление устройства требует активации';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Устройство не появляется снова после завершения обновления';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Устройство не появляется снова после завершения обновления';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Доступна криптографическая проверка хэша';
+  String get fwupdDeviceFlagCanVerify =>
+      'Доступна криптографическая проверка хэша';
 
   @override
   String get fwupdDeviceFlagDualImage => 'Обновление этапов устройства';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Устройство может восстанавливать неисправности флеш-памяти';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Устройство может восстанавливать неисправности флеш-памяти';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Устройство можно использовать в течение всего периода обновления';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Устройство можно использовать в течение всего периода обновления';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Прошивка устройства должна иметь проверку версии';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Прошивка устройства должна иметь проверку версии';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Устройство необходимо для установки всех представленных выпусков';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Устройство необходимо для установки всех представленных выпусков';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Устройство поддерживает переключение на другую ветвь прошивки';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Устройство поддерживает переключение на другую ветвь прошивки';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Устройство создаст резервную копию прошивки перед установкой';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Устройство создаст резервную копию прошивки перед установкой';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Все устройства одного типа будут обновлены одновременно';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Все устройства одного типа будут обновлены одновременно';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Разрешено только обновление версий';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Разрешено только обновление версий';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Устройство недоступно';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Секретность полного шифрования диска может быть недействительна при обновлении';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Секретность полного шифрования диска может быть недействительна при обновлении';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Конец срока службы';
@@ -164,13 +188,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fwupdDeviceFlagSignedPayload => 'Подписанная рабочая нагрузка';
 
   @override
-  String get fwupdDeviceFlagUnsignedPayload => 'Не подписанная рабочая нагрузка';
+  String get fwupdDeviceFlagUnsignedPayload =>
+      'Не подписанная рабочая нагрузка';
 
   @override
   String get fwupdErrorInternal => 'Внутренняя ошибка';
 
   @override
-  String get fwupdErrorVersionNewer => 'Установлена более новая версия прошивки';
+  String get fwupdErrorVersionNewer =>
+      'Установлена более новая версия прошивки';
 
   @override
   String get fwupdErrorVersionSame => 'Установлена та же версия прошивки';
@@ -209,16 +235,20 @@ class AppLocalizationsRu extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'В разрешении было отказано';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Пользователь неправильно настроил свою систему';
+  String get fwupdErrorBrokenSystem =>
+      'Пользователь неправильно настроил свою систему';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Уровень заряда батареи системы слишком низкий';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Уровень заряда батареи системы слишком низкий';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Пользователю необходимо выполнить действие для завершения обновления';
+  String get fwupdErrorNeedsUserAction =>
+      'Пользователю необходимо выполнить действие для завершения обновления';
 
   @override
-  String get fwupdErrorAuthExpired => 'Не удалось получить авторизацию, так как срок действия учетных данных истек';
+  String get fwupdErrorAuthExpired =>
+      'Не удалось получить авторизацию, так как срок действия учетных данных истек';
 
   @override
   String get fwupdErrorUnknown => 'Неизвестная ошибка';
@@ -287,7 +317,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get rebootNow => 'Перезагрузить сейчас';
 
   @override
-  String get rebootConfirmMessage => 'Для завершения обновления необходимо перезагрузить устройство. Убедитесь, что устройство подключено к сети или полностью заряжено. Сохраните файлы перед перезагрузкой, чтобы избежать потери данных.';
+  String get rebootConfirmMessage =>
+      'Для завершения обновления необходимо перезагрузить устройство. Убедитесь, что устройство подключено к сети или полностью заряжено. Сохраните файлы перед перезагрузкой, чтобы избежать потери данных.';
 
   @override
   String get rebootConfirmTitle => 'Перезагрузите, чтобы завершить обновление';
@@ -321,7 +352,8 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'При этом будут записаны текущие проверенные криптографические хэши.';
+  String get updateChecksumsInfo =>
+      'При этом будут записаны текущие проверенные криптографические хэши.';
 
   @override
   String get updateToLatest => 'Обновить до последней версии';

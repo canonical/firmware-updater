@@ -12,10 +12,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get affectsFdeWarningTitle => '복구 키가 없으면 저장된 자료를 모두 잃게 됩니다';
 
   @override
-  String get affectsFdeWarningBody1 => '모든 암호화된 드라이브에 대해 복구 키를 보관하고 있는지 확인하십시오. 펌웨어를 업데이트한 후에 부팅 시 복구 키를 입력해야 합니다.';
+  String get affectsFdeWarningBody1 =>
+      '모든 암호화된 드라이브에 대해 복구 키를 보관하고 있는지 확인하십시오. 펌웨어를 업데이트한 후에 부팅 시 복구 키를 입력해야 합니다.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Ubuntu나 이 컴퓨터에 있는 다른 운영 체제에서 하드웨어 기반 암호화를 활성화하였기 때문에 복구 키가 필요합니다.';
+  String get affectsFdeWarningBody2 =>
+      'Ubuntu나 이 컴퓨터에 있는 다른 운영 체제에서 하드웨어 기반 암호화를 활성화하였기 때문에 복구 키가 필요합니다.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +26,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Learn more';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => '모든 버전';
@@ -287,7 +290,8 @@ class AppLocalizationsKo extends AppLocalizations {
   String get rebootNow => '지금 다시 시작';
 
   @override
-  String get rebootConfirmMessage => '업데이트를 완료하려면 반드시 장치를 다시 시작해야 합니다. 장치에 플러그가 연결되어 있거나 완전히 충전되어 있는지 확인하십시오. 데이터 손실을 방지하려면 다시 시작하기 전 파일을 저장하십시오.';
+  String get rebootConfirmMessage =>
+      '업데이트를 완료하려면 반드시 장치를 다시 시작해야 합니다. 장치에 플러그가 연결되어 있거나 완전히 충전되어 있는지 확인하십시오. 데이터 손실을 방지하려면 다시 시작하기 전 파일을 저장하십시오.';
 
   @override
   String get rebootConfirmTitle => '업데이트 완료를 위해 다시 시작';

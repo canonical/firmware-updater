@@ -9,13 +9,16 @@ class AppLocalizationsEo extends AppLocalizations {
   AppLocalizationsEo([String locale = 'eo']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Vi eble perdos ĉiom da datenoj sen restaŭra ŝlosilo';
+  String get affectsFdeWarningTitle =>
+      'Vi eble perdos ĉiom da datenoj sen restaŭra ŝlosilo';
 
   @override
-  String get affectsFdeWarningBody1 => 'Certigu, ke vi havas restaŭrajn ŝlosilojn por ĉiuj el viaj ĉifritaj diskoj. Vi devos tajpi ilin dum startado post ĝisdatigo de mikroprogramo.';
+  String get affectsFdeWarningBody1 =>
+      'Certigu, ke vi havas restaŭrajn ŝlosilojn por ĉiuj el viaj ĉifritaj diskoj. Vi devos tajpi ilin dum startado post ĝisdatigo de mikroprogramo.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Restaŭraj ŝlosiloj necesas, ĉar vi ŝaltis aparatan ĉifradon en Ubuntu aŭ alia mastruma sistemo sur ĉi tiu komputilo.';
+  String get affectsFdeWarningBody2 =>
+      'Restaŭraj ŝlosiloj necesas, ĉar vi ŝaltis aparatan ĉifradon en Ubuntu aŭ alia mastruma sistemo sur ĉi tiu komputilo.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsEo extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Lerni plu';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Ĉiuj versioj';
@@ -33,7 +37,8 @@ class AppLocalizationsEo extends AppLocalizations {
   String get appTitle => 'Ĝisdatigilo de mikroprogramoj';
 
   @override
-  String get batteryWarning => 'Averto: kelkaj aparataj ĝisdatigoj estas nur disponeblaj kun ekstera energifonto!';
+  String get batteryWarning =>
+      'Averto: kelkaj aparataj ĝisdatigoj estas nur disponeblaj kun ekstera energifonto!';
 
   @override
   String get checksum => 'Kontrolsumo';
@@ -74,7 +79,8 @@ class AppLocalizationsEo extends AppLocalizations {
   String get fwupdDeviceFlagOnlyOffline => 'La ĝisdatigo postulas restarton';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'La sistemo postulas eksteran energifonton';
+  String get fwupdDeviceFlagRequireAc =>
+      'La sistemo postulas eksteran energifonton';
 
   @override
   String get fwupdDeviceFlagLocked => 'La aparato estas ŝlosita';
@@ -101,7 +107,8 @@ class AppLocalizationsEo extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'La uzanto estis sciigita';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Unue instalu al patra aparato';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Unue instalu al patra aparato';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'En praŝargila reĝimo';
@@ -110,52 +117,65 @@ class AppLocalizationsEo extends AppLocalizations {
   String get fwupdDeviceFlagWaitForReplug => 'Aparato atendas rekonekton';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Ignori sekurigajn kontrolojn pri valideco';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Ignori sekurigajn kontrolojn pri valideco';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Fidata';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Aparata ĝisdatigo postulas aktivigon';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Aparata ĝisdatigo postulas aktivigon';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'La aparato ne reaperos post ĝisdatigo';
+  String get fwupdDeviceFlagWillDisappear =>
+      'La aparato ne reaperos post ĝisdatigo';
 
   @override
   String get fwupdDeviceFlagCanVerify => 'Eblas kontroli ĉifran haketaĵon';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'La aparato subtenas instalon sen tuja aktualigo de la ĝisdatigo';
+  String get fwupdDeviceFlagDualImage =>
+      'La aparato subtenas instalon sen tuja aktualigo de la ĝisdatigo';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'La aparato povas restaŭri sin post malsukcesa instalo';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'La aparato povas restaŭri sin post malsukcesa instalo';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'La aparato estas uzebla dum ĝisdatigado';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'La aparato estas uzebla dum ĝisdatigado';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'La aparata mikroprogramo devas havi versian kontrolon';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'La aparata mikroprogramo devas havi versian kontrolon';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'La aparato postulas instali ĉiujn provizitajn eldonojn';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'La aparato postulas instali ĉiujn provizitajn eldonojn';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'La aparato permesas uzi alian branĉon de mikroprogramo';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'La aparato permesas uzi alian branĉon de mikroprogramo';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Aparato faros savkopion de mikroprogramo antaŭ instalo';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Aparato faros savkopion de mikroprogramo antaŭ instalo';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Ĉiuj aparatoj de tiu tipo estos ĝisdatigitaj samtempe';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Ĉiuj aparatoj de tiu tipo estos ĝisdatigitaj samtempe';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Nur versiaj ĝisdatigoj estas permesataj';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Nur versiaj ĝisdatigoj estas permesataj';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'La aparato ne estas atingebla';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Ĝisdatigo eble malvalidigos sekretojn pri plendiska ĉifrado';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Ĝisdatigo eble malvalidigos sekretojn pri plendiska ĉifrado';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Fino de vivo';
@@ -170,13 +190,16 @@ class AppLocalizationsEo extends AppLocalizations {
   String get fwupdErrorInternal => 'Interna eraro';
 
   @override
-  String get fwupdErrorVersionNewer => 'Instalis pli novan version de mikroprogramo';
+  String get fwupdErrorVersionNewer =>
+      'Instalis pli novan version de mikroprogramo';
 
   @override
-  String get fwupdErrorVersionSame => 'Instalis la saman version de mikroprogramo';
+  String get fwupdErrorVersionSame =>
+      'Instalis la saman version de mikroprogramo';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Jam ekzistas plano instali senkonekte';
+  String get fwupdErrorAlreadyPending =>
+      'Jam ekzistas plano instali senkonekte';
 
   @override
   String get fwupdErrorAuthFailed => 'Malsukcesis aŭtentikigo';
@@ -212,13 +235,16 @@ class AppLocalizationsEo extends AppLocalizations {
   String get fwupdErrorBrokenSystem => 'La uzanto misagordis sian sistemon';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'La sistema baterio estas tro malplena';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'La sistema baterio estas tro malplena';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'La uzanto devas fari ion por kompletigi la ĝisdatigon';
+  String get fwupdErrorNeedsUserAction =>
+      'La uzanto devas fari ion por kompletigi la ĝisdatigon';
 
   @override
-  String get fwupdErrorAuthExpired => 'Malsukcesis aŭtentigi pro eksvalidiĝinta akreditilo';
+  String get fwupdErrorAuthExpired =>
+      'Malsukcesis aŭtentigi pro eksvalidiĝinta akreditilo';
 
   @override
   String get fwupdErrorUnknown => 'Nekonata eraro';
@@ -287,10 +313,12 @@ class AppLocalizationsEo extends AppLocalizations {
   String get rebootNow => 'Restartigi nun';
 
   @override
-  String get rebootConfirmMessage => 'Vi devas restartigi vian aparaton por kompletigi la ĝisdatigon. Certigu, ke via aparato estas konektita al energifonto aŭ plene ŝargita. Konservu viajn dosierojn antaŭ la restarto por ne perdi datenojn.';
+  String get rebootConfirmMessage =>
+      'Vi devas restartigi vian aparaton por kompletigi la ĝisdatigon. Certigu, ke via aparato estas konektita al energifonto aŭ plene ŝargita. Konservu viajn dosierojn antaŭ la restarto por ne perdi datenojn.';
 
   @override
-  String get rebootConfirmTitle => 'Restartigi por kompletigi ĉi tiun ĝisdatigon';
+  String get rebootConfirmTitle =>
+      'Restartigi por kompletigi ĉi tiun ĝisdatigon';
 
   @override
   String get reinstall => 'Reinstali';
@@ -321,7 +349,8 @@ class AppLocalizationsEo extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Tio registras la aktualajn ĉifrajn haketaĵojn kiel konfirmitajn.';
+  String get updateChecksumsInfo =>
+      'Tio registras la aktualajn ĉifrajn haketaĵojn kiel konfirmitajn.';
 
   @override
   String get updateToLatest => 'Ĝisdatigi al la plej nova versio';

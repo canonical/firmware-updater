@@ -9,13 +9,16 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Anda bisa kehilangan semua data Anda tanpa kunci pemulihan';
+  String get affectsFdeWarningTitle =>
+      'Anda bisa kehilangan semua data Anda tanpa kunci pemulihan';
 
   @override
-  String get affectsFdeWarningBody1 => 'Pastikan Anda memiliki kunci pemulihan untuk semua drive terenkripsi Anda. Anda harus memasukkannya saat boot setelah memperbarui firmware.';
+  String get affectsFdeWarningBody1 =>
+      'Pastikan Anda memiliki kunci pemulihan untuk semua drive terenkripsi Anda. Anda harus memasukkannya saat boot setelah memperbarui firmware.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Anda membutuhkan kunci pemulihan karena Anda telah mengaktifkan enkripsi yang didukung perangkat keras di Ubuntu atau sistem operasi lainnya di komputer ini.';
+  String get affectsFdeWarningBody2 =>
+      'Anda membutuhkan kunci pemulihan karena Anda telah mengaktifkan enkripsi yang didukung perangkat keras di Ubuntu atau sistem operasi lainnya di komputer ini.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Learn more';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Semua versi';
@@ -33,7 +37,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get appTitle => 'Pembaruan Firmware';
 
   @override
-  String get batteryWarning => 'Peringatan: beberapa pembaruan perangkat mungkin hanya tersedia pada daya eksternal!';
+  String get batteryWarning =>
+      'Peringatan: beberapa pembaruan perangkat mungkin hanya tersedia pada daya eksternal!';
 
   @override
   String get checksum => 'Ceksum';
@@ -48,7 +53,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get current => 'Saat ini';
 
   @override
-  String get deviceUnavailable => 'Perangkat ini tidak akan tersedia selama aksi ini.';
+  String get deviceUnavailable =>
+      'Perangkat ini tidak akan tersedia selama aksi ini.';
 
   @override
   String get deviceRequest => 'Permintaan perangkat';
@@ -74,7 +80,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get fwupdDeviceFlagOnlyOffline => 'Pembaruan memerlukan boot ulang';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Sistem memerlukan sumber daya eksternal';
+  String get fwupdDeviceFlagRequireAc =>
+      'Sistem memerlukan sumber daya eksternal';
 
   @override
   String get fwupdDeviceFlagLocked => 'Perangkat terkunci';
@@ -89,10 +96,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Terdaftar';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Memerlukan boot ulang setelah pemasangan';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Memerlukan boot ulang setelah pemasangan';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Perlu dimatikan setelah pemasangan';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Perlu dimatikan setelah pemasangan';
 
   @override
   String get fwupdDeviceFlagReported => 'Dilaporkan pada server remote';
@@ -101,13 +110,15 @@ class AppLocalizationsId extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Pengguna sudah diberitahu';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Pasang ke perangkat induk terlebih dahulu';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Pasang ke perangkat induk terlebih dahulu';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Dalam mode bootloader';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Perangkat keras menunggu untuk dipasang ulang';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Perangkat keras menunggu untuk dipasang ulang';
 
   @override
   String get fwupdDeviceFlagIgnoreValidation => 'Abaikan validasi keamanan';
@@ -116,10 +127,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get fwupdDeviceFlagTrusted => 'Terpercaya';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Pembaruan perangkat memerlukan aktivasi';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Pembaruan perangkat memerlukan aktivasi';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Perangkat tidak akan muncul kembali setelah pembaruan selesai';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Perangkat tidak akan muncul kembali setelah pembaruan selesai';
 
   @override
   String get fwupdDeviceFlagCanVerify => 'Verifikasi hash kriptografi tersedia';
@@ -128,34 +141,43 @@ class AppLocalizationsId extends AppLocalizations {
   String get fwupdDeviceFlagDualImage => 'Pembaruan tahapan perangkat';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Perangkat dapat memulihkan kegagalan flash';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Perangkat dapat memulihkan kegagalan flash';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Perangkat dapat digunakan selama durasi pembaruan';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Perangkat dapat digunakan selama durasi pembaruan';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Firmware perangkat diperlukan untuk melakukan pemeriksaan versi';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Firmware perangkat diperlukan untuk melakukan pemeriksaan versi';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Perangkat diperlukan untuk memasang semua rilis yang disediakan';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Perangkat diperlukan untuk memasang semua rilis yang disediakan';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Perangkat mendukung peralihan ke cabang firmware yang berbeda';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Perangkat mendukung peralihan ke cabang firmware yang berbeda';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Perangkat akan mencadangkan firmware sebelum memasang';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Perangkat akan mencadangkan firmware sebelum memasang';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Semua perangkat dari jenis yang sama akan diperbarui secara bersamaan';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Semua perangkat dari jenis yang sama akan diperbarui secara bersamaan';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Hanya peningkatan versi yang diperbolehkan';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Hanya peningkatan versi yang diperbolehkan';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Perangkat tidak dapat dijangkau';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Rahasia enkripsi disk penuh mungkin tidak valid selama pembaruan';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Rahasia enkripsi disk penuh mungkin tidak valid selama pembaruan';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Akhir hidup';
@@ -170,13 +192,15 @@ class AppLocalizationsId extends AppLocalizations {
   String get fwupdErrorInternal => 'Kesalahan internal';
 
   @override
-  String get fwupdErrorVersionNewer => 'Versi firmware yang lebih baru terinstal';
+  String get fwupdErrorVersionNewer =>
+      'Versi firmware yang lebih baru terinstal';
 
   @override
   String get fwupdErrorVersionSame => 'Versi firmware yang sama terinstal';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Sudah diatur untuk dipasang secara offline';
+  String get fwupdErrorAlreadyPending =>
+      'Sudah diatur untuk dipasang secara offline';
 
   @override
   String get fwupdErrorAuthFailed => 'Gagal untuk mendapatkan otentikasi';
@@ -209,16 +233,20 @@ class AppLocalizationsId extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Izin ditolak';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Pengguna telah mengonfigurasikan sistem mereka dalam cara yang salah';
+  String get fwupdErrorBrokenSystem =>
+      'Pengguna telah mengonfigurasikan sistem mereka dalam cara yang salah';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Level baterai sistem terlalu rendah';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Level baterai sistem terlalu rendah';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Pengguna perlu untuk melakukan sebuah tindakan untuk menyelesaikan pembaruan';
+  String get fwupdErrorNeedsUserAction =>
+      'Pengguna perlu untuk melakukan sebuah tindakan untuk menyelesaikan pembaruan';
 
   @override
-  String get fwupdErrorAuthExpired => 'Gagal mendapatkan autentikasi karena kredensial telah kadaluwarsa';
+  String get fwupdErrorAuthExpired =>
+      'Gagal mendapatkan autentikasi karena kredensial telah kadaluwarsa';
 
   @override
   String get fwupdErrorUnknown => 'Kesalahan yang tidak diketahui';
@@ -287,10 +315,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get rebootNow => 'Mulai ulang sekarang';
 
   @override
-  String get rebootConfirmMessage => 'Anda harus memulai ulang perangkat Anda untuk menyelesaikan pembaruan. Pastikan perangkat Anda tercolok atau terisi sempurna. Simpan berkas Anda sebelum memulai ulang untuk mencegah kehilangan data.';
+  String get rebootConfirmMessage =>
+      'Anda harus memulai ulang perangkat Anda untuk menyelesaikan pembaruan. Pastikan perangkat Anda tercolok atau terisi sempurna. Simpan berkas Anda sebelum memulai ulang untuk mencegah kehilangan data.';
 
   @override
-  String get rebootConfirmTitle => 'Mulai ulang untuk menyelesaikan pembaruan ini';
+  String get rebootConfirmTitle =>
+      'Mulai ulang untuk menyelesaikan pembaruan ini';
 
   @override
   String get reinstall => 'Pasang ulang';
@@ -321,7 +351,8 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Ini akan mencatat hash kriptografi saat ini sebagai terverifikasi.';
+  String get updateChecksumsInfo =>
+      'Ini akan mencatat hash kriptografi saat ini sebagai terverifikasi.';
 
   @override
   String get updateToLatest => 'Perbarui ke Paling Baru';

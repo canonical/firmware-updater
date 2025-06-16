@@ -9,13 +9,16 @@ class AppLocalizationsEt extends AppLocalizations {
   AppLocalizationsEt([String locale = 'et']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Ilma taastevõtmeteta võid kaotada ligipääsu oma andmetele';
+  String get affectsFdeWarningTitle =>
+      'Ilma taastevõtmeteta võid kaotada ligipääsu oma andmetele';
 
   @override
-  String get affectsFdeWarningBody1 => 'Palun kontrolli, et sul on olemas taastevõtmed kõikide sinu krüptitud andmekandjate jaoks. Peale püsivara uuendamist pead need taaskäivitamisel sisestama.';
+  String get affectsFdeWarningBody1 =>
+      'Palun kontrolli, et sul on olemas taastevõtmed kõikide sinu krüptitud andmekandjate jaoks. Peale püsivara uuendamist pead need taaskäivitamisel sisestama.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Sa vajad taastevõtmeid, sest kasutad Ubuntus või muudes selle arvuti operatsioonisüsteemides raudvarapõhist krüptimist.';
+  String get affectsFdeWarningBody2 =>
+      'Sa vajad taastevõtmeid, sest kasutad Ubuntus või muudes selle arvuti operatsioonisüsteemides raudvarapõhist krüptimist.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Lisateave';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Kõik versioonid';
@@ -33,7 +37,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get appTitle => 'Püsivara uuendaja';
 
   @override
-  String get batteryWarning => 'Hoiatus: mõnede seadmete uuendamine on võimalik vaid võrgutoite kasutamisel!';
+  String get batteryWarning =>
+      'Hoiatus: mõnede seadmete uuendamine on võimalik vaid võrgutoite kasutamisel!';
 
   @override
   String get checksum => 'Kontrollsumma';
@@ -74,7 +79,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fwupdDeviceFlagOnlyOffline => 'Uuendamine eeldab taaskäivitust';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Süsteem eeldab välise toiteallika kasutamist';
+  String get fwupdDeviceFlagRequireAc =>
+      'Süsteem eeldab välise toiteallika kasutamist';
 
   @override
   String get fwupdDeviceFlagLocked => 'Seade on lukustatud';
@@ -89,10 +95,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Registreeritud';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Eeldab peale paigaldust taaskäivitust';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Eeldab peale paigaldust taaskäivitust';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Eeldab peale paigaldust süsteemi väljalülitamist';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Eeldab peale paigaldust süsteemi väljalülitamist';
 
   @override
   String get fwupdDeviceFlagReported => 'Teatatud kaugserverile';
@@ -101,61 +109,76 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Kasutaja on teavitatud';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Paigalda esmalt kõrgema taseme seadmes';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Paigalda esmalt kõrgema taseme seadmes';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'On alglaaduri režiimis';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Raudvara on uuesti ühendamise ootel';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Raudvara on uuesti ühendamise ootel';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Eira õigsuse- ja turvakontrolle';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Eira õigsuse- ja turvakontrolle';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Usaldusväärne';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Seadme uuendus vajab aktiveerimist';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Seadme uuendus vajab aktiveerimist';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Seade pole nähtav peale paigalduse lõppu';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Seade pole nähtav peale paigalduse lõppu';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Krüptograafilise räsi verifitseerimine on saadaval';
+  String get fwupdDeviceFlagCanVerify =>
+      'Krüptograafilise räsi verifitseerimine on saadaval';
 
   @override
   String get fwupdDeviceFlagDualImage => 'Seade teeb uuendused sammude kaupa';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Seade oskab paigaldusvigadest taastuda';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Seade oskab paigaldusvigadest taastuda';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Seade on uuenduse ajal kasutatav';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Seade on uuenduse ajal kasutatav';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Nõutav on seadme püsivara versioonikontroll';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Nõutav on seadme püsivara versioonikontroll';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Nõutav on kõikide versioonide paigaldamine seadmes';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Nõutav on kõikide versioonide paigaldamine seadmes';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Seade toetab teise püsivara arendusharu kasutamist';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Seade toetab teise püsivara arendusharu kasutamist';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Seade teeb enne paigaldamist senisest püsivarast varukoopia';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Seade teeb enne paigaldamist senisest püsivarast varukoopia';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Kõik sama tüüpi seadmed uuendatakse samaaegselt';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Kõik sama tüüpi seadmed uuendatakse samaaegselt';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Lubatud on vaid versiooniuuendused';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Lubatud on vaid versiooniuuendused';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Seade pole kättesaadav';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Andmekandjaülese krüptimise võtmed/salasõnad võivad uuenduse käigus katki minna';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Andmekandjaülese krüptimise võtmed/salasõnad võivad uuenduse käigus katki minna';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Seadme tugi on lõppenud';
@@ -176,7 +199,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fwupdErrorVersionSame => 'Sama püsivara versioon on paigaldatud';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Juba on määratud paigaldamiseks vallasrežiimis';
+  String get fwupdErrorAlreadyPending =>
+      'Juba on määratud paigaldamiseks vallasrežiimis';
 
   @override
   String get fwupdErrorAuthFailed => 'Autentimine ei õnnestunud';
@@ -209,16 +233,20 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Loa andmisest keelduti';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Kasutaja on seadistanud oma arvutisüsteemi vigasel viisil';
+  String get fwupdErrorBrokenSystem =>
+      'Kasutaja on seadistanud oma arvutisüsteemi vigasel viisil';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Arvutisüsteemi aku laetuse tase on liiga madal';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Arvutisüsteemi aku laetuse tase on liiga madal';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Uuenduse lõpetamiseks on vajalik kasutajapoolne toiming';
+  String get fwupdErrorNeedsUserAction =>
+      'Uuenduse lõpetamiseks on vajalik kasutajapoolne toiming';
 
   @override
-  String get fwupdErrorAuthExpired => 'Kuna autentimise meetodid on aegunud, siis autentimine polnud võimalik';
+  String get fwupdErrorAuthExpired =>
+      'Kuna autentimise meetodid on aegunud, siis autentimine polnud võimalik';
 
   @override
   String get fwupdErrorUnknown => 'Tundmatu viga';
@@ -242,7 +270,8 @@ class AppLocalizationsEt extends AppLocalizations {
   String get fwupdStatusDeviceWrite => 'Kirjutan seadmesse';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Verifitseerime (andmeid lugedes) seadet';
+  String get fwupdStatusDeviceVerify =>
+      'Verifitseerime (andmeid lugedes) seadet';
 
   @override
   String get fwupdStatusScheduling => 'Ajastan vallasrežiimis uuendust';
@@ -287,10 +316,12 @@ class AppLocalizationsEt extends AppLocalizations {
   String get rebootNow => 'Taaskäivita kohe';
 
   @override
-  String get rebootConfirmMessage => 'Selle uuendamise lõpetamiseks pead arvuti taaskäivitama. Palun kontrolli, et kasutaksid välist toiteallikat või aku oleks täis laetud. Andmekao vältimiseks palun salvesta pooleliolevad tööd ja/või avatud failid.';
+  String get rebootConfirmMessage =>
+      'Selle uuendamise lõpetamiseks pead arvuti taaskäivitama. Palun kontrolli, et kasutaksid välist toiteallikat või aku oleks täis laetud. Andmekao vältimiseks palun salvesta pooleliolevad tööd ja/või avatud failid.';
 
   @override
-  String get rebootConfirmTitle => 'Selle uuendamise lõpetamiseks pead arvuti taaskäivitama';
+  String get rebootConfirmTitle =>
+      'Selle uuendamise lõpetamiseks pead arvuti taaskäivitama';
 
   @override
   String get reinstall => 'Paigalda uuesti';
@@ -321,7 +352,8 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Sellega märgime praegused kontrollsummade räsid verifitseerituks.';
+  String get updateChecksumsInfo =>
+      'Sellega märgime praegused kontrollsummade räsid verifitseerituks.';
 
   @override
   String get updateToLatest => 'Uuenda viimase versioonini';

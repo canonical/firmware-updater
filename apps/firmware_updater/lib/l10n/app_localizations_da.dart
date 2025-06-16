@@ -9,13 +9,16 @@ class AppLocalizationsDa extends AppLocalizations {
   AppLocalizationsDa([String locale = 'da']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'You may lose all your data without recovery keys';
+  String get affectsFdeWarningTitle =>
+      'You may lose all your data without recovery keys';
 
   @override
-  String get affectsFdeWarningBody1 => 'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.';
+  String get affectsFdeWarningBody1 =>
+      'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.';
 
   @override
-  String get affectsFdeWarningBody2 => 'You need to provide a recovery key because you enabled hardware-backed encryption.';
+  String get affectsFdeWarningBody2 =>
+      'You need to provide a recovery key because you enabled hardware-backed encryption.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Learn more';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Alle versioner';
@@ -33,7 +37,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get appTitle => 'Firmwareopdatering';
 
   @override
-  String get batteryWarning => 'Advarsel: Visse enhedsopdateringer er måske kun tilgængelige ved brug af ekstern strømforsyning!';
+  String get batteryWarning =>
+      'Advarsel: Visse enhedsopdateringer er måske kun tilgængelige ved brug af ekstern strømforsyning!';
 
   @override
   String get checksum => 'Kontrolsum';
@@ -48,7 +53,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get current => 'Nuværende';
 
   @override
-  String get deviceUnavailable => 'Enheden vil være utilgængelig, mens denne handling udføres.';
+  String get deviceUnavailable =>
+      'Enheden vil være utilgængelig, mens denne handling udføres.';
 
   @override
   String get deviceRequest => 'Enhedsforespørgsel';
@@ -74,7 +80,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get fwupdDeviceFlagOnlyOffline => 'Kræver systemgenstart';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Systemet kræver ekstern strømforsyning';
+  String get fwupdDeviceFlagRequireAc =>
+      'Systemet kræver ekstern strømforsyning';
 
   @override
   String get fwupdDeviceFlagLocked => 'Enheden er låst';
@@ -89,10 +96,12 @@ class AppLocalizationsDa extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Registreret';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Kræver systemgenstart efter installation';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Kræver systemgenstart efter installation';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Kræver slukning efter installation';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Kræver slukning efter installation';
 
   @override
   String get fwupdDeviceFlagReported => 'Rapporteret til fjernserver';
@@ -101,61 +110,77 @@ class AppLocalizationsDa extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Brugeren er underrettet';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Installér først til ophavsenhed';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Installér først til ophavsenhed';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Er i opstartsindlæsertilstand';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Hardware venter på at blive genforbundet';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Hardware venter på at blive genforbundet';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Ignorér sikkerhedstjek ved validering';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Ignorér sikkerhedstjek ved validering';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Betroet';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Enhedsopdatering kræver aktivering';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Enhedsopdatering kræver aktivering';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Enheden vil ikke vises igen, når opdateringen er gennemført';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Enheden vil ikke vises igen, når opdateringen er gennemført';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Kryptografisk hashverificering er tilgængelig';
+  String get fwupdDeviceFlagCanVerify =>
+      'Kryptografisk hashverificering er tilgængelig';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Enheden udruller opdateringer som prøve først';
+  String get fwupdDeviceFlagDualImage =>
+      'Enheden udruller opdateringer som prøve først';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Enheden kan gendanne efter flashfejl';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Enheden kan gendanne efter flashfejl';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Enheden kan bruges, mens opdateringen kører';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Enheden kan bruges, mens opdateringen kører';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Enhedens firmware skal have versionstjek';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Enhedens firmware skal have versionstjek';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Det kræves, at enheden installerer alle udbudte udgivelser';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Det kræves, at enheden installerer alle udbudte udgivelser';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Enheden understøtter skift til en anden gren af firmwaren';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Enheden understøtter skift til en anden gren af firmwaren';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Enheden vil sikkerhedskopiere firmware før installation';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Enheden vil sikkerhedskopiere firmware før installation';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Alle enheder af samme type vil blive opdateret på samme tid';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Alle enheder af samme type vil blive opdateret på samme tid';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Kun versionsopgraderinger tillades';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Kun versionsopgraderinger tillades';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Enheden kan ikke nås';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Hemmeligheder for fuld diskkryptering kan blive ugyldige ved opdatering';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Hemmeligheder for fuld diskkryptering kan blive ugyldige ved opdatering';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Slut på levetid';
@@ -176,7 +201,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get fwupdErrorVersionSame => 'Samme firmwareversion installeret';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Allerede indstillet til at blive installeret offline';
+  String get fwupdErrorAlreadyPending =>
+      'Allerede indstillet til at blive installeret offline';
 
   @override
   String get fwupdErrorAuthFailed => 'Kunne ikke indhente godkendelse';
@@ -209,16 +235,20 @@ class AppLocalizationsDa extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Adgang blev nægtet';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Brugeren har konfigureret sit system på en fejlagtig måde';
+  String get fwupdErrorBrokenSystem =>
+      'Brugeren har konfigureret sit system på en fejlagtig måde';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Systembatteriniveauet er for lavt';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Systembatteriniveauet er for lavt';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Brugeren skal udføre en handling for at fuldføre opdateringen';
+  String get fwupdErrorNeedsUserAction =>
+      'Brugeren skal udføre en handling for at fuldføre opdateringen';
 
   @override
-  String get fwupdErrorAuthExpired => 'Kunne ikke indhente godkendelse, da legitimationsoplysningerne er udløbet';
+  String get fwupdErrorAuthExpired =>
+      'Kunne ikke indhente godkendelse, da legitimationsoplysningerne er udløbet';
 
   @override
   String get fwupdErrorUnknown => 'Ukendt fejl';
@@ -287,7 +317,8 @@ class AppLocalizationsDa extends AppLocalizations {
   String get rebootNow => 'Genstart nu';
 
   @override
-  String get rebootConfirmMessage => 'Du skal genstarte din enhed for at fuldføre opdateringen. Sikr dig, at din enhed er tilsluttet eller fuldt opladet. Gem dine filer, før du genstarter, for at undgå at miste data.';
+  String get rebootConfirmMessage =>
+      'Du skal genstarte din enhed for at fuldføre opdateringen. Sikr dig, at din enhed er tilsluttet eller fuldt opladet. Gem dine filer, før du genstarter, for at undgå at miste data.';
 
   @override
   String get rebootConfirmTitle => 'Genstart for at fuldføre denne opdatering';
@@ -321,7 +352,8 @@ class AppLocalizationsDa extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Denne vil nedfælde nuværende kryptografiske kontrolsummer som godkendt.';
+  String get updateChecksumsInfo =>
+      'Denne vil nedfælde nuværende kryptografiske kontrolsummer som godkendt.';
 
   @override
   String get updateToLatest => 'Opdatér til seneste';
