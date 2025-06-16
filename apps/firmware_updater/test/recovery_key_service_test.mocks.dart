@@ -97,6 +97,17 @@ class _FakeSnapdSystemVolumesResponse_6 extends _i1.SmartFake
         );
 }
 
+class _FakeSnapdEntropyResponse_7 extends _i1.SmartFake
+    implements _i2.SnapdEntropyResponse {
+  _FakeSnapdEntropyResponse_7(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [SnapdClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -786,6 +797,40 @@ class MockSnapdClient extends _i1.Mock implements _i2.SnapdClient {
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
+
+  @override
+  _i3.Future<_i2.SnapdEntropyResponse> checkPassphrase(String? passphrase) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #checkPassphrase,
+          [passphrase],
+        ),
+        returnValue: _i3.Future<_i2.SnapdEntropyResponse>.value(
+            _FakeSnapdEntropyResponse_7(
+          this,
+          Invocation.method(
+            #checkPassphrase,
+            [passphrase],
+          ),
+        )),
+      ) as _i3.Future<_i2.SnapdEntropyResponse>);
+
+  @override
+  _i3.Future<_i2.SnapdEntropyResponse> checkPin(String? pin) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #checkPin,
+          [pin],
+        ),
+        returnValue: _i3.Future<_i2.SnapdEntropyResponse>.value(
+            _FakeSnapdEntropyResponse_7(
+          this,
+          Invocation.method(
+            #checkPin,
+            [pin],
+          ),
+        )),
+      ) as _i3.Future<_i2.SnapdEntropyResponse>);
 
   @override
   void close() => super.noSuchMethod(
