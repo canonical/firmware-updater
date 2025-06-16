@@ -37,5 +37,42 @@
   "cancel": "Ακύρωση",
   "@cancel": {},
   "current": "Τρέχον",
-  "@current": {}
+  "@current": {},
+  "flags": "Σημαίες",
+  "@flags": {},
+  "fwupdDeviceFlagReported": "Αναφέρθηκε στον απομακρισμένο διακομιστή",
+  "@fwupdDeviceFlagReported": {},
+  "affectsFdeTextFieldLabel": "Εισάγετε το κλειδί επαναφοράς",
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "Το κλειδί επαναφοράς δεν λειτουργεί,ελέγξετε και αλλάξτε το στο Κέντρο Ασφαλείας",
+  "@affectsFdeIncorrectKey": {},
+  "deviceUnavailable": "Η συσκευή σας δεν θα είναι διαθέσιμη κάνοντας αυτήν την ενέργεια.",
+  "@deviceUnavailable": {},
+  "fwupdDeviceFlagInternal": "Εσωτερική συσκευή",
+  "@fwupdDeviceFlagInternal": {},
+  "fwupdDeviceFlagOnlyOffline": "Η ενημέρωση απαιτεί Επανεκκίνηση",
+  "@fwupdDeviceFlagOnlyOffline": {},
+  "fwupdDeviceFlagRequireAc": "Το σύστημα απαιτεί εξωτερική πηγή τροφοδοσίας",
+  "@fwupdDeviceFlagRequireAc": {},
+  "fwupdDeviceFlagNeedsBootloader": "Απαιτεί έναν φορτωτή",
+  "@fwupdDeviceFlagNeedsBootloader": {},
+  "affectsFdeLinkLabel": "Μάθετε περισσότερα",
+  "@affectsFdeLinkLabel": {},
+  "fwupdDeviceFlagUpdatable": "Ενημέρωση",
+  "@fwupdDeviceFlagUpdatable": {},
+  "downgrade": "Υποβάθμιση",
+  "@downgrade": {},
+  "deviceRequest": "Αίτημα συσκευής",
+  "@deviceRequest": {},
+  "downgradeConfirm": "Υποβάθμιση<b>{name}<b>στην έκδοση<b>{version}</b>",
+  "@downgradeConfirm": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "version": {
+        "type": "String"
+      }
+    }
+  }
 }
