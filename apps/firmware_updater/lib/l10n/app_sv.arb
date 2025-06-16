@@ -253,10 +253,14 @@
   "@affectsFdeWarningTitle": {},
   "affectsFdeCheckbox": "Jag har återställningsnycklar för alla mina krypterade enheter",
   "@affectsFdeCheckbox": {},
-  "affectsFdeWarningBody1": "Se till att du har återställningsnycklar för alla dina krypterade enheter. Du måste ange dem vid uppstart efter uppdatering av fast programvara.",
+  "affectsFdeWarningBody1": "Du kan behöva ange den vid uppstart efter att du uppdaterat fast programvara. Se till att du även har återställningsnycklar för alla andra krypterade enheter på den här datorn.",
   "@affectsFdeWarningBody1": {},
-  "affectsFdeWarningBody2": "Du behöver återställningsnycklar eftersom du har aktiverat hårdvarustödd kryptering i Ubuntu eller andra operativsystem på den här datorn.",
+  "affectsFdeWarningBody2": "Du måste ange en återställningsnyckel eftersom du har aktiverat hårdvarubaserad kryptering.",
   "@affectsFdeWarningBody2": {},
   "affectsFdeLinkLabel": "Läs mer",
-  "@affectsFdeLinkLabel": {}
+  "@affectsFdeLinkLabel": {},
+  "affectsFdeTextFieldLabel": "Ange din återställningsnyckel",
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "Återställningsnyckeln fungerar inte, kontrollera eller byt ut den i Säkerhetscenter",
+  "@affectsFdeIncorrectKey": {}
 }
