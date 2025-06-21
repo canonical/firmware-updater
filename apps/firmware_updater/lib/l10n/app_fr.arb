@@ -253,10 +253,14 @@
   "@affectsFdeWarningTitle": {},
   "affectsFdeCheckbox": "J’ai les clés de récupération pour tous mes disques cryptés",
   "@affectsFdeCheckbox": {},
-  "affectsFdeWarningBody2": "Vous avez besoin de clés de récupération parce que vous avez activé le chiffrement sur le matériel dans Ubuntu ou d’autres systèmes d’exploitation sur cet ordinateur.",
+  "affectsFdeWarningBody2": "Vous devez fournir une clé de secours car vous avez activé le chiffrement matériel.",
   "@affectsFdeWarningBody2": {},
-  "affectsFdeWarningBody1": "Assurez-vous d’avoir les clés de récupération pour tous vos disques chiffrés. Vous devrez les entrer au démarrage après la mise à jour du micrologiciel.",
+  "affectsFdeWarningBody1": "Vous devrez peut-être le saisir au démarrage après la mise à jour du micrologiciel. Assurez-vous également de disposer des clés de récupération de tous les autres disques chiffrés de cet ordinateur.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeLinkLabel": "En savoir plus",
-  "@affectsFdeLinkLabel": {}
+  "@affectsFdeLinkLabel": {},
+  "affectsFdeTextFieldLabel": "Saisir votre clé de secours",
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "La clé de secours ne fonctionne pas, vérifiez-la ou remplacez-la dans le centre de sécurité",
+  "@affectsFdeIncorrectKey": {}
 }
