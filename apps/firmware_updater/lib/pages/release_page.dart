@@ -37,6 +37,7 @@ class ReleasePage extends StatelessWidget {
             // TODO: improve when better solution is found
             await store.refresh();
           },
+          testDeviceAffectsFde: model.testDeviceAffectsFde,
         );
 
     return YaruDetailPage(

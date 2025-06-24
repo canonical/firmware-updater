@@ -24,6 +24,8 @@ class DetailPage extends StatefulWidget {
         hasService<FwupdMockService>()
             ? getService<FwupdMockService>()
             : getService<FwupdDbusService>(),
+        (getService<ConfigService>().config['testDeviceAffectsFde'] as bool?) ??
+            false,
       ),
       child: const DetailPage(),
     );

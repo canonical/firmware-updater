@@ -12,11 +12,13 @@ class ReleaseCard extends StatelessWidget {
     required this.device,
     super.key,
     this.onInstall,
+    this.testDeviceAffectsFde = false,
   });
 
   final FwupdRelease release;
   final FwupdDevice device;
   final VoidCallback? onInstall;
+  final bool testDeviceAffectsFde;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +56,7 @@ class ReleaseCard extends StatelessWidget {
               release: release,
               device: device,
               onInstall: onInstall,
+              testDeviceAffectsFde: testDeviceAffectsFde,
             ),
             child: Text(
               release.isUpgrade

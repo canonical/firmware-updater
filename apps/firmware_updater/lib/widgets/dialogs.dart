@@ -355,13 +355,17 @@ void confirmAndInstall(
   required FwupdRelease release,
   required FwupdDevice device,
   VoidCallback? onInstall,
+  bool testDeviceAffectsFde = false,
 }) {
   final l10n = AppLocalizations.of(context);
 
   final String actionText;
   final String dialogText;
 
-  final affectsFde = device.flags.contains(FwupdDeviceFlag.affectsFde);
+  final affectsFde = device.flags.contains(FwupdDeviceFlag.affectsFde) ||
+      testDeviceAffectsFde &&
+          // fwupd 'Fake webcam' test device
+          device.deviceId == '08d460be0f1f9f128413f816022a6439e0078018';
 
   final children = [
     if (!device.flags.contains(FwupdDeviceFlag.usableDuringUpdate)) ...[

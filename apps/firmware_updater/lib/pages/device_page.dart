@@ -227,6 +227,7 @@ class DevicePage extends StatelessWidget {
                           release: model.latestRelease!,
                           device: model.device,
                           onInstall: () => model.install(model.latestRelease!),
+                          testDeviceAffectsFde: model.testDeviceAffectsFde,
                         )
                     : null,
                 child: Text(l10n.updateToLatest),

@@ -16,7 +16,12 @@ class DeviceTile extends StatefulWidget {
   }) {
     return ChangeNotifierProvider<DeviceModel>(
       key: ValueKey(device.hashCode),
-      create: (_) => DeviceModel(device, getService<FwupdDbusService>()),
+      create: (_) => DeviceModel(
+        device,
+        getService<FwupdDbusService>(),
+        (getService<ConfigService>().config['testDeviceAffectsFde'] as bool?) ??
+            false,
+      ),
       child: const DeviceTile(),
     );
   }

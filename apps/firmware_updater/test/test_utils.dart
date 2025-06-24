@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/l10n/app_localizations.dart';
 import 'package:firmware_updater/pages.dart';
@@ -19,12 +20,14 @@ DeviceModel mockModel({
   bool? hasUpgrade,
   List<FwupdRelease>? releases,
   FwupdException? error,
+  bool? testDeviceAffectsFde,
 }) {
   final model = MockDeviceModel();
   when(model.device).thenReturn(device);
   when(model.hasUpgrade).thenReturn(hasUpgrade ?? false);
   when(model.releases).thenReturn(releases ?? []);
   when(model.latestRelease).thenReturn(releases?.firstOrNull);
+  when(model.testDeviceAffectsFde).thenReturn(testDeviceAffectsFde ?? false);
   return model;
 }
 
@@ -79,6 +82,13 @@ RecoveryKeyModel mockRecoveryKeyModel({String? validKey}) {
         validKey != null ? i.positionalArguments.first == validKey : true,
   );
   return model;
+}
+
+@GenerateMocks([ConfigService])
+MockConfigService mockConfigService({Map<String, dynamic>? config}) {
+  final service = MockConfigService();
+  when(service.config).thenReturn(UnmodifiableMapView(config ?? {}));
+  return service;
 }
 
 FwupdDevice testDevice({
