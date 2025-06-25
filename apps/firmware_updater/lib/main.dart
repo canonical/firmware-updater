@@ -22,6 +22,16 @@ Future<void> main(List<String> args) async {
     ),
   );
 
+  registerService<ConfigService>(
+    () => ConfigService(
+      path: p.join(
+        xdg.configHome.path,
+        binaryName,
+        '$binaryName.yml',
+      ),
+    ),
+  );
+
   for (final element in args) {
     if (element.startsWith('--simulate=')) {
       registerService<FwupdMockService>(
