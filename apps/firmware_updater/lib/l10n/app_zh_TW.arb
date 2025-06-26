@@ -251,12 +251,16 @@
   "@latestVersion": {},
   "affectsFdeWarningTitle": "如果沒有復原金鑰，您可能會失去所有資料",
   "@affectsFdeWarningTitle": {},
-  "affectsFdeWarningBody1": "確保您擁有所有加密磁碟機的復原金鑰。更新韌體後，您需要在開機時輸入它們。",
+  "affectsFdeWarningBody1": "更新韌體後，您可能需要在開機時輸入。確保您也有此電腦上任何其他加密磁碟機的復原金鑰。",
   "@affectsFdeWarningBody1": {},
   "affectsFdeCheckbox": "我有所有加密硬碟機的復原金鑰",
   "@affectsFdeCheckbox": {},
-  "affectsFdeWarningBody2": "您需要復原金鑰，因為您在這台電腦的 Ubuntu 或其他作業系統中啟用了硬體支援加密。",
+  "affectsFdeWarningBody2": "您需要提供復原金鑰，因為您啟用了硬體支援的加密。",
   "@affectsFdeWarningBody2": {},
   "affectsFdeLinkLabel": "了解更多",
-  "@affectsFdeLinkLabel": {}
+  "@affectsFdeLinkLabel": {},
+  "affectsFdeTextFieldLabel": "輸入您的復原金鑰",
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "復原金鑰不起作用，請在安全中心檢查或更換",
+  "@affectsFdeIncorrectKey": {}
 }
