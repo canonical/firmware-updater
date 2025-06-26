@@ -133,7 +133,7 @@
   "@fwupdStatusUnknown": {},
   "fwupdStatusIdle": "Inactiu",
   "@fwupdStatusIdle": {},
-  "fwupdStatusLoading": "Carga una ressorsa",
+  "fwupdStatusLoading": "Cargament d'una ressorsa",
   "@fwupdStatusLoading": {},
   "fwupdStatusDecompressing": "Descompression micrologicial",
   "@fwupdStatusDecompressing": {},
