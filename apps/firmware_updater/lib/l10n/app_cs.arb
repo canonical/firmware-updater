@@ -258,5 +258,7 @@
   "affectsFdeWarningBody1": "Ujistěte se, že máte záchranné klíče pro všechny šifrované disky. Budete třeba je zadat při spouštění po aktualizaci firmwaru.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeLinkLabel": "Dozvědět se více",
-  "@affectsFdeLinkLabel": {}
+  "@affectsFdeLinkLabel": {},
+  "affectsFdeTextFieldLabel": "Zadejte svůj záchranný klíč",
+  "@affectsFdeTextFieldLabel": {}
 }
