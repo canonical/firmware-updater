@@ -14,9 +14,9 @@
   "@fwupdStatusDeviceErase": {},
   "affectsFdeWarningTitle": "மீட்பு விசைகள் இல்லாமல் உங்கள் எல்லா தரவையும் இழக்க நேரிடும்",
   "@affectsFdeWarningTitle": {},
-  "affectsFdeWarningBody1": "உங்கள் மறைகுறியாக்கப்பட்ட அனைத்து இயக்கிகளுக்கும் மீட்பு விசைகள் இருப்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். ஃபார்ம்வேரைப் புதுப்பித்த பிறகு அவற்றை துவக்கத்தில் உள்ளிட வேண்டும்.",
+  "affectsFdeWarningBody1": "ஃபார்ம்வேரைப் புதுப்பித்த பிறகு நீங்கள் அதை துவக்கத்தில் உள்ளிட வேண்டியிருக்கலாம். இந்த கணினியில் மறைகுறியாக்கப்பட்ட வேறு எந்த இயக்கிகளுக்கும் மீட்பு விசைகள் உங்களிடம் உள்ளன என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள்.",
   "@affectsFdeWarningBody1": {},
-  "affectsFdeWarningBody2": "இந்த கணினியில் உபுண்டு அல்லது பிற இயக்க முறைமைகளில் வன்பொருள் உதவி குறியாக்கத்தை இயக்கியுள்ளதால் உங்களுக்கு மீட்பு விசைகள் தேவை.",
+  "affectsFdeWarningBody2": "நீங்கள் வன்பொருள் உதவி குறியாக்கத்தை இயக்கியதால் மீட்பு விசையை வழங்க வேண்டும்.",
   "@affectsFdeWarningBody2": {},
   "allVersions": "அனைத்து பதிப்புகளும்",
   "@allVersions": {},
@@ -258,5 +258,9 @@
   "latestVersion": "அண்மைக் கால பதிப்பு",
   "@latestVersion": {},
   "affectsFdeLinkLabel": "மேலும் அறிக",
-  "@affectsFdeLinkLabel": {}
+  "@affectsFdeLinkLabel": {},
+  "affectsFdeTextFieldLabel": "உங்கள் மீட்பு விசையை உள்ளிடவும்",
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "மீட்பு விசை பாதுகாப்பு மையத்தில் வேலை செய்யவோ, சரிபார்க்கவோ அல்லது மாற்றவோ இல்லை",
+  "@affectsFdeIncorrectKey": {}
 }
