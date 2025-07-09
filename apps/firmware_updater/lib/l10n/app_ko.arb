@@ -200,7 +200,7 @@
   "@fwupdDeviceFlagInstallAllReleases": {},
   "fwupdDeviceFlagVersionCheckRequired": "기기 펌웨어의 버전을 확인해야 합니다",
   "@fwupdDeviceFlagVersionCheckRequired": {},
-  "fwupdDeviceFlagBackupBeforeInstall": "설치 전 기기에서 펌웨어를 백업합니다",
+  "fwupdDeviceFlagBackupBeforeInstall": "설치 전 장치에서 펌웨어를 백업합니다",
   "@fwupdDeviceFlagBackupBeforeInstall": {},
   "fwupdDeviceFlagHasMultipleBranches": "장치가 다른 분기의 펌웨어로의 변경을 지원합니다",
   "@fwupdDeviceFlagHasMultipleBranches": {},
