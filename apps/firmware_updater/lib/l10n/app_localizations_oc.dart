@@ -9,13 +9,16 @@ class AppLocalizationsOc extends AppLocalizations {
   AppLocalizationsOc([String locale = 'oc']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Poiriatz pèrdre totas vòstras donadas sens clau de recuperacion';
+  String get affectsFdeWarningTitle =>
+      'Poiriatz pèrdre totas vòstras donadas sens clau de recuperacion';
 
   @override
-  String get affectsFdeWarningBody1 => 'Asseguratz-vos d\'aver las claus de recuperacion per totes vòstres disques chifrats. Las vos calrà picar a l\'aviada aprèp la mesa a jorn del logicial.';
+  String get affectsFdeWarningBody1 =>
+      'Asseguratz-vos d\'aver las claus de recuperacion per totes vòstres disques chifrats. Las vos calrà picar a l\'aviada aprèp la mesa a jorn del logicial.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Avètz besonh de claus de recuperacion per çò qu\'avètz activat lo chiframent material dins Ubuntu o d\'autres sistèmas operatius sus aqueste ordenador.';
+  String get affectsFdeWarningBody2 =>
+      'Avètz besonh de claus de recuperacion per çò qu\'avètz activat lo chiframent material dins Ubuntu o d\'autres sistèmas operatius sus aqueste ordenador.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsOc extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Ne saber mai';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Totas las versions';
@@ -33,7 +37,8 @@ class AppLocalizationsOc extends AppLocalizations {
   String get appTitle => 'Actualizador de micrologicial';
 
   @override
-  String get batteryWarning => 'Atencion : d’unas mesas a jorn de periferic pòdon èsser disponiblas sonque sus alimentacion extèrna !';
+  String get batteryWarning =>
+      'Atencion : d’unas mesas a jorn de periferic pòdon èsser disponiblas sonque sus alimentacion extèrna !';
 
   @override
   String get checksum => 'Soma de contraròtle';
@@ -48,7 +53,8 @@ class AppLocalizationsOc extends AppLocalizations {
   String get current => 'Actual';
 
   @override
-  String get deviceUnavailable => 'Aqueste periferic serà indisponible pendent aquesta accion.';
+  String get deviceUnavailable =>
+      'Aqueste periferic serà indisponible pendent aquesta accion.';
 
   @override
   String get deviceRequest => 'Requèsta de periferic';
@@ -71,10 +77,12 @@ class AppLocalizationsOc extends AppLocalizations {
   String get fwupdDeviceFlagUpdatable => 'Actualizable';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'La mesa a jorn requerís una reaviada';
+  String get fwupdDeviceFlagOnlyOffline =>
+      'La mesa a jorn requerís una reaviada';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Lo sistèma requerís una font d’alimentacion extèrna';
+  String get fwupdDeviceFlagRequireAc =>
+      'Lo sistèma requerís una font d’alimentacion extèrna';
 
   @override
   String get fwupdDeviceFlagLocked => 'Lo periferic es verrolhat';
@@ -89,10 +97,12 @@ class AppLocalizationsOc extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Enregistrat';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Requerís una reaviada aprèp installacion';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Requerís una reaviada aprèp installacion';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Requerís una extincion aprèp installacion';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Requerís una extincion aprèp installacion';
 
   @override
   String get fwupdDeviceFlagReported => 'Senhalat al servidor distant';
@@ -101,61 +111,77 @@ class AppLocalizationsOc extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Utilizaire notificat';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Installar sul periferic parent primièr';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Installar sul periferic parent primièr';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Es en mòde cargador d’aviada';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Lo material espèra d’èsser rebrancat';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Lo material espèra d’èsser rebrancat';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Ignorar los contraròtles de seguretat de la validacion';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Ignorar los contraròtles de seguretat de la validacion';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Fisable';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'La mesa a jorn del periferic requerís una activacion';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'La mesa a jorn del periferic requerís una activacion';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Lo periferic tornarà pas aparéisser aprèp la fin de l’actualizacion';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Lo periferic tornarà pas aparéisser aprèp la fin de l’actualizacion';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'La verificacion de soma de contraròtle criptografica es disponibla';
+  String get fwupdDeviceFlagCanVerify =>
+      'La verificacion de soma de contraròtle criptografica es disponibla';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Lo periferic organiza las mesas a jorn';
+  String get fwupdDeviceFlagDualImage =>
+      'Lo periferic organiza las mesas a jorn';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Se pòt recuperar lo periferic en cas d’avaria de flashatge';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Se pòt recuperar lo periferic en cas d’avaria de flashatge';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Se pòt utilizar lo periferic pendent la mesa a jorn';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Se pòt utilizar lo periferic pendent la mesa a jorn';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Lo micrologicial del periferic requerís una verificacion de version';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Lo micrologicial del periferic requerís una verificacion de version';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Lo periferic es requerís per installar totas las versions provesidas';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Lo periferic es requerís per installar totas las versions provesidas';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Lo periferic pren en carga lo passatge a una autra branca de micrologicial';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Lo periferic pren en carga lo passatge a una autra branca de micrologicial';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Lo periferic salvagardarà lo micrologicial abans l’installacion';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Lo periferic salvagardarà lo micrologicial abans l’installacion';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Totes los periferics del meteis tipe serà meses a jorn a l’encòp';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Totes los periferics del meteis tipe serà meses a jorn a l’encòp';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Solament las versions mai recentas son autorizadas';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Solament las versions mai recentas son autorizadas';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Lo periferic es inacessible';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Las claus de chiframent complèt del disc se poirián invalidar en metent a jorn';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Las claus de chiframent complèt del disc se poirián invalidar en metent a jorn';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Fin de vida';
@@ -170,16 +196,20 @@ class AppLocalizationsOc extends AppLocalizations {
   String get fwupdErrorInternal => 'Error intèrna';
 
   @override
-  String get fwupdErrorVersionNewer => 'Version del micrologicial mai recent installat';
+  String get fwupdErrorVersionNewer =>
+      'Version del micrologicial mai recent installat';
 
   @override
-  String get fwupdErrorVersionSame => 'Meteissa version del micrologicial installada';
+  String get fwupdErrorVersionSame =>
+      'Meteissa version del micrologicial installada';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Ja configurat per èsser installat fòra linha';
+  String get fwupdErrorAlreadyPending =>
+      'Ja configurat per èsser installat fòra linha';
 
   @override
-  String get fwupdErrorAuthFailed => 'Fracàs de l’obtencion de l’autentificacion';
+  String get fwupdErrorAuthFailed =>
+      'Fracàs de l’obtencion de l’autentificacion';
 
   @override
   String get fwupdErrorRead => 'Fracàs de la lectura del periferic estant';
@@ -206,19 +236,24 @@ class AppLocalizationsOc extends AppLocalizations {
   String get fwupdErrorAcPowerRequired => 'Alimentacion extèrna requerida';
 
   @override
-  String get fwupdErrorPermissionDenied => 'L’autorizacion es pas estada donada';
+  String get fwupdErrorPermissionDenied =>
+      'L’autorizacion es pas estada donada';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Un utilizaire configurèt lo sistèma d’un biais erronèu';
+  String get fwupdErrorBrokenSystem =>
+      'Un utilizaire configurèt lo sistèma d’un biais erronèu';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Lo nivèl de batariá sistèma es tròp bas';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Lo nivèl de batariá sistèma es tròp bas';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'L’utilizaire a mestièr de far una accion per terminar la mesa a jorn';
+  String get fwupdErrorNeedsUserAction =>
+      'L’utilizaire a mestièr de far una accion per terminar la mesa a jorn';
 
   @override
-  String get fwupdErrorAuthExpired => 'Fracàs de l’obtencion d’autentificacion a causa d’identificants expirats';
+  String get fwupdErrorAuthExpired =>
+      'Fracàs de l’obtencion d’autentificacion a causa d’identificants expirats';
 
   @override
   String get fwupdErrorUnknown => 'Error desconeguda';
@@ -245,7 +280,8 @@ class AppLocalizationsOc extends AppLocalizations {
   String get fwupdStatusDeviceVerify => 'Verificacion (lectura) d’un periferic';
 
   @override
-  String get fwupdStatusScheduling => 'Planificacion d’una mesa a jorn fòra linha';
+  String get fwupdStatusScheduling =>
+      'Planificacion d’una mesa a jorn fòra linha';
 
   @override
   String get fwupdStatusDownloading => 'Telecargament d’un fichièr';
@@ -287,7 +323,8 @@ class AppLocalizationsOc extends AppLocalizations {
   String get rebootNow => 'Reaviar ara';
 
   @override
-  String get rebootConfirmMessage => 'Vos cal reaviar vòstre periferic per completar la mesa a jorn. Asseguratz-vos que vòstre periferic es brancat o complètament cargat. Enregistratz vòstres fichièrs abans de lo reaviar per evitar de pèrdre de donadas.';
+  String get rebootConfirmMessage =>
+      'Vos cal reaviar vòstre periferic per completar la mesa a jorn. Asseguratz-vos que vòstre periferic es brancat o complètament cargat. Enregistratz vòstres fichièrs abans de lo reaviar per evitar de pèrdre de donadas.';
 
   @override
   String get rebootConfirmTitle => 'Reaviatz per terminar aquesta mesa a jorn';
@@ -321,7 +358,8 @@ class AppLocalizationsOc extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Aquò salvarà las somas criptograficas actualas coma verificadas.';
+  String get updateChecksumsInfo =>
+      'Aquò salvarà las somas criptograficas actualas coma verificadas.';
 
   @override
   String get updateToLatest => 'Metre a jorn a la mai recenta';

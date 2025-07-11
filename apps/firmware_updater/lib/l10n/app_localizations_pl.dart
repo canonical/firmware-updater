@@ -9,13 +9,16 @@ class AppLocalizationsPl extends AppLocalizations {
   AppLocalizationsPl([String locale = 'pl']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Bez kluczy odzyskiwania możesz utracić wszystkie swoje dane';
+  String get affectsFdeWarningTitle =>
+      'Bez kluczy odzyskiwania możesz utracić wszystkie swoje dane';
 
   @override
-  String get affectsFdeWarningBody1 => 'Upewnij się, że masz klucze odzyskiwania do wszystkich zaszyfrowanych dysków. Wymagane będzie wpisanie ich podczas rozruchu po aktualizacji oprogramowania układowego.';
+  String get affectsFdeWarningBody1 =>
+      'Upewnij się, że masz klucze odzyskiwania do wszystkich zaszyfrowanych dysków. Wymagane będzie wpisanie ich podczas rozruchu po aktualizacji oprogramowania układowego.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Potrzebujesz kluczy odzyskiwania, ponieważ w Ubuntu lub innym systemie operacyjnym na tym komputerze włączono szyfrowanie sprzętowe.';
+  String get affectsFdeWarningBody2 =>
+      'Potrzebujesz kluczy odzyskiwania, ponieważ w Ubuntu lub innym systemie operacyjnym na tym komputerze włączono szyfrowanie sprzętowe.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Dowiedz się więcej';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Wszystkie wersje';
@@ -33,7 +37,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String get appTitle => 'Aktualizator oprogramowania sprzętowego';
 
   @override
-  String get batteryWarning => 'Ostrzeżenie: niektóre aktualizacje urządzeń mogą być dostępne tylko przy zasilaniu zewnętrznym!';
+  String get batteryWarning =>
+      'Ostrzeżenie: niektóre aktualizacje urządzeń mogą być dostępne tylko przy zasilaniu zewnętrznym!';
 
   @override
   String get checksum => 'Suma kontrolna';
@@ -48,7 +53,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String get current => 'Aktualne';
 
   @override
-  String get deviceUnavailable => 'Urządzenie będzie niedostępne podczas tego działania.';
+  String get deviceUnavailable =>
+      'Urządzenie będzie niedostępne podczas tego działania.';
 
   @override
   String get deviceRequest => 'Żądanie urządzenia';
@@ -71,10 +77,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fwupdDeviceFlagUpdatable => 'Możliwość aktualizacji';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Aktualizacja wymaga ponownego uruchomienia';
+  String get fwupdDeviceFlagOnlyOffline =>
+      'Aktualizacja wymaga ponownego uruchomienia';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'System wymaga zewnętrznego źródła zasilania';
+  String get fwupdDeviceFlagRequireAc =>
+      'System wymaga zewnętrznego źródła zasilania';
 
   @override
   String get fwupdDeviceFlagLocked => 'Urządzenie jest zablokowane';
@@ -89,7 +97,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Zarejestrowane';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Wymaga ponownego uruchomienia po instalacji';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Wymaga ponownego uruchomienia po instalacji';
 
   @override
   String get fwupdDeviceFlagNeedsShutdown => 'Wymaga wyłączenia po instalacji';
@@ -101,61 +110,77 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Użytkownik został powiadomiony';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Najpierw zainstaluj na urządzeniu nadrzędnym';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Najpierw zainstaluj na urządzeniu nadrzędnym';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => 'Jest w trybie programu rozruchowego';
+  String get fwupdDeviceFlagIsBootloader =>
+      'Jest w trybie programu rozruchowego';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Sprzęt czeka na ponowne podłączenie';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Sprzęt czeka na ponowne podłączenie';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Zignoruj kontrole bezpieczeństwa sprawdzające poprawność';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Zignoruj kontrole bezpieczeństwa sprawdzające poprawność';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Zaufane';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Aktualizacja urządzenia wymaga aktywacji';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Aktualizacja urządzenia wymaga aktywacji';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Urządzenie nie pojawi się ponownie po zakończeniu aktualizacji';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Urządzenie nie pojawi się ponownie po zakończeniu aktualizacji';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Dostępna jest kryptograficzna weryfikacja skrótu';
+  String get fwupdDeviceFlagCanVerify =>
+      'Dostępna jest kryptograficzna weryfikacja skrótu';
 
   @override
   String get fwupdDeviceFlagDualImage => 'Aktualizacje etapów urządzenia';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Urządzenie może odzyskać sprawność po awarii pamięci flash';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Urządzenie może odzyskać sprawność po awarii pamięci flash';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Urządzenie jest gotowe do użycia w czasie aktualizacji';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Urządzenie jest gotowe do użycia w czasie aktualizacji';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Oprogramowanie sprzętowe urządzenia musi mieć sprawdzoną wersję';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Oprogramowanie sprzętowe urządzenia musi mieć sprawdzoną wersję';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Urządzenie jest wymagane do zainstalowania wszystkich udostępnionych wersji';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Urządzenie jest wymagane do zainstalowania wszystkich udostępnionych wersji';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Urządzenie obsługuje przełączanie na inną gałąź oprogramowania sprzętowego';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Urządzenie obsługuje przełączanie na inną gałąź oprogramowania sprzętowego';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Urządzenie wykona kopię zapasową oprogramowania sprzętowego przed instalacją';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Urządzenie wykona kopię zapasową oprogramowania sprzętowego przed instalacją';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Wszystkie urządzenia tego samego typu zostaną zaktualizowane w tym samym czasie';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Wszystkie urządzenia tego samego typu zostaną zaktualizowane w tym samym czasie';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Dozwolone są tylko aktualizacje wersji';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Dozwolone są tylko aktualizacje wersji';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Urządzenie jest nieosiągalne';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Tajne klucze szyfrowania całego dysku mogą zostać unieważnione podczas aktualizacji';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Tajne klucze szyfrowania całego dysku mogą zostać unieważnione podczas aktualizacji';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Koniec okresu wsparcia';
@@ -170,13 +195,16 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fwupdErrorInternal => 'Błąd wewnętrzny';
 
   @override
-  String get fwupdErrorVersionNewer => 'Zainstalowano nowszą wersję oprogramowania sprzętowego';
+  String get fwupdErrorVersionNewer =>
+      'Zainstalowano nowszą wersję oprogramowania sprzętowego';
 
   @override
-  String get fwupdErrorVersionSame => 'Zainstalowano tę samą wersję oprogramowania sprzętowego';
+  String get fwupdErrorVersionSame =>
+      'Zainstalowano tę samą wersję oprogramowania sprzętowego';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Już skonfigurowano do zainstalowania w trybie offline';
+  String get fwupdErrorAlreadyPending =>
+      'Już skonfigurowano do zainstalowania w trybie offline';
 
   @override
   String get fwupdErrorAuthFailed => 'Nie udało się uzyskać uwierzytelnienia';
@@ -209,16 +237,20 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Odmówiono pozwolenia';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Użytkownik skonfigurował swój system w nieprawidłowy sposób';
+  String get fwupdErrorBrokenSystem =>
+      'Użytkownik skonfigurował swój system w nieprawidłowy sposób';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Poziom naładowania akumulatora systemu jest zbyt niski';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Poziom naładowania akumulatora systemu jest zbyt niski';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Użytkownik musi wykonać działanie, aby ukończyć aktualizację';
+  String get fwupdErrorNeedsUserAction =>
+      'Użytkownik musi wykonać działanie, aby ukończyć aktualizację';
 
   @override
-  String get fwupdErrorAuthExpired => 'Nie udało się uzyskać autoryzacji, ponieważ dane uwierzytelniające wygasły';
+  String get fwupdErrorAuthExpired =>
+      'Nie udało się uzyskać autoryzacji, ponieważ dane uwierzytelniające wygasły';
 
   @override
   String get fwupdErrorUnknown => 'Nieznany błąd';
@@ -233,7 +265,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fwupdStatusLoading => 'Ładowanie zasobu';
 
   @override
-  String get fwupdStatusDecompressing => 'Dekompresowanie oprogramowania sprzętowego';
+  String get fwupdStatusDecompressing =>
+      'Dekompresowanie oprogramowania sprzętowego';
 
   @override
   String get fwupdStatusDeviceRestart => 'Ponowne uruchomienie urządzenia';
@@ -245,7 +278,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fwupdStatusDeviceVerify => 'Weryfikowanie (odczyt) urządzenia';
 
   @override
-  String get fwupdStatusScheduling => 'Planowanie aktualizacji w trybie offline';
+  String get fwupdStatusScheduling =>
+      'Planowanie aktualizacji w trybie offline';
 
   @override
   String get fwupdStatusDownloading => 'Trwa pobieranie pliku';
@@ -269,7 +303,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String get guid => 'Identyfikatory GUID';
 
   @override
-  String get installError => 'Nie udało się zainstalować oprogramowania sprzętowego!';
+  String get installError =>
+      'Nie udało się zainstalować oprogramowania sprzętowego!';
 
   @override
   String get noDevicesFound => 'Nie znaleziono urządzeń';
@@ -287,10 +322,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get rebootNow => 'Uruchom ponownie teraz';
 
   @override
-  String get rebootConfirmMessage => 'Aby ukończyć aktualizację, musisz ponownie uruchomić urządzenie. Upewnij się, że urządzenie jest podłączone do prądu lub w pełni naładowane. Zapisz pliki przed ponownym uruchomieniem, aby uniknąć utraty danych.';
+  String get rebootConfirmMessage =>
+      'Aby ukończyć aktualizację, musisz ponownie uruchomić urządzenie. Upewnij się, że urządzenie jest podłączone do prądu lub w pełni naładowane. Zapisz pliki przed ponownym uruchomieniem, aby uniknąć utraty danych.';
 
   @override
-  String get rebootConfirmTitle => 'Uruchom ponownie, aby ukończyć tę aktualizację';
+  String get rebootConfirmTitle =>
+      'Uruchom ponownie, aby ukończyć tę aktualizację';
 
   @override
   String get reinstall => 'Zainstaluj ponownie';
@@ -321,7 +358,8 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Spowoduje to zarejestrowanie bieżących skrótów kryptograficznych jako zweryfikowanych.';
+  String get updateChecksumsInfo =>
+      'Spowoduje to zarejestrowanie bieżących skrótów kryptograficznych jako zweryfikowanych.';
 
   @override
   String get updateToLatest => 'Zaktualizuj do najnowszej';

@@ -15,7 +15,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get affectsFdeWarningBody1 => '请确保您有所有加密驱动器的恢复密钥。更新固件后您将需要在启动时输入它们。';
 
   @override
-  String get affectsFdeWarningBody2 => '您需要恢复密钥，因为您的计算机在 Ubuntu 或其他操作系统上启用了硬件支持的加密。';
+  String get affectsFdeWarningBody2 =>
+      '您需要恢复密钥，因为您的计算机在 Ubuntu 或其他操作系统上启用了硬件支持的加密。';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +25,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Learn more';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => '全部版本';
@@ -287,7 +289,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get rebootNow => '立即重启';
 
   @override
-  String get rebootConfirmMessage => '您必须重新启动设备才能完成更新。请确保您的设备已插入电源或完全充满电。请在重新启动前保存所有文件，以免丢失数据。';
+  String get rebootConfirmMessage =>
+      '您必须重新启动设备才能完成更新。请确保您的设备已插入电源或完全充满电。请在重新启动前保存所有文件，以免丢失数据。';
 
   @override
   String get rebootConfirmTitle => '重启以完成本次更新';
@@ -354,7 +357,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
 class AppLocalizationsZhTw extends AppLocalizationsZh {
-  AppLocalizationsZhTw(): super('zh_TW');
+  AppLocalizationsZhTw() : super('zh_TW');
 
   @override
   String get affectsFdeWarningTitle => '如果沒有復原金鑰，您可能會失去所有資料';
@@ -363,7 +366,8 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get affectsFdeWarningBody1 => '確保您擁有所有加密磁碟機的復原金鑰。更新韌體後，您需要在開機時輸入它們。';
 
   @override
-  String get affectsFdeWarningBody2 => '您需要復原金鑰，因為您在這台電腦的 Ubuntu 或其他作業系統中啟用了硬體支援加密。';
+  String get affectsFdeWarningBody2 =>
+      '您需要復原金鑰，因為您在這台電腦的 Ubuntu 或其他作業系統中啟用了硬體支援加密。';
 
   @override
   String get affectsFdeLinkLabel => '了解更多';
@@ -629,7 +633,8 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get rebootNow => '立即重新啟動';
 
   @override
-  String get rebootConfirmMessage => '您必須重新啟動裝置以完成更新。請確保您的裝置已插入電源或已充滿電。重新啟動前請儲存您的檔案，以避免資料遺失。';
+  String get rebootConfirmMessage =>
+      '您必須重新啟動裝置以完成更新。請確保您的裝置已插入電源或已充滿電。重新啟動前請儲存您的檔案，以避免資料遺失。';
 
   @override
   String get rebootConfirmTitle => '重新啟動以完成此更新';

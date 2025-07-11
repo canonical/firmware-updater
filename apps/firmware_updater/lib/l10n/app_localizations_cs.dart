@@ -9,13 +9,16 @@ class AppLocalizationsCs extends AppLocalizations {
   AppLocalizationsCs([String locale = 'cs']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Bez klíčů pro obnovení můžete přijít o všechna data';
+  String get affectsFdeWarningTitle =>
+      'Bez klíčů pro obnovení můžete přijít o všechna data';
 
   @override
-  String get affectsFdeWarningBody1 => 'Ujistěte se, že máte klíče pro obnovení pro všechny šifrované disky. Budete je muset zadat při spouštění po aktualizaci firmwaru.';
+  String get affectsFdeWarningBody1 =>
+      'Ujistěte se, že máte klíče pro obnovení pro všechny šifrované disky. Budete je muset zadat při spouštění po aktualizaci firmwaru.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Obnovovací klíče potřebujete, protože jste na tomto počítači povolili hardwarově podporované šifrování v Ubuntu nebo jiných operačních systémech.';
+  String get affectsFdeWarningBody2 =>
+      'Obnovovací klíče potřebujete, protože jste na tomto počítači povolili hardwarově podporované šifrování v Ubuntu nebo jiných operačních systémech.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Dozvědět se více';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Všechny verze';
@@ -33,7 +37,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get appTitle => 'Nástroj pro aktualizaci firmware';
 
   @override
-  String get batteryWarning => 'Upozornění: Některé aktualizace zařízení mohou být dostupné pouze při externím napájení!';
+  String get batteryWarning =>
+      'Upozornění: Některé aktualizace zařízení mohou být dostupné pouze při externím napájení!';
 
   @override
   String get checksum => 'Kontrolní součet';
@@ -74,7 +79,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get fwupdDeviceFlagOnlyOffline => 'Aktualizace vyžaduje restart';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Systém vyžaduje externí zdroj napájení';
+  String get fwupdDeviceFlagRequireAc =>
+      'Systém vyžaduje externí zdroj napájení';
 
   @override
   String get fwupdDeviceFlagLocked => 'Zařízení je uzamčeno';
@@ -83,7 +89,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get fwupdDeviceFlagSupported => 'Podporováno na vzdáleném serveru';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => 'Vyžaduje ruční přepnutí do zavaděče firmwaru';
+  String get fwupdDeviceFlagNeedsBootloader =>
+      'Vyžaduje ruční přepnutí do zavaděče firmwaru';
 
   @override
   String get fwupdDeviceFlagRegistered => 'Registrováno';
@@ -101,61 +108,77 @@ class AppLocalizationsCs extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Uživatel byl upozorněn';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Nejprve nainstalovat do nadřazeného zařízení';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Nejprve nainstalovat do nadřazeného zařízení';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'Je v režimu zavaděče firmwaru';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Hardware čeká na opětovné připojení';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Hardware čeká na opětovné připojení';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Ignorovat výsledky přípravných kontrol';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Ignorovat výsledky přípravných kontrol';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Důvěryhodné';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'U daného zařízení je třeba nejdříve aktivovat režim aktualizace';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'U daného zařízení je třeba nejdříve aktivovat režim aktualizace';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Po dokončení aktualizace se zařízení hned znovu neobjeví';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Po dokončení aktualizace se zařízení hned znovu neobjeví';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Je k dispozici kryptografické ověření otisku dat';
+  String get fwupdDeviceFlagCanVerify =>
+      'Je k dispozici kryptografické ověření otisku dat';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Zařízení podporuje rozfázované aktualizace';
+  String get fwupdDeviceFlagDualImage =>
+      'Zařízení podporuje rozfázované aktualizace';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Zařízení se dovede vzpamatovat z nezdaru při zápisu firmwaru';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Zařízení se dovede vzpamatovat z nezdaru při zápisu firmwaru';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Zařízení je možné používat i v průběhu aktualizace';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Zařízení je možné používat i v průběhu aktualizace';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Je třeba, aby firmware zařízení měl kontrolu verze';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Je třeba, aby firmware zařízení měl kontrolu verze';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Zařízení vyžaduje instalaci všech poskytnutých vydání';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Zařízení vyžaduje instalaci všech poskytnutých vydání';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Zařízení podporuje přepínání mezi různými větvemi firmwaru';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Zařízení podporuje přepínání mezi různými větvemi firmwaru';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Zařízení provede zálohu stávajícího firmwaru před instalací nového';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Zařízení provede zálohu stávajícího firmwaru před instalací nového';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Veškerá zařízení stejného typu budou aktualizována naráz';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Veškerá zařízení stejného typu budou aktualizována naráz';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Zařízení umožňuje pouze aktualizace na novější verze';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Zařízení umožňuje pouze aktualizace na novější verze';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Zařízení není dosažitelné';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Při aktualizaci mohou být zneplatněny tajné klíče pro celodiskové šifrování';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Při aktualizaci mohou být zneplatněny tajné klíče pro celodiskové šifrování';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Konec životnosti';
@@ -209,16 +232,20 @@ class AppLocalizationsCs extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Oprávnění bylo zamítnuto';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Uživatel nakonfiguroval svůj systém nefunkčním způsobem';
+  String get fwupdErrorBrokenSystem =>
+      'Uživatel nakonfiguroval svůj systém nefunkčním způsobem';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Akumulátor, napájející systém, není dostatečně nabitý';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Akumulátor, napájející systém, není dostatečně nabitý';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'K dokončení aktualizace musí uživatel provést akci';
+  String get fwupdErrorNeedsUserAction =>
+      'K dokončení aktualizace musí uživatel provést akci';
 
   @override
-  String get fwupdErrorAuthExpired => 'Nepodařilo se získat ověření, protože platnost pověření vypršela';
+  String get fwupdErrorAuthExpired =>
+      'Nepodařilo se získat ověření, protože platnost pověření vypršela';
 
   @override
   String get fwupdErrorUnknown => 'Neznámá chyba';
@@ -287,10 +314,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get rebootNow => 'Restartovat nyní';
 
   @override
-  String get rebootConfirmMessage => 'Chcete-li aktualizaci dokončit, musíte zařízení restartovat. Ujistěte se, že je vaše zařízení zapojeno do zásuvky nebo plně nabité. Před restartem si uložte soubory, abyste neztratili data.';
+  String get rebootConfirmMessage =>
+      'Chcete-li aktualizaci dokončit, musíte zařízení restartovat. Ujistěte se, že je vaše zařízení zapojeno do zásuvky nebo plně nabité. Před restartem si uložte soubory, abyste neztratili data.';
 
   @override
-  String get rebootConfirmTitle => 'Pro dokončení této aktualizace proveďte restart';
+  String get rebootConfirmTitle =>
+      'Pro dokončení této aktualizace proveďte restart';
 
   @override
   String get reinstall => 'Přeinstalovat';
@@ -321,7 +350,8 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Tím se zaznamenají stávající kryptografické otisky jako ověřené.';
+  String get updateChecksumsInfo =>
+      'Tím se zaznamenají stávající kryptografické otisky jako ověřené.';
 
   @override
   String get updateToLatest => 'Aktualizovat na nejnovější';

@@ -9,13 +9,16 @@ class AppLocalizationsFi extends AppLocalizations {
   AppLocalizationsFi([String locale = 'fi']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'Kaikki tiedot voidaan menettää ilman palautusavaimia';
+  String get affectsFdeWarningTitle =>
+      'Kaikki tiedot voidaan menettää ilman palautusavaimia';
 
   @override
-  String get affectsFdeWarningBody1 => 'Varmista että sinulla on palautusavaimet kaikille salatuille asemille. Sinun tulee syöttää ne käynnistettäessä laiteohjelmiston päivttämisen jälkeen.';
+  String get affectsFdeWarningBody1 =>
+      'Varmista että sinulla on palautusavaimet kaikille salatuille asemille. Sinun tulee syöttää ne käynnistettäessä laiteohjelmiston päivttämisen jälkeen.';
 
   @override
-  String get affectsFdeWarningBody2 => 'Tarvitse palautusavaimia, koska tällä tietokoneella on Ubuntun tai muun käyttöjärjestelmän käytössä laitevarmennettu salaus.';
+  String get affectsFdeWarningBody2 =>
+      'Tarvitse palautusavaimia, koska tällä tietokoneella on Ubuntun tai muun käyttöjärjestelmän käytössä laitevarmennettu salaus.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Lue lisää';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Kaikki versiot';
@@ -33,7 +37,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get appTitle => 'Laiteohjelmiston päivitys';
 
   @override
-  String get batteryWarning => 'Varoitus: jotkin laitepäivitykset ovat mahdollisia vain käytettäessä ulkoista virtalähdettä!';
+  String get batteryWarning =>
+      'Varoitus: jotkin laitepäivitykset ovat mahdollisia vain käytettäessä ulkoista virtalähdettä!';
 
   @override
   String get checksum => 'Tarkistussumma';
@@ -48,7 +53,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get current => 'Nykyinen';
 
   @override
-  String get deviceUnavailable => 'Laite ei ole käytettävissä tämän toiminnon aikana.';
+  String get deviceUnavailable =>
+      'Laite ei ole käytettävissä tämän toiminnon aikana.';
 
   @override
   String get deviceRequest => 'Laitepyyntö';
@@ -71,10 +77,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fwupdDeviceFlagUpdatable => 'Päivitettävissä';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Päivitys vaatii uudelleenkäynnistyksen';
+  String get fwupdDeviceFlagOnlyOffline =>
+      'Päivitys vaatii uudelleenkäynnistyksen';
 
   @override
-  String get fwupdDeviceFlagRequireAc => 'Järjestelmä tarvitsee ulkoisen virtalähteen';
+  String get fwupdDeviceFlagRequireAc =>
+      'Järjestelmä tarvitsee ulkoisen virtalähteen';
 
   @override
   String get fwupdDeviceFlagLocked => 'Laite on lukittu';
@@ -89,10 +97,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Rekisteröity';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Tarvitsee uudelleen käynnistämisen asennuksen jälkeen';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Tarvitsee uudelleen käynnistämisen asennuksen jälkeen';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Tarvitsee sammuttamisen asennuksen jälkeen';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Tarvitsee sammuttamisen asennuksen jälkeen';
 
   @override
   String get fwupdDeviceFlagReported => 'Tehty ilmoitus etäpalvelimelle';
@@ -101,16 +111,19 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Käyttäjälle on ilmoitettu';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Asenna ylemmän tason laitteelle ensin';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Asenna ylemmän tason laitteelle ensin';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'On alkulataustilassa';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Laite odottaa uudelleen kytkemistä';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Laite odottaa uudelleen kytkemistä';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Jätä huomiotta turvallisuustarkistukset';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Jätä huomiotta turvallisuustarkistukset';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Luotettu';
@@ -119,10 +132,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fwupdDeviceFlagNeedsActivation => 'Laite vaatii aktivoinnin';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Laite ei ilmesty uudelleen päivityksen valmistuttua';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Laite ei ilmesty uudelleen päivityksen valmistuttua';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Salaustiivisteiden tarkistus on käytettävissä';
+  String get fwupdDeviceFlagCanVerify =>
+      'Salaustiivisteiden tarkistus on käytettävissä';
 
   @override
   String get fwupdDeviceFlagDualImage => 'Laite vaiheistaa päivitykset';
@@ -131,31 +146,39 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fwupdDeviceFlagSelfRecovery => 'Laite voi toipua asennusvirheistä';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Laite on käytettävissä päivityksen aikana';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Laite on käytettävissä päivityksen aikana';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Laiteohjelmisto vaatii versiotarkistuksen';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Laiteohjelmisto vaatii versiotarkistuksen';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Laite vaatii kaikkien tarjolla olevian julkaisujen asentamisen';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Laite vaatii kaikkien tarjolla olevian julkaisujen asentamisen';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Laite tukee vaihtamista laiteohjelmiston toiseen versiohaaraan';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Laite tukee vaihtamista laiteohjelmiston toiseen versiohaaraan';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Laite varmuuskopioi laiteohjelmiston ennen asentamista';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Laite varmuuskopioi laiteohjelmiston ennen asentamista';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Kaikki samantyyppiset laitteet päivitetään samaan aikaan';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Kaikki samantyyppiset laitteet päivitetään samaan aikaan';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Vain versiopäivitykset sallitaan';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Vain versiopäivitykset sallitaan';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Laite ei ole tavoitettavissa';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Koko levyn salauksen salausavaimet voivat tulla epäkelvoiksi päivitettäessä';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Koko levyn salauksen salausavaimet voivat tulla epäkelvoiksi päivitettäessä';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Tuki on loppunut';
@@ -176,7 +199,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fwupdErrorVersionSame => 'Sama laiteohjelmistoversio asennettu';
 
   @override
-  String get fwupdErrorAlreadyPending => 'On jo merkitty asennettavaksi kun poiskytketty';
+  String get fwupdErrorAlreadyPending =>
+      'On jo merkitty asennettavaksi kun poiskytketty';
 
   @override
   String get fwupdErrorAuthFailed => 'Tunnistautuminen epäonnistui';
@@ -209,16 +233,20 @@ class AppLocalizationsFi extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'Pääsy evätty';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Järjestelmän asetukset ovat virheelliset';
+  String get fwupdErrorBrokenSystem =>
+      'Järjestelmän asetukset ovat virheelliset';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Järjestelmän akun varaus on liian alhainen';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Järjestelmän akun varaus on liian alhainen';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Käyttäjän tulee tehdä toimia ennen päivitystä';
+  String get fwupdErrorNeedsUserAction =>
+      'Käyttäjän tulee tehdä toimia ennen päivitystä';
 
   @override
-  String get fwupdErrorAuthExpired => 'Tunnistauminen ei onnistunut koska kirjautumistiedot ovat vanhentuneet';
+  String get fwupdErrorAuthExpired =>
+      'Tunnistauminen ei onnistunut koska kirjautumistiedot ovat vanhentuneet';
 
   @override
   String get fwupdErrorUnknown => 'Tuntematon virhe';
@@ -287,10 +315,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get rebootNow => 'Käynnistä uudelleen nyt';
 
   @override
-  String get rebootConfirmMessage => 'Laite tulee käynnistää uudelelleen päivityksen viimeistelemiseksi. Varmista, että laite on kytketty verkkovirtaan tai täyteen ladattu. Tallenna tiedostosi ennen uudelleen käynnistystä.';
+  String get rebootConfirmMessage =>
+      'Laite tulee käynnistää uudelelleen päivityksen viimeistelemiseksi. Varmista, että laite on kytketty verkkovirtaan tai täyteen ladattu. Tallenna tiedostosi ennen uudelleen käynnistystä.';
 
   @override
-  String get rebootConfirmTitle => 'Käynnistä uudelleen viimeistelläksesi tämän päivityksen';
+  String get rebootConfirmTitle =>
+      'Käynnistä uudelleen viimeistelläksesi tämän päivityksen';
 
   @override
   String get reinstall => 'Asenna uudelleen';
@@ -321,7 +351,8 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Tämä tallentaa nykyiset salaustiivisteet tarkistetuiksi.';
+  String get updateChecksumsInfo =>
+      'Tämä tallentaa nykyiset salaustiivisteet tarkistetuiksi.';
 
   @override
   String get updateToLatest => 'Päivitä uusimpaan';

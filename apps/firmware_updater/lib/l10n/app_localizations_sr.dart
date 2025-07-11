@@ -9,13 +9,16 @@ class AppLocalizationsSr extends AppLocalizations {
   AppLocalizationsSr([String locale = 'sr']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'You may lose all your data without recovery keys';
+  String get affectsFdeWarningTitle =>
+      'You may lose all your data without recovery keys';
 
   @override
-  String get affectsFdeWarningBody1 => 'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.';
+  String get affectsFdeWarningBody1 =>
+      'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.';
 
   @override
-  String get affectsFdeWarningBody2 => 'You need to provide a recovery key because you enabled hardware-backed encryption.';
+  String get affectsFdeWarningBody2 =>
+      'You need to provide a recovery key because you enabled hardware-backed encryption.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsSr extends AppLocalizations {
   String get affectsFdeLinkLabel => 'Learn more';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'Све верзије';
@@ -33,7 +37,8 @@ class AppLocalizationsSr extends AppLocalizations {
   String get appTitle => 'Ажурирање фирмвера';
 
   @override
-  String get batteryWarning => 'Упозорење: нека ажурирања уређаја могу бити доступна само на спољном напајању!';
+  String get batteryWarning =>
+      'Упозорење: нека ажурирања уређаја могу бити доступна само на спољном напајању!';
 
   @override
   String get checksum => 'Контролна сума';
@@ -71,7 +76,8 @@ class AppLocalizationsSr extends AppLocalizations {
   String get fwupdDeviceFlagUpdatable => 'Може се ажурирати';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Ажурирање захтева поновно покретање';
+  String get fwupdDeviceFlagOnlyOffline =>
+      'Ажурирање захтева поновно покретање';
 
   @override
   String get fwupdDeviceFlagRequireAc => 'Систем захтева спољни извор напајања';
@@ -89,10 +95,12 @@ class AppLocalizationsSr extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'Регистровано';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Потребно је поновно покретање након инсталације';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Потребно је поновно покретање након инсталације';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'Потребно је искључивање након инсталације';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'Потребно је искључивање након инсталације';
 
   @override
   String get fwupdDeviceFlagReported => 'Пријављено на удаљени сервер';
@@ -101,61 +109,76 @@ class AppLocalizationsSr extends AppLocalizations {
   String get fwupdDeviceFlagNotified => 'Корисник је обавештен';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'Прво инсталирајте на матични уређај';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'Прво инсталирајте на матични уређај';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'У бутлоадер режиму';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'Хардвер чека да буде поново прикључен';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'Хардвер чека да буде поново прикључен';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'Игнориши безбедносне провере валидације';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'Игнориши безбедносне провере валидације';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Поуздано';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Ажурирање уређаја захтева активацију';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Ажурирање уређаја захтева активацију';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'Уређај се неће поново појавити након завршетка ажурирања';
+  String get fwupdDeviceFlagWillDisappear =>
+      'Уређај се неће поново појавити након завршетка ажурирања';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'Доступна је криптографска провера хеша';
+  String get fwupdDeviceFlagCanVerify =>
+      'Доступна је криптографска провера хеша';
 
   @override
   String get fwupdDeviceFlagDualImage => 'Уређај припрема ажурирања';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Уређај може опоравити неуспехе флеша';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Уређај може опоравити неуспехе флеша';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'Уређај је употребљив током трајања ажурирања';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'Уређај је употребљив током трајања ажурирања';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'Фирмвер уређаја мора имати проверу верзије';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'Фирмвер уређаја мора имати проверу верзије';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'Уређај мора инсталирати сва обезбеђена издања';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'Уређај мора инсталирати сва обезбеђена издања';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'Уређај подржава прелазак на другу грану фирмвера';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'Уређај подржава прелазак на другу грану фирмвера';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'Уређај ће направити резервну копију фирмвера пре инсталације';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'Уређај ће направити резервну копију фирмвера пре инсталације';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'Сви уређаји истог типа ће бити ажурирани у исто време';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'Сви уређаји истог типа ће бити ажурирани у исто време';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'Дозвољена су само ажурирања верзије';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'Дозвољена су само ажурирања верзије';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Уређај је недоступан';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'Тајне потпуне енкрипције диска могу бити поништене приликом ажурирања';
+  String get fwupdDeviceFlagAffectsFde =>
+      'Тајне потпуне енкрипције диска могу бити поништене приликом ажурирања';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Крај животног века';
@@ -176,7 +199,8 @@ class AppLocalizationsSr extends AppLocalizations {
   String get fwupdErrorVersionSame => 'Инсталирана иста верзија фирмвера';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Већ подешено за инсталацију ван мреже';
+  String get fwupdErrorAlreadyPending =>
+      'Већ подешено за инсталацију ван мреже';
 
   @override
   String get fwupdErrorAuthFailed => 'Неуспех у добијању аутентификације';
@@ -203,22 +227,27 @@ class AppLocalizationsSr extends AppLocalizations {
   String get fwupdErrorSignatureInvalid => 'Потпис је био неважећи';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'Потребно је било напајање наизменичном струјом';
+  String get fwupdErrorAcPowerRequired =>
+      'Потребно је било напајање наизменичном струјом';
 
   @override
   String get fwupdErrorPermissionDenied => 'Дозвола је одбијена';
 
   @override
-  String get fwupdErrorBrokenSystem => 'Корисник је конфигурисао свој систем на неисправан начин';
+  String get fwupdErrorBrokenSystem =>
+      'Корисник је конфигурисао свој систем на неисправан начин';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'Ниво батерије система је пренизак';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'Ниво батерије система је пренизак';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'Корисник треба да изврши акцију да би завршио ажурирање';
+  String get fwupdErrorNeedsUserAction =>
+      'Корисник треба да изврши акцију да би завршио ажурирање';
 
   @override
-  String get fwupdErrorAuthExpired => 'Није успело добијање ауторизације јер су акредитиви истекли';
+  String get fwupdErrorAuthExpired =>
+      'Није успело добијање ауторизације јер су акредитиви истекли';
 
   @override
   String get fwupdErrorUnknown => 'Непозната грешка';
@@ -287,10 +316,12 @@ class AppLocalizationsSr extends AppLocalizations {
   String get rebootNow => 'Поново покрени сада';
 
   @override
-  String get rebootConfirmMessage => 'Морате поново покренути уређај да бисте завршили ажурирање. Уверите се да је ваш уређај прикључен или потпуно напуњен. Сачувајте своје датотеке пре поновног покретања да бисте избегли губитак података.';
+  String get rebootConfirmMessage =>
+      'Морате поново покренути уређај да бисте завршили ажурирање. Уверите се да је ваш уређај прикључен или потпуно напуњен. Сачувајте своје датотеке пре поновног покретања да бисте избегли губитак података.';
 
   @override
-  String get rebootConfirmTitle => 'Поново покрените да бисте завршили ово ажурирање';
+  String get rebootConfirmTitle =>
+      'Поново покрените да бисте завршили ово ажурирање';
 
   @override
   String get reinstall => 'Поново инсталирај';
@@ -321,7 +352,8 @@ class AppLocalizationsSr extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'Ово ће забележити тренутне криптографске хешеве као проверене.';
+  String get updateChecksumsInfo =>
+      'Ово ће забележити тренутне криптографске хешеве као проверене.';
 
   @override
   String get updateToLatest => 'Ажурирај на најновије';

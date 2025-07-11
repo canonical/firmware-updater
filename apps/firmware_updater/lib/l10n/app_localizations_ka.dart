@@ -9,13 +9,16 @@ class AppLocalizationsKa extends AppLocalizations {
   AppLocalizationsKa([String locale = 'ka']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle => 'აღდგენის გასაღებების გარეშე, შეიძლება, მონაცემები სრულად დაკარგოთ';
+  String get affectsFdeWarningTitle =>
+      'აღდგენის გასაღებების გარეშე, შეიძლება, მონაცემები სრულად დაკარგოთ';
 
   @override
-  String get affectsFdeWarningBody1 => 'დარწმუნდით, რომ გაქვთ აღდგენის გასაღებები ყველა თქვენი დაშიფრული დისკისთვის. შეიძლება, მისი შეყვანა მიკროკოდის განახლების შემდეგ, ჩატვირთვისას დაგჭირდეთ.';
+  String get affectsFdeWarningBody1 =>
+      'დარწმუნდით, რომ გაქვთ აღდგენის გასაღებები ყველა თქვენი დაშიფრული დისკისთვის. შეიძლება, მისი შეყვანა მიკროკოდის განახლების შემდეგ, ჩატვირთვისას დაგჭირდეთ.';
 
   @override
-  String get affectsFdeWarningBody2 => 'აღდგენის გასაღებები გჭირდებათ, რადგან ჩართეთ აპარატურის მიერ მხარდაჭერილი დაშიფვრა Ubuntu-ზე, ან სხვა ოპერაციულ სისტემაზე ამ კომპიუტერზე.';
+  String get affectsFdeWarningBody2 =>
+      'აღდგენის გასაღებები გჭირდებათ, რადგან ჩართეთ აპარატურის მიერ მხარდაჭერილი დაშიფვრა Ubuntu-ზე, ან სხვა ოპერაციულ სისტემაზე ამ კომპიუტერზე.';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -24,7 +27,8 @@ class AppLocalizationsKa extends AppLocalizations {
   String get affectsFdeLinkLabel => 'მეტის გაგება';
 
   @override
-  String get affectsFdeIncorrectKey => 'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey =>
+      'Recovery key does not work, check or replace it in the Security Center';
 
   @override
   String get allVersions => 'ყველა ვერსია';
@@ -33,7 +37,8 @@ class AppLocalizationsKa extends AppLocalizations {
   String get appTitle => 'მიკროკოდის განახლების პროგრამა';
 
   @override
-  String get batteryWarning => 'გაფრთხილება: ზოგიერთი მოწყობილობის განახლება, მხოლოდ, გარე კვების არსებობის შემთხვევაშია შესაძლებელი!';
+  String get batteryWarning =>
+      'გაფრთხილება: ზოგიერთი მოწყობილობის განახლება, მხოლოდ, გარე კვების არსებობის შემთხვევაშია შესაძლებელი!';
 
   @override
   String get checksum => 'საკონტროლო ჯამი';
@@ -48,7 +53,8 @@ class AppLocalizationsKa extends AppLocalizations {
   String get current => 'მიმდინარე';
 
   @override
-  String get deviceUnavailable => 'მოწყობილობა ხელმიუწვდომელი იქნება ამ ქმედების შესრულებისას.';
+  String get deviceUnavailable =>
+      'მოწყობილობა ხელმიუწვდომელი იქნება ამ ქმედების შესრულებისას.';
 
   @override
   String get deviceRequest => 'მოწყობილობის მოთხოვნა';
@@ -89,73 +95,91 @@ class AppLocalizationsKa extends AppLocalizations {
   String get fwupdDeviceFlagRegistered => 'დარეგისტრირებულია';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'სჭირდება გადატვირთვა დაყენების შემდეგ';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'სჭირდება გადატვირთვა დაყენების შემდეგ';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => 'სჭირდება გამორთვა დაყენების შემდეგ';
+  String get fwupdDeviceFlagNeedsShutdown =>
+      'სჭირდება გამორთვა დაყენების შემდეგ';
 
   @override
-  String get fwupdDeviceFlagReported => 'ანგარიში გადაცემულია დაშორებულ სერვერზე';
+  String get fwupdDeviceFlagReported =>
+      'ანგარიში გადაცემულია დაშორებულ სერვერზე';
 
   @override
   String get fwupdDeviceFlagNotified => 'მომხმრებელი გაფრთხილებულია';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => 'ჯერ მშობელ მოწყობილობაზე დაყენება';
+  String get fwupdDeviceFlagInstallParentFirst =>
+      'ჯერ მშობელ მოწყობილობაზე დაყენება';
 
   @override
   String get fwupdDeviceFlagIsBootloader => 'ჩამტვირთავის რეჟიმში';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => 'აპარატურა თავიდან მიერთების მოლოდინშია';
+  String get fwupdDeviceFlagWaitForReplug =>
+      'აპარატურა თავიდან მიერთების მოლოდინშია';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => 'გადამოწმების უსაფრთხოების შემოწმებების გამოტოვება';
+  String get fwupdDeviceFlagIgnoreValidation =>
+      'გადამოწმების უსაფრთხოების შემოწმებების გამოტოვება';
 
   @override
   String get fwupdDeviceFlagTrusted => 'სანდო';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'მოწყობილობის განახლებას აქტივაცია ესაჭიროება';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'მოწყობილობის განახლებას აქტივაცია ესაჭიროება';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => 'მოწყობილობა არ გამოჩნდება თავიდან, როცა განახლება დასრულდება';
+  String get fwupdDeviceFlagWillDisappear =>
+      'მოწყობილობა არ გამოჩნდება თავიდან, როცა განახლება დასრულდება';
 
   @override
-  String get fwupdDeviceFlagCanVerify => 'კრიპტოგრაფიული ჰეშის გადამოწმება ხელმისაწვდომია';
+  String get fwupdDeviceFlagCanVerify =>
+      'კრიპტოგრაფიული ჰეშის გადამოწმება ხელმისაწვდომია';
 
   @override
   String get fwupdDeviceFlagDualImage => 'მოწყობილობა შემოინახავს განახლებებს';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'მოწყობილობას შეუძლია ფლეშის ჩავარდნების აღდგენა';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'მოწყობილობას შეუძლია ფლეშის ჩავარდნების აღდგენა';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => 'მოწყობილობა წვდომადია განახლების მიმდინარეობისას';
+  String get fwupdDeviceFlagUsableDuringUpdate =>
+      'მოწყობილობა წვდომადია განახლების მიმდინარეობისას';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => 'მოწყობილობის მიკროკოდს ვერსიის შემოწმება აუცილებლად უნდა ჰქონდეს';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'მოწყობილობის მიკროკოდს ვერსიის შემოწმება აუცილებლად უნდა ჰქონდეს';
 
   @override
-  String get fwupdDeviceFlagInstallAllReleases => 'მოწყობილობაზე აუცილებელია ყველა მოწოდებული რელიზის დაყენება';
+  String get fwupdDeviceFlagInstallAllReleases =>
+      'მოწყობილობაზე აუცილებელია ყველა მოწოდებული რელიზის დაყენება';
 
   @override
-  String get fwupdDeviceFlagHasMultipleBranches => 'მოწყობილობას აქვს მიკროკოდის სხვა ბრენჩზე გადართვის მხარდაჭერა';
+  String get fwupdDeviceFlagHasMultipleBranches =>
+      'მოწყობილობას აქვს მიკროკოდის სხვა ბრენჩზე გადართვის მხარდაჭერა';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => 'მოწყობილობა დაამარქაფებს მიკროკოდს დაყენებამდე';
+  String get fwupdDeviceFlagBackupBeforeInstall =>
+      'მოწყობილობა დაამარქაფებს მიკროკოდს დაყენებამდე';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall => 'ყველა ერთი ტიპის მოწყობილობის განახლება ერთდროულად მოხდება';
+  String get fwupdDeviceFlagWildcardInstall =>
+      'ყველა ერთი ტიპის მოწყობილობის განახლება ერთდროულად მოხდება';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade => 'დაშვებულია, მხოლოდ, ვერსიის განახლებები';
+  String get fwupdDeviceFlagOnlyVersionUpgrade =>
+      'დაშვებულია, მხოლოდ, ვერსიის განახლებები';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'მოწყობილობა ხელმიუწვდომელია';
 
   @override
-  String get fwupdDeviceFlagAffectsFde => 'განახლებისას, შესაძლოა, სრული დისკის საიდუმლოებები არასწორი გახდეს';
+  String get fwupdDeviceFlagAffectsFde =>
+      'განახლებისას, შესაძლოა, სრული დისკის საიდუმლოებები არასწორი გახდეს';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'სიცოცხლის დასასრული';
@@ -170,13 +194,15 @@ class AppLocalizationsKa extends AppLocalizations {
   String get fwupdErrorInternal => 'შიდა შეცდომა';
 
   @override
-  String get fwupdErrorVersionNewer => 'დაყენებულია უფრო ახალი მიკროკოდის ვერსია';
+  String get fwupdErrorVersionNewer =>
+      'დაყენებულია უფრო ახალი მიკროკოდის ვერსია';
 
   @override
   String get fwupdErrorVersionSame => 'დაყენებულია იგივე მიკროკოდის ვერსია';
 
   @override
-  String get fwupdErrorAlreadyPending => 'უკვე დაყენებულია, რომ განახლება ინტერნეტის გარეშე მოხდეს';
+  String get fwupdErrorAlreadyPending =>
+      'უკვე დაყენებულია, რომ განახლება ინტერნეტის გარეშე მოხდეს';
 
   @override
   String get fwupdErrorAuthFailed => 'ავთენტიკაციის მიღება ჩავარდა';
@@ -209,16 +235,20 @@ class AppLocalizationsKa extends AppLocalizations {
   String get fwupdErrorPermissionDenied => 'წვდომა აკრძალული იყო';
 
   @override
-  String get fwupdErrorBrokenSystem => 'მომხმარებელმა თავისი სისტემა არასწორად მოირგო';
+  String get fwupdErrorBrokenSystem =>
+      'მომხმარებელმა თავისი სისტემა არასწორად მოირგო';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow => 'სისტემის ელემენტის დონე ძალიან მცირეა';
+  String get fwupdErrorBatteryLevelTooLow =>
+      'სისტემის ელემენტის დონე ძალიან მცირეა';
 
   @override
-  String get fwupdErrorNeedsUserAction => 'განახლების დასასრულებლად მომხმარებლის ქმედებაა საჭირო';
+  String get fwupdErrorNeedsUserAction =>
+      'განახლების დასასრულებლად მომხმარებლის ქმედებაა საჭირო';
 
   @override
-  String get fwupdErrorAuthExpired => 'ავთენტიკაციის მიღების შეცდომა, რადგან შესვლის უფლება ამოიწურა';
+  String get fwupdErrorAuthExpired =>
+      'ავთენტიკაციის მიღების შეცდომა, რადგან შესვლის უფლება ამოიწურა';
 
   @override
   String get fwupdErrorUnknown => 'უცნობი შეცდომა';
@@ -236,7 +266,8 @@ class AppLocalizationsKa extends AppLocalizations {
   String get fwupdStatusDecompressing => 'მიკროკოდის გაშლა';
 
   @override
-  String get fwupdStatusDeviceRestart => 'მიმდინარეობს მოწყობილობის გადატვირთვა';
+  String get fwupdStatusDeviceRestart =>
+      'მიმდინარეობს მოწყობილობის გადატვირთვა';
 
   @override
   String get fwupdStatusDeviceWrite => 'მოწყობილობის მოლოდინი';
@@ -287,7 +318,8 @@ class AppLocalizationsKa extends AppLocalizations {
   String get rebootNow => 'ახლავე გადატვირთვა';
 
   @override
-  String get rebootConfirmMessage => 'განახლების დასასრულებლად თქვენი მოწყობილობა უნდა გადატვირთოთ. დარწმუნდით, რომ მოწყობილობა მიერთებულია, ან ბოლომდეა დატენილი. შეინახეთ თქვენი ფაილები გადატვირთვამდე, რომ მონაცემების კარგვა აიცილოთ თავიდან.';
+  String get rebootConfirmMessage =>
+      'განახლების დასასრულებლად თქვენი მოწყობილობა უნდა გადატვირთოთ. დარწმუნდით, რომ მოწყობილობა მიერთებულია, ან ბოლომდეა დატენილი. შეინახეთ თქვენი ფაილები გადატვირთვამდე, რომ მონაცემების კარგვა აიცილოთ თავიდან.';
 
   @override
   String get rebootConfirmTitle => 'გადატვირთეთ რომ დაასრულოთ ეს განახლება';
@@ -321,7 +353,8 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => 'ეს ჩაიწერს მიმდინარე კრიპტოგრაფიულ ჰეშებს, როცა მათ გადაამოწმებს.';
+  String get updateChecksumsInfo =>
+      'ეს ჩაიწერს მიმდინარე კრიპტოგრაფიულ ჰეშებს, როცა მათ გადაამოწმებს.';
 
   @override
   String get updateToLatest => 'განახლება უკანასკნელამდე';
