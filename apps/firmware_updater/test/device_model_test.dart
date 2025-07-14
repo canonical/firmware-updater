@@ -1,3 +1,4 @@
+import 'package:file/memory.dart';
 import 'package:firmware_updater/pages.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -61,5 +62,28 @@ void main() {
 
     final deviceModel = DeviceModel(device, service);
     expect(deviceModel.onBattery, true);
+  });
+
+  test('detect ubuntu fde', () async {
+    final device = testDevice(id: 'a');
+
+    final service = mockService();
+
+    final fs = MemoryFileSystem.test();
+    fs.file(DeviceModel.dataDevicePath).createSync(recursive: true);
+
+    final deviceModel = DeviceModel(device, service, false, fs);
+    expect(deviceModel.ubuntuFdeDetected, isTrue);
+  });
+
+  test('no ubuntu fde', () async {
+    final device = testDevice(id: 'a');
+
+    final service = mockService();
+
+    final fs = MemoryFileSystem.test();
+
+    final deviceModel = DeviceModel(device, service, false, fs);
+    expect(deviceModel.ubuntuFdeDetected, isFalse);
   });
 }
