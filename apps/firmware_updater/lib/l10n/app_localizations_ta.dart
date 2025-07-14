@@ -13,12 +13,24 @@ class AppLocalizationsTa extends AppLocalizations {
       'மீட்பு விசைகள் இல்லாமல் உங்கள் எல்லா தரவையும் இழக்க நேரிடும்';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'உங்கள் மறைகுறியாக்கப்பட்ட அனைத்து இயக்கிகளுக்கும் மீட்பு விசைகள் இருப்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். ஃபார்ம்வேரைப் புதுப்பித்த பிறகு அவற்றை துவக்கத்தில் உள்ளிட வேண்டும்.';
+  String get affectsFdeWarningCheckboxBody1 =>
+      'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'இந்த கணினியில் உபுண்டு அல்லது பிற இயக்க முறைமைகளில் வன்பொருள் உதவி குறியாக்கத்தை இயக்கியுள்ளதால் உங்களுக்கு மீட்பு விசைகள் தேவை.';
+  String get affectsFdeWarningCheckboxBody2 =>
+      'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.';
+
+  @override
+  String get affectsFdeWarningPassphraseBody1 =>
+      'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.';
+
+  @override
+  String get affectsFdeWarningPassphraseBody2 =>
+      'You need to provide a recovery key because you enabled hardware-backed encryption.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'எனது அனைத்து மறைகுறியாக்கப்பட்ட இயக்கிகளுக்கும் மீட்பு விசைகள் உள்ளன';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

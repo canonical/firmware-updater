@@ -13,12 +13,24 @@ class AppLocalizationsEt extends AppLocalizations {
       'Ilma taastevõtmeteta võid kaotada ligipääsu oma andmetele';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Palun kontrolli, et sul on olemas taastevõtmed kõikide sinu krüptitud andmekandjate jaoks. Peale püsivara uuendamist pead need taaskäivitamisel sisestama.';
+  String get affectsFdeWarningCheckboxBody1 =>
+      'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Sa vajad taastevõtmeid, sest kasutad Ubuntus või muudes selle arvuti operatsioonisüsteemides raudvarapõhist krüptimist.';
+  String get affectsFdeWarningCheckboxBody2 =>
+      'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.';
+
+  @override
+  String get affectsFdeWarningPassphraseBody1 =>
+      'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.';
+
+  @override
+  String get affectsFdeWarningPassphraseBody2 =>
+      'You need to provide a recovery key because you enabled hardware-backed encryption.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Mul on taastevõtmed kõikide minu krüptitud andmekandjate jaoks';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

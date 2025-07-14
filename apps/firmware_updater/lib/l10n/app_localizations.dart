@@ -248,17 +248,35 @@ abstract class AppLocalizations {
   /// **'You may lose all your data without recovery keys'**
   String get affectsFdeWarningTitle;
 
-  /// No description provided for @affectsFdeWarningBody1.
+  /// No description provided for @affectsFdeWarningCheckboxBody1.
+  ///
+  /// In en, this message translates to:
+  /// **'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.'**
+  String get affectsFdeWarningCheckboxBody1;
+
+  /// No description provided for @affectsFdeWarningCheckboxBody2.
+  ///
+  /// In en, this message translates to:
+  /// **'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.'**
+  String get affectsFdeWarningCheckboxBody2;
+
+  /// No description provided for @affectsFdeWarningPassphraseBody1.
   ///
   /// In en, this message translates to:
   /// **'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.'**
-  String get affectsFdeWarningBody1;
+  String get affectsFdeWarningPassphraseBody1;
 
-  /// No description provided for @affectsFdeWarningBody2.
+  /// No description provided for @affectsFdeWarningPassphraseBody2.
   ///
   /// In en, this message translates to:
   /// **'You need to provide a recovery key because you enabled hardware-backed encryption.'**
-  String get affectsFdeWarningBody2;
+  String get affectsFdeWarningPassphraseBody2;
+
+  /// No description provided for @affectsFdeCheckbox.
+  ///
+  /// In en, this message translates to:
+  /// **'I have recovery keys for all my encrypted drives'**
+  String get affectsFdeCheckbox;
 
   /// No description provided for @affectsFdeTextFieldLabel.
   ///
