@@ -21,6 +21,7 @@ DeviceModel mockModel({
   List<FwupdRelease>? releases,
   FwupdException? error,
   bool? testDeviceAffectsFde,
+  bool? ubuntuFdeDetected,
 }) {
   final model = MockDeviceModel();
   when(model.device).thenReturn(device);
@@ -28,6 +29,7 @@ DeviceModel mockModel({
   when(model.releases).thenReturn(releases ?? []);
   when(model.latestRelease).thenReturn(releases?.firstOrNull);
   when(model.testDeviceAffectsFde).thenReturn(testDeviceAffectsFde ?? false);
+  when(model.ubuntuFdeDetected).thenReturn(ubuntuFdeDetected ?? false);
   return model;
 }
 

@@ -67,6 +67,12 @@ class MockDeviceModel extends _i1.Mock implements _i4.DeviceModel {
       ) as bool);
 
   @override
+  bool get ubuntuFdeDetected => (super.noSuchMethod(
+        Invocation.getter(#ubuntuFdeDetected),
+        returnValue: false,
+      ) as bool);
+
+  @override
   _i2.FwupdDevice get device => (super.noSuchMethod(
         Invocation.getter(#device),
         returnValue: _FakeFwupdDevice_0(
