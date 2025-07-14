@@ -38,6 +38,7 @@ class ReleasePage extends StatelessWidget {
             await store.refresh();
           },
           testDeviceAffectsFde: model.testDeviceAffectsFde,
+          ubuntuFdeDetected: model.ubuntuFdeDetected,
         );
 
     return YaruDetailPage(
