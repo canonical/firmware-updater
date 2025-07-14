@@ -228,6 +228,7 @@ class DevicePage extends StatelessWidget {
                           device: model.device,
                           onInstall: () => model.install(model.latestRelease!),
                           testDeviceAffectsFde: model.testDeviceAffectsFde,
+                          promptRecoveryKey: model.ubuntuFdeDetected,
                         )
                     : null,
                 child: Text(l10n.updateToLatest),
