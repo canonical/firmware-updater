@@ -30,6 +30,9 @@ class RecoveryKeySnapdService implements RecoveryKeyService {
       _log.info('caught snapd exception $e');
       _log.info('assuming recovery key is invalid');
       return false;
+    } on Exception catch (e) {
+      _log.error(e);
+      rethrow;
     }
   }
 }
