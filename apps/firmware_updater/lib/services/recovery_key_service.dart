@@ -17,7 +17,8 @@ class RecoveryKeyMockService implements RecoveryKeyService {
 
 class RecoveryKeySnapdService implements RecoveryKeyService {
   RecoveryKeySnapdService({@visibleForTesting SnapdClient? snapdClient})
-      : _snapdClient = snapdClient ?? SnapdClient();
+      : _snapdClient =
+            snapdClient ?? SnapdClient(socketPath: '/run/snapd-snap.socket');
   final SnapdClient _snapdClient;
 
   @override
