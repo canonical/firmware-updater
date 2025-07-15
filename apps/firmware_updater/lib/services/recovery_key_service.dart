@@ -1,3 +1,4 @@
+import 'package:firmware_updater/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:snapd/snapd.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
@@ -17,8 +18,7 @@ class RecoveryKeyMockService implements RecoveryKeyService {
 
 class RecoveryKeySnapdService implements RecoveryKeyService {
   RecoveryKeySnapdService({@visibleForTesting SnapdClient? snapdClient})
-      : _snapdClient =
-            snapdClient ?? SnapdClient(socketPath: '/run/snapd-snap.socket');
+      : _snapdClient = snapdClient ?? getService<SnapdClient>();
   final SnapdClient _snapdClient;
 
   @override
