@@ -1,3 +1,4 @@
+import 'package:firmware_updater/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:snapd/snapd.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
@@ -17,7 +18,7 @@ class RecoveryKeyMockService implements RecoveryKeyService {
 
 class RecoveryKeySnapdService implements RecoveryKeyService {
   RecoveryKeySnapdService({@visibleForTesting SnapdClient? snapdClient})
-      : _snapdClient = snapdClient ?? SnapdClient();
+      : _snapdClient = snapdClient ?? getService<SnapdClient>();
   final SnapdClient _snapdClient;
 
   @override
@@ -29,6 +30,9 @@ class RecoveryKeySnapdService implements RecoveryKeyService {
       _log.info('caught snapd exception $e');
       _log.info('assuming recovery key is invalid');
       return false;
+    } on Exception catch (e) {
+      _log.error(e);
+      rethrow;
     }
   }
 }

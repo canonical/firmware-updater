@@ -101,6 +101,7 @@ apps:
       - fwupd
       - shutdown
       - upower-observe
+      - firmware-updater-support
 
   firmware-notifier:
     command: bin/firmware-notifier

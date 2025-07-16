@@ -271,12 +271,17 @@ class _RecoveryKeyConfirmationDialogState
                     Navigator.of(context).pop(DialogAction.primaryAction);
                   }
                   _setLoading(true);
-                  final result = await model.checkRecoveryKey(_recoveryKey);
-                  if (!result) {
+                  try {
+                    final result = await model.checkRecoveryKey(_recoveryKey);
+                    if (!result) {
+                      _setLoading(false);
+                      _setError(l10n.affectsFdeIncorrectKey);
+                    } else if (context.mounted) {
+                      Navigator.of(context).pop(DialogAction.primaryAction);
+                    }
+                  } on Exception catch (e) {
                     _setLoading(false);
-                    _setError(l10n.affectsFdeIncorrectKey);
-                  } else if (context.mounted) {
-                    Navigator.of(context).pop(DialogAction.primaryAction);
+                    _setError(e.toString());
                   }
                 },
           child: Text(widget.actionText ?? l10n.ok),

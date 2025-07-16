@@ -8,13 +8,17 @@ import 'package:flutter/material.dart';
 import 'package:gtk/gtk.dart';
 import 'package:path/path.dart' as p;
 import 'package:provider/provider.dart';
+import 'package:snapd/snapd.dart';
 import 'package:ubuntu_logger/ubuntu_logger.dart';
 import 'package:xdg_directories/xdg_directories.dart' as xdg;
 import 'package:yaru/yaru.dart';
 
+const snapdAbstractSocketPath = '@/snapd/snapd-snap.socket';
+const snapdFallbackSocketPath = '/run/snapd-snap.socket';
+
 Future<void> main(List<String> args) async {
   final binaryName = p.basename(Platform.resolvedExecutable);
-  Logger.setup(
+  final log = Logger.setup(
     path: p.join(
       xdg.dataHome.path,
       binaryName,
@@ -51,6 +55,19 @@ Future<void> main(List<String> args) async {
     () => GtkApplicationNotifier(args),
     dispose: (s) => s.dispose(),
   );
+
+  SnapdClient snapdClient;
+
+  try {
+    snapdClient = SnapdClient(socketPath: snapdAbstractSocketPath);
+    await snapdClient.systemInfo();
+  } on SocketException catch (e) {
+    log.info(
+      'Could not connect to $snapdAbstractSocketPath: $e. Using $snapdFallbackSocketPath instead.',
+    );
+    snapdClient = SnapdClient(socketPath: snapdFallbackSocketPath);
+  }
+  registerServiceInstance<SnapdClient>(snapdClient);
 
   registerService<RecoveryKeyService>(RecoveryKeySnapdService.new);
 
