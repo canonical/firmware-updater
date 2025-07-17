@@ -6,4 +6,6 @@ class RecoveryKeyModel {
 
   Future<bool> checkRecoveryKey(String recoveryKey) =>
       _service.checkRecoveryKey(recoveryKey);
+
+  bool get hasBitlocker => _service.hasBitlocker;
 }
