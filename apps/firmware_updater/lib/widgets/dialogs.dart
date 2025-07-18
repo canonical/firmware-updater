@@ -400,19 +400,22 @@ void confirmAndInstall(
 
   final recoveryKeyCheck = switch ((affectsFde, hasUbuntuFde, hasBitlocker)) {
     (true, true, _) => RecoveryKeyCheck.enterKey,
-    (true, false, true) => RecoveryKeyCheck.tickBox,
+    (true, false, _) => RecoveryKeyCheck.tickBox,
     _ => RecoveryKeyCheck.none
   };
 
   final children = [
     if (!device.flags.contains(FwupdDeviceFlag.usableDuringUpdate))
       Text(l10n.deviceUnavailable),
-    if (hasBitlocker) Text('bitlocker'),
     if (recoveryKeyCheck != RecoveryKeyCheck.none) ...[
       const SizedBox(height: 8),
       YaruInfoBox(
         yaruInfoType: YaruInfoType.warning,
-        title: Text(l10n.affectsFdeWarningTitle),
+        title: Text(
+          hasUbuntuFde
+              ? l10n.affectsFdeWarningUbuntuFdeTitle
+              : l10n.affectsFdeWarningTitle,
+        ),
         titleTextStyle: Theme.of(context).textTheme.titleSmall,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -420,15 +423,11 @@ void confirmAndInstall(
           children: [
             const SizedBox(height: 8),
             Text(
-              hasUbuntuFde
-                  ? l10n.affectsFdeWarningPassphraseBody1
-                  : l10n.affectsFdeWarningCheckboxBody1,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              hasUbuntuFde
-                  ? l10n.affectsFdeWarningPassphraseBody2
-                  : l10n.affectsFdeWarningCheckboxBody2,
+              switch ((hasUbuntuFde, hasBitlocker)) {
+                (true, _) => l10n.affectsFdeWarningUbuntuFdeBody,
+                (false, true) => l10n.affectsFdeWarningBitlockerBody,
+                _ => l10n.affectsFdeWarningOtherFdeBody,
+              },
             ),
             MouseRegion(
               cursor: SystemMouseCursors.click,
