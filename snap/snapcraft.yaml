@@ -102,6 +102,7 @@ apps:
       - shutdown
       - upower-observe
       - firmware-updater-support
+      - udisks2
 
   firmware-notifier:
     command: bin/firmware-notifier
