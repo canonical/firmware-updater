@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/l10n/app_localizations.dart';
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:firmware_updater/services.dart';
-import 'package:firmware_updater/widgets/recovery_key_model.dart';
 import 'package:flutter/material.dart';
 import 'package:gtk/gtk.dart';
 import 'package:path/path.dart' as p;

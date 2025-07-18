@@ -1,6 +1,6 @@
 import 'package:firmware_updater/l10n/app_localizations.dart';
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:firmware_updater/services.dart';
-import 'package:firmware_updater/widgets/recovery_key_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
