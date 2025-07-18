@@ -13,12 +13,24 @@ class AppLocalizationsRu extends AppLocalizations {
       'Без ключей восстановления вы можете потерять все свои данные';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Убедитесь, что у вас есть ключи восстановления для всех зашифрованных дисков. Вам нужно будет ввести их при загрузке после обновлений прошивки.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Вам необходимы ключи восстановления, потому что вы включили аппаратное шифрование в Ubuntu или других операционных системах на этом компьютере.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'У меня есть ключи восстановления для всех моих зашифрованных дисков';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

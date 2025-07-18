@@ -12,12 +12,23 @@ class AppLocalizationsKo extends AppLocalizations {
   String get affectsFdeWarningTitle => '복구 키가 없으면 저장된 자료를 모두 잃게 됩니다';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      '모든 암호화된 드라이브에 대해 복구 키를 보관하고 있는지 확인하십시오. 펌웨어를 업데이트한 후에 부팅 시 복구 키를 입력해야 합니다.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Ubuntu나 이 컴퓨터에 있는 다른 운영 체제에서 하드웨어 기반 암호화를 활성화하였기 때문에 복구 키가 필요합니다.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox => '모든 암호화된 드라이브에 대한 복구 키를 보유하고 있습니다';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

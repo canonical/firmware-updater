@@ -13,12 +13,24 @@ class AppLocalizationsEl extends AppLocalizations {
       'Μπορεί να χάσετε τα δεδομένα σας χωρίς κλειδιά επαναφοράς';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Βεβαιωθείτε πως έχετε όλα τα κλειδιά επαναφοράς των κρυπτογραφημένων δίσκων σας.Θα τους χρειαστείτε για να συνδεθείτε μετά από αναβάθμιση.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Χρειάζεστε τα κλειδιά επαναφοράς επειδή έχετε ενεργοποιήσει την κρυπτογράφηση δίσκου στο Ubuntu η σε αλλά λειτουργικά συστήματα σε αυτόν τον υπολογιστή.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Έχω όλα τα κλειδιά για τους κρυπτογραφημένους δίσκους μου';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

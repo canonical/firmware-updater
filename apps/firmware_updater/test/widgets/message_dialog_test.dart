@@ -144,7 +144,7 @@ void main() {
             title: title,
             body: Text(message),
             onConfirm: completer.complete,
-            checkRecoveryKey: true,
+            recoveryKeyCheck: RecoveryKeyCheck.enterKey,
           ),
           child: const Text('click me'),
         ),

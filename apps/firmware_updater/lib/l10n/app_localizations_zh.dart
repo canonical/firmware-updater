@@ -12,11 +12,23 @@ class AppLocalizationsZh extends AppLocalizations {
   String get affectsFdeWarningTitle => '没有恢复密钥，您可能丢失所有数据';
 
   @override
-  String get affectsFdeWarningBody1 => '请确保您有所有加密驱动器的恢复密钥。更新固件后您将需要在启动时输入它们。';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      '您需要恢复密钥，因为您的计算机在 Ubuntu 或其他操作系统上启用了硬件支持的加密。';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox => '我拥有我所有加密磁盘的恢复密钥';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
@@ -363,11 +375,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get affectsFdeWarningTitle => '如果沒有復原金鑰，您可能會失去所有資料';
 
   @override
-  String get affectsFdeWarningBody1 => '確保您擁有所有加密磁碟機的復原金鑰。更新韌體後，您需要在開機時輸入它們。';
-
-  @override
-  String get affectsFdeWarningBody2 =>
-      '您需要復原金鑰，因為您在這台電腦的 Ubuntu 或其他作業系統中啟用了硬體支援加密。';
+  String get affectsFdeCheckbox => '我有所有加密硬碟機的復原金鑰';
 
   @override
   String get affectsFdeLinkLabel => '了解更多';

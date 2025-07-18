@@ -13,12 +13,24 @@ class AppLocalizationsDe extends AppLocalizations {
       'Ohne Wiederherstellungsschlüssel können Sie alle Ihre Daten verlieren';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Stellen Sie sicher, dass Sie Wiederherstellungsschlüssel für alle verschlüsselten Laufwerke haben. Sie müssen diese beim Hochfahren nach der Aktualisierung der Firmware eingeben.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Sie benötigen Wiederherstellungsschlüssel, weil Sie die hardwaregestützte Verschlüsselung in Ubuntu oder anderen Betriebssystemen auf diesem Computer aktiviert haben.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Ich habe Wiederherstellungsschlüssel für alle meine verschlüsselten Laufwerke';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

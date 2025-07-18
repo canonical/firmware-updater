@@ -13,12 +13,24 @@ class AppLocalizationsId extends AppLocalizations {
       'Anda bisa kehilangan semua data Anda tanpa kunci pemulihan';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Pastikan Anda memiliki kunci pemulihan untuk semua drive terenkripsi Anda. Anda harus memasukkannya saat boot setelah memperbarui firmware.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Anda membutuhkan kunci pemulihan karena Anda telah mengaktifkan enkripsi yang didukung perangkat keras di Ubuntu atau sistem operasi lainnya di komputer ini.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Saya memiliki kunci pemulihan untuk semua drive terenkripsi saya';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

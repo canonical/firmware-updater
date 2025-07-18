@@ -13,12 +13,24 @@ class AppLocalizationsGa extends AppLocalizations {
       'Seans go gcaillfidh tú do shonraí go léir gan eochracha athshlánaithe';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Cinntigh go bhfuil eochracha athshlánaithe agat le haghaidh do thiomáineann criptithe go léir. Beidh ort iad a chur isteach ar tosaithe tar éis an firmware a nuashonrú.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Teastaíonn eochracha athshlánaithe uait toisc go bhfuil criptiú crua-earraí cumasaithe agat in Ubuntu nó i gcórais oibriúcháin eile ar an ríomhaire seo.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Tá eochracha athshlánaithe agam do mo thiomáineann criptithe go léir';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

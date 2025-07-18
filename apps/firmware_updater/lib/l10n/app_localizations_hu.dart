@@ -13,12 +13,24 @@ class AppLocalizationsHu extends AppLocalizations {
       'Helyreállítási kulcsok nélkül elveszítheti az összes adatát';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Győződjön meg arról, hogy rendelkezik-e helyreállítási kulcsokkal az összes titkosított meghajtóhoz. Ezeket a belső vezérlőprogram frissítése után, a rendszerindításkor kell megadni.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Azért van szüksége helyreállítási kulcsokra, mert engedélyezte a hardveres titkosítást az Ubuntuban vagy a számítógépen lévő más operációs rendszerekben.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Rendelkezem helyreállítási kulcsokkal az összes titkosított meghajtómhoz';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

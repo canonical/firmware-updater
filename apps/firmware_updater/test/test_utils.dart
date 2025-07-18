@@ -2,8 +2,8 @@ import 'package:collection/collection.dart';
 import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/l10n/app_localizations.dart';
 import 'package:firmware_updater/pages.dart';
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:firmware_updater/services.dart';
-import 'package:firmware_updater/widgets/recovery_key_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -11,6 +11,8 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:snapd/snapd.dart';
+import 'package:udisks/udisks.dart';
 
 import 'test_utils.mocks.dart';
 
@@ -21,6 +23,7 @@ DeviceModel mockModel({
   List<FwupdRelease>? releases,
   FwupdException? error,
   bool? testDeviceAffectsFde,
+  bool? ubuntuFdeDetected,
 }) {
   final model = MockDeviceModel();
   when(model.device).thenReturn(device);
@@ -75,13 +78,46 @@ MockFwupdDbusService mockService({
 DeviceStore mockStore() => MockDeviceStore();
 
 @GenerateMocks([RecoveryKeyModel])
-RecoveryKeyModel mockRecoveryKeyModel({String? validKey}) {
+RecoveryKeyModel mockRecoveryKeyModel({
+  String? validKey,
+  bool? hasUbuntuFde,
+  bool? hasBitlocker,
+}) {
   final model = MockRecoveryKeyModel();
   when(model.checkRecoveryKey(any)).thenAnswer(
     (i) async =>
         validKey != null ? i.positionalArguments.first == validKey : true,
   );
+  when(model.hasBitlocker).thenReturn(hasBitlocker ?? false);
+  when(model.hasUbuntuFde).thenReturn(hasUbuntuFde ?? false);
   return model;
+}
+
+@GenerateMocks([RecoveryKeyService])
+RecoveryKeyService mockRecoveryKeyService({bool? hasBitlocker}) {
+  final service = MockRecoveryKeyService();
+  when(service.hasBitlocker).thenReturn(hasBitlocker ?? false);
+  return service;
+}
+
+@GenerateMocks([SnapdClient])
+SnapdClient mockSnapdClient({bool? isValidRecoveryKey}) {
+  final client = MockSnapdClient();
+  if (!(isValidRecoveryKey ?? true)) {
+    when(client.checkRecoveryKey(any))
+        .thenThrow(SnapdException(message: 'invalid recovery key'));
+  }
+  return client;
+}
+
+@GenerateMocks([UDisksClient, UDisksBlockDevice])
+UDisksClient mockUDisksClient({bool? hasBitlocker}) {
+  final client = MockUDisksClient();
+  final mockDevice = MockUDisksBlockDevice();
+  when(mockDevice.idType)
+      .thenReturn(hasBitlocker ?? false ? 'BitLocker' : 'ext4');
+  when(client.blockDevices).thenReturn([mockDevice]);
+  return client;
 }
 
 @GenerateMocks([ConfigService])

@@ -13,12 +13,24 @@ class AppLocalizationsCa extends AppLocalizations {
       'Podeu perdre totes les dades sense claus de recuperació';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Assegureu-vos de tenir les claus de recuperació per a totes les vostres unitats xifrades. Cal introduir-les en arrencar després d\'actualitzar el firmware.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Us calen les claus de recuperació perquè heu habilitat el xifrat recolzat per maquinari a l\'Ubuntu o altres sistemes operatius a aquest ordinador.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Tinc claus de recuperació per a totes les meves unitats xifrades';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

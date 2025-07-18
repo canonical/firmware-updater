@@ -6,7 +6,11 @@ import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 
 class DeviceModel extends SafeChangeNotifier {
-  DeviceModel(this._device, this._service, [this.testDeviceAffectsFde = false]);
+  DeviceModel(
+    this._device,
+    this._service, [
+    this.testDeviceAffectsFde = false,
+  ]);
   final FwupdService _service;
   final bool testDeviceAffectsFde;
 

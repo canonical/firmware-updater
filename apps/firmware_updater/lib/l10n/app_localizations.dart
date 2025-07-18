@@ -248,17 +248,35 @@ abstract class AppLocalizations {
   /// **'You may lose all your data without recovery keys'**
   String get affectsFdeWarningTitle;
 
-  /// No description provided for @affectsFdeWarningBody1.
+  /// No description provided for @affectsFdeWarningUbuntuFdeTitle.
   ///
   /// In en, this message translates to:
-  /// **'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.'**
-  String get affectsFdeWarningBody1;
+  /// **'You may lose all your data without your recovery key'**
+  String get affectsFdeWarningUbuntuFdeTitle;
 
-  /// No description provided for @affectsFdeWarningBody2.
+  /// No description provided for @affectsFdeWarningOtherFdeBody.
   ///
   /// In en, this message translates to:
-  /// **'You need to provide a recovery key because you enabled hardware-backed encryption.'**
-  String get affectsFdeWarningBody2;
+  /// **'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.'**
+  String get affectsFdeWarningOtherFdeBody;
+
+  /// No description provided for @affectsFdeWarningUbuntuFdeBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.'**
+  String get affectsFdeWarningUbuntuFdeBody;
+
+  /// No description provided for @affectsFdeWarningBitlockerBody.
+  ///
+  /// In en, this message translates to:
+  /// **'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.'**
+  String get affectsFdeWarningBitlockerBody;
+
+  /// No description provided for @affectsFdeCheckbox.
+  ///
+  /// In en, this message translates to:
+  /// **'I have recovery keys for all my encrypted drives'**
+  String get affectsFdeCheckbox;
 
   /// No description provided for @affectsFdeTextFieldLabel.
   ///
