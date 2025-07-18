@@ -1,5 +1,5 @@
 import 'package:file/memory.dart';
-import 'package:firmware_updater/widgets/recovery_key_model.dart';
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'test_utils.dart';
