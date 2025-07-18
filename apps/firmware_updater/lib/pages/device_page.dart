@@ -4,6 +4,7 @@ import 'package:firmware_updater/l10n/app_localizations.dart';
 import 'package:firmware_updater/pages.dart';
 import 'package:firmware_updater/services.dart';
 import 'package:firmware_updater/widgets.dart';
+import 'package:firmware_updater/widgets/recovery_key_model.dart';
 import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
@@ -210,31 +211,35 @@ class DevicePage extends StatelessWidget {
     required BuildContext context,
     bool enabled = true,
   }) {
-    final model = context.read<DeviceModel>();
+    final deviceModel = context.read<DeviceModel>();
+    final recoveryKeyModel = context.read<RecoveryKeyModel>();
     final l10n = AppLocalizations.of(context);
     return Padding(
       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
       child: OverflowBar(
         alignment: MainAxisAlignment.start,
         children: [
-          if (model.hasUpgrade)
+          if (deviceModel.hasUpgrade)
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: ElevatedButton(
                 onPressed: enabled
                     ? () => confirmAndInstall(
                           context,
-                          release: model.latestRelease!,
-                          device: model.device,
-                          onInstall: () => model.install(model.latestRelease!),
-                          testDeviceAffectsFde: model.testDeviceAffectsFde,
-                          promptRecoveryKey: model.ubuntuFdeDetected,
+                          release: deviceModel.latestRelease!,
+                          device: deviceModel.device,
+                          onInstall: () =>
+                              deviceModel.install(deviceModel.latestRelease!),
+                          testDeviceAffectsFde:
+                              deviceModel.testDeviceAffectsFde,
+                          hasUbuntuFde: recoveryKeyModel.hasUbuntuFde,
+                          hasBitlocker: recoveryKeyModel.hasBitlocker,
                         )
                     : null,
                 child: Text(l10n.updateToLatest),
               ),
             ),
-          if (model.releases?.isNotEmpty ?? false)
+          if (deviceModel.releases?.isNotEmpty ?? false)
             FilledButton(
               onPressed: enabled
                   ? () => context.read<DeviceStore>().showReleases = true
