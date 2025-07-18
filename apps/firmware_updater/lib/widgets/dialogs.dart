@@ -383,8 +383,9 @@ void confirmAndInstall(
   BuildContext context, {
   required FwupdRelease release,
   required FwupdDevice device,
+  required bool hasUbuntuFde,
+  required bool hasBitlocker,
   VoidCallback? onInstall,
-  bool promptRecoveryKey = true,
   bool testDeviceAffectsFde = false,
 }) {
   final l10n = AppLocalizations.of(context);
@@ -397,11 +398,17 @@ void confirmAndInstall(
           // fwupd 'Fake webcam' test device
           device.deviceId == '08d460be0f1f9f128413f816022a6439e0078018';
 
+  final recoveryKeyCheck = switch ((affectsFde, hasUbuntuFde, hasBitlocker)) {
+    (true, true, _) => RecoveryKeyCheck.enterKey,
+    (true, false, true) => RecoveryKeyCheck.tickBox,
+    _ => RecoveryKeyCheck.none
+  };
+
   final children = [
-    if (!device.flags.contains(FwupdDeviceFlag.usableDuringUpdate)) ...[
+    if (!device.flags.contains(FwupdDeviceFlag.usableDuringUpdate))
       Text(l10n.deviceUnavailable),
-    ],
-    if (affectsFde) ...[
+    if (hasBitlocker) Text('bitlocker'),
+    if (recoveryKeyCheck != RecoveryKeyCheck.none) ...[
       const SizedBox(height: 8),
       YaruInfoBox(
         yaruInfoType: YaruInfoType.warning,
@@ -413,13 +420,13 @@ void confirmAndInstall(
           children: [
             const SizedBox(height: 8),
             Text(
-              promptRecoveryKey
+              hasUbuntuFde
                   ? l10n.affectsFdeWarningPassphraseBody1
                   : l10n.affectsFdeWarningCheckboxBody1,
             ),
             const SizedBox(height: 8),
             Text(
-              promptRecoveryKey
+              hasUbuntuFde
                   ? l10n.affectsFdeWarningPassphraseBody2
                   : l10n.affectsFdeWarningCheckboxBody2,
             ),
@@ -477,11 +484,7 @@ void confirmAndInstall(
     title: dialogText,
     body: body,
     actionText: actionText,
-    recoveryKeyCheck: affectsFde
-        ? promptRecoveryKey
-            ? RecoveryKeyCheck.enterKey
-            : RecoveryKeyCheck.tickBox
-        : RecoveryKeyCheck.none,
+    recoveryKeyCheck: recoveryKeyCheck,
     onConfirm: onInstall,
   );
 }
