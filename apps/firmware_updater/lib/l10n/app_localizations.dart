@@ -248,29 +248,29 @@ abstract class AppLocalizations {
   /// **'You may lose all your data without recovery keys'**
   String get affectsFdeWarningTitle;
 
-  /// No description provided for @affectsFdeWarningCheckboxBody1.
+  /// No description provided for @affectsFdeWarningUbuntuFdeTitle.
   ///
   /// In en, this message translates to:
-  /// **'Make sure you have recovery keys for all your encrypted drives. You will need to enter them on boot after updating firmware.'**
-  String get affectsFdeWarningCheckboxBody1;
+  /// **'You may lose all your data without your recovery key'**
+  String get affectsFdeWarningUbuntuFdeTitle;
 
-  /// No description provided for @affectsFdeWarningCheckboxBody2.
+  /// No description provided for @affectsFdeWarningOtherFdeBody.
   ///
   /// In en, this message translates to:
-  /// **'You need recovery keys because you have enabled hardware-backed encryption in Ubuntu or other operating systems on this computer.'**
-  String get affectsFdeWarningCheckboxBody2;
+  /// **'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.'**
+  String get affectsFdeWarningOtherFdeBody;
 
-  /// No description provided for @affectsFdeWarningPassphraseBody1.
+  /// No description provided for @affectsFdeWarningUbuntuFdeBody.
   ///
   /// In en, this message translates to:
-  /// **'You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.'**
-  String get affectsFdeWarningPassphraseBody1;
+  /// **'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.'**
+  String get affectsFdeWarningUbuntuFdeBody;
 
-  /// No description provided for @affectsFdeWarningPassphraseBody2.
+  /// No description provided for @affectsFdeWarningBitlockerBody.
   ///
   /// In en, this message translates to:
-  /// **'You need to provide a recovery key because you enabled hardware-backed encryption.'**
-  String get affectsFdeWarningPassphraseBody2;
+  /// **'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.'**
+  String get affectsFdeWarningBitlockerBody;
 
   /// No description provided for @affectsFdeCheckbox.
   ///
