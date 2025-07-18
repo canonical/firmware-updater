@@ -1,10 +1,7 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
-import 'package:file/file.dart';
-import 'package:file/local.dart';
 import 'package:firmware_updater/services.dart';
-import 'package:flutter/foundation.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:safe_change_notifier/safe_change_notifier.dart';
 
