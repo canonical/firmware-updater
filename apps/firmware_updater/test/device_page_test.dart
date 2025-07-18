@@ -32,8 +32,16 @@ void main() {
       final model = mockModel(device: device);
       final notifier = mockNotifier();
       final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
       await tester.pumpApp(
-        (_) => buildPage(model: model, notifier: notifier, store: store),
+        (_) => buildPage(
+          model: model,
+          notifier: notifier,
+          store: store,
+        ),
+        providers: [
+          Provider(create: (_) => recoveryKeyModel),
+        ],
       );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
@@ -48,8 +56,16 @@ void main() {
       final model = mockModel(device: device, releases: releases);
       final notifier = mockNotifier();
       final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
       await tester.pumpApp(
-        (_) => buildPage(model: model, notifier: notifier, store: store),
+        (_) => buildPage(
+          model: model,
+          notifier: notifier,
+          store: store,
+        ),
+        providers: [
+          Provider(create: (_) => recoveryKeyModel),
+        ],
       );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
@@ -132,7 +148,7 @@ void main() {
       );
       final notifier = mockNotifier();
       final store = mockStore();
-      final recoveryKeyModel = mockRecoveryKeyModel();
+      final recoveryKeyModel = mockRecoveryKeyModel(hasUbuntuFde: true);
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
         providers: [
@@ -244,8 +260,12 @@ void main() {
       final model = mockModel(device: device);
       final notifier = mockNotifier();
       final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
+        providers: [
+          Provider(create: (_) => recoveryKeyModel),
+        ],
       );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
@@ -277,8 +297,12 @@ void main() {
       final model = mockModel(device: device);
       final notifier = mockNotifier();
       final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
+        providers: [
+          Provider(create: (_) => recoveryKeyModel),
+        ],
       );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);

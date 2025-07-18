@@ -1,24 +1,44 @@
 import 'package:firmware_updater/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
 import 'package:snapd/snapd.dart';
 
-import 'recovery_key_service_test.mocks.dart';
+import 'test_utils.dart';
 
 @GenerateMocks([SnapdClient])
 void main() {
   test('valid recovery key', () async {
-    final snapdClient = MockSnapdClient();
-    final service = RecoveryKeySnapdService(snapdClient: snapdClient);
+    final snapdClient = mockSnapdClient(isValidRecoveryKey: true);
+    final service = RecoveryKeySnapdService(
+      snapdClient: snapdClient,
+      udisksClient: mockUDisksClient(),
+    );
     expect(await service.checkRecoveryKey('foo'), isTrue);
   });
 
   test('invalid recovery key', () async {
-    final snapdClient = MockSnapdClient();
-    when(snapdClient.checkRecoveryKey(any))
-        .thenThrow(SnapdException(message: 'invalid recovery key'));
-    final service = RecoveryKeySnapdService(snapdClient: snapdClient);
+    final snapdClient = mockSnapdClient(isValidRecoveryKey: false);
+    final service = RecoveryKeySnapdService(
+      snapdClient: snapdClient,
+      udisksClient: mockUDisksClient(),
+    );
     expect(await service.checkRecoveryKey('foo'), isFalse);
+  });
+
+  test('bitlocker detected', () async {
+    final udisks = mockUDisksClient(hasBitlocker: true);
+    final service = RecoveryKeySnapdService(
+      snapdClient: mockSnapdClient(),
+      udisksClient: udisks,
+    );
+    expect(service.hasBitlocker, isTrue);
+  });
+  test('no bitlocker detected', () async {
+    final udisks = mockUDisksClient(hasBitlocker: false);
+    final service = RecoveryKeySnapdService(
+      snapdClient: mockSnapdClient(),
+      udisksClient: udisks,
+    );
+    expect(service.hasBitlocker, isFalse);
   });
 }

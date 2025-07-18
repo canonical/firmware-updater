@@ -11,6 +11,8 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:snapd/snapd.dart';
+import 'package:udisks/udisks.dart';
 
 import 'test_utils.mocks.dart';
 
@@ -29,7 +31,6 @@ DeviceModel mockModel({
   when(model.releases).thenReturn(releases ?? []);
   when(model.latestRelease).thenReturn(releases?.firstOrNull);
   when(model.testDeviceAffectsFde).thenReturn(testDeviceAffectsFde ?? false);
-  when(model.ubuntuFdeDetected).thenReturn(ubuntuFdeDetected ?? false);
   return model;
 }
 
@@ -77,13 +78,46 @@ MockFwupdDbusService mockService({
 DeviceStore mockStore() => MockDeviceStore();
 
 @GenerateMocks([RecoveryKeyModel])
-RecoveryKeyModel mockRecoveryKeyModel({String? validKey}) {
+RecoveryKeyModel mockRecoveryKeyModel({
+  String? validKey,
+  bool? hasUbuntuFde,
+  bool? hasBitlocker,
+}) {
   final model = MockRecoveryKeyModel();
   when(model.checkRecoveryKey(any)).thenAnswer(
     (i) async =>
         validKey != null ? i.positionalArguments.first == validKey : true,
   );
+  when(model.hasBitlocker).thenReturn(hasBitlocker ?? false);
+  when(model.hasUbuntuFde).thenReturn(hasUbuntuFde ?? false);
   return model;
+}
+
+@GenerateMocks([RecoveryKeyService])
+RecoveryKeyService mockRecoveryKeyService({bool? hasBitlocker}) {
+  final service = MockRecoveryKeyService();
+  when(service.hasBitlocker).thenReturn(hasBitlocker ?? false);
+  return service;
+}
+
+@GenerateMocks([SnapdClient])
+SnapdClient mockSnapdClient({bool? isValidRecoveryKey}) {
+  final client = MockSnapdClient();
+  if (!(isValidRecoveryKey ?? true)) {
+    when(client.checkRecoveryKey(any))
+        .thenThrow(SnapdException(message: 'invalid recovery key'));
+  }
+  return client;
+}
+
+@GenerateMocks([UDisksClient, UDisksBlockDevice])
+UDisksClient mockUDisksClient({bool? hasBitlocker}) {
+  final client = MockUDisksClient();
+  final mockDevice = MockUDisksBlockDevice();
+  when(mockDevice.idType)
+      .thenReturn(hasBitlocker ?? false ? 'BitLocker' : 'ext4');
+  when(client.blockDevices).thenReturn([mockDevice]);
+  return client;
 }
 
 @GenerateMocks([ConfigService])
