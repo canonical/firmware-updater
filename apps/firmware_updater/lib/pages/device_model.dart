@@ -13,14 +13,9 @@ class DeviceModel extends SafeChangeNotifier {
     this._device,
     this._service, [
     this.testDeviceAffectsFde = false,
-    @visibleForTesting FileSystem _fs = const LocalFileSystem(),
-  ]) : ubuntuFdeDetected = _fs.file(dataDevicePath).existsSync();
-
-  static const dataDevicePath = '/dev/disk/by-label/ubuntu-data-enc';
-
+  ]);
   final FwupdService _service;
   final bool testDeviceAffectsFde;
-  final bool ubuntuFdeDetected;
 
   FwupdDevice _device;
   List<FwupdRelease>? _releases;
