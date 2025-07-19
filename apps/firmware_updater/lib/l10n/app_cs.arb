@@ -251,14 +251,16 @@
   "@currentVersion": {},
   "affectsFdeCheckbox": "Mám klíče pro obnovení pro všechny své šifrované disky",
   "@affectsFdeCheckbox": {},
-  "affectsFdeWarningBody2": "Záchranné klíče potřebujete, protože jste na tomto počítači povolili hardwarově podporované šifrování v Ubuntu nebo jiných operačních systémech.",
+  "affectsFdeWarningBody2": "Záchranný klíč je třeba abyste zadali proto, protože jste zapnuli šifrovaní klíčem, obhospodařovaným pomocí hardware (TPM).",
   "@affectsFdeWarningBody2": {},
   "affectsFdeWarningTitle": "Bez záchranných klíčů se může stát, že přijdete o všechna data",
   "@affectsFdeWarningTitle": {},
-  "affectsFdeWarningBody1": "Ujistěte se, že máte záchranné klíče pro všechny šifrované disky. Budete třeba je zadat při spouštění po aktualizaci firmwaru.",
+  "affectsFdeWarningBody1": "Může se stát, že po aktualizaci firmware bude třeba toto heslo zadat při startu systému. Ujistěte se, že máte záchranné klíče pro všechny šifrované disky, nacházející se v tomto počítači.",
   "@affectsFdeWarningBody1": {},
   "affectsFdeLinkLabel": "Dozvědět se více",
   "@affectsFdeLinkLabel": {},
   "affectsFdeTextFieldLabel": "Zadejte svůj záchranný klíč",
-  "@affectsFdeTextFieldLabel": {}
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "Záchranný klíč nefunguje – zkontrolujte ho nebo nahraďte v Centru zabezpečení",
+  "@affectsFdeIncorrectKey": {}
 }
