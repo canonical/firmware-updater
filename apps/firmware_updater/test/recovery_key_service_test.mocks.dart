@@ -108,6 +108,17 @@ class _FakeSnapdEntropyResponse_7 extends _i1.SmartFake
         );
 }
 
+class _FakeSnapdGenerateRecoveryKeyResponse_8 extends _i1.SmartFake
+    implements _i2.SnapdGenerateRecoveryKeyResponse {
+  _FakeSnapdGenerateRecoveryKeyResponse_8(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [SnapdClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
@@ -831,6 +842,100 @@ class MockSnapdClient extends _i1.Mock implements _i2.SnapdClient {
           ),
         )),
       ) as _i3.Future<_i2.SnapdEntropyResponse>);
+
+  @override
+  _i3.Future<_i2.SnapdGenerateRecoveryKeyResponse> generateRecoveryKey() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #generateRecoveryKey,
+          [],
+        ),
+        returnValue: _i3.Future<_i2.SnapdGenerateRecoveryKeyResponse>.value(
+            _FakeSnapdGenerateRecoveryKeyResponse_8(
+          this,
+          Invocation.method(
+            #generateRecoveryKey,
+            [],
+          ),
+        )),
+      ) as _i3.Future<_i2.SnapdGenerateRecoveryKeyResponse>);
+
+  @override
+  _i3.Future<String> changePin(
+    String? oldPin,
+    String? newPin, {
+    List<_i2.SnapdSystemVolumeTargetKeySlot>? keySlots,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changePin,
+          [
+            oldPin,
+            newPin,
+          ],
+          {#keySlots: keySlots},
+        ),
+        returnValue: _i3.Future<String>.value(_i4.dummyValue<String>(
+          this,
+          Invocation.method(
+            #changePin,
+            [
+              oldPin,
+              newPin,
+            ],
+            {#keySlots: keySlots},
+          ),
+        )),
+      ) as _i3.Future<String>);
+
+  @override
+  _i3.Future<String> changePassphrase(
+    String? oldPassphrase,
+    String? newPassphrase, {
+    List<_i2.SnapdSystemVolumeTargetKeySlot>? keySlots,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changePassphrase,
+          [
+            oldPassphrase,
+            newPassphrase,
+          ],
+          {#keySlots: keySlots},
+        ),
+        returnValue: _i3.Future<String>.value(_i4.dummyValue<String>(
+          this,
+          Invocation.method(
+            #changePassphrase,
+            [
+              oldPassphrase,
+              newPassphrase,
+            ],
+            {#keySlots: keySlots},
+          ),
+        )),
+      ) as _i3.Future<String>);
+
+  @override
+  _i3.Future<String> replaceRecoveryKey(
+    String? keyId, {
+    List<_i2.SnapdSystemVolumeTargetKeySlot>? keySlots,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #replaceRecoveryKey,
+          [keyId],
+          {#keySlots: keySlots},
+        ),
+        returnValue: _i3.Future<String>.value(_i4.dummyValue<String>(
+          this,
+          Invocation.method(
+            #replaceRecoveryKey,
+            [keyId],
+            {#keySlots: keySlots},
+          ),
+        )),
+      ) as _i3.Future<String>);
 
   @override
   void close() => super.noSuchMethod(

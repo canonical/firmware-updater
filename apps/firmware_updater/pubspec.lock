@@ -789,12 +789,11 @@ packages:
   snapd:
     dependency: "direct main"
     description:
-      path: "."
-      ref: systems-volumes-api
-      resolved-ref: "668155fd9d5236b53f0f459c29abadfff6649660"
-      url: "https://github.com/canonical/snapd.dart"
-    source: git
-    version: "0.7.1"
+      name: snapd
+      sha256: "22bd0d70005caea4c3611b4abe8c7666d2036e3f04b027926ca6f117881245b5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.2"
   source_gen:
     dependency: transitive
     description:
