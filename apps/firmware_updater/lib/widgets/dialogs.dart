@@ -265,9 +265,9 @@ class _RecoveryKeyConfirmationDialogState
     final l10n = AppLocalizations.of(context);
     final model = context.read<RecoveryKeyModel>();
 
-    final isDisabled =
-        widget.recoveryKeyCheck == RecoveryKeyCheck.enterKey && _loading ||
-            widget.recoveryKeyCheck == RecoveryKeyCheck.tickBox && !_confirmed;
+    final isDisabled = widget.recoveryKeyCheck == RecoveryKeyCheck.enterKey &&
+            (_loading || _recoveryKey.isEmpty) ||
+        widget.recoveryKeyCheck == RecoveryKeyCheck.tickBox && !_confirmed;
 
     return AlertDialog(
       actions: [
@@ -344,7 +344,9 @@ class _RecoveryKeyConfirmationDialogState
                       ),
                       onChanged: (text) async {
                         _setError(null);
-                        _recoveryKey = text;
+                        setState(() {
+                          _recoveryKey = text;
+                        });
                       },
                       style: TextStyle(
                         inherit: false,
