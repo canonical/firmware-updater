@@ -23,6 +23,10 @@ plugs:
     read:
       - /var/lib/snapd/hostfs/usr/share/installed-tests/fwupd
 
+layout:
+  /usr/share/installed-tests:
+    bind: $SNAP/usr/share/installed-tests
+
 parts:
   flutter-git:
     plugin: nil
@@ -84,6 +88,9 @@ parts:
       cd apps/firmware_notifier
       mkdir -p $CRAFT_PART_INSTALL/bin/
       fvm dart compile exe bin/firmware_notifier.dart -o $CRAFT_PART_INSTALL/bin/firmware-notifier
+
+      mkdir -p $CRAFT_PART_INSTALL/usr/share/installed-tests
+      ln -s /var/lib/snapd/hostfs/usr/share/installed-tests/fwupd $CRAFT_PART_INSTALL/usr/share/installed-tests/
 
   firmware-updater:
     plugin: dump
