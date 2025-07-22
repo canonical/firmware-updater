@@ -128,9 +128,20 @@ class _FakeSnapdEntropyResponse_8 extends _i1.SmartFake
         );
 }
 
-class _FakeUnmodifiableMapView_9<K, V> extends _i1.SmartFake
+class _FakeSnapdGenerateRecoveryKeyResponse_9 extends _i1.SmartFake
+    implements _i3.SnapdGenerateRecoveryKeyResponse {
+  _FakeSnapdGenerateRecoveryKeyResponse_9(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeUnmodifiableMapView_10<K, V> extends _i1.SmartFake
     implements _i4.UnmodifiableMapView<K, V> {
-  _FakeUnmodifiableMapView_9(
+  _FakeUnmodifiableMapView_10(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -1587,6 +1598,100 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
       ) as _i6.Future<_i3.SnapdEntropyResponse>);
 
   @override
+  _i6.Future<_i3.SnapdGenerateRecoveryKeyResponse> generateRecoveryKey() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #generateRecoveryKey,
+          [],
+        ),
+        returnValue: _i6.Future<_i3.SnapdGenerateRecoveryKeyResponse>.value(
+            _FakeSnapdGenerateRecoveryKeyResponse_9(
+          this,
+          Invocation.method(
+            #generateRecoveryKey,
+            [],
+          ),
+        )),
+      ) as _i6.Future<_i3.SnapdGenerateRecoveryKeyResponse>);
+
+  @override
+  _i6.Future<String> changePin(
+    String? oldPin,
+    String? newPin, {
+    List<_i3.SnapdSystemVolumeTargetKeySlot>? keySlots,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changePin,
+          [
+            oldPin,
+            newPin,
+          ],
+          {#keySlots: keySlots},
+        ),
+        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
+          this,
+          Invocation.method(
+            #changePin,
+            [
+              oldPin,
+              newPin,
+            ],
+            {#keySlots: keySlots},
+          ),
+        )),
+      ) as _i6.Future<String>);
+
+  @override
+  _i6.Future<String> changePassphrase(
+    String? oldPassphrase,
+    String? newPassphrase, {
+    List<_i3.SnapdSystemVolumeTargetKeySlot>? keySlots,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #changePassphrase,
+          [
+            oldPassphrase,
+            newPassphrase,
+          ],
+          {#keySlots: keySlots},
+        ),
+        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
+          this,
+          Invocation.method(
+            #changePassphrase,
+            [
+              oldPassphrase,
+              newPassphrase,
+            ],
+            {#keySlots: keySlots},
+          ),
+        )),
+      ) as _i6.Future<String>);
+
+  @override
+  _i6.Future<String> replaceRecoveryKey(
+    String? keyId, {
+    List<_i3.SnapdSystemVolumeTargetKeySlot>? keySlots,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #replaceRecoveryKey,
+          [keyId],
+          {#keySlots: keySlots},
+        ),
+        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
+          this,
+          Invocation.method(
+            #replaceRecoveryKey,
+            [keyId],
+            {#keySlots: keySlots},
+          ),
+        )),
+      ) as _i6.Future<String>);
+
+  @override
   void close() => super.noSuchMethod(
         Invocation.method(
           #close,
@@ -1969,7 +2074,7 @@ class MockConfigService extends _i1.Mock implements _i10.ConfigService {
   @override
   _i4.UnmodifiableMapView<String, dynamic> get config => (super.noSuchMethod(
         Invocation.getter(#config),
-        returnValue: _FakeUnmodifiableMapView_9<String, dynamic>(
+        returnValue: _FakeUnmodifiableMapView_10<String, dynamic>(
           this,
           Invocation.getter(#config),
         ),
