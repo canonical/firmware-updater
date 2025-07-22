@@ -198,6 +198,7 @@ void main() {
           if (testCase.expectTextField) {
             final textField = find.byType(TextField);
             await tester.enterText(textField, 'recovery key');
+            await tester.pumpAndSettle();
             await tester.tap(find.text(tester.lang.update));
             verify(recoveryKeyModel.checkRecoveryKey('recovery key')).called(1);
             verify(model.install(releases[0])).called(1);
