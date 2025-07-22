@@ -262,5 +262,13 @@
   "affectsFdeTextFieldLabel": "Wpisz klucz odzyskiwania",
   "@affectsFdeTextFieldLabel": {},
   "affectsFdeIncorrectKey": "Klucz odzyskiwania nie działa, sprawdź lub wymień go w Centrum zabezpieczeń",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Bez klucza odzyskiwania możesz utracić wszystkie swoje dane",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Upewnij się, że masz klucze odzyskiwania dla wszystkich zaszyfrowanych dysków. Może być konieczne ich wprowadzenie podczas rozruchu po aktualizacji oprogramowania sprzętowego.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "Na tym komputerze włączone jest szyfrowanie sprzętowe. Po aktualizacji oprogramowania sprzętowego może być konieczne wprowadzenie klucza odzyskiwania podczas rozruchu. Upewnij się, że masz również klucze odzyskiwania dla wszystkich innych zaszyfrowanych dysków na tym komputerze.",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "Funkcja BitLocker jest włączona na tym komputerze. Upewnij się, że masz klucze odzyskiwania dla wszystkich zaszyfrowanych dysków. Może być konieczne ich wprowadzenie podczas rozruchu po aktualizacji oprogramowania sprzętowego.",
+  "@affectsFdeWarningBitlockerBody": {}
 }
