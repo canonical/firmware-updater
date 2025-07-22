@@ -255,12 +255,20 @@
   "@affectsFdeWarningBody1": {},
   "affectsFdeWarningBody2": "Kuna kasutad siin arvutis raudvarapõhist krüptimist, siis pead sisestama taastevõtme.",
   "@affectsFdeWarningBody2": {},
-  "affectsFdeCheckbox": "Mul on taastevõtmed kõikide minu krüptitud andmekandjate jaoks",
+  "affectsFdeCheckbox": "Mul on olemas taastevõtmed kõikide minu krüptitud andmekandjate jaoks",
   "@affectsFdeCheckbox": {},
   "affectsFdeLinkLabel": "Lisateave",
   "@affectsFdeLinkLabel": {},
   "affectsFdeTextFieldLabel": "Palun sisesta oma taastevõti",
   "@affectsFdeTextFieldLabel": {},
   "affectsFdeIncorrectKey": "Taastevõti ei toimi, palun kontrolli Andmeturbekeskusest tema õigsust või vajadusel asenda ta",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Ilma taastevõtmeta võid kaotada ligipääsu kõikidele oma andmetele",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Palun taga, et sul on olemas taastevõtmed kõikide krüptitud ketaste ja muude andmekandjate jaoks. Näiteks peale püsivara uuendamist võib nende sisestamine olla uuel käivitusel vajalik.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "Sinu arvutis on kasutusel raudvarapõhine krüptimine. Näiteks peale püsivara uuendamist võib taastevõtme sisestamine olla uuel käivitusel vajalik. Palun taga, et sul on olemas taastevõtmed selle ja kõikide teiste krüptitud ketaste ja muude andmekandjate jaoks.",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "Sinu arvutis on kasutusel BitLocker. Palun taga, et sul on olemas taastevõtmed kõikide krüptitud ketaste ja muude andmekandjate jaoks. Näiteks peale püsivara uuendamist võib nende sisestamine olla uuel käivitusel vajalik.",
+  "@affectsFdeWarningBitlockerBody": {}
 }
