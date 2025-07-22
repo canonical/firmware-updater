@@ -262,5 +262,13 @@
   "affectsFdeIncorrectKey": "Obnovovací kľúč nefunguje, skontrolujte ho alebo ho zmeňte v Centre zabezpečenia",
   "@affectsFdeIncorrectKey": {},
   "affectsFdeTextFieldLabel": "Zadajte svoj obnovovací kľúč",
-  "@affectsFdeTextFieldLabel": {}
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Bez kľúča na obnovenie môžete prísť o všetky svoje údaje",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Uistite sa, že máte kľúče na obnovenie pre všetky šifrované disky. Možno ich budete musieť zadať pri štarte po aktualizácii firmvéru.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "Šifrovanie BitLocker je na vašom počítači zapnuté. Uistite sa, že máte kľúče na obnovenie pre všetky šifrované disky. Možno ich budete musieť zadať pri štarte po aktualizácii firmvéru.",
+  "@affectsFdeWarningBitlockerBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "Na vašom počítači je zapnuté šifrovanie podporované hardvérom. Po aktualizácii firmvéru možno budete musieť zadať obnovovací kľúč pri spustení. Uistite sa, že máte aj kľúče na obnovenie všetkých ostatných šifrovaných diskov v tomto počítači.",
+  "@affectsFdeWarningUbuntuFdeBody": {}
 }
