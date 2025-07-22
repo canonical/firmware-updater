@@ -17,6 +17,12 @@ slots:
     name: com.canonical.firmware_updater
     bus: session
 
+plugs:
+  hostfs-usr-share-installed-tests-fwupd:
+    interface: system-files
+    read:
+      - /var/lib/snapd/hostfs/usr/share/installed-tests/fwupd
+
 parts:
   flutter-git:
     plugin: nil
@@ -103,6 +109,7 @@ apps:
       - upower-observe
       - firmware-updater-support
       - udisks2
+      - hostfs-usr-share-installed-tests-fwupd
 
   firmware-notifier:
     command: bin/firmware-notifier
