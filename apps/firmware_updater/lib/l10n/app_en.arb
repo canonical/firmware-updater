@@ -1,8 +1,11 @@
 {
   "@@locale": "en",
   "affectsFdeWarningTitle": "You may lose all your data without recovery keys",
-  "affectsFdeWarningBody1": "You may need to enter it on boot after updating firmware. Make sure you also have recovery keys for any other encrypted drives on this computer.",
-  "affectsFdeWarningBody2": "You need to provide a recovery key because you enabled hardware-backed encryption.",
+  "affectsFdeWarningUbuntuFdeTitle": "You may lose all your data without your recovery key",
+  "affectsFdeWarningOtherFdeBody": "Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.",
+  "affectsFdeWarningUbuntuFdeBody": "Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.",
+  "affectsFdeWarningBitlockerBody": "BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.",
+  "affectsFdeCheckbox": "I have recovery keys for all my encrypted drives",
   "affectsFdeTextFieldLabel": "Enter your recovery key",
   "affectsFdeLinkLabel": "Learn more",
   "affectsFdeIncorrectKey": "Recovery key does not work, check or replace it in the Security Center",

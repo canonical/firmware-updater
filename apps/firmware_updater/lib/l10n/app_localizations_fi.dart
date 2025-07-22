@@ -13,12 +13,24 @@ class AppLocalizationsFi extends AppLocalizations {
       'Kaikki tiedot voidaan menettää ilman palautusavaimia';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Varmista että sinulla on palautusavaimet kaikille salatuille asemille. Sinun tulee syöttää ne käynnistettäessä laiteohjelmiston päivttämisen jälkeen.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Tarvitse palautusavaimia, koska tällä tietokoneella on Ubuntun tai muun käyttöjärjestelmän käytössä laitevarmennettu salaus.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Minulla on palautusavaimet kaikille salatuille asemille';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

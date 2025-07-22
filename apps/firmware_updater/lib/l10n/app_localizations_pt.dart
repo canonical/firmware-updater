@@ -13,12 +13,24 @@ class AppLocalizationsPt extends AppLocalizations {
       'Pode perder todos os seus dados se não tiver as chaves de recuperação';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Certifique-se de que tem as chaves de recuperação de todas as suas unidades encriptadas. Vai precisar de as introduzir no arranque após atualizar o firmware.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Precisa das chaves de recuperação porque ativou a encriptação suportada por hardware no Ubuntu ou noutros sistemas operativos neste computador.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Tenho as chaves de recuperação de todas as minhas unidades encriptadas';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

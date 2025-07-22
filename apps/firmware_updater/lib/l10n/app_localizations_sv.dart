@@ -13,12 +13,24 @@ class AppLocalizationsSv extends AppLocalizations {
       'Du kan förlora all din data utan återställningsnycklar';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Se till att du har återställningsnycklar för alla dina krypterade enheter. Du måste ange dem vid uppstart efter uppdatering av fast programvara.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Du behöver återställningsnycklar eftersom du har aktiverat hårdvarustödd kryptering i Ubuntu eller andra operativsystem på den här datorn.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Jag har återställningsnycklar för alla mina krypterade enheter';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

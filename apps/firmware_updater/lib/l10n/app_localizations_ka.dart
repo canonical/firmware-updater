@@ -13,12 +13,24 @@ class AppLocalizationsKa extends AppLocalizations {
       'აღდგენის გასაღებების გარეშე, შეიძლება, მონაცემები სრულად დაკარგოთ';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'დარწმუნდით, რომ გაქვთ აღდგენის გასაღებები ყველა თქვენი დაშიფრული დისკისთვის. შეიძლება, მისი შეყვანა მიკროკოდის განახლების შემდეგ, ჩატვირთვისას დაგჭირდეთ.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'აღდგენის გასაღებები გჭირდებათ, რადგან ჩართეთ აპარატურის მიერ მხარდაჭერილი დაშიფვრა Ubuntu-ზე, ან სხვა ოპერაციულ სისტემაზე ამ კომპიუტერზე.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'მე მაქვს აღდგენის გასაღებები ყველა ჩემი დაშიფრული დისკისთვის';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

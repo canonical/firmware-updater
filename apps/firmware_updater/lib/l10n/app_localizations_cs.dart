@@ -13,12 +13,24 @@ class AppLocalizationsCs extends AppLocalizations {
       'Bez klíčů pro obnovení můžete přijít o všechna data';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Ujistěte se, že máte klíče pro obnovení pro všechny šifrované disky. Budete je muset zadat při spouštění po aktualizaci firmwaru.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Obnovovací klíče potřebujete, protože jste na tomto počítači povolili hardwarově podporované šifrování v Ubuntu nebo jiných operačních systémech.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Mám klíče pro obnovení pro všechny své šifrované disky';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

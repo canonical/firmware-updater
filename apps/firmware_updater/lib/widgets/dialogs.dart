@@ -1,6 +1,6 @@
 import 'package:firmware_updater/l10n/app_localizations.dart';
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:firmware_updater/services.dart';
-import 'package:firmware_updater/widgets/recovery_key_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
@@ -9,6 +9,8 @@ import 'package:url_launcher/url_launcher_string.dart';
 import 'package:yaru/yaru.dart';
 
 enum DialogAction { primaryAction, secondaryAction, cancel, close }
+
+enum RecoveryKeyCheck { none, tickBox, enterKey }
 
 const kMaxWidth = 500.0;
 const fdeLink =
@@ -219,7 +221,7 @@ class RecoveryKeyConfirmationDialog extends StatefulWidget {
     required this.title,
     this.body,
     this.actionText,
-    this.checkRecoveryKey = false,
+    this.recoveryKeyCheck = RecoveryKeyCheck.none,
     this.onConfirm,
     super.key,
   });
@@ -227,7 +229,7 @@ class RecoveryKeyConfirmationDialog extends StatefulWidget {
   final String title;
   final Widget? body;
   final String? actionText;
-  final bool checkRecoveryKey;
+  final RecoveryKeyCheck recoveryKeyCheck;
   final VoidCallback? onConfirm;
 
   @override
@@ -238,11 +240,17 @@ class RecoveryKeyConfirmationDialog extends StatefulWidget {
 class _RecoveryKeyConfirmationDialogState
     extends State<RecoveryKeyConfirmationDialog> {
   bool _loading = false;
+  bool _confirmed = false;
   String? _error;
 
   void _setLoading(bool? loading) {
     if (loading == null || _loading == loading) return;
     setState(() => _loading = loading);
+  }
+
+  void _setConfirmed(bool? confirmed) {
+    if (confirmed == null || _confirmed == confirmed) return;
+    setState(() => _confirmed = confirmed);
   }
 
   void _setError(String? error) {
@@ -257,6 +265,10 @@ class _RecoveryKeyConfirmationDialogState
     final l10n = AppLocalizations.of(context);
     final model = context.read<RecoveryKeyModel>();
 
+    final isDisabled = widget.recoveryKeyCheck == RecoveryKeyCheck.enterKey &&
+            (_loading || _recoveryKey.isEmpty) ||
+        widget.recoveryKeyCheck == RecoveryKeyCheck.tickBox && !_confirmed;
+
     return AlertDialog(
       actions: [
         OutlinedButton(
@@ -264,10 +276,10 @@ class _RecoveryKeyConfirmationDialogState
           child: Text(l10n.cancel),
         ),
         ElevatedButton(
-          onPressed: _loading
+          onPressed: isDisabled
               ? null
               : () async {
-                  if (!widget.checkRecoveryKey) {
+                  if (widget.recoveryKeyCheck != RecoveryKeyCheck.enterKey) {
                     Navigator.of(context).pop(DialogAction.primaryAction);
                   }
                   _setLoading(true);
@@ -319,7 +331,7 @@ class _RecoveryKeyConfirmationDialogState
                     const SizedBox(height: 8),
                     widget.body!,
                   ],
-                  if (widget.checkRecoveryKey) ...[
+                  if (widget.recoveryKeyCheck == RecoveryKeyCheck.enterKey) ...[
                     const SizedBox(height: 8),
                     TextField(
                       enabled: !_loading,
@@ -332,7 +344,9 @@ class _RecoveryKeyConfirmationDialogState
                       ),
                       onChanged: (text) async {
                         _setError(null);
-                        _recoveryKey = text;
+                        setState(() {
+                          _recoveryKey = text;
+                        });
                       },
                       style: TextStyle(
                         inherit: false,
@@ -343,6 +357,18 @@ class _RecoveryKeyConfirmationDialogState
                         textBaseline: TextBaseline.alphabetic,
                         color: Theme.of(context).colorScheme.onSurface,
                       ),
+                    ),
+                  ],
+                  if (widget.recoveryKeyCheck == RecoveryKeyCheck.tickBox) ...[
+                    const SizedBox(height: 8),
+                    YaruCheckButton(
+                      title: Text(
+                        l10n.affectsFdeCheckbox,
+                        maxLines: 2,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      value: _confirmed,
+                      onChanged: _setConfirmed,
                     ),
                   ],
                 ],
@@ -359,6 +385,8 @@ void confirmAndInstall(
   BuildContext context, {
   required FwupdRelease release,
   required FwupdDevice device,
+  required bool hasUbuntuFde,
+  required bool hasBitlocker,
   VoidCallback? onInstall,
   bool testDeviceAffectsFde = false,
 }) {
@@ -372,24 +400,37 @@ void confirmAndInstall(
           // fwupd 'Fake webcam' test device
           device.deviceId == '08d460be0f1f9f128413f816022a6439e0078018';
 
+  final recoveryKeyCheck = switch ((affectsFde, hasUbuntuFde, hasBitlocker)) {
+    (true, true, _) => RecoveryKeyCheck.enterKey,
+    (true, false, _) => RecoveryKeyCheck.tickBox,
+    _ => RecoveryKeyCheck.none
+  };
+
   final children = [
-    if (!device.flags.contains(FwupdDeviceFlag.usableDuringUpdate)) ...[
+    if (!device.flags.contains(FwupdDeviceFlag.usableDuringUpdate))
       Text(l10n.deviceUnavailable),
-    ],
-    if (affectsFde) ...[
+    if (recoveryKeyCheck != RecoveryKeyCheck.none) ...[
       const SizedBox(height: 8),
       YaruInfoBox(
         yaruInfoType: YaruInfoType.warning,
-        title: Text(l10n.affectsFdeWarningTitle),
+        title: Text(
+          hasUbuntuFde
+              ? l10n.affectsFdeWarningUbuntuFdeTitle
+              : l10n.affectsFdeWarningTitle,
+        ),
         titleTextStyle: Theme.of(context).textTheme.titleSmall,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 8),
-            Text(l10n.affectsFdeWarningBody1),
-            const SizedBox(height: 8),
-            Text(l10n.affectsFdeWarningBody2),
+            Text(
+              switch ((hasUbuntuFde, hasBitlocker)) {
+                (true, _) => l10n.affectsFdeWarningUbuntuFdeBody,
+                (false, true) => l10n.affectsFdeWarningBitlockerBody,
+                _ => l10n.affectsFdeWarningOtherFdeBody,
+              },
+            ),
             MouseRegion(
               cursor: SystemMouseCursors.click,
               child: GestureDetector(
@@ -444,7 +485,7 @@ void confirmAndInstall(
     title: dialogText,
     body: body,
     actionText: actionText,
-    checkRecoveryKey: affectsFde,
+    recoveryKeyCheck: recoveryKeyCheck,
     onConfirm: onInstall,
   );
 }
@@ -455,7 +496,7 @@ Future<DialogAction?> showConfirmAndInstallDialog(
   VoidCallback? onConfirm,
   Widget? body,
   String? actionText,
-  bool checkRecoveryKey = false,
+  RecoveryKeyCheck recoveryKeyCheck = RecoveryKeyCheck.none,
 }) async {
   final result = await showDialog<DialogAction>(
     context: context,
@@ -464,7 +505,7 @@ Future<DialogAction?> showConfirmAndInstallDialog(
       body: body,
       onConfirm: onConfirm,
       actionText: actionText,
-      checkRecoveryKey: checkRecoveryKey,
+      recoveryKeyCheck: recoveryKeyCheck,
     ),
   );
 

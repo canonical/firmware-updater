@@ -6,6 +6,7 @@ import 'package:fwupd/fwupd.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 import 'package:ubuntu_test/ubuntu_test.dart';
+import 'package:yaru/yaru.dart';
 
 import 'test_utils.dart';
 
@@ -31,8 +32,16 @@ void main() {
       final model = mockModel(device: device);
       final notifier = mockNotifier();
       final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
       await tester.pumpApp(
-        (_) => buildPage(model: model, notifier: notifier, store: store),
+        (_) => buildPage(
+          model: model,
+          notifier: notifier,
+          store: store,
+        ),
+        providers: [
+          Provider(create: (_) => recoveryKeyModel),
+        ],
       );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
@@ -47,8 +56,16 @@ void main() {
       final model = mockModel(device: device, releases: releases);
       final notifier = mockNotifier();
       final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
       await tester.pumpApp(
-        (_) => buildPage(model: model, notifier: notifier, store: store),
+        (_) => buildPage(
+          model: model,
+          notifier: notifier,
+          store: store,
+        ),
+        providers: [
+          Provider(create: (_) => recoveryKeyModel),
+        ],
       );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
@@ -105,57 +122,116 @@ void main() {
       verify(model.install(releases[0])).called(1);
     });
 
-    testWidgets('update available affecting tpm fde', (tester) async {
-      final device = testDevice(
-        id: 'a',
-        version: '1.0.0',
-        name: 'test device',
-        flags: {FwupdDeviceFlag.affectsFde},
-      );
-      final releases = [
-        FwupdRelease(
-          name: 'new release',
-          version: '2.0.0',
-          flags: {FwupdReleaseFlag.isUpgrade},
+    group('update available affecting tpm fde', () {
+      for (final testCase in [
+        (
+          name: 'Ubuntu FDE',
+          hasUbuntuFde: true,
+          hasBitlocker: false,
+          expectTextField: true,
+          expectCheckBox: false,
         ),
-        FwupdRelease(
-          name: 'test release',
-          version: '1.0.0',
+        (
+          name: 'Bitlocker',
+          hasUbuntuFde: false,
+          hasBitlocker: true,
+          expectTextField: false,
+          expectCheckBox: true,
         ),
-      ];
-      final model = mockModel(
-        device: device,
-        hasUpgrade: true,
-        releases: releases,
-      );
-      final notifier = mockNotifier();
-      final store = mockStore();
-      final recoveryKeyModel = mockRecoveryKeyModel();
-      await tester.pumpApp(
-        (_) => buildPage(model: model, notifier: notifier, store: store),
-        providers: [
-          Provider(create: (_) => recoveryKeyModel),
-        ],
-      );
+        (
+          name: 'Other FDE',
+          hasUbuntuFde: false,
+          hasBitlocker: false,
+          expectTextField: false,
+          expectCheckBox: true,
+        ),
+      ]) {
+        testWidgets(testCase.name, (tester) async {
+          final device = testDevice(
+            id: 'a',
+            version: '1.0.0',
+            name: 'test device',
+            flags: {FwupdDeviceFlag.affectsFde},
+          );
+          final releases = [
+            FwupdRelease(
+              name: 'new release',
+              version: '2.0.0',
+              flags: {FwupdReleaseFlag.isUpgrade},
+            ),
+            FwupdRelease(
+              name: 'test release',
+              version: '1.0.0',
+            ),
+          ];
+          final model = mockModel(
+            device: device,
+            hasUpgrade: true,
+            releases: releases,
+          );
+          final notifier = mockNotifier();
+          final store = mockStore();
+          final recoveryKeyModel = mockRecoveryKeyModel(
+            hasUbuntuFde: testCase.hasUbuntuFde,
+            hasBitlocker: testCase.hasBitlocker,
+          );
+          await tester.pumpApp(
+            (_) => buildPage(model: model, notifier: notifier, store: store),
+            providers: [
+              Provider(create: (_) => recoveryKeyModel),
+            ],
+          );
 
-      expect(find.text(tester.lang.updateToLatest), findsOneWidget);
-      expect(find.text(tester.lang.allVersions), findsOneWidget);
-      expect(find.text(tester.lang.verifyFirmware), findsNothing);
-      expect(find.text(tester.lang.updateChecksums), findsNothing);
+          expect(find.text(tester.lang.updateToLatest), findsOneWidget);
+          expect(find.text(tester.lang.allVersions), findsOneWidget);
+          expect(find.text(tester.lang.verifyFirmware), findsNothing);
+          expect(find.text(tester.lang.updateChecksums), findsNothing);
 
-      await tester.tap(find.text(tester.lang.updateToLatest));
-      await tester.pumpAndSettle();
+          await tester.tap(find.text(tester.lang.updateToLatest));
+          await tester.pumpAndSettle();
 
-      expect(
-        find.html(tester.lang.updateConfirm('test device', '2.0.0')),
-        findsOneWidget,
-      );
+          expect(
+            find.html(tester.lang.updateConfirm('test device', '2.0.0')),
+            findsOneWidget,
+          );
 
-      final textField = find.byType(TextField);
-      await tester.enterText(textField, 'recovery key');
-      await tester.tap(find.text(tester.lang.update));
-      verify(recoveryKeyModel.checkRecoveryKey('recovery key')).called(1);
-      verify(model.install(releases[0])).called(1);
+          if (testCase.expectTextField) {
+            final textField = find.byType(TextField);
+            await tester.enterText(textField, 'recovery key');
+            await tester.pumpAndSettle();
+            await tester.tap(find.text(tester.lang.update));
+            verify(recoveryKeyModel.checkRecoveryKey('recovery key')).called(1);
+            verify(model.install(releases[0])).called(1);
+          } else if (testCase.expectCheckBox) {
+            expect(
+              tester
+                  .widget<ElevatedButton>(
+                    find.widgetWithText(ElevatedButton, tester.lang.update),
+                  )
+                  .enabled,
+              isFalse,
+            );
+
+            final checkbox = find.byType(YaruCheckbox);
+            expect(checkbox, findsOneWidget);
+
+            await tester.tap(checkbox);
+            await tester.pumpAndSettle();
+
+            expect(
+              tester
+                  .widget<ElevatedButton>(
+                    find.widgetWithText(ElevatedButton, tester.lang.update),
+                  )
+                  .enabled,
+              isTrue,
+            );
+
+            await tester.tap(find.text(tester.lang.update));
+            verify(model.install(releases[0])).called(1);
+          }
+        });
+      }
     });
 
     testWidgets('update checksum', (tester) async {
@@ -167,8 +243,12 @@ void main() {
       final model = mockModel(device: device);
       final notifier = mockNotifier();
       final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
+        providers: [
+          Provider(create: (_) => recoveryKeyModel),
+        ],
       );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);
@@ -200,8 +280,12 @@ void main() {
       final model = mockModel(device: device);
       final notifier = mockNotifier();
       final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
+        providers: [
+          Provider(create: (_) => recoveryKeyModel),
+        ],
       );
 
       expect(find.text(tester.lang.updateToLatest), findsNothing);

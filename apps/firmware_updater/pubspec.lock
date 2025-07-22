@@ -930,6 +930,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.3+1"
+  udisks:
+    dependency: "direct main"
+    description:
+      name: udisks
+      sha256: "847144fb868b9e3602895e89f438f77c2a4fda9e4b02f7d368dc1d2c6a40b475"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.0"
   upower:
     dependency: "direct main"
     description:

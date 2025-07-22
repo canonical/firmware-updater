@@ -10,6 +10,8 @@ class ReleaseCard extends StatelessWidget {
   const ReleaseCard({
     required this.release,
     required this.device,
+    required this.hasUbuntuFde,
+    required this.hasBitlocker,
     super.key,
     this.onInstall,
     this.testDeviceAffectsFde = false,
@@ -19,6 +21,8 @@ class ReleaseCard extends StatelessWidget {
   final FwupdDevice device;
   final VoidCallback? onInstall;
   final bool testDeviceAffectsFde;
+  final bool hasUbuntuFde;
+  final bool hasBitlocker;
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +61,8 @@ class ReleaseCard extends StatelessWidget {
               device: device,
               onInstall: onInstall,
               testDeviceAffectsFde: testDeviceAffectsFde,
+              hasUbuntuFde: hasUbuntuFde,
+              hasBitlocker: hasBitlocker,
             ),
             child: Text(
               release.isUpgrade

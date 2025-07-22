@@ -13,12 +13,24 @@ class AppLocalizationsKm extends AppLocalizations {
       'អ្នកអាចនឹងបាត់បង់ទិន្នន័យរបស់អ្នកទាំងអស់ដោយគ្មានសោសង្គ្រោះ';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'សូមប្រាកដថាអ្នកមានសោសង្គ្រោះសម្រាប់ដ្រាយដែលបានអ៊ិនគ្រីបរបស់អ្នកទាំងអស់។ អ្នកនឹងត្រូវបញ្ចូលពួកវានៅពេលចាប់ផ្ដើមបន្ទាប់ពីធ្វើបច្ចុប្បន្នភាពកម្មវិធីបង្កប់។';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'អ្នក​ត្រូវ​ការ​សោ​សង្គ្រោះ​ព្រោះ​អ្នក​បាន​បើក​ការ​អ៊ិនគ្រីប​ដែល​គាំទ្រ​ដោយ​ផ្នែករឹង​ក្នុង​អ៊ូប៊ុនទូ ឬ​ប្រព័ន្ធ​ប្រតិបត្តិការ​ផ្សេង​ទៀត​នៅ​លើ​កុំព្យូទ័រ​នេះ។';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'ខ្ញុំ​មាន​សោ​សង្គ្រោះ​សម្រាប់​ថាស​ដែល​បាន​អ៊ិនគ្រីប​ទាំងអស់​របស់​ខ្ញុំ';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

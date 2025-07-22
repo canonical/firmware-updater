@@ -13,12 +13,24 @@ class AppLocalizationsOc extends AppLocalizations {
       'Poiriatz pèrdre totas vòstras donadas sens clau de recuperacion';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'Asseguratz-vos d\'aver las claus de recuperacion per totes vòstres disques chifrats. Las vos calrà picar a l\'aviada aprèp la mesa a jorn del logicial.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'Avètz besonh de claus de recuperacion per çò qu\'avètz activat lo chiframent material dins Ubuntu o d\'autres sistèmas operatius sus aqueste ordenador.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'Ai las claus de recuperacion per totes mos disques chifras';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

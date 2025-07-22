@@ -1,6 +1,7 @@
 import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/l10n/app_localizations.dart';
 import 'package:firmware_updater/pages.dart';
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:firmware_updater/services.dart';
 import 'package:firmware_updater/widgets/release_card.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +14,10 @@ class ReleasePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final model = context.watch<DeviceModel>();
-    final device = model.device;
-    final releases = model.releases ?? [];
+    final deviceModel = context.watch<DeviceModel>();
+    final recoveryKeyModel = context.read<RecoveryKeyModel>();
+    final device = deviceModel.device;
+    final releases = deviceModel.releases ?? [];
     final currentReleases = releases.where((r) => !r.isDowngrade);
     final oldReleases = releases.where((r) => r.isDowngrade);
     final l10n = AppLocalizations.of(context);
@@ -27,7 +29,7 @@ class ReleasePage extends StatelessWidget {
             final notifier = context.read<FwupdNotifier>();
             final store = context.read<DeviceStore>();
             store.showReleases = false;
-            await model.install(release);
+            await deviceModel.install(release);
             await notifier.refresh();
 
             // refresh [DeviceStore] to force updates of all
@@ -37,7 +39,9 @@ class ReleasePage extends StatelessWidget {
             // TODO: improve when better solution is found
             await store.refresh();
           },
-          testDeviceAffectsFde: model.testDeviceAffectsFde,
+          testDeviceAffectsFde: deviceModel.testDeviceAffectsFde,
+          hasBitlocker: recoveryKeyModel.hasBitlocker,
+          hasUbuntuFde: recoveryKeyModel.hasUbuntuFde,
         );
 
     return YaruDetailPage(

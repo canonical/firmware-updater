@@ -13,12 +13,24 @@ class AppLocalizationsHe extends AppLocalizations {
       'ללא מפתחות שחזור כל הנתונים שלך עלולים ללכת לאיבוד';
 
   @override
-  String get affectsFdeWarningBody1 =>
-      'נא לוודא שיש לך את מפתחות השחזור לכל הכוננים המוצפנים שלך. יש למלא אותם מחדש בזמן העלייה לאחר עדכון קושחה.';
+  String get affectsFdeWarningUbuntuFdeTitle =>
+      'You may lose all your data without your recovery key';
 
   @override
-  String get affectsFdeWarningBody2 =>
-      'צריך מפתחות שחזור כיוון שהפעלת הצפנה בגיבוי חומרה באובונטו או במערכות הפעלה אחרות במחשב הזה.';
+  String get affectsFdeWarningOtherFdeBody =>
+      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+
+  @override
+  String get affectsFdeCheckbox =>
+      'יש לי מפתחות שחזור לכל הכוננים המוצפנים שלי';
 
   @override
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';

@@ -47,8 +47,16 @@ void main() {
     );
     final notifier = mockNotifier();
     final store = mockStore();
+    final recoveryKeyModel = mockRecoveryKeyModel();
     await tester.pumpApp(
-      (_) => buildPage(model: model, notifier: notifier, store: store),
+      (_) => buildPage(
+        model: model,
+        notifier: notifier,
+        store: store,
+      ),
+      providers: [
+        Provider(create: (_) => recoveryKeyModel),
+      ],
     );
 
     expect(find.text('3.0.0').hitTestable(), findsOneWidget);
