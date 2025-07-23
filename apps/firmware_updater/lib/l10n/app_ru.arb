@@ -262,5 +262,13 @@
   "affectsFdeTextFieldLabel": "Введите свой ключ восстановления",
   "@affectsFdeTextFieldLabel": {},
   "affectsFdeIncorrectKey": "Ключ восстановления не работает, проверьте или замените его в Центре безопасности",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Без ключа восстановления вы можете потерять все свои данные",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Убедитесь, что у вас есть ключи восстановления для всех зашифрованных дисков. Возможно, вам потребуется ввести их во время загрузки после обновления прошивки.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "На вашем компьютере включено аппаратное шифрование. Возможно, вам потребуется ввести ключ восстановления во время загрузки после обновления прошивки. Убедитесь, что у вас также есть ключи восстановления для всех других зашифрованных дисков на этом компьютере.",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "На вашем компьютере включён BitLocker. Убедитесь, что у вас есть ключи восстановления для всех зашифрованных дисков. Возможно, вам потребуется ввести их во время загрузки после обновления прошивки.",
+  "@affectsFdeWarningBitlockerBody": {}
 }
