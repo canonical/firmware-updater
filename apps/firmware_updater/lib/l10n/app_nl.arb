@@ -262,5 +262,13 @@
   "affectsFdeTextFieldLabel": "Voer uw herstelcode in",
   "@affectsFdeTextFieldLabel": {},
   "affectsFdeIncorrectKey": "Herstelcode werkt niet, controleer deze of vervang deze in het Security Center",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Zonder uw herstelcode kunt u al uw gegevens verliezen",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Zorg ervoor dat u herstelcodes heeft voor alle gecodeerde schijven. Mogelijk moet u deze bij het opstarten invoeren nadat u de firmware heeft bijgewerkt.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "Versleuteling met hardware-ondersteuning is ingeschakeld op uw computer. Mogelijk moet u uw herstelcode bij het opstarten invoeren nadat u de firmware heeft bijgewerkt. Zorg ervoor dat u ook herstelcodes paraat hebt voor elke andere versleutelde schijf op deze computer.",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "BitLocker is ingeschakeld op uw computer. Zorg ervoor dat u herstelsleutels heeft voor alle gecodeerde schijven. Mogelijk moet u ze tijdens het opstarten invoeren nadat u de firmware heeft bijgewerkt.",
+  "@affectsFdeWarningBitlockerBody": {}
 }
