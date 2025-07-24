@@ -15,6 +15,9 @@ enum RecoveryKeyCheck { none, tickBox, enterKey }
 const kMaxWidth = 500.0;
 const fdeLink =
     'https://discourse.ubuntu.com/t/hardware-backed-encryption-and-recovery-keys-in-ubuntu-desktop/58243';
+const deviceIdsExcludedFromRecoveryKeyCheck = [
+  '362301da643102b9f38477387e2193e57abaa590', // UEFI dbx
+];
 
 Future<DialogAction?> showGeneralDialog(
   BuildContext context, {
@@ -395,7 +398,8 @@ void confirmAndInstall(
   final String actionText;
   final String dialogText;
 
-  final affectsFde = device.flags.contains(FwupdDeviceFlag.affectsFde) ||
+  final affectsFde = device.flags.contains(FwupdDeviceFlag.affectsFde) &&
+          !deviceIdsExcludedFromRecoveryKeyCheck.contains(device.deviceId) ||
       testDeviceAffectsFde &&
           // fwupd 'Fake webcam' test device
           device.deviceId == '08d460be0f1f9f128413f816022a6439e0078018';
