@@ -126,6 +126,7 @@ void main() {
       for (final testCase in [
         (
           name: 'Ubuntu FDE',
+          deviceId: null,
           hasUbuntuFde: true,
           hasBitlocker: false,
           expectTextField: true,
@@ -133,6 +134,7 @@ void main() {
         ),
         (
           name: 'Bitlocker',
+          deviceId: null,
           hasUbuntuFde: false,
           hasBitlocker: true,
           expectTextField: false,
@@ -140,15 +142,24 @@ void main() {
         ),
         (
           name: 'Other FDE',
+          deviceId: null,
           hasUbuntuFde: false,
           hasBitlocker: false,
           expectTextField: false,
           expectCheckBox: true,
         ),
+        (
+          name: 'UEFI dbx',
+          deviceId: '362301da643102b9f38477387e2193e57abaa590',
+          hasUbuntuFde: true,
+          hasBitlocker: false,
+          expectTextField: false,
+          expectCheckBox: false,
+        ),
       ]) {
         testWidgets(testCase.name, (tester) async {
           final device = testDevice(
-            id: 'a',
+            id: testCase.deviceId ?? 'a',
             version: '1.0.0',
             name: 'test device',
             flags: {FwupdDeviceFlag.affectsFde},
