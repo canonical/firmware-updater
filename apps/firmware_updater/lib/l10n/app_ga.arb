@@ -262,5 +262,13 @@
   "affectsFdeTextFieldLabel": "Cuir isteach d'eochair aisghabhála",
   "@affectsFdeTextFieldLabel": {},
   "affectsFdeIncorrectKey": "Ní oibríonn an eochair aisghabhála, seiceáil nó cuir ceann eile ina háit san Ionad Slándála",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "D’fhéadfá do chuid sonraí go léir a chailleadh gan d’eochair aisghabhála",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Cinntigh go bhfuil eochracha aisghabhála agat do na dioscaí criptithe go léir. B’fhéidir go mbeidh ort iad a iontráil ag am tosaithe tar éis an fhirmchlár a nuashonrú.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "Tá criptiú crua-earraí cumasaithe ar do ríomhaire. B’fhéidir go mbeidh ort d’eochair aisghabhála a iontráil ar an tosaithe tar éis duit an fhirmchlár a nuashonrú. Déan cinnte go bhfuil eochracha aisghabhála agat freisin le haghaidh aon dioscaí criptithe eile ar an ríomhaire seo.",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "Tá BitLocker cumasaithe ar do ríomhaire. Déan cinnte go bhfuil eochracha aisghabhála agat do na dioscaí criptithe go léir. B’fhéidir go mbeidh ort iad a iontráil ag am tosaithe tar éis an fhirmchlár a nuashonrú.",
+  "@affectsFdeWarningBitlockerBody": {}
 }
