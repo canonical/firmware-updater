@@ -149,12 +149,28 @@ void main() {
           expectCheckBox: true,
         ),
         (
-          name: 'UEFI dbx',
+          name: 'UEFI dbx - Ubuntu FDE',
           deviceId: '362301da643102b9f38477387e2193e57abaa590',
           hasUbuntuFde: true,
           hasBitlocker: false,
           expectTextField: false,
           expectCheckBox: false,
+        ),
+        (
+          name: 'UEFI dbx - Bitlocker',
+          deviceId: '362301da643102b9f38477387e2193e57abaa590',
+          hasUbuntuFde: false,
+          hasBitlocker: true,
+          expectTextField: false,
+          expectCheckBox: true,
+        ),
+        (
+          name: 'UEFI dbx - Other FDE',
+          deviceId: '362301da643102b9f38477387e2193e57abaa590',
+          hasUbuntuFde: false,
+          hasBitlocker: false,
+          expectTextField: false,
+          expectCheckBox: true,
         ),
       ]) {
         testWidgets(testCase.name, (tester) async {
@@ -206,14 +222,16 @@ void main() {
             findsOneWidget,
           );
 
+          final textField = find.byType(TextField);
           if (testCase.expectTextField) {
-            final textField = find.byType(TextField);
             await tester.enterText(textField, 'recovery key');
             await tester.pumpAndSettle();
-            await tester.tap(find.text(tester.lang.update));
-            verify(recoveryKeyModel.checkRecoveryKey('recovery key')).called(1);
-            verify(model.install(releases[0])).called(1);
-          } else if (testCase.expectCheckBox) {
+          } else {
+            expect(textField, findsNothing);
+          }
+
+          final checkbox = find.byType(YaruCheckbox);
+          if (testCase.expectCheckBox) {
             expect(
               tester
                   .widget<ElevatedButton>(
@@ -223,7 +241,6 @@ void main() {
               isFalse,
             );
 
-            final checkbox = find.byType(YaruCheckbox);
             expect(checkbox, findsOneWidget);
 
             await tester.tap(checkbox);
@@ -237,10 +254,15 @@ void main() {
                   .enabled,
               isTrue,
             );
-
-            await tester.tap(find.text(tester.lang.update));
-            verify(model.install(releases[0])).called(1);
+          } else {
+            expect(checkbox, findsNothing);
           }
+
+          await tester.tap(find.text(tester.lang.update));
+          if (testCase.expectTextField) {
+            verify(recoveryKeyModel.checkRecoveryKey('recovery key')).called(1);
+          }
+          verify(model.install(releases[0])).called(1);
         });
       }
     });
