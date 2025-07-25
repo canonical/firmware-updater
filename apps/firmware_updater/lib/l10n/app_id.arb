@@ -262,5 +262,13 @@
   "affectsFdeLinkLabel": "Pelajari selengkapnya",
   "@affectsFdeLinkLabel": {},
   "affectsFdeIncorrectKey": "Kunci pemulihan tidak bekerja, periksa atau ganti itu di Pusat Keamanan",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Anda bisa kehilangan semua data Anda tanpa kunci pemulihan",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Pastikan Anda memiliki kunci pemulihan untuk semua disk yang terenkripsi. Anda mungkin perlu memasukkannya saat boot setelah memperbarui firmware.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "Enkripsi yang didukung oleh perangkat keras difungsikan pada komputer Anda. Anda mungkin perlu memasukkan kunci pemulihan Anda saat boot setelah memperbarui firmware. Pastikan Anda juga memiliki kunci pemulihan untuk disk terenkripsi lainnya di komputer ini.",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "BitLocker difungsikan di komputer Anda. Pastikan Anda memiliki kunci pemulihan untuk semua disk terenkripsi. Anda mungkin perlu memasukkannya saat boot setelah memperbarui firmware.",
+  "@affectsFdeWarningBitlockerBody": {}
 }
