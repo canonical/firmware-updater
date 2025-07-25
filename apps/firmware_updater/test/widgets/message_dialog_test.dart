@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -149,7 +150,7 @@ void main() {
           child: const Text('click me'),
         ),
       ),
-      providers: [Provider(create: (_) => recoveryKeyModel)],
+      providers: [Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel)],
     );
     await tester.tap(find.text('click me'));
     await tester.pumpAndSettle();

@@ -284,6 +284,7 @@ class _RecoveryKeyConfirmationDialogState
               : () async {
                   if (widget.recoveryKeyCheck != RecoveryKeyCheck.enterKey) {
                     Navigator.of(context).pop(DialogAction.primaryAction);
+                    return;
                   }
                   _setLoading(true);
                   try {
@@ -398,14 +399,17 @@ void confirmAndInstall(
   final String actionText;
   final String dialogText;
 
-  final affectsFde = device.flags.contains(FwupdDeviceFlag.affectsFde) &&
-          !deviceIdsExcludedFromRecoveryKeyCheck.contains(device.deviceId) ||
+  final affectsFde = device.flags.contains(FwupdDeviceFlag.affectsFde) ||
       testDeviceAffectsFde &&
           // fwupd 'Fake webcam' test device
           device.deviceId == '08d460be0f1f9f128413f816022a6439e0078018';
 
-  final recoveryKeyCheck = switch ((affectsFde, hasUbuntuFde, hasBitlocker)) {
-    (true, true, _) => RecoveryKeyCheck.enterKey,
+  final recoveryKeyCheck = switch ((
+    affectsFde,
+    hasUbuntuFde,
+    deviceIdsExcludedFromRecoveryKeyCheck.contains(device.deviceId),
+  )) {
+    (true, true, false) => RecoveryKeyCheck.enterKey,
     (true, false, _) => RecoveryKeyCheck.tickBox,
     _ => RecoveryKeyCheck.none
   };

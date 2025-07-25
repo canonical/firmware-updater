@@ -1,5 +1,6 @@
 import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/pages.dart';
+import 'package:firmware_updater/recovery_key_model.dart' show RecoveryKeyModel;
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -55,7 +56,7 @@ void main() {
         store: store,
       ),
       providers: [
-        Provider(create: (_) => recoveryKeyModel),
+        Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
       ],
     );
 

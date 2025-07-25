@@ -1,5 +1,6 @@
 import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/pages.dart';
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -40,7 +41,7 @@ void main() {
           store: store,
         ),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
@@ -64,7 +65,7 @@ void main() {
           store: store,
         ),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
@@ -101,7 +102,7 @@ void main() {
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
@@ -149,12 +150,28 @@ void main() {
           expectCheckBox: true,
         ),
         (
-          name: 'UEFI dbx',
+          name: 'UEFI dbx - Ubuntu FDE',
           deviceId: '362301da643102b9f38477387e2193e57abaa590',
           hasUbuntuFde: true,
           hasBitlocker: false,
           expectTextField: false,
           expectCheckBox: false,
+        ),
+        (
+          name: 'UEFI dbx - Bitlocker',
+          deviceId: '362301da643102b9f38477387e2193e57abaa590',
+          hasUbuntuFde: false,
+          hasBitlocker: true,
+          expectTextField: false,
+          expectCheckBox: true,
+        ),
+        (
+          name: 'UEFI dbx - Other FDE',
+          deviceId: '362301da643102b9f38477387e2193e57abaa590',
+          hasUbuntuFde: false,
+          hasBitlocker: false,
+          expectTextField: false,
+          expectCheckBox: true,
         ),
       ]) {
         testWidgets(testCase.name, (tester) async {
@@ -189,7 +206,7 @@ void main() {
           await tester.pumpApp(
             (_) => buildPage(model: model, notifier: notifier, store: store),
             providers: [
-              Provider(create: (_) => recoveryKeyModel),
+              Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
             ],
           );
 
@@ -206,14 +223,16 @@ void main() {
             findsOneWidget,
           );
 
+          final textField = find.byType(TextField);
           if (testCase.expectTextField) {
-            final textField = find.byType(TextField);
             await tester.enterText(textField, 'recovery key');
             await tester.pumpAndSettle();
-            await tester.tap(find.text(tester.lang.update));
-            verify(recoveryKeyModel.checkRecoveryKey('recovery key')).called(1);
-            verify(model.install(releases[0])).called(1);
-          } else if (testCase.expectCheckBox) {
+          } else {
+            expect(textField, findsNothing);
+          }
+
+          final checkbox = find.byType(YaruCheckbox);
+          if (testCase.expectCheckBox) {
             expect(
               tester
                   .widget<ElevatedButton>(
@@ -223,7 +242,6 @@ void main() {
               isFalse,
             );
 
-            final checkbox = find.byType(YaruCheckbox);
             expect(checkbox, findsOneWidget);
 
             await tester.tap(checkbox);
@@ -237,10 +255,17 @@ void main() {
                   .enabled,
               isTrue,
             );
-
-            await tester.tap(find.text(tester.lang.update));
-            verify(model.install(releases[0])).called(1);
+          } else {
+            expect(checkbox, findsNothing);
           }
+
+          await tester.tap(find.text(tester.lang.update));
+          if (testCase.expectTextField) {
+            verify(recoveryKeyModel.checkRecoveryKey('recovery key')).called(1);
+          } else {
+            verifyNever(recoveryKeyModel.checkRecoveryKey(any));
+          }
+          verify(model.install(releases[0])).called(1);
         });
       }
     });
@@ -258,7 +283,7 @@ void main() {
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
@@ -295,7 +320,7 @@ void main() {
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
