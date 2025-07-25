@@ -284,6 +284,7 @@ class _RecoveryKeyConfirmationDialogState
               : () async {
                   if (widget.recoveryKeyCheck != RecoveryKeyCheck.enterKey) {
                     Navigator.of(context).pop(DialogAction.primaryAction);
+                    return;
                   }
                   _setLoading(true);
                   try {

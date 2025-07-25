@@ -78,7 +78,7 @@ MockFwupdDbusService mockService({
 DeviceStore mockStore() => MockDeviceStore();
 
 @GenerateMocks([RecoveryKeyModel])
-RecoveryKeyModel mockRecoveryKeyModel({
+MockRecoveryKeyModel mockRecoveryKeyModel({
   String? validKey,
   bool? hasUbuntuFde,
   bool? hasBitlocker,

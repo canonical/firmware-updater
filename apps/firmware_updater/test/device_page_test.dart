@@ -1,5 +1,6 @@
 import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/pages.dart';
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fwupd/fwupd.dart';
@@ -40,7 +41,7 @@ void main() {
           store: store,
         ),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
@@ -64,7 +65,7 @@ void main() {
           store: store,
         ),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
@@ -101,7 +102,7 @@ void main() {
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
@@ -205,7 +206,7 @@ void main() {
           await tester.pumpApp(
             (_) => buildPage(model: model, notifier: notifier, store: store),
             providers: [
-              Provider(create: (_) => recoveryKeyModel),
+              Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
             ],
           );
 
@@ -261,6 +262,8 @@ void main() {
           await tester.tap(find.text(tester.lang.update));
           if (testCase.expectTextField) {
             verify(recoveryKeyModel.checkRecoveryKey('recovery key')).called(1);
+          } else {
+            verifyNever(recoveryKeyModel.checkRecoveryKey(any));
           }
           verify(model.install(releases[0])).called(1);
         });
@@ -280,7 +283,7 @@ void main() {
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
@@ -317,7 +320,7 @@ void main() {
       await tester.pumpApp(
         (_) => buildPage(model: model, notifier: notifier, store: store),
         providers: [
-          Provider(create: (_) => recoveryKeyModel),
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
         ],
       );
 
