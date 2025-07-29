@@ -262,5 +262,13 @@
   "affectsFdeTextFieldLabel": "輸入您的復原金鑰",
   "@affectsFdeTextFieldLabel": {},
   "affectsFdeIncorrectKey": "復原金鑰不起作用，請在安全中心檢查或更換",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "沒有復原金鑰，您可能會遺失所有資料",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "確保您擁有所有加密磁碟的復原金鑰。更新韌體後，您可能需要在開機時輸入它們。",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "您的電腦已啟用硬體支援加密。更新韌體後，您可能需要在開機時輸入復原金鑰。請確定您也有此電腦上任何其他加密磁碟的復原金鑰。",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "您的電腦已啟用 BitLocker。確保您擁有所有加密磁碟的復原金鑰。更新韌體後，您可能需要在開機時輸入這些金鑰。",
+  "@affectsFdeWarningBitlockerBody": {}
 }
