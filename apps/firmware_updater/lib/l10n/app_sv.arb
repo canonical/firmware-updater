@@ -262,5 +262,13 @@
   "affectsFdeTextFieldLabel": "Ange din återställningsnyckel",
   "@affectsFdeTextFieldLabel": {},
   "affectsFdeIncorrectKey": "Återställningsnyckeln fungerar inte, kontrollera eller byt ut den i Säkerhetscenter",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Du kan förlora all din data utan din återställningsnyckel",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Se till att du har återställningsnycklar för alla krypterade diskar. Du kan behöva ange dem vid uppstart efter att du har uppdaterat den inbyggda programvaran.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "Hårdvarubaserad kryptering är aktiverat på din dator. Du kan behöva ange din återställningsnyckel vid uppstart efter att du har uppdaterat den inbyggda programvaran. Se till att du även har återställningsnycklar för alla andra krypterade diskar på den här datorn.",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "BitLocker är aktiverat på din dator. Se till att du har återställningsnycklar för alla krypterade diskar. Du kan behöva ange dem vid uppstart efter att du uppdaterat den inbyggda programvaran.",
+  "@affectsFdeWarningBitlockerBody": {}
 }
