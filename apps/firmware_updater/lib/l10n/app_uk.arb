@@ -258,5 +258,17 @@
   "affectsFdeWarningTitle": "Без ключів відновлення ви можете втратити всі свої дані",
   "@affectsFdeWarningTitle": {},
   "affectsFdeLinkLabel": "Докладніше",
-  "@affectsFdeLinkLabel": {}
+  "@affectsFdeLinkLabel": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Ви можете втратити всі ваші данні без вашого ключа відновлення",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Переконайтеся, що у вас є ключі відновлення для всіх зашифрованих дисків. Можливо, після оновлення прошивки вам доведеться вводити їх під час завантаження.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "Апаратне шифрування на цьому комп’ютері увімкнено. Після оновлення прошивки вам може знадобитися ввести ключ відновлення під час завантаження. Переконайтеся також, що у вас є ключі відновлення для всіх інших зашифрованих дисків на цьому комп’ютері.",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "На цьому комп’ютері увімкнено BitLocker. Переконайтеся, що у вас є ключі відновлення для всіх зашифрованих дисків. Після оновлення прошивки вам може знадобитися ввести їх під час завантаження.",
+  "@affectsFdeWarningBitlockerBody": {},
+  "affectsFdeTextFieldLabel": "Введіть ваш ключ відновлення",
+  "@affectsFdeTextFieldLabel": {},
+  "affectsFdeIncorrectKey": "Ключ відновлення не працює, перевірте або замініть його в Security Center",
+  "@affectsFdeIncorrectKey": {}
 }
