@@ -259,7 +259,7 @@
   "@affectsFdeWarningTitle": {},
   "affectsFdeLinkLabel": "Докладніше",
   "@affectsFdeLinkLabel": {},
-  "affectsFdeWarningUbuntuFdeTitle": "Ви можете втратити всі ваші данні без вашого ключа відновлення",
+  "affectsFdeWarningUbuntuFdeTitle": "Ви можете втратити всі ваші дані без вашого ключа відновлення",
   "@affectsFdeWarningUbuntuFdeTitle": {},
   "affectsFdeWarningOtherFdeBody": "Переконайтеся, що у вас є ключі відновлення для всіх зашифрованих дисків. Можливо, після оновлення прошивки вам доведеться вводити їх під час завантаження.",
   "@affectsFdeWarningOtherFdeBody": {},
