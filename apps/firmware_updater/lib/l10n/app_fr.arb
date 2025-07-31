@@ -262,5 +262,13 @@
   "affectsFdeTextFieldLabel": "Saisir votre clé de secours",
   "@affectsFdeTextFieldLabel": {},
   "affectsFdeIncorrectKey": "La clé de secours ne fonctionne pas, vérifiez-la ou remplacez-la dans le centre de sécurité",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Sans votre clé de récupération vous risquez de perdre toutes vos données",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Assurez-vous d’avoir des clés de récupération pour tous les disques chiffrés. Vous devrez peut-être les saisir au démarrage après la mise à jour du micrologiciel (firmware).",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "Le chiffrement matériel est activé sur votre ordinateur. Vous devrez peut-être entrer votre clé de récupération au démarrage après la mise à jour du micrologiciel (firmware). Assurez-vous de posséder également des clés de récupération pour tous les autres disques chiffrés sur cet ordinateur.",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "BitLocker est activé sur votre ordinateur. Assurez-vous d’avoir des clés de récupération pour tous les disques chiffrés. Vous devrez peut-être les saisir au démarrage après avoir mis à jour le micrologiciel (firmware).",
+  "@affectsFdeWarningBitlockerBody": {}
 }
