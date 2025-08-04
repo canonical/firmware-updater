@@ -262,5 +262,7 @@
   "affectsFdeTextFieldLabel": "உங்கள் மீட்பு விசையை உள்ளிடவும்",
   "@affectsFdeTextFieldLabel": {},
   "affectsFdeIncorrectKey": "மீட்பு விசை பாதுகாப்பு மையத்தில் வேலை செய்யவோ, சரிபார்க்கவோ அல்லது மாற்றவோ இல்லை",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "உங்கள் மீட்பு விசை இல்லாமல் உங்கள் எல்லா தரவையும் இழக்க நேரிடும்",
+  "@affectsFdeWarningUbuntuFdeTitle": {}
 }
