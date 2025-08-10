@@ -262,5 +262,13 @@
   "affectsFdeLinkLabel": "了解更多",
   "@affectsFdeLinkLabel": {},
   "affectsFdeIncorrectKey": "恢复密钥无效，请在安全中心检查或更换",
-  "@affectsFdeIncorrectKey": {}
+  "@affectsFdeIncorrectKey": {},
+  "affectsFdeWarningUbuntuFdeTitle": "没有恢复密钥，您的所有数据可能会丢失",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "请确保您有用于所有已加密的恢复密钥。您也许需要在更新固件后的启动时输入它们。",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningUbuntuFdeBody": "硬件返回加密已经在您的电脑上启用了。您也许需要在更新固件后启动时输入他们。请确保您也有其他在您电脑上的加密磁盘的恢复密钥。",
+  "@affectsFdeWarningUbuntuFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "BitLocker已经在您的电脑上启用了/请确保您有全部的加密磁盘的恢复密钥。您也许需要在更新固件后启动时输入它们。",
+  "@affectsFdeWarningBitlockerBody": {}
 }
