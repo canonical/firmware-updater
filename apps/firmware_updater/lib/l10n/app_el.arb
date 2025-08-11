@@ -144,5 +144,11 @@
   "fwupdStatusDeviceRestart": "Επανεκκινώντας την συσκευή",
   "@fwupdStatusDeviceRestart": {},
   "fwupdStatusDecompressing": "Αποσυμπιέζοντας το υλικολογισμικό",
-  "@fwupdStatusDecompressing": {}
+  "@fwupdStatusDecompressing": {},
+  "affectsFdeWarningUbuntuFdeTitle": "Μπορείτε να χάσετε όλα τα δεδομένα χωρίς το κλειδί ανάκτησης",
+  "@affectsFdeWarningUbuntuFdeTitle": {},
+  "affectsFdeWarningOtherFdeBody": "Βεβαιωθείτε ότι έχετε κλειδιά ανάκτησης για όλους τους κρυπτογραφημένους δίσκους. Μπορεί να χρειαστεί να τα εισάγετε κατά την εκκίνηση μετά από ενημέρωση του firmware.",
+  "@affectsFdeWarningOtherFdeBody": {},
+  "affectsFdeWarningBitlockerBody": "Το BitLocker είναι ενεργοποιημένο στον υπολογιστή σας. Βεβαιωθείτε ότι έχετε κλειδιά ανάκτησης για όλους τους κρυπτογραφημένους δίσκους. Μπορεί να χρειαστεί να τα εισάγετε κατά την εκκίνηση μετά από ενημέρωση του firmware.",
+  "@affectsFdeWarningBitlockerBody": {}
 }
