@@ -67,9 +67,7 @@ class DevicePage extends StatelessWidget {
                       DevicePage._buildLabel(
                         context,
                         model.latestRelease!.version,
-                        model.latestRelease!.version != model.device.version
-                            ? l10n.updateAvailable
-                            : null,
+                        model.hasUpgrade ? l10n.updateAvailable : null,
                       ),
                     ],
                   ),
