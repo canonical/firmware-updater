@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
+import 'package:snapd/snapd.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:yaru/yaru.dart';
 
@@ -295,6 +296,11 @@ class _RecoveryKeyConfirmationDialogState
                     } else if (context.mounted) {
                       Navigator.of(context).pop(DialogAction.primaryAction);
                     }
+                  } on SnapdException catch (e) {
+                    if (e.kind != 'auth-cancelled') {
+                      rethrow;
+                    }
+                    _setLoading(false);
                   } on Exception catch (e) {
                     _setLoading(false);
                     _setError(e.toString());

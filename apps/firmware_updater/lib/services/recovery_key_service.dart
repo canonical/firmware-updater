@@ -56,6 +56,9 @@ class RecoveryKeySnapdService implements RecoveryKeyService {
       await _snapdClient.checkRecoveryKey(recoveryKey);
       return true;
     } on SnapdException catch (e) {
+      if (e.kind == 'auth-cancelled') {
+        rethrow;
+      }
       _log.info('caught snapd exception $e');
       _log.info('assuming recovery key is invalid');
       return false;
