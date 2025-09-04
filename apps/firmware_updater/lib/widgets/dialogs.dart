@@ -14,7 +14,7 @@ enum RecoveryKeyCheck { none, tickBox, enterKey }
 
 const kMaxWidth = 500.0;
 const fdeLink =
-    'https://discourse.ubuntu.com/t/hardware-backed-encryption-and-recovery-keys-in-ubuntu-desktop/58243';
+    'https://canonical-ubuntu-desktop-documentation.readthedocs-hosted.com/en/latest/explanation/hardware-backed-disk-encryption/#recovery-key';
 const deviceIdsExcludedFromRecoveryKeyCheck = [
   '362301da643102b9f38477387e2193e57abaa590', // UEFI dbx
 ];
