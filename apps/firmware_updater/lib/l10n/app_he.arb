@@ -266,5 +266,9 @@
     "affectsFdeWarningUbuntuFdeTitle": "הנתונים שלך עלולים ללכת לאיבוד בלי מפתח השחזור שלך",
     "@affectsFdeWarningUbuntuFdeTitle": {},
     "affectsFdeWarningOtherFdeBody": "נא לוודא שיש לך מפתחות שחזור לכל הכוננים המוצפנים. יכול להיות שתתבקש לספק אותם לאחר עדכון הקושחה.",
-    "@affectsFdeWarningOtherFdeBody": {}
+    "@affectsFdeWarningOtherFdeBody": {},
+    "affectsFdeWarningUbuntuFdeBody": "במחשב שלך פועלת הצפנה בגיבוי חומרה. יכול להיות שיהיה עליך להקליד את מפתח השחזור שלך עם העלייה לאחד עדכון קושחה. חשוב לוודא שיש לך קודים לשחזור לכוננים מוצפנים נוספים כלשהם במחשב הזה.",
+    "@affectsFdeWarningUbuntuFdeBody": {},
+    "affectsFdeWarningBitlockerBody": "BitLocker מופעל במחשב שלך. חשוב לוודא שיש לך מפתחות שחזור לכל הכוננים המוצפנים. יכול להיות שיהיה עליך להקליד אותם עם העלייה לאחר עדכון קושחה.",
+    "@affectsFdeWarningBitlockerBody": {}
 }
