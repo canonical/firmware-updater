@@ -266,5 +266,7 @@
     "affectsFdeWarningUbuntuFdeTitle": "복구 키가 없으면 저장된 자료를 모두 잃게 됩니다",
     "@affectsFdeWarningUbuntuFdeTitle": {},
     "affectsFdeWarningOtherFdeBody": "모든 암호화 된 디스크에 대한 복구 키가 있는지 확인하십시오. 펌웨어를 업데이트 한 후 부팅 시 입력해야합니다.",
-    "@affectsFdeWarningOtherFdeBody": {}
+    "@affectsFdeWarningOtherFdeBody": {},
+    "affectsFdeWarningBitlockerBody": "BitLocker는 당신의 컴퓨터에서 활성화됩니다. 암호화 된 모든 디스크에 대한 복구 키가 있는지 확인하십시오. 당신은 펌웨어를 업데이트 한 후 부팅시에 입력해야합니다.",
+    "@affectsFdeWarningBitlockerBody": {}
 }
