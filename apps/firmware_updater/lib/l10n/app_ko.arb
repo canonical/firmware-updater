@@ -264,5 +264,7 @@
     "fwupdStatusScheduling": "오프라인 업데이트 스케쥴링",
     "@fwupdStatusScheduling": {},
     "affectsFdeWarningUbuntuFdeTitle": "복구 키가 없으면 저장된 자료를 모두 잃게 됩니다",
-    "@affectsFdeWarningUbuntuFdeTitle": {}
+    "@affectsFdeWarningUbuntuFdeTitle": {},
+    "affectsFdeWarningOtherFdeBody": "모든 암호화 된 디스크에 대한 복구 키가 있는지 확인하십시오. 펌웨어를 업데이트 한 후 부팅 시 입력해야합니다.",
+    "@affectsFdeWarningOtherFdeBody": {}
 }
