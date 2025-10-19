@@ -87,7 +87,7 @@
     "@fwupdStatusDeviceRead": {},
     "fwupdStatusDeviceBusy": "Zariadenie je obsadené",
     "@fwupdStatusDeviceBusy": {},
-    "guid": "Identifikátory",
+    "guid": "Identifikátory (GUID)",
     "@guid": {},
     "noDevicesFound": "Nenašli sa žiadne zariadenia",
     "@noDevicesFound": {},
