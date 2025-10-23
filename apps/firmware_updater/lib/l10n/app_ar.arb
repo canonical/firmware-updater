@@ -1,3 +1,5 @@
 {
-  "@@locale": "ar"
+  "@@locale": "ar",
+  "close": "أغلِق",
+  "@close": {}
 }
