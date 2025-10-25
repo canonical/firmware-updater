@@ -249,9 +249,9 @@
             }
         }
     },
-    "affectsFdeWarningTitle": "Bez kľúčov na obnovenie môžete prísť o všetky svoje údaje",
+    "affectsFdeWarningTitle": "Bez obnovovacích kľúčov môžete prísť o všetky svoje údaje",
     "@affectsFdeWarningTitle": {},
-    "affectsFdeCheckbox": "Mám kľúče na obnovenie pre všetky moje šifrované disky",
+    "affectsFdeCheckbox": "Mám obnovovacie kľúče pre všetky moje šifrované disky",
     "@affectsFdeCheckbox": {},
     "affectsFdeWarningBody1": "Možno bude potrebné zadať ho pri štarte po aktualizácii firmvéru. Uistite sa, že máte aj obnovovacie kľúče pre všetky ďalšie šifrované disky na tomto počítači.",
     "@affectsFdeWarningBody1": {},
@@ -263,12 +263,12 @@
     "@affectsFdeIncorrectKey": {},
     "affectsFdeTextFieldLabel": "Zadajte svoj obnovovací kľúč",
     "@affectsFdeTextFieldLabel": {},
-    "affectsFdeWarningUbuntuFdeTitle": "Bez kľúča na obnovenie môžete prísť o všetky svoje údaje",
+    "affectsFdeWarningUbuntuFdeTitle": "Bez obnovovacieho kľúča môžete prísť o všetky svoje údaje",
     "@affectsFdeWarningUbuntuFdeTitle": {},
-    "affectsFdeWarningOtherFdeBody": "Uistite sa, že máte kľúče na obnovenie pre všetky šifrované disky. Možno ich budete musieť zadať pri štarte po aktualizácii firmvéru.",
+    "affectsFdeWarningOtherFdeBody": "Uistite sa, že máte obnovovacie kľúče pre všetky šifrované disky. Možno ich budete musieť zadať pri spustení po aktualizácii firmvéru.",
     "@affectsFdeWarningOtherFdeBody": {},
-    "affectsFdeWarningBitlockerBody": "Šifrovanie BitLocker je na vašom počítači zapnuté. Uistite sa, že máte kľúče na obnovenie pre všetky šifrované disky. Možno ich budete musieť zadať pri štarte po aktualizácii firmvéru.",
+    "affectsFdeWarningBitlockerBody": "Šifrovanie BitLocker je na vašom počítači zapnuté. Uistite sa, že máte obnovovacie kľúče pre všetky šifrované disky. Možno ich budete musieť zadať pri spustení po aktualizácii firmvéru.",
     "@affectsFdeWarningBitlockerBody": {},
-    "affectsFdeWarningUbuntuFdeBody": "Na vašom počítači je zapnuté šifrovanie podporované hardvérom. Po aktualizácii firmvéru možno budete musieť zadať obnovovací kľúč pri štarte systému. Uistite sa, že máte aj kľúče na obnovenie všetkých ostatných šifrovaných diskov v tomto počítači.",
+    "affectsFdeWarningUbuntuFdeBody": "Na vašom počítači je zapnuté šifrovanie podporované hardvérom. Po aktualizácii firmvéru možno budete musieť zadať obnovovací kľúč pri spustení systému. Uistite sa, že máte aj obnovovacie kľúče pre všetky ostatné šifrované disky v tomto počítači.",
     "@affectsFdeWarningUbuntuFdeBody": {}
 }
