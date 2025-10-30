@@ -3,5 +3,9 @@
   "close": "بستن",
   "@close": {},
   "ok": "قبول",
-  "@ok": {}
+  "@ok": {},
+  "appTitle": "به‌روز رسان ثابت‌افزار",
+  "@appTitle": {},
+  "affectsFdeLinkLabel": "دانستن بیش‌تر",
+  "@affectsFdeLinkLabel": {}
 }

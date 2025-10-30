@@ -1,3 +1,11 @@
 {
-  "@@locale": "gl"
+  "@@locale": "gl",
+  "appTitle": "Actualizador de firmware",
+  "@appTitle": {},
+  "close": "Pechar",
+  "@close": {},
+  "cancel": "Cancelar",
+  "@cancel": {},
+  "current": "Actual",
+  "@current": {}
 }
