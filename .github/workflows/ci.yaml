@@ -51,6 +51,7 @@ jobs:
       - uses: Atsumi3/actions-setup-fvm@0.0.3
       - uses: bluefireteam/melos-action@v3
       - run: melos gen-l10n
+      - run: melos sync-desktop-titles
       - name: Check for outdated l10n
         if: github.event_name == 'pull_request'
         run: ./.github/scripts/check-outdated-files.sh
@@ -58,7 +59,9 @@ jobs:
         if: github.event_name == 'push'
         uses: peter-evans/create-pull-request@v7
         with:
-          add-paths: '**/l10n/*.dart'
+          add-paths: | 
+            '**/l10n/*.dart'
+            apps/firmware_updater/assets/firmware-updater.desktop
           title: 'chore: regenerate l10n'
           commit-message: 'chore: regenerate l10n'
           branch: create-pull-request/l10n
