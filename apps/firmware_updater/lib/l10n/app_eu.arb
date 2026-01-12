@@ -1,3 +1,5 @@
 {
-  "@@locale": "eu"
+    "@@locale": "eu",
+    "close": "Itxi",
+    "@close": {}
 }
