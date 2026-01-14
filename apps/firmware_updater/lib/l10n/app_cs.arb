@@ -91,7 +91,7 @@
     "@fwupdDeviceFlagCanVerify": {},
     "fwupdDeviceFlagSelfRecovery": "Zařízení se dovede vzpamatovat z nezdaru při zápisu firmwaru",
     "@fwupdDeviceFlagSelfRecovery": {},
-    "appTitle": "Nástroj pro aktualizaci firmware",
+    "appTitle": "Aktualizátor firmwaru",
     "@appTitle": {},
     "batteryWarning": "Upozornění: Některé aktualizace zařízení mohou být dostupné pouze při externím napájení!",
     "@batteryWarning": {},
@@ -265,10 +265,10 @@
     "@affectsFdeIncorrectKey": {},
     "affectsFdeWarningUbuntuFdeTitle": "Bez svého záchranného klíče se může stát, že přijdete o veškerá data",
     "@affectsFdeWarningUbuntuFdeTitle": {},
-    "affectsFdeWarningOtherFdeBody": "Ověřte, že máte záchranné klíče pro všechny šifrované disky. Po aktualizaci firmware se může stát, že může být potřeba je zadat při startu systému.",
+    "affectsFdeWarningOtherFdeBody": "Ověřte, že máte záchranné klíče pro všechny šifrované disky. Po aktualizaci firmwaru se může stát, že může být potřeba je zadat při startu systému.",
     "@affectsFdeWarningOtherFdeBody": {},
     "affectsFdeWarningUbuntuFdeBody": "Na počítači je zapnuté hardwarem obsluhované šifrování. Může se stát, že po aktualizaci firmwaru bude třeba zadat záchranný klíč. Ověřte, že máte záchranné klíče také pro jakékoli ostatní šifrované disky tohoto počítače.",
     "@affectsFdeWarningUbuntuFdeBody": {},
-    "affectsFdeWarningBitlockerBody": "Na počítači je zapnutý BitLocker. Ověřte, že máte záchranné klíče pro veškeré šifrované disky. Může se stát, že po aktualizaci firmware je bude třeba zadat při startu systému.",
+    "affectsFdeWarningBitlockerBody": "Na počítači je zapnutý BitLocker. Ověřte, že máte záchranné klíče pro veškeré šifrované disky. Může se stát, že po aktualizaci firmwaru je bude třeba zadat při startu systému.",
     "@affectsFdeWarningBitlockerBody": {}
 }
