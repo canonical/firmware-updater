@@ -11,11 +11,15 @@ abstract class RecoveryKeyService {
   Future<void> dispose() async {}
   Future<bool> checkRecoveryKey(String recoveryKey);
   bool get hasBitlocker;
+  bool get hasUbuntuFde;
 }
 
 class RecoveryKeyMockService extends RecoveryKeyService {
   @override
   final bool hasBitlocker = false;
+
+  @override
+  final bool hasUbuntuFde = false;
 
   @override
   Future<bool> checkRecoveryKey(String recoveryKey) async {
@@ -31,14 +35,30 @@ class RecoveryKeySnapdService implements RecoveryKeyService {
         _uDisksClient = udisksClient ?? getService<UDisksClient>();
   final SnapdClient _snapdClient;
   final UDisksClient _uDisksClient;
+  SnapdStorageEncryptionStatus? _storageEncryptionStatus;
 
   @override
-  Future<void> init() => _uDisksClient.connect().onError((e, _) {
-        _log.error('Could not connect to UDisks: $e');
-      });
+  Future<void> init() async {
+    await _uDisksClient.connect().onError((e, _) {
+      _log.error('Could not connect to UDisks: $e');
+    });
+
+    try {
+      final response = await _snapdClient.getStorageEncrypted();
+      _storageEncryptionStatus = response.status;
+    } on Exception catch (e) {
+      _log.error('Could not get storage encryption status: $e');
+    }
+  }
 
   @override
   Future<void> dispose() => _uDisksClient.close();
+
+  @override
+  bool get hasUbuntuFde {
+    return _storageEncryptionStatus != null &&
+        _storageEncryptionStatus != SnapdStorageEncryptionStatus.inactive;
+  }
 
   @override
   bool get hasBitlocker {
