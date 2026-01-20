@@ -5,13 +5,13 @@ import 'test_utils.dart';
 
 void main() {
   test('detect ubuntu fde', () async {
-    final service = mockRecoveryKeyService(hasSnapdFde: true);
+    final service = mockRecoveryKeyService(hasUbuntuFde: true);
     final recoveryKeyModel = RecoveryKeyModel(service);
     expect(recoveryKeyModel.hasUbuntuFde, isTrue);
   });
 
   test('no ubuntu fde', () async {
-    final service = mockRecoveryKeyService(hasSnapdFde: false);
+    final service = mockRecoveryKeyService(hasUbuntuFde: false);
     final recoveryKeyModel = RecoveryKeyModel(service);
     expect(recoveryKeyModel.hasUbuntuFde, isFalse);
   });

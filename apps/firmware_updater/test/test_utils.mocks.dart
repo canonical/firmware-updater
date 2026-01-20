@@ -865,8 +865,8 @@ class MockRecoveryKeyService extends _i1.Mock
       ) as bool);
 
   @override
-  bool get hasSnapdFde => (super.noSuchMethod(
-        Invocation.getter(#hasSnapdFde),
+  bool get hasUbuntuFde => (super.noSuchMethod(
+        Invocation.getter(#hasUbuntuFde),
         returnValue: false,
       ) as bool);
 

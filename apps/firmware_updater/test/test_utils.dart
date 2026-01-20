@@ -96,11 +96,11 @@ MockRecoveryKeyModel mockRecoveryKeyModel({
 @GenerateMocks([RecoveryKeyService])
 RecoveryKeyService mockRecoveryKeyService({
   bool? hasBitlocker,
-  bool? hasSnapdFde,
+  bool? hasUbuntuFde,
 }) {
   final service = MockRecoveryKeyService();
   when(service.hasBitlocker).thenReturn(hasBitlocker ?? false);
-  when(service.hasSnapdFde).thenReturn(hasSnapdFde ?? false);
+  when(service.hasUbuntuFde).thenReturn(hasUbuntuFde ?? false);
   return service;
 }
 
@@ -116,7 +116,8 @@ SnapdClient mockSnapdClient({
   }
   if (storageEncryptionStatus != null) {
     when(client.getStorageEncrypted()).thenAnswer(
-      (_) async => SnapdStorageEncryptedResponse(status: storageEncryptionStatus),
+      (_) async =>
+          SnapdStorageEncryptedResponse(status: storageEncryptionStatus),
     );
   }
   return client;
