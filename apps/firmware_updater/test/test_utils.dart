@@ -94,18 +94,30 @@ MockRecoveryKeyModel mockRecoveryKeyModel({
 }
 
 @GenerateMocks([RecoveryKeyService])
-RecoveryKeyService mockRecoveryKeyService({bool? hasBitlocker}) {
+RecoveryKeyService mockRecoveryKeyService({
+  bool? hasBitlocker,
+  bool? hasSnapdFde,
+}) {
   final service = MockRecoveryKeyService();
   when(service.hasBitlocker).thenReturn(hasBitlocker ?? false);
+  when(service.hasSnapdFde).thenReturn(hasSnapdFde ?? false);
   return service;
 }
 
 @GenerateMocks([SnapdClient])
-SnapdClient mockSnapdClient({bool? isValidRecoveryKey}) {
+SnapdClient mockSnapdClient({
+  bool? isValidRecoveryKey,
+  SnapdStorageEncryptionStatus? storageEncryptionStatus,
+}) {
   final client = MockSnapdClient();
   if (!(isValidRecoveryKey ?? true)) {
     when(client.checkRecoveryKey(any))
         .thenThrow(SnapdException(message: 'invalid recovery key'));
+  }
+  if (storageEncryptionStatus != null) {
+    when(client.getStorageEncrypted()).thenAnswer(
+      (_) async => SnapdStorageEncryptedResponse(status: storageEncryptionStatus),
+    );
   }
   return client;
 }

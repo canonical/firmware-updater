@@ -54,8 +54,9 @@ class _FakeSnapdSystemInfoResponse_1 extends _i1.SmartFake
         );
 }
 
-class _FakeSnap_2 extends _i1.SmartFake implements _i3.Snap {
-  _FakeSnap_2(
+class _FakeSnapdStorageEncryptedResponse_2 extends _i1.SmartFake
+    implements _i3.SnapdStorageEncryptedResponse {
+  _FakeSnapdStorageEncryptedResponse_2(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -64,9 +65,29 @@ class _FakeSnap_2 extends _i1.SmartFake implements _i3.Snap {
         );
 }
 
-class _FakeSnapdConnectionsResponse_3 extends _i1.SmartFake
+class _FakeSnap_3 extends _i1.SmartFake implements _i3.Snap {
+  _FakeSnap_3(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeSnapIcon_4 extends _i1.SmartFake implements _i3.SnapIcon {
+  _FakeSnapIcon_4(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeSnapdConnectionsResponse_5 extends _i1.SmartFake
     implements _i3.SnapdConnectionsResponse {
-  _FakeSnapdConnectionsResponse_3(
+  _FakeSnapdConnectionsResponse_5(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -75,9 +96,9 @@ class _FakeSnapdConnectionsResponse_3 extends _i1.SmartFake
         );
 }
 
-class _FakeSnapdLoginResponse_4 extends _i1.SmartFake
+class _FakeSnapdLoginResponse_6 extends _i1.SmartFake
     implements _i3.SnapdLoginResponse {
-  _FakeSnapdLoginResponse_4(
+  _FakeSnapdLoginResponse_6(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -86,8 +107,8 @@ class _FakeSnapdLoginResponse_4 extends _i1.SmartFake
         );
 }
 
-class _FakeSnapdChange_5 extends _i1.SmartFake implements _i3.SnapdChange {
-  _FakeSnapdChange_5(
+class _FakeSnapdChange_7 extends _i1.SmartFake implements _i3.SnapdChange {
+  _FakeSnapdChange_7(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -96,8 +117,8 @@ class _FakeSnapdChange_5 extends _i1.SmartFake implements _i3.SnapdChange {
         );
 }
 
-class _FakeSnapdRule_6 extends _i1.SmartFake implements _i3.SnapdRule {
-  _FakeSnapdRule_6(
+class _FakeSnapdRule_8 extends _i1.SmartFake implements _i3.SnapdRule {
+  _FakeSnapdRule_8(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -106,9 +127,9 @@ class _FakeSnapdRule_6 extends _i1.SmartFake implements _i3.SnapdRule {
         );
 }
 
-class _FakeSnapdSystemVolumesResponse_7 extends _i1.SmartFake
+class _FakeSnapdSystemVolumesResponse_9 extends _i1.SmartFake
     implements _i3.SnapdSystemVolumesResponse {
-  _FakeSnapdSystemVolumesResponse_7(
+  _FakeSnapdSystemVolumesResponse_9(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -117,9 +138,9 @@ class _FakeSnapdSystemVolumesResponse_7 extends _i1.SmartFake
         );
 }
 
-class _FakeSnapdEntropyResponse_8 extends _i1.SmartFake
+class _FakeSnapdEntropyResponse_10 extends _i1.SmartFake
     implements _i3.SnapdEntropyResponse {
-  _FakeSnapdEntropyResponse_8(
+  _FakeSnapdEntropyResponse_10(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -128,9 +149,9 @@ class _FakeSnapdEntropyResponse_8 extends _i1.SmartFake
         );
 }
 
-class _FakeSnapdGenerateRecoveryKeyResponse_9 extends _i1.SmartFake
+class _FakeSnapdGenerateRecoveryKeyResponse_11 extends _i1.SmartFake
     implements _i3.SnapdGenerateRecoveryKeyResponse {
-  _FakeSnapdGenerateRecoveryKeyResponse_9(
+  _FakeSnapdGenerateRecoveryKeyResponse_11(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -139,9 +160,9 @@ class _FakeSnapdGenerateRecoveryKeyResponse_9 extends _i1.SmartFake
         );
 }
 
-class _FakeUnmodifiableMapView_10<K, V> extends _i1.SmartFake
+class _FakeUnmodifiableMapView_12<K, V> extends _i1.SmartFake
     implements _i4.UnmodifiableMapView<K, V> {
-  _FakeUnmodifiableMapView_10(
+  _FakeUnmodifiableMapView_12(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -844,6 +865,12 @@ class MockRecoveryKeyService extends _i1.Mock
       ) as bool);
 
   @override
+  bool get hasSnapdFde => (super.noSuchMethod(
+        Invocation.getter(#hasSnapdFde),
+        returnValue: false,
+      ) as bool);
+
+  @override
   _i6.Future<void> init() => (super.noSuchMethod(
         Invocation.method(
           #init,
@@ -949,6 +976,23 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
       ) as _i6.Future<_i3.SnapdSystemInfoResponse>);
 
   @override
+  _i6.Future<_i3.SnapdStorageEncryptedResponse> getStorageEncrypted() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getStorageEncrypted,
+          [],
+        ),
+        returnValue: _i6.Future<_i3.SnapdStorageEncryptedResponse>.value(
+            _FakeSnapdStorageEncryptedResponse_2(
+          this,
+          Invocation.method(
+            #getStorageEncrypted,
+            [],
+          ),
+        )),
+      ) as _i6.Future<_i3.SnapdStorageEncryptedResponse>);
+
+  @override
   _i6.Future<List<_i3.SnapdNotice>> getNotices({
     Iterable<_i3.SnapdNoticeType>? types,
     List<String>? keys,
@@ -991,7 +1035,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           #getSnap,
           [name],
         ),
-        returnValue: _i6.Future<_i3.Snap>.value(_FakeSnap_2(
+        returnValue: _i6.Future<_i3.Snap>.value(_FakeSnap_3(
           this,
           Invocation.method(
             #getSnap,
@@ -999,6 +1043,21 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           ),
         )),
       ) as _i6.Future<_i3.Snap>);
+
+  @override
+  _i6.Future<_i3.SnapIcon> getSnapIcon(String? name) => (super.noSuchMethod(
+        Invocation.method(
+          #getSnapIcon,
+          [name],
+        ),
+        returnValue: _i6.Future<_i3.SnapIcon>.value(_FakeSnapIcon_4(
+          this,
+          Invocation.method(
+            #getSnapIcon,
+            [name],
+          ),
+        )),
+      ) as _i6.Future<_i3.SnapIcon>);
 
   @override
   _i6.Future<List<_i3.SnapApp>> getApps({
@@ -1045,7 +1104,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           },
         ),
         returnValue: _i6.Future<_i3.SnapdConnectionsResponse>.value(
-            _FakeSnapdConnectionsResponse_3(
+            _FakeSnapdConnectionsResponse_5(
           this,
           Invocation.method(
             #getConnections,
@@ -1216,7 +1275,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           {#otp: otp},
         ),
         returnValue:
-            _i6.Future<_i3.SnapdLoginResponse>.value(_FakeSnapdLoginResponse_4(
+            _i6.Future<_i3.SnapdLoginResponse>.value(_FakeSnapdLoginResponse_6(
           this,
           Invocation.method(
             #login,
@@ -1364,7 +1423,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           #getChange,
           [id],
         ),
-        returnValue: _i6.Future<_i3.SnapdChange>.value(_FakeSnapdChange_5(
+        returnValue: _i6.Future<_i3.SnapdChange>.value(_FakeSnapdChange_7(
           this,
           Invocation.method(
             #getChange,
@@ -1397,7 +1456,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           #abortChange,
           [id],
         ),
-        returnValue: _i6.Future<_i3.SnapdChange>.value(_FakeSnapdChange_5(
+        returnValue: _i6.Future<_i3.SnapdChange>.value(_FakeSnapdChange_7(
           this,
           Invocation.method(
             #abortChange,
@@ -1417,7 +1476,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           [id],
           {#userId: userId},
         ),
-        returnValue: _i6.Future<_i3.SnapdRule>.value(_FakeSnapdRule_6(
+        returnValue: _i6.Future<_i3.SnapdRule>.value(_FakeSnapdRule_8(
           this,
           Invocation.method(
             #getRule,
@@ -1538,7 +1597,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           {#containerRole: containerRole},
         ),
         returnValue: _i6.Future<_i3.SnapdSystemVolumesResponse>.value(
-            _FakeSnapdSystemVolumesResponse_7(
+            _FakeSnapdSystemVolumesResponse_9(
           this,
           Invocation.method(
             #getSystemVolumes,
@@ -1571,7 +1630,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           [passphrase],
         ),
         returnValue: _i6.Future<_i3.SnapdEntropyResponse>.value(
-            _FakeSnapdEntropyResponse_8(
+            _FakeSnapdEntropyResponse_10(
           this,
           Invocation.method(
             #checkPassphrase,
@@ -1588,7 +1647,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           [pin],
         ),
         returnValue: _i6.Future<_i3.SnapdEntropyResponse>.value(
-            _FakeSnapdEntropyResponse_8(
+            _FakeSnapdEntropyResponse_10(
           this,
           Invocation.method(
             #checkPin,
@@ -1605,7 +1664,7 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
           [],
         ),
         returnValue: _i6.Future<_i3.SnapdGenerateRecoveryKeyResponse>.value(
-            _FakeSnapdGenerateRecoveryKeyResponse_9(
+            _FakeSnapdGenerateRecoveryKeyResponse_11(
           this,
           Invocation.method(
             #generateRecoveryKey,
@@ -1687,6 +1746,45 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
             #replaceRecoveryKey,
             [keyId],
             {#keySlots: keySlots},
+          ),
+        )),
+      ) as _i6.Future<String>);
+
+  @override
+  _i6.Future<String> replacePlatformKey({
+    required _i3.SnapdSystemVolumeAuthMode? authMode,
+    String? passphrase,
+    String? pin,
+    int? kdfTime,
+    _i3.SnapdKdfType? kdfType,
+    List<_i3.SnapdSystemVolumeTargetKeySlot>? keySlots,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #replacePlatformKey,
+          [],
+          {
+            #authMode: authMode,
+            #passphrase: passphrase,
+            #pin: pin,
+            #kdfTime: kdfTime,
+            #kdfType: kdfType,
+            #keySlots: keySlots,
+          },
+        ),
+        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
+          this,
+          Invocation.method(
+            #replacePlatformKey,
+            [],
+            {
+              #authMode: authMode,
+              #passphrase: passphrase,
+              #pin: pin,
+              #kdfTime: kdfTime,
+              #kdfType: kdfType,
+              #keySlots: keySlots,
+            },
           ),
         )),
       ) as _i6.Future<String>);
@@ -2074,7 +2172,7 @@ class MockConfigService extends _i1.Mock implements _i10.ConfigService {
   @override
   _i4.UnmodifiableMapView<String, dynamic> get config => (super.noSuchMethod(
         Invocation.getter(#config),
-        returnValue: _FakeUnmodifiableMapView_10<String, dynamic>(
+        returnValue: _FakeUnmodifiableMapView_12<String, dynamic>(
           this,
           Invocation.getter(#config),
         ),
