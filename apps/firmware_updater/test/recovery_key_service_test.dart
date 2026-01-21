@@ -41,4 +41,40 @@ void main() {
     );
     expect(service.hasBitlocker, isFalse);
   });
+
+  test('snapd fde active', () async {
+    final snapdClient = mockSnapdClient(
+      storageEncryptionStatus: SnapdStorageEncryptionStatus.active,
+    );
+    final service = RecoveryKeySnapdService(
+      snapdClient: snapdClient,
+      udisksClient: mockUDisksClient(),
+    );
+    await service.init();
+    expect(service.hasUbuntuFde, isTrue);
+  });
+
+  test('snapd fde inactive', () async {
+    final snapdClient = mockSnapdClient(
+      storageEncryptionStatus: SnapdStorageEncryptionStatus.inactive,
+    );
+    final service = RecoveryKeySnapdService(
+      snapdClient: snapdClient,
+      udisksClient: mockUDisksClient(),
+    );
+    await service.init();
+    expect(service.hasUbuntuFde, isFalse);
+  });
+
+  test('snapd fde degraded', () async {
+    final snapdClient = mockSnapdClient(
+      storageEncryptionStatus: SnapdStorageEncryptionStatus.degraded,
+    );
+    final service = RecoveryKeySnapdService(
+      snapdClient: snapdClient,
+      udisksClient: mockUDisksClient(),
+    );
+    await service.init();
+    expect(service.hasUbuntuFde, isTrue);
+  });
 }
