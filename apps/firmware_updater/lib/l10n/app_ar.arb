@@ -1,5 +1,5 @@
 {
-  "@@locale": "ar",
-  "close": "أغلِق",
-  "@close": {}
+    "@@locale": "ar",
+    "close": "أغلِق",
+    "cancel": "إلغاء"
 }
