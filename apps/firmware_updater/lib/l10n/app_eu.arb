@@ -1,5 +1,139 @@
 {
     "@@locale": "eu",
     "close": "Itxi",
-    "ok": "Ados"
+    "ok": "Ados",
+    "affectsFdeWarningTitle": "Datu guztiak gal ditzakezu berreskuratze gakorik ez baduzu",
+    "affectsFdeWarningUbuntuFdeTitle": "Datu guztiak gal ditzakezu berreskuratze gakoa ez badaukazu",
+    "affectsFdeWarningOtherFdeBody": "Ziurtatu zifratutako disko guztientzako berreskuratze gakoak dituzula. Baliteke firmwarea eguneratu ondoren abiatzean hauek sartu behar izatea.",
+    "affectsFdeWarningUbuntuFdeBody": "Hardware bidezko zifratzea gaituta dago ordenagailuan. Baliteke firmwarea eguneratu ondorengo abioan berreskuratze gakoa sartu behar izatea. Ziurtatu ordenagailuko beste disko zifratuentzako berreskuratze gakoak ere badituzula.",
+    "affectsFdeWarningBitlockerBody": "BitLocker gaituta dago ordenagailuan. Ziurtatu zifratutako disko guztientzako berreskuratze gakoak dituzula. Baliteke firmwarea eguneratu ondoren abiatzean hauek sartu behar izatea.",
+    "affectsFdeCheckbox": "Zifratutako disko guztientzako berreskuratze gakoak ditut",
+    "affectsFdeTextFieldLabel": "Sartu berreskuratze gakoa",
+    "affectsFdeLinkLabel": "Informazio gehiago",
+    "affectsFdeIncorrectKey": "Berreskuratze gakoak ez du funtzionatzen, egiaztatu edo ordezkatu Segurtasun zentroan",
+    "allVersions": "Bertsio guztiak",
+    "appTitle": "Firmware eguneratzailea",
+    "batteryWarning": "Abisua: baliteke gailuen eguneratze batzuk argindarrera konektatuta soilik egotea erabilgarri!",
+    "checksum": "Egiaztapen-batura (checksum)",
+    "cancel": "Utzi",
+    "current": "Unekoa",
+    "deviceUnavailable": "Gailua ez da erabilgarri egongo ekintza burutu bitartean.",
+    "deviceRequest": "Gailuaren eskaera",
+    "downgrade": "Deseguneratu",
+    "downgradeConfirm": "<b>{name}</b> <b>{version}</b> bertsiora deseguneratu?",
+    "@downgradeConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "flags": "Adierazleak",
+    "fwupdDeviceFlagInternal": "Barneko gailua",
+    "fwupdDeviceFlagUpdatable": "Eguneragarria",
+    "fwupdDeviceFlagOnlyOffline": "Eguneratzeko berrabiarazi beharra dago",
+    "fwupdDeviceFlagRequireAc": "Sistema argindarrera konektatuta egon behar da",
+    "fwupdDeviceFlagLocked": "Gailua blokeatuta dago",
+    "fwupdDeviceFlagSupported": "Urruneko zerbitzarian onartua",
+    "fwupdDeviceFlagTrusted": "Fidagarria",
+    "fwupdDeviceFlagHasMultipleBranches": "Gailuak firmwarearen beste adar batera aldatzea baimentzen du",
+    "fwupdDeviceFlagBackupBeforeInstall": "Gailuak firmwarearen babes-kopia egingo du instalatu aurretik",
+    "fwupdDeviceFlagWildcardInstall": "Mota bereko gailu guztiak aldi berean eguneratuko dira",
+    "fwupdDeviceFlagOnlyVersionUpgrade": "Bertsio-berritzeak soilik daude baimenduta",
+    "fwupdDeviceFlagUnreachable": "Gailua ez dago eskuragarri",
+    "fwupdErrorInternal": "Barne-errorea",
+    "fwupdErrorVersionNewer": "Firmwarearen bertsio berriagoa dago instalatuta",
+    "fwupdErrorVersionSame": "Instalatutako firmwarearen bertsioa",
+    "fwupdErrorAlreadyPending": "Dagoeneko lineaz kanpo instalatzeko konfiguratuta",
+    "fwupdErrorAuthFailed": "Huts egin du autentifikazioa lortzean",
+    "fwupdErrorRead": "Huts egin du gailutik irakurtzean",
+    "fwupdErrorWrite": "Huts egin du gailuan idaztean",
+    "fwupdErrorInvalidFile": "Fitxategi formatu baliogabea",
+    "fwupdErrorNotFound": "Ez da bat datorren gailurik existitzen",
+    "fwupdErrorNothingToDo": "Ez dago egitekorik",
+    "fwupdErrorNotSupported": "Ekintza ez zen egingarria",
+    "fwupdErrorSignatureInvalid": "Sinadura baliogabea zen",
+    "fwupdErrorAcPowerRequired": "AC elikadura beharrezkoa zen",
+    "fwupdErrorPermissionDenied": "Baimena ukatu da",
+    "fwupdErrorBrokenSystem": "Erabiltzaileak sistema modu okerrean konfiguratu du",
+    "fwupdErrorBatteryLevelTooLow": "Sistemaren bateria-maila baxuegia da",
+    "fwupdErrorNeedsUserAction": "Erabiltzaileak ekintza bat burutu behar du eguneratzea osatzeko",
+    "fwupdErrorAuthExpired": "Ezin izan da autentikatu, kredentzialak iraungi direlako",
+    "fwupdErrorUnknown": "Errore ezezaguna",
+    "fwupdStatusUnknown": "Egoera ezezaguna",
+    "fwupdStatusIdle": "Ez-aktibo",
+    "fwupdStatusLoading": "Baliabide bat kargatzen",
+    "fwupdStatusDecompressing": "Firmwarea deskonprimatzen",
+    "fwupdStatusDeviceRestart": "Gailua berrabiarazten",
+    "fwupdStatusDeviceWrite": "Gailu batera idazten",
+    "fwupdStatusDeviceVerify": "Gailu bat egiaztatzen (irakurtzen)",
+    "fwupdStatusScheduling": "Lineaz kanpoko eguneratze bat programatzen",
+    "fwupdStatusDownloading": "Fitxategi bat deskargatzen",
+    "fwupdStatusDeviceRead": "Gailu batetik irakurtzen",
+    "fwupdStatusDeviceErase": "Gailu bat ezabatzen",
+    "fwupdStatusWaitingForAuth": "Autentikazioaren zain",
+    "fwupdStatusDeviceBusy": "Gailua lanpetuta dago",
+    "fwupdStatusShutdown": "Daemona itzaltzen ari da",
+    "guid": "GUIDak",
+    "installError": "Huts egin du firmwarea instalatzeak!",
+    "noDevicesFound": "Ez da gailurik aurkitu",
+    "olderVersions": "Bertsio zaharragoak",
+    "rebootLater": "Berrabiarazi geroago",
+    "rebootNow": "Berrabiarazi orain",
+    "rebootConfirmMessage": "Eguneratzea osatzeko gailua berrabiarazi behar duzu. Ziurtatu gailua argindarrera konektatuta edo guztiz kargatuta dagoela. Berrabiarazi aurretik, gorde fitxategiak datuen galera ekiditeko.",
+    "rebootConfirmTitle": "Berrabiarazi eguneratzea osatzeko",
+    "reinstall": "Berrinstalatu",
+    "reinstallConfirm": "<b>{name}</b> <b>{current}</b> bertsioa berrinstalatu?",
+    "@reinstallConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "current": {
+                "type": "String"
+            }
+        }
+    },
+    "showReleases": "Erakutsi argitaratzeak",
+    "showUpdates": "Erakutsi eguneratzeak",
+    "update": "Eguneratu",
+    "updateAvailable": "Eguneratzea eskuragarri",
+    "updateChecksums": "Eguneratu egiaztapen-baturak",
+    "updateChecksumsConfirm": "Eguneratu <b>{name}</b> gailuaren egiaztapen-baturak?",
+    "@updateChecksumsConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "updateChecksumsInfo": "Honek uneko hash kriptografikoak egiaztatu gisa grabatuko ditu.",
+    "updateToLatest": "Eguneratu azkenekora",
+    "updateConfirm": "<b>{name}</b> <b>{version}</b> bertsiora eguneratu?",
+    "@updateConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "vendor": "Hornitzailea",
+    "verifyFirmware": "Egiaztatu firmwarea",
+    "verifyFirmwareConfirm": "{name}(r)en firmware egiaztapen-baturak egiaztatu?",
+    "@verifyFirmwareConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "currentVersion": "Uneko bertsioa",
+    "minVersion": "Gutxieneko bertsioa",
+    "latestVersion": "Azken bertsioa"
 }
