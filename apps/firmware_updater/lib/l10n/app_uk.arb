@@ -11,7 +11,7 @@
     "deviceUnavailable": "Під час цієї дії пристрій буде недоступний.",
     "deviceRequest": "Запит пристрою",
     "downgrade": "Пониження",
-    "downgradeConfirm": "Понизити <b>{name}</b> до версії<b>{version}</b>?",
+    "downgradeConfirm": "Понизити <b>{name}</b> до версії <b>{version}</b>?",
     "@downgradeConfirm": {
         "placeholders": {
             "name": {
@@ -125,7 +125,7 @@
     },
     "updateChecksumsInfo": "Поточні криптографічні хеші будуть записані як підтверджені.",
     "updateToLatest": "Оновити до останнього",
-    "updateConfirm": "Оновити <b>{name}</b> до версії<b>{version}</b>?",
+    "updateConfirm": "Оновити <b>{name}</b> до версії <b>{version}</b>?",
     "@updateConfirm": {
         "placeholders": {
             "name": {
