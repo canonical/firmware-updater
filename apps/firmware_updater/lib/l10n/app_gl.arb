@@ -1,11 +1,11 @@
 {
-  "@@locale": "gl",
-  "appTitle": "Actualizador de firmware",
-  "@appTitle": {},
-  "close": "Pechar",
-  "@close": {},
-  "cancel": "Cancelar",
-  "@cancel": {},
-  "current": "Actual",
-  "@current": {}
+    "@@locale": "gl",
+    "appTitle": "Actualizador de firmware",
+    "close": "Pechar",
+    "cancel": "Cancelar",
+    "current": "Actual",
+    "affectsFdeWarningTitle": "Poder perder todos os seus datos sen a chave de recuperación",
+    "affectsFdeWarningUbuntuFdeTitle": "Podes perder todo o voso dato sen a vosa chave de recuperación",
+    "affectsFdeWarningOtherFdeBody": "Asegúrese de que ten chaves de recuperación para todos os discos cifrados. É posíbel que deba introducilas ao arrancar tras actualizar o firmware.",
+    "affectsFdeWarningUbuntuFdeBody": "O cifrado con respaldo de hardware está activado no teu ordenador. É posible que teñas que introducir a túa cahve de recuperación ao iniciar despois de actualizar o firmware. Asegúrate de que tamén tes chaves de recuperación para calquera outro disco cifrado neste ordenador."
 }
