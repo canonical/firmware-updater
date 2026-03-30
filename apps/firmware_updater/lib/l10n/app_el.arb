@@ -32,7 +32,7 @@
     "fwupdDeviceFlagUpdatable": "Ενημέρωση",
     "downgrade": "Υποβάθμιση",
     "deviceRequest": "Αίτημα συσκευής",
-    "downgradeConfirm": "Υποβάθμιση<b>{name}<b>στην έκδοση<b>{version}</b>",
+    "downgradeConfirm": "Θέλετε να υποβαθμιστεί το <b>{name}</b> στην έκδοση <b>{version}</b>;",
     "@downgradeConfirm": {
         "placeholders": {
             "name": {
