@@ -368,16 +368,3 @@ DISTRIB_DESCRIPTION="Ubuntu 24.04.1 LTS"
 }
 
 class MockResourceHandle extends Mock implements ResourceHandle {}
-
-abstract class _Process {
-  Future<ProcessResult> run(String? executable, List<String>? arguments);
-}
-
-class MockProcess extends Mock implements _Process {
-  @override
-  Future<ProcessResult> run(String? executable, List<String>? arguments) =>
-      super.noSuchMethod(
-        Invocation.method(#run, [executable, arguments]),
-        returnValue: Future.value(ProcessResult(0, 0, '', '')),
-      ) as Future<ProcessResult>;
-}

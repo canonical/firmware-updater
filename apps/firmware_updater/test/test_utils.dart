@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:collection/collection.dart';
 import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/l10n/app_localizations.dart';
@@ -107,18 +109,11 @@ RecoveryKeyService mockRecoveryKeyService({
 @GenerateMocks([SnapdClient])
 SnapdClient mockSnapdClient({
   bool? isValidRecoveryKey,
-  SnapdStorageEncryptionStatus? storageEncryptionStatus,
 }) {
   final client = MockSnapdClient();
   if (!(isValidRecoveryKey ?? true)) {
     when(client.checkRecoveryKey(any))
         .thenThrow(SnapdException(message: 'invalid recovery key'));
-  }
-  if (storageEncryptionStatus != null) {
-    when(client.getStorageEncrypted()).thenAnswer(
-      (_) async =>
-          SnapdStorageEncryptedResponse(status: storageEncryptionStatus),
-    );
   }
   return client;
 }
@@ -187,4 +182,17 @@ extension WidgetTesterX on WidgetTester {
       providers != null ? MultiProvider(providers: providers, child: app) : app,
     );
   }
+}
+
+abstract class _Process {
+  Future<ProcessResult> run(String? executable, List<String>? arguments);
+}
+
+class MockProcess extends Mock implements _Process {
+  @override
+  Future<ProcessResult> run(String? executable, List<String>? arguments) =>
+      super.noSuchMethod(
+        Invocation.method(#run, [executable, arguments]),
+        returnValue: Future.value(ProcessResult(0, 0, '', '')),
+      ) as Future<ProcessResult>;
 }
