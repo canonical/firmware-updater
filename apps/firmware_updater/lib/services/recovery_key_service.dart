@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firmware_updater/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:snapd/snapd.dart';
@@ -31,11 +33,15 @@ class RecoveryKeySnapdService implements RecoveryKeyService {
   RecoveryKeySnapdService({
     @visibleForTesting SnapdClient? snapdClient,
     @visibleForTesting UDisksClient? udisksClient,
+    @visibleForTesting
+    Future<ProcessResult> Function(String, List<String>)? runProcess,
   })  : _snapdClient = snapdClient ?? getService<SnapdClient>(),
-        _uDisksClient = udisksClient ?? getService<UDisksClient>();
+        _uDisksClient = udisksClient ?? getService<UDisksClient>(),
+        _runProcess = runProcess ?? Process.run;
   final SnapdClient _snapdClient;
   final UDisksClient _uDisksClient;
-  SnapdStorageEncryptionStatus? _storageEncryptionStatus;
+  final Future<ProcessResult> Function(String, List<String>) _runProcess;
+  late final bool _hasUbuntuFde;
 
   @override
   Future<void> init() async {
@@ -43,22 +49,23 @@ class RecoveryKeySnapdService implements RecoveryKeyService {
       _log.error('Could not connect to UDisks: $e');
     });
 
-    try {
-      final response = await _snapdClient.getStorageEncrypted();
-      _storageEncryptionStatus = response.status;
-    } on Exception catch (e) {
-      _log.error('Could not get storage encryption status: $e');
+    _hasUbuntuFde = await _hasStorageEncryptedManaged();
+  }
+
+  Future<bool> _hasStorageEncryptedManaged() async {
+    final result = await _runProcess('snapctl', ['system-mode']);
+    if (result.exitCode != 0) {
+      _log.error('Error running snapctl: ${result.stderr}');
+      return false;
     }
+    return (result.stdout as String).contains('storage-encrypted: managed');
   }
 
   @override
   Future<void> dispose() => _uDisksClient.close();
 
   @override
-  bool get hasUbuntuFde {
-    return _storageEncryptionStatus != null &&
-        _storageEncryptionStatus != SnapdStorageEncryptionStatus.inactive;
-  }
+  bool get hasUbuntuFde => _hasUbuntuFde;
 
   @override
   bool get hasBitlocker {
