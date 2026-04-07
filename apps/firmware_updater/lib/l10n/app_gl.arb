@@ -1,3 +1,161 @@
 {
-  "@@locale": "gl"
+    "@@locale": "gl",
+    "appTitle": "Actualizador de firmware",
+    "close": "Pechar",
+    "cancel": "Cancelar",
+    "current": "Actual",
+    "affectsFdeWarningTitle": "Poder perder todos os seus datos sen a chave de recuperación",
+    "affectsFdeWarningUbuntuFdeTitle": "Podes perder todos os teus datos se non tes a chave de recuperación",
+    "affectsFdeWarningOtherFdeBody": "Asegúrese de que ten chaves de recuperación para todos os discos cifrados. É posíbel que deba introducilas ao arrancar tras actualizar o firmware.",
+    "affectsFdeWarningUbuntuFdeBody": "O cifrado con respaldo de hardware está activado no teu ordenador. É posible que teñas que introducir a túa cahve de recuperación ao iniciar despois de actualizar o firmware. Asegúrate de que tamén tes chaves de recuperación para calquera outro disco cifrado neste ordenador.",
+    "affectsFdeWarningBitlockerBody": "BitLocker está activado no teu ordenador. Asegúrate de ter chaves de recuperación para todos os discos cifrados. É posible que teñas que introducilas ao iniciar despois de actualizar o firmware.",
+    "affectsFdeTextFieldLabel": "Introduce a túa chave de recuperación",
+    "affectsFdeLinkLabel": "Saber máis",
+    "affectsFdeIncorrectKey": "A chave de recuperación non funciona, compróbaa ou substitúea no Centro de seguranza",
+    "allVersions": "Todas as versións",
+    "ok": "Aceptar",
+    "batteryWarning": "Aviso: algunhas actualizacións do dispositivo poden estar dispoñíbeis só con alimentación externa!",
+    "checksum": "Suma de verificación",
+    "deviceUnavailable": "O dispositivo non estará dispoñíbel durante esta acción.",
+    "deviceRequest": "Solicitude do dispositivo",
+    "downgrade": "Baixar de versión",
+    "downgradeConfirm": "Baixar de versión <b>{name}</b> a <b>{version}</b>?",
+    "@downgradeConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "flags": "Marcadores",
+    "fwupdDeviceFlagInternal": "Dispositivo interno",
+    "fwupdDeviceFlagUpdatable": "Actualizábel",
+    "fwupdDeviceFlagOnlyOffline": "A actualización require un reinicio",
+    "fwupdDeviceFlagRequireAc": "O sistema require unha fonte de alimentación externa",
+    "fwupdDeviceFlagLocked": "O dispositivo está bloqueado",
+    "fwupdDeviceFlagSupported": "Compatible con servidores remotos",
+    "fwupdDeviceFlagNeedsBootloader": "Require un xestor de arrinque",
+    "fwupdDeviceFlagRegistered": "Rexistrado",
+    "fwupdDeviceFlagNeedsReboot": "Necesita reiniciar despois da instalación",
+    "fwupdDeviceFlagNeedsShutdown": "Necesita apagar despois da instalación",
+    "fwupdDeviceFlagReported": "Informado ao servidor remoto",
+    "fwupdDeviceFlagNotified": "O usuario foi notificado",
+    "fwupdDeviceFlagInstallParentFirst": "Instalar primeiro no dispositivo principal",
+    "fwupdDeviceFlagIsBootloader": "Está en modo xestor de arrinque",
+    "fwupdDeviceFlagWaitForReplug": "O hardware está á espera de ser reconectado",
+    "fwupdDeviceFlagIgnoreValidation": "Ignorar as comprobacións de seguridade de validación",
+    "fwupdDeviceFlagTrusted": "Confiábel",
+    "fwupdDeviceFlagNeedsActivation": "A actualización do dispositivo precisa activación",
+    "fwupdDeviceFlagWillDisappear": "O dispositivo non volverá aparecer despois de que se complete a actualización",
+    "fwupdDeviceFlagCanVerify": "A verificación de suma criptográfica está dispoñíbel",
+    "fwupdDeviceFlagDualImage": "Actualizacións das etapas do dispositivo",
+    "fwupdDeviceFlagSelfRecovery": "O dispositivo pódese recuperar de fallos na instalación",
+    "fwupdDeviceFlagUsableDuringUpdate": "O dispositivo é usábel durante a actualización",
+    "fwupdDeviceFlagVersionCheckRequired": "É necesario que o firmware do dispositivo teña unha comprobación de versión",
+    "fwupdDeviceFlagInstallAllReleases": "Requírese o dispositivo para instalar todas as versións proporcionadas",
+    "fwupdDeviceFlagHasMultipleBranches": "O dispositivo admite o cambio a unha rama diferente do firmware",
+    "affectsFdeCheckbox": "Teño chaves de recuperación para todos os meus discos cifrados",
+    "fwupdDeviceFlagBackupBeforeInstall": "O dispositivo fará unha copia de seguridade do firmware antes da instalación",
+    "fwupdDeviceFlagWildcardInstall": "Todos os dispositivos do mesmo tipo actualizaranse ao mesmo tempo",
+    "fwupdDeviceFlagOnlyVersionUpgrade": "Só se permiten actualizacións de versións",
+    "fwupdDeviceFlagUnreachable": "Non se pode acceder ao dispositivo",
+    "fwupdDeviceFlagAffectsFde": "Os segredos de cifrado completos do disco poden ser invalidados ao actualizar",
+    "fwupdDeviceFlagEndOfLife": "Fin de vida útil",
+    "fwupdDeviceFlagSignedPayload": "Carga útil asinada",
+    "fwupdDeviceFlagUnsignedPayload": "Carga útil sen asinar",
+    "fwupdErrorInternal": "Erro interno",
+    "fwupdErrorVersionNewer": "Versión de firmware máis recente instalada",
+    "fwupdErrorVersionSame": "Instalouse a mesma versión do firmware",
+    "fwupdErrorAlreadyPending": "Xa configurado para instalar sen conexión",
+    "fwupdErrorAuthFailed": "Non se puido obter a autenticación",
+    "fwupdErrorRead": "Non se puido ler desde o dispositivo",
+    "fwupdErrorWrite": "Fallou a escritura no dispositivo",
+    "fwupdErrorInvalidFile": "O formato de ficheiro non é válido",
+    "fwupdErrorNotFound": "Non existe ningún dispositivo coincidente",
+    "fwupdErrorNothingToDo": "Nada que facer",
+    "fwupdErrorNotSupported": "A acción non foi posíbel",
+    "fwupdErrorSignatureInvalid": "A sinatura non era válida",
+    "fwupdErrorAcPowerRequired": "Requeríase alimentación AC",
+    "fwupdErrorPermissionDenied": "Denegouse o permiso",
+    "fwupdErrorBrokenSystem": "O usuario configurou o seu sistema dun xeito defectuoso",
+    "fwupdErrorBatteryLevelTooLow": "O nivel de batería do sistema é demasiado baixo",
+    "fwupdErrorNeedsUserAction": "O usuario precisa realizar unha acción para completar a actualización",
+    "fwupdErrorAuthExpired": "Non se puido obter a autenticación porque as credenciais caducaron",
+    "fwupdErrorUnknown": "Erro descoñecido",
+    "fwupdStatusUnknown": "Estado descoñecido",
+    "fwupdStatusIdle": "Inactivo",
+    "fwupdStatusLoading": "Cargando un recurso",
+    "fwupdStatusDecompressing": "Descomprimindo o firmware",
+    "fwupdStatusDeviceRestart": "Reiniciando o dispositivo",
+    "fwupdStatusDeviceWrite": "Escribindo nun dispositivo",
+    "fwupdStatusDeviceVerify": "Verificando (lendo) un dispositivo",
+    "fwupdStatusScheduling": "Programando unha actualización sen conexión",
+    "fwupdStatusDownloading": "Estase a descargar un ficheiro",
+    "fwupdStatusDeviceRead": "Lendo dende un dispositivo",
+    "fwupdStatusDeviceErase": "Borrando un dispositivo",
+    "fwupdStatusWaitingForAuth": "Agardando pola autenticación",
+    "fwupdStatusDeviceBusy": "O dispositivo está ocupado",
+    "fwupdStatusShutdown": "O daemon está a pecharse",
+    "guid": "GUIDs",
+    "installError": "Fallo na instalación do firmware!",
+    "noDevicesFound": "Non se atoparon dispositivos",
+    "olderVersions": "Versións anteriores",
+    "rebootLater": "Reiniciar máis tarde",
+    "rebootNow": "Reiniciar agora",
+    "rebootConfirmMessage": "Debes reiniciar o dispositivo para completar a actualización. Asegúrate de que o dispositivo esté enchufado ou completamente cargado. Garda os teus ficheiros antes de reinicialo para evitar perder datos.",
+    "rebootConfirmTitle": "Reiniciar para completar esta actualización",
+    "reinstall": "Reinstalar",
+    "reinstallConfirm": "Reinstalar <b>{name}</b> versión <b>{current}</b>?",
+    "@reinstallConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "current": {
+                "type": "String"
+            }
+        }
+    },
+    "showReleases": "Amosar lanzamentos",
+    "showUpdates": "Amosar actualizacións",
+    "update": "Actualizar",
+    "updateAvailable": "Actualización dispoñíbel",
+    "updateChecksums": "Actualizar sumas de comprobación",
+    "updateChecksumsConfirm": "Actualizar as sumas de comprobación do dispositivo <b>{name}</b>?",
+    "@updateChecksumsConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "updateChecksumsInfo": "Isto gravará as sumas criptográficas actuais como verificadas.",
+    "updateToLatest": "Actualizar á última versión",
+    "updateConfirm": "Actualizar <b>{name}</b> á versión <b>{version}</b>?",
+    "@updateConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "vendor": "Vendedor",
+    "verifyFirmware": "Verificar Firmware",
+    "verifyFirmwareConfirm": "Verificar as sumas de comprobación do firmware de {name}?",
+    "@verifyFirmwareConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "currentVersion": "Versión actual",
+    "minVersion": "Versión mínima",
+    "latestVersion": "Última versión"
 }
