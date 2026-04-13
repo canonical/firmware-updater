@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:collection/collection.dart';
@@ -207,18 +208,44 @@ class FwupdDbusService extends FwupdService {
     return _fwupd.verifyUpdate(device.id);
   }
 
-  Future<File> _downloadRelease(String url) async {
-    final path = p.join(_fs.systemTempDirectory.path, p.basename(url));
+  Future<File> _downloadRelease(
+    String url, {
+    String? username,
+    String? password,
+  }) async {
+    // Strip the /auth suffix that fwupd appends for authenticated remotes
+    // to derive the actual firmware filename for the temp file.
+    var uriPath = Uri.parse(url).path;
+    if (uriPath.endsWith('/auth')) {
+      uriPath = uriPath.substring(0, uriPath.length - '/auth'.length);
+    }
+    final path = p.join(_fs.systemTempDirectory.path, p.basename(uriPath));
     log.debug('download $url to $path');
     try {
+      final headers = <String, dynamic>{
+        HttpHeaders.userAgentHeader: _userAgent,
+      };
+      // The fwupd daemon appends /auth to download URLs for remotes that
+      // require authentication (e.g. LVFS embargo remotes) but does not embed
+      // credentials in the URL sent over D-Bus. Use the remote's username and
+      // password to construct the Basic Auth header.
+      if (username != null && password != null) {
+        headers[HttpHeaders.authorizationHeader] =
+            'Basic ${base64Encode(utf8.encode('$username:$password'))}';
+        log.debug('using basic auth for download');
+      }
       return await _dio.download(
         url,
         path,
         onReceiveProgress: (recvd, total) {
           _setDownloadProgress(100 * recvd ~/ total);
         },
-        options: Options(headers: {HttpHeaders.userAgentHeader: _userAgent}),
+        options: Options(headers: headers),
       ).then((response) => _fs.file(path));
+    } on DioException catch (e) {
+      log.error('download failed: ${e.response?.statusCode} '
+          '${e.response?.statusMessage} for $url');
+      rethrow;
     } finally {
       _setDownloadProgress(null);
     }
@@ -236,7 +263,11 @@ class FwupdDbusService extends FwupdService {
       case FwupdRemoteKind.download:
         // TODO:
         // - should the .cab be stored in the cache directory?
-        file = await _downloadRelease(release.locations.first);
+        file = await _downloadRelease(
+          release.locations.first,
+          username: remote.username,
+          password: remote.password,
+        );
         break;
       case FwupdRemoteKind.local:
         final cache = p.dirname(remote.filenameCache ?? '');
