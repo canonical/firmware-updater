@@ -348,7 +348,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get updateChecksumsInfo => '現在の暗号化ハッシュを認証で使用するのに保存じます。';
+  String get updateChecksumsInfo => '現在の暗号化ハッシュを認証で使用するのに保存します。';
 
   @override
   String get updateToLatest => '最新版にアップデート';

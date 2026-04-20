@@ -14,33 +14,33 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Puede perder todos sus datos si no tiene la clave de recuperación';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Asegúrese de que tiene claves de recuperación para todos los discos cifrados. Es posible que deba introducirlas al arrancar tras actualizar el firmware.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'El cifrado con soporte de hardware está activado en su ordenador. Es posible que deba introducir las claves de recuperación tras actualizar el firmware. Asegúrese también de tener las claves de recuperación de cualquier otro disco cifrado de este ordenador.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker está activado en su ordenador. Asegúrese de tener las claves de recuperación de todos los discos cifrados. Es posible que deba introducirlas al arrancar el equipo después de actualizar el firmware.';
 
   @override
   String get affectsFdeCheckbox =>
       'Tengo claves de recuperación para todas mis unidades cifradas';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Introduzca la clave de recuperación';
 
   @override
   String get affectsFdeLinkLabel => 'Saber más';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'La clave de recuperación no funciona, compruébela o reemplácela en el Centro de Seguridad';
 
   @override
   String get allVersions => 'Todas las versiones';

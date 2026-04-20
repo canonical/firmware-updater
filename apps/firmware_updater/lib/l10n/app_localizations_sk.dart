@@ -10,37 +10,37 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'Bez kľúčov na obnovenie môžete prísť o všetky svoje údaje';
+      'Bez obnovovacích kľúčov môžete prísť o všetky svoje údaje';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Bez obnovovacieho kľúča môžete prísť o všetky svoje údaje';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Uistite sa, že máte obnovovacie kľúče pre všetky šifrované disky. Možno ich budete musieť zadať pri spustení po aktualizácii firmvéru.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Na vašom počítači je zapnuté šifrovanie podporované hardvérom. Po aktualizácii firmvéru možno budete musieť zadať obnovovací kľúč pri spustení systému. Uistite sa, že máte aj obnovovacie kľúče pre všetky ostatné šifrované disky v tomto počítači.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Šifrovanie BitLocker je na vašom počítači zapnuté. Uistite sa, že máte obnovovacie kľúče pre všetky šifrované disky. Možno ich budete musieť zadať pri spustení po aktualizácii firmvéru.';
 
   @override
   String get affectsFdeCheckbox =>
-      'Pre všetky moje šifrované disky mám kľúče na obnovenie';
+      'Mám obnovovacie kľúče pre všetky moje šifrované disky';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Zadajte svoj obnovovací kľúč';
 
   @override
   String get affectsFdeLinkLabel => 'Zistiť viac';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Obnovovací kľúč nefunguje, skontrolujte ho alebo ho zmeňte v Centre zabezpečenia';
 
   @override
   String get allVersions => 'Všetky verzie';
@@ -50,7 +50,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get batteryWarning =>
-      'Upozornenie: Niektoré aktualizácie zariadenia môžu byť dostupné iba na externé napájanie!';
+      'Upozornenie: Niektoré aktualizácie zariadenia sú dostupné len pri externom napájaní!';
 
   @override
   String get checksum => 'Kontrolný súčet';
@@ -69,7 +69,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'Počas tejto akcie bude zariadenie nedostupné.';
 
   @override
-  String get deviceRequest => 'Požiadavka zariadenia';
+  String get deviceRequest => 'Požiadavka na zariadenie';
 
   @override
   String get downgrade => 'Prechod na staršiu verziu';
@@ -80,7 +80,7 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String get flags => 'Charakteristiky';
+  String get flags => 'Príznaky';
 
   @override
   String get fwupdDeviceFlagInternal => 'Interné zariadenie';
@@ -93,7 +93,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagRequireAc =>
-      'Systém vyžaduje externý zdroj napájania';
+      'Systém musí byť pripojený k externému napájaniu';
 
   @override
   String get fwupdDeviceFlagLocked => 'Zariadenie je uzamknuté';
@@ -128,7 +128,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagWaitForReplug =>
-      'Hardvér čaká na opätovné pripojenie';
+      'Zariadenie je potrebné znova pripojiť';
 
   @override
   String get fwupdDeviceFlagIgnoreValidation =>
@@ -150,27 +150,28 @@ class AppLocalizationsSk extends AppLocalizations {
       'K dispozícii je overenie kryptografického hashu';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Aktualizácie v zariadení';
+  String get fwupdDeviceFlagDualImage =>
+      'Zariadenie má dvojfázovú aktualizáciu';
 
   @override
   String get fwupdDeviceFlagSelfRecovery =>
-      'Zariadenie môže obnoviť zlyhania pamäte';
+      'Zariadenie sa dokáže zotaviť po zlyhaní';
 
   @override
   String get fwupdDeviceFlagUsableDuringUpdate =>
-      'Zariadenie je použiteľné počas trvania aktualizácie';
+      'Zariadenie je počas aktualizácie použiteľné';
 
   @override
   String get fwupdDeviceFlagVersionCheckRequired =>
-      'Na kontrolu verzie je potrebný firmvér zariadenia';
+      'Firmvér zariadenia musí podporovať kontrolu verzie';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
-      'Zariadenie je vyžadované na inštaláciu všetkých poskytnutých vydaní';
+      'Zariadenie musí nainštalovať všetky dostupné vydania';
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
-      'Zariadenie podporuje prechod na inú vetvu firmvéru';
+      'Zariadenie podporuje prepínanie medzi vetvami firmvéru';
 
   @override
   String get fwupdDeviceFlagBackupBeforeInstall =>
@@ -182,23 +183,23 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagOnlyVersionUpgrade =>
-      'Povolené sú iba inovácie verzií';
+      'Povolené sú iba aktualizácie verzie';
 
   @override
   String get fwupdDeviceFlagUnreachable => 'Zariadenie je nedostupné';
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Pri aktualizácii môžu byť zrušené celé tajnosti šifrovania disku';
+      'Aktualizácia môže ovplyvniť šifrovanie celého disku';
 
   @override
-  String get fwupdDeviceFlagEndOfLife => 'Koniec životnosti';
+  String get fwupdDeviceFlagEndOfLife => 'Ukončená podpora';
 
   @override
-  String get fwupdDeviceFlagSignedPayload => 'Podpísané užitočné zaťaženie';
+  String get fwupdDeviceFlagSignedPayload => 'Podpísaný balík';
 
   @override
-  String get fwupdDeviceFlagUnsignedPayload => 'Nepodpísané užitočné zaťaženie';
+  String get fwupdDeviceFlagUnsignedPayload => 'Nepodpísaný balík';
 
   @override
   String get fwupdErrorInternal => 'Interná chyba';
@@ -226,30 +227,30 @@ class AppLocalizationsSk extends AppLocalizations {
   String get fwupdErrorInvalidFile => 'Neplatný formát súboru';
 
   @override
-  String get fwupdErrorNotFound => 'Žiadne zodpovedajúce zariadenie neexistuje';
+  String get fwupdErrorNotFound => 'Neexistuje žiadne zodpovedajúce zariadenie';
 
   @override
-  String get fwupdErrorNothingToDo => 'Nič na práci';
+  String get fwupdErrorNothingToDo => 'Žiadna akcia nie je potrebná';
 
   @override
-  String get fwupdErrorNotSupported => 'Akcia nebola možná';
+  String get fwupdErrorNotSupported => 'Akcia nie je podporovaná';
 
   @override
   String get fwupdErrorSignatureInvalid => 'Podpis bol neplatný';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'Je potrebné napájanie zo zásuvky';
+  String get fwupdErrorAcPowerRequired => 'Vyžadovalo sa napájanie zo siete';
 
   @override
-  String get fwupdErrorPermissionDenied => 'Povolenie bolo zamietnuté';
+  String get fwupdErrorPermissionDenied => 'Prístup bol odmietnutý';
 
   @override
   String get fwupdErrorBrokenSystem =>
-      'Používateľ nakonfiguroval svoj systém chybne';
+      'Používateľ nesprávne nakonfiguroval svoj systém';
 
   @override
   String get fwupdErrorBatteryLevelTooLow =>
-      'Úroveň nabitia batérie systému je príliš nízka';
+      'Úroveň batérie systému je príliš nízka';
 
   @override
   String get fwupdErrorNeedsUserAction =>
@@ -257,7 +258,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get fwupdErrorAuthExpired =>
-      'Nepodarilo sa získať autorizáciu, pretože platnosť poverení vypršala';
+      'Nepodarilo sa získať overenie – poverenia vypršali';
 
   @override
   String get fwupdErrorUnknown => 'Neznáma chyba';
@@ -272,37 +273,37 @@ class AppLocalizationsSk extends AppLocalizations {
   String get fwupdStatusLoading => 'Načítava sa zdroj';
 
   @override
-  String get fwupdStatusDecompressing => 'Dekomprimácia firmvéru';
+  String get fwupdStatusDecompressing => 'Rozbaľuje sa firmvér';
 
   @override
-  String get fwupdStatusDeviceRestart => 'Reštartovanie zariadenia';
+  String get fwupdStatusDeviceRestart => 'Reštartuje sa zariadenie';
 
   @override
-  String get fwupdStatusDeviceWrite => 'Zapisovanie do zariadenia';
+  String get fwupdStatusDeviceWrite => 'Zapisuje sa do zariadenia';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Overovanie (čítanie) zariadenia';
+  String get fwupdStatusDeviceVerify => 'Overuje sa zariadenie (čítanie)';
 
   @override
-  String get fwupdStatusScheduling => 'Plánovanie offline aktualizácie';
+  String get fwupdStatusScheduling => 'Plánuje sa offline aktualizácia';
 
   @override
-  String get fwupdStatusDownloading => 'Sťahuje sa súbor';
+  String get fwupdStatusDownloading => 'Súbor sa sťahuje';
 
   @override
-  String get fwupdStatusDeviceRead => 'Čítanie zo zariadenia';
+  String get fwupdStatusDeviceRead => 'Číta sa zo zariadenia';
 
   @override
-  String get fwupdStatusDeviceErase => 'Vymazávanie zariadenia';
+  String get fwupdStatusDeviceErase => 'Vymazáva sa zariadenie';
 
   @override
-  String get fwupdStatusWaitingForAuth => 'Čakanie na overenie';
+  String get fwupdStatusWaitingForAuth => 'Čaká sa na overenie';
 
   @override
-  String get fwupdStatusDeviceBusy => 'Zariadenie je zaneprázdnené';
+  String get fwupdStatusDeviceBusy => 'Zariadenie je obsadené';
 
   @override
-  String get fwupdStatusShutdown => 'Démon sa vypína';
+  String get fwupdStatusShutdown => 'Služba sa vypína';
 
   @override
   String get guid => 'Identifikátory';
@@ -330,7 +331,8 @@ class AppLocalizationsSk extends AppLocalizations {
       'Na dokončenie aktualizácie musíte reštartovať zariadenie. Skontrolujte, či je vaše zariadenie zapojené alebo plne nabité. Pred reštartovaním si uložte súbory, aby ste predišli strate údajov.';
 
   @override
-  String get rebootConfirmTitle => 'Aktualizáciu dokončíte reštartovaním';
+  String get rebootConfirmTitle =>
+      'Reštartujte systém na dokončenie aktualizácie';
 
   @override
   String get reinstall => 'Preinštalovať';
@@ -362,10 +364,10 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get updateChecksumsInfo =>
-      'Tým sa zaznamenajú aktuálne kryptografické hash ako overené.';
+      'Aktuálne kryptografické odtlačky sa týmto označia ako overené.';
 
   @override
-  String get updateToLatest => 'Aktualizovať na najnovšie';
+  String get updateToLatest => 'Aktualizovať na najnovšiu';
 
   @override
   String updateConfirm(String name, String version) {

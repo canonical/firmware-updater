@@ -10,37 +10,37 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'You may lose all your data without recovery keys';
+      'Kurtarma anahtarlarınız olmadan tüm verilerinizi kaybedebilirsiniz';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Bir veri kurtarma anahtarın olmadan bütün verilerini kaybedebilirsin';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Bütün şifrelenmiş disklerin için kurtarma anahtarlarına sahip olduğundan emin ol. Onları sistem güncellemelerinden sonra başlangıçta girmen gerekebilir.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Bilgisayarında donanım destekli şifreleme etkin. Yazılım güncellemelerinden sonra kurtarma anahtarını girmen gerekebilir. Bu bilgisayarda diğer şifrelenmiş diskler için de bir kurtarma anahtarına sahip olduğundan emin ol.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Bu bilgisayarda BitLocker etkin. Şifrelenmiş tüm disklerin kurtarma anahtarlarına sahip olduğundan emin ol. Yazılım güncellemeleri sonrası başlangıçta onları girmen gerekebilir.';
 
   @override
   String get affectsFdeCheckbox =>
       'Tüm şifreli sürücülerim için kurtarma anahtarlarım var';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Kurtarma anahtarınızı girin';
 
   @override
   String get affectsFdeLinkLabel => 'Daha fazla bilgi edinin';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Kurtarma anahtarı çalışmıyor, Güvenlik Merkezi\'nde kontrol edin veya değiştirin';
 
   @override
   String get allVersions => 'Tüm Sürümler';
@@ -50,7 +50,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get batteryWarning =>
-      'Warning: some device updates may only be available on external power!';
+      'Uyarı: Bazı cihaz güncellemeleri yalnızca harici güçle kullanılabilir!';
 
   @override
   String get checksum => 'Sağlama toplamı';
@@ -62,11 +62,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get cancel => 'İptal et';
 
   @override
-  String get current => 'Current';
+  String get current => 'Geçerli';
 
   @override
-  String get deviceUnavailable =>
-      'The device will be unavailable during this action.';
+  String get deviceUnavailable => 'Bu işlem sırasında cihaz kullanılamayacak.';
 
   @override
   String get deviceRequest => 'Cihaz isteği';
@@ -76,317 +75,321 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String downgradeConfirm(String name, String version) {
-    return 'Downgrade <b>$name</b> to version <b>$version</b>?';
+    return '<b>$name</b> sürümünü <b>$version</b> sürümüne düşürmek istiyor musunuz?';
   }
 
   @override
-  String get flags => 'Flags';
+  String get flags => 'Bayraklar';
 
   @override
-  String get fwupdDeviceFlagInternal => 'Internal device';
+  String get fwupdDeviceFlagInternal => 'Dahili cihaz';
 
   @override
-  String get fwupdDeviceFlagUpdatable => 'Updatable';
+  String get fwupdDeviceFlagUpdatable => 'Güncellenebilir';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Update requires a reboot';
+  String get fwupdDeviceFlagOnlyOffline =>
+      'Güncelleme yeniden başlatmayı gerektirir';
 
   @override
-  String get fwupdDeviceFlagRequireAc =>
-      'System requires external power source';
+  String get fwupdDeviceFlagRequireAc => 'Sistem harici güç kaynağı gerektirir';
 
   @override
-  String get fwupdDeviceFlagLocked => 'Device is locked';
+  String get fwupdDeviceFlagLocked => 'Cihaz kilitli';
 
   @override
-  String get fwupdDeviceFlagSupported => 'Supported on remote server';
+  String get fwupdDeviceFlagSupported => 'Uzak sunucuda desteklenir';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => 'Requires a bootloader';
+  String get fwupdDeviceFlagNeedsBootloader => 'Bir önyükleyici gerektirir';
 
   @override
-  String get fwupdDeviceFlagRegistered => 'Registered';
+  String get fwupdDeviceFlagRegistered => 'Kayıtlı';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Needs a reboot after installation';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Kurulumdan sonra yeniden başlatma gerekiyor';
 
   @override
   String get fwupdDeviceFlagNeedsShutdown =>
-      'Needs shutdown after installation';
+      'Kurulumdan sonra kapatılması gerekiyor';
 
   @override
-  String get fwupdDeviceFlagReported => 'Reported to remote server';
+  String get fwupdDeviceFlagReported => 'Uzak sunucuya bildirildi';
 
   @override
-  String get fwupdDeviceFlagNotified => 'User has been notified';
+  String get fwupdDeviceFlagNotified => 'Kullanıcıya bildirimde bulunuldu';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst =>
-      'Install to parent device first';
+  String get fwupdDeviceFlagInstallParentFirst => 'Önce ana cihaza yükleyin';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => 'Is in bootloader mode';
+  String get fwupdDeviceFlagIsBootloader => 'Önyükleyici modunda';
 
   @override
   String get fwupdDeviceFlagWaitForReplug =>
-      'Hardware is waiting to be replugged';
+      'Donanım yeniden takılmayı bekliyor';
 
   @override
   String get fwupdDeviceFlagIgnoreValidation =>
-      'Ignore validation safety checks';
+      'Doğrulama güvenlik kontrollerini göz ardı edin';
 
   @override
-  String get fwupdDeviceFlagTrusted => 'Trusted';
+  String get fwupdDeviceFlagTrusted => 'Güvenilir';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Device update needs activation';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Cihaz güncellemesinin etkinleştirilmesi gerekiyor';
 
   @override
   String get fwupdDeviceFlagWillDisappear =>
-      'Device will not re-appear after update completes';
+      'Güncelleme tamamlandıktan sonra cihaz yeniden görünmeyecek';
 
   @override
   String get fwupdDeviceFlagCanVerify =>
-      'Cryptographic hash verification is available';
+      'Kriptografik karma doğrulaması mevcuttur';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Device stages updates';
+  String get fwupdDeviceFlagDualImage => 'Cihaz aşamaları güncellemeleri';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Device can recover flash failures';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Cihaz flaş arızalarını giderebilir';
 
   @override
   String get fwupdDeviceFlagUsableDuringUpdate =>
-      'Device is usable for the duration of the update';
+      'Cihaz güncelleme süresince kullanılabilir';
 
   @override
   String get fwupdDeviceFlagVersionCheckRequired =>
-      'Device firmware is required to have a version check';
+      'Cihaz yazılımının sürüm kontrolüne ihtiyacı vardır';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
-      'Device is required to install all provided releases';
+      'Sağlanan tüm sürümleri yüklemek için cihaz gereklidir';
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
-      'Device supports switching to a different branch of firmware';
+      'Cihaz, farklı bir donanım yazılımına geçişi destekliyor';
 
   @override
   String get fwupdDeviceFlagBackupBeforeInstall =>
-      'Device will backup firmware before installing';
+      'Cihaz, kurulumdan önce aygıt yazılımını yedekleyecektir';
 
   @override
   String get fwupdDeviceFlagWildcardInstall =>
-      'All devices of the same type will be updated at the same time';
+      'Aynı tipteki tüm cihazlar aynı anda güncellenecektir';
 
   @override
   String get fwupdDeviceFlagOnlyVersionUpgrade =>
-      'Only version upgrades are allowed';
+      'Yalnızca sürüm yükseltmelerine izin verilir';
 
   @override
-  String get fwupdDeviceFlagUnreachable => 'Device is unreachable';
+  String get fwupdDeviceFlagUnreachable => 'Cihaza ulaşılamıyor';
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Full disk encryption secrets may be invalidated when updating';
+      'Güncelleme sırasında tam disk şifreleme sırları geçersiz kılınabilir';
 
   @override
-  String get fwupdDeviceFlagEndOfLife => 'End of life';
+  String get fwupdDeviceFlagEndOfLife => 'Desteğin sonu';
 
   @override
-  String get fwupdDeviceFlagSignedPayload => 'Signed Payload';
+  String get fwupdDeviceFlagSignedPayload => 'İmzalanmış Yük';
 
   @override
-  String get fwupdDeviceFlagUnsignedPayload => 'Unsigned Payload';
+  String get fwupdDeviceFlagUnsignedPayload => 'İmzalanmamış Yük';
 
   @override
-  String get fwupdErrorInternal => 'Internal error';
+  String get fwupdErrorInternal => 'Dahili hata';
 
   @override
-  String get fwupdErrorVersionNewer => 'Installed newer firmware version';
+  String get fwupdErrorVersionNewer =>
+      'Daha yeni bir aygıt yazılımı sürümü yüklendi';
 
   @override
-  String get fwupdErrorVersionSame => 'Installed same firmware version';
+  String get fwupdErrorVersionSame => 'Aynı aygıt yazılımı sürümü yüklendi';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Already set to be installed offline';
+  String get fwupdErrorAlreadyPending =>
+      'Zaten çevrimdışı olarak kurulacak şekilde ayarlandı';
 
   @override
-  String get fwupdErrorAuthFailed => 'Failed to get authentication';
+  String get fwupdErrorAuthFailed => 'Kimlik doğrulaması alınamadı';
 
   @override
-  String get fwupdErrorRead => 'Failed to read from device';
+  String get fwupdErrorRead => 'Aygıttan okuma başarısız oldu';
 
   @override
-  String get fwupdErrorWrite => 'Failed to write to the device';
+  String get fwupdErrorWrite => 'Aygıta yazılamadı';
 
   @override
-  String get fwupdErrorInvalidFile => 'Invalid file format';
+  String get fwupdErrorInvalidFile => 'Geçersiz dosya biçimi';
 
   @override
-  String get fwupdErrorNotFound => 'No matching device exists';
+  String get fwupdErrorNotFound => 'Eşleşen cihaz yok';
 
   @override
-  String get fwupdErrorNothingToDo => 'Nothing to do';
+  String get fwupdErrorNothingToDo => 'Yapacak bir şey yok';
 
   @override
-  String get fwupdErrorNotSupported => 'Action was not possible';
+  String get fwupdErrorNotSupported => 'Eylem mümkün olmadı';
 
   @override
-  String get fwupdErrorSignatureInvalid => 'Signature was invalid';
+  String get fwupdErrorSignatureInvalid => 'İmza geçersizdi';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'AC power was required';
+  String get fwupdErrorAcPowerRequired => 'AC gücü gerekliydi';
 
   @override
-  String get fwupdErrorPermissionDenied => 'Permission was denied';
+  String get fwupdErrorPermissionDenied => 'İzin reddedildi';
 
   @override
   String get fwupdErrorBrokenSystem =>
-      'User has configured their system in a broken way';
+      'Kullanıcı sistemini bozuk bir şekilde yapılandırdı';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow =>
-      'The system battery level is too low';
+  String get fwupdErrorBatteryLevelTooLow => 'Sistem pil seviyesi çok düşük';
 
   @override
   String get fwupdErrorNeedsUserAction =>
-      'User needs to do an action to complete the update';
+      'Kullanıcının güncellemeyi tamamlamak için bir işlem yapması gerekiyor';
 
   @override
   String get fwupdErrorAuthExpired =>
-      'Failed to get auth as credentials have expired';
+      'Kimlik bilgilerinin süresi dolduğu için yetkilendirme alınamadı';
 
   @override
-  String get fwupdErrorUnknown => 'Unknown error';
+  String get fwupdErrorUnknown => 'Bilinmeyen hata';
 
   @override
-  String get fwupdStatusUnknown => 'Unknown state';
+  String get fwupdStatusUnknown => 'Bilinmeyen durum';
 
   @override
-  String get fwupdStatusIdle => 'Idle';
+  String get fwupdStatusIdle => 'Boşta';
 
   @override
-  String get fwupdStatusLoading => 'Loading a resource';
+  String get fwupdStatusLoading => 'Bir kaynak yükleniyor';
 
   @override
-  String get fwupdStatusDecompressing => 'Decompressing firmware';
+  String get fwupdStatusDecompressing => 'Ürün yazılımının sıkıştırılması';
 
   @override
-  String get fwupdStatusDeviceRestart => 'Restarting the device';
+  String get fwupdStatusDeviceRestart => 'Cihazı yeniden başlatma';
 
   @override
-  String get fwupdStatusDeviceWrite => 'Writing to a device';
+  String get fwupdStatusDeviceWrite => 'Bir cihaza yazma';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Verifying (reading) a device';
+  String get fwupdStatusDeviceVerify => 'Bir cihazın doğrulanması (okunması)';
 
   @override
-  String get fwupdStatusScheduling => 'Scheduling an offline update';
+  String get fwupdStatusScheduling => 'Çevrimdışı bir güncelleme planlama';
 
   @override
-  String get fwupdStatusDownloading => 'A file is downloading';
+  String get fwupdStatusDownloading => 'Bir dosya indiriliyor';
 
   @override
-  String get fwupdStatusDeviceRead => 'Reading from a device';
+  String get fwupdStatusDeviceRead => 'Bir cihazdan okuma';
 
   @override
-  String get fwupdStatusDeviceErase => 'Erasing a device';
+  String get fwupdStatusDeviceErase => 'Bir cihazı silme';
 
   @override
-  String get fwupdStatusWaitingForAuth => 'Waiting for authentication';
+  String get fwupdStatusWaitingForAuth => 'Kimlik doğrulama bekleniyor';
 
   @override
-  String get fwupdStatusDeviceBusy => 'The device is busy';
+  String get fwupdStatusDeviceBusy => 'Cihaz meşgul';
 
   @override
-  String get fwupdStatusShutdown => 'The daemon is shutting down';
+  String get fwupdStatusShutdown => 'Daemon kapanıyor';
 
   @override
   String get guid => 'GUIDs';
 
   @override
-  String get installError => 'Failed to install firmware!';
+  String get installError => 'Yazılım kurulumu başarısız oldu!';
 
   @override
-  String get noDevicesFound => 'No devices found';
+  String get noDevicesFound => 'Hiçbir cihaz bulunamadı';
 
   @override
-  String get ok => 'OK';
+  String get ok => 'TAMAM';
 
   @override
-  String get olderVersions => 'Older Versions';
+  String get olderVersions => 'Eski Sürümler';
 
   @override
-  String get rebootLater => 'Restart later';
+  String get rebootLater => 'Daha sonra yeniden başlat';
 
   @override
-  String get rebootNow => 'Restart now';
+  String get rebootNow => 'Şimdi yeniden başlat';
 
   @override
   String get rebootConfirmMessage =>
-      'You must restart your device to complete the update. Make sure your device is plugged in or fully charged. Save your files before you restart to avoid losing data.';
+      'Güncellemeyi tamamlamak için cihazınızı yeniden başlatmanız gerekir. Cihazınızın prize takılı veya tam şarjlı olduğundan emin olun. Veri kaybını önlemek için yeniden başlatmadan önce dosyalarınızı kaydedin.';
 
   @override
-  String get rebootConfirmTitle => 'Restart to complete this update';
+  String get rebootConfirmTitle =>
+      'Bu güncellemeyi tamamlamak için yeniden başlatın';
 
   @override
-  String get reinstall => 'Reinstall';
+  String get reinstall => 'Yeniden yükle';
 
   @override
   String reinstallConfirm(String name, String current) {
-    return 'Reinstall <b>$name</b> version <b>$current</b>?';
+    return '<b>$name</b> sürümü <b>$current</b> yeniden yüklensin mi?';
   }
 
   @override
-  String get showReleases => 'Show Releases';
+  String get showReleases => 'Sürümleri Göster';
 
   @override
-  String get showUpdates => 'Show Updates';
+  String get showUpdates => 'Güncellemeleri Göster';
 
   @override
-  String get update => 'Update';
+  String get update => 'Güncelle';
 
   @override
-  String get updateAvailable => 'Update available';
+  String get updateAvailable => 'Güncelleme mevcut';
 
   @override
-  String get updateChecksums => 'Update Checksums';
+  String get updateChecksums => 'Kontrol Toplamlarını Güncelle';
 
   @override
   String updateChecksumsConfirm(String name) {
-    return 'Update device checksums of <b>$name</b>?';
+    return '<b>$name</b> cihazının toplam kontrol değerleri güncellensin mi?';
   }
 
   @override
   String get updateChecksumsInfo =>
-      'This will record the current cryptographic hashes as verified.';
+      'Bu, güncel kriptografik karmaların doğrulanmış olarak kaydedilmesini sağlayacaktır.';
 
   @override
-  String get updateToLatest => 'Update to Latest';
+  String get updateToLatest => 'En Sona Güncelle';
 
   @override
   String updateConfirm(String name, String version) {
-    return 'Update <b>$name</b> to version <b>$version</b>?';
+    return '<b>$name</b> sürümü <b>$version</b> sürümüne güncellensin mi?';
   }
 
   @override
-  String get vendor => 'Vendor';
+  String get vendor => 'Satıcı';
 
   @override
-  String get verifyFirmware => 'Verify Firmware';
+  String get verifyFirmware => 'Ürün Yazılımını Doğrula';
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Verify firmware checksums of $name?';
+    return '$name için aygıt yazılımı kontrol toplamları doğrulansın mı?';
   }
 
   @override
-  String get currentVersion => 'Current Version';
+  String get currentVersion => 'Güncel Sürüm';
 
   @override
-  String get minVersion => 'Minimum Version';
+  String get minVersion => 'Minimum Sürüm';
 
   @override
-  String get latestVersion => 'Latest Version';
+  String get latestVersion => 'Son Sürüm';
 }

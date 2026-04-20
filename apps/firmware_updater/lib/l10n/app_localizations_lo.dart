@@ -10,383 +10,381 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'You may lose all your data without recovery keys';
+      'ທ່ານອາດຈະສູນເສຍຂໍ້ມູນທັງໝົດຂອງທ່ານ ຖ້າບໍ່ມີລະຫັດກູ້ຄືນ';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'ທ່ານອາດຈະສູນເສຍຂໍ້ມູນທັງໝົດຂອງທ່ານ ຖ້າບໍ່ມີລະຫັດກູ້ຄືນຂອງທ່ານ';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'ໃຫ້ແນ່ໃຈວ່າທ່ານມີລະຫັດກູ້ຄືນສຳລັບດິດທັງໝົດທີ່ຖືກເຂົ້າລະຫັດໄວ້. ທ່ານອາດຈຳເປັນຕ້ອງປ້ອນພວກມັນເມື່ອເປີດເຄື່ອງ ຫຼັງຈາກອັບເດດເຟີມແວ.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'ການເຂົ້າລະຫັດທີ່ຮອງຮັບໂດຍຮາດແວຖືກເປີດໃຊ້ງານຢູ່ໃນຄອມພິວເຕີຂອງທ່ານ. ທ່ານອາດຈຳເປັນຕ້ອງປ້ອນລະຫັດກູ້ຄືນຂອງທ່ານເມື່ອເປີດເຄື່ອງ ຫຼັງຈາກອັບເດດເຟີມແວ. ໃຫ້ແນ່ໃຈວ່າທ່ານມີລະຫັດກູ້ຄືນສຳລັບດິດອື່ນໆ ທີ່ຖືກເຂົ້າລະຫັດຢູ່ໃນຄອມພິວເຕີນີ້ເຊັ່ນກັນ.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker ຖືກເປີດໃຊ້ງານຢູ່ໃນຄອມພິວເຕີຂອງທ່ານ. ໃຫ້ແນ່ໃຈວ່າທ່ານມີລະຫັດກູ້ຄືນສຳລັບດິດທັງໝົດທີ່ຖືກເຂົ້າລະຫັດໄວ້. ທ່ານອາດຈຳເປັນຕ້ອງປ້ອນພວກມັນເມື່ອເປີດເຄື່ອງ ຫຼັງຈາກອັບເດດເຟີມແວ.';
 
   @override
   String get affectsFdeCheckbox =>
-      'I have recovery keys for all my encrypted drives';
+      'ຂ້ອຍມີລະຫັດກູ້ຄືນສຳລັບໄດຣຟ໌ທີ່ຖືກເຂົ້າລະຫັດທັງໝົດຂອງຂ້ອຍ';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'ປ້ອນລະຫັດກູ້ຄືນຂອງທ່ານ';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'ຮຽນຮູ້ເພີ່ມເຕີມ';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'ລະຫັດກູ້ຄືນໃຊ້ບໍ່ໄດ້, ໃຫ້ກວດສອບ ຫຼື ປ່ຽນແທນມັນໃໝ່ໃນ ສູນຄວາມປອດໄພ';
 
   @override
-  String get allVersions => 'All Versions';
+  String get allVersions => 'ເວີຊັນທັງໝົດ';
 
   @override
-  String get appTitle => 'Firmware Updater';
+  String get appTitle => 'ຕົວອັບເດດເຟີມແວ';
 
   @override
   String get batteryWarning =>
-      'Warning: some device updates may only be available on external power!';
+      'ຄຳເຕືອນ: ການອັບເດດອຸປະກອນບາງຢ່າງ ອາດຈະເຮັດໄດ້ກໍຕໍ່ເມື່ອສຽບສາຍສາກເທົ່ານັ້ນ!';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'ຜົນລວມກວດສອຍ';
 
   @override
-  String get close => 'Close';
+  String get close => 'ປິດ';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'ຍົກເລີກ';
 
   @override
-  String get current => 'Current';
+  String get current => 'ປັດຈຸບັນ';
 
   @override
   String get deviceUnavailable =>
-      'The device will be unavailable during this action.';
+      'ອຸປະກອນຈະບໍ່ສາມາດໃຊ້ງານໄດ້ໃນລະຫວ່າງການດຳເນີນການນີ້.';
 
   @override
-  String get deviceRequest => 'Device request';
+  String get deviceRequest => 'ຄຳຮ້ອງຂໍຂອງອຸປະກອນ';
 
   @override
-  String get downgrade => 'Downgrade';
+  String get downgrade => 'ດາວເກຣດ';
 
   @override
   String downgradeConfirm(String name, String version) {
-    return 'Downgrade <b>$name</b> to version <b>$version</b>?';
+    return 'ດາວເກຣດ <b>$name</b> ໄປເປັນເວີຊັນ <b>$version</b> ບໍ່?';
   }
 
   @override
   String get flags => 'Flags';
 
   @override
-  String get fwupdDeviceFlagInternal => 'Internal device';
+  String get fwupdDeviceFlagInternal => 'ອຸປະກອນພາຍໃນ';
 
   @override
-  String get fwupdDeviceFlagUpdatable => 'Updatable';
+  String get fwupdDeviceFlagUpdatable => 'ສາມາດອັບເດດໄດ້';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Update requires a reboot';
+  String get fwupdDeviceFlagOnlyOffline => 'ການອັບເດດຕ້ອງການການຣີສະຕາດເຄື່ອງ';
 
   @override
-  String get fwupdDeviceFlagRequireAc =>
-      'System requires external power source';
+  String get fwupdDeviceFlagRequireAc => 'ລະບົບຕ້ອງການແຫຼ່ງພະລັງງານພາຍນອກ';
 
   @override
-  String get fwupdDeviceFlagLocked => 'Device is locked';
+  String get fwupdDeviceFlagLocked => 'ອຸປະກອນຖືກລັອກ';
 
   @override
-  String get fwupdDeviceFlagSupported => 'Supported on remote server';
+  String get fwupdDeviceFlagSupported => 'ຮອງຮັບຢູ່ເທິງເຊີບເວີທາງໄກ';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => 'Requires a bootloader';
+  String get fwupdDeviceFlagNeedsBootloader => 'ຕ້ອງການ Bootloader';
 
   @override
-  String get fwupdDeviceFlagRegistered => 'Registered';
+  String get fwupdDeviceFlagRegistered => 'ລົງທະບຽນແລ້ວ';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Needs a reboot after installation';
+  String get fwupdDeviceFlagNeedsReboot => 'ຕ້ອງການຣີສະຕາດຫຼັງຈາກການຕິດຕັ້ງ';
 
   @override
   String get fwupdDeviceFlagNeedsShutdown =>
-      'Needs shutdown after installation';
+      'ຕ້ອງການປິດເຄື່ອງຫຼັງຈາກການຕິດຕັ້ງ';
 
   @override
-  String get fwupdDeviceFlagReported => 'Reported to remote server';
+  String get fwupdDeviceFlagReported => 'ລາຍງານໄປຍັງເຊີບເວີທາງໄກແລ້ວ';
 
   @override
-  String get fwupdDeviceFlagNotified => 'User has been notified';
+  String get fwupdDeviceFlagNotified => 'ຜູ້ໃຊ້ໄດ້ຮັບການແຈ້ງເຕືອນແລ້ວ';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst =>
-      'Install to parent device first';
+  String get fwupdDeviceFlagInstallParentFirst => 'ຕິດຕັ້ງໃສ່ອຸປະກອນຫຼັກກ່ອນ';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => 'Is in bootloader mode';
+  String get fwupdDeviceFlagIsBootloader => 'ຢູ່ໃນໂໝດ Bootloader';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug =>
-      'Hardware is waiting to be replugged';
+  String get fwupdDeviceFlagWaitForReplug => 'ຮາດແວກຳລັງລໍຖ້າການຖອດແລ້ວສຽບໃໝ່';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation =>
-      'Ignore validation safety checks';
+  String get fwupdDeviceFlagIgnoreValidation => 'ບໍ່ສົນໃຈການກວດສອບຄວາມປອດໄພ';
 
   @override
-  String get fwupdDeviceFlagTrusted => 'Trusted';
+  String get fwupdDeviceFlagTrusted => 'ເຊື່ອຖືໄດ້';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Device update needs activation';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'ການອັບເດດອຸປະກອນຕ້ອງການການເປີດໃຊ້ງານ';
 
   @override
   String get fwupdDeviceFlagWillDisappear =>
-      'Device will not re-appear after update completes';
+      'ອຸປະກອນຈະບໍ່ປະກົດຂຶ້ນມາອີກ ຫຼັງຈາກການອັບເດດສຳເລັດ';
 
   @override
   String get fwupdDeviceFlagCanVerify =>
-      'Cryptographic hash verification is available';
+      'ມີການກວດສອບ Cryptographic hash ໃຫ້ໃຊ້ງານ';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Device stages updates';
+  String get fwupdDeviceFlagDualImage => 'ອຸປະກອນກຽມການອັບເດດເປັນຂັ້ນຕອນ';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Device can recover flash failures';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'ອຸປະກອນສາມາດກູ້ຄືນຄວາມລົ້ມເຫຼວໃນການແຟລຊໄດ້';
 
   @override
   String get fwupdDeviceFlagUsableDuringUpdate =>
-      'Device is usable for the duration of the update';
+      'ອຸປະກອນສາມາດໃຊ້ງານໄດ້ໃນລະຫວ່າງການອັບເດດ';
 
   @override
   String get fwupdDeviceFlagVersionCheckRequired =>
-      'Device firmware is required to have a version check';
+      'ເຟີມແວຂອງອຸປະກອນຈຳເປັນຕ້ອງມີການກວດສອບເວີຊັນ';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
-      'Device is required to install all provided releases';
+      'ອຸປະກອນຈຳເປັນຕ້ອງຕິດຕັ້ງທຸກລຸ້ນທີ່ປ່ອຍອອກມາ';
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
-      'Device supports switching to a different branch of firmware';
+      'ອຸປະກອນຮອງຮັບການປ່ຽນໄປໃຊ້ເຟີມແວສາຂາອື່ນ';
 
   @override
   String get fwupdDeviceFlagBackupBeforeInstall =>
-      'Device will backup firmware before installing';
+      'ອຸປະກອນຈະສຳຮອງຂໍ້ມູນເຟີມແວກ່ອນການຕິດຕັ້ງ';
 
   @override
   String get fwupdDeviceFlagWildcardInstall =>
-      'All devices of the same type will be updated at the same time';
+      'ອຸປະກອນປະເພດດຽວກັນທັງໝົດຈະຖືກອັບເດດພ້ອມກັນ';
 
   @override
   String get fwupdDeviceFlagOnlyVersionUpgrade =>
-      'Only version upgrades are allowed';
+      'ອະນຸຍາດສະເພາະການອັບເກຣດເວີຊັນເທົ່ານັ້ນ';
 
   @override
-  String get fwupdDeviceFlagUnreachable => 'Device is unreachable';
+  String get fwupdDeviceFlagUnreachable => 'ບໍ່ສາມາດຕິດຕໍ່ອຸປະກອນໄດ້';
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Full disk encryption secrets may be invalidated when updating';
+      'ລະຫັດລັບການເຂົ້າລະຫັດເຕັມດິດ ອາດຈະໃຊ້ບໍ່ໄດ້ເມື່ອມີການອັບເດດ';
 
   @override
-  String get fwupdDeviceFlagEndOfLife => 'End of life';
+  String get fwupdDeviceFlagEndOfLife => 'ໝົດອາຍຸການສະໜັບສະໜູນ';
 
   @override
-  String get fwupdDeviceFlagSignedPayload => 'Signed Payload';
+  String get fwupdDeviceFlagSignedPayload => 'Payload ທີ່ມີການເຊັນລາຍເຊັນ';
 
   @override
-  String get fwupdDeviceFlagUnsignedPayload => 'Unsigned Payload';
+  String get fwupdDeviceFlagUnsignedPayload => 'Payload ທີ່ບໍ່ມີການເຊັນລາຍເຊັນ';
 
   @override
-  String get fwupdErrorInternal => 'Internal error';
+  String get fwupdErrorInternal => 'ຂໍ້ຜິດພາດພາຍໃນ';
 
   @override
-  String get fwupdErrorVersionNewer => 'Installed newer firmware version';
+  String get fwupdErrorVersionNewer => 'ຕິດຕັ້ງເຟີມແວເວີຊັນທີ່ໃໝ່ກວ່າແລ້ວ';
 
   @override
-  String get fwupdErrorVersionSame => 'Installed same firmware version';
+  String get fwupdErrorVersionSame => 'ຕິດຕັ້ງເຟີມແວເວີຊັນດຽວກັນແລ້ວ';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Already set to be installed offline';
+  String get fwupdErrorAlreadyPending =>
+      'ຖືກຕັ້ງຄ່າໃຫ້ຕິດຕັ້ງແບບອອບໄລນ໌ໄວ້ແລ້ວ';
 
   @override
-  String get fwupdErrorAuthFailed => 'Failed to get authentication';
+  String get fwupdErrorAuthFailed => 'ການຢືນຢັນຕົວຕົນລົ້ມເຫຼວ';
 
   @override
-  String get fwupdErrorRead => 'Failed to read from device';
+  String get fwupdErrorRead => 'ອ່ານຂໍ້ມູນຈາກອຸປະກອນລົ້ມເຫຼວ';
 
   @override
-  String get fwupdErrorWrite => 'Failed to write to the device';
+  String get fwupdErrorWrite => 'ຂຽນຂໍ້ມູນລົງອຸປະກອນລົ້ມເຫຼວ';
 
   @override
-  String get fwupdErrorInvalidFile => 'Invalid file format';
+  String get fwupdErrorInvalidFile => 'ຮູບແບບໄຟລ໌ບໍ່ຖືກຕ້ອງ';
 
   @override
-  String get fwupdErrorNotFound => 'No matching device exists';
+  String get fwupdErrorNotFound => 'ບໍ່ພົບອຸປະກອນທີ່ກົງກັນ';
 
   @override
-  String get fwupdErrorNothingToDo => 'Nothing to do';
+  String get fwupdErrorNothingToDo => 'ບໍ່ມີຫຍັງຕ້ອງເຮັດ';
 
   @override
-  String get fwupdErrorNotSupported => 'Action was not possible';
+  String get fwupdErrorNotSupported => 'ບໍ່ສາມາດດຳເນີນການໄດ້';
 
   @override
-  String get fwupdErrorSignatureInvalid => 'Signature was invalid';
+  String get fwupdErrorSignatureInvalid => 'ລາຍເຊັນບໍ່ຖືກຕ້ອງ';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'AC power was required';
+  String get fwupdErrorAcPowerRequired => 'ຕ້ອງການແຫຼ່ງພະລັງງານ AC';
 
   @override
-  String get fwupdErrorPermissionDenied => 'Permission was denied';
+  String get fwupdErrorPermissionDenied => 'ການອະນຸຍາດຖືກປະຕິເສດ';
 
   @override
   String get fwupdErrorBrokenSystem =>
-      'User has configured their system in a broken way';
+      'ຜູ້ໃຊ້ໄດ້ປັບແຕ່ງລະບົບຂອງພວກເຂົາໃນຮູບແບບທີ່ເສຍຫາຍ';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow =>
-      'The system battery level is too low';
+  String get fwupdErrorBatteryLevelTooLow => 'ລະດັບແບັດເຕີຣີຂອງລະບົບຕ່ຳເກີນໄປ';
 
   @override
   String get fwupdErrorNeedsUserAction =>
-      'User needs to do an action to complete the update';
+      'ຜູ້ໃຊ້ຕ້ອງດຳເນີນການບາງຢ່າງເພື່ອໃຫ້ການອັບເດດສຳເລັດ';
 
   @override
   String get fwupdErrorAuthExpired =>
-      'Failed to get auth as credentials have expired';
+      'ການຢືນຢັນຕົວຕົນລົ້ມເຫຼວ ເນື່ອງຈາກຂໍ້ມູນການຢືນຢັນໝົດອາຍຸ';
 
   @override
-  String get fwupdErrorUnknown => 'Unknown error';
+  String get fwupdErrorUnknown => 'ຂໍ້ຜິດພາດທີ່ບໍ່ຮູ້ຈັກ';
 
   @override
-  String get fwupdStatusUnknown => 'Unknown state';
+  String get fwupdStatusUnknown => 'ສະຖານະທີ່ບໍ່ຮູ້ຈັກ';
 
   @override
-  String get fwupdStatusIdle => 'Idle';
+  String get fwupdStatusIdle => 'ວ່າງງານ';
 
   @override
-  String get fwupdStatusLoading => 'Loading a resource';
+  String get fwupdStatusLoading => 'ກຳລັງໂຫຼດຊັບພະຍາກອນ';
 
   @override
-  String get fwupdStatusDecompressing => 'Decompressing firmware';
+  String get fwupdStatusDecompressing => 'ກຳລັງແຕກໄຟລ໌ເຟີມແວ';
 
   @override
-  String get fwupdStatusDeviceRestart => 'Restarting the device';
+  String get fwupdStatusDeviceRestart => 'ກຳລັງຣີສະຕາດອຸປະກອນ';
 
   @override
-  String get fwupdStatusDeviceWrite => 'Writing to a device';
+  String get fwupdStatusDeviceWrite => 'ກຳລັງຂຽນລົງອຸປະກອນ';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Verifying (reading) a device';
+  String get fwupdStatusDeviceVerify => 'ກຳລັງກວດສອບ (ອ່ານ) ອຸປະກອນ';
 
   @override
-  String get fwupdStatusScheduling => 'Scheduling an offline update';
+  String get fwupdStatusScheduling => 'ກຳລັງຈັດຕາຕະລາງການອັບເດດແບບອອບໄລນ໌';
 
   @override
-  String get fwupdStatusDownloading => 'A file is downloading';
+  String get fwupdStatusDownloading => 'ກຳລັງດາວໂຫຼດໄຟລ໌';
 
   @override
-  String get fwupdStatusDeviceRead => 'Reading from a device';
+  String get fwupdStatusDeviceRead => 'ກຳລັງອ່ານຈາກອຸປະກອນ';
 
   @override
-  String get fwupdStatusDeviceErase => 'Erasing a device';
+  String get fwupdStatusDeviceErase => 'ກຳລັງລຶບຂໍ້ມູນອຸປະກອນ';
 
   @override
-  String get fwupdStatusWaitingForAuth => 'Waiting for authentication';
+  String get fwupdStatusWaitingForAuth => 'ກຳລັງລໍຖ້າການຢືນຢັນຕົວຕົນ';
 
   @override
-  String get fwupdStatusDeviceBusy => 'The device is busy';
+  String get fwupdStatusDeviceBusy => 'ອຸປະກອນບໍ່ວ່າງ';
 
   @override
-  String get fwupdStatusShutdown => 'The daemon is shutting down';
+  String get fwupdStatusShutdown => 'ໂປຣແກຣມເບື້ອງຫຼັງກຳລັງປິດການເຮັດວຽກ';
 
   @override
   String get guid => 'GUIDs';
 
   @override
-  String get installError => 'Failed to install firmware!';
+  String get installError => 'ຕິດຕັ້ງເຟີມແວລົ້ມເຫຼວ!';
 
   @override
-  String get noDevicesFound => 'No devices found';
+  String get noDevicesFound => 'ບໍ່ພົບອຸປະກອນ';
 
   @override
-  String get ok => 'OK';
+  String get ok => 'ຕົກລົງ';
 
   @override
-  String get olderVersions => 'Older Versions';
+  String get olderVersions => 'ເວີຊັນເກົ່າ';
 
   @override
-  String get rebootLater => 'Restart later';
+  String get rebootLater => 'ຣີສະຕາດພາຍຫຼັງ';
 
   @override
-  String get rebootNow => 'Restart now';
+  String get rebootNow => 'ຣີສະຕາດດຽວນີ້';
 
   @override
   String get rebootConfirmMessage =>
-      'You must restart your device to complete the update. Make sure your device is plugged in or fully charged. Save your files before you restart to avoid losing data.';
+      'ທ່ານຕ້ອງຣີສະຕາດອຸປະກອນຂອງທ່ານເພື່ອໃຫ້ການອັບເດດສຳເລັດ. ໃຫ້ແນ່ໃຈວ່າອຸປະກອນຂອງທ່ານສຽບສາຍສາກຢູ່ ຫຼື ມີແບັດເຕີຣີເຕັມ. ບັນທຶກໄຟລ໌ຂອງທ່ານກ່ອນທີ່ຈະຣີສະຕາດ ເພື່ອຫຼີກເວັ້ນການສູນເສຍຂໍ້ມູນ.';
 
   @override
-  String get rebootConfirmTitle => 'Restart to complete this update';
+  String get rebootConfirmTitle => 'ຣີສະຕາດເພື່ອເຮັດໃຫ້ການອັບເດດນີ້ສຳເລັດ';
 
   @override
-  String get reinstall => 'Reinstall';
+  String get reinstall => 'ຕິດຕັ້ງຄືນໃໝ່';
 
   @override
   String reinstallConfirm(String name, String current) {
-    return 'Reinstall <b>$name</b> version <b>$current</b>?';
+    return 'ຕິດຕັ້ງ <b>$name</b> ເວີຊັນ <b>$current</b> ຄືນໃໝ່ບໍ່?';
   }
 
   @override
-  String get showReleases => 'Show Releases';
+  String get showReleases => 'ສະແດງລຸ້ນທີ່ປ່ອຍອອກມາ';
 
   @override
-  String get showUpdates => 'Show Updates';
+  String get showUpdates => 'ສະແດງການອັບເດດ';
 
   @override
-  String get update => 'Update';
+  String get update => 'ອັບເດດ';
 
   @override
-  String get updateAvailable => 'Update available';
+  String get updateAvailable => 'ມີການອັບເດດ';
 
   @override
-  String get updateChecksums => 'Update Checksums';
+  String get updateChecksums => 'ອັບເດດ Checksums';
 
   @override
   String updateChecksumsConfirm(String name) {
-    return 'Update device checksums of <b>$name</b>?';
+    return 'ອັບເດດ Checksums ອຸປະກອນຂອງ <b>$name</b> ບໍ່?';
   }
 
   @override
   String get updateChecksumsInfo =>
-      'This will record the current cryptographic hashes as verified.';
+      'ສິ່ງນີ້ຈະບັນທຶກ cryptographic hashes ປັດຈຸບັນວ່າຜ່ານການກວດສອບແລ້ວ.';
 
   @override
-  String get updateToLatest => 'Update to Latest';
+  String get updateToLatest => 'ອັບເດດເປັນເວີຊັນຫຼ້າສຸດ';
 
   @override
   String updateConfirm(String name, String version) {
-    return 'Update <b>$name</b> to version <b>$version</b>?';
+    return 'ອັບເດດ <b>$name</b> ໄປເປັນເວີຊັນ <b>$version</b> ບໍ່?';
   }
 
   @override
-  String get vendor => 'Vendor';
+  String get vendor => 'ຜູ້ຜະລິດ';
 
   @override
-  String get verifyFirmware => 'Verify Firmware';
+  String get verifyFirmware => 'ກວດສອບເຟີມແວ';
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Verify firmware checksums of $name?';
+    return 'ກວດສອບ Checksums ເຟີມແວຂອງ $name ບໍ່?';
   }
 
   @override
-  String get currentVersion => 'Current Version';
+  String get currentVersion => 'ເວີຊັນປັດຈຸບັນ';
 
   @override
-  String get minVersion => 'Minimum Version';
+  String get minVersion => 'ເວີຊັນຂັ້ນຕ່ຳ';
 
   @override
-  String get latestVersion => 'Latest Version';
+  String get latestVersion => 'ເວີຊັນຫຼ້າສຸດ';
 }

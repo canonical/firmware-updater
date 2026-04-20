@@ -14,33 +14,33 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Zonder uw herstelcode kunt u al uw gegevens verliezen';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Zorg ervoor dat u herstelcodes heeft voor alle gecodeerde schijven. Mogelijk moet u deze bij het opstarten invoeren nadat u de firmware heeft bijgewerkt.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Versleuteling met hardware-ondersteuning is ingeschakeld op uw computer. Mogelijk moet u uw herstelcode bij het opstarten invoeren nadat u de firmware heeft bijgewerkt. Zorg ervoor dat u ook herstelcodes paraat hebt voor elke andere versleutelde schijf op deze computer.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker is ingeschakeld op uw computer. Zorg ervoor dat u herstelsleutels heeft voor alle gecodeerde schijven. Mogelijk moet u ze tijdens het opstarten invoeren nadat u de firmware heeft bijgewerkt.';
 
   @override
   String get affectsFdeCheckbox =>
       'Ik heb herstelcodes voor al mijn versleutelde schijven';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Voer uw herstelcode in';
 
   @override
   String get affectsFdeLinkLabel => 'Meer informatie';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Herstelcode werkt niet, controleer deze of vervang deze in het Security Center';
 
   @override
   String get allVersions => 'Alle Versies';

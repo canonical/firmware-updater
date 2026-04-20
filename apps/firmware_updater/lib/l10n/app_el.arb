@@ -1,41 +1,163 @@
 {
-  "@@locale": "el",
-  "affectsFdeWarningTitle": "Μπορεί να χάσετε τα δεδομένα σας χωρίς κλειδιά επαναφοράς",
-  "@affectsFdeWarningTitle": {},
-  "affectsFdeCheckbox": "Έχω όλα τα κλειδιά για τους κρυπτογραφημένους δίσκους μου",
-  "@affectsFdeCheckbox": {},
-  "allVersions": "Όλες οι Εκδόσεις",
-  "@allVersions": {},
-  "appTitle": "Ενημέρωση Λογισμικού",
-  "@appTitle": {},
-  "fwupdDeviceFlagLocked": "Η συσκευή είναι κλειδωμένη",
-  "@fwupdDeviceFlagLocked": {},
-  "fwupdDeviceFlagSupported": "Υποστηρίζεται σε απομακρυσμένο διακομιστή",
-  "@fwupdDeviceFlagSupported": {},
-  "fwupdDeviceFlagRegistered": "Εγγεγραμμένος",
-  "@fwupdDeviceFlagRegistered": {},
-  "fwupdDeviceFlagNeedsReboot": "Χρειάζεται επανεκκίνηση μετά την εγκατάσταση",
-  "@fwupdDeviceFlagNeedsReboot": {},
-  "fwupdDeviceFlagNeedsShutdown": "Χρειάζεται τερματισμός μετά την εγκατάσταση",
-  "@fwupdDeviceFlagNeedsShutdown": {},
-  "fwupdDeviceFlagNotified": "Ο χρήστης έχει ειδοποιηθεί",
-  "@fwupdDeviceFlagNotified": {},
-  "fwupdDeviceFlagTrusted": "Έμπιστο",
-  "@fwupdDeviceFlagTrusted": {},
-  "fwupdDeviceFlagNeedsActivation": "Συσκευή χρειάζεται ενημέρωση μετά την ενεργοποίηση",
-  "@fwupdDeviceFlagNeedsActivation": {},
-  "ok": "ΟΚ",
-  "@ok": {},
-  "affectsFdeWarningBody2": "Χρειάζεστε τα κλειδιά επαναφοράς επειδή έχετε ενεργοποιήσει την κρυπτογράφηση δίσκου στο Ubuntu η σε αλλά λειτουργικά συστήματα σε αυτόν τον υπολογιστή.",
-  "@affectsFdeWarningBody2": {},
-  "affectsFdeWarningBody1": "Βεβαιωθείτε πως έχετε όλα τα κλειδιά επαναφοράς των κρυπτογραφημένων δίσκων σας.Θα τους χρειαστείτε για να συνδεθείτε μετά από αναβάθμιση.",
-  "@affectsFdeWarningBody1": {},
-  "batteryWarning": "Προειδοποίηση:κάποιες συσκευές μπορούν να ενημερωθούν σε πλήρη ισχύ!",
-  "@batteryWarning": {},
-  "close": "Κλείσιμο",
-  "@close": {},
-  "cancel": "Ακύρωση",
-  "@cancel": {},
-  "current": "Τρέχον",
-  "@current": {}
+    "@@locale": "el",
+    "affectsFdeWarningTitle": "Μπορεί να χάσετε τα δεδομένα σας χωρίς κλειδιά ανάκτησης",
+    "affectsFdeCheckbox": "Έχω τα κλειδιά ανάκτησης για όλους τους κρυπτογραφημένους δίσκους μου",
+    "allVersions": "Όλες οι εκδόσεις",
+    "appTitle": "Ενημέρωση υλικολογισμικού",
+    "fwupdDeviceFlagLocked": "Η συσκευή είναι κλειδωμένη",
+    "fwupdDeviceFlagSupported": "Υποστηρίζεται σε απομακρυσμένο διακομιστή",
+    "fwupdDeviceFlagRegistered": "Καταχωρήθηκε",
+    "fwupdDeviceFlagNeedsReboot": "Απαιτεί επανεκκίνηση μετά την εγκατάσταση",
+    "fwupdDeviceFlagNeedsShutdown": "Απαιτεί τερματισμό λειτουργίας μετά την εγκατάσταση",
+    "fwupdDeviceFlagNotified": "Ο χρήστης έχει ειδοποιηθεί",
+    "fwupdDeviceFlagTrusted": "Έμπιστο",
+    "fwupdDeviceFlagNeedsActivation": "Η ενημέρωση της συσκευής απαιτεί ενεργοποίηση",
+    "ok": "Εντάξει",
+    "affectsFdeWarningBody2": "Χρειάζεστε τα κλειδιά επαναφοράς επειδή έχετε ενεργοποιήσει την κρυπτογράφηση δίσκου στο Ubuntu η σε αλλά λειτουργικά συστήματα σε αυτόν τον υπολογιστή.",
+    "affectsFdeWarningBody1": "Βεβαιωθείτε πως έχετε όλα τα κλειδιά επαναφοράς των κρυπτογραφημένων δίσκων σας.Θα τους χρειαστείτε για να συνδεθείτε μετά από αναβάθμιση.",
+    "batteryWarning": "Προειδοποίηση: ορισμένες ενημερώσεις σε συσκευές ενδέχεται να είναι διαθέσιμες μόνο με σύνδεση σε εξωτερική πηγή τροφοδοσίας!",
+    "close": "Κλείσιμο",
+    "cancel": "Ακύρωση",
+    "current": "Τρέχον",
+    "flags": "Σημαίες",
+    "fwupdDeviceFlagReported": "Αναφέρθηκε στον απομακρυσμένο διακομιστή",
+    "affectsFdeTextFieldLabel": "Εισάγετε το κλειδί ανάκτησης",
+    "affectsFdeIncorrectKey": "Το κλειδί ανάκτησης δεν λειτουργεί. Ελέγξτε το ή αντικαταστήστε το στο Κέντρο Ασφαλείας",
+    "deviceUnavailable": "Η συσκευή δεν θα είναι διαθέσιμη κατά τη διάρκεια αυτής της ενέργειας.",
+    "fwupdDeviceFlagInternal": "Εσωτερική συσκευή",
+    "fwupdDeviceFlagOnlyOffline": "Η ενημέρωση απαιτεί επανεκκίνηση",
+    "fwupdDeviceFlagRequireAc": "Το σύστημα απαιτεί εξωτερική πηγή τροφοδοσίας",
+    "fwupdDeviceFlagNeedsBootloader": "Απαιτεί πρόγραμμα εκκίνησης συστήματος",
+    "affectsFdeLinkLabel": "Μάθετε περισσότερα",
+    "fwupdDeviceFlagUpdatable": "Με δυνατότητα ενημέρωσης",
+    "downgrade": "Υποβάθμιση",
+    "deviceRequest": "Αίτημα συσκευής",
+    "downgradeConfirm": "Υποβάθμιση του <b>{name}</b> στην έκδοση <b>{version}</b>;",
+    "@downgradeConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "fwupdErrorRead": "Αποτυχία ανάγνωσης από συσκευή",
+    "fwupdDeviceFlagVersionCheckRequired": "Το υλικολογισμικό συσκευής χρειάζεται να κάνει έναν έλεγχο έκδοσης",
+    "fwupdDeviceFlagInstallAllReleases": "Η συσκευή απαιτείται για να εγκαταστήσει όλες τις παρεχόμενες ενημερώσεις",
+    "fwupdErrorNothingToDo": "Καμία ενέργεια προς εκτέλεση",
+    "fwupdErrorNotSupported": "Η ενέργεια δεν ήταν εφικτή",
+    "fwupdErrorBrokenSystem": "Το σύστημα έχει ρυθμιστεί από τον χρήστη με μη λειτουργικό τρόπο",
+    "fwupdErrorBatteryLevelTooLow": "Η στάθμη της μπαταρίας του συστήματος είναι πολύ χαμηλή",
+    "fwupdErrorUnknown": "Άγνωστο σφάλμα",
+    "fwupdStatusUnknown": "Άγνωστη κατάσταση",
+    "fwupdStatusDeviceWrite": "Γίνεται εγγραφή σε συσκευή",
+    "fwupdStatusDeviceRead": "Γίνεται ανάγνωση από συσκευή",
+    "fwupdStatusDeviceErase": "Γίνεται διαγραφή συσκευής",
+    "fwupdStatusDeviceBusy": "Η συσκευή είναι απασχολημένη",
+    "installError": "Αποτυχία εγκατάστασης υλικολογισμικού!",
+    "noDevicesFound": "Δεν βρέθηκαν συσκευές",
+    "rebootLater": "Επανεκκίνηση αργότερα",
+    "rebootNow": "Επανεκκίνηση τώρα",
+    "rebootConfirmTitle": "Κάντε επανεκκίνηση για να ολοκληρωθεί η ενημέρωση",
+    "reinstall": "Επανεγκατάσταση",
+    "fwupdStatusDownloading": "Λήψη αρχείου σε εξέλιξη",
+    "fwupdDeviceFlagCanVerify": "Είναι διαθέσιμη η επαλήθευση κρυπτογραφικού κατακερματισμού",
+    "fwupdErrorInternal": "Εσωτερικό σφάλμα",
+    "fwupdDeviceFlagBackupBeforeInstall": "Η συσκευή θα δημιουργήσει αντίγραφο ασφαλείας του υλικολογισμικού πριν την εγκατάσταση",
+    "fwupdDeviceFlagEndOfLife": "Τέλος υποστήριξης",
+    "fwupdErrorVersionSame": "Εγκαταστάθηκε η ίδια έκδοση υλικολογισμικού",
+    "fwupdErrorWrite": "Αποτυχία εγγραφής σε συσκευή",
+    "fwupdErrorPermissionDenied": "Δεν δόθηκε άδεια",
+    "fwupdErrorInvalidFile": "Μη έγκυρη μορφή αρχείου",
+    "fwupdErrorSignatureInvalid": "Η ψηφιακή υπογραφή δεν ήταν έγκυρη",
+    "olderVersions": "Παλαιότερες εκδόσεις",
+    "fwupdDeviceFlagWillDisappear": "Η συσκευή δεν θα επανεμφανιστεί μετά την ολοκλήρωση της ενημέρωσης",
+    "fwupdDeviceFlagWildcardInstall": "Όλες οι συσκευές ίδιου τύπου θα ενημερωθούν ταυτόχρονα",
+    "fwupdDeviceFlagUnreachable": "Η συσκευή δεν είναι προσβάσιμη",
+    "fwupdStatusDeviceRestart": "Γίνεται επανεκκίνηση της συσκευής",
+    "fwupdStatusDecompressing": "Γίνεται αποσυμπίεση υλικολογισμικού",
+    "affectsFdeWarningUbuntuFdeTitle": "Μπορείτε να χάσετε όλα τα δεδομένα χωρίς το κλειδί ανάκτησης",
+    "affectsFdeWarningOtherFdeBody": "Βεβαιωθείτε ότι έχετε κλειδιά ανάκτησης για όλους τους κρυπτογραφημένους δίσκους. Μπορεί να χρειαστεί να τα εισάγετε κατά την εκκίνηση μετά από ενημέρωση του υλικολογισμικού.",
+    "affectsFdeWarningBitlockerBody": "Το BitLocker είναι ενεργοποιημένο στον υπολογιστή σας. Βεβαιωθείτε ότι έχετε κλειδιά ανάκτησης για όλους τους κρυπτογραφημένους δίσκους. Μπορεί να χρειαστεί να τα εισάγετε κατά την εκκίνηση μετά από ενημέρωση του υλικολογισμικού (firmware).",
+    "affectsFdeWarningUbuntuFdeBody": "Στον υπολογιστή σας είναι ενεργοποιημένη η κρυπτογράφηση με υποστήριξη υλικού. Ενδέχεται να χρειαστεί να εισαγάγετε το κλειδί ανάκτησης κατά την εκκίνηση μετά από ενημέρωση του υλικολογισμικού (firmware). Βεβαιωθείτε ότι διαθέτετε επίσης τα κλειδιά ανάκτησης για τυχόν άλλους κρυπτογραφημένους δίσκους σε αυτόν τον υπολογιστή.",
+    "checksum": "Άθροισμα ελέγχου",
+    "fwupdDeviceFlagInstallParentFirst": "Εγκατάσταση πρώτα στη γονική συσκευή",
+    "fwupdDeviceFlagIsBootloader": "Βρίσκεται σε λειτουργία εκκίνησης συστήματος",
+    "fwupdDeviceFlagWaitForReplug": "Το υλικό αναμένει να επανασυνδεθεί",
+    "fwupdDeviceFlagIgnoreValidation": "Παράκαμψη ελέγχων ασφαλείας επικύρωσης",
+    "fwupdDeviceFlagDualImage": "Η συσκευή προετοιμάζει ενημερώσεις",
+    "fwupdDeviceFlagSelfRecovery": "Η συσκευή μπορεί να ανακάμψει από αστοχίες μνήμης flash",
+    "fwupdDeviceFlagUsableDuringUpdate": "Η συσκευή παραμένει χρησιμοποιήσιμη κατά τη διάρκεια της ενημέρωσης",
+    "fwupdDeviceFlagHasMultipleBranches": "Η συσκευή υποστηρίζει τη μετάβαση σε διαφορετικό κλάδο υλικολογισμικού",
+    "fwupdDeviceFlagOnlyVersionUpgrade": "Επιτρέπονται μόνο αναβαθμίσεις έκδοσης",
+    "fwupdDeviceFlagAffectsFde": "Τα μυστικά κλειδιά κρυπτογράφησης πλήρους δίσκου ενδέχεται να ακυρωθούν κατά την ενημέρωση",
+    "fwupdDeviceFlagSignedPayload": "Υπογεγραμμένο ωφέλιμο φορτίο λογισμικού",
+    "fwupdDeviceFlagUnsignedPayload": "Μη υπογεγραμμένο ωφέλιμο φορτίο λογισμικού",
+    "fwupdErrorVersionNewer": "Εγκαταστάθηκε νεότερη έκδοση υλικολογισμικού",
+    "fwupdErrorAlreadyPending": "Έχει ήδη οριστεί για εγκατάσταση εκτός σύνδεσης",
+    "fwupdErrorAuthFailed": "Αποτυχία λήψης ελέγχου ταυτότητας",
+    "fwupdErrorNotFound": "Δεν υπάρχει συσκευή που ταιριάζει",
+    "fwupdErrorAcPowerRequired": "Απαιτούνταν τροφοδοσία εναλλασσόμενου ρεύματος (AC)",
+    "fwupdErrorNeedsUserAction": "Απαιτείται ενέργεια από τον χρήστη για την ολοκλήρωση της ενημέρωσης",
+    "fwupdErrorAuthExpired": "Αποτυχία ελέγχου ταυτότητας λόγω λήξης των διαπιστευτηρίων",
+    "fwupdStatusIdle": "Σε αδράνεια",
+    "fwupdStatusLoading": "Γίνεται φόρτωση πόρου",
+    "fwupdStatusDeviceVerify": "Γίνεται επαλήθευση (ανάγνωση) συσκευής",
+    "fwupdStatusScheduling": "Γίνεται προγραμματισμός ενημέρωσης εκτός σύνδεσης",
+    "fwupdStatusWaitingForAuth": "Αναμονή για έλεγχο ταυτότητας",
+    "fwupdStatusShutdown": "Η υπηρεσία (daemon) τερματίζεται",
+    "guid": "GUID",
+    "rebootConfirmMessage": "Πρέπει να επανεκκινήσετε τη συσκευή σας για να ολοκληρωθεί η ενημέρωση. Βεβαιωθείτε ότι η συσκευή σας είναι συνδεδεμένη στο ρεύμα ή πλήρως φορτισμένη. Αποθηκεύστε τα αρχεία σας πριν από την επανεκκίνηση για να αποφύγετε την απώλεια δεδομένων.",
+    "reinstallConfirm": "Επανεγκατάσταση του <b>{name}</b>, έκδοση <b>{current}</b>;",
+    "@reinstallConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "current": {
+                "type": "String"
+            }
+        }
+    },
+    "showReleases": "Εμφάνιση εκδόσεων",
+    "showUpdates": "Εμφάνιση ενημερώσεων",
+    "update": "Ενημέρωση",
+    "updateAvailable": "Διαθέσιμη ενημέρωση",
+    "updateChecksums": "Ενημέρωση αθροισμάτων ελέγχου",
+    "updateChecksumsConfirm": "Ενημέρωση αθροισμάτων ελέγχου συσκευής του <b>{name}</b>;",
+    "@updateChecksumsConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "updateChecksumsInfo": "Αυτό θα καταγράψει τους τρέχοντες κρυπτογραφικούς κατακερματισμούς (hashes) ως επαληθευμένους.",
+    "updateToLatest": "Ενημέρωση στην τελευταία έκδοση",
+    "updateConfirm": "Ενημέρωση του <b>{name}</b> στην έκδοση <b>{version}</b>;",
+    "@updateConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "vendor": "Κατασκευαστής",
+    "verifyFirmware": "Επαλήθευση υλικολογισμικού",
+    "verifyFirmwareConfirm": "Επαλήθευση αθροισμάτων ελέγχου υλικολογισμικού του {name};",
+    "@verifyFirmwareConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "currentVersion": "Τρέχουσα έκδοση",
+    "minVersion": "Ελάχιστη έκδοση",
+    "latestVersion": "Τελευταία έκδοση"
 }

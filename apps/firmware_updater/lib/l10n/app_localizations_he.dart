@@ -14,33 +14,33 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'הנתונים שלך עלולים ללכת לאיבוד בלי מפתח השחזור שלך';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'נא לוודא שיש לך מפתחות שחזור לכל הכוננים המוצפנים. יכול להיות שתתבקש לספק אותם לאחר עדכון הקושחה.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'במחשב שלך פועלת הצפנה בגיבוי חומרה. יכול להיות שיהיה עליך להקליד את מפתח השחזור שלך עם העלייה לאחד עדכון קושחה. חשוב לוודא שיש לך קודים לשחזור לכוננים מוצפנים נוספים כלשהם במחשב הזה.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker מופעל במחשב שלך. חשוב לוודא שיש לך מפתחות שחזור לכל הכוננים המוצפנים. יכול להיות שיהיה עליך להקליד אותם עם העלייה לאחר עדכון קושחה.';
 
   @override
   String get affectsFdeCheckbox =>
       'יש לי מפתחות שחזור לכל הכוננים המוצפנים שלי';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'נא למלא את מפתח השחזור שלך';
 
   @override
   String get affectsFdeLinkLabel => 'מידע נוסף';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'מפתח השחזור לא עובד, כדאי לבדוק או להחליף אותו במרכז האבטחה';
 
   @override
   String get allVersions => 'כל הגרסאות';

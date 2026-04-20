@@ -10,383 +10,385 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'You may lose all your data without recovery keys';
+      'ئەسلىگە قايتۇرۇش ئاچقۇچىڭىز بولمىسا بارلىق سانلىق مەلۇماتلىرىڭىزنى يوقىتىشىڭىز مۇمكىن';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'ئەسلىگە قايتۇرۇش ئاچقۇچىڭىز بولمىسا بارلىق سانلىق مەلۇماتلىرىڭىزنى يوقىتىشىڭىز مۇمكىن';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'شىفىرلانغان بارلىق دىسكىنى ئەسلىگە قايتۇرىدىغان شىفىرلىق ئاچقۇچ بارلىقىغا كاپالەتلىك قىلىڭ. مۇقىم دېتالنى يېڭىلىغاندىن كېيىن قوزغاتقاندا ئۇنى كىرگۈزۈشكە ئېھتىياجلىق بولۇشىڭىز مۇمكىن.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'كومپيۇتېرىڭىزدا قاتتىق دېتال ئاساسىدىكى شىفىرلاش قوزغىتىلغان. مۇقىم دېتالنى يېڭىلىغاندىن كېيىن قوزغالغاندا ئەسلىگە قايتۇرۇش ئاچقۇچىنى كىرگۈزۈشكە ئېھتىياجلىق بولۇشىڭىز مۇمكىن. كومپيۇتېرىڭىزدا شىفىرلانغان باشقا دىسكىنى ئەسلىگە قايتۇرىدىغان يەنە باشقا شىفىرلىق ئاچقۇچ بولۇشىغا كاپالەتلىك قىلىڭ.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'كومپيۇتېرىڭىزدا BitLocker قوزغىتىلغان. شىفىرلانغان بارلىق دىسكىنى ئەسلىگە قايتۇرىدىغان شىفىرلىق ئاچقۇچ بارلىقىغا كاپالەتلىك قىلىڭ. مۇقىم دېتالنى يېڭىلىغاندىن كېيىن قوزغاتقاندا ئۇنى كىرگۈزۈشكە ئېھتىياجلىق بولۇشىڭىز مۇمكىن.';
 
   @override
   String get affectsFdeCheckbox =>
-      'I have recovery keys for all my encrypted drives';
+      'شىفىرلانغان بارلىق دىسكىنىڭ ئەسلىگە قايتۇرۇش ئاچقۇچى بار';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel =>
+      'ئەسلىگە كەلتۈرۈش ئاچقۇچىڭىزنى كىرگۈزۈڭ';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'مول بىلىم';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'ئەسلىگە كەلتۈرۈش ئاچقۇچى ئىشلىمىدى، ئۇنى بىخەتەرلىك مەركىزىدە تەكشۈرۈڭ ياكى ئالماشتۇرۇڭ';
 
   @override
-  String get allVersions => 'All Versions';
+  String get allVersions => 'بارلىق نەشرى';
 
   @override
-  String get appTitle => 'Firmware Updater';
+  String get appTitle => 'مۇقىم دېتال يېڭىلىغۇچ';
 
   @override
   String get batteryWarning =>
-      'Warning: some device updates may only be available on external power!';
+      'ئاگاھلاندۇرۇش: بەزى ئۈسكۈنىنى سىرتقى توك مەنبەسى چېتىلغاندىلا ئاندىن يېڭىلىغىلى بولۇشى مۇمكىن!';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'تەكشۈرۈش يىغىدىسى';
 
   @override
-  String get close => 'Close';
+  String get close => 'ياپ';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'ۋاز كەچ';
 
   @override
-  String get current => 'Current';
+  String get current => 'نۆۋەتتىكى';
 
   @override
   String get deviceUnavailable =>
-      'The device will be unavailable during this action.';
+      'بۇ مەشغۇلاتنى ئېلىپ بېرىۋاتقاندا ئۈسكۈنىنى ئىشلەتكىلى بولماسلىقى مۇمكىن.';
 
   @override
-  String get deviceRequest => 'Device request';
+  String get deviceRequest => 'ئۈسكۈنە ئىلتىماسى';
 
   @override
-  String get downgrade => 'Downgrade';
+  String get downgrade => 'نەشرىنى تۆۋەنلەت';
 
   @override
   String downgradeConfirm(String name, String version) {
-    return 'Downgrade <b>$name</b> to version <b>$version</b>?';
+    return '<b>$name</b> نى <b>$version</b> نەشرىگە تۆۋەنلىتەمدۇ؟';
   }
 
   @override
-  String get flags => 'Flags';
+  String get flags => 'بەلگە';
 
   @override
-  String get fwupdDeviceFlagInternal => 'Internal device';
+  String get fwupdDeviceFlagInternal => 'ئىچكى ئۈسكۈنە';
 
   @override
-  String get fwupdDeviceFlagUpdatable => 'Updatable';
+  String get fwupdDeviceFlagUpdatable => 'يېڭىلاشچان';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Update requires a reboot';
+  String get fwupdDeviceFlagOnlyOffline => 'يېڭىلاشتا قايتا قوزغىتىش زۆرۈر';
 
   @override
-  String get fwupdDeviceFlagRequireAc =>
-      'System requires external power source';
+  String get fwupdDeviceFlagRequireAc => 'سىستېمىغا سىرتقى توك مەنبەسى زۆرۈر';
 
   @override
-  String get fwupdDeviceFlagLocked => 'Device is locked';
+  String get fwupdDeviceFlagLocked => 'ئۈسكۈنە قۇلۇپلانغان';
 
   @override
-  String get fwupdDeviceFlagSupported => 'Supported on remote server';
+  String get fwupdDeviceFlagSupported => 'يىراقتىكى مۇلازىمېتىرنى قوللايدۇ';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => 'Requires a bootloader';
+  String get fwupdDeviceFlagNeedsBootloader => 'قوزغىتىش يۈكلىگۈچ زۆرۈر';
 
   @override
-  String get fwupdDeviceFlagRegistered => 'Registered';
+  String get fwupdDeviceFlagRegistered => 'تىزىملاتقان';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Needs a reboot after installation';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'ئورنىتىشتىن كېيىن قايتا قوزغىتىش كېرەك';
 
   @override
   String get fwupdDeviceFlagNeedsShutdown =>
-      'Needs shutdown after installation';
+      'ئورنىتىشتىن كېيىن تاقاپ توكتىن ئۈزۈش كېرەك';
 
   @override
-  String get fwupdDeviceFlagReported => 'Reported to remote server';
+  String get fwupdDeviceFlagReported => 'يىراقتىكى مۇلازىمېتىرغا مەلۇم قىلىندى';
 
   @override
-  String get fwupdDeviceFlagNotified => 'User has been notified';
+  String get fwupdDeviceFlagNotified => 'ئىشلەتكۈچىگە ئۇقتۇرۇلدى';
 
   @override
   String get fwupdDeviceFlagInstallParentFirst =>
-      'Install to parent device first';
+      'ئالدى بىلەن ئاتا ئۈسكۈنىگە ئورنىتىلىدۇ';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => 'Is in bootloader mode';
+  String get fwupdDeviceFlagIsBootloader => 'قوزغىتىش يۈكلىگۈچ ھالىتىدە';
 
   @override
   String get fwupdDeviceFlagWaitForReplug =>
-      'Hardware is waiting to be replugged';
+      'قاتتىق دېتال توكتىن ئۈزۈپ قايتا چېتىشنى كۈتۈۋاتىدۇ';
 
   @override
   String get fwupdDeviceFlagIgnoreValidation =>
-      'Ignore validation safety checks';
+      'بىخەتەرلىك تەكشۈرۈشكە پەرۋا قىلما';
 
   @override
-  String get fwupdDeviceFlagTrusted => 'Trusted';
+  String get fwupdDeviceFlagTrusted => 'ئىشەنچلىك';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Device update needs activation';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'ئۈسكۈنە يېڭىلاش ئاكتىپلاشقا ئېھتىياجلىق';
 
   @override
   String get fwupdDeviceFlagWillDisappear =>
-      'Device will not re-appear after update completes';
+      'يېڭىلاش تاماملانمىغۇچە ئۈسكۈنە قايتا كۆرۈنمەيدۇ';
 
   @override
   String get fwupdDeviceFlagCanVerify =>
-      'Cryptographic hash verification is available';
+      'شىفىرلىق مۇكەممەللىك كودىنى دەلىللەشنى ئىشلەتكىلى بولىدۇ';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Device stages updates';
+  String get fwupdDeviceFlagDualImage => 'ئۈسكۈنە باسقۇچ يېڭىلانمىسى';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Device can recover flash failures';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'ئۈسكۈنە مۇقىم دېتال يېزىش كاشىلىسىدىن ئەسلىگە قايتالايدۇ';
 
   @override
   String get fwupdDeviceFlagUsableDuringUpdate =>
-      'Device is usable for the duration of the update';
+      'ئۈسكۈنىنى يېڭىلىنىۋاتقاندىمۇ ئىشلەتكىلى بولىدۇ';
 
   @override
   String get fwupdDeviceFlagVersionCheckRequired =>
-      'Device firmware is required to have a version check';
+      'ئۈسكۈنە مۇقىم دېتالىنىڭ نەشرىنى تەكشۈرۈش زۆرۈر';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
-      'Device is required to install all provided releases';
+      'ئۈسكۈنىگە تارقىتىلغان بارلىق نەشرىنى ئورنىتىش زۆرۈر';
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
-      'Device supports switching to a different branch of firmware';
+      'ئۈسكۈنە مۇقىم دېتالنىڭ پەرقلىق تارمىقىغا ئالماشتۇرۇشنى قوللايدۇ';
 
   @override
   String get fwupdDeviceFlagBackupBeforeInstall =>
-      'Device will backup firmware before installing';
+      'ئۈسكۈنە ئورنىتىشتىن ئىلگىرى مۇقىم دېتالنى زاپاسلايدۇ';
 
   @override
   String get fwupdDeviceFlagWildcardInstall =>
-      'All devices of the same type will be updated at the same time';
+      'ئوخشاش تۈردىكى بارلىق ئۈسكۈنىلەر بىرلا ۋاقىتتا يېڭىلىنىدۇ';
 
   @override
   String get fwupdDeviceFlagOnlyVersionUpgrade =>
-      'Only version upgrades are allowed';
+      'پەقەت نەشرىنى يۈكسەلدۈرۈشكە يول قويۇلىدۇ';
 
   @override
-  String get fwupdDeviceFlagUnreachable => 'Device is unreachable';
+  String get fwupdDeviceFlagUnreachable => 'ئۈسكۈنىنى زىيارەت قىلغىلى بولمايدۇ';
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Full disk encryption secrets may be invalidated when updating';
+      'پۈتكۈل دىسكىنىڭ شىفىرلاش ئاچقۇچى يېڭىلىنىۋاتقاندا ئىناۋەتسىز قىلىنىشى مۇمكىن';
 
   @override
-  String get fwupdDeviceFlagEndOfLife => 'End of life';
+  String get fwupdDeviceFlagEndOfLife => 'قوللاش ئاخىرلاشتى';
 
   @override
-  String get fwupdDeviceFlagSignedPayload => 'Signed Payload';
+  String get fwupdDeviceFlagSignedPayload => 'ئىمزالىق يۈك';
 
   @override
-  String get fwupdDeviceFlagUnsignedPayload => 'Unsigned Payload';
+  String get fwupdDeviceFlagUnsignedPayload => 'ئىمزاسىز يۈك';
 
   @override
-  String get fwupdErrorInternal => 'Internal error';
+  String get fwupdErrorInternal => 'ئىچكى خاتالىق';
 
   @override
-  String get fwupdErrorVersionNewer => 'Installed newer firmware version';
+  String get fwupdErrorVersionNewer => 'يېڭىراق مۇقىم دېتال نەشرى ئورنىتىلغان';
 
   @override
-  String get fwupdErrorVersionSame => 'Installed same firmware version';
+  String get fwupdErrorVersionSame => 'ئوخشاش مۇقىم دېتال نەشرى ئورنىتىلغان';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Already set to be installed offline';
+  String get fwupdErrorAlreadyPending => 'تورسىز ئورنىتىشقا تەڭشەلگەن';
 
   @override
-  String get fwupdErrorAuthFailed => 'Failed to get authentication';
+  String get fwupdErrorAuthFailed => 'سالاھىيەت دەلىللەشكە ئېرىشەلمىدى';
 
   @override
-  String get fwupdErrorRead => 'Failed to read from device';
+  String get fwupdErrorRead => 'ئۈسكۈنىدىن ئوقۇيالمىدى';
 
   @override
-  String get fwupdErrorWrite => 'Failed to write to the device';
+  String get fwupdErrorWrite => 'ئۈسكۈنىگە يازالمىدى';
 
   @override
-  String get fwupdErrorInvalidFile => 'Invalid file format';
+  String get fwupdErrorInvalidFile => 'ئىناۋەتسىز ھۆججەت پىچىمى';
 
   @override
-  String get fwupdErrorNotFound => 'No matching device exists';
+  String get fwupdErrorNotFound => 'ماس كېلىدىغان ئۈسكۈنە مەۋجۇت ئەمەس';
 
   @override
-  String get fwupdErrorNothingToDo => 'Nothing to do';
+  String get fwupdErrorNothingToDo => 'قىلىدىغان ھېچ ئىش يوق';
 
   @override
-  String get fwupdErrorNotSupported => 'Action was not possible';
+  String get fwupdErrorNotSupported =>
+      'مەشغۇلاتنى ئىجرا قىلىش مۇمكىنچىلىكى يوق';
 
   @override
-  String get fwupdErrorSignatureInvalid => 'Signature was invalid';
+  String get fwupdErrorSignatureInvalid => 'ئىمزا ئىناۋەتسىز';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'AC power was required';
+  String get fwupdErrorAcPowerRequired => 'ئۆزگىرىشچان توك مەنبەسى زۆرۈر';
 
   @override
-  String get fwupdErrorPermissionDenied => 'Permission was denied';
+  String get fwupdErrorPermissionDenied => 'ئىجازەت رەت قىلىندى';
 
   @override
-  String get fwupdErrorBrokenSystem =>
-      'User has configured their system in a broken way';
+  String get fwupdErrorBrokenSystem => 'ئىشلەتكۈچى سىستېمىنى خاتا سەپلىگەن';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow =>
-      'The system battery level is too low';
+  String get fwupdErrorBatteryLevelTooLow => 'سىستېما توكدانىنىڭ توكى بەك ئاز';
 
   @override
   String get fwupdErrorNeedsUserAction =>
-      'User needs to do an action to complete the update';
+      'يېڭىلاشنى تاماملاش ئۈچۈن ئىشلەتكۈچى مەشغۇلات ئېلىپ بېرىشى كېرەك';
 
   @override
   String get fwupdErrorAuthExpired =>
-      'Failed to get auth as credentials have expired';
+      'ئىجازەت ئىسپاتىنىڭ ۋاقتى ئۆتكەنلىكتىن سالاھىيەت دەلىللىيەلمىدى';
 
   @override
-  String get fwupdErrorUnknown => 'Unknown error';
+  String get fwupdErrorUnknown => 'يوچۇن خاتالىق';
 
   @override
-  String get fwupdStatusUnknown => 'Unknown state';
+  String get fwupdStatusUnknown => 'يوچۇن ھالەت';
 
   @override
-  String get fwupdStatusIdle => 'Idle';
+  String get fwupdStatusIdle => 'بىكار';
 
   @override
-  String get fwupdStatusLoading => 'Loading a resource';
+  String get fwupdStatusLoading => 'مەنبەنى يۈكلەۋاتىدۇ';
 
   @override
-  String get fwupdStatusDecompressing => 'Decompressing firmware';
+  String get fwupdStatusDecompressing => 'مۇقىم دېتالنى يېشىۋاتىدۇ';
 
   @override
-  String get fwupdStatusDeviceRestart => 'Restarting the device';
+  String get fwupdStatusDeviceRestart => 'ئۈسكۈنىنى قايتا قوزغىتىۋاتىدۇ';
 
   @override
-  String get fwupdStatusDeviceWrite => 'Writing to a device';
+  String get fwupdStatusDeviceWrite => 'ئۈسكۈنىگە يېزىۋاتىدۇ';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Verifying (reading) a device';
+  String get fwupdStatusDeviceVerify => 'ئۈسكۈنىنى دەلىللەۋاتىدۇ (ئوقۇۋاتىدۇ)';
 
   @override
-  String get fwupdStatusScheduling => 'Scheduling an offline update';
+  String get fwupdStatusScheduling => 'تورسىز يېڭىلاشنى كۈنتەرتىپكە تىزىۋاتىدۇ';
 
   @override
-  String get fwupdStatusDownloading => 'A file is downloading';
+  String get fwupdStatusDownloading => '1 ھۆججەتنى چۈشۈرۈۋاتىدۇ';
 
   @override
-  String get fwupdStatusDeviceRead => 'Reading from a device';
+  String get fwupdStatusDeviceRead => 'ئۈسكۈنىدىن ئوقۇۋاتىدۇ';
 
   @override
-  String get fwupdStatusDeviceErase => 'Erasing a device';
+  String get fwupdStatusDeviceErase => 'ئۈسكۈنىنى ئۆچۈرۈۋاتىدۇ';
 
   @override
-  String get fwupdStatusWaitingForAuth => 'Waiting for authentication';
+  String get fwupdStatusWaitingForAuth => 'دەلىللەشنى كۈتۈۋاتىدۇ';
 
   @override
-  String get fwupdStatusDeviceBusy => 'The device is busy';
+  String get fwupdStatusDeviceBusy => 'ئۈسكۈنە ئالدىراش';
 
   @override
-  String get fwupdStatusShutdown => 'The daemon is shutting down';
+  String get fwupdStatusShutdown => 'نازارەتچى تاقىلىۋاتىدۇ';
 
   @override
-  String get guid => 'GUIDs';
+  String get guid => 'GUID';
 
   @override
-  String get installError => 'Failed to install firmware!';
+  String get installError => 'مۇقىم دېتالنى ئورنىتالمىدى!';
 
   @override
-  String get noDevicesFound => 'No devices found';
+  String get noDevicesFound => 'ھېچقانداق ئۈسكۈنە تېپىلمىدى';
 
   @override
-  String get ok => 'OK';
+  String get ok => 'جەزملە';
 
   @override
-  String get olderVersions => 'Older Versions';
+  String get olderVersions => 'كونىراق نەشرى';
 
   @override
-  String get rebootLater => 'Restart later';
+  String get rebootLater => 'سەل تۇرۇپ قايتا قوزغات';
 
   @override
-  String get rebootNow => 'Restart now';
+  String get rebootNow => 'ھازىر قايتا قوزغات';
 
   @override
   String get rebootConfirmMessage =>
-      'You must restart your device to complete the update. Make sure your device is plugged in or fully charged. Save your files before you restart to avoid losing data.';
+      'يېڭىلاشنى تاماملاش ئۈچۈن چوقۇم قايتا قوزغىتىشىڭىز كېرەك. ئۈسكۈنىنىڭ توك مەنبەسىگە چېتىلغانلىقى ياكى تولۇق توكلانغانلىقىغا كاپالەتلىك قىلىڭ. سانلىق مەلۇماتنىڭ يوقاپ كېتىشنىڭ ئالدىنى ئېلىش ئۈچۈن قايتا قوزغىتىشتىن ئىلگىرى ھۆججەتلىرىڭىزنى ساقلىۋېلىڭ.';
 
   @override
-  String get rebootConfirmTitle => 'Restart to complete this update';
+  String get rebootConfirmTitle => 'قايتا قوزغىتىپ يېڭىلاشنى تاماملايدۇ';
 
   @override
-  String get reinstall => 'Reinstall';
+  String get reinstall => 'قايتا ئورنات';
 
   @override
   String reinstallConfirm(String name, String current) {
-    return 'Reinstall <b>$name</b> version <b>$current</b>?';
+    return '<b>$name</b> نىڭ <b>$current</b> نەشرىنى قايتا ئورنىتامدۇ؟';
   }
 
   @override
-  String get showReleases => 'Show Releases';
+  String get showReleases => 'تارقىتىلغان نەشرىنى كۆرسەت';
 
   @override
-  String get showUpdates => 'Show Updates';
+  String get showUpdates => 'يېڭىلانمىنى كۆرسەت';
 
   @override
-  String get update => 'Update';
+  String get update => 'يېڭىلا';
 
   @override
-  String get updateAvailable => 'Update available';
+  String get updateAvailable => 'يېڭىلانما بار';
 
   @override
-  String get updateChecksums => 'Update Checksums';
+  String get updateChecksums => 'يېڭىلانما مۇكەممەللىك يىغىندىسى';
 
   @override
   String updateChecksumsConfirm(String name) {
-    return 'Update device checksums of <b>$name</b>?';
+    return '<b>$name</b> نىڭ ئۈسكۈنە مۇكەممەللىك يىغىندىسىنى يېڭىلامدۇ؟';
   }
 
   @override
   String get updateChecksumsInfo =>
-      'This will record the current cryptographic hashes as verified.';
+      'بۇ مەشغۇلات نۆۋەتتىكى شىفىرلىق مۇكەممەللىك كودىنىڭ ھالىتىنى دەلىللەنگەن دەپ خاتىرىلەيدۇ.';
 
   @override
-  String get updateToLatest => 'Update to Latest';
+  String get updateToLatest => 'ئەڭ يېڭىسىغا يېڭىلا';
 
   @override
   String updateConfirm(String name, String version) {
-    return 'Update <b>$name</b> to version <b>$version</b>?';
+    return '<b>$name</b> نى <b>$version</b> نەشرىگە يېڭىلامدۇ؟';
   }
 
   @override
-  String get vendor => 'Vendor';
+  String get vendor => 'تەمىنلىگۈچى';
 
   @override
-  String get verifyFirmware => 'Verify Firmware';
+  String get verifyFirmware => 'مۇقىم دېتال دەلىللەش';
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Verify firmware checksums of $name?';
+    return '$name نىڭ مۇقىم دېتال مۇكەممەللىك يىغىندىسىنى دەلىللەمدۇ؟';
   }
 
   @override
-  String get currentVersion => 'Current Version';
+  String get currentVersion => 'نۆۋەتتىكى نەشرى';
 
   @override
-  String get minVersion => 'Minimum Version';
+  String get minVersion => 'ئەڭ تۆۋەن نەشرى';
 
   @override
-  String get latestVersion => 'Latest Version';
+  String get latestVersion => 'ئەڭ يېڭى نەشرى';
 }

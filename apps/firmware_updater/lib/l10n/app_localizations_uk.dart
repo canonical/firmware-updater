@@ -14,33 +14,33 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Ви можете втратити всі ваші дані без вашого ключа відновлення';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Переконайтеся, що у вас є ключі відновлення для всіх зашифрованих дисків. Можливо, після оновлення прошивки вам доведеться вводити їх під час завантаження.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Апаратне шифрування на цьому комп\'ютері увімкнено. Після оновлення прошивки вам може знадобитися ввести ключ відновлення під час завантаження. Переконайтеся також, що у вас є ключі відновлення для всіх інших зашифрованих дисків на цьому комп\'ютері.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'На цьому комп\'ютері увімкнено BitLocker. Переконайтеся, що у вас є ключі відновлення для всіх зашифрованих дисків. Після оновлення прошивки вам може знадобитися ввести їх під час завантаження.';
 
   @override
   String get affectsFdeCheckbox =>
       'У мене є ключі відновлення для всіх моїх зашифрованих дисків';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Введіть ваш ключ відновлення';
 
   @override
   String get affectsFdeLinkLabel => 'Докладніше';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Ключ відновлення не працює, перевірте або замініть його в Security Center';
 
   @override
   String get allVersions => 'Всі версії';
@@ -75,7 +75,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String downgradeConfirm(String name, String version) {
-    return 'Понизити <b>$name</b> до версії<b>$version</b>?';
+    return 'Понизити <b>$name</b> до версії <b>$version</b>?';
   }
 
   @override
@@ -372,7 +372,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String updateConfirm(String name, String version) {
-    return 'Оновити <b>$name</b> до версії<b>$version</b>?';
+    return 'Оновити <b>$name</b> до версії <b>$version</b>?';
   }
 
   @override

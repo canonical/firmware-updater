@@ -12,33 +12,32 @@ class AppLocalizationsKo extends AppLocalizations {
   String get affectsFdeWarningTitle => '복구 키가 없으면 저장된 자료를 모두 잃게 됩니다';
 
   @override
-  String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+  String get affectsFdeWarningUbuntuFdeTitle => '복구 키가 없으면 저장된 자료를 모두 잃게 됩니다';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      '모든 암호화된 디스크에 대한 복구 키가 있는지 확인하십시오. 펌웨어를 업데이트한 후 부팅 시에 복구 키를 입력해야 합니다.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      '하드웨어 기반 암호화가 컴퓨터에서 활성화되었습니다. 펌웨어 업데이트 후 부팅 시 복구 키를 입력해야 할 수 있습니다. 이 컴퓨터의 다른 암호화된 디스크에 대한 복구 키도 반드시 준비해 두십시오.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker는 당신의 컴퓨터에서 활성화됩니다. 암호화 된 모든 디스크에 대한 복구 키가 있는지 확인하십시오. 당신은 펌웨어를 업데이트 한 후 부팅시에 입력해야합니다.';
 
   @override
   String get affectsFdeCheckbox => '모든 암호화된 드라이브에 대한 복구 키를 보유하고 있습니다';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => '복구 키 입력';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => '더 알아보기';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      '복구 키가 작동하지 않습니다. 다시 확인하거나 보안 센터에서 키를 교체하십시오';
 
   @override
   String get allVersions => '모든 버전';
@@ -112,7 +111,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get fwupdDeviceFlagReported => '원격 서버에 보고됨';
 
   @override
-  String get fwupdDeviceFlagNotified => 'User has been notified';
+  String get fwupdDeviceFlagNotified => '사용자에게 고지함';
 
   @override
   String get fwupdDeviceFlagInstallParentFirst => '부모 장치에 먼저 설치하십시오';
@@ -139,7 +138,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get fwupdDeviceFlagCanVerify => '암호화 해시 검증이 가능합니다';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Device stages updates';
+  String get fwupdDeviceFlagDualImage => '장치가 단계적으로 업데이트됨';
 
   @override
   String get fwupdDeviceFlagSelfRecovery => '장치 플래시 실패 시 복구 가능함';
@@ -157,7 +156,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get fwupdDeviceFlagHasMultipleBranches => '장치가 다른 분기의 펌웨어로의 변경을 지원합니다';
 
   @override
-  String get fwupdDeviceFlagBackupBeforeInstall => '설치 전 기기에서 펌웨어를 백업합니다';
+  String get fwupdDeviceFlagBackupBeforeInstall => '설치 전 장치에서 펌웨어를 백업합니다';
 
   @override
   String get fwupdDeviceFlagWildcardInstall => '같은 종류의 모든 장치는 동시에 업데이트됩니다';
@@ -259,7 +258,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get fwupdStatusDeviceVerify => '장치 검증(읽기) 중';
 
   @override
-  String get fwupdStatusScheduling => 'Scheduling an offline update';
+  String get fwupdStatusScheduling => '오프라인 업데이트 스케쥴링';
 
   @override
   String get fwupdStatusDownloading => '파일 다운로드 중';
@@ -274,7 +273,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get fwupdStatusWaitingForAuth => '인증을 기다리는 중';
 
   @override
-  String get fwupdStatusDeviceBusy => '장치가 바쁩니다';
+  String get fwupdStatusDeviceBusy => '장치가 사용 중입니다';
 
   @override
   String get fwupdStatusShutdown => '데몬을 종료하는 중';

@@ -14,33 +14,33 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'உங்கள் மீட்பு விசை இல்லாமல் உங்கள் எல்லா தரவையும் இழக்க நேரிடும்';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'மறைகுறியாக்கப்பட்ட அனைத்து வட்டுகளுக்கும் மீட்பு விசைகள் உங்களிடம் உள்ளன என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். ஃபார்ம்வேரைப் புதுப்பித்த பிறகு அவற்றை துவக்கத்தில் உள்ளிட வேண்டும்.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'உங்கள் கணினியில் வன்பொருள் உதவி குறியாக்கம் இயக்கப்பட்டது. ஃபார்ம்வேரைப் புதுப்பித்த பிறகு துவக்கத்தில் உங்கள் மீட்பு விசையை உள்ளிட வேண்டியிருக்கலாம். இந்த கணினியில் மறைகுறியாக்கப்பட்ட வேறு எந்த வட்டுகளுக்கும் மீட்பு விசைகள் உங்களிடம் உள்ளன என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள்.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'உங்கள் கணினியில் பிட்லாக்கர் இயக்கப்பட்டது. மறைகுறியாக்கப்பட்ட அனைத்து வட்டுகளுக்கும் மீட்பு விசைகள் உங்களிடம் உள்ளன என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். ஃபார்ம்வேரைப் புதுப்பித்த பிறகு அவற்றை துவக்கத்தில் உள்ளிட வேண்டும்.';
 
   @override
   String get affectsFdeCheckbox =>
       'எனது அனைத்து மறைகுறியாக்கப்பட்ட இயக்கிகளுக்கும் மீட்பு விசைகள் உள்ளன';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'உங்கள் மீட்பு விசையை உள்ளிடவும்';
 
   @override
   String get affectsFdeLinkLabel => 'மேலும் அறிக';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'மீட்பு விசை பாதுகாப்பு மையத்தில் வேலை செய்யவோ, சரிபார்க்கவோ அல்லது மாற்றவோ இல்லை';
 
   @override
   String get allVersions => 'அனைத்து பதிப்புகளும்';

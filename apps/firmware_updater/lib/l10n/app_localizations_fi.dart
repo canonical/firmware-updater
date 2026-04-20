@@ -14,33 +14,33 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Kaikki tiedot voidaan menettää ilman palautusavainta';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Varmista että kaikki palautusavaimet kaikille salatuille levyille ovat tallessa. Saatat tarvita niitä käynnistettäessä laiteohjelmiston päivityksen jälkeen.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Laitteiston tukema salaus on käytössä tietokoneella. Saatat tarvita palautusavainta käynnistääksesi tietokoneen laiteohjelmiston päivittämisen jälkeen. Varmista, että myös tietokoneen mahdollisille muille salatuille levyille on tallessa palautusavaimet.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker on käytössä tietokoneella. Varmista, että sinulla on palautusavaimet kaikille salatuille levyille. Niitä saatetaan tarvita tietokoneen käynnistämiseen laiteohjelmiston päivittämisen jälkeen.';
 
   @override
   String get affectsFdeCheckbox =>
       'Minulla on palautusavaimet kaikille salatuille asemille';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Syötä palautusavain';
 
   @override
   String get affectsFdeLinkLabel => 'Lue lisää';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Palautusavain ei toimi, tarkista tai vaihda se Tietoturvakeskuksessa';
 
   @override
   String get allVersions => 'Kaikki versiot';

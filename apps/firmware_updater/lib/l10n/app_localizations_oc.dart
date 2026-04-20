@@ -14,33 +14,33 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Poiriatz pèrdre totas vòstras donadas sens vòstra clau de recuperacion';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Asseguratz-vos d\'aver las claus de recuperacion per totes vòstres disques chifrats. Las vos calrà picar a l\'aviada aprèp la mesa a jorn del logicial.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Lo chiframent material es activat sus vòstre ordenador. Es possible que devètz intrar vòstra clau de recuperacion a l’aviada après aver mes a jorn lo logicial. Asseguratz-vos tanben de possedir las claus de recuperacion per totes los autres disques chifrats sus aqueste ordenador.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker es activat sus vòstre ordenador. Asseguratz-vos de possedir las claus de recuperacion per totes los disques chifrats. Poiretz aver besonh de las intrar al lançament après la mesa a jorn del logicial intèrne.';
 
   @override
   String get affectsFdeCheckbox =>
       'Ai las claus de recuperacion per totes mos disques chifras';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Picatz vòstra clau de recuperacion';
 
   @override
   String get affectsFdeLinkLabel => 'Ne saber mai';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'La clau de recuperacion fonciona pas, verificatz-la o remplaçatz-la dins lo Centre de Seguretat';
 
   @override
   String get allVersions => 'Totas las versions';
@@ -277,7 +277,7 @@ class AppLocalizationsOc extends AppLocalizations {
   String get fwupdStatusIdle => 'Inactiu';
 
   @override
-  String get fwupdStatusLoading => 'Carga una ressorsa';
+  String get fwupdStatusLoading => 'Cargament d\'una ressorsa';
 
   @override
   String get fwupdStatusDecompressing => 'Descompression micrologicial';

@@ -14,33 +14,33 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'D’fhéadfá do chuid sonraí go léir a chailleadh gan d’eochair aisghabhála';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Cinntigh go bhfuil eochracha aisghabhála agat do na dioscaí criptithe go léir. B’fhéidir go mbeidh ort iad a iontráil ag am tosaithe tar éis an fhirmchlár a nuashonrú.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Tá criptiú crua-earraí cumasaithe ar do ríomhaire. B’fhéidir go mbeidh ort d’eochair aisghabhála a iontráil ar an tosaithe tar éis duit an fhirmchlár a nuashonrú. Déan cinnte go bhfuil eochracha aisghabhála agat freisin le haghaidh aon dioscaí criptithe eile ar an ríomhaire seo.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Tá BitLocker cumasaithe ar do ríomhaire. Déan cinnte go bhfuil eochracha aisghabhála agat do na dioscaí criptithe go léir. B’fhéidir go mbeidh ort iad a iontráil ag am tosaithe tar éis an fhirmchlár a nuashonrú.';
 
   @override
   String get affectsFdeCheckbox =>
       'Tá eochracha athshlánaithe agam do mo thiomáineann criptithe go léir';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Cuir isteach d\'eochair aisghabhála';
 
   @override
   String get affectsFdeLinkLabel => 'Foghlaim níos mó';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Ní oibríonn an eochair aisghabhála, seiceáil nó cuir ceann eile ina háit san Ionad Slándála';
 
   @override
   String get allVersions => 'Gach Leagan';

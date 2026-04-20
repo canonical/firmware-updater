@@ -56,10 +56,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get checksum => 'Checksum';
 
   @override
-  String get close => 'Close';
+  String get close => 'أغلِق';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'إلغاء';
 
   @override
   String get current => 'Current';

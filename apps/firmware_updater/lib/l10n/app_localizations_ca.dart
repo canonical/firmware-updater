@@ -14,33 +14,33 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Podeu perdre totes les vostres dades sense la clau de recuperació';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Assegureu-vos que tingueu claus de recuperació per a tots els discs xifrats. És possible que hàgiu d\'introduir-les en arrencar després d\'actualitzar el microprogramari.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'El xifrat amb suport de maquinari està habilitat a l\'ordinador. És possible que hàgiu d\'introduir les claus de recuperació en arrancar després d\'actualitzar el microprogramari. Assegureu-vos que teniu també les claus de recuperació per a qualsevol altre disc xifrat d\'aquest ordinador.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'El BitLocker està activat en el vostre ordinador. Assegureu-vos que teniu les claus de recuperació per a tots els discs xifrats. És possible que hàgiu d\'introduir-les en arrancar després d\'actualitzar el microprogramari.';
 
   @override
   String get affectsFdeCheckbox =>
       'Tinc claus de recuperació per a totes les meves unitats xifrades';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Introduïu la clau de recuperació';
 
   @override
   String get affectsFdeLinkLabel => 'Sabeu més';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'La clau de recuperació no funciona, comproveu-la o reemplaceu-la al Centre de Seguretat';
 
   @override
   String get allVersions => 'Totes les versions';
@@ -353,7 +353,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get showReleases => 'Mostra els alliberaments';
 
   @override
-  String get showUpdates => 'Mostra actualitzacións';
+  String get showUpdates => 'Mostra actualitzacions';
 
   @override
   String get update => 'Actualitza';

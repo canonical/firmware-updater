@@ -14,39 +14,39 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Без ключа восстановления вы можете потерять все свои данные';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Убедитесь, что у вас есть ключи восстановления для всех зашифрованных дисков. Возможно, вам потребуется ввести их во время загрузки после обновления прошивки.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'На вашем компьютере включено аппаратное шифрование. Возможно, вам потребуется ввести ключ восстановления во время загрузки после обновления прошивки. Убедитесь, что у вас также есть ключи восстановления для всех других зашифрованных дисков на этом компьютере.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'На вашем компьютере включён BitLocker. Убедитесь, что у вас есть ключи восстановления для всех зашифрованных дисков. Возможно, вам потребуется ввести их во время загрузки после обновления прошивки.';
 
   @override
   String get affectsFdeCheckbox =>
       'У меня есть ключи восстановления для всех моих зашифрованных дисков';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Введите свой ключ восстановления';
 
   @override
-  String get affectsFdeLinkLabel => 'Узнать больше';
+  String get affectsFdeLinkLabel => 'Подробнее';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Ключ восстановления не работает, проверьте или замените его в Центре безопасности';
 
   @override
   String get allVersions => 'Все версии';
 
   @override
-  String get appTitle => 'Обновление прошивок';
+  String get appTitle => 'Инструмент обновления прошивок';
 
   @override
   String get batteryWarning =>

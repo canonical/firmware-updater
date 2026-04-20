@@ -14,33 +14,33 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Bez klucza odzyskiwania możesz utracić wszystkie swoje dane';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Upewnij się, że masz klucze odzyskiwania dla wszystkich zaszyfrowanych dysków. Może być konieczne ich wprowadzenie podczas rozruchu po aktualizacji oprogramowania sprzętowego.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Na tym komputerze włączone jest szyfrowanie sprzętowe. Po aktualizacji oprogramowania sprzętowego może być konieczne wprowadzenie klucza odzyskiwania podczas rozruchu. Upewnij się, że masz również klucze odzyskiwania dla wszystkich innych zaszyfrowanych dysków na tym komputerze.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Funkcja BitLocker jest włączona na tym komputerze. Upewnij się, że masz klucze odzyskiwania dla wszystkich zaszyfrowanych dysków. Może być konieczne ich wprowadzenie podczas rozruchu po aktualizacji oprogramowania sprzętowego.';
 
   @override
   String get affectsFdeCheckbox =>
       'Mam klucze odzyskiwania do wszystkich moich zaszyfrowanych dysków';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Wpisz klucz odzyskiwania';
 
   @override
   String get affectsFdeLinkLabel => 'Dowiedz się więcej';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Klucz odzyskiwania nie działa, sprawdź lub wymień go w Centrum zabezpieczeń';
 
   @override
   String get allVersions => 'Wszystkie wersje';
@@ -66,7 +66,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get deviceUnavailable =>
-      'Urządzenie będzie niedostępne podczas tego działania.';
+      'Urządzenie będzie niedostępne podczas tej czynności.';
 
   @override
   String get deviceRequest => 'Żądanie urządzenia';
@@ -237,7 +237,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get fwupdErrorNothingToDo => 'Nic do zrobienia';
 
   @override
-  String get fwupdErrorNotSupported => 'Działanie nie było możliwe';
+  String get fwupdErrorNotSupported => 'Czynność nie była możliwa';
 
   @override
   String get fwupdErrorSignatureInvalid => 'Podpis był nieprawidłowy';
@@ -258,7 +258,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get fwupdErrorNeedsUserAction =>
-      'Użytkownik musi wykonać działanie, aby ukończyć aktualizację';
+      'Użytkownik musi wykonać czynność, aby ukończyć aktualizację';
 
   @override
   String get fwupdErrorAuthExpired =>

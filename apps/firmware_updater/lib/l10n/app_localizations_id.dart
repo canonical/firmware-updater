@@ -14,33 +14,33 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Anda bisa kehilangan semua data Anda tanpa kunci pemulihan';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Pastikan Anda memiliki kunci pemulihan untuk semua disk yang terenkripsi. Anda mungkin perlu memasukkannya saat boot setelah memperbarui firmware.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Enkripsi yang didukung oleh perangkat keras difungsikan pada komputer Anda. Anda mungkin perlu memasukkan kunci pemulihan Anda saat boot setelah memperbarui firmware. Pastikan Anda juga memiliki kunci pemulihan untuk disk terenkripsi lainnya di komputer ini.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker difungsikan di komputer Anda. Pastikan Anda memiliki kunci pemulihan untuk semua disk terenkripsi. Anda mungkin perlu memasukkannya saat boot setelah memperbarui firmware.';
 
   @override
   String get affectsFdeCheckbox =>
       'Saya memiliki kunci pemulihan untuk semua drive terenkripsi saya';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Masukkan kunci pemulihan Anda';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Pelajari selengkapnya';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Kunci pemulihan tidak bekerja, periksa atau ganti itu di Pusat Keamanan';
 
   @override
   String get allVersions => 'Semua versi';
