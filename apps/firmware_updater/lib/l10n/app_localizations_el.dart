@@ -10,50 +10,50 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'Μπορεί να χάσετε τα δεδομένα σας χωρίς κλειδιά επαναφοράς';
+      'Μπορεί να χάσετε τα δεδομένα σας χωρίς κλειδιά ανάκτησης';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Μπορείτε να χάσετε όλα τα δεδομένα χωρίς το κλειδί ανάκτησης';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Βεβαιωθείτε ότι έχετε κλειδιά ανάκτησης για όλους τους κρυπτογραφημένους δίσκους. Μπορεί να χρειαστεί να τα εισάγετε κατά την εκκίνηση μετά από ενημέρωση του υλικολογισμικού.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Στον υπολογιστή σας είναι ενεργοποιημένη η κρυπτογράφηση με υποστήριξη υλικού. Ενδέχεται να χρειαστεί να εισαγάγετε το κλειδί ανάκτησης κατά την εκκίνηση μετά από ενημέρωση του υλικολογισμικού (firmware). Βεβαιωθείτε ότι διαθέτετε επίσης τα κλειδιά ανάκτησης για τυχόν άλλους κρυπτογραφημένους δίσκους σε αυτόν τον υπολογιστή.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Το BitLocker είναι ενεργοποιημένο στον υπολογιστή σας. Βεβαιωθείτε ότι έχετε κλειδιά ανάκτησης για όλους τους κρυπτογραφημένους δίσκους. Μπορεί να χρειαστεί να τα εισάγετε κατά την εκκίνηση μετά από ενημέρωση του υλικολογισμικού (firmware).';
 
   @override
   String get affectsFdeCheckbox =>
-      'Έχω όλα τα κλειδιά για τους κρυπτογραφημένους δίσκους μου';
+      'Έχω τα κλειδιά ανάκτησης για όλους τους κρυπτογραφημένους δίσκους μου';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Εισάγετε το κλειδί ανάκτησης';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Μάθετε περισσότερα';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Το κλειδί ανάκτησης δεν λειτουργεί. Ελέγξτε το ή αντικαταστήστε το στο Κέντρο Ασφαλείας';
 
   @override
-  String get allVersions => 'Όλες οι Εκδόσεις';
+  String get allVersions => 'Όλες οι εκδόσεις';
 
   @override
-  String get appTitle => 'Ενημέρωση Λογισμικού';
+  String get appTitle => 'Ενημέρωση υλικολογισμικού';
 
   @override
   String get batteryWarning =>
-      'Προειδοποίηση:κάποιες συσκευές μπορούν να ενημερωθούν σε πλήρη ισχύ!';
+      'Προειδοποίηση: ορισμένες ενημερώσεις σε συσκευές ενδέχεται να είναι διαθέσιμες μόνο με σύνδεση σε εξωτερική πηγή τροφοδοσίας!';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'Άθροισμα ελέγχου';
 
   @override
   String get close => 'Κλείσιμο';
@@ -66,34 +66,34 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get deviceUnavailable =>
-      'The device will be unavailable during this action.';
+      'Η συσκευή δεν θα είναι διαθέσιμη κατά τη διάρκεια αυτής της ενέργειας.';
 
   @override
-  String get deviceRequest => 'Device request';
+  String get deviceRequest => 'Αίτημα συσκευής';
 
   @override
-  String get downgrade => 'Downgrade';
+  String get downgrade => 'Υποβάθμιση';
 
   @override
   String downgradeConfirm(String name, String version) {
-    return 'Downgrade <b>$name</b> to version <b>$version</b>?';
+    return 'Υποβάθμιση του <b>$name</b> στην έκδοση <b>$version</b>;';
   }
 
   @override
-  String get flags => 'Flags';
+  String get flags => 'Σημαίες';
 
   @override
-  String get fwupdDeviceFlagInternal => 'Internal device';
+  String get fwupdDeviceFlagInternal => 'Εσωτερική συσκευή';
 
   @override
-  String get fwupdDeviceFlagUpdatable => 'Updatable';
+  String get fwupdDeviceFlagUpdatable => 'Με δυνατότητα ενημέρωσης';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Update requires a reboot';
+  String get fwupdDeviceFlagOnlyOffline => 'Η ενημέρωση απαιτεί επανεκκίνηση';
 
   @override
   String get fwupdDeviceFlagRequireAc =>
-      'System requires external power source';
+      'Το σύστημα απαιτεί εξωτερική πηγή τροφοδοσίας';
 
   @override
   String get fwupdDeviceFlagLocked => 'Η συσκευή είναι κλειδωμένη';
@@ -103,293 +103,306 @@ class AppLocalizationsEl extends AppLocalizations {
       'Υποστηρίζεται σε απομακρυσμένο διακομιστή';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => 'Requires a bootloader';
+  String get fwupdDeviceFlagNeedsBootloader =>
+      'Απαιτεί πρόγραμμα εκκίνησης συστήματος';
 
   @override
-  String get fwupdDeviceFlagRegistered => 'Εγγεγραμμένος';
+  String get fwupdDeviceFlagRegistered => 'Καταχωρήθηκε';
 
   @override
   String get fwupdDeviceFlagNeedsReboot =>
-      'Χρειάζεται επανεκκίνηση μετά την εγκατάσταση';
+      'Απαιτεί επανεκκίνηση μετά την εγκατάσταση';
 
   @override
   String get fwupdDeviceFlagNeedsShutdown =>
-      'Χρειάζεται τερματισμός μετά την εγκατάσταση';
+      'Απαιτεί τερματισμό λειτουργίας μετά την εγκατάσταση';
 
   @override
-  String get fwupdDeviceFlagReported => 'Reported to remote server';
+  String get fwupdDeviceFlagReported =>
+      'Αναφέρθηκε στον απομακρυσμένο διακομιστή';
 
   @override
   String get fwupdDeviceFlagNotified => 'Ο χρήστης έχει ειδοποιηθεί';
 
   @override
   String get fwupdDeviceFlagInstallParentFirst =>
-      'Install to parent device first';
+      'Εγκατάσταση πρώτα στη γονική συσκευή';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => 'Is in bootloader mode';
+  String get fwupdDeviceFlagIsBootloader =>
+      'Βρίσκεται σε λειτουργία εκκίνησης συστήματος';
 
   @override
   String get fwupdDeviceFlagWaitForReplug =>
-      'Hardware is waiting to be replugged';
+      'Το υλικό αναμένει να επανασυνδεθεί';
 
   @override
   String get fwupdDeviceFlagIgnoreValidation =>
-      'Ignore validation safety checks';
+      'Παράκαμψη ελέγχων ασφαλείας επικύρωσης';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Έμπιστο';
 
   @override
   String get fwupdDeviceFlagNeedsActivation =>
-      'Συσκευή χρειάζεται ενημέρωση μετά την ενεργοποίηση';
+      'Η ενημέρωση της συσκευής απαιτεί ενεργοποίηση';
 
   @override
   String get fwupdDeviceFlagWillDisappear =>
-      'Device will not re-appear after update completes';
+      'Η συσκευή δεν θα επανεμφανιστεί μετά την ολοκλήρωση της ενημέρωσης';
 
   @override
   String get fwupdDeviceFlagCanVerify =>
-      'Cryptographic hash verification is available';
+      'Είναι διαθέσιμη η επαλήθευση κρυπτογραφικού κατακερματισμού';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Device stages updates';
+  String get fwupdDeviceFlagDualImage => 'Η συσκευή προετοιμάζει ενημερώσεις';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Device can recover flash failures';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'Η συσκευή μπορεί να ανακάμψει από αστοχίες μνήμης flash';
 
   @override
   String get fwupdDeviceFlagUsableDuringUpdate =>
-      'Device is usable for the duration of the update';
+      'Η συσκευή παραμένει χρησιμοποιήσιμη κατά τη διάρκεια της ενημέρωσης';
 
   @override
   String get fwupdDeviceFlagVersionCheckRequired =>
-      'Device firmware is required to have a version check';
+      'Το υλικολογισμικό συσκευής χρειάζεται να κάνει έναν έλεγχο έκδοσης';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
-      'Device is required to install all provided releases';
+      'Η συσκευή απαιτείται για να εγκαταστήσει όλες τις παρεχόμενες ενημερώσεις';
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
-      'Device supports switching to a different branch of firmware';
+      'Η συσκευή υποστηρίζει τη μετάβαση σε διαφορετικό κλάδο υλικολογισμικού';
 
   @override
   String get fwupdDeviceFlagBackupBeforeInstall =>
-      'Device will backup firmware before installing';
+      'Η συσκευή θα δημιουργήσει αντίγραφο ασφαλείας του υλικολογισμικού πριν την εγκατάσταση';
 
   @override
   String get fwupdDeviceFlagWildcardInstall =>
-      'All devices of the same type will be updated at the same time';
+      'Όλες οι συσκευές ίδιου τύπου θα ενημερωθούν ταυτόχρονα';
 
   @override
   String get fwupdDeviceFlagOnlyVersionUpgrade =>
-      'Only version upgrades are allowed';
+      'Επιτρέπονται μόνο αναβαθμίσεις έκδοσης';
 
   @override
-  String get fwupdDeviceFlagUnreachable => 'Device is unreachable';
+  String get fwupdDeviceFlagUnreachable => 'Η συσκευή δεν είναι προσβάσιμη';
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Full disk encryption secrets may be invalidated when updating';
+      'Τα μυστικά κλειδιά κρυπτογράφησης πλήρους δίσκου ενδέχεται να ακυρωθούν κατά την ενημέρωση';
 
   @override
-  String get fwupdDeviceFlagEndOfLife => 'End of life';
+  String get fwupdDeviceFlagEndOfLife => 'Τέλος υποστήριξης';
 
   @override
-  String get fwupdDeviceFlagSignedPayload => 'Signed Payload';
+  String get fwupdDeviceFlagSignedPayload =>
+      'Υπογεγραμμένο ωφέλιμο φορτίο λογισμικού';
 
   @override
-  String get fwupdDeviceFlagUnsignedPayload => 'Unsigned Payload';
+  String get fwupdDeviceFlagUnsignedPayload =>
+      'Μη υπογεγραμμένο ωφέλιμο φορτίο λογισμικού';
 
   @override
-  String get fwupdErrorInternal => 'Internal error';
+  String get fwupdErrorInternal => 'Εσωτερικό σφάλμα';
 
   @override
-  String get fwupdErrorVersionNewer => 'Installed newer firmware version';
+  String get fwupdErrorVersionNewer =>
+      'Εγκαταστάθηκε νεότερη έκδοση υλικολογισμικού';
 
   @override
-  String get fwupdErrorVersionSame => 'Installed same firmware version';
+  String get fwupdErrorVersionSame =>
+      'Εγκαταστάθηκε η ίδια έκδοση υλικολογισμικού';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Already set to be installed offline';
+  String get fwupdErrorAlreadyPending =>
+      'Έχει ήδη οριστεί για εγκατάσταση εκτός σύνδεσης';
 
   @override
-  String get fwupdErrorAuthFailed => 'Failed to get authentication';
+  String get fwupdErrorAuthFailed => 'Αποτυχία λήψης ελέγχου ταυτότητας';
 
   @override
-  String get fwupdErrorRead => 'Failed to read from device';
+  String get fwupdErrorRead => 'Αποτυχία ανάγνωσης από συσκευή';
 
   @override
-  String get fwupdErrorWrite => 'Failed to write to the device';
+  String get fwupdErrorWrite => 'Αποτυχία εγγραφής σε συσκευή';
 
   @override
-  String get fwupdErrorInvalidFile => 'Invalid file format';
+  String get fwupdErrorInvalidFile => 'Μη έγκυρη μορφή αρχείου';
 
   @override
-  String get fwupdErrorNotFound => 'No matching device exists';
+  String get fwupdErrorNotFound => 'Δεν υπάρχει συσκευή που ταιριάζει';
 
   @override
-  String get fwupdErrorNothingToDo => 'Nothing to do';
+  String get fwupdErrorNothingToDo => 'Καμία ενέργεια προς εκτέλεση';
 
   @override
-  String get fwupdErrorNotSupported => 'Action was not possible';
+  String get fwupdErrorNotSupported => 'Η ενέργεια δεν ήταν εφικτή';
 
   @override
-  String get fwupdErrorSignatureInvalid => 'Signature was invalid';
+  String get fwupdErrorSignatureInvalid => 'Η ψηφιακή υπογραφή δεν ήταν έγκυρη';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'AC power was required';
+  String get fwupdErrorAcPowerRequired =>
+      'Απαιτούνταν τροφοδοσία εναλλασσόμενου ρεύματος (AC)';
 
   @override
-  String get fwupdErrorPermissionDenied => 'Permission was denied';
+  String get fwupdErrorPermissionDenied => 'Δεν δόθηκε άδεια';
 
   @override
   String get fwupdErrorBrokenSystem =>
-      'User has configured their system in a broken way';
+      'Το σύστημα έχει ρυθμιστεί από τον χρήστη με μη λειτουργικό τρόπο';
 
   @override
   String get fwupdErrorBatteryLevelTooLow =>
-      'The system battery level is too low';
+      'Η στάθμη της μπαταρίας του συστήματος είναι πολύ χαμηλή';
 
   @override
   String get fwupdErrorNeedsUserAction =>
-      'User needs to do an action to complete the update';
+      'Απαιτείται ενέργεια από τον χρήστη για την ολοκλήρωση της ενημέρωσης';
 
   @override
   String get fwupdErrorAuthExpired =>
-      'Failed to get auth as credentials have expired';
+      'Αποτυχία ελέγχου ταυτότητας λόγω λήξης των διαπιστευτηρίων';
 
   @override
-  String get fwupdErrorUnknown => 'Unknown error';
+  String get fwupdErrorUnknown => 'Άγνωστο σφάλμα';
 
   @override
-  String get fwupdStatusUnknown => 'Unknown state';
+  String get fwupdStatusUnknown => 'Άγνωστη κατάσταση';
 
   @override
-  String get fwupdStatusIdle => 'Idle';
+  String get fwupdStatusIdle => 'Σε αδράνεια';
 
   @override
-  String get fwupdStatusLoading => 'Loading a resource';
+  String get fwupdStatusLoading => 'Γίνεται φόρτωση πόρου';
 
   @override
-  String get fwupdStatusDecompressing => 'Decompressing firmware';
+  String get fwupdStatusDecompressing => 'Γίνεται αποσυμπίεση υλικολογισμικού';
 
   @override
-  String get fwupdStatusDeviceRestart => 'Restarting the device';
+  String get fwupdStatusDeviceRestart => 'Γίνεται επανεκκίνηση της συσκευής';
 
   @override
-  String get fwupdStatusDeviceWrite => 'Writing to a device';
+  String get fwupdStatusDeviceWrite => 'Γίνεται εγγραφή σε συσκευή';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Verifying (reading) a device';
+  String get fwupdStatusDeviceVerify =>
+      'Γίνεται επαλήθευση (ανάγνωση) συσκευής';
 
   @override
-  String get fwupdStatusScheduling => 'Scheduling an offline update';
+  String get fwupdStatusScheduling =>
+      'Γίνεται προγραμματισμός ενημέρωσης εκτός σύνδεσης';
 
   @override
-  String get fwupdStatusDownloading => 'A file is downloading';
+  String get fwupdStatusDownloading => 'Λήψη αρχείου σε εξέλιξη';
 
   @override
-  String get fwupdStatusDeviceRead => 'Reading from a device';
+  String get fwupdStatusDeviceRead => 'Γίνεται ανάγνωση από συσκευή';
 
   @override
-  String get fwupdStatusDeviceErase => 'Erasing a device';
+  String get fwupdStatusDeviceErase => 'Γίνεται διαγραφή συσκευής';
 
   @override
-  String get fwupdStatusWaitingForAuth => 'Waiting for authentication';
+  String get fwupdStatusWaitingForAuth => 'Αναμονή για έλεγχο ταυτότητας';
 
   @override
-  String get fwupdStatusDeviceBusy => 'The device is busy';
+  String get fwupdStatusDeviceBusy => 'Η συσκευή είναι απασχολημένη';
 
   @override
-  String get fwupdStatusShutdown => 'The daemon is shutting down';
+  String get fwupdStatusShutdown => 'Η υπηρεσία (daemon) τερματίζεται';
 
   @override
-  String get guid => 'GUIDs';
+  String get guid => 'GUID';
 
   @override
-  String get installError => 'Failed to install firmware!';
+  String get installError => 'Αποτυχία εγκατάστασης υλικολογισμικού!';
 
   @override
-  String get noDevicesFound => 'No devices found';
+  String get noDevicesFound => 'Δεν βρέθηκαν συσκευές';
 
   @override
-  String get ok => 'ΟΚ';
+  String get ok => 'Εντάξει';
 
   @override
-  String get olderVersions => 'Older Versions';
+  String get olderVersions => 'Παλαιότερες εκδόσεις';
 
   @override
-  String get rebootLater => 'Restart later';
+  String get rebootLater => 'Επανεκκίνηση αργότερα';
 
   @override
-  String get rebootNow => 'Restart now';
+  String get rebootNow => 'Επανεκκίνηση τώρα';
 
   @override
   String get rebootConfirmMessage =>
-      'You must restart your device to complete the update. Make sure your device is plugged in or fully charged. Save your files before you restart to avoid losing data.';
+      'Πρέπει να επανεκκινήσετε τη συσκευή σας για να ολοκληρωθεί η ενημέρωση. Βεβαιωθείτε ότι η συσκευή σας είναι συνδεδεμένη στο ρεύμα ή πλήρως φορτισμένη. Αποθηκεύστε τα αρχεία σας πριν από την επανεκκίνηση για να αποφύγετε την απώλεια δεδομένων.';
 
   @override
-  String get rebootConfirmTitle => 'Restart to complete this update';
+  String get rebootConfirmTitle =>
+      'Κάντε επανεκκίνηση για να ολοκληρωθεί η ενημέρωση';
 
   @override
-  String get reinstall => 'Reinstall';
+  String get reinstall => 'Επανεγκατάσταση';
 
   @override
   String reinstallConfirm(String name, String current) {
-    return 'Reinstall <b>$name</b> version <b>$current</b>?';
+    return 'Επανεγκατάσταση του <b>$name</b>, έκδοση <b>$current</b>;';
   }
 
   @override
-  String get showReleases => 'Show Releases';
+  String get showReleases => 'Εμφάνιση εκδόσεων';
 
   @override
-  String get showUpdates => 'Show Updates';
+  String get showUpdates => 'Εμφάνιση ενημερώσεων';
 
   @override
-  String get update => 'Update';
+  String get update => 'Ενημέρωση';
 
   @override
-  String get updateAvailable => 'Update available';
+  String get updateAvailable => 'Διαθέσιμη ενημέρωση';
 
   @override
-  String get updateChecksums => 'Update Checksums';
+  String get updateChecksums => 'Ενημέρωση αθροισμάτων ελέγχου';
 
   @override
   String updateChecksumsConfirm(String name) {
-    return 'Update device checksums of <b>$name</b>?';
+    return 'Ενημέρωση αθροισμάτων ελέγχου συσκευής του <b>$name</b>;';
   }
 
   @override
   String get updateChecksumsInfo =>
-      'This will record the current cryptographic hashes as verified.';
+      'Αυτό θα καταγράψει τους τρέχοντες κρυπτογραφικούς κατακερματισμούς (hashes) ως επαληθευμένους.';
 
   @override
-  String get updateToLatest => 'Update to Latest';
+  String get updateToLatest => 'Ενημέρωση στην τελευταία έκδοση';
 
   @override
   String updateConfirm(String name, String version) {
-    return 'Update <b>$name</b> to version <b>$version</b>?';
+    return 'Ενημέρωση του <b>$name</b> στην έκδοση <b>$version</b>;';
   }
 
   @override
-  String get vendor => 'Vendor';
+  String get vendor => 'Κατασκευαστής';
 
   @override
-  String get verifyFirmware => 'Verify Firmware';
+  String get verifyFirmware => 'Επαλήθευση υλικολογισμικού';
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Verify firmware checksums of $name?';
+    return 'Επαλήθευση αθροισμάτων ελέγχου υλικολογισμικού του $name;';
   }
 
   @override
-  String get currentVersion => 'Current Version';
+  String get currentVersion => 'Τρέχουσα έκδοση';
 
   @override
-  String get minVersion => 'Minimum Version';
+  String get minVersion => 'Ελάχιστη έκδοση';
 
   @override
-  String get latestVersion => 'Latest Version';
+  String get latestVersion => 'Τελευταία έκδοση';
 }

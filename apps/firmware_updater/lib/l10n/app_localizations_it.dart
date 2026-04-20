@@ -10,37 +10,38 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'You may lose all your data without recovery keys';
+      'Potresti perdere tutti i tuoi dati senza le chiavi di ripristino';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Potresti perdere tutti i tuoi dati senza le tue chiavi di ripristino';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Assicurati di avere le chiavi di ripristino per tutti i tuoi dischi criptati. Potresti doverle inserire all\'avvio dopo un aggiornamento del firmware.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'La criptazione a livello hardware è abilitata nel tuo computer. Potresti dover inserire la tua chiave di ripristino all\'avvio dopo un aggiornamento del firmware. Assicurati di avere anche le chiavi di ripristino per ogni altro disco criptato dentro questo computer.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Bitlocker è abilitato nel tuo computer. Assicurati di avere anche le chiavi di ripristino per tutti i tuoi dischi criptati. Potresti doverle inserire all\'avvio dopo un aggiornamento del firmware.';
 
   @override
   String get affectsFdeCheckbox =>
-      'I have recovery keys for all my encrypted drives';
+      'Ho le chiavi di ripristino per tutti i miei dischi criptati';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel =>
+      'Inserisci la tua chiave di ripristino';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Scopri di più';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'La chiave di ripristino non funziona, controllala o cambiala nel Centro per la Sicurezza';
 
   @override
   String get allVersions => 'Tutte le versioni';

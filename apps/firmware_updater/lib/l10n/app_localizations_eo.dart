@@ -14,33 +14,33 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Eblas, ke vi perdos ĉiom da viaj datenoj, se vi perdos vian restaŭran ŝlosilon';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Certigu, ke vi havas restaŭrajn ŝlosilojn por ĉiuj ĉifritaj diskoj. Vi eble bezonos ilin dum startado post ĝisdatigo de mikroprogramoj.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Aparata ĉifrado estas ŝaltita sur via komputilo. Vi eble bezonos tajpi vian restaŭran ŝlosilon dum startado post ĝisdatigo de mikroprogramoj. Certigu, ke vi ankaŭ havas restaŭrajn ŝlosilojn por aliajn ĉifritaj diskoj sur ĉi tiu komputilo.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker estas ŝaltita sur via komputilo. Certigu, ke vi havas restaŭrajn ŝlosilojn por ĉiuj ĉifritaj diskoj sur ĉi tiu komputilo. Vi eble bezonos tajpi ilin dum startado post ĝisdatigo de mikroprogramoj.';
 
   @override
   String get affectsFdeCheckbox =>
       'Mi havas restaŭrajn ŝlosilojn por ĉiuj ĉifritaj diskoj';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Tajpu vian restaŭran ŝlosilon';
 
   @override
   String get affectsFdeLinkLabel => 'Lerni plu';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Restaŭra ŝlosilo ne estas ĝusta. Kontrolu aŭ anstataŭigu ĝin ĉe la Sekureca Centro';
 
   @override
   String get allVersions => 'Ĉiuj versioj';

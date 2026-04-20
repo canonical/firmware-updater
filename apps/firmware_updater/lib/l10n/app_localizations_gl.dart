@@ -10,383 +10,393 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'You may lose all your data without recovery keys';
+      'Poder perder todos os seus datos sen a chave de recuperación';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Podes perder todos os teus datos se non tes a chave de recuperación';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Asegúrese de que ten chaves de recuperación para todos os discos cifrados. É posíbel que deba introducilas ao arrancar tras actualizar o firmware.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'O cifrado con respaldo de hardware está activado no teu ordenador. É posible que teñas que introducir a túa cahve de recuperación ao iniciar despois de actualizar o firmware. Asegúrate de que tamén tes chaves de recuperación para calquera outro disco cifrado neste ordenador.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker está activado no teu ordenador. Asegúrate de ter chaves de recuperación para todos os discos cifrados. É posible que teñas que introducilas ao iniciar despois de actualizar o firmware.';
 
   @override
   String get affectsFdeCheckbox =>
-      'I have recovery keys for all my encrypted drives';
+      'Teño chaves de recuperación para todos os meus discos cifrados';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel =>
+      'Introduce a túa chave de recuperación';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Saber máis';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'A chave de recuperación non funciona, compróbaa ou substitúea no Centro de seguranza';
 
   @override
-  String get allVersions => 'All Versions';
+  String get allVersions => 'Todas as versións';
 
   @override
-  String get appTitle => 'Firmware Updater';
+  String get appTitle => 'Actualizador de firmware';
 
   @override
   String get batteryWarning =>
-      'Warning: some device updates may only be available on external power!';
+      'Aviso: algunhas actualizacións do dispositivo poden estar dispoñíbeis só con alimentación externa!';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'Suma de verificación';
 
   @override
-  String get close => 'Close';
+  String get close => 'Pechar';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'Cancelar';
 
   @override
-  String get current => 'Current';
+  String get current => 'Actual';
 
   @override
   String get deviceUnavailable =>
-      'The device will be unavailable during this action.';
+      'O dispositivo non estará dispoñíbel durante esta acción.';
 
   @override
-  String get deviceRequest => 'Device request';
+  String get deviceRequest => 'Solicitude do dispositivo';
 
   @override
-  String get downgrade => 'Downgrade';
+  String get downgrade => 'Baixar de versión';
 
   @override
   String downgradeConfirm(String name, String version) {
-    return 'Downgrade <b>$name</b> to version <b>$version</b>?';
+    return 'Baixar de versión <b>$name</b> a <b>$version</b>?';
   }
 
   @override
-  String get flags => 'Flags';
+  String get flags => 'Marcadores';
 
   @override
-  String get fwupdDeviceFlagInternal => 'Internal device';
+  String get fwupdDeviceFlagInternal => 'Dispositivo interno';
 
   @override
-  String get fwupdDeviceFlagUpdatable => 'Updatable';
+  String get fwupdDeviceFlagUpdatable => 'Actualizábel';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Update requires a reboot';
+  String get fwupdDeviceFlagOnlyOffline =>
+      'A actualización require un reinicio';
 
   @override
   String get fwupdDeviceFlagRequireAc =>
-      'System requires external power source';
+      'O sistema require unha fonte de alimentación externa';
 
   @override
-  String get fwupdDeviceFlagLocked => 'Device is locked';
+  String get fwupdDeviceFlagLocked => 'O dispositivo está bloqueado';
 
   @override
-  String get fwupdDeviceFlagSupported => 'Supported on remote server';
+  String get fwupdDeviceFlagSupported => 'Compatible con servidores remotos';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => 'Requires a bootloader';
+  String get fwupdDeviceFlagNeedsBootloader => 'Require un xestor de arrinque';
 
   @override
-  String get fwupdDeviceFlagRegistered => 'Registered';
+  String get fwupdDeviceFlagRegistered => 'Rexistrado';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Needs a reboot after installation';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'Necesita reiniciar despois da instalación';
 
   @override
   String get fwupdDeviceFlagNeedsShutdown =>
-      'Needs shutdown after installation';
+      'Necesita apagar despois da instalación';
 
   @override
-  String get fwupdDeviceFlagReported => 'Reported to remote server';
+  String get fwupdDeviceFlagReported => 'Informado ao servidor remoto';
 
   @override
-  String get fwupdDeviceFlagNotified => 'User has been notified';
+  String get fwupdDeviceFlagNotified => 'O usuario foi notificado';
 
   @override
   String get fwupdDeviceFlagInstallParentFirst =>
-      'Install to parent device first';
+      'Instalar primeiro no dispositivo principal';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => 'Is in bootloader mode';
+  String get fwupdDeviceFlagIsBootloader => 'Está en modo xestor de arrinque';
 
   @override
   String get fwupdDeviceFlagWaitForReplug =>
-      'Hardware is waiting to be replugged';
+      'O hardware está á espera de ser reconectado';
 
   @override
   String get fwupdDeviceFlagIgnoreValidation =>
-      'Ignore validation safety checks';
+      'Ignorar as comprobacións de seguridade de validación';
 
   @override
-  String get fwupdDeviceFlagTrusted => 'Trusted';
+  String get fwupdDeviceFlagTrusted => 'Confiábel';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Device update needs activation';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'A actualización do dispositivo precisa activación';
 
   @override
   String get fwupdDeviceFlagWillDisappear =>
-      'Device will not re-appear after update completes';
+      'O dispositivo non volverá aparecer despois de que se complete a actualización';
 
   @override
   String get fwupdDeviceFlagCanVerify =>
-      'Cryptographic hash verification is available';
+      'A verificación de suma criptográfica está dispoñíbel';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Device stages updates';
+  String get fwupdDeviceFlagDualImage =>
+      'Actualizacións das etapas do dispositivo';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => 'Device can recover flash failures';
+  String get fwupdDeviceFlagSelfRecovery =>
+      'O dispositivo pódese recuperar de fallos na instalación';
 
   @override
   String get fwupdDeviceFlagUsableDuringUpdate =>
-      'Device is usable for the duration of the update';
+      'O dispositivo é usábel durante a actualización';
 
   @override
   String get fwupdDeviceFlagVersionCheckRequired =>
-      'Device firmware is required to have a version check';
+      'É necesario que o firmware do dispositivo teña unha comprobación de versión';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
-      'Device is required to install all provided releases';
+      'Requírese o dispositivo para instalar todas as versións proporcionadas';
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
-      'Device supports switching to a different branch of firmware';
+      'O dispositivo admite o cambio a unha rama diferente do firmware';
 
   @override
   String get fwupdDeviceFlagBackupBeforeInstall =>
-      'Device will backup firmware before installing';
+      'O dispositivo fará unha copia de seguridade do firmware antes da instalación';
 
   @override
   String get fwupdDeviceFlagWildcardInstall =>
-      'All devices of the same type will be updated at the same time';
+      'Todos os dispositivos do mesmo tipo actualizaranse ao mesmo tempo';
 
   @override
   String get fwupdDeviceFlagOnlyVersionUpgrade =>
-      'Only version upgrades are allowed';
+      'Só se permiten actualizacións de versións';
 
   @override
-  String get fwupdDeviceFlagUnreachable => 'Device is unreachable';
+  String get fwupdDeviceFlagUnreachable => 'Non se pode acceder ao dispositivo';
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Full disk encryption secrets may be invalidated when updating';
+      'Os segredos de cifrado completos do disco poden ser invalidados ao actualizar';
 
   @override
-  String get fwupdDeviceFlagEndOfLife => 'End of life';
+  String get fwupdDeviceFlagEndOfLife => 'Fin de vida útil';
 
   @override
-  String get fwupdDeviceFlagSignedPayload => 'Signed Payload';
+  String get fwupdDeviceFlagSignedPayload => 'Carga útil asinada';
 
   @override
-  String get fwupdDeviceFlagUnsignedPayload => 'Unsigned Payload';
+  String get fwupdDeviceFlagUnsignedPayload => 'Carga útil sen asinar';
 
   @override
-  String get fwupdErrorInternal => 'Internal error';
+  String get fwupdErrorInternal => 'Erro interno';
 
   @override
-  String get fwupdErrorVersionNewer => 'Installed newer firmware version';
+  String get fwupdErrorVersionNewer =>
+      'Versión de firmware máis recente instalada';
 
   @override
-  String get fwupdErrorVersionSame => 'Installed same firmware version';
+  String get fwupdErrorVersionSame => 'Instalouse a mesma versión do firmware';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Already set to be installed offline';
+  String get fwupdErrorAlreadyPending =>
+      'Xa configurado para instalar sen conexión';
 
   @override
-  String get fwupdErrorAuthFailed => 'Failed to get authentication';
+  String get fwupdErrorAuthFailed => 'Non se puido obter a autenticación';
 
   @override
-  String get fwupdErrorRead => 'Failed to read from device';
+  String get fwupdErrorRead => 'Non se puido ler desde o dispositivo';
 
   @override
-  String get fwupdErrorWrite => 'Failed to write to the device';
+  String get fwupdErrorWrite => 'Fallou a escritura no dispositivo';
 
   @override
-  String get fwupdErrorInvalidFile => 'Invalid file format';
+  String get fwupdErrorInvalidFile => 'O formato de ficheiro non é válido';
 
   @override
-  String get fwupdErrorNotFound => 'No matching device exists';
+  String get fwupdErrorNotFound => 'Non existe ningún dispositivo coincidente';
 
   @override
-  String get fwupdErrorNothingToDo => 'Nothing to do';
+  String get fwupdErrorNothingToDo => 'Nada que facer';
 
   @override
-  String get fwupdErrorNotSupported => 'Action was not possible';
+  String get fwupdErrorNotSupported => 'A acción non foi posíbel';
 
   @override
-  String get fwupdErrorSignatureInvalid => 'Signature was invalid';
+  String get fwupdErrorSignatureInvalid => 'A sinatura non era válida';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'AC power was required';
+  String get fwupdErrorAcPowerRequired => 'Requeríase alimentación AC';
 
   @override
-  String get fwupdErrorPermissionDenied => 'Permission was denied';
+  String get fwupdErrorPermissionDenied => 'Denegouse o permiso';
 
   @override
   String get fwupdErrorBrokenSystem =>
-      'User has configured their system in a broken way';
+      'O usuario configurou o seu sistema dun xeito defectuoso';
 
   @override
   String get fwupdErrorBatteryLevelTooLow =>
-      'The system battery level is too low';
+      'O nivel de batería do sistema é demasiado baixo';
 
   @override
   String get fwupdErrorNeedsUserAction =>
-      'User needs to do an action to complete the update';
+      'O usuario precisa realizar unha acción para completar a actualización';
 
   @override
   String get fwupdErrorAuthExpired =>
-      'Failed to get auth as credentials have expired';
+      'Non se puido obter a autenticación porque as credenciais caducaron';
 
   @override
-  String get fwupdErrorUnknown => 'Unknown error';
+  String get fwupdErrorUnknown => 'Erro descoñecido';
 
   @override
-  String get fwupdStatusUnknown => 'Unknown state';
+  String get fwupdStatusUnknown => 'Estado descoñecido';
 
   @override
-  String get fwupdStatusIdle => 'Idle';
+  String get fwupdStatusIdle => 'Inactivo';
 
   @override
-  String get fwupdStatusLoading => 'Loading a resource';
+  String get fwupdStatusLoading => 'Cargando un recurso';
 
   @override
-  String get fwupdStatusDecompressing => 'Decompressing firmware';
+  String get fwupdStatusDecompressing => 'Descomprimindo o firmware';
 
   @override
-  String get fwupdStatusDeviceRestart => 'Restarting the device';
+  String get fwupdStatusDeviceRestart => 'Reiniciando o dispositivo';
 
   @override
-  String get fwupdStatusDeviceWrite => 'Writing to a device';
+  String get fwupdStatusDeviceWrite => 'Escribindo nun dispositivo';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Verifying (reading) a device';
+  String get fwupdStatusDeviceVerify => 'Verificando (lendo) un dispositivo';
 
   @override
-  String get fwupdStatusScheduling => 'Scheduling an offline update';
+  String get fwupdStatusScheduling =>
+      'Programando unha actualización sen conexión';
 
   @override
-  String get fwupdStatusDownloading => 'A file is downloading';
+  String get fwupdStatusDownloading => 'Estase a descargar un ficheiro';
 
   @override
-  String get fwupdStatusDeviceRead => 'Reading from a device';
+  String get fwupdStatusDeviceRead => 'Lendo dende un dispositivo';
 
   @override
-  String get fwupdStatusDeviceErase => 'Erasing a device';
+  String get fwupdStatusDeviceErase => 'Borrando un dispositivo';
 
   @override
-  String get fwupdStatusWaitingForAuth => 'Waiting for authentication';
+  String get fwupdStatusWaitingForAuth => 'Agardando pola autenticación';
 
   @override
-  String get fwupdStatusDeviceBusy => 'The device is busy';
+  String get fwupdStatusDeviceBusy => 'O dispositivo está ocupado';
 
   @override
-  String get fwupdStatusShutdown => 'The daemon is shutting down';
+  String get fwupdStatusShutdown => 'O daemon está a pecharse';
 
   @override
   String get guid => 'GUIDs';
 
   @override
-  String get installError => 'Failed to install firmware!';
+  String get installError => 'Fallo na instalación do firmware!';
 
   @override
-  String get noDevicesFound => 'No devices found';
+  String get noDevicesFound => 'Non se atoparon dispositivos';
 
   @override
-  String get ok => 'OK';
+  String get ok => 'Aceptar';
 
   @override
-  String get olderVersions => 'Older Versions';
+  String get olderVersions => 'Versións anteriores';
 
   @override
-  String get rebootLater => 'Restart later';
+  String get rebootLater => 'Reiniciar máis tarde';
 
   @override
-  String get rebootNow => 'Restart now';
+  String get rebootNow => 'Reiniciar agora';
 
   @override
   String get rebootConfirmMessage =>
-      'You must restart your device to complete the update. Make sure your device is plugged in or fully charged. Save your files before you restart to avoid losing data.';
+      'Debes reiniciar o dispositivo para completar a actualización. Asegúrate de que o dispositivo esté enchufado ou completamente cargado. Garda os teus ficheiros antes de reinicialo para evitar perder datos.';
 
   @override
-  String get rebootConfirmTitle => 'Restart to complete this update';
+  String get rebootConfirmTitle =>
+      'Reiniciar para completar esta actualización';
 
   @override
-  String get reinstall => 'Reinstall';
+  String get reinstall => 'Reinstalar';
 
   @override
   String reinstallConfirm(String name, String current) {
-    return 'Reinstall <b>$name</b> version <b>$current</b>?';
+    return 'Reinstalar <b>$name</b> versión <b>$current</b>?';
   }
 
   @override
-  String get showReleases => 'Show Releases';
+  String get showReleases => 'Amosar lanzamentos';
 
   @override
-  String get showUpdates => 'Show Updates';
+  String get showUpdates => 'Amosar actualizacións';
 
   @override
-  String get update => 'Update';
+  String get update => 'Actualizar';
 
   @override
-  String get updateAvailable => 'Update available';
+  String get updateAvailable => 'Actualización dispoñíbel';
 
   @override
-  String get updateChecksums => 'Update Checksums';
+  String get updateChecksums => 'Actualizar sumas de comprobación';
 
   @override
   String updateChecksumsConfirm(String name) {
-    return 'Update device checksums of <b>$name</b>?';
+    return 'Actualizar as sumas de comprobación do dispositivo <b>$name</b>?';
   }
 
   @override
   String get updateChecksumsInfo =>
-      'This will record the current cryptographic hashes as verified.';
+      'Isto gravará as sumas criptográficas actuais como verificadas.';
 
   @override
-  String get updateToLatest => 'Update to Latest';
+  String get updateToLatest => 'Actualizar á última versión';
 
   @override
   String updateConfirm(String name, String version) {
-    return 'Update <b>$name</b> to version <b>$version</b>?';
+    return 'Actualizar <b>$name</b> á versión <b>$version</b>?';
   }
 
   @override
-  String get vendor => 'Vendor';
+  String get vendor => 'Vendedor';
 
   @override
-  String get verifyFirmware => 'Verify Firmware';
+  String get verifyFirmware => 'Verificar Firmware';
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Verify firmware checksums of $name?';
+    return 'Verificar as sumas de comprobación do firmware de $name?';
   }
 
   @override
-  String get currentVersion => 'Current Version';
+  String get currentVersion => 'Versión actual';
 
   @override
-  String get minVersion => 'Minimum Version';
+  String get minVersion => 'Versión mínima';
 
   @override
-  String get latestVersion => 'Latest Version';
+  String get latestVersion => 'Última versión';
 }

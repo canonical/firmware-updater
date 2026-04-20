@@ -14,33 +14,33 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Ilma taastevõtmeta võid kaotada ligipääsu kõikidele oma andmetele';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Palun taga, et sul on olemas taastevõtmed kõikide krüptitud ketaste ja muude andmekandjate jaoks. Näiteks peale püsivara uuendamist võib nende sisestamine olla uuel käivitusel vajalik.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Sinu arvutis on kasutusel raudvarapõhine krüptimine. Näiteks peale püsivara uuendamist võib taastevõtme sisestamine olla uuel käivitusel vajalik. Palun taga, et sul on olemas taastevõtmed selle ja kõikide teiste krüptitud ketaste ja muude andmekandjate jaoks.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Sinu arvutis on kasutusel BitLocker. Palun taga, et sul on olemas taastevõtmed kõikide krüptitud ketaste ja muude andmekandjate jaoks. Näiteks peale püsivara uuendamist võib nende sisestamine olla uuel käivitusel vajalik.';
 
   @override
   String get affectsFdeCheckbox =>
-      'Mul on taastevõtmed kõikide minu krüptitud andmekandjate jaoks';
+      'Mul on olemas taastevõtmed kõikide minu krüptitud andmekandjate jaoks';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Palun sisesta oma taastevõti';
 
   @override
   String get affectsFdeLinkLabel => 'Lisateave';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Taastevõti ei toimi, palun kontrolli Andmeturbekeskusest tema õigsust või vajadusel asenda ta';
 
   @override
   String get allVersions => 'Kõik versioonid';

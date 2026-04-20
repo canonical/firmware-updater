@@ -10,43 +10,43 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'Bez klíčů pro obnovení můžete přijít o všechna data';
+      'Bez záchranných klíčů se může stát, že přijdete o všechna data';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Bez svého záchranného klíče se může stát, že přijdete o veškerá data';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Ověřte, že máte záchranné klíče pro všechny šifrované disky. Po aktualizaci firmwaru se může stát, že může být potřeba je zadat při startu systému.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Na počítači je zapnuté hardwarem obsluhované šifrování. Může se stát, že po aktualizaci firmwaru bude třeba zadat záchranný klíč. Ověřte, že máte záchranné klíče také pro jakékoli ostatní šifrované disky tohoto počítače.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Na počítači je zapnutý BitLocker. Ověřte, že máte záchranné klíče pro veškeré šifrované disky. Může se stát, že po aktualizaci firmwaru je bude třeba zadat při startu systému.';
 
   @override
   String get affectsFdeCheckbox =>
-      'Mám klíče pro obnovení pro všechny své šifrované disky';
+      'Mám záchranné klíče pro všechny své šifrované disky';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Zadejte svůj záchranný klíč';
 
   @override
   String get affectsFdeLinkLabel => 'Dozvědět se více';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Záchranný klíč nefunguje – zkontrolujte ho nebo nahraďte v Centru zabezpečení';
 
   @override
   String get allVersions => 'Všechny verze';
 
   @override
-  String get appTitle => 'Nástroj pro aktualizaci firmware';
+  String get appTitle => 'Nástroj pro aktualizaci firmwaru';
 
   @override
   String get batteryWarning =>
@@ -62,7 +62,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get cancel => 'Zrušit';
 
   @override
-  String get current => 'Aktuální';
+  String get current => 'Stávající';
 
   @override
   String get deviceUnavailable => 'Zařízení bude během této akce nedostupné.';
@@ -208,10 +208,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get fwupdErrorVersionNewer => 'Instalována novější verze firmwaru';
 
   @override
-  String get fwupdErrorVersionSame => 'Instalována stejná verze firmwaru';
+  String get fwupdErrorVersionSame => 'Nainstalovaná stejná verze firmwaru';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Již nastaveno k instalaci offline';
+  String get fwupdErrorAlreadyPending => 'Už nastaveno k instalaci offline';
 
   @override
   String get fwupdErrorAuthFailed => 'Nepodařilo se získat ověření';
@@ -245,7 +245,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get fwupdErrorBrokenSystem =>
-      'Uživatel nakonfiguroval svůj systém nefunkčním způsobem';
+      'Uživatel nastavil svůj systém tak, že není funkční';
 
   @override
   String get fwupdErrorBatteryLevelTooLow =>
@@ -253,11 +253,11 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get fwupdErrorNeedsUserAction =>
-      'K dokončení aktualizace musí uživatel provést akci';
+      'K dokončení aktualizace je třeba, aby uživatel provedl akci';
 
   @override
   String get fwupdErrorAuthExpired =>
-      'Nepodařilo se získat ověření, protože platnost pověření vypršela';
+      'Nepodařilo se získat ověření, protože platnost přihlašovacích údajů skončila';
 
   @override
   String get fwupdErrorUnknown => 'Neznámá chyba';
@@ -269,7 +269,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get fwupdStatusIdle => 'Nečinné';
 
   @override
-  String get fwupdStatusLoading => 'Načítání zdroje';
+  String get fwupdStatusLoading => 'Načítání prostředku';
 
   @override
   String get fwupdStatusDecompressing => 'Dekomprimování firmwaru';
@@ -305,7 +305,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get fwupdStatusShutdown => 'Proces služby se vypíná';
 
   @override
-  String get guid => 'GUID';
+  String get guid => 'GUID identifikátory';
 
   @override
   String get installError => 'Instalace firmwaru se nezdařila!';
@@ -327,7 +327,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get rebootConfirmMessage =>
-      'Chcete-li aktualizaci dokončit, musíte zařízení restartovat. Ujistěte se, že je vaše zařízení zapojeno do zásuvky nebo plně nabité. Před restartem si uložte soubory, abyste neztratili data.';
+      'Pokud chcete aktualizaci dokončit, je třeba zařízení restartovat. Ujistěte se, že je vaše zařízení zapojeno do zásuvky nebo plně nabité. Před restartem si uložte soubory, abyste neztratili data.';
 
   @override
   String get rebootConfirmTitle =>
@@ -351,7 +351,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get update => 'Aktualizace';
 
   @override
-  String get updateAvailable => 'K dispozici je aktualizace';
+  String get updateAvailable => 'Je k dispozici aktualizace';
 
   @override
   String get updateChecksums => 'Aktualizovat kontrolní součty';

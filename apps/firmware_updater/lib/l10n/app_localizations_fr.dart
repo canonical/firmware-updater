@@ -14,33 +14,33 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Sans votre clé de récupération vous risquez de perdre toutes vos données';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Assurez-vous d’avoir des clés de récupération pour tous les disques chiffrés. Vous devrez peut-être les saisir au démarrage après la mise à jour du micrologiciel (firmware).';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Le chiffrement matériel est activé sur votre ordinateur. Vous devrez peut-être entrer votre clé de récupération au démarrage après la mise à jour du micrologiciel (firmware). Assurez-vous de posséder également des clés de récupération pour tous les autres disques chiffrés sur cet ordinateur.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker est activé sur votre ordinateur. Assurez-vous d’avoir des clés de récupération pour tous les disques chiffrés. Vous devrez peut-être les saisir au démarrage après avoir mis à jour le micrologiciel (firmware).';
 
   @override
   String get affectsFdeCheckbox =>
       'J’ai les clés de récupération pour tous mes disques cryptés';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Saisir votre clé de secours';
 
   @override
   String get affectsFdeLinkLabel => 'En savoir plus';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'La clé de secours ne fonctionne pas, vérifiez-la ou remplacez-la dans le centre de sécurité';
 
   @override
   String get allVersions => 'Toutes les versions';
@@ -76,7 +76,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String downgradeConfirm(String name, String version) {
-    return 'Rétrograder <b>$name</b> vers version<b>$version</b> ?';
+    return 'Rétrograder <b>$name</b> vers version <b>$version</b> ?';
   }
 
   @override
@@ -278,7 +278,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get fwupdStatusIdle => 'En attente';
 
   @override
-  String get fwupdStatusLoading => 'Charge une ressource';
+  String get fwupdStatusLoading => 'Chargement d\'une ressource';
 
   @override
   String get fwupdStatusDecompressing => 'Décompression micrologiciel';
@@ -287,23 +287,22 @@ class AppLocalizationsFr extends AppLocalizations {
   String get fwupdStatusDeviceRestart => 'Redémarrage de l’appareil';
 
   @override
-  String get fwupdStatusDeviceWrite => 'Écrire sur un appareil';
+  String get fwupdStatusDeviceWrite => 'Écriture sur un appareil';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Vérifie (lit) un appareil';
+  String get fwupdStatusDeviceVerify => 'Vérification (lecture) d\'un appareil';
 
   @override
   String get fwupdStatusScheduling => 'Planification de mise à jour hors ligne';
 
   @override
-  String get fwupdStatusDownloading =>
-      'Un fichier est en cours de téléchargement';
+  String get fwupdStatusDownloading => 'Téléchargement d\'un fichier';
 
   @override
   String get fwupdStatusDeviceRead => 'Lecture depuis un appareil';
 
   @override
-  String get fwupdStatusDeviceErase => 'Efface un appareil';
+  String get fwupdStatusDeviceErase => 'Effacement d\'un appareil';
 
   @override
   String get fwupdStatusWaitingForAuth => 'En attente d\'authentification';
@@ -351,7 +350,7 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get showReleases => 'Afficher les versions';
+  String get showReleases => 'Afficher versions';
 
   @override
   String get showUpdates => 'Afficher les mises à jour';
@@ -367,7 +366,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String updateChecksumsConfirm(String name) {
-    return 'Mettre à jour les sommes de contrôle de l\'appareil <b>$name</b> ?';
+    return 'Mettre à jour sommes de contrôle de <b>$name</b> ?';
   }
 
   @override
@@ -375,11 +374,11 @@ class AppLocalizationsFr extends AppLocalizations {
       'Cela enregistrera les hachages cryptographiques actuels tels que vérifiés.';
 
   @override
-  String get updateToLatest => 'Mettre à jour vers la version la plus récente';
+  String get updateToLatest => 'MàJ vers plus récent';
 
   @override
   String updateConfirm(String name, String version) {
-    return 'Mettre à jour <b>$name</b> vers version<b>$version</b> ?';
+    return 'Mettre à jour <b>$name</b> vers version <b>$version</b> ?';
   }
 
   @override

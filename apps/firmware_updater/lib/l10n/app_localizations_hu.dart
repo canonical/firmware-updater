@@ -14,33 +14,33 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Helyreállítási kulcsok nélkül elveszítheti az összes adatát';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Győződjön meg arról, hogy rendelkezik-e helyreállítási kulcsokkal az összes titkosított lemezhez. Előfordulhat, hogy meg kell adnia ezeket a rendszer indításakor a belső vezérlőprogram frissítése után.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'A hardveresen támogatott titkosítás engedélyezve van a számítógépen. Előfordulhat, hogy meg kell adnia a helyreállítási kulcsot a rendszer indításakor a belső vezérlőprogram frissítése után. Győződjön meg arról, hogy rendelkezik-e helyreállítási kulcsokkal a számítógépen lévő többi titkosított lemezhez is.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'A BitLocker engedélyezve van a számítógépen. Győződjön meg arról, hogy rendelkezik-e helyreállítási kulcsokkal az összes titkosított lemezhez. Előfordulhat, hogy meg kell adnia ezeket a rendszer indításakor a belső vezérlőprogram frissítése után.';
 
   @override
   String get affectsFdeCheckbox =>
       'Rendelkezem helyreállítási kulcsokkal az összes titkosított meghajtómhoz';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Helyreállítási kulcs megadása';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'Tudjon meg többet';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'A helyreállítási kulcs nem működik, ellenőrizze vagy cserélje le a biztonsági központban';
 
   @override
   String get allVersions => 'Összes verzió';

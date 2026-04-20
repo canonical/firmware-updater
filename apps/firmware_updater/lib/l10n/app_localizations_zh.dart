@@ -12,33 +12,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get affectsFdeWarningTitle => '没有恢复密钥，您可能丢失所有数据';
 
   @override
-  String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+  String get affectsFdeWarningUbuntuFdeTitle => '没有恢复密钥，您的所有数据可能会丢失';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      '请确保您有用于所有已加密的恢复密钥。您也许需要在更新固件后的启动时输入它们。';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      '硬件返回加密已经在您的电脑上启用了。您也许需要在更新固件后启动时输入他们。请确保您也有其他在您电脑上的加密磁盘的恢复密钥。';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker已经在您的电脑上启用了/请确保您有全部的加密磁盘的恢复密钥。您也许需要在更新固件后启动时输入它们。';
 
   @override
   String get affectsFdeCheckbox => '我拥有我所有加密磁盘的恢复密钥';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => '输入您的恢复密钥';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => '了解更多';
 
   @override
-  String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+  String get affectsFdeIncorrectKey => '恢复密钥无效，请在安全中心检查或更换';
 
   @override
   String get allVersions => '全部版本';
@@ -375,16 +373,37 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get affectsFdeWarningTitle => '如果沒有復原金鑰，您可能會失去所有資料';
 
   @override
+  String get affectsFdeWarningUbuntuFdeTitle => '沒有復原金鑰，您可能會遺失所有資料';
+
+  @override
+  String get affectsFdeWarningOtherFdeBody =>
+      '確保您擁有所有加密磁碟的復原金鑰。更新韌體後，您可能需要在開機時輸入它們。';
+
+  @override
+  String get affectsFdeWarningUbuntuFdeBody =>
+      '您的電腦已啟用硬體支援加密。更新韌體後，您可能需要在開機時輸入復原金鑰。請確定您也有此電腦上任何其他加密磁碟的復原金鑰。';
+
+  @override
+  String get affectsFdeWarningBitlockerBody =>
+      '您的電腦已啟用 BitLocker。確保您擁有所有加密磁碟的復原金鑰。更新韌體後，您可能需要在開機時輸入這些金鑰。';
+
+  @override
   String get affectsFdeCheckbox => '我有所有加密硬碟機的復原金鑰';
+
+  @override
+  String get affectsFdeTextFieldLabel => '輸入您的復原金鑰';
 
   @override
   String get affectsFdeLinkLabel => '了解更多';
 
   @override
+  String get affectsFdeIncorrectKey => '復原金鑰不起作用，請在安全中心檢查或更換';
+
+  @override
   String get allVersions => '所有版本';
 
   @override
-  String get appTitle => '韌體更新工具';
+  String get appTitle => '韌體更新程式';
 
   @override
   String get batteryWarning => '警告：某些裝置更新可能只能在插入外接電源時進行！';

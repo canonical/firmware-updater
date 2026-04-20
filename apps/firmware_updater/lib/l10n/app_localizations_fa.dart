@@ -36,7 +36,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get affectsFdeTextFieldLabel => 'Enter your recovery key';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'دانستن بیش‌تر';
 
   @override
   String get affectsFdeIncorrectKey =>
@@ -46,7 +46,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get allVersions => 'All Versions';
 
   @override
-  String get appTitle => 'Firmware Updater';
+  String get appTitle => 'به‌روز رسان ثابت‌افزار';
 
   @override
   String get batteryWarning =>

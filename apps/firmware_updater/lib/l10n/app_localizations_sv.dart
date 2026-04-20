@@ -14,33 +14,33 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Du kan förlora all din data utan din återställningsnyckel';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Se till att du har återställningsnycklar för alla krypterade diskar. Du kan behöva ange dem vid uppstart efter att du har uppdaterat den fasta programvaran.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Hårdvarubaserad kryptering är aktiverat på din dator. Du kan behöva ange din återställningsnyckel vid uppstart efter att du har uppdaterat den fasta programvaran. Se även till att du har återställningsnycklar för alla andra krypterade diskar på den här datorn.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker är aktiverat på din dator. Se till att du har återställningsnycklar för alla krypterade diskar. Du kan behöva ange dem vid uppstart efter att du uppdaterat den fasta programvaran.';
 
   @override
   String get affectsFdeCheckbox =>
       'Jag har återställningsnycklar för alla mina krypterade enheter';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'Ange din återställningsnyckel';
 
   @override
   String get affectsFdeLinkLabel => 'Läs mer';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Återställningsnyckeln fungerar inte, kontrollera eller ersätt den i Säkerhetscenter';
 
   @override
   String get allVersions => 'Alla versioner';
@@ -53,7 +53,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Varning: vissa enhetsuppdateringar kanske bara är tillgängliga med extern ström!';
 
   @override
-  String get checksum => 'Kontrolsumma';
+  String get checksum => 'Kontrollsumma';
 
   @override
   String get close => 'Stäng';
@@ -62,7 +62,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get cancel => 'Avbryt';
 
   @override
-  String get current => 'Nuvarande';
+  String get current => 'Aktuell';
 
   @override
   String get deviceUnavailable =>
@@ -86,10 +86,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fwupdDeviceFlagInternal => 'Intern enhet';
 
   @override
-  String get fwupdDeviceFlagUpdatable => 'Uppdaterbar';
+  String get fwupdDeviceFlagUpdatable => 'Uppdateringsbar';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Uppdatering kräver omstart';
+  String get fwupdDeviceFlagOnlyOffline => 'Uppdatering kräver en omstart';
 
   @override
   String get fwupdDeviceFlagRequireAc => 'Systemet kräver extern strömkälla';
@@ -125,7 +125,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Installera på föräldraenheten först';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => 'Är i startladdare läge';
+  String get fwupdDeviceFlagIsBootloader => 'Är i startladdarläge';
 
   @override
   String get fwupdDeviceFlagWaitForReplug =>
@@ -148,10 +148,10 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagCanVerify =>
-      'Kryptografisk hashverifiering är tillgänglig';
+      'Kryptografisk verifiering av kontrollsumma är tillgänglig';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Enhetssteg uppdateringar';
+  String get fwupdDeviceFlagDualImage => 'Uppdateringar av enhetssteg';
 
   @override
   String get fwupdDeviceFlagSelfRecovery => 'Enheten kan återställa flashfel';
@@ -166,7 +166,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
-      'Enhet krävs för att installera alla medföljande versioner';
+      'Enhet krävs för att installera alla tillhandahållna versioner';
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
@@ -189,10 +189,10 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Fullständiga diskkrypteringshemligheter kan bli ogiltiga vid uppdatering';
+      'Hemligheter för fullständig diskkryptering kan bli ogiltiga vid uppdatering';
 
   @override
-  String get fwupdDeviceFlagEndOfLife => 'Slutet på livet';
+  String get fwupdDeviceFlagEndOfLife => 'Uttjänt';
 
   @override
   String get fwupdDeviceFlagSignedPayload => 'Signerad nyttolast';
@@ -205,7 +205,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get fwupdErrorVersionNewer =>
-      'Installerad nyare version av fastprogramvara';
+      'Installerad senare version av fast programvara';
 
   @override
   String get fwupdErrorVersionSame =>
@@ -213,22 +213,22 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get fwupdErrorAlreadyPending =>
-      'Redan inställd på att installeras offline';
+      'Redan inställd på att installeras frånkopplad';
 
   @override
-  String get fwupdErrorAuthFailed => 'Misslyckades att hämta autentisering';
+  String get fwupdErrorAuthFailed => 'Misslyckades att få autentisering';
 
   @override
   String get fwupdErrorRead => 'Misslyckades att läsa från enhet';
 
   @override
-  String get fwupdErrorWrite => 'Misslyckades att skriva till enhet';
+  String get fwupdErrorWrite => 'Misslyckades med att skriva till enheten';
 
   @override
   String get fwupdErrorInvalidFile => 'Ogiltigt filformat';
 
   @override
-  String get fwupdErrorNotFound => 'Ingen matchande enhet existerar';
+  String get fwupdErrorNotFound => 'Ingen matchande enhet finns';
 
   @override
   String get fwupdErrorNothingToDo => 'Ingenting att göra';
@@ -240,10 +240,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fwupdErrorSignatureInvalid => 'Signaturen var ogiltig';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'AC-ström krävdes';
+  String get fwupdErrorAcPowerRequired => 'Extern ström krävdes';
 
   @override
-  String get fwupdErrorPermissionDenied => 'Tillstånd nekades';
+  String get fwupdErrorPermissionDenied => 'Behörighet nekades';
 
   @override
   String get fwupdErrorBrokenSystem =>
@@ -258,7 +258,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get fwupdErrorAuthExpired =>
-      'Misslyckades att hämta autentisering eftersom användaruppgifterna har löpt ut';
+      'Misslyckades att få autentisering eftersom användaruppgifterna har löpt ut';
 
   @override
   String get fwupdErrorUnknown => 'Okänt fel';
@@ -270,10 +270,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fwupdStatusIdle => 'Overksam';
 
   @override
-  String get fwupdStatusLoading => 'Laddar en resurs';
+  String get fwupdStatusLoading => 'Läser in en resurs';
 
   @override
-  String get fwupdStatusDecompressing => 'Dekomprimerar fast programvara';
+  String get fwupdStatusDecompressing => 'Packar upp fast programvara';
 
   @override
   String get fwupdStatusDeviceRestart => 'Startar om enheten';
@@ -285,10 +285,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get fwupdStatusDeviceVerify => 'Verifierar (läser) en enhet';
 
   @override
-  String get fwupdStatusScheduling => 'Schemalägg en offlineuppdatering';
+  String get fwupdStatusScheduling => 'Schemalägg en frånkopplad uppdatering';
 
   @override
-  String get fwupdStatusDownloading => 'En fil laddas ned';
+  String get fwupdStatusDownloading => 'En fil hämtas ner';
 
   @override
   String get fwupdStatusDeviceRead => 'Läser från en enhet';
@@ -339,11 +339,11 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String reinstallConfirm(String name, String current) {
-    return 'Installera om <b>$name</b>version<b>$current</b>?';
+    return 'Installera om <b>$name</b> version <b>$current</b>?';
   }
 
   @override
-  String get showReleases => 'Visa släpp';
+  String get showReleases => 'Visa utgåvor';
 
   @override
   String get showUpdates => 'Visa uppdateringar';
@@ -364,7 +364,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get updateChecksumsInfo =>
-      'Detta kommer att registrera de aktuella kryptografiska hasharna som verifierade.';
+      'Detta kommer att registrera de aktuella kryptografiska kontrollsummorna som verifierade.';
 
   @override
   String get updateToLatest => 'Uppdatera till senaste';
@@ -382,14 +382,14 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Verifiera kontrollsummorr för fast programvara för $name?';
+    return 'Verifiera kontrollsummor för fast programvara för $name?';
   }
 
   @override
-  String get currentVersion => 'Nuvarande version';
+  String get currentVersion => 'Aktuell version';
 
   @override
-  String get minVersion => 'Minimal version';
+  String get minVersion => 'Lägsta version';
 
   @override
   String get latestVersion => 'Senaste version';

@@ -14,33 +14,33 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'თქვენი აღდგენის გასაღების გარეშე შეიძლება თქვენი მონაცემები სრულად დაკარგოთ';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'დარწმუნდით, რომ გაქვთ აღდგენის გასაღები ყველა თქვენი დაშიფრული დისკისთვის. შეიძლება დაგჭირდეთ, შეიყვანოთ ის ჩატვირთვისას მიკროკოდის განახლების შემდეგ.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'თქვენს კომპიუტერზე ჩართულია აპარატურით მხარდაჭერილი დაშიფვრა. შეიძლება, დაგჭირდეთ თქვენი აღდგენის გასაღების შეყვანა ჩატვირთვისას მიკროკოდის განახლების შემდეგ. დარწმუნდით, რომ ასევე გაქვთ აღდგენის გასაღები ყველა დანარჩენი დაშიფრული დისკისთვის, რომელიც კომპიუტერში გაქვთ.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'თქვენს კომპიუტერზე ჩართულია BitLocker. დარწმუნდით, რომ გაქვთ აღდგენის გასაღები ყველა თქვენი დაშიფრული დისკისთვის. მიკროკოდის განახლების შემდეგ, შეიძლება, მისი შეყვანა დაგჭირდეთ.';
 
   @override
   String get affectsFdeCheckbox =>
       'მე მაქვს აღდგენის გასაღებები ყველა ჩემი დაშიფრული დისკისთვის';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'შეიყვანეთ თქვენი აღდგენის გასაღები';
 
   @override
   String get affectsFdeLinkLabel => 'მეტის გაგება';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'აღდგენის გასაღები აღ მუშაობს. შეამოწმეთ ან შეცვალეთ ის უსაფრთხოების ცენტრში';
 
   @override
   String get allVersions => 'ყველა ვერსია';

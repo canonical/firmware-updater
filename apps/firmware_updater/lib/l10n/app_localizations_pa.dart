@@ -10,11 +10,11 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'You may lose all your data without recovery keys';
+      'ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਦੇ ਬਿਨਾਂ ਤੁਹਾਡਾ ਸਾਰਾ ਡਾਟਾ ਗੁੰਮ ਹੋ ਸਕਦਾ ਹੈ';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'ਤੁਹਾਡੀਆਂ ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਦੇ ਬਿਨਾਂ ਤੁਹਾਡਾ ਸਾਰਾ ਡਾਟਾ ਗੁੰਮ ਹੋ ਸਕਦਾ ਹੈ';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
@@ -33,46 +33,46 @@ class AppLocalizationsPa extends AppLocalizations {
       'I have recovery keys for all my encrypted drives';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'ਆਪਣੀ ਰਿਕਵਰੀ ਕੁੰਜੀ ਦਿਓ';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => 'ਹੋਰ ਜਾਣੋ';
 
   @override
   String get affectsFdeIncorrectKey =>
       'Recovery key does not work, check or replace it in the Security Center';
 
   @override
-  String get allVersions => 'All Versions';
+  String get allVersions => 'ਸਾਰੇ ਵਰਜ਼ਨ';
 
   @override
-  String get appTitle => 'Firmware Updater';
+  String get appTitle => 'ਫ਼ਿਰਮਵੇਅਰ ਅੱਪਡੇਟਰ';
 
   @override
   String get batteryWarning =>
       'Warning: some device updates may only be available on external power!';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'ਚੈਕ-ਸਮ';
 
   @override
-  String get close => 'Close';
+  String get close => 'ਬੰਦ ਕਰੋ';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'ਰੱਦ ਕਰੋ';
 
   @override
-  String get current => 'Current';
+  String get current => 'ਮੌਜੂਦਾ';
 
   @override
   String get deviceUnavailable =>
       'The device will be unavailable during this action.';
 
   @override
-  String get deviceRequest => 'Device request';
+  String get deviceRequest => 'ਡਿਵਾਈਸ ਬੇਨਤੀ';
 
   @override
-  String get downgrade => 'Downgrade';
+  String get downgrade => 'ਡਾਊਨਗਰੇਡ';
 
   @override
   String downgradeConfirm(String name, String version) {
@@ -83,42 +83,42 @@ class AppLocalizationsPa extends AppLocalizations {
   String get flags => 'Flags';
 
   @override
-  String get fwupdDeviceFlagInternal => 'Internal device';
+  String get fwupdDeviceFlagInternal => 'ਅੰਦਰੂਨੀ ਡਿਵਾਈਸ';
 
   @override
-  String get fwupdDeviceFlagUpdatable => 'Updatable';
+  String get fwupdDeviceFlagUpdatable => 'ਅੱਪਡੇਟ ਹੋਣ ਯੋਗ';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => 'Update requires a reboot';
+  String get fwupdDeviceFlagOnlyOffline => 'ਅੱਪਡੇਟ ਲਈ ਮੁੜ-ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ ਹੈ';
 
   @override
-  String get fwupdDeviceFlagRequireAc =>
-      'System requires external power source';
+  String get fwupdDeviceFlagRequireAc => 'ਸਿਸਟਮ ਨੂੰ ਬਾਹਰੀ ਪਾਵਰ ਸਰੋਤ ਚਾਹੀਦਾ ਹੈ';
 
   @override
-  String get fwupdDeviceFlagLocked => 'Device is locked';
+  String get fwupdDeviceFlagLocked => 'ਡਿਵਾਈਸ ਲਾਕ ਹੈ';
 
   @override
   String get fwupdDeviceFlagSupported => 'Supported on remote server';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => 'Requires a bootloader';
+  String get fwupdDeviceFlagNeedsBootloader => 'ਬੂਟਲੋਡਰ ਚਾਹੀਦਾ ਹੈ';
 
   @override
-  String get fwupdDeviceFlagRegistered => 'Registered';
+  String get fwupdDeviceFlagRegistered => 'ਰਜਿਸਟਰ ਹੈ';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => 'Needs a reboot after installation';
+  String get fwupdDeviceFlagNeedsReboot =>
+      'ਇੰਸਟਾਲੇਸ਼ਨ ਦੇ ਬਾਅਦ ਮੁੜ-ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ ਹੈ';
 
   @override
   String get fwupdDeviceFlagNeedsShutdown =>
-      'Needs shutdown after installation';
+      'ਇੰਸਟਾਲੇਸ਼ਨ ਦੇ ਬਾਅਦ ਬੰਦ ਕਰਨ ਦੀ ਲੋੜ ਹੈ';
 
   @override
   String get fwupdDeviceFlagReported => 'Reported to remote server';
 
   @override
-  String get fwupdDeviceFlagNotified => 'User has been notified';
+  String get fwupdDeviceFlagNotified => 'ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੂਚਿਤ ਕੀਤਾ ਗਿਆ ਹੈ';
 
   @override
   String get fwupdDeviceFlagInstallParentFirst =>
@@ -136,10 +136,11 @@ class AppLocalizationsPa extends AppLocalizations {
       'Ignore validation safety checks';
 
   @override
-  String get fwupdDeviceFlagTrusted => 'Trusted';
+  String get fwupdDeviceFlagTrusted => 'ਭਰੋਸੇਯੋਗ';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Device update needs activation';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'ਡਿਵਾਈਸ ਅੱਪਡੇਟ ਨੂੰ ਐਕਟੀਵੇਸ਼ਨ ਦੀ ਲੋੜ ਹੈ';
 
   @override
   String get fwupdDeviceFlagWillDisappear =>
@@ -150,7 +151,7 @@ class AppLocalizationsPa extends AppLocalizations {
       'Cryptographic hash verification is available';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Device stages updates';
+  String get fwupdDeviceFlagDualImage => 'ਡਿਵਾਈਸ ਨੇ ਅੱਪਡੇਟ ਸੈੱਟ ਕੀਤੇ';
 
   @override
   String get fwupdDeviceFlagSelfRecovery => 'Device can recover flash failures';

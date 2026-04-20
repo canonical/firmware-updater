@@ -14,33 +14,34 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Ohne Ihren Wiederherstellungsschlüssel können Sie alle Ihre Daten verlieren';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Stellen Sie sicher, dass Sie Wiederherstellungsschlüssel für alle verschlüsselten Festplatten haben. Möglicherweise müssen Sie diese nach der Aktualisierung der Firmware beim Booten eingeben.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'Die hardwarebasierte Verschlüsselung ist auf Ihrem Computer aktiviert. Möglicherweise müssen Sie nach der Aktualisierung der Firmware beim Booten Ihren Wiederherstellungsschlüssel eingeben. Stellen Sie sicher, dass Sie auch Wiederherstellungsschlüssel für alle anderen verschlüsselten Festplatten auf diesem Computer haben.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker ist auf Ihrem Computer aktiviert. Stellen Sie sicher, dass Sie über Wiederherstellungsschlüssel für alle verschlüsselten Festplatten verfügen. Möglicherweise müssen Sie diese nach der Aktualisierung der Firmware beim Booten eingeben.';
 
   @override
   String get affectsFdeCheckbox =>
       'Ich habe Wiederherstellungsschlüssel für alle meine verschlüsselten Laufwerke';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel =>
+      'Geben Sie Ihren Wiederherstellungsschlüssel ein';
 
   @override
   String get affectsFdeLinkLabel => 'Mehr erfahren';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Der Wiederherstellungsschlüssel funktioniert nicht, überprüfen oder ersetzen Sie ihn im Sicherheitszentrum';
 
   @override
   String get allVersions => 'Alle Versionen';
