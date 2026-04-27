@@ -35,5 +35,126 @@
     "affectsFdeIncorrectKey": "La chiave di ripristino non funziona, controllala o cambiala nel Centro per la Sicurezza",
     "affectsFdeWarningUbuntuFdeBody": "La criptazione a livello hardware è abilitata nel tuo computer. Potresti dover inserire la tua chiave di ripristino all'avvio dopo un aggiornamento del firmware. Assicurati di avere anche le chiavi di ripristino per ogni altro disco criptato dentro questo computer.",
     "affectsFdeWarningBitlockerBody": "Bitlocker è abilitato nel tuo computer. Assicurati di avere anche le chiavi di ripristino per tutti i tuoi dischi criptati. Potresti doverle inserire all'avvio dopo un aggiornamento del firmware.",
-    "affectsFdeCheckbox": "Ho le chiavi di ripristino per tutti i miei dischi criptati"
+    "affectsFdeCheckbox": "Ho le chiavi di ripristino per tutti i miei dischi criptati",
+    "downgrade": "Ripristina",
+    "downgradeConfirm": "Ripristinare <b>{name}</b> alla versione <b>{version}</b>?",
+    "@downgradeConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "fwupdDeviceFlagTrusted": "Affidabile",
+    "fwupdDeviceFlagNeedsActivation": "L’aggiornamento del dispositivo richiede l’attivazione",
+    "fwupdDeviceFlagWillDisappear": "Il dispositivo non comparirà più dopo il completamento dell’aggiornamento",
+    "fwupdDeviceFlagCanVerify": "È disponibile la verifica con hash crittografico",
+    "fwupdDeviceFlagSelfRecovery": "Il dispositivo può recuperare se l’operazione di flash fallisce",
+    "fwupdDeviceFlagUsableDuringUpdate": "Il dispositivo è utilizzabile durante l’aggiornamento",
+    "fwupdDeviceFlagVersionCheckRequired": "Il firmware del dispositivo deve effettuare una verifica della versione",
+    "fwupdDeviceFlagInstallAllReleases": "Si richiede che il dispositivo installi tutte i rilasci forniti",
+    "fwupdDeviceFlagHasMultipleBranches": "Il dispositivo supporta il salto a un differente branch del firmware",
+    "fwupdDeviceFlagBackupBeforeInstall": "Il dispositivo effettuerà un backup del firmware prima dell’installazione",
+    "fwupdDeviceFlagWildcardInstall": "Tutti i dispositivi dello stesso tipo verranno aggiornanti contemporaneamente",
+    "fwupdDeviceFlagOnlyVersionUpgrade": "Sono ammessi solo aggiornamenti della versione",
+    "fwupdDeviceFlagUnreachable": "Impossibile accedere al dispositivo",
+    "fwupdDeviceFlagAffectsFde": "I secreti della cifratura completa del disco potrebbero andare perduti in caso di aggiornamento",
+    "fwupdDeviceFlagEndOfLife": "Fine del ciclo di vita",
+    "fwupdDeviceFlagSignedPayload": "Payload firmato",
+    "fwupdDeviceFlagUnsignedPayload": "Payload non firmato",
+    "fwupdErrorInternal": "Errore interno",
+    "fwupdErrorVersionNewer": "Installata versione più recente del firmware",
+    "fwupdErrorVersionSame": "Installata la stessa versione del firmware",
+    "fwupdErrorAlreadyPending": "Già impostato per essere installato senza connessione",
+    "fwupdErrorAuthFailed": "Impossibile ottenere l’autenticazione",
+    "fwupdErrorRead": "Impossibile leggere dal dispositivo",
+    "fwupdErrorWrite": "Impossibile scrivere sul dispositivo",
+    "fwupdErrorInvalidFile": "Formato del file non valido",
+    "fwupdErrorNotFound": "Nessun dispositivo corrispondente",
+    "fwupdErrorNothingToDo": "Niente da fare",
+    "fwupdErrorNotSupported": "L’azione non era possibile",
+    "fwupdErrorSignatureInvalid": "La firma non era valida",
+    "fwupdErrorAcPowerRequired": "Era richiesta l’alimentazione di rete",
+    "fwupdErrorPermissionDenied": "L’autorizzazione è stata rifiutata",
+    "fwupdErrorBrokenSystem": "L’utente ha configurato il suo sistema in una maniera errata",
+    "fwupdErrorBatteryLevelTooLow": "Il livello della batteria di sistema era troppo basso",
+    "fwupdErrorNeedsUserAction": "L’utente deve effettuare un’operazione per completare l’aggiornamento",
+    "fwupdErrorAuthExpired": "Impossibile ottenere l’autorizzazione perché le credenziali sono scadute",
+    "fwupdErrorUnknown": "Errore sconosciuto",
+    "fwupdStatusUnknown": "Stato sconosciuto",
+    "fwupdStatusIdle": "Inattivo",
+    "fwupdStatusLoading": "Caricamento di una risorsa",
+    "fwupdStatusDecompressing": "Decompressione del firmware",
+    "fwupdStatusDeviceRestart": "Riavvio del dispositivo",
+    "fwupdStatusDeviceWrite": "Scrittura su un dispositivo",
+    "fwupdStatusDeviceVerify": "Verifica (lettura) di un dispositivo",
+    "fwupdStatusScheduling": "Pianificazione di un aggiornamento senza connessione",
+    "fwupdStatusDownloading": "Scaricamento di un file",
+    "fwupdStatusDeviceRead": "Lettura da un dispositivo",
+    "fwupdStatusDeviceErase": "Cancellazione di un dispositivo",
+    "fwupdStatusWaitingForAuth": "In attesa dell’autenticazione",
+    "fwupdStatusDeviceBusy": "Il dispositivo è occupato",
+    "fwupdStatusShutdown": "Il servizio si sta spegnendo",
+    "guid": "GUID",
+    "installError": "Installazione del firmware fallita!",
+    "noDevicesFound": "Impossibile trovare un dispositivo",
+    "olderVersions": "Versioni precedenti",
+    "rebootLater": "Riavvia più tardi",
+    "rebootNow": "Riavvia adesso",
+    "rebootConfirmMessage": "Devi riavviare il tuo dispositivo per completare l’aggiornamento. Assicurati che il tuo dispositivo sia collegato alla rete elettrica o abbia la batteria carica. Per evitare eventuali perdite di dati, salva i tuoi file prima del riavvio.",
+    "rebootConfirmTitle": "Riavvia per completare questo aggiornamento",
+    "reinstall": "Installa di nuovo",
+    "reinstallConfirm": "Installare di nuovo la <b>{name}</b> versione <b>{current}</b>?",
+    "@reinstallConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "current": {
+                "type": "String"
+            }
+        }
+    },
+    "showReleases": "Mostra le versioni",
+    "showUpdates": "Mostra gli aggiornamenti",
+    "update": "Aggiorna",
+    "updateAvailable": "Aggiornamento disponibile",
+    "updateChecksums": "Aggiorna i checksum",
+    "updateChecksumsConfirm": "Aggiornare i checksum del dispositivo <b>{name}</b>?",
+    "@updateChecksumsConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "updateChecksumsInfo": "Ciò imposterà gli has cifrati correnti come verificati.",
+    "updateToLatest": "Aggiorna alla versione più recente",
+    "updateConfirm": "Aggiornare <b>{name}</b> alla versione <b>{version}</b>?",
+    "@updateConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "vendor": "Produttore",
+    "verifyFirmware": "Verifica firmware",
+    "verifyFirmwareConfirm": "Verificare i checksum del firmware di {name}?",
+    "@verifyFirmwareConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "currentVersion": "Versione corrente",
+    "minVersion": "Versione minima",
+    "latestVersion": "Ultima versione"
 }
