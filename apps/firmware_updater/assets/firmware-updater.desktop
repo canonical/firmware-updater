@@ -52,5 +52,6 @@ Keywords=firmware;
 #use sh because pkexec is broken under xfce/lxce http://pad.lv/1193526
 Exec=firmware-updater
 Icon=system-component-firmware
+StartupWMClass=firmware-updater
 Terminal=false
 Categories=System;
