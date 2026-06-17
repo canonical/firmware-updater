@@ -509,10 +509,10 @@ packages:
     dependency: "direct dev"
     description:
       name: ubuntu_lints
-      sha256: "2cbde874ed60cc81cd07bbcca89e3c4b976b23bedcc869a0b55e19d1e8fde491"
+      sha256: "423ae7d5d91097acf4b91e544f76ddabc52cf7cf9b9b0ca142ef4f7e4f726836"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.1+1"
+    version: "0.4.2"
   vm_service:
     dependency: transitive
     description:

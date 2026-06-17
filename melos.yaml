@@ -11,7 +11,7 @@ command:
       flutter: '>=3.44.2'
 
     dev_dependencies:
-      ubuntu_lints: ^0.4.1
+      ubuntu_lints: ^0.4.2
 
 scripts:
   # build all apps
