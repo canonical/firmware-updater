@@ -34,24 +34,14 @@ import 'package:udisks/udisks.dart' as _i14;
 // ignore_for_file: subtype_of_sealed_class
 
 class _FakeFwupdDevice_0 extends _i1.SmartFake implements _i2.FwupdDevice {
-  _FakeFwupdDevice_0(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeFwupdDevice_0(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapdSystemInfoResponse_1 extends _i1.SmartFake
     implements _i3.SnapdSystemInfoResponse {
-  _FakeSnapdSystemInfoResponse_1(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeSnapdSystemInfoResponse_1(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapdStorageEncryptedResponse_2 extends _i1.SmartFake
@@ -59,94 +49,51 @@ class _FakeSnapdStorageEncryptedResponse_2 extends _i1.SmartFake
   _FakeSnapdStorageEncryptedResponse_2(
     Object parent,
     Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  ) : super(parent, parentInvocation);
 }
 
 class _FakeSnap_3 extends _i1.SmartFake implements _i3.Snap {
-  _FakeSnap_3(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeSnap_3(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapIcon_4 extends _i1.SmartFake implements _i3.SnapIcon {
-  _FakeSnapIcon_4(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeSnapIcon_4(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapdConnectionsResponse_5 extends _i1.SmartFake
     implements _i3.SnapdConnectionsResponse {
-  _FakeSnapdConnectionsResponse_5(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeSnapdConnectionsResponse_5(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapdLoginResponse_6 extends _i1.SmartFake
     implements _i3.SnapdLoginResponse {
-  _FakeSnapdLoginResponse_6(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeSnapdLoginResponse_6(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapdChange_7 extends _i1.SmartFake implements _i3.SnapdChange {
-  _FakeSnapdChange_7(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeSnapdChange_7(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapdRule_8 extends _i1.SmartFake implements _i3.SnapdRule {
-  _FakeSnapdRule_8(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeSnapdRule_8(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapdSystemVolumesResponse_9 extends _i1.SmartFake
     implements _i3.SnapdSystemVolumesResponse {
-  _FakeSnapdSystemVolumesResponse_9(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeSnapdSystemVolumesResponse_9(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapdEntropyResponse_10 extends _i1.SmartFake
     implements _i3.SnapdEntropyResponse {
-  _FakeSnapdEntropyResponse_10(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeSnapdEntropyResponse_10(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 class _FakeSnapdGenerateRecoveryKeyResponse_11 extends _i1.SmartFake
@@ -154,21 +101,13 @@ class _FakeSnapdGenerateRecoveryKeyResponse_11 extends _i1.SmartFake
   _FakeSnapdGenerateRecoveryKeyResponse_11(
     Object parent,
     Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  ) : super(parent, parentInvocation);
 }
 
 class _FakeUnmodifiableMapView_12<K, V> extends _i1.SmartFake
     implements _i4.UnmodifiableMapView<K, V> {
-  _FakeUnmodifiableMapView_12(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeUnmodifiableMapView_12(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 /// A class which mocks [DeviceModel].
@@ -180,130 +119,112 @@ class MockDeviceModel extends _i1.Mock implements _i5.DeviceModel {
   }
 
   @override
-  bool get testDeviceAffectsFde => (super.noSuchMethod(
-        Invocation.getter(#testDeviceAffectsFde),
-        returnValue: false,
-      ) as bool);
+  bool get testDeviceAffectsFde =>
+      (super.noSuchMethod(
+            Invocation.getter(#testDeviceAffectsFde),
+            returnValue: false,
+          )
+          as bool);
 
   @override
-  _i2.FwupdDevice get device => (super.noSuchMethod(
-        Invocation.getter(#device),
-        returnValue: _FakeFwupdDevice_0(
-          this,
-          Invocation.getter(#device),
-        ),
-      ) as _i2.FwupdDevice);
+  _i2.FwupdDevice get device =>
+      (super.noSuchMethod(
+            Invocation.getter(#device),
+            returnValue: _FakeFwupdDevice_0(this, Invocation.getter(#device)),
+          )
+          as _i2.FwupdDevice);
 
   @override
-  bool get hasUpgrade => (super.noSuchMethod(
-        Invocation.getter(#hasUpgrade),
-        returnValue: false,
-      ) as bool);
+  bool get hasUpgrade =>
+      (super.noSuchMethod(Invocation.getter(#hasUpgrade), returnValue: false)
+          as bool);
 
   @override
-  bool get onBattery => (super.noSuchMethod(
-        Invocation.getter(#onBattery),
-        returnValue: false,
-      ) as bool);
+  bool get onBattery =>
+      (super.noSuchMethod(Invocation.getter(#onBattery), returnValue: false)
+          as bool);
 
   @override
-  bool get hasListeners => (super.noSuchMethod(
-        Invocation.getter(#hasListeners),
-        returnValue: false,
-      ) as bool);
+  bool get hasListeners =>
+      (super.noSuchMethod(Invocation.getter(#hasListeners), returnValue: false)
+          as bool);
 
   @override
-  bool get isDisposed => (super.noSuchMethod(
-        Invocation.getter(#isDisposed),
-        returnValue: false,
-      ) as bool);
+  bool get isDisposed =>
+      (super.noSuchMethod(Invocation.getter(#isDisposed), returnValue: false)
+          as bool);
 
   @override
-  _i6.Future<void> dispose() => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> dispose() =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> init() => (super.noSuchMethod(
-        Invocation.method(
-          #init,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> init() =>
+      (super.noSuchMethod(
+            Invocation.method(#init, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> install(_i2.FwupdRelease? release) => (super.noSuchMethod(
-        Invocation.method(
-          #install,
-          [release],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> install(_i2.FwupdRelease? release) =>
+      (super.noSuchMethod(
+            Invocation.method(#install, [release]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> update(_i2.FwupdDevice? device) => (super.noSuchMethod(
-        Invocation.method(
-          #update,
-          [device],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> update(_i2.FwupdDevice? device) =>
+      (super.noSuchMethod(
+            Invocation.method(#update, [device]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> verify() => (super.noSuchMethod(
-        Invocation.method(
-          #verify,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> verify() =>
+      (super.noSuchMethod(
+            Invocation.method(#verify, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> verifyUpdate() => (super.noSuchMethod(
-        Invocation.method(
-          #verifyUpdate,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> verifyUpdate() =>
+      (super.noSuchMethod(
+            Invocation.method(#verifyUpdate, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #addListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#addListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #removeListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#removeListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void notifyListeners() => super.noSuchMethod(
-        Invocation.method(
-          #notifyListeners,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#notifyListeners, []),
+    returnValueForMissingStub: null,
+  );
 }
 
 /// A class which mocks [FwupdNotifier].
@@ -315,132 +236,111 @@ class MockFwupdNotifier extends _i1.Mock implements _i8.FwupdNotifier {
   }
 
   @override
-  _i2.FwupdStatus get status => (super.noSuchMethod(
-        Invocation.getter(#status),
-        returnValue: _i2.FwupdStatus.unknown,
-      ) as _i2.FwupdStatus);
+  _i2.FwupdStatus get status =>
+      (super.noSuchMethod(
+            Invocation.getter(#status),
+            returnValue: _i2.FwupdStatus.unknown,
+          )
+          as _i2.FwupdStatus);
 
   @override
-  int get percentage => (super.noSuchMethod(
-        Invocation.getter(#percentage),
-        returnValue: 0,
-      ) as int);
+  int get percentage =>
+      (super.noSuchMethod(Invocation.getter(#percentage), returnValue: 0)
+          as int);
 
   @override
-  String get version => (super.noSuchMethod(
-        Invocation.getter(#version),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#version),
-        ),
-      ) as String);
+  String get version =>
+      (super.noSuchMethod(
+            Invocation.getter(#version),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#version),
+            ),
+          )
+          as String);
 
   @override
-  bool get onBattery => (super.noSuchMethod(
-        Invocation.getter(#onBattery),
-        returnValue: false,
-      ) as bool);
+  bool get onBattery =>
+      (super.noSuchMethod(Invocation.getter(#onBattery), returnValue: false)
+          as bool);
 
   @override
-  bool get hasListeners => (super.noSuchMethod(
-        Invocation.getter(#hasListeners),
-        returnValue: false,
-      ) as bool);
+  bool get hasListeners =>
+      (super.noSuchMethod(Invocation.getter(#hasListeners), returnValue: false)
+          as bool);
 
   @override
-  bool get isDisposed => (super.noSuchMethod(
-        Invocation.getter(#isDisposed),
-        returnValue: false,
-      ) as bool);
+  bool get isDisposed =>
+      (super.noSuchMethod(Invocation.getter(#isDisposed), returnValue: false)
+          as bool);
 
   @override
-  _i6.Future<void> init() => (super.noSuchMethod(
-        Invocation.method(
-          #init,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> init() =>
+      (super.noSuchMethod(
+            Invocation.method(#init, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   void registerErrorListener(dynamic Function(Exception)? errorListener) =>
       super.noSuchMethod(
-        Invocation.method(
-          #registerErrorListener,
-          [errorListener],
-        ),
+        Invocation.method(#registerErrorListener, [errorListener]),
         returnValueForMissingStub: null,
       );
 
   @override
   void registerConfirmationListener(
-          _i6.Future<bool> Function()? confirmationListener) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #registerConfirmationListener,
-          [confirmationListener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    _i6.Future<bool> Function()? confirmationListener,
+  ) => super.noSuchMethod(
+    Invocation.method(#registerConfirmationListener, [confirmationListener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void registerDeviceRequestListener(
-          dynamic Function(_i2.FwupdDevice)? deviceRequestListener) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #registerDeviceRequestListener,
-          [deviceRequestListener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    dynamic Function(_i2.FwupdDevice)? deviceRequestListener,
+  ) => super.noSuchMethod(
+    Invocation.method(#registerDeviceRequestListener, [deviceRequestListener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  _i6.Future<void> refresh() => (super.noSuchMethod(
-        Invocation.method(
-          #refresh,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> refresh() =>
+      (super.noSuchMethod(
+            Invocation.method(#refresh, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> dispose() => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> dispose() =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #addListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#addListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #removeListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#removeListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void notifyListeners() => super.noSuchMethod(
-        Invocation.method(
-          #notifyListeners,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#notifyListeners, []),
+    returnValueForMissingStub: null,
+  );
 }
 
 /// A class which mocks [FwupdDbusService].
@@ -452,173 +352,180 @@ class MockFwupdDbusService extends _i1.Mock implements _i10.FwupdDbusService {
   }
 
   @override
-  String get daemonVersion => (super.noSuchMethod(
-        Invocation.getter(#daemonVersion),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#daemonVersion),
-        ),
-      ) as String);
+  String get daemonVersion =>
+      (super.noSuchMethod(
+            Invocation.getter(#daemonVersion),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#daemonVersion),
+            ),
+          )
+          as String);
 
   @override
-  _i6.Stream<_i2.FwupdDevice> get deviceAdded => (super.noSuchMethod(
-        Invocation.getter(#deviceAdded),
-        returnValue: _i6.Stream<_i2.FwupdDevice>.empty(),
-      ) as _i6.Stream<_i2.FwupdDevice>);
+  _i6.Stream<_i2.FwupdDevice> get deviceAdded =>
+      (super.noSuchMethod(
+            Invocation.getter(#deviceAdded),
+            returnValue: _i6.Stream<_i2.FwupdDevice>.empty(),
+          )
+          as _i6.Stream<_i2.FwupdDevice>);
 
   @override
-  _i6.Stream<_i2.FwupdDevice> get deviceChanged => (super.noSuchMethod(
-        Invocation.getter(#deviceChanged),
-        returnValue: _i6.Stream<_i2.FwupdDevice>.empty(),
-      ) as _i6.Stream<_i2.FwupdDevice>);
+  _i6.Stream<_i2.FwupdDevice> get deviceChanged =>
+      (super.noSuchMethod(
+            Invocation.getter(#deviceChanged),
+            returnValue: _i6.Stream<_i2.FwupdDevice>.empty(),
+          )
+          as _i6.Stream<_i2.FwupdDevice>);
 
   @override
-  _i6.Stream<_i2.FwupdDevice> get deviceRemoved => (super.noSuchMethod(
-        Invocation.getter(#deviceRemoved),
-        returnValue: _i6.Stream<_i2.FwupdDevice>.empty(),
-      ) as _i6.Stream<_i2.FwupdDevice>);
+  _i6.Stream<_i2.FwupdDevice> get deviceRemoved =>
+      (super.noSuchMethod(
+            Invocation.getter(#deviceRemoved),
+            returnValue: _i6.Stream<_i2.FwupdDevice>.empty(),
+          )
+          as _i6.Stream<_i2.FwupdDevice>);
 
   @override
-  _i6.Stream<_i2.FwupdDevice> get deviceRequest => (super.noSuchMethod(
-        Invocation.getter(#deviceRequest),
-        returnValue: _i6.Stream<_i2.FwupdDevice>.empty(),
-      ) as _i6.Stream<_i2.FwupdDevice>);
+  _i6.Stream<_i2.FwupdDevice> get deviceRequest =>
+      (super.noSuchMethod(
+            Invocation.getter(#deviceRequest),
+            returnValue: _i6.Stream<_i2.FwupdDevice>.empty(),
+          )
+          as _i6.Stream<_i2.FwupdDevice>);
 
   @override
-  bool get onBattery => (super.noSuchMethod(
-        Invocation.getter(#onBattery),
-        returnValue: false,
-      ) as bool);
+  bool get onBattery =>
+      (super.noSuchMethod(Invocation.getter(#onBattery), returnValue: false)
+          as bool);
 
   @override
-  int get percentage => (super.noSuchMethod(
-        Invocation.getter(#percentage),
-        returnValue: 0,
-      ) as int);
+  int get percentage =>
+      (super.noSuchMethod(Invocation.getter(#percentage), returnValue: 0)
+          as int);
 
   @override
-  _i6.Stream<List<String>> get propertiesChanged => (super.noSuchMethod(
-        Invocation.getter(#propertiesChanged),
-        returnValue: _i6.Stream<List<String>>.empty(),
-      ) as _i6.Stream<List<String>>);
+  _i6.Stream<List<String>> get propertiesChanged =>
+      (super.noSuchMethod(
+            Invocation.getter(#propertiesChanged),
+            returnValue: _i6.Stream<List<String>>.empty(),
+          )
+          as _i6.Stream<List<String>>);
 
   @override
-  _i2.FwupdStatus get status => (super.noSuchMethod(
-        Invocation.getter(#status),
-        returnValue: _i2.FwupdStatus.unknown,
-      ) as _i2.FwupdStatus);
+  _i2.FwupdStatus get status =>
+      (super.noSuchMethod(
+            Invocation.getter(#status),
+            returnValue: _i2.FwupdStatus.unknown,
+          )
+          as _i2.FwupdStatus);
 
   @override
-  String get userAgent => (super.noSuchMethod(
-        Invocation.getter(#userAgent),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#userAgent),
-        ),
-      ) as String);
+  String get userAgent =>
+      (super.noSuchMethod(
+            Invocation.getter(#userAgent),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#userAgent),
+            ),
+          )
+          as String);
 
   @override
-  _i6.Future<void> activate(_i2.FwupdDevice? device) => (super.noSuchMethod(
-        Invocation.method(
-          #activate,
-          [device],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> activate(_i2.FwupdDevice? device) =>
+      (super.noSuchMethod(
+            Invocation.method(#activate, [device]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> clearResults(_i2.FwupdDevice? device) => (super.noSuchMethod(
-        Invocation.method(
-          #clearResults,
-          [device],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> clearResults(_i2.FwupdDevice? device) =>
+      (super.noSuchMethod(
+            Invocation.method(#clearResults, [device]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> dispose() => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> dispose() =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<List<_i2.FwupdDevice>> getDevices() => (super.noSuchMethod(
-        Invocation.method(
-          #getDevices,
-          [],
-        ),
-        returnValue:
-            _i6.Future<List<_i2.FwupdDevice>>.value(<_i2.FwupdDevice>[]),
-      ) as _i6.Future<List<_i2.FwupdDevice>>);
+  _i6.Future<List<_i2.FwupdDevice>> getDevices() =>
+      (super.noSuchMethod(
+            Invocation.method(#getDevices, []),
+            returnValue: _i6.Future<List<_i2.FwupdDevice>>.value(
+              <_i2.FwupdDevice>[],
+            ),
+          )
+          as _i6.Future<List<_i2.FwupdDevice>>);
 
   @override
   _i6.Future<List<_i2.FwupdRelease>> getDowngrades(_i2.FwupdDevice? device) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getDowngrades,
-          [device],
-        ),
-        returnValue:
-            _i6.Future<List<_i2.FwupdRelease>>.value(<_i2.FwupdRelease>[]),
-      ) as _i6.Future<List<_i2.FwupdRelease>>);
+            Invocation.method(#getDowngrades, [device]),
+            returnValue: _i6.Future<List<_i2.FwupdRelease>>.value(
+              <_i2.FwupdRelease>[],
+            ),
+          )
+          as _i6.Future<List<_i2.FwupdRelease>>);
 
   @override
-  _i6.Future<List<_i2.FwupdPlugin>> getPlugins() => (super.noSuchMethod(
-        Invocation.method(
-          #getPlugins,
-          [],
-        ),
-        returnValue:
-            _i6.Future<List<_i2.FwupdPlugin>>.value(<_i2.FwupdPlugin>[]),
-      ) as _i6.Future<List<_i2.FwupdPlugin>>);
+  _i6.Future<List<_i2.FwupdPlugin>> getPlugins() =>
+      (super.noSuchMethod(
+            Invocation.method(#getPlugins, []),
+            returnValue: _i6.Future<List<_i2.FwupdPlugin>>.value(
+              <_i2.FwupdPlugin>[],
+            ),
+          )
+          as _i6.Future<List<_i2.FwupdPlugin>>);
 
   @override
   _i6.Future<List<_i2.FwupdRelease>> getReleases(_i2.FwupdDevice? device) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getReleases,
-          [device],
-        ),
-        returnValue:
-            _i6.Future<List<_i2.FwupdRelease>>.value(<_i2.FwupdRelease>[]),
-      ) as _i6.Future<List<_i2.FwupdRelease>>);
+            Invocation.method(#getReleases, [device]),
+            returnValue: _i6.Future<List<_i2.FwupdRelease>>.value(
+              <_i2.FwupdRelease>[],
+            ),
+          )
+          as _i6.Future<List<_i2.FwupdRelease>>);
 
   @override
-  _i6.Future<List<_i2.FwupdRemote>> getRemotes() => (super.noSuchMethod(
-        Invocation.method(
-          #getRemotes,
-          [],
-        ),
-        returnValue:
-            _i6.Future<List<_i2.FwupdRemote>>.value(<_i2.FwupdRemote>[]),
-      ) as _i6.Future<List<_i2.FwupdRemote>>);
+  _i6.Future<List<_i2.FwupdRemote>> getRemotes() =>
+      (super.noSuchMethod(
+            Invocation.method(#getRemotes, []),
+            returnValue: _i6.Future<List<_i2.FwupdRemote>>.value(
+              <_i2.FwupdRemote>[],
+            ),
+          )
+          as _i6.Future<List<_i2.FwupdRemote>>);
 
   @override
   _i6.Future<List<_i2.FwupdRelease>> getUpgrades(_i2.FwupdDevice? device) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getUpgrades,
-          [device],
-        ),
-        returnValue:
-            _i6.Future<List<_i2.FwupdRelease>>.value(<_i2.FwupdRelease>[]),
-      ) as _i6.Future<List<_i2.FwupdRelease>>);
+            Invocation.method(#getUpgrades, [device]),
+            returnValue: _i6.Future<List<_i2.FwupdRelease>>.value(
+              <_i2.FwupdRelease>[],
+            ),
+          )
+          as _i6.Future<List<_i2.FwupdRelease>>);
 
   @override
-  _i6.Future<void> init() => (super.noSuchMethod(
-        Invocation.method(
-          #init,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> init() =>
+      (super.noSuchMethod(
+            Invocation.method(#init, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   _i6.Future<void> install(
@@ -627,88 +534,75 @@ class MockFwupdDbusService extends _i1.Mock implements _i10.FwupdDbusService {
     _i11.ResourceHandle Function(_i11.RandomAccessFile)? resourceHandleFromFile,
   ]) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #install,
-          [
-            device,
-            release,
-            resourceHandleFromFile,
-          ],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+            Invocation.method(#install, [
+              device,
+              release,
+              resourceHandleFromFile,
+            ]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> reboot() => (super.noSuchMethod(
-        Invocation.method(
-          #reboot,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> reboot() =>
+      (super.noSuchMethod(
+            Invocation.method(#reboot, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> refreshProperties() => (super.noSuchMethod(
-        Invocation.method(
-          #refreshProperties,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> refreshProperties() =>
+      (super.noSuchMethod(
+            Invocation.method(#refreshProperties, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   void registerConfirmationListener(
-          _i6.Future<bool> Function()? confirmationListener) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #registerConfirmationListener,
-          [confirmationListener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    _i6.Future<bool> Function()? confirmationListener,
+  ) => super.noSuchMethod(
+    Invocation.method(#registerConfirmationListener, [confirmationListener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void registerErrorListener(dynamic Function(Exception)? errorListener) =>
       super.noSuchMethod(
-        Invocation.method(
-          #registerErrorListener,
-          [errorListener],
-        ),
+        Invocation.method(#registerErrorListener, [errorListener]),
         returnValueForMissingStub: null,
       );
 
   @override
-  _i6.Future<void> unlock(_i2.FwupdDevice? device) => (super.noSuchMethod(
-        Invocation.method(
-          #unlock,
-          [device],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> unlock(_i2.FwupdDevice? device) =>
+      (super.noSuchMethod(
+            Invocation.method(#unlock, [device]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> verify(_i2.FwupdDevice? device) => (super.noSuchMethod(
-        Invocation.method(
-          #verify,
-          [device],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> verify(_i2.FwupdDevice? device) =>
+      (super.noSuchMethod(
+            Invocation.method(#verify, [device]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> verifyUpdate(_i2.FwupdDevice? device) => (super.noSuchMethod(
-        Invocation.method(
-          #verifyUpdate,
-          [device],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> verifyUpdate(_i2.FwupdDevice? device) =>
+      (super.noSuchMethod(
+            Invocation.method(#verifyUpdate, [device]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 }
 
 /// A class which mocks [DeviceStore].
@@ -720,103 +614,86 @@ class MockDeviceStore extends _i1.Mock implements _i12.DeviceStore {
   }
 
   @override
-  List<_i2.FwupdDevice> get devices => (super.noSuchMethod(
-        Invocation.getter(#devices),
-        returnValue: <_i2.FwupdDevice>[],
-      ) as List<_i2.FwupdDevice>);
+  List<_i2.FwupdDevice> get devices =>
+      (super.noSuchMethod(
+            Invocation.getter(#devices),
+            returnValue: <_i2.FwupdDevice>[],
+          )
+          as List<_i2.FwupdDevice>);
 
   @override
-  bool get showReleases => (super.noSuchMethod(
-        Invocation.getter(#showReleases),
-        returnValue: false,
-      ) as bool);
+  bool get showReleases =>
+      (super.noSuchMethod(Invocation.getter(#showReleases), returnValue: false)
+          as bool);
 
   @override
   set showReleases(bool? value) => super.noSuchMethod(
-        Invocation.setter(
-          #showReleases,
-          value,
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.setter(#showReleases, value),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  bool get hasListeners => (super.noSuchMethod(
-        Invocation.getter(#hasListeners),
-        returnValue: false,
-      ) as bool);
+  bool get hasListeners =>
+      (super.noSuchMethod(Invocation.getter(#hasListeners), returnValue: false)
+          as bool);
 
   @override
-  bool get isDisposed => (super.noSuchMethod(
-        Invocation.getter(#isDisposed),
-        returnValue: false,
-      ) as bool);
+  bool get isDisposed =>
+      (super.noSuchMethod(Invocation.getter(#isDisposed), returnValue: false)
+          as bool);
 
   @override
-  _i6.Future<void> dispose() => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> dispose() =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  int indexOf(String? deviceId) => (super.noSuchMethod(
-        Invocation.method(
-          #indexOf,
-          [deviceId],
-        ),
-        returnValue: 0,
-      ) as int);
+  int indexOf(String? deviceId) =>
+      (super.noSuchMethod(
+            Invocation.method(#indexOf, [deviceId]),
+            returnValue: 0,
+          )
+          as int);
 
   @override
-  _i6.Future<void> init() => (super.noSuchMethod(
-        Invocation.method(
-          #init,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> init() =>
+      (super.noSuchMethod(
+            Invocation.method(#init, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> refresh() => (super.noSuchMethod(
-        Invocation.method(
-          #refresh,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> refresh() =>
+      (super.noSuchMethod(
+            Invocation.method(#refresh, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   void addListener(_i7.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #addListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#addListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void removeListener(_i7.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #removeListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#removeListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void notifyListeners() => super.noSuchMethod(
-        Invocation.method(
-          #notifyListeners,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#notifyListeners, []),
+    returnValueForMissingStub: null,
+  );
 }
 
 /// A class which mocks [RecoveryKeyModel].
@@ -828,25 +705,22 @@ class MockRecoveryKeyModel extends _i1.Mock implements _i13.RecoveryKeyModel {
   }
 
   @override
-  bool get hasUbuntuFde => (super.noSuchMethod(
-        Invocation.getter(#hasUbuntuFde),
-        returnValue: false,
-      ) as bool);
+  bool get hasUbuntuFde =>
+      (super.noSuchMethod(Invocation.getter(#hasUbuntuFde), returnValue: false)
+          as bool);
 
   @override
-  bool get hasBitlocker => (super.noSuchMethod(
-        Invocation.getter(#hasBitlocker),
-        returnValue: false,
-      ) as bool);
+  bool get hasBitlocker =>
+      (super.noSuchMethod(Invocation.getter(#hasBitlocker), returnValue: false)
+          as bool);
 
   @override
-  _i6.Future<bool> checkRecoveryKey(String? recoveryKey) => (super.noSuchMethod(
-        Invocation.method(
-          #checkRecoveryKey,
-          [recoveryKey],
-        ),
-        returnValue: _i6.Future<bool>.value(false),
-      ) as _i6.Future<bool>);
+  _i6.Future<bool> checkRecoveryKey(String? recoveryKey) =>
+      (super.noSuchMethod(
+            Invocation.method(#checkRecoveryKey, [recoveryKey]),
+            returnValue: _i6.Future<bool>.value(false),
+          )
+          as _i6.Future<bool>);
 }
 
 /// A class which mocks [RecoveryKeyService].
@@ -859,45 +733,40 @@ class MockRecoveryKeyService extends _i1.Mock
   }
 
   @override
-  bool get hasBitlocker => (super.noSuchMethod(
-        Invocation.getter(#hasBitlocker),
-        returnValue: false,
-      ) as bool);
+  bool get hasBitlocker =>
+      (super.noSuchMethod(Invocation.getter(#hasBitlocker), returnValue: false)
+          as bool);
 
   @override
-  bool get hasUbuntuFde => (super.noSuchMethod(
-        Invocation.getter(#hasUbuntuFde),
-        returnValue: false,
-      ) as bool);
+  bool get hasUbuntuFde =>
+      (super.noSuchMethod(Invocation.getter(#hasUbuntuFde), returnValue: false)
+          as bool);
 
   @override
-  _i6.Future<void> init() => (super.noSuchMethod(
-        Invocation.method(
-          #init,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> init() =>
+      (super.noSuchMethod(
+            Invocation.method(#init, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> dispose() => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> dispose() =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<bool> checkRecoveryKey(String? recoveryKey) => (super.noSuchMethod(
-        Invocation.method(
-          #checkRecoveryKey,
-          [recoveryKey],
-        ),
-        returnValue: _i6.Future<bool>.value(false),
-      ) as _i6.Future<bool>);
+  _i6.Future<bool> checkRecoveryKey(String? recoveryKey) =>
+      (super.noSuchMethod(
+            Invocation.method(#checkRecoveryKey, [recoveryKey]),
+            returnValue: _i6.Future<bool>.value(false),
+          )
+          as _i6.Future<bool>);
 }
 
 /// A class which mocks [SnapdClient].
@@ -909,88 +778,66 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
   }
 
   @override
-  bool get allowInteraction => (super.noSuchMethod(
-        Invocation.getter(#allowInteraction),
-        returnValue: false,
-      ) as bool);
+  bool get allowInteraction =>
+      (super.noSuchMethod(
+            Invocation.getter(#allowInteraction),
+            returnValue: false,
+          )
+          as bool);
 
   @override
   set userAgent(String? _userAgent) => super.noSuchMethod(
-        Invocation.setter(
-          #userAgent,
-          _userAgent,
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.setter(#userAgent, _userAgent),
+    returnValueForMissingStub: null,
+  );
 
   @override
   set allowInteraction(bool? _allowInteraction) => super.noSuchMethod(
-        Invocation.setter(
-          #allowInteraction,
-          _allowInteraction,
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.setter(#allowInteraction, _allowInteraction),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  _i6.Future<void> loadAuthorization({String? path}) => (super.noSuchMethod(
-        Invocation.method(
-          #loadAuthorization,
-          [],
-          {#path: path},
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> loadAuthorization({String? path}) =>
+      (super.noSuchMethod(
+            Invocation.method(#loadAuthorization, [], {#path: path}),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  void setAuthorization(
-    String? macaroon,
-    List<String>? discharges,
-  ) =>
+  void setAuthorization(String? macaroon, List<String>? discharges) =>
       super.noSuchMethod(
-        Invocation.method(
-          #setAuthorization,
-          [
-            macaroon,
-            discharges,
-          ],
-        ),
+        Invocation.method(#setAuthorization, [macaroon, discharges]),
         returnValueForMissingStub: null,
       );
 
   @override
-  _i6.Future<_i3.SnapdSystemInfoResponse> systemInfo() => (super.noSuchMethod(
-        Invocation.method(
-          #systemInfo,
-          [],
-        ),
-        returnValue: _i6.Future<_i3.SnapdSystemInfoResponse>.value(
-            _FakeSnapdSystemInfoResponse_1(
-          this,
-          Invocation.method(
-            #systemInfo,
-            [],
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdSystemInfoResponse>);
+  _i6.Future<_i3.SnapdSystemInfoResponse> systemInfo() =>
+      (super.noSuchMethod(
+            Invocation.method(#systemInfo, []),
+            returnValue: _i6.Future<_i3.SnapdSystemInfoResponse>.value(
+              _FakeSnapdSystemInfoResponse_1(
+                this,
+                Invocation.method(#systemInfo, []),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.SnapdSystemInfoResponse>);
 
   @override
   _i6.Future<_i3.SnapdStorageEncryptedResponse> getStorageEncrypted() =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getStorageEncrypted,
-          [],
-        ),
-        returnValue: _i6.Future<_i3.SnapdStorageEncryptedResponse>.value(
-            _FakeSnapdStorageEncryptedResponse_2(
-          this,
-          Invocation.method(
-            #getStorageEncrypted,
-            [],
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdStorageEncryptedResponse>);
+            Invocation.method(#getStorageEncrypted, []),
+            returnValue: _i6.Future<_i3.SnapdStorageEncryptedResponse>.value(
+              _FakeSnapdStorageEncryptedResponse_2(
+                this,
+                Invocation.method(#getStorageEncrypted, []),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.SnapdStorageEncryptedResponse>);
 
   @override
   _i6.Future<List<_i3.SnapdNotice>> getNotices({
@@ -1002,62 +849,47 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     String? users,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getNotices,
-          [],
-          {
-            #types: types,
-            #keys: keys,
-            #after: after,
-            #timeout: timeout,
-            #userId: userId,
-            #users: users,
-          },
-        ),
-        returnValue:
-            _i6.Future<List<_i3.SnapdNotice>>.value(<_i3.SnapdNotice>[]),
-      ) as _i6.Future<List<_i3.SnapdNotice>>);
+            Invocation.method(#getNotices, [], {
+              #types: types,
+              #keys: keys,
+              #after: after,
+              #timeout: timeout,
+              #userId: userId,
+              #users: users,
+            }),
+            returnValue: _i6.Future<List<_i3.SnapdNotice>>.value(
+              <_i3.SnapdNotice>[],
+            ),
+          )
+          as _i6.Future<List<_i3.SnapdNotice>>);
 
   @override
   _i6.Future<List<_i3.Snap>> getSnaps({_i3.SnapsFilter? filter}) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getSnaps,
-          [],
-          {#filter: filter},
-        ),
-        returnValue: _i6.Future<List<_i3.Snap>>.value(<_i3.Snap>[]),
-      ) as _i6.Future<List<_i3.Snap>>);
+            Invocation.method(#getSnaps, [], {#filter: filter}),
+            returnValue: _i6.Future<List<_i3.Snap>>.value(<_i3.Snap>[]),
+          )
+          as _i6.Future<List<_i3.Snap>>);
 
   @override
-  _i6.Future<_i3.Snap> getSnap(String? name) => (super.noSuchMethod(
-        Invocation.method(
-          #getSnap,
-          [name],
-        ),
-        returnValue: _i6.Future<_i3.Snap>.value(_FakeSnap_3(
-          this,
-          Invocation.method(
-            #getSnap,
-            [name],
-          ),
-        )),
-      ) as _i6.Future<_i3.Snap>);
+  _i6.Future<_i3.Snap> getSnap(String? name) =>
+      (super.noSuchMethod(
+            Invocation.method(#getSnap, [name]),
+            returnValue: _i6.Future<_i3.Snap>.value(
+              _FakeSnap_3(this, Invocation.method(#getSnap, [name])),
+            ),
+          )
+          as _i6.Future<_i3.Snap>);
 
   @override
-  _i6.Future<_i3.SnapIcon> getSnapIcon(String? name) => (super.noSuchMethod(
-        Invocation.method(
-          #getSnapIcon,
-          [name],
-        ),
-        returnValue: _i6.Future<_i3.SnapIcon>.value(_FakeSnapIcon_4(
-          this,
-          Invocation.method(
-            #getSnapIcon,
-            [name],
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapIcon>);
+  _i6.Future<_i3.SnapIcon> getSnapIcon(String? name) =>
+      (super.noSuchMethod(
+            Invocation.method(#getSnapIcon, [name]),
+            returnValue: _i6.Future<_i3.SnapIcon>.value(
+              _FakeSnapIcon_4(this, Invocation.method(#getSnapIcon, [name])),
+            ),
+          )
+          as _i6.Future<_i3.SnapIcon>);
 
   @override
   _i6.Future<List<_i3.SnapApp>> getApps({
@@ -1065,27 +897,20 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     _i3.SnapdAppFilter? filter,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getApps,
-          [],
-          {
-            #names: names,
-            #filter: filter,
-          },
-        ),
-        returnValue: _i6.Future<List<_i3.SnapApp>>.value(<_i3.SnapApp>[]),
-      ) as _i6.Future<List<_i3.SnapApp>>);
+            Invocation.method(#getApps, [], {#names: names, #filter: filter}),
+            returnValue: _i6.Future<List<_i3.SnapApp>>.value(<_i3.SnapApp>[]),
+          )
+          as _i6.Future<List<_i3.SnapApp>>);
 
   @override
   _i6.Future<List<_i3.SnapCategoryDetails>> getCategories() =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getCategories,
-          [],
-        ),
-        returnValue: _i6.Future<List<_i3.SnapCategoryDetails>>.value(
-            <_i3.SnapCategoryDetails>[]),
-      ) as _i6.Future<List<_i3.SnapCategoryDetails>>);
+            Invocation.method(#getCategories, []),
+            returnValue: _i6.Future<List<_i3.SnapCategoryDetails>>.value(
+              <_i3.SnapCategoryDetails>[],
+            ),
+          )
+          as _i6.Future<List<_i3.SnapCategoryDetails>>);
 
   @override
   _i6.Future<_i3.SnapdConnectionsResponse> getConnections({
@@ -1094,44 +919,36 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     _i3.SnapdConnectionFilter? filter,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getConnections,
-          [],
-          {
-            #snap: snap,
-            #interface: interface,
-            #filter: filter,
-          },
-        ),
-        returnValue: _i6.Future<_i3.SnapdConnectionsResponse>.value(
-            _FakeSnapdConnectionsResponse_5(
-          this,
-          Invocation.method(
-            #getConnections,
-            [],
-            {
+            Invocation.method(#getConnections, [], {
               #snap: snap,
               #interface: interface,
               #filter: filter,
-            },
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdConnectionsResponse>);
+            }),
+            returnValue: _i6.Future<_i3.SnapdConnectionsResponse>.value(
+              _FakeSnapdConnectionsResponse_5(
+                this,
+                Invocation.method(#getConnections, [], {
+                  #snap: snap,
+                  #interface: interface,
+                  #filter: filter,
+                }),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.SnapdConnectionsResponse>);
 
   @override
-  _i6.Future<String> refreshMany(List<String>? names) => (super.noSuchMethod(
-        Invocation.method(
-          #refreshMany,
-          [names],
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #refreshMany,
-            [names],
-          ),
-        )),
-      ) as _i6.Future<String>);
+  _i6.Future<String> refreshMany(List<String>? names) =>
+      (super.noSuchMethod(
+            Invocation.method(#refreshMany, [names]),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#refreshMany, [names]),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
   _i6.Future<String> installMany(
@@ -1139,20 +956,15 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     bool? classic = false,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #installMany,
-          [names],
-          {#classic: classic},
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #installMany,
-            [names],
-            {#classic: classic},
-          ),
-        )),
-      ) as _i6.Future<String>);
+            Invocation.method(#installMany, [names], {#classic: classic}),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#installMany, [names], {#classic: classic}),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
   _i6.Future<String> connect(
@@ -1162,28 +974,15 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     String? slot,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #connect,
-          [
-            snap,
-            plug,
-            slotSnap,
-            slot,
-          ],
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #connect,
-            [
-              snap,
-              plug,
-              slotSnap,
-              slot,
-            ],
-          ),
-        )),
-      ) as _i6.Future<String>);
+            Invocation.method(#connect, [snap, plug, slotSnap, slot]),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#connect, [snap, plug, slotSnap, slot]),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
   _i6.Future<String> disconnect(
@@ -1193,28 +992,20 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     String? slot,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #disconnect,
-          [
-            plugSnap,
-            plug,
-            slotSnap,
-            slot,
-          ],
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #disconnect,
-            [
-              plugSnap,
-              plug,
-              slotSnap,
-              slot,
-            ],
-          ),
-        )),
-      ) as _i6.Future<String>);
+            Invocation.method(#disconnect, [plugSnap, plug, slotSnap, slot]),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#disconnect, [
+                  plugSnap,
+                  plug,
+                  slotSnap,
+                  slot,
+                ]),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
   _i6.Future<List<_i3.Snap>> find({
@@ -1226,20 +1017,17 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     _i3.SnapFindScope? scope,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #find,
-          [],
-          {
-            #query: query,
-            #name: name,
-            #category: category,
-            #section: section,
-            #filter: filter,
-            #scope: scope,
-          },
-        ),
-        returnValue: _i6.Future<List<_i3.Snap>>.value(<_i3.Snap>[]),
-      ) as _i6.Future<List<_i3.Snap>>);
+            Invocation.method(#find, [], {
+              #query: query,
+              #name: name,
+              #category: category,
+              #section: section,
+              #filter: filter,
+              #scope: scope,
+            }),
+            returnValue: _i6.Future<List<_i3.Snap>>.value(<_i3.Snap>[]),
+          )
+          as _i6.Future<List<_i3.Snap>>);
 
   @override
   _i6.Future<Map<String, dynamic>> getAssertions({
@@ -1247,17 +1035,15 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     Map<String, String>? params,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getAssertions,
-          [],
-          {
-            #assertion: assertion,
-            #params: params,
-          },
-        ),
-        returnValue:
-            _i6.Future<Map<String, dynamic>>.value(<String, dynamic>{}),
-      ) as _i6.Future<Map<String, dynamic>>);
+            Invocation.method(#getAssertions, [], {
+              #assertion: assertion,
+              #params: params,
+            }),
+            returnValue: _i6.Future<Map<String, dynamic>>.value(
+              <String, dynamic>{},
+            ),
+          )
+          as _i6.Future<Map<String, dynamic>>);
 
   @override
   _i6.Future<_i3.SnapdLoginResponse> login(
@@ -1266,37 +1052,24 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     String? otp,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #login,
-          [
-            email,
-            password,
-          ],
-          {#otp: otp},
-        ),
-        returnValue:
-            _i6.Future<_i3.SnapdLoginResponse>.value(_FakeSnapdLoginResponse_6(
-          this,
-          Invocation.method(
-            #login,
-            [
-              email,
-              password,
-            ],
-            {#otp: otp},
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdLoginResponse>);
+            Invocation.method(#login, [email, password], {#otp: otp}),
+            returnValue: _i6.Future<_i3.SnapdLoginResponse>.value(
+              _FakeSnapdLoginResponse_6(
+                this,
+                Invocation.method(#login, [email, password], {#otp: otp}),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.SnapdLoginResponse>);
 
   @override
-  _i6.Future<void> logout(int? id) => (super.noSuchMethod(
-        Invocation.method(
-          #logout,
-          [id],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> logout(int? id) =>
+      (super.noSuchMethod(
+            Invocation.method(#logout, [id]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   _i6.Future<String> install(
@@ -1309,34 +1082,37 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     bool? jailmode = false,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #install,
-          [name],
-          {
-            #channel: channel,
-            #revision: revision,
-            #classic: classic,
-            #dangerous: dangerous,
-            #devmode: devmode,
-            #jailmode: jailmode,
-          },
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #install,
-            [name],
-            {
-              #channel: channel,
-              #revision: revision,
-              #classic: classic,
-              #dangerous: dangerous,
-              #devmode: devmode,
-              #jailmode: jailmode,
-            },
-          ),
-        )),
-      ) as _i6.Future<String>);
+            Invocation.method(
+              #install,
+              [name],
+              {
+                #channel: channel,
+                #revision: revision,
+                #classic: classic,
+                #dangerous: dangerous,
+                #devmode: devmode,
+                #jailmode: jailmode,
+              },
+            ),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(
+                  #install,
+                  [name],
+                  {
+                    #channel: channel,
+                    #revision: revision,
+                    #classic: classic,
+                    #dangerous: dangerous,
+                    #devmode: devmode,
+                    #jailmode: jailmode,
+                  },
+                ),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
   _i6.Future<String> refresh(
@@ -1345,92 +1121,79 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     bool? classic = false,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #refresh,
-          [name],
-          {
-            #channel: channel,
-            #classic: classic,
-          },
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #refresh,
-            [name],
-            {
-              #channel: channel,
-              #classic: classic,
-            },
-          ),
-        )),
-      ) as _i6.Future<String>);
+            Invocation.method(
+              #refresh,
+              [name],
+              {#channel: channel, #classic: classic},
+            ),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(
+                  #refresh,
+                  [name],
+                  {#channel: channel, #classic: classic},
+                ),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
-  _i6.Future<String> remove(
-    String? name, {
-    bool? purge = false,
-  }) =>
+  _i6.Future<String> remove(String? name, {bool? purge = false}) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #remove,
-          [name],
-          {#purge: purge},
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #remove,
-            [name],
-            {#purge: purge},
-          ),
-        )),
-      ) as _i6.Future<String>);
+            Invocation.method(#remove, [name], {#purge: purge}),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#remove, [name], {#purge: purge}),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
-  _i6.Future<String> enable(String? name) => (super.noSuchMethod(
-        Invocation.method(
-          #enable,
-          [name],
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #enable,
-            [name],
-          ),
-        )),
-      ) as _i6.Future<String>);
+  _i6.Future<String> enable(String? name) =>
+      (super.noSuchMethod(
+            Invocation.method(#enable, [name]),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(this, Invocation.method(#enable, [name])),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
-  _i6.Future<String> disable(String? name) => (super.noSuchMethod(
-        Invocation.method(
-          #disable,
-          [name],
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #disable,
-            [name],
-          ),
-        )),
-      ) as _i6.Future<String>);
+  _i6.Future<String> disable(String? name) =>
+      (super.noSuchMethod(
+            Invocation.method(#disable, [name]),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(this, Invocation.method(#disable, [name])),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
-  _i6.Future<_i3.SnapdChange> getChange(String? id) => (super.noSuchMethod(
-        Invocation.method(
-          #getChange,
-          [id],
-        ),
-        returnValue: _i6.Future<_i3.SnapdChange>.value(_FakeSnapdChange_7(
-          this,
-          Invocation.method(
-            #getChange,
-            [id],
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdChange>);
+  _i6.Future<String> revertSnap(String? name) =>
+      (super.noSuchMethod(
+            Invocation.method(#revertSnap, [name]),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#revertSnap, [name]),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
+
+  @override
+  _i6.Future<_i3.SnapdChange> getChange(String? id) =>
+      (super.noSuchMethod(
+            Invocation.method(#getChange, [id]),
+            returnValue: _i6.Future<_i3.SnapdChange>.value(
+              _FakeSnapdChange_7(this, Invocation.method(#getChange, [id])),
+            ),
+          )
+          as _i6.Future<_i3.SnapdChange>);
 
   @override
   _i6.Future<List<_i3.SnapdChange>> getChanges({
@@ -1438,53 +1201,35 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     String? name,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getChanges,
-          [],
-          {
-            #filter: filter,
-            #name: name,
-          },
-        ),
-        returnValue:
-            _i6.Future<List<_i3.SnapdChange>>.value(<_i3.SnapdChange>[]),
-      ) as _i6.Future<List<_i3.SnapdChange>>);
+            Invocation.method(#getChanges, [], {#filter: filter, #name: name}),
+            returnValue: _i6.Future<List<_i3.SnapdChange>>.value(
+              <_i3.SnapdChange>[],
+            ),
+          )
+          as _i6.Future<List<_i3.SnapdChange>>);
 
   @override
-  _i6.Future<_i3.SnapdChange> abortChange(String? id) => (super.noSuchMethod(
-        Invocation.method(
-          #abortChange,
-          [id],
-        ),
-        returnValue: _i6.Future<_i3.SnapdChange>.value(_FakeSnapdChange_7(
-          this,
-          Invocation.method(
-            #abortChange,
-            [id],
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdChange>);
-
-  @override
-  _i6.Future<_i3.SnapdRule> getRule(
-    String? id, {
-    String? userId,
-  }) =>
+  _i6.Future<_i3.SnapdChange> abortChange(String? id) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getRule,
-          [id],
-          {#userId: userId},
-        ),
-        returnValue: _i6.Future<_i3.SnapdRule>.value(_FakeSnapdRule_8(
-          this,
-          Invocation.method(
-            #getRule,
-            [id],
-            {#userId: userId},
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdRule>);
+            Invocation.method(#abortChange, [id]),
+            returnValue: _i6.Future<_i3.SnapdChange>.value(
+              _FakeSnapdChange_7(this, Invocation.method(#abortChange, [id])),
+            ),
+          )
+          as _i6.Future<_i3.SnapdChange>);
+
+  @override
+  _i6.Future<_i3.SnapdRule> getRule(String? id, {String? userId}) =>
+      (super.noSuchMethod(
+            Invocation.method(#getRule, [id], {#userId: userId}),
+            returnValue: _i6.Future<_i3.SnapdRule>.value(
+              _FakeSnapdRule_8(
+                this,
+                Invocation.method(#getRule, [id], {#userId: userId}),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.SnapdRule>);
 
   @override
   _i6.Future<List<_i3.SnapdRule>> getRules({
@@ -1493,119 +1238,97 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     String? userId,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getRules,
-          [],
-          {
-            #snap: snap,
-            #interface: interface,
-            #userId: userId,
-          },
-        ),
-        returnValue: _i6.Future<List<_i3.SnapdRule>>.value(<_i3.SnapdRule>[]),
-      ) as _i6.Future<List<_i3.SnapdRule>>);
+            Invocation.method(#getRules, [], {
+              #snap: snap,
+              #interface: interface,
+              #userId: userId,
+            }),
+            returnValue: _i6.Future<List<_i3.SnapdRule>>.value(
+              <_i3.SnapdRule>[],
+            ),
+          )
+          as _i6.Future<List<_i3.SnapdRule>>);
 
   @override
-  _i6.Future<void> removeRule(String? id) => (super.noSuchMethod(
-        Invocation.method(
-          #removeRule,
-          [id],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
-
-  @override
-  _i6.Future<void> patchRule(
-    String? id,
-    Map<String, dynamic>? constraints,
-  ) =>
+  _i6.Future<void> removeRule(String? id) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #patchRule,
-          [
-            id,
-            constraints,
-          ],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+            Invocation.method(#removeRule, [id]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> addRule(_i3.SnapdRuleMask? rule) => (super.noSuchMethod(
-        Invocation.method(
-          #addRule,
-          [rule],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> patchRule(String? id, Map<String, dynamic>? constraints) =>
+      (super.noSuchMethod(
+            Invocation.method(#patchRule, [id, constraints]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> removeRules(
-    String? snap, {
-    String? interface,
+  _i6.Future<void> addRule(_i3.SnapdRuleMask? rule) =>
+      (super.noSuchMethod(
+            Invocation.method(#addRule, [rule]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
+
+  @override
+  _i6.Future<void> removeRules(String? snap, {String? interface}) =>
+      (super.noSuchMethod(
+            Invocation.method(#removeRules, [snap], {#interface: interface}),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
+
+  @override
+  _i6.Future<String> enablePrompting() =>
+      (super.noSuchMethod(
+            Invocation.method(#enablePrompting, []),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#enablePrompting, []),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
+
+  @override
+  _i6.Future<String> disablePrompting() =>
+      (super.noSuchMethod(
+            Invocation.method(#disablePrompting, []),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#disablePrompting, []),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
+
+  @override
+  _i6.Future<_i3.SnapdSystemVolumesResponse> getSystemVolumes({
+    String? containerRole,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #removeRules,
-          [snap],
-          {#interface: interface},
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
-
-  @override
-  _i6.Future<String> enablePrompting() => (super.noSuchMethod(
-        Invocation.method(
-          #enablePrompting,
-          [],
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #enablePrompting,
-            [],
-          ),
-        )),
-      ) as _i6.Future<String>);
-
-  @override
-  _i6.Future<String> disablePrompting() => (super.noSuchMethod(
-        Invocation.method(
-          #disablePrompting,
-          [],
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #disablePrompting,
-            [],
-          ),
-        )),
-      ) as _i6.Future<String>);
-
-  @override
-  _i6.Future<_i3.SnapdSystemVolumesResponse> getSystemVolumes(
-          {String? containerRole}) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getSystemVolumes,
-          [],
-          {#containerRole: containerRole},
-        ),
-        returnValue: _i6.Future<_i3.SnapdSystemVolumesResponse>.value(
-            _FakeSnapdSystemVolumesResponse_9(
-          this,
-          Invocation.method(
-            #getSystemVolumes,
-            [],
-            {#containerRole: containerRole},
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdSystemVolumesResponse>);
+            Invocation.method(#getSystemVolumes, [], {
+              #containerRole: containerRole,
+            }),
+            returnValue: _i6.Future<_i3.SnapdSystemVolumesResponse>.value(
+              _FakeSnapdSystemVolumesResponse_9(
+                this,
+                Invocation.method(#getSystemVolumes, [], {
+                  #containerRole: containerRole,
+                }),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.SnapdSystemVolumesResponse>);
 
   @override
   _i6.Future<void> checkRecoveryKey(
@@ -1613,65 +1336,54 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     List<String>? containerRoles = const [],
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #checkRecoveryKey,
-          [recoveryKey],
-          {#containerRoles: containerRoles},
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+            Invocation.method(
+              #checkRecoveryKey,
+              [recoveryKey],
+              {#containerRoles: containerRoles},
+            ),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   _i6.Future<_i3.SnapdEntropyResponse> checkPassphrase(String? passphrase) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #checkPassphrase,
-          [passphrase],
-        ),
-        returnValue: _i6.Future<_i3.SnapdEntropyResponse>.value(
-            _FakeSnapdEntropyResponse_10(
-          this,
-          Invocation.method(
-            #checkPassphrase,
-            [passphrase],
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdEntropyResponse>);
+            Invocation.method(#checkPassphrase, [passphrase]),
+            returnValue: _i6.Future<_i3.SnapdEntropyResponse>.value(
+              _FakeSnapdEntropyResponse_10(
+                this,
+                Invocation.method(#checkPassphrase, [passphrase]),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.SnapdEntropyResponse>);
 
   @override
   _i6.Future<_i3.SnapdEntropyResponse> checkPin(String? pin) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #checkPin,
-          [pin],
-        ),
-        returnValue: _i6.Future<_i3.SnapdEntropyResponse>.value(
-            _FakeSnapdEntropyResponse_10(
-          this,
-          Invocation.method(
-            #checkPin,
-            [pin],
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdEntropyResponse>);
+            Invocation.method(#checkPin, [pin]),
+            returnValue: _i6.Future<_i3.SnapdEntropyResponse>.value(
+              _FakeSnapdEntropyResponse_10(
+                this,
+                Invocation.method(#checkPin, [pin]),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.SnapdEntropyResponse>);
 
   @override
   _i6.Future<_i3.SnapdGenerateRecoveryKeyResponse> generateRecoveryKey() =>
       (super.noSuchMethod(
-        Invocation.method(
-          #generateRecoveryKey,
-          [],
-        ),
-        returnValue: _i6.Future<_i3.SnapdGenerateRecoveryKeyResponse>.value(
-            _FakeSnapdGenerateRecoveryKeyResponse_11(
-          this,
-          Invocation.method(
-            #generateRecoveryKey,
-            [],
-          ),
-        )),
-      ) as _i6.Future<_i3.SnapdGenerateRecoveryKeyResponse>);
+            Invocation.method(#generateRecoveryKey, []),
+            returnValue: _i6.Future<_i3.SnapdGenerateRecoveryKeyResponse>.value(
+              _FakeSnapdGenerateRecoveryKeyResponse_11(
+                this,
+                Invocation.method(#generateRecoveryKey, []),
+              ),
+            ),
+          )
+          as _i6.Future<_i3.SnapdGenerateRecoveryKeyResponse>);
 
   @override
   _i6.Future<String> changePin(
@@ -1680,26 +1392,23 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     List<_i3.SnapdSystemVolumeTargetKeySlot>? keySlots,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #changePin,
-          [
-            oldPin,
-            newPin,
-          ],
-          {#keySlots: keySlots},
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #changePin,
-            [
-              oldPin,
-              newPin,
-            ],
-            {#keySlots: keySlots},
-          ),
-        )),
-      ) as _i6.Future<String>);
+            Invocation.method(
+              #changePin,
+              [oldPin, newPin],
+              {#keySlots: keySlots},
+            ),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(
+                  #changePin,
+                  [oldPin, newPin],
+                  {#keySlots: keySlots},
+                ),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
   _i6.Future<String> changePassphrase(
@@ -1708,26 +1417,23 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     List<_i3.SnapdSystemVolumeTargetKeySlot>? keySlots,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #changePassphrase,
-          [
-            oldPassphrase,
-            newPassphrase,
-          ],
-          {#keySlots: keySlots},
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #changePassphrase,
-            [
-              oldPassphrase,
-              newPassphrase,
-            ],
-            {#keySlots: keySlots},
-          ),
-        )),
-      ) as _i6.Future<String>);
+            Invocation.method(
+              #changePassphrase,
+              [oldPassphrase, newPassphrase],
+              {#keySlots: keySlots},
+            ),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(
+                  #changePassphrase,
+                  [oldPassphrase, newPassphrase],
+                  {#keySlots: keySlots},
+                ),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
   _i6.Future<String> replaceRecoveryKey(
@@ -1735,20 +1441,23 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     List<_i3.SnapdSystemVolumeTargetKeySlot>? keySlots,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #replaceRecoveryKey,
-          [keyId],
-          {#keySlots: keySlots},
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #replaceRecoveryKey,
-            [keyId],
-            {#keySlots: keySlots},
-          ),
-        )),
-      ) as _i6.Future<String>);
+            Invocation.method(
+              #replaceRecoveryKey,
+              [keyId],
+              {#keySlots: keySlots},
+            ),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(
+                  #replaceRecoveryKey,
+                  [keyId],
+                  {#keySlots: keySlots},
+                ),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
   _i6.Future<String> replacePlatformKey({
@@ -1760,43 +1469,50 @@ class MockSnapdClient extends _i1.Mock implements _i3.SnapdClient {
     List<_i3.SnapdSystemVolumeTargetKeySlot>? keySlots,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #replacePlatformKey,
-          [],
-          {
-            #authMode: authMode,
-            #passphrase: passphrase,
-            #pin: pin,
-            #kdfTime: kdfTime,
-            #kdfType: kdfType,
-            #keySlots: keySlots,
-          },
-        ),
-        returnValue: _i6.Future<String>.value(_i9.dummyValue<String>(
-          this,
-          Invocation.method(
-            #replacePlatformKey,
-            [],
-            {
+            Invocation.method(#replacePlatformKey, [], {
               #authMode: authMode,
               #passphrase: passphrase,
               #pin: pin,
               #kdfTime: kdfTime,
               #kdfType: kdfType,
               #keySlots: keySlots,
-            },
-          ),
-        )),
-      ) as _i6.Future<String>);
+            }),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#replacePlatformKey, [], {
+                  #authMode: authMode,
+                  #passphrase: passphrase,
+                  #pin: pin,
+                  #kdfTime: kdfTime,
+                  #kdfType: kdfType,
+                  #keySlots: keySlots,
+                }),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
+
+  @override
+  _i6.Future<String> deleteKeySlots(
+    List<_i3.SnapdSystemVolumeTargetKeySlot>? keySlots,
+  ) =>
+      (super.noSuchMethod(
+            Invocation.method(#deleteKeySlots, [keySlots]),
+            returnValue: _i6.Future<String>.value(
+              _i9.dummyValue<String>(
+                this,
+                Invocation.method(#deleteKeySlots, [keySlots]),
+              ),
+            ),
+          )
+          as _i6.Future<String>);
 
   @override
   void close() => super.noSuchMethod(
-        Invocation.method(
-          #close,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#close, []),
+    returnValueForMissingStub: null,
+  );
 }
 
 /// A class which mocks [UDisksClient].
@@ -1808,92 +1524,108 @@ class MockUDisksClient extends _i1.Mock implements _i14.UDisksClient {
   }
 
   @override
-  _i6.Stream<_i14.UDisksDrive> get driveAdded => (super.noSuchMethod(
-        Invocation.getter(#driveAdded),
-        returnValue: _i6.Stream<_i14.UDisksDrive>.empty(),
-      ) as _i6.Stream<_i14.UDisksDrive>);
+  _i6.Stream<_i14.UDisksDrive> get driveAdded =>
+      (super.noSuchMethod(
+            Invocation.getter(#driveAdded),
+            returnValue: _i6.Stream<_i14.UDisksDrive>.empty(),
+          )
+          as _i6.Stream<_i14.UDisksDrive>);
 
   @override
-  _i6.Stream<_i14.UDisksDrive> get driveRemoved => (super.noSuchMethod(
-        Invocation.getter(#driveRemoved),
-        returnValue: _i6.Stream<_i14.UDisksDrive>.empty(),
-      ) as _i6.Stream<_i14.UDisksDrive>);
+  _i6.Stream<_i14.UDisksDrive> get driveRemoved =>
+      (super.noSuchMethod(
+            Invocation.getter(#driveRemoved),
+            returnValue: _i6.Stream<_i14.UDisksDrive>.empty(),
+          )
+          as _i6.Stream<_i14.UDisksDrive>);
 
   @override
   _i6.Stream<_i14.UDisksBlockDevice> get blockDeviceAdded =>
       (super.noSuchMethod(
-        Invocation.getter(#blockDeviceAdded),
-        returnValue: _i6.Stream<_i14.UDisksBlockDevice>.empty(),
-      ) as _i6.Stream<_i14.UDisksBlockDevice>);
+            Invocation.getter(#blockDeviceAdded),
+            returnValue: _i6.Stream<_i14.UDisksBlockDevice>.empty(),
+          )
+          as _i6.Stream<_i14.UDisksBlockDevice>);
 
   @override
   _i6.Stream<_i14.UDisksBlockDevice> get blockDeviceRemoved =>
       (super.noSuchMethod(
-        Invocation.getter(#blockDeviceRemoved),
-        returnValue: _i6.Stream<_i14.UDisksBlockDevice>.empty(),
-      ) as _i6.Stream<_i14.UDisksBlockDevice>);
+            Invocation.getter(#blockDeviceRemoved),
+            returnValue: _i6.Stream<_i14.UDisksBlockDevice>.empty(),
+          )
+          as _i6.Stream<_i14.UDisksBlockDevice>);
 
   @override
-  List<String> get supportedEncryptionTypes => (super.noSuchMethod(
-        Invocation.getter(#supportedEncryptionTypes),
-        returnValue: <String>[],
-      ) as List<String>);
+  List<String> get supportedEncryptionTypes =>
+      (super.noSuchMethod(
+            Invocation.getter(#supportedEncryptionTypes),
+            returnValue: <String>[],
+          )
+          as List<String>);
 
   @override
-  List<String> get supportedFilesystems => (super.noSuchMethod(
-        Invocation.getter(#supportedFilesystems),
-        returnValue: <String>[],
-      ) as List<String>);
+  List<String> get supportedFilesystems =>
+      (super.noSuchMethod(
+            Invocation.getter(#supportedFilesystems),
+            returnValue: <String>[],
+          )
+          as List<String>);
 
   @override
-  String get defaultEncryptionType => (super.noSuchMethod(
-        Invocation.getter(#defaultEncryptionType),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#defaultEncryptionType),
-        ),
-      ) as String);
+  String get defaultEncryptionType =>
+      (super.noSuchMethod(
+            Invocation.getter(#defaultEncryptionType),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#defaultEncryptionType),
+            ),
+          )
+          as String);
 
   @override
-  String get version => (super.noSuchMethod(
-        Invocation.getter(#version),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#version),
-        ),
-      ) as String);
+  String get version =>
+      (super.noSuchMethod(
+            Invocation.getter(#version),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#version),
+            ),
+          )
+          as String);
 
   @override
-  List<_i14.UDisksDrive> get drives => (super.noSuchMethod(
-        Invocation.getter(#drives),
-        returnValue: <_i14.UDisksDrive>[],
-      ) as List<_i14.UDisksDrive>);
+  List<_i14.UDisksDrive> get drives =>
+      (super.noSuchMethod(
+            Invocation.getter(#drives),
+            returnValue: <_i14.UDisksDrive>[],
+          )
+          as List<_i14.UDisksDrive>);
 
   @override
-  List<_i14.UDisksBlockDevice> get blockDevices => (super.noSuchMethod(
-        Invocation.getter(#blockDevices),
-        returnValue: <_i14.UDisksBlockDevice>[],
-      ) as List<_i14.UDisksBlockDevice>);
+  List<_i14.UDisksBlockDevice> get blockDevices =>
+      (super.noSuchMethod(
+            Invocation.getter(#blockDevices),
+            returnValue: <_i14.UDisksBlockDevice>[],
+          )
+          as List<_i14.UDisksBlockDevice>);
 
   @override
-  _i6.Future<void> connect() => (super.noSuchMethod(
-        Invocation.method(
-          #connect,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> connect() =>
+      (super.noSuchMethod(
+            Invocation.method(#connect, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> close() => (super.noSuchMethod(
-        Invocation.method(
-          #close,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> close() =>
+      (super.noSuchMethod(
+            Invocation.method(#close, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 }
 
 /// A class which mocks [UDisksBlockDevice].
@@ -1905,180 +1637,194 @@ class MockUDisksBlockDevice extends _i1.Mock implements _i14.UDisksBlockDevice {
   }
 
   @override
-  List<_i14.UDisksConfigurationItem> get configuration => (super.noSuchMethod(
-        Invocation.getter(#configuration),
-        returnValue: <_i14.UDisksConfigurationItem>[],
-      ) as List<_i14.UDisksConfigurationItem>);
+  List<_i14.UDisksConfigurationItem> get configuration =>
+      (super.noSuchMethod(
+            Invocation.getter(#configuration),
+            returnValue: <_i14.UDisksConfigurationItem>[],
+          )
+          as List<_i14.UDisksConfigurationItem>);
 
   @override
-  List<int> get device => (super.noSuchMethod(
-        Invocation.getter(#device),
-        returnValue: <int>[],
-      ) as List<int>);
+  List<int> get device =>
+      (super.noSuchMethod(Invocation.getter(#device), returnValue: <int>[])
+          as List<int>);
 
   @override
-  int get deviceNumber => (super.noSuchMethod(
-        Invocation.getter(#deviceNumber),
-        returnValue: 0,
-      ) as int);
+  int get deviceNumber =>
+      (super.noSuchMethod(Invocation.getter(#deviceNumber), returnValue: 0)
+          as int);
 
   @override
-  bool get hintAuto => (super.noSuchMethod(
-        Invocation.getter(#hintAuto),
-        returnValue: false,
-      ) as bool);
+  bool get hintAuto =>
+      (super.noSuchMethod(Invocation.getter(#hintAuto), returnValue: false)
+          as bool);
 
   @override
-  String get hintIconName => (super.noSuchMethod(
-        Invocation.getter(#hintIconName),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#hintIconName),
-        ),
-      ) as String);
+  String get hintIconName =>
+      (super.noSuchMethod(
+            Invocation.getter(#hintIconName),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#hintIconName),
+            ),
+          )
+          as String);
 
   @override
-  bool get hintIgnore => (super.noSuchMethod(
-        Invocation.getter(#hintIgnore),
-        returnValue: false,
-      ) as bool);
+  bool get hintIgnore =>
+      (super.noSuchMethod(Invocation.getter(#hintIgnore), returnValue: false)
+          as bool);
 
   @override
-  String get hintName => (super.noSuchMethod(
-        Invocation.getter(#hintName),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#hintName),
-        ),
-      ) as String);
+  String get hintName =>
+      (super.noSuchMethod(
+            Invocation.getter(#hintName),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#hintName),
+            ),
+          )
+          as String);
 
   @override
-  bool get hintPartitionable => (super.noSuchMethod(
-        Invocation.getter(#hintPartitionable),
-        returnValue: false,
-      ) as bool);
+  bool get hintPartitionable =>
+      (super.noSuchMethod(
+            Invocation.getter(#hintPartitionable),
+            returnValue: false,
+          )
+          as bool);
 
   @override
-  String get hintSymbolicIconName => (super.noSuchMethod(
-        Invocation.getter(#hintSymbolicIconName),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#hintSymbolicIconName),
-        ),
-      ) as String);
+  String get hintSymbolicIconName =>
+      (super.noSuchMethod(
+            Invocation.getter(#hintSymbolicIconName),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#hintSymbolicIconName),
+            ),
+          )
+          as String);
 
   @override
-  bool get hintSystem => (super.noSuchMethod(
-        Invocation.getter(#hintSystem),
-        returnValue: false,
-      ) as bool);
+  bool get hintSystem =>
+      (super.noSuchMethod(Invocation.getter(#hintSystem), returnValue: false)
+          as bool);
 
   @override
-  String get id => (super.noSuchMethod(
-        Invocation.getter(#id),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#id),
-        ),
-      ) as String);
+  String get id =>
+      (super.noSuchMethod(
+            Invocation.getter(#id),
+            returnValue: _i9.dummyValue<String>(this, Invocation.getter(#id)),
+          )
+          as String);
 
   @override
-  String get idLabel => (super.noSuchMethod(
-        Invocation.getter(#idLabel),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#idLabel),
-        ),
-      ) as String);
+  String get idLabel =>
+      (super.noSuchMethod(
+            Invocation.getter(#idLabel),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#idLabel),
+            ),
+          )
+          as String);
 
   @override
-  String get idType => (super.noSuchMethod(
-        Invocation.getter(#idType),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#idType),
-        ),
-      ) as String);
+  String get idType =>
+      (super.noSuchMethod(
+            Invocation.getter(#idType),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#idType),
+            ),
+          )
+          as String);
 
   @override
-  String get idUsage => (super.noSuchMethod(
-        Invocation.getter(#idUsage),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#idUsage),
-        ),
-      ) as String);
+  String get idUsage =>
+      (super.noSuchMethod(
+            Invocation.getter(#idUsage),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#idUsage),
+            ),
+          )
+          as String);
 
   @override
-  String get idUUID => (super.noSuchMethod(
-        Invocation.getter(#idUUID),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#idUUID),
-        ),
-      ) as String);
+  String get idUUID =>
+      (super.noSuchMethod(
+            Invocation.getter(#idUUID),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#idUUID),
+            ),
+          )
+          as String);
 
   @override
-  String get idVersion => (super.noSuchMethod(
-        Invocation.getter(#idVersion),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#idVersion),
-        ),
-      ) as String);
+  String get idVersion =>
+      (super.noSuchMethod(
+            Invocation.getter(#idVersion),
+            returnValue: _i9.dummyValue<String>(
+              this,
+              Invocation.getter(#idVersion),
+            ),
+          )
+          as String);
 
   @override
-  List<int> get preferredDevice => (super.noSuchMethod(
-        Invocation.getter(#preferredDevice),
-        returnValue: <int>[],
-      ) as List<int>);
+  List<int> get preferredDevice =>
+      (super.noSuchMethod(
+            Invocation.getter(#preferredDevice),
+            returnValue: <int>[],
+          )
+          as List<int>);
 
   @override
-  bool get readOnly => (super.noSuchMethod(
-        Invocation.getter(#readOnly),
-        returnValue: false,
-      ) as bool);
+  bool get readOnly =>
+      (super.noSuchMethod(Invocation.getter(#readOnly), returnValue: false)
+          as bool);
 
   @override
-  int get size => (super.noSuchMethod(
-        Invocation.getter(#size),
-        returnValue: 0,
-      ) as int);
+  int get size =>
+      (super.noSuchMethod(Invocation.getter(#size), returnValue: 0) as int);
 
   @override
-  List<List<int>> get symlinks => (super.noSuchMethod(
-        Invocation.getter(#symlinks),
-        returnValue: <List<int>>[],
-      ) as List<List<int>>);
+  List<List<int>> get symlinks =>
+      (super.noSuchMethod(
+            Invocation.getter(#symlinks),
+            returnValue: <List<int>>[],
+          )
+          as List<List<int>>);
 
   @override
-  List<String> get userspaceMountOptions => (super.noSuchMethod(
-        Invocation.getter(#userspaceMountOptions),
-        returnValue: <String>[],
-      ) as List<String>);
+  List<String> get userspaceMountOptions =>
+      (super.noSuchMethod(
+            Invocation.getter(#userspaceMountOptions),
+            returnValue: <String>[],
+          )
+          as List<String>);
 
   @override
   _i6.Future<void> addConfigurationItem(_i14.UDisksConfigurationItem? item) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #addConfigurationItem,
-          [item],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+            Invocation.method(#addConfigurationItem, [item]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   _i6.Future<void> removeConfigurationItem(
-          _i14.UDisksConfigurationItem? item) =>
+    _i14.UDisksConfigurationItem? item,
+  ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #removeConfigurationItem,
-          [item],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+            Invocation.method(#removeConfigurationItem, [item]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   _i6.Future<void> updateConfigurationItem(
@@ -2086,27 +1832,21 @@ class MockUDisksBlockDevice extends _i1.Mock implements _i14.UDisksBlockDevice {
     _i14.UDisksConfigurationItem? newItem,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #updateConfigurationItem,
-          [
-            oldItem,
-            newItem,
-          ],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+            Invocation.method(#updateConfigurationItem, [oldItem, newItem]),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
   _i6.Future<List<_i14.UDisksConfigurationItem>> getSecretConfiguration() =>
       (super.noSuchMethod(
-        Invocation.method(
-          #getSecretConfiguration,
-          [],
-        ),
-        returnValue: _i6.Future<List<_i14.UDisksConfigurationItem>>.value(
-            <_i14.UDisksConfigurationItem>[]),
-      ) as _i6.Future<List<_i14.UDisksConfigurationItem>>);
+            Invocation.method(#getSecretConfiguration, []),
+            returnValue: _i6.Future<List<_i14.UDisksConfigurationItem>>.value(
+              <_i14.UDisksConfigurationItem>[],
+            ),
+          )
+          as _i6.Future<List<_i14.UDisksConfigurationItem>>);
 
   @override
   _i6.Future<void> format(
@@ -2122,34 +1862,34 @@ class MockUDisksBlockDevice extends _i1.Mock implements _i14.UDisksBlockDevice {
     bool? tearDown = false,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #format,
-          [type],
-          {
-            #takeOwnership: takeOwnership,
-            #encryptPassphrase: encryptPassphrase,
-            #erase: erase,
-            #updatePartitionType: updatePartitionType,
-            #noBlock: noBlock,
-            #dryRunFirst: dryRunFirst,
-            #noDiscard: noDiscard,
-            #configItems: configItems,
-            #tearDown: tearDown,
-          },
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+            Invocation.method(
+              #format,
+              [type],
+              {
+                #takeOwnership: takeOwnership,
+                #encryptPassphrase: encryptPassphrase,
+                #erase: erase,
+                #updatePartitionType: updatePartitionType,
+                #noBlock: noBlock,
+                #dryRunFirst: dryRunFirst,
+                #noDiscard: noDiscard,
+                #configItems: configItems,
+                #tearDown: tearDown,
+              },
+            ),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 
   @override
-  _i6.Future<void> rescan() => (super.noSuchMethod(
-        Invocation.method(
-          #rescan,
-          [],
-        ),
-        returnValue: _i6.Future<void>.value(),
-        returnValueForMissingStub: _i6.Future<void>.value(),
-      ) as _i6.Future<void>);
+  _i6.Future<void> rescan() =>
+      (super.noSuchMethod(
+            Invocation.method(#rescan, []),
+            returnValue: _i6.Future<void>.value(),
+            returnValueForMissingStub: _i6.Future<void>.value(),
+          )
+          as _i6.Future<void>);
 }
 
 /// A class which mocks [ConfigService].
@@ -2161,20 +1901,21 @@ class MockConfigService extends _i1.Mock implements _i10.ConfigService {
   }
 
   @override
-  String get path => (super.noSuchMethod(
-        Invocation.getter(#path),
-        returnValue: _i9.dummyValue<String>(
-          this,
-          Invocation.getter(#path),
-        ),
-      ) as String);
+  String get path =>
+      (super.noSuchMethod(
+            Invocation.getter(#path),
+            returnValue: _i9.dummyValue<String>(this, Invocation.getter(#path)),
+          )
+          as String);
 
   @override
-  _i4.UnmodifiableMapView<String, dynamic> get config => (super.noSuchMethod(
-        Invocation.getter(#config),
-        returnValue: _FakeUnmodifiableMapView_12<String, dynamic>(
-          this,
-          Invocation.getter(#config),
-        ),
-      ) as _i4.UnmodifiableMapView<String, dynamic>);
+  _i4.UnmodifiableMapView<String, dynamic> get config =>
+      (super.noSuchMethod(
+            Invocation.getter(#config),
+            returnValue: _FakeUnmodifiableMapView_12<String, dynamic>(
+              this,
+              Invocation.getter(#config),
+            ),
+          )
+          as _i4.UnmodifiableMapView<String, dynamic>);
 }
