@@ -1,1 +1,160 @@
-{}
+{
+    "affectsFdeWarningTitle": "You may lose all your data without recovery keys",
+    "affectsFdeWarningUbuntuFdeTitle": "You may lose all your data without your recovery key",
+    "affectsFdeWarningOtherFdeBody": "Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.",
+    "affectsFdeWarningUbuntuFdeBody": "Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.",
+    "affectsFdeWarningBitlockerBody": "BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.",
+    "affectsFdeCheckbox": "I have recovery keys for all my encrypted drives",
+    "affectsFdeTextFieldLabel": "Enter your recovery key",
+    "affectsFdeLinkLabel": "Learn more",
+    "affectsFdeIncorrectKey": "Recovery key does not work, check or replace it in the Security Centre",
+    "allVersions": "All Versions",
+    "appTitle": "Firmware Updater",
+    "batteryWarning": "Warning: some device updates may only be available on external power!",
+    "checksum": "Checksum",
+    "close": "Close",
+    "cancel": "Cancel",
+    "current": "Current",
+    "deviceUnavailable": "The device will be unavailable during this action.",
+    "deviceRequest": "Device request",
+    "downgrade": "Downgrade",
+    "downgradeConfirm": "Downgrade <b>{name}</b> to version <b>{version}</b>?",
+    "@downgradeConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "flags": "Flags",
+    "fwupdDeviceFlagInternal": "Internal device",
+    "fwupdDeviceFlagUpdatable": "Updatable",
+    "fwupdDeviceFlagOnlyOffline": "Update requires a reboot",
+    "fwupdDeviceFlagRequireAc": "System requires external power source",
+    "fwupdDeviceFlagLocked": "Device is locked",
+    "fwupdDeviceFlagSupported": "Supported on remote server",
+    "fwupdDeviceFlagNeedsBootloader": "Requires a bootloader",
+    "fwupdDeviceFlagRegistered": "Registered",
+    "fwupdDeviceFlagNeedsReboot": "Needs a reboot after installation",
+    "fwupdDeviceFlagNeedsShutdown": "Needs shutdown after installation",
+    "fwupdDeviceFlagReported": "Reported to remote server",
+    "fwupdDeviceFlagNotified": "User has been notified",
+    "fwupdDeviceFlagInstallParentFirst": "Install to parent device first",
+    "fwupdDeviceFlagIsBootloader": "Is in bootloader mode",
+    "fwupdDeviceFlagWaitForReplug": "Hardware is waiting to be replugged",
+    "fwupdDeviceFlagIgnoreValidation": "Ignore validation safety checks",
+    "fwupdDeviceFlagTrusted": "Trusted",
+    "fwupdDeviceFlagNeedsActivation": "Device update needs activation",
+    "fwupdDeviceFlagWillDisappear": "Device will not re-appear after update completes",
+    "fwupdDeviceFlagCanVerify": "Cryptographic hash verification is available",
+    "fwupdDeviceFlagDualImage": "Device stages updates",
+    "fwupdDeviceFlagSelfRecovery": "Device can recover flash failures",
+    "fwupdDeviceFlagUsableDuringUpdate": "Device is usable for the duration of the update",
+    "fwupdDeviceFlagVersionCheckRequired": "Device firmware is required to have a version check",
+    "fwupdDeviceFlagInstallAllReleases": "Device is required to install all provided releases",
+    "fwupdDeviceFlagHasMultipleBranches": "Device supports switching to a different branch of firmware",
+    "fwupdDeviceFlagBackupBeforeInstall": "Device will backup firmware before installing",
+    "fwupdDeviceFlagWildcardInstall": "All devices of the same type will be updated at the same time",
+    "fwupdDeviceFlagOnlyVersionUpgrade": "Only version upgrades are allowed",
+    "fwupdDeviceFlagUnreachable": "Device is unreachable",
+    "fwupdDeviceFlagAffectsFde": "Full disk encryption secrets may be invalidated when updating",
+    "fwupdDeviceFlagEndOfLife": "End of life",
+    "fwupdDeviceFlagSignedPayload": "Signed Payload",
+    "fwupdDeviceFlagUnsignedPayload": "Unsigned Payload",
+    "fwupdErrorInternal": "Internal error",
+    "fwupdErrorVersionNewer": "Installed newer firmware version",
+    "fwupdErrorVersionSame": "Installed same firmware version",
+    "fwupdErrorAlreadyPending": "Already set to be installed offline",
+    "fwupdErrorAuthFailed": "Failed to get authentication",
+    "fwupdErrorRead": "Failed to read from device",
+    "fwupdErrorWrite": "Failed to write to the device",
+    "fwupdErrorInvalidFile": "Invalid file format",
+    "fwupdErrorNotFound": "No matching device exists",
+    "fwupdErrorNothingToDo": "Nothing to do",
+    "fwupdErrorNotSupported": "Action was not possible",
+    "fwupdErrorSignatureInvalid": "Signature was invalid",
+    "fwupdErrorAcPowerRequired": "AC power was required",
+    "fwupdErrorPermissionDenied": "Permission was denied",
+    "fwupdErrorBrokenSystem": "User has configured their system in a broken way",
+    "fwupdErrorBatteryLevelTooLow": "The system battery level is too low",
+    "fwupdErrorNeedsUserAction": "User needs to do an action to complete the update",
+    "fwupdErrorAuthExpired": "Failed to get auth as credentials have expired",
+    "fwupdErrorUnknown": "Unknown error",
+    "fwupdStatusUnknown": "Unknown state",
+    "fwupdStatusIdle": "Idle",
+    "fwupdStatusLoading": "Loading a resource",
+    "fwupdStatusDecompressing": "Decompressing firmware",
+    "fwupdStatusDeviceRestart": "Restarting the device",
+    "fwupdStatusDeviceWrite": "Writing to a device",
+    "fwupdStatusDeviceVerify": "Verifying (reading) a device",
+    "fwupdStatusScheduling": "Scheduling an offline update",
+    "fwupdStatusDownloading": "A file is downloading",
+    "fwupdStatusDeviceRead": "Reading from a device",
+    "fwupdStatusDeviceErase": "Erasing a device",
+    "fwupdStatusWaitingForAuth": "Waiting for authentication",
+    "fwupdStatusDeviceBusy": "The device is busy",
+    "fwupdStatusShutdown": "The daemon is shutting down",
+    "guid": "GUIDs",
+    "installError": "Failed to install firmware!",
+    "noDevicesFound": "No devices found",
+    "ok": "OK",
+    "olderVersions": "Older Versions",
+    "rebootLater": "Restart later",
+    "rebootNow": "Restart now",
+    "rebootConfirmMessage": "You must restart your device to complete the update. Make sure your device is plugged in or fully charged. Save your files before you restart to avoid losing data.",
+    "rebootConfirmTitle": "Restart to complete this update",
+    "reinstall": "Reinstall",
+    "reinstallConfirm": "Reinstall <b>{name}</b> version <b>{current}</b>?",
+    "@reinstallConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "current": {
+                "type": "String"
+            }
+        }
+    },
+    "showReleases": "Show Releases",
+    "showUpdates": "Show Updates",
+    "update": "Update",
+    "updateAvailable": "Update available",
+    "updateChecksums": "Update Checksums",
+    "updateChecksumsConfirm": "Update device checksums of <b>{name}</b>?",
+    "@updateChecksumsConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "updateChecksumsInfo": "This will record the current cryptographic hashes as verified.",
+    "updateToLatest": "Update to Latest",
+    "updateConfirm": "Update <b>{name}</b> to version <b>{version}</b>?",
+    "@updateConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "vendor": "Vendor",
+    "verifyFirmware": "Verify Firmware",
+    "verifyFirmwareConfirm": "Verify firmware checksums of {name}?",
+    "@verifyFirmwareConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "currentVersion": "Current Version",
+    "minVersion": "Minimum Version",
+    "latestVersion": "Latest Version"
+}
