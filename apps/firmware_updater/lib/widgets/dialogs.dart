@@ -132,51 +132,49 @@ Future<DialogAction?> showMessageDialog(
   VoidCallback? onClose,
   bool closeable = true,
   bool isPrimaryAction = true,
-}) =>
-    showGeneralDialog(
-      context,
-      body: Row(
-        children: [
-          if (icon != null) ...[icon, const SizedBox(width: 16)],
-          Flexible(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height:
-                      Theme.of(context).textTheme.titleMedium!.fontSize! * 1.5,
-                  width: kMaxWidth,
-                  child: Html(
-                    data: title,
-                    style: {
-                      'body': Style(
-                        margin: Margins.zero,
-                        fontSize: FontSize(
-                          Theme.of(context).textTheme.titleMedium!.fontSize!,
-                        ),
-                      ),
-                    },
+}) => showGeneralDialog(
+  context,
+  body: Row(
+    children: [
+      if (icon != null) ...[icon, const SizedBox(width: 16)],
+      Flexible(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: Theme.of(context).textTheme.titleMedium!.fontSize! * 1.5,
+              width: kMaxWidth,
+              child: Html(
+                data: title,
+                style: {
+                  'body': Style(
+                    margin: Margins.zero,
+                    fontSize: FontSize(
+                      Theme.of(context).textTheme.titleMedium!.fontSize!,
+                    ),
                   ),
-                ),
-                if (body != null) ...[
-                  const SizedBox(height: 8),
-                  body,
-                ],
-              ],
+                },
+              ),
             ),
-          ),
-        ],
+            if (body != null) ...[
+              const SizedBox(height: 8),
+              body,
+            ],
+          ],
+        ),
       ),
-      closeable: closeable,
-      primaryActionText: isPrimaryAction ? actionText : null,
-      onPrimaryAction: isPrimaryAction ? onAction : null,
-      secondaryActionText: isPrimaryAction ? null : actionText,
-      onSecondaryAction: isPrimaryAction ? null : onAction,
-      cancelText: cancelText,
-      onCancel: onCancel,
-      onClose: onClose,
-    );
+    ],
+  ),
+  closeable: closeable,
+  primaryActionText: isPrimaryAction ? actionText : null,
+  onPrimaryAction: isPrimaryAction ? onAction : null,
+  secondaryActionText: isPrimaryAction ? null : actionText,
+  onSecondaryAction: isPrimaryAction ? null : onAction,
+  cancelText: cancelText,
+  onCancel: onCancel,
+  onClose: onClose,
+);
 
 Future<DialogAction?> showConfirmationDialog(
   BuildContext context, {
@@ -188,37 +186,35 @@ Future<DialogAction?> showConfirmationDialog(
   VoidCallback? onCancel,
   IconData? icon = YaruIcons.question,
   bool isPrimaryAction = true,
-}) =>
-    showMessageDialog(
-      context,
-      title: title,
-      body: body,
-      actionText: actionText,
-      cancelText: cancelText,
-      icon: Icon(icon, size: 64.0),
-      onCancel: onCancel ?? () {},
-      onAction: onConfirm ?? () {},
-      closeable: false,
-      isPrimaryAction: isPrimaryAction,
-    );
+}) => showMessageDialog(
+  context,
+  title: title,
+  body: body,
+  actionText: actionText,
+  cancelText: cancelText,
+  icon: Icon(icon, size: 64.0),
+  onCancel: onCancel ?? () {},
+  onAction: onConfirm ?? () {},
+  closeable: false,
+  isPrimaryAction: isPrimaryAction,
+);
 
 Future<DialogAction?> showErrorDialog(
   BuildContext context, {
   required String title,
   String? message,
   VoidCallback? onClose,
-}) =>
-    showMessageDialog(
-      context,
-      title: title,
-      body: message != null ? Text(message) : null,
-      icon: Icon(
-        YaruIcons.error,
-        size: 64.0,
-        color: Theme.of(context).colorScheme.error,
-      ),
-      onClose: onClose,
-    );
+}) => showMessageDialog(
+  context,
+  title: title,
+  body: message != null ? Text(message) : null,
+  icon: Icon(
+    YaruIcons.error,
+    size: 64.0,
+    color: Theme.of(context).colorScheme.error,
+  ),
+  onClose: onClose,
+);
 
 class RecoveryKeyConfirmationDialog extends StatefulWidget {
   const RecoveryKeyConfirmationDialog({
@@ -269,7 +265,8 @@ class _RecoveryKeyConfirmationDialogState
     final l10n = AppLocalizations.of(context);
     final model = context.read<RecoveryKeyModel>();
 
-    final isDisabled = widget.recoveryKeyCheck == RecoveryKeyCheck.enterKey &&
+    final isDisabled =
+        widget.recoveryKeyCheck == RecoveryKeyCheck.enterKey &&
             (_loading || _recoveryKey.isEmpty) ||
         widget.recoveryKeyCheck == RecoveryKeyCheck.tickBox && !_confirmed;
 
@@ -322,7 +319,8 @@ class _RecoveryKeyConfirmationDialogState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: Theme.of(context).textTheme.titleMedium!.fontSize! *
+                    height:
+                        Theme.of(context).textTheme.titleMedium!.fontSize! *
                         1.5,
                     width: kMaxWidth,
                     child: Html(
@@ -361,8 +359,9 @@ class _RecoveryKeyConfirmationDialogState
                       style: TextStyle(
                         inherit: false,
                         fontFamily: 'Ubuntu Mono',
-                        fontSize:
-                            Theme.of(context).textTheme.bodyMedium!.fontSize,
+                        fontSize: Theme.of(
+                          context,
+                        ).textTheme.bodyMedium!.fontSize,
                         height: 20 / 14,
                         textBaseline: TextBaseline.alphabetic,
                         color: Theme.of(context).colorScheme.onSurface,
@@ -405,7 +404,8 @@ void confirmAndInstall(
   final String actionText;
   final String dialogText;
 
-  final affectsFde = device.flags.contains(FwupdDeviceFlag.affectsFde) ||
+  final affectsFde =
+      device.flags.contains(FwupdDeviceFlag.affectsFde) ||
       testDeviceAffectsFde &&
           // fwupd 'Fake webcam' test device
           device.deviceId == '08d460be0f1f9f128413f816022a6439e0078018';
@@ -417,7 +417,7 @@ void confirmAndInstall(
   )) {
     (true, true, false) => RecoveryKeyCheck.enterKey,
     (true, false, _) => RecoveryKeyCheck.tickBox,
-    _ => RecoveryKeyCheck.none
+    _ => RecoveryKeyCheck.none,
   };
 
   final children = [
@@ -451,10 +451,9 @@ void confirmAndInstall(
                 onTap: () => launchUrlString(fdeLink),
                 child: Text(
                   l10n.affectsFdeLinkLabel,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium!
-                      .copyWith(color: Theme.of(context).colorScheme.link),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Theme.of(context).colorScheme.link,
+                  ),
                 ),
               ),
             ),
@@ -468,10 +467,10 @@ void confirmAndInstall(
     0 => null,
     1 => children[0],
     _ => Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: children,
-      ),
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: children,
+    ),
   };
 
   if (release.isDowngrade) {

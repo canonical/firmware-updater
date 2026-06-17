@@ -92,8 +92,9 @@ void main() {
 
     Future<bool> confirmationListener() async => false;
     notifier.registerConfirmationListener(confirmationListener);
-    verify(service.registerConfirmationListener(confirmationListener))
-        .called(1);
+    verify(
+      service.registerConfirmationListener(confirmationListener),
+    ).called(1);
 
     void errorListener(Exception e) {}
     notifier.registerErrorListener(errorListener);

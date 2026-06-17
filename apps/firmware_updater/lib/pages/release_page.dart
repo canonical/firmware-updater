@@ -23,26 +23,26 @@ class ReleasePage extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
 
     Widget buildReleaseCard(FwupdRelease release) => ReleaseCard(
-          release: release,
-          device: device,
-          onInstall: () async {
-            final notifier = context.read<FwupdNotifier>();
-            final store = context.read<DeviceStore>();
-            store.showReleases = false;
-            await deviceModel.install(release);
-            await notifier.refresh();
+      release: release,
+      device: device,
+      onInstall: () async {
+        final notifier = context.read<FwupdNotifier>();
+        final store = context.read<DeviceStore>();
+        store.showReleases = false;
+        await deviceModel.install(release);
+        await notifier.refresh();
 
-            // refresh [DeviceStore] to force updates of all
-            // [DeviceModel]s even if fwupd didn't send an
-            // appropriate DBus signal (possible bug in 1.7.5
-            // on Ubuntu 22.04)
-            // TODO: improve when better solution is found
-            await store.refresh();
-          },
-          testDeviceAffectsFde: deviceModel.testDeviceAffectsFde,
-          hasBitlocker: recoveryKeyModel.hasBitlocker,
-          hasUbuntuFde: recoveryKeyModel.hasUbuntuFde,
-        );
+        // refresh [DeviceStore] to force updates of all
+        // [DeviceModel]s even if fwupd didn't send an
+        // appropriate DBus signal (possible bug in 1.7.5
+        // on Ubuntu 22.04)
+        // TODO: improve when better solution is found
+        await store.refresh();
+      },
+      testDeviceAffectsFde: deviceModel.testDeviceAffectsFde,
+      hasBitlocker: recoveryKeyModel.hasBitlocker,
+      hasUbuntuFde: recoveryKeyModel.hasUbuntuFde,
+    );
 
     return YaruDetailPage(
       appBar: YaruWindowTitleBar(
