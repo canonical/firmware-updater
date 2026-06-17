@@ -120,7 +120,7 @@ jobs:
 
       - name: Setup fwupd tests
         run: |
-          sudo fwupdmgr enable-remote fwupd-tests
+          sudo fwupdtool enable-test-devices
           sudo fwupdmgr get-devices
 
       - name: Run integration tests
