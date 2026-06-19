@@ -197,8 +197,9 @@ extension IntegrationClient on FwupdClient {
       emitsThrough(FwupdStatus.idle),
     );
 
-    final checksum = await findDevice((d) => d.deviceId == device.deviceId)
-        .then((d) => d?.checksum);
+    final checksum = await findDevice(
+      (d) => d.deviceId == device.deviceId,
+    ).then((d) => d?.checksum);
     expect(checksum, isNotNull);
   }
 }

@@ -80,8 +80,9 @@ void main() {
     registerMockService<ConfigService>(mockConfigService());
 
     final store = mockStore(devices: []);
-    await tester
-        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+    await tester.pumpApp(
+      (_) => buildPage(store: store, notifier: mockNotifier()),
+    );
 
     expect(find.byType(YaruCircularProgressIndicator), findsOneWidget);
   });
@@ -93,8 +94,9 @@ void main() {
       registerMockService<ConfigService>(mockConfigService());
 
       final store = mockStore(devices: devices);
-      await tester
-          .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+      await tester.pumpApp(
+        (_) => buildPage(store: store, notifier: mockNotifier()),
+      );
       await tester.pumpAndSettle();
 
       expect(find.text(devices.first.name), findsNWidgets(2));
@@ -136,8 +138,9 @@ void main() {
       registerMockService<ConfigService>(mockConfigService());
 
       final store = mockStore(devices: []);
-      await tester
-          .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+      await tester.pumpApp(
+        (_) => buildPage(store: store, notifier: mockNotifier()),
+      );
       await tester.pumpAndSettle();
 
       expect(find.text(tester.lang.noDevicesFound), findsOneWidget);
@@ -244,8 +247,9 @@ void main() {
           i.positionalArguments.first as void Function(List<String>),
     );
 
-    await tester
-        .pumpApp((_) => buildPage(store: store, notifier: mockNotifier()));
+    await tester.pumpApp(
+      (_) => buildPage(store: store, notifier: mockNotifier()),
+    );
     verify(gtkAppNotifier.addCommandLineListener(any)).called(1);
 
     cliListener(['foo']);

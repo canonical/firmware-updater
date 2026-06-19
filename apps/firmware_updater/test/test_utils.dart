@@ -112,8 +112,9 @@ SnapdClient mockSnapdClient({
 }) {
   final client = MockSnapdClient();
   if (!(isValidRecoveryKey ?? true)) {
-    when(client.checkRecoveryKey(any))
-        .thenThrow(SnapdException(message: 'invalid recovery key'));
+    when(
+      client.checkRecoveryKey(any),
+    ).thenThrow(SnapdException(message: 'invalid recovery key'));
   }
   return client;
 }
@@ -122,8 +123,9 @@ SnapdClient mockSnapdClient({
 UDisksClient mockUDisksClient({bool? hasBitlocker}) {
   final client = MockUDisksClient();
   final mockDevice = MockUDisksBlockDevice();
-  when(mockDevice.idType)
-      .thenReturn(hasBitlocker ?? false ? 'BitLocker' : 'ext4');
+  when(
+    mockDevice.idType,
+  ).thenReturn(hasBitlocker ?? false ? 'BitLocker' : 'ext4');
   when(client.blockDevices).thenReturn([mockDevice]);
   return client;
 }
@@ -192,7 +194,8 @@ class MockProcess extends Mock implements _Process {
   @override
   Future<ProcessResult> run(String? executable, List<String>? arguments) =>
       super.noSuchMethod(
-        Invocation.method(#run, [executable, arguments]),
-        returnValue: Future.value(ProcessResult(0, 0, '', '')),
-      ) as Future<ProcessResult>;
+            Invocation.method(#run, [executable, arguments]),
+            returnValue: Future.value(ProcessResult(0, 0, '', '')),
+          )
+          as Future<ProcessResult>;
 }

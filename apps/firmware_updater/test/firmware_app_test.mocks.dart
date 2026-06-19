@@ -34,103 +34,86 @@ class MockDeviceStore extends _i1.Mock implements _i2.DeviceStore {
   }
 
   @override
-  List<_i3.FwupdDevice> get devices => (super.noSuchMethod(
-        Invocation.getter(#devices),
-        returnValue: <_i3.FwupdDevice>[],
-      ) as List<_i3.FwupdDevice>);
+  List<_i3.FwupdDevice> get devices =>
+      (super.noSuchMethod(
+            Invocation.getter(#devices),
+            returnValue: <_i3.FwupdDevice>[],
+          )
+          as List<_i3.FwupdDevice>);
 
   @override
-  bool get showReleases => (super.noSuchMethod(
-        Invocation.getter(#showReleases),
-        returnValue: false,
-      ) as bool);
+  bool get showReleases =>
+      (super.noSuchMethod(Invocation.getter(#showReleases), returnValue: false)
+          as bool);
 
   @override
   set showReleases(bool? value) => super.noSuchMethod(
-        Invocation.setter(
-          #showReleases,
-          value,
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.setter(#showReleases, value),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  bool get hasListeners => (super.noSuchMethod(
-        Invocation.getter(#hasListeners),
-        returnValue: false,
-      ) as bool);
+  bool get hasListeners =>
+      (super.noSuchMethod(Invocation.getter(#hasListeners), returnValue: false)
+          as bool);
 
   @override
-  bool get isDisposed => (super.noSuchMethod(
-        Invocation.getter(#isDisposed),
-        returnValue: false,
-      ) as bool);
+  bool get isDisposed =>
+      (super.noSuchMethod(Invocation.getter(#isDisposed), returnValue: false)
+          as bool);
 
   @override
-  _i4.Future<void> dispose() => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> dispose() =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, []),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  int indexOf(String? deviceId) => (super.noSuchMethod(
-        Invocation.method(
-          #indexOf,
-          [deviceId],
-        ),
-        returnValue: 0,
-      ) as int);
+  int indexOf(String? deviceId) =>
+      (super.noSuchMethod(
+            Invocation.method(#indexOf, [deviceId]),
+            returnValue: 0,
+          )
+          as int);
 
   @override
-  _i4.Future<void> init() => (super.noSuchMethod(
-        Invocation.method(
-          #init,
-          [],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> init() =>
+      (super.noSuchMethod(
+            Invocation.method(#init, []),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> refresh() => (super.noSuchMethod(
-        Invocation.method(
-          #refresh,
-          [],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> refresh() =>
+      (super.noSuchMethod(
+            Invocation.method(#refresh, []),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   void addListener(_i5.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #addListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#addListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void removeListener(_i5.VoidCallback? listener) => super.noSuchMethod(
-        Invocation.method(
-          #removeListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#removeListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void notifyListeners() => super.noSuchMethod(
-        Invocation.method(
-          #notifyListeners,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#notifyListeners, []),
+    returnValueForMissingStub: null,
+  );
 }
 
 /// A class which mocks [GtkApplicationNotifier].
@@ -145,73 +128,45 @@ class MockGtkApplicationNotifier extends _i1.Mock
   @override
   void addCommandLineListener(_i6.GtkCommandLineListener? listener) =>
       super.noSuchMethod(
-        Invocation.method(
-          #addCommandLineListener,
-          [listener],
-        ),
+        Invocation.method(#addCommandLineListener, [listener]),
         returnValueForMissingStub: null,
       );
 
   @override
   void removeCommandLineListener(_i6.GtkCommandLineListener? listener) =>
       super.noSuchMethod(
-        Invocation.method(
-          #removeCommandLineListener,
-          [listener],
-        ),
+        Invocation.method(#removeCommandLineListener, [listener]),
         returnValueForMissingStub: null,
       );
 
   @override
   void addOpenListener(_i6.GtkOpenListener? listener) => super.noSuchMethod(
-        Invocation.method(
-          #addOpenListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#addOpenListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void removeOpenListener(_i6.GtkOpenListener? listener) => super.noSuchMethod(
-        Invocation.method(
-          #removeOpenListener,
-          [listener],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#removeOpenListener, [listener]),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void dispose() => super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#dispose, []),
+    returnValueForMissingStub: null,
+  );
 
   @override
   void notifyCommandLine(List<String>? args) => super.noSuchMethod(
-        Invocation.method(
-          #notifyCommandLine,
-          [args],
-        ),
-        returnValueForMissingStub: null,
-      );
+    Invocation.method(#notifyCommandLine, [args]),
+    returnValueForMissingStub: null,
+  );
 
   @override
-  void notifyOpen({
-    required List<String>? files,
-    required String? hint,
-  }) =>
+  void notifyOpen({required List<String>? files, required String? hint}) =>
       super.noSuchMethod(
-        Invocation.method(
-          #notifyOpen,
-          [],
-          {
-            #files: files,
-            #hint: hint,
-          },
-        ),
+        Invocation.method(#notifyOpen, [], {#files: files, #hint: hint}),
         returnValueForMissingStub: null,
       );
 }

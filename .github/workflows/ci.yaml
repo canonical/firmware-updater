@@ -113,14 +113,14 @@ jobs:
 
       - name: Prepare environment
         run: |
-          sudo sed -i 's/DisabledPlugins=.*/DisabledPlugins=invalid;bios/g' /etc/fwupd/daemon.conf
+          sudo sed -i 's/DisabledPlugins=.*/DisabledPlugins=invalid;bios/g' /etc/fwupd/fwupd.conf
           echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus" >> $GITHUB_ENV
           echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
           gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
 
       - name: Setup fwupd tests
         run: |
-          sudo fwupdmgr enable-remote fwupd-tests
+          sudo fwupdtool enable-test-devices
           sudo fwupdmgr get-devices
 
       - name: Run integration tests

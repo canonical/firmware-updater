@@ -143,8 +143,9 @@ void main() {
     });
 
     test('reboot', () async {
-      service
-          .registerConfirmationListener(expectAsync0(() => Future.value(true)));
+      service.registerConfirmationListener(
+        expectAsync0(() => Future.value(true)),
+      );
       await service.install(
         testDevice(
           id: 'b',
@@ -275,59 +276,62 @@ void main() {
   });
 
   group('user agent', () {
-    final testCases = <({
-      String name,
-      String localeName,
-      String fwupdVersion,
-      String unameOutput,
-      String lsbRelease,
-      Map<String, String> env,
-      String expectedUserAgent,
-    })>[
-      (
-        name: 'Ubuntu 24.04.1 LTS',
-        localeName: 'en_US.UTF-8',
-        fwupdVersion: '1.9.24',
-        unameOutput: 'Linux 6.8.0-45-generic x86_64',
-        lsbRelease: '''
+    final testCases =
+        <
+          ({
+            String name,
+            String localeName,
+            String fwupdVersion,
+            String unameOutput,
+            String lsbRelease,
+            Map<String, String> env,
+            String expectedUserAgent,
+          })
+        >[
+          (
+            name: 'Ubuntu 24.04.1 LTS',
+            localeName: 'en_US.UTF-8',
+            fwupdVersion: '1.9.24',
+            unameOutput: 'Linux 6.8.0-45-generic x86_64',
+            lsbRelease: '''
 DISTRIB_ID=Ubuntu
 DISTRIB_RELEASE=24.04
 DISTRIB_CODENAME=noble
 DISTRIB_DESCRIPTION="Ubuntu 24.04.1 LTS"
 ''',
-        env: {
-          'SNAP_NAME': 'firmware-updater',
-          'SNAP_VERSION': '0+git.0000000',
-        },
-        expectedUserAgent:
-            'firmware-updater/0+git.0000000 (Linux x86_64 6.8.0-45-generic; en-US; Ubuntu 24.04.1 LTS) fwupd/1.9.24',
-      ),
-      (
-        name: 'outside snap confinment',
-        localeName: 'en_US.UTF-8',
-        fwupdVersion: '1.9.24',
-        unameOutput: 'Linux 6.8.0-45-generic x86_64\n',
-        lsbRelease: '''
+            env: {
+              'SNAP_NAME': 'firmware-updater',
+              'SNAP_VERSION': '0+git.0000000',
+            },
+            expectedUserAgent:
+                'firmware-updater/0+git.0000000 (Linux x86_64 6.8.0-45-generic; en-US; Ubuntu 24.04.1 LTS) fwupd/1.9.24',
+          ),
+          (
+            name: 'outside snap confinment',
+            localeName: 'en_US.UTF-8',
+            fwupdVersion: '1.9.24',
+            unameOutput: 'Linux 6.8.0-45-generic x86_64\n',
+            lsbRelease: '''
 DISTRIB_ID=Ubuntu
 DISTRIB_RELEASE=24.04
 DISTRIB_CODENAME=noble
 DISTRIB_DESCRIPTION="Ubuntu 24.04.1 LTS"
 ''',
-        env: {},
-        expectedUserAgent:
-            'firmware-updater/dev (Linux x86_64 6.8.0-45-generic; en-US; Ubuntu 24.04.1 LTS) fwupd/1.9.24',
-      ),
-      (
-        name: 'Fallbacks',
-        localeName: 'en_US.UTF-8',
-        fwupdVersion: '1.9.24',
-        unameOutput: '',
-        lsbRelease: '',
-        env: {},
-        expectedUserAgent:
-            'firmware-updater/dev (Linux; en-US; Unknown Distribution) fwupd/1.9.24',
-      ),
-    ];
+            env: {},
+            expectedUserAgent:
+                'firmware-updater/dev (Linux x86_64 6.8.0-45-generic; en-US; Ubuntu 24.04.1 LTS) fwupd/1.9.24',
+          ),
+          (
+            name: 'Fallbacks',
+            localeName: 'en_US.UTF-8',
+            fwupdVersion: '1.9.24',
+            unameOutput: '',
+            lsbRelease: '',
+            env: {},
+            expectedUserAgent:
+                'firmware-updater/dev (Linux; en-US; Unknown Distribution) fwupd/1.9.24',
+          ),
+        ];
 
     for (final testCase in testCases) {
       test(testCase.name, () async {
