@@ -54,7 +54,7 @@ fi
 
 # Define the URL of the FVM binary
 if [ -z "$1" ]; then
-  FVM_VERSION=$(curl -s https://api.github.com/repos/leoafarias/fvm/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+  FVM_VERSION=$(curl -Ls https://api.github.com/repos/leoafarias/fvm/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
   if [ -z "$FVM_VERSION" ]; then
       error "Failed to fetch latest FVM version."
   fi
