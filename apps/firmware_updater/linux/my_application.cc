@@ -2,6 +2,7 @@
 
 #include <flutter_linux/flutter_linux.h>
 #include <gdk/gdkcairo.h>
+#include <pango/pangocairo.h>
 #ifdef GDK_WINDOWING_X11
 #include <gdk/gdkx.h>
 #endif
@@ -23,6 +24,8 @@ struct SplashData {
 
 constexpr guint kSplashMaxVisibleDurationSeconds = 5;
 constexpr gint kSplashIconMaxSize = 256;
+constexpr gint kSplashTitleSpacing = 16;
+constexpr gint kSplashTitleSize = 14 * PANGO_SCALE;
 
 static gboolean draw_splash(GtkWidget* widget, cairo_t* context,
                             gpointer user_data) {
@@ -48,6 +51,30 @@ static gboolean draw_splash(GtkWidget* widget, cairo_t* context,
   gdk_cairo_set_source_pixbuf(context, splash_data->icon, 0, 0);
   cairo_paint(context);
   cairo_restore(context);
+
+  GdkRGBA text_color{};
+  gtk_style_context_get_color(style_context, GTK_STATE_FLAG_NORMAL,
+                              &text_color);
+  g_autoptr(PangoLayout) layout = pango_cairo_create_layout(context);
+  pango_layout_set_text(layout, "Firmware Updater", -1);
+  const PangoFontDescription* font = nullptr;
+  gtk_style_context_get(style_context, GTK_STATE_FLAG_NORMAL, "font", &font,
+                        nullptr);
+  pango_layout_set_font_description(layout, font);
+  pango_font_description_free(const_cast<PangoFontDescription*>(font));
+  PangoAttrList* attributes = pango_attr_list_new();
+  pango_attr_list_insert(attributes, pango_attr_size_new(kSplashTitleSize));
+  pango_layout_set_attributes(layout, attributes);
+  pango_attr_list_unref(attributes);
+  gint title_width = 0;
+  gint title_height = 0;
+  pango_layout_get_pixel_size(layout, &title_width, &title_height);
+  cairo_set_source_rgba(context, text_color.red, text_color.green,
+                        text_color.blue, text_color.alpha);
+  cairo_move_to(context, (width - title_width) / 2,
+                y + icon_height + kSplashTitleSpacing);
+  pango_cairo_show_layout(context, layout);
+
   return FALSE;
 }
 
