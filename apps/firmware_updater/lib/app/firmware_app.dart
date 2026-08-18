@@ -34,12 +34,13 @@ class FirmwareApp extends StatefulWidget {
 class _FirmwareAppState extends State<FirmwareApp> {
   YaruPageController? _controller;
   bool _initialized = false;
+  bool _visible = false;
 
   @override
   Widget build(BuildContext context) {
     final store = context.watch<DeviceStore>();
     final l10n = AppLocalizations.of(context);
-    return _initialized
+    final child = _initialized
         ? ErrorBanner(
             message:
                 context.select<FwupdNotifier, bool>(
@@ -64,6 +65,12 @@ class _FirmwareAppState extends State<FirmwareApp> {
             ),
           )
         : const Center(child: YaruCircularProgressIndicator());
+    return AnimatedOpacity(
+      opacity: _visible ? 1.0 : 0.0,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+      child: child,
+    );
   }
 
   @override
@@ -76,6 +83,11 @@ class _FirmwareAppState extends State<FirmwareApp> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        setState(() => _visible = true);
+      }
+    });
     final fwupdNotifier = context.read<FwupdNotifier>();
     final store = context.read<DeviceStore>();
     final gtkNotifier = getService<GtkApplicationNotifier>();
