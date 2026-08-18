@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(runner LANGUAGES CXX)
+project(runner LANGUAGES C CXX)
 
 set(BINARY_NAME "firmware-updater")
 set(APPLICATION_ID "com.canonical.firmware_updater")
@@ -42,13 +42,29 @@ add_subdirectory(${FLUTTER_MANAGED_DIR})
 # System-level dependencies.
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTK REQUIRED IMPORTED_TARGET gtk+-3.0)
+find_program(GLIB_COMPILE_RESOURCES glib-compile-resources REQUIRED)
 
 add_definitions(-DAPPLICATION_ID="${APPLICATION_ID}")
+
+set(RESOURCE_XML "${CMAKE_CURRENT_SOURCE_DIR}/resources.gresource.xml")
+set(RESOURCE_SOURCE "${CMAKE_CURRENT_BINARY_DIR}/firmware_updater_resources.c")
+add_custom_command(
+  OUTPUT "${RESOURCE_SOURCE}"
+  COMMAND ${GLIB_COMPILE_RESOURCES}
+    --generate-source
+    --sourcedir=${CMAKE_CURRENT_SOURCE_DIR}/..
+    --target=${RESOURCE_SOURCE}
+    "${RESOURCE_XML}"
+  DEPENDS "${RESOURCE_XML}" "${CMAKE_CURRENT_SOURCE_DIR}/../assets/firmware-updater.png"
+  VERBATIM
+)
+set_source_files_properties("${RESOURCE_SOURCE}" PROPERTIES GENERATED TRUE)
 
 # Application build
 add_executable(${BINARY_NAME}
   "main.cc"
   "my_application.cc"
+  "${RESOURCE_SOURCE}"
   "${FLUTTER_MANAGED_DIR}/generated_plugin_registrant.cc"
 )
 apply_standard_settings(${BINARY_NAME})

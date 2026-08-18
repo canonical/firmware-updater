@@ -1,6 +1,7 @@
 #include "my_application.h"
 
 #include <flutter_linux/flutter_linux.h>
+#include <gdk/gdkcairo.h>
 #ifdef GDK_WINDOWING_X11
 #include <gdk/gdkx.h>
 #endif
@@ -13,6 +14,56 @@ struct _MyApplication {
 };
 
 G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
+
+struct SplashData {
+  FlView* view;
+  GdkPixbuf* icon;
+  gulong draw_handler;
+};
+
+constexpr guint kSplashMaxVisibleDurationSeconds = 5;
+constexpr gint kSplashIconMaxSize = 256;
+
+static gboolean draw_splash(GtkWidget* widget, cairo_t* context,
+                            gpointer user_data) {
+  SplashData* splash_data = static_cast<SplashData*>(user_data);
+  const gint width = gtk_widget_get_allocated_width(widget);
+  const gint height = gtk_widget_get_allocated_height(widget);
+
+  GtkStyleContext* style_context = gtk_widget_get_style_context(widget);
+  gtk_render_background(style_context, context, 0, 0, width, height);
+
+  const gint source_width = gdk_pixbuf_get_width(splash_data->icon);
+  const gint source_height = gdk_pixbuf_get_height(splash_data->icon);
+  const gdouble scale = MIN(1.0,
+                            static_cast<gdouble>(kSplashIconMaxSize) /
+                            MAX(source_width, source_height));
+  const gint icon_width = static_cast<gint>(source_width * scale);
+  const gint icon_height = static_cast<gint>(source_height * scale);
+  const gint x = (width - icon_width) / 2;
+  const gint y = (height - icon_height) / 2;
+  cairo_save(context);
+  cairo_translate(context, x, y);
+  cairo_scale(context, scale, scale);
+  gdk_cairo_set_source_pixbuf(context, splash_data->icon, 0, 0);
+  cairo_paint(context);
+  cairo_restore(context);
+  return FALSE;
+}
+
+static gboolean hide_splash(gpointer user_data) {
+  SplashData* splash_data = static_cast<SplashData*>(user_data);
+  g_signal_handler_disconnect(splash_data->view, splash_data->draw_handler);
+  gtk_widget_queue_draw(GTK_WIDGET(splash_data->view));
+  return G_SOURCE_REMOVE;
+}
+
+static void destroy_splash_data(gpointer user_data) {
+  SplashData* splash_data = static_cast<SplashData*>(user_data);
+  g_object_unref(splash_data->icon);
+  g_object_unref(splash_data->view);
+  delete splash_data;
+}
 
 // Implements GApplication::activate.
 static void my_application_activate(GApplication* application) {
@@ -72,6 +123,19 @@ static void my_application_activate(GApplication* application) {
   gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(view));
 
   fl_register_plugins(FL_PLUGIN_REGISTRY(view));
+
+  g_autoptr(GError) error = nullptr;
+  GdkPixbuf* icon = gdk_pixbuf_new_from_resource(
+      "/com/canonical/firmware_updater/assets/firmware-updater.png", &error);
+  if (icon == nullptr) {
+    g_warning("Failed to load splash icon: %s", error->message);
+  } else {
+    auto* splash_data = new SplashData{FL_VIEW(g_object_ref(view)), icon, 0};
+    splash_data->draw_handler = g_signal_connect(
+        view, "draw", G_CALLBACK(draw_splash), splash_data);
+    g_timeout_add_seconds_full(G_PRIORITY_DEFAULT, kSplashMaxVisibleDurationSeconds,
+                               hide_splash, splash_data, destroy_splash_data);
+  }
 
   gtk_widget_show(GTK_WIDGET(window));
   gtk_widget_show(GTK_WIDGET(view));

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/com/canonical/firmware_updater">
+    <file>assets/firmware-updater.png</file>
+  </gresource>
+</gresources>
