@@ -1,3 +1,6 @@
 {
-  "@@locale": "bs"
+    "@@locale": "bs",
+    "affectsFdeWarningTitle": "Možete izgubiti sve podatke bez ključeva za oporavak",
+    "affectsFdeWarningUbuntuFdeTitle": "Možete izgubiti sve podatke bez ključa za oporavak",
+    "affectsFdeWarningOtherFdeBody": "Provjerite imate li ključeve za oporavak za sve šifrirane diskove. Možda ćete ih morati unijeti prilikom pokretanja nakon ažuriranja firmvera."
 }
