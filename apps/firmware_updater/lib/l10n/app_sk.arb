@@ -1,7 +1,7 @@
 {
     "@@locale": "sk",
     "flags": "Príznaky",
-    "downgradeConfirm": "Prejsť na staršiu verziu <b>{name}</b> na verziu <b>{version}</b>?",
+    "downgradeConfirm": "Vrátiť <b>{name}</b> na staršiu verziu <b>{version}</b>?",
     "@downgradeConfirm": {
         "placeholders": {
             "name": {
@@ -20,10 +20,10 @@
     "fwupdDeviceFlagIsBootloader": "Je v režime zavádzača",
     "fwupdDeviceFlagIgnoreValidation": "Ignorovať bezpečnostné kontroly overenia",
     "fwupdDeviceFlagTrusted": "Dôveryhodné",
-    "fwupdDeviceFlagWillDisappear": "Zariadenie sa po dokončení aktualizácie nezobrazí",
+    "fwupdDeviceFlagWillDisappear": "Zariadenie sa po dokončení aktualizácie znova nezobrazí",
     "fwupdDeviceFlagCanVerify": "Overenie kryptografického hashu je k dispozícii",
     "fwupdDeviceFlagDualImage": "Zariadenie pripravuje aktualizácie",
-    "fwupdDeviceFlagSelfRecovery": "Zariadenie dokáže obnoviť zlyhania flash pamäte",
+    "fwupdDeviceFlagSelfRecovery": "Zariadenie sa dokáže zotaviť zo zlyhaní flashovania",
     "fwupdDeviceFlagUsableDuringUpdate": "Zariadenie je použiteľné počas celej doby aktualizácie",
     "fwupdDeviceFlagVersionCheckRequired": "Firmvér zariadenia musí obsahovať kontrolu verzie",
     "fwupdDeviceFlagBackupBeforeInstall": "Zariadenie zálohuje firmvér pred inštaláciou",
@@ -34,10 +34,10 @@
     "fwupdDeviceFlagUnsignedPayload": "Nepodpísané dáta",
     "fwupdErrorInternal": "Vnútorná chyba",
     "fwupdErrorAlreadyPending": "Už je nastavená na offline inštaláciu",
-    "fwupdErrorAuthFailed": "Zlyhalo získanie overenia",
-    "fwupdErrorWrite": "Zlyhalo zápis do zariadenia",
+    "fwupdErrorAuthFailed": "Nepodarilo sa získať overenie",
+    "fwupdErrorWrite": "Zápis do zariadenia zlyhal",
     "fwupdErrorNotFound": "Neexistuje žiadne zodpovedajúce zariadenie",
-    "fwupdErrorNothingToDo": "Žiadna akcia na vykonanie",
+    "fwupdErrorNothingToDo": "Nie je čo robiť",
     "fwupdErrorSignatureInvalid": "Podpis bol neplatný",
     "fwupdErrorNeedsUserAction": "Používateľ musí vykonať akciu na dokončenie aktualizácie",
     "fwupdErrorAuthExpired": "Zlyhalo získanie overenia, pretože poverenia vypršali",
@@ -79,7 +79,7 @@
     "deviceUnavailable": "Zariadenie bude počas tejto akcie nedostupné.",
     "downgrade": "Prejsť na staršiu verziu",
     "deviceRequest": "Požiadavka na zariadenie",
-    "fwupdDeviceFlagInternal": "Vnútorné zariadenie",
+    "fwupdDeviceFlagInternal": "Interné zariadenie",
     "fwupdDeviceFlagOnlyOffline": "Aktualizácia vyžaduje reštart",
     "fwupdDeviceFlagSupported": "Podporované na vzdialenom serveri",
     "fwupdDeviceFlagUpdatable": "Možná aktualizácia",
@@ -92,13 +92,13 @@
     "fwupdDeviceFlagInstallAllReleases": "Zariadenie musí nainštalovať všetky poskytnuté vydania",
     "fwupdDeviceFlagHasMultipleBranches": "Zariadenie podporuje prepínanie na inú vetvu firmvéru",
     "fwupdDeviceFlagUnreachable": "Zariadenie je nedosiahnuteľné",
-    "fwupdDeviceFlagAffectsFde": "Tajné údaje plného šifrovania disku môžu byť neplatné pri aktualizácii",
+    "fwupdDeviceFlagAffectsFde": "Tajné údaje šifrovania celého disku sa pri aktualizácii môžu zneplatniť",
     "fwupdErrorVersionNewer": "Nainštalovaná novšia verzia firmvéru",
     "fwupdErrorVersionSame": "Nainštalovaná rovnaká verzia firmvéru",
     "fwupdErrorRead": "Zlyhalo čítanie zo zariadenia",
     "fwupdErrorInvalidFile": "Neplatný formát súboru",
     "fwupdErrorNotSupported": "Akcia nebola možná",
-    "fwupdErrorAcPowerRequired": "Vyžadovalo sa napájanie zo zásuvky",
+    "fwupdErrorAcPowerRequired": "Vyžadovalo sa napájanie zo siete",
     "fwupdErrorPermissionDenied": "Oprávnenie bolo zamietnuté",
     "fwupdErrorBrokenSystem": "Používateľ má systém nakonfigurovaný chybným spôsobom",
     "fwupdErrorBatteryLevelTooLow": "Úroveň nabitia batérie systému je príliš nízka",
@@ -115,7 +115,7 @@
     "rebootConfirmMessage": "Na dokončenie aktualizácie musíte reštartovať zariadenie. Uistite sa, že je zariadenie pripojené k napájaniu alebo plne nabité. Pred reštartom uložte svoje súbory, aby ste predišli strate údajov.",
     "updateToLatest": "Aktualizovať na najnovšiu verziu",
     "updateAvailable": "Dostupná aktualizácia",
-    "updateChecksumsInfo": "Toto zaznamená aktuálne kryptografické hashe ako overené.",
+    "updateChecksumsInfo": "Týmto sa zaznamenajú aktuálne kryptografické odtlačky ako overené.",
     "updateConfirm": "Aktualizovať <b>{name}</b> na verziu <b>{version}</b>?",
     "@updateConfirm": {
         "placeholders": {
@@ -130,7 +130,7 @@
     "minVersion": "Minimálna verzia",
     "latestVersion": "Najnovšia verzia",
     "fwupdStatusWaitingForAuth": "Čaká sa na overenie",
-    "reinstallConfirm": "Preinštalovať verziu <b>{current}</b> aplikácie <b>{name}</b>?",
+    "reinstallConfirm": "Preinštalovať <b>{name}</b> vo verzii <b>{current}</b>?",
     "@reinstallConfirm": {
         "placeholders": {
             "name": {
@@ -156,7 +156,7 @@
     "affectsFdeLinkLabel": "Zistiť viac",
     "affectsFdeIncorrectKey": "Kľúč na obnovenie nefunguje, skontrolujte ho alebo ho nahraďte v Centre zabezpečenia",
     "affectsFdeTextFieldLabel": "Zadajte kľúč na obnovenie",
-    "affectsFdeWarningUbuntuFdeTitle": "Môžete prísť o všetky údaje bez vášho kľúča na obnovenie",
+    "affectsFdeWarningUbuntuFdeTitle": "Bez kľúča na obnovenie môžete prísť o všetky svoje údaje",
     "affectsFdeWarningOtherFdeBody": "Uistite sa, že máte kľúče na obnovenie pre všetky šifrované disky. Po aktualizácii firmvéru ich možno budete musieť zadať pri spustení.",
     "affectsFdeWarningBitlockerBody": "Na vašom počítači je povolený systém BitLocker. Uistite sa, že máte kľúče na obnovenie pre všetky šifrované disky. Po aktualizácii firmvéru ich možno budete musieť zadať pri spustení.",
     "affectsFdeWarningUbuntuFdeBody": "Na vašom počítači je povolené šifrovanie podporované hardvérom. Po aktualizácii firmvéru možno budete musieť zadať kľúč na obnovenie pri spustení. Uistite sa tiež, že máte kľúče na obnovenie pre akékoľvek ďalšie šifrované disky na tomto počítači."
