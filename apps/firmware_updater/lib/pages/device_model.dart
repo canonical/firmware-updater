@@ -39,8 +39,9 @@ class DeviceModel extends SafeChangeNotifier {
       releases?.singleWhereOrNull((r) => r.version == version);
 
   Future<void> init() async {
-    _sub =
-        _service.deviceChanged.where((d) => d.id == _device.id).listen(update);
+    _sub = _service.deviceChanged
+        .where((d) => d.id == _device.id)
+        .listen(update);
     return update(device);
   }
 
@@ -58,7 +59,9 @@ class DeviceModel extends SafeChangeNotifier {
   Future<void> verifyUpdate() => _service.verifyUpdate(_device);
 
   Future<List<FwupdRelease>> _fetchReleases() {
-    return _service.getReleases(_device).catchError(
+    return _service
+        .getReleases(_device)
+        .catchError(
           (_) => <FwupdRelease>[],
           test: (e) =>
               e is FwupdNothingToDoException || e is FwupdNotSupportedException,

@@ -10,17 +10,17 @@ class AppProgressBar extends AppBar {
     double? height,
     double? progress,
   }) : super(
-          title: Text(title),
-          bottom: PreferredSize(
-            preferredSize: Size(
-              double.infinity,
-              height ?? 6,
-            ),
-            child: Visibility(
-              visible:
-                  status != FwupdStatus.idle && status != FwupdStatus.unknown,
-              child: LinearProgressIndicator(value: progress),
-            ),
-          ),
-        );
+         title: Text(title),
+         bottom: PreferredSize(
+           preferredSize: Size(
+             double.infinity,
+             height ?? 6,
+           ),
+           child: Visibility(
+             visible:
+                 status != FwupdStatus.idle && status != FwupdStatus.unknown,
+             child: LinearProgressIndicator(value: progress),
+           ),
+         ),
+       );
 }

@@ -40,8 +40,9 @@ Future<void> main(List<String> args) async {
   for (final element in args) {
     if (element.startsWith('--simulate=')) {
       registerService<FwupdMockService>(
-        () => FwupdMockService(simulateYamlFilePath: element.split('=').last)
-          ..init(),
+        () =>
+            FwupdMockService(simulateYamlFilePath: element.split('=').last)
+              ..init(),
         dispose: (s) => s.dispose(),
       );
     }
@@ -82,29 +83,31 @@ Future<void> main(List<String> args) async {
   runApp(
     YaruTheme(
       builder: (context, yaru, child) {
-        final darkColorScheme = yaru.darkTheme?.colorScheme;
-        final lightColorScheme = yaru.theme?.colorScheme;
+        final darkColorScheme = yaru.darkTheme.colorScheme;
+        final lightColorScheme = yaru.theme.colorScheme;
 
         return Provider(
           create: (_) => RecoveryKeyModel(getService<RecoveryKeyService>()),
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: createYaruLightTheme(
-              primaryColor: YaruColors.orange,
-              elevatedButtonColor: YaruColors.dark.success,
-            ).copyWith(
-              colorScheme: lightColorScheme?.copyWith(
-                secondary: YaruColors.dark.success,
-              ),
-            ),
-            darkTheme: createYaruDarkTheme(
-              primaryColor: YaruColors.orange,
-              elevatedButtonColor: YaruColors.dark.success,
-            ).copyWith(
-              colorScheme: darkColorScheme?.copyWith(
-                secondary: YaruColors.dark.success,
-              ),
-            ),
+            theme:
+                createYaruLightTheme(
+                  primaryColor: YaruColors.orange,
+                  elevatedButtonColor: YaruColors.dark.success,
+                ).copyWith(
+                  colorScheme: lightColorScheme.copyWith(
+                    secondary: YaruColors.dark.success,
+                  ),
+                ),
+            darkTheme:
+                createYaruDarkTheme(
+                  primaryColor: YaruColors.orange,
+                  elevatedButtonColor: YaruColors.dark.success,
+                ).copyWith(
+                  colorScheme: darkColorScheme.copyWith(
+                    secondary: YaruColors.dark.success,
+                  ),
+                ),
             highContrastTheme: yaruHighContrastLight,
             highContrastDarkTheme: yaruHighContrastDark,
             localizationsDelegates: AppLocalizations.localizationsDelegates,

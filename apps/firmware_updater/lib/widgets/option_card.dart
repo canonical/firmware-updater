@@ -33,10 +33,9 @@ class _OptionCardState extends State<OptionCard> {
         border: Border.all(
           color: widget.selected
               ? Theme.of(context).primaryColor.withValues(alpha: 0.5)
-              : Theme.of(context)
-                  .colorScheme
-                  .onSurface
-                  .withAlpha(hovered ? 60 : 20),
+              : Theme.of(
+                  context,
+                ).colorScheme.onSurface.withAlpha(hovered ? 60 : 20),
           width: 2,
         ),
       ),

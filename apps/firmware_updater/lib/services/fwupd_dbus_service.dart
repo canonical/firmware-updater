@@ -27,14 +27,14 @@ class FwupdDbusService extends FwupdService {
     @visibleForTesting Map<String, String>? env,
     @visibleForTesting
     Future<ProcessResult> Function(String, List<String>)? runProcess,
-  })  : _dio = dio ?? Dio(),
-        _fs = fs ?? const LocalFileSystem(),
-        _fwupd = fwupd ?? FwupdClient(),
-        _dbus = dbus ?? DBusClient.system(),
-        _upower = upower ?? UPowerClient(),
-        _localeName = localeName ?? Platform.localeName,
-        _env = env ?? Platform.environment,
-        _runProcess = runProcess ?? Process.run;
+  }) : _dio = dio ?? Dio(),
+       _fs = fs ?? const LocalFileSystem(),
+       _fwupd = fwupd ?? FwupdClient(),
+       _dbus = dbus ?? DBusClient.system(),
+       _upower = upower ?? UPowerClient(),
+       _localeName = localeName ?? Platform.localeName,
+       _env = env ?? Platform.environment,
+       _runProcess = runProcess ?? Process.run;
   final Dio _dio;
 
   final FileSystem _fs;
@@ -126,11 +126,13 @@ class FwupdDbusService extends FwupdService {
   @override
   Future<void> init() async {
     await _fwupd.connect();
-    _fwupdPropertiesSubscription ??=
-        _fwupd.propertiesChanged.listen(_propertiesChanged.add);
+    _fwupdPropertiesSubscription ??= _fwupd.propertiesChanged.listen(
+      _propertiesChanged.add,
+    );
     await _upower.connect();
-    _upowerPropertiesSubscription ??=
-        _upower.propertiesChanged.listen(_propertiesChanged.add);
+    _upowerPropertiesSubscription ??= _upower.propertiesChanged.listen(
+      _propertiesChanged.add,
+    );
     _propertiesChanged.add(['OnBattery']);
     _userAgent = await _generateUserAgent();
   }
@@ -167,13 +169,13 @@ class FwupdDbusService extends FwupdService {
 
   @override
   Future<void> reboot() => _dbus.callMethod(
-        destination: 'org.freedesktop.login1',
-        path: DBusObjectPath('/org/freedesktop/login1'),
-        interface: 'org.freedesktop.login1.Manager',
-        name: 'Reboot',
-        values: [const DBusBoolean(true)],
-        replySignature: DBusSignature(''),
-      );
+    destination: 'org.freedesktop.login1',
+    path: DBusObjectPath('/org/freedesktop/login1'),
+    interface: 'org.freedesktop.login1.Manager',
+    name: 'Reboot',
+    values: [const DBusBoolean(true)],
+    replySignature: DBusSignature(''),
+  );
 
   @override
   Future<void> refreshProperties() => _fwupd.refreshPropertyCache();
@@ -234,17 +236,21 @@ class FwupdDbusService extends FwupdService {
             'Basic ${base64Encode(utf8.encode('$username:$password'))}';
         log.debug('using basic auth for download');
       }
-      return await _dio.download(
-        url,
-        path,
-        onReceiveProgress: (recvd, total) {
-          _setDownloadProgress(100 * recvd ~/ total);
-        },
-        options: Options(headers: headers),
-      ).then((response) => _fs.file(path));
+      return await _dio
+          .download(
+            url,
+            path,
+            onReceiveProgress: (recvd, total) {
+              _setDownloadProgress(100 * recvd ~/ total);
+            },
+            options: Options(headers: headers),
+          )
+          .then((response) => _fs.file(path));
     } on DioException catch (e) {
-      log.error('download failed: ${e.response?.statusCode} '
-          '${e.response?.statusMessage} for $url');
+      log.error(
+        'download failed: ${e.response?.statusCode} '
+        '${e.response?.statusMessage} for $url',
+      );
       rethrow;
     } finally {
       _setDownloadProgress(null);
@@ -285,10 +291,14 @@ class FwupdDbusService extends FwupdService {
     final snapName = _env['SNAP_NAME'] ?? 'firmware-updater';
     final snapVersion = _env['SNAP_VERSION'] ?? 'dev';
     final lsbRelease =
-        await _fs.file(releaseFilePath).readAsLines().onError((error, _) {
+        await _fs
+            .file(releaseFilePath)
+            .readAsLines()
+            .onError((error, _) {
               log.error('Could not read $releaseFilePath: $error');
               return [];
-            }).then(
+            })
+            .then(
               (lines) => lines
                   .singleWhereOrNull(
                     (line) => line.startsWith('DISTRIB_DESCRIPTION'),
@@ -297,8 +307,9 @@ class FwupdDbusService extends FwupdService {
                   .last
                   .replaceAll('"', ''),
             ) ??
-            'Unknown Distribution';
-    final uname = await _runProcess('uname', ['-smr']).then((result) {
+        'Unknown Distribution';
+    final uname =
+        await _runProcess('uname', ['-smr']).then((result) {
           final fields = (result.stdout as String).trim().split(' ');
           if (result.exitCode != 0 || fields.length != 3) return null;
           return '${fields[0]} ${fields[2]} ${fields[1]}';

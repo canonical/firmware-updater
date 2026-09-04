@@ -10,20 +10,23 @@ Future<Map<FwupdDevice, FwupdRelease>> getUpdates([
   await fwupdClient.connect();
 
   final devices = await fwupdClient.getDevices().catchError(
-        (_) => Future.value(<FwupdDevice>[]),
-        test: (e) => e is FwupdNothingToDoException,
-      );
+    (_) => Future.value(<FwupdDevice>[]),
+    test: (e) => e is FwupdNothingToDoException,
+  );
   final updates = {
     for (final device in devices)
-      device: (await fwupdClient.getReleases(device.deviceId).catchError(
-                (_) => <FwupdRelease>[],
-                test: (e) =>
-                    e is FwupdNothingToDoException ||
-                    e is FwupdNotSupportedException,
-              ))
-          .firstWhereOrNull(
-        (r) => r.flags.contains(FwupdReleaseFlag.isUpgrade),
-      ),
+      device:
+          (await fwupdClient
+                  .getReleases(device.deviceId)
+                  .catchError(
+                    (_) => <FwupdRelease>[],
+                    test: (e) =>
+                        e is FwupdNothingToDoException ||
+                        e is FwupdNotSupportedException,
+                  ))
+              .firstWhereOrNull(
+                (r) => r.flags.contains(FwupdReleaseFlag.isUpgrade),
+              ),
   }..removeWhere((_, update) => update == null);
   await fwupdClient.close();
   return Map<FwupdDevice, FwupdRelease>.from(updates);

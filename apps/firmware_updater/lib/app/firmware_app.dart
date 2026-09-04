@@ -41,9 +41,10 @@ class _FirmwareAppState extends State<FirmwareApp> {
     final l10n = AppLocalizations.of(context);
     return _initialized
         ? ErrorBanner(
-            message: context.select<FwupdNotifier, bool>(
-              (notifier) => notifier.onBattery,
-            )
+            message:
+                context.select<FwupdNotifier, bool>(
+                  (notifier) => notifier.onBattery,
+                )
                 ? l10n.batteryWarning
                 : null,
             child: YaruMasterDetailPage(

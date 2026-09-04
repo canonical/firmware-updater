@@ -68,8 +68,8 @@ class ReleaseCard extends StatelessWidget {
               release.isUpgrade
                   ? l10n.update
                   : release.isDowngrade
-                      ? l10n.downgrade
-                      : l10n.reinstall,
+                  ? l10n.downgrade
+                  : l10n.reinstall,
             ),
           ),
         ],

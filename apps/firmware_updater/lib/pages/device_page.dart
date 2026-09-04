@@ -144,14 +144,14 @@ class DevicePage extends StatelessWidget {
                             OutlinedButton(
                               onPressed: fwupdIdle
                                   ? () => showConfirmationDialog(
-                                        context,
-                                        title: l10n.updateChecksumsConfirm(
-                                          device.name,
-                                        ),
-                                        body: Text(l10n.updateChecksumsInfo),
-                                        onConfirm: model.verifyUpdate,
-                                        actionText: l10n.update,
-                                      )
+                                      context,
+                                      title: l10n.updateChecksumsConfirm(
+                                        device.name,
+                                      ),
+                                      body: Text(l10n.updateChecksumsInfo),
+                                      onConfirm: model.verifyUpdate,
+                                      actionText: l10n.update,
+                                    )
                                   : null,
                               child: Text(l10n.updateChecksums),
                             ),
@@ -160,17 +160,19 @@ class DevicePage extends StatelessWidget {
                               OutlinedButton(
                                 onPressed: fwupdIdle
                                     ? () => showConfirmationDialog(
-                                          context,
-                                          title: l10n.verifyFirmwareConfirm(
-                                            device.name,
-                                          ),
-                                          body: device.flags.contains(
-                                            FwupdDeviceFlag.usableDuringUpdate,
-                                          )
-                                              ? null
-                                              : Text(l10n.deviceUnavailable),
-                                          onConfirm: model.verify,
-                                        )
+                                        context,
+                                        title: l10n.verifyFirmwareConfirm(
+                                          device.name,
+                                        ),
+                                        body:
+                                            device.flags.contains(
+                                              FwupdDeviceFlag
+                                                  .usableDuringUpdate,
+                                            )
+                                            ? null
+                                            : Text(l10n.deviceUnavailable),
+                                        onConfirm: model.verify,
+                                      )
                                     : null,
                                 child: Text(l10n.verifyFirmware),
                               ),
@@ -223,16 +225,15 @@ class DevicePage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: enabled
                     ? () => confirmAndInstall(
-                          context,
-                          release: deviceModel.latestRelease!,
-                          device: deviceModel.device,
-                          onInstall: () =>
-                              deviceModel.install(deviceModel.latestRelease!),
-                          testDeviceAffectsFde:
-                              deviceModel.testDeviceAffectsFde,
-                          hasUbuntuFde: recoveryKeyModel.hasUbuntuFde,
-                          hasBitlocker: recoveryKeyModel.hasBitlocker,
-                        )
+                        context,
+                        release: deviceModel.latestRelease!,
+                        device: deviceModel.device,
+                        onInstall: () =>
+                            deviceModel.install(deviceModel.latestRelease!),
+                        testDeviceAffectsFde: deviceModel.testDeviceAffectsFde,
+                        hasUbuntuFde: recoveryKeyModel.hasUbuntuFde,
+                        hasBitlocker: recoveryKeyModel.hasBitlocker,
+                      )
                     : null,
                 child: Text(l10n.updateToLatest),
               ),
@@ -267,13 +268,14 @@ class DevicePage extends StatelessWidget {
     final lightChipLabelColor = Theme.of(context).colorScheme.secondary;
     final darkChipLabelColor = lightChipLabelColor.copyWith(lightness: .65);
 
-    final lightChipBackgroundColor = Theme.of(context)
-        .colorScheme
-        .secondary
-        .adjust(lightness: 0.64, saturation: 1);
+    final lightChipBackgroundColor = Theme.of(
+      context,
+    ).colorScheme.secondary.adjust(lightness: 0.64, saturation: 1);
 
-    final darkChipBackgroundColor =
-        lightChipBackgroundColor.copyWith(lightness: .4, alpha: 0.3);
+    final darkChipBackgroundColor = lightChipBackgroundColor.copyWith(
+      lightness: .4,
+      alpha: 0.3,
+    );
 
     return _buildPadding(
       chipLabel == null
@@ -286,16 +288,16 @@ class DevicePage extends StatelessWidget {
                   materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   label: Text(chipLabel),
                   labelStyle: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: Theme.of(context).brightness == Brightness.light
-                            ? lightChipLabelColor
-                            : darkChipLabelColor,
-                      ),
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? lightChipLabelColor
+                        : darkChipLabelColor,
+                  ),
                   labelPadding: EdgeInsets.zero,
                   visualDensity: const VisualDensity(vertical: -4),
                   backgroundColor:
                       Theme.of(context).brightness == Brightness.light
-                          ? lightChipBackgroundColor
-                          : darkChipBackgroundColor,
+                      ? lightChipBackgroundColor
+                      : darkChipBackgroundColor,
                   side: BorderSide.none,
                 ),
               ],

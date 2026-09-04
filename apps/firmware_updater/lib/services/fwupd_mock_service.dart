@@ -67,8 +67,9 @@ class FwupdMockService extends FwupdService {
           version: device['version'] as String?,
           versionBootloader: device['versionBootloader'] as String?,
           versionLowest: device['versionLowest'] as String?,
-          versionFormat: FwupdVersionFormat.values
-              .firstWhere((e) => e.toString() == device['versionFormat']),
+          versionFormat: FwupdVersionFormat.values.firstWhere(
+            (e) => e.toString() == device['versionFormat'],
+          ),
           protocol: device['protocol'] as String?,
           plugin: device['plugin'] as String,
           guid: device['guid'] == null ? [] : [device['guid'] as String],
@@ -82,8 +83,7 @@ class FwupdMockService extends FwupdService {
               ? DateTime.parse(device['modified'] as String)
               : null,
           parentDeviceId: device['parentDeviceId'] as String?,
-          flags: (device['flags'] as YamlList)
-              .value
+          flags: (device['flags'] as YamlList).value
               .map(
                 (e) => FwupdDeviceFlag.values.firstWhere(
                   (f) => f.toString() == e.toString(),
@@ -91,8 +91,9 @@ class FwupdMockService extends FwupdService {
               )
               .toSet(),
           summary: device['summary'] as String?,
-          updateState: FwupdUpdateState.values
-              .firstWhere((e) => e.toString() == device['updateState']),
+          updateState: FwupdUpdateState.values.firstWhere(
+            (e) => e.toString() == device['updateState'],
+          ),
         ),
     ]);
   }

@@ -48,8 +48,7 @@ class FwupdNotifier extends SafeChangeNotifier {
 
   void registerConfirmationListener(
     Future<bool> Function() confirmationListener,
-  ) =>
-      _service.registerConfirmationListener(confirmationListener);
+  ) => _service.registerConfirmationListener(confirmationListener);
 
   void registerDeviceRequestListener(
     Function(FwupdDevice) deviceRequestListener,

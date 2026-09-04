@@ -11,7 +11,7 @@ jobs:
   analyze:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: Atsumi3/actions-setup-fvm@0.0.3
       - uses: bluefireteam/melos-action@v3
       - run: melos analyze
@@ -19,7 +19,7 @@ jobs:
   format:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: Atsumi3/actions-setup-fvm@0.0.3
       - uses: bluefireteam/melos-action@v3
       - run: melos format
@@ -27,7 +27,7 @@ jobs:
   mocks:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: Atsumi3/actions-setup-fvm@0.0.3
       - uses: bluefireteam/melos-action@v3
       - run: melos generate
@@ -36,7 +36,7 @@ jobs:
         run: ./.github/scripts/check-outdated-files.sh
       - name: Create PR
         if: github.event_name == 'push'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           add-paths: '**/*.mocks.dart'
           title: 'chore: regenerate mocks'
@@ -47,7 +47,7 @@ jobs:
   l10n:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: Atsumi3/actions-setup-fvm@0.0.3
       - uses: bluefireteam/melos-action@v3
       - run: melos gen-l10n
@@ -57,7 +57,7 @@ jobs:
         run: ./.github/scripts/check-outdated-files.sh
       - name: Create PR
         if: github.event_name == 'push'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           add-paths: | 
             '**/l10n/*.dart'
@@ -70,12 +70,12 @@ jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: Atsumi3/actions-setup-fvm@0.0.3
       - uses: bluefireteam/melos-action@v3
       - run: sudo apt update && sudo apt install -y lcov
       - run: melos coverage
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v7
         with:
           token: ${{secrets.CODECOV_TOKEN}}
 
@@ -100,7 +100,7 @@ jobs:
   integration:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: Atsumi3/actions-setup-fvm@0.0.3
       - uses: bluefireteam/melos-action@v3
       - run: sudo apt update
@@ -113,14 +113,14 @@ jobs:
 
       - name: Prepare environment
         run: |
-          sudo sed -i 's/DisabledPlugins=.*/DisabledPlugins=invalid;bios/g' /etc/fwupd/daemon.conf
+          sudo sed -i 's/DisabledPlugins=.*/DisabledPlugins=invalid;bios/g' /etc/fwupd/fwupd.conf
           echo "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$UID/bus" >> $GITHUB_ENV
           echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
           gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
 
       - name: Setup fwupd tests
         run: |
-          sudo fwupdmgr enable-remote fwupd-tests
+          sudo fwupdtool enable-test-devices
           sudo fwupdmgr get-devices
 
       - name: Run integration tests

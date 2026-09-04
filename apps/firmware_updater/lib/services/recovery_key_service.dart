@@ -35,9 +35,9 @@ class RecoveryKeySnapdService implements RecoveryKeyService {
     @visibleForTesting UDisksClient? udisksClient,
     @visibleForTesting
     Future<ProcessResult> Function(String, List<String>)? runProcess,
-  })  : _snapdClient = snapdClient ?? getService<SnapdClient>(),
-        _uDisksClient = udisksClient ?? getService<UDisksClient>(),
-        _runProcess = runProcess ?? Process.run;
+  }) : _snapdClient = snapdClient ?? getService<SnapdClient>(),
+       _uDisksClient = udisksClient ?? getService<UDisksClient>(),
+       _runProcess = runProcess ?? Process.run;
   final SnapdClient _snapdClient;
   final UDisksClient _uDisksClient;
   final Future<ProcessResult> Function(String, List<String>) _runProcess;
@@ -73,8 +73,9 @@ class RecoveryKeySnapdService implements RecoveryKeyService {
       _log.error('could not fetch block devices from UDisks');
       return false;
     }
-    return _uDisksClient.blockDevices
-        .any((blockDevice) => blockDevice.idType.toLowerCase() == 'bitlocker');
+    return _uDisksClient.blockDevices.any(
+      (blockDevice) => blockDevice.idType.toLowerCase() == 'bitlocker',
+    );
   }
 
   @override

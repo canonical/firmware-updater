@@ -32,9 +32,8 @@ class _ErrorBannerState extends State<ErrorBanner> {
                     child: Text(
                       widget.message!,
                       style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                            color:
-                                Theme.of(context).colorScheme.onErrorContainer,
-                          ),
+                        color: Theme.of(context).colorScheme.onErrorContainer,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ),
