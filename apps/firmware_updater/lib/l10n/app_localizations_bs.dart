@@ -10,15 +10,15 @@ class AppLocalizationsBs extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'You may lose all your data without recovery keys';
+      'Možete izgubiti sve podatke bez ključeva za oporavak';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'Možete izgubiti sve podatke bez ključa za oporavak';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'Provjerite imate li ključeve za oporavak za sve šifrirane diskove. Možda ćete ih morati unijeti prilikom pokretanja nakon ažuriranja firmvera.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>

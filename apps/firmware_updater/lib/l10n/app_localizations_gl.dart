@@ -22,11 +22,11 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'O cifrado con respaldo de hardware está activado no teu ordenador. É posible que teñas que introducir a túa cahve de recuperación ao iniciar despois de actualizar o firmware. Asegúrate de que tamén tes chaves de recuperación para calquera outro disco cifrado neste ordenador.';
+      'O cifrado con respaldo de hardware está activado no teu computador. É posible que teñas que introducir a túa chave de recuperación ao iniciar despois de actualizar o firmware. Asegúrate de que tamén tes chaves de recuperación para calquera outro disco cifrado neste computador.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker está activado no teu ordenador. Asegúrate de ter chaves de recuperación para todos os discos cifrados. É posible que teñas que introducilas ao iniciar despois de actualizar o firmware.';
+      'BitLocker está activado no teu computador. Asegúrate de ter chaves de recuperación para todos os discos cifrados. É posible que teñas que introducilas ao iniciar despois de actualizar o firmware.';
 
   @override
   String get affectsFdeCheckbox =>
@@ -297,7 +297,7 @@ class AppLocalizationsGl extends AppLocalizations {
   String get fwupdStatusDownloading => 'Estase a descargar un ficheiro';
 
   @override
-  String get fwupdStatusDeviceRead => 'Lendo dende un dispositivo';
+  String get fwupdStatusDeviceRead => 'Lendo desde un dispositivo';
 
   @override
   String get fwupdStatusDeviceErase => 'Borrando un dispositivo';
