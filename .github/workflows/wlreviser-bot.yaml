@@ -1,0 +1,30 @@
+name: WLReviser Bot
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions: {}
+
+jobs:
+  translations:
+    if: >-
+      github.event.issue.pull_request &&
+      github.event.issue.state == 'open' &&
+      github.run_attempt == 1 &&
+      github.event.comment.user.type == 'User' &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) &&
+      contains(fromJSON(vars.WLREVISER_BOT_PR_AUTHORS || '["weblate"]'), github.event.issue.user.login) &&
+      (startsWith(github.event.comment.body, '/translations verify') ||
+       startsWith(github.event.comment.body, '/translations apply '))
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: write
+      actions: write
+    uses: canonical/translations-verifier/.github/workflows/wlreviser-bot.yaml@main
+    with:
+      allowed-pr-authors: ${{ vars.WLREVISER_BOT_PR_AUTHORS || '["weblate"]' }}
+    secrets:
+      WEBLATE_TOKEN: ${{ secrets.WEBLATE_TOKEN }}
+      WL_BOT_AI_TOKEN: ${{ secrets.WL_BOT_AI_TOKEN }}
