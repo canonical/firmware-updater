@@ -6,7 +6,7 @@ on:
 
 permissions:
   contents: read
-  pull-requests: read
+  pull-requests: write
   issues: write
   actions: write
 
@@ -23,7 +23,7 @@ jobs:
        startsWith(github.event.comment.body, '/translations apply '))
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write
       issues: write
       actions: write
     uses: canonical/translations-verifier/.github/workflows/wlreviser-bot.yaml@main
