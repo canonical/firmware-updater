@@ -180,6 +180,7 @@ abstract class AppLocalizations {
     Locale('dz'),
     Locale('el'),
     Locale('en'),
+    Locale('en', 'GB'),
     Locale('eo'),
     Locale('es'),
     Locale('et'),
@@ -1020,6 +1021,14 @@ class _AppLocalizationsDelegate
 AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when language+country codes are specified.
   switch (locale.languageCode) {
+    case 'en':
+      {
+        switch (locale.countryCode) {
+          case 'GB':
+            return AppLocalizationsEnGb();
+        }
+        break;
+      }
     case 'pt':
       {
         switch (locale.countryCode) {
