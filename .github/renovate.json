@@ -7,5 +7,5 @@
     "github-actions",
     "pub"
   ],
-  "schedule": ["after 9am and before 2pm every monday"]
+  "schedule": ["after 9am and before 2pm on monday"]
 }
