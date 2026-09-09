@@ -27,7 +27,7 @@ scripts:
   # cleanup generated files from coverage
   coverage:cleanup: >
     melos exec --file-exists=coverage/lcov.info -- \
-      lcov --remove coverage/lcov.info \
+      lcov --ignore-errors unused --remove coverage/lcov.info \
         '**/*.freezed.dart' \
         '**/*.g.dart' \
         '**/*.mocks.dart' \
