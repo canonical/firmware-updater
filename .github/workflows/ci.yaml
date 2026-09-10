@@ -12,21 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@main
+      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@fix-flutter-setup-fvm4
       - run: melos analyze
 
   format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@main
+      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@fix-flutter-setup-fvm4
       - run: melos format:exclude
 
   mocks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@main
+      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@fix-flutter-setup-fvm4
       - run: melos generate
       - name: Check for outdated mocks
         if: github.event_name != 'push'
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@main
+      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@fix-flutter-setup-fvm4
       - run: melos gen-l10n
       - run: melos sync-desktop-titles
       - name: Check for outdated l10n
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@main
+      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@fix-flutter-setup-fvm4
       - run: sudo apt update && sudo apt install -y lcov
       - run: melos coverage
       - uses: codecov/codecov-action@v7
@@ -96,7 +96,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@main
+      - uses: canonical/desktop-engineering/gh-actions/flutter/setup@fix-flutter-setup-fvm4
       - run: sudo apt update
       - run: sudo apt install -y clang cmake curl dbus dbus-x11 fwupd fwupd-tests gsettings-desktop-schemas libgtk-3-dev ninja-build pkg-config unzip upower xvfb
         env:
