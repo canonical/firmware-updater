@@ -18,6 +18,7 @@ concurrency:
 jobs:
   regenerate:
     if: >-
+      github.event.sender.login == 'weblate' &&
       github.event.pull_request.user.login == 'weblate' &&
       github.event.pull_request.head.repo.owner.login == 'weblate'
     runs-on: ubuntu-latest
@@ -26,6 +27,7 @@ jobs:
       - uses: canonical/desktop-engineering/gh-actions/flutter/weblate-l10n@weblate-l10n-action
         with:
           github-token: ${{ secrets.DESKTOP_GH_BOT_TOKEN }}
+          ssh-signing-private-key: ${{ secrets.DESKTOP_GH_BOT_SSH_SIGNING_PRIVATE_KEY }}
           generation-command: |
             melos gen-l10n
             melos sync-desktop-titles
