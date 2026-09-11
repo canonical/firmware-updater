@@ -40,7 +40,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get affectsFdeIncorrectKey =>
-      'აღდგენის გასაღები აღ მუშაობს. შეამოწმეთ ან შეცვალეთ ის უსაფრთხოების ცენტრში';
+      'აღდგენის გასაღები არ მუშაობს. შეამოწმეთ ან შეცვალეთ ის უსაფრთხოების ცენტრში';
 
   @override
   String get allVersions => 'ყველა ვერსია';
