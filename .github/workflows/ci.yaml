@@ -84,7 +84,7 @@ jobs:
 
       - name: Run TICS analysis
         if: github.event_name == 'push'
-        uses: tiobe/tics-github-action@v3
+        uses: tiobe/tics-github-action@v4
         with:
           mode: qserver
           project: firmware-updater
