@@ -59,6 +59,8 @@ parts:
       cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
       cp $CRAFT_PART_INSTALL/bin/data/flutter_assets/assets/firmware-updater.desktop $CRAFT_PART_INSTALL/bin/data/flutter_assets/assets/firmware-updater-app.desktop
       echo "NoDisplay=true" >> $CRAFT_PART_INSTALL/bin/data/flutter_assets/assets/firmware-updater-app.desktop
+    stage-packages:
+      - fonts-noto-cjk
 
   firmware-notifier:
     after: [ flutter-git ]

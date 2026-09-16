@@ -83,6 +83,9 @@ Future<void> main(List<String> args) async {
   runApp(
     YaruTheme(
       builder: (context, yaru, child) {
+        final locale = resolveFontLocale(
+          WidgetsBinding.instance.platformDispatcher.locales,
+        );
         final darkColorScheme = yaru.darkTheme.colorScheme;
         final lightColorScheme = yaru.theme.colorScheme;
 
@@ -92,24 +95,32 @@ Future<void> main(List<String> args) async {
             debugShowCheckedModeBanner: false,
             theme:
                 createYaruLightTheme(
-                  primaryColor: YaruColors.orange,
-                  elevatedButtonColor: YaruColors.dark.success,
-                ).copyWith(
-                  colorScheme: lightColorScheme.copyWith(
-                    secondary: YaruColors.dark.success,
-                  ),
-                ),
+                      primaryColor: YaruColors.orange,
+                      elevatedButtonColor: YaruColors.dark.success,
+                    )
+                    .copyWith(
+                      colorScheme: lightColorScheme.copyWith(
+                        secondary: YaruColors.dark.success,
+                      ),
+                    )
+                    .withFontFallbacks(locale: locale),
             darkTheme:
                 createYaruDarkTheme(
-                  primaryColor: YaruColors.orange,
-                  elevatedButtonColor: YaruColors.dark.success,
-                ).copyWith(
-                  colorScheme: darkColorScheme.copyWith(
-                    secondary: YaruColors.dark.success,
-                  ),
-                ),
-            highContrastTheme: yaruHighContrastLight,
-            highContrastDarkTheme: yaruHighContrastDark,
+                      primaryColor: YaruColors.orange,
+                      elevatedButtonColor: YaruColors.dark.success,
+                    )
+                    .copyWith(
+                      colorScheme: darkColorScheme.copyWith(
+                        secondary: YaruColors.dark.success,
+                      ),
+                    )
+                    .withFontFallbacks(locale: locale),
+            highContrastTheme: yaruHighContrastLight.withFontFallbacks(
+              locale: locale,
+            ),
+            highContrastDarkTheme: yaruHighContrastDark.withFontFallbacks(
+              locale: locale,
+            ),
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
             onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
