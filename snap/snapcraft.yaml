@@ -60,7 +60,8 @@ parts:
       cp $CRAFT_PART_INSTALL/bin/data/flutter_assets/assets/firmware-updater.desktop $CRAFT_PART_INSTALL/bin/data/flutter_assets/assets/firmware-updater-app.desktop
       echo "NoDisplay=true" >> $CRAFT_PART_INSTALL/bin/data/flutter_assets/assets/firmware-updater-app.desktop
     stage-packages:
-      - fonts-noto-cjk
+      - to arm64:
+          - fonts-noto-cjk
 
   firmware-notifier:
     after: [ flutter-git ]
