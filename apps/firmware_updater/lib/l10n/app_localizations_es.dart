@@ -26,7 +26,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker está activado en su ordenador. Asegúrese de tener las claves de recuperación de todos los discos cifrados. Es posible que deba introducirlas al arrancar el equipo después de actualizar el firmware.';
+      'BitLocker está activado en el equipo. Cerciórese de tener las claves de recuperación de todos los discos cifrados. Es posible que deba introducirlas al arrancar el equipo después de actualizar el firmware.';
 
   @override
   String get affectsFdeCheckbox =>
@@ -36,11 +36,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get affectsFdeTextFieldLabel => 'Introduzca la clave de recuperación';
 
   @override
-  String get affectsFdeLinkLabel => 'Saber más';
+  String get affectsFdeLinkLabel => 'Conocer más';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'La clave de recuperación no funciona, compruébela o reemplácela en el Centro de Seguridad';
+      'La clave de recuperación no funciona; compruébela o reemplácela en el Centro de seguridad';
 
   @override
   String get allVersions => 'Todas las versiones';
