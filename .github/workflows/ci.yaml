@@ -47,7 +47,6 @@ jobs:
       - uses: actions/checkout@v7
       - uses: canonical/desktop-engineering/gh-actions/flutter/setup@2db611c684665808acf24723ea8fc6d2050f5f99
       - run: melos gen-l10n
-      - run: melos sync-desktop-titles
       - name: Check for outdated l10n
         if: github.event_name == 'pull_request'
         run: ./.github/scripts/check-outdated-files.sh
