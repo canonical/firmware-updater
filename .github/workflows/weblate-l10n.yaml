@@ -23,7 +23,7 @@ jobs:
       github.event.pull_request.head.repo.owner.login == 'weblate'
     runs-on: ubuntu-latest
     steps:
-      - uses: canonical/desktop-engineering/gh-actions/flutter/weblate-l10n@5da7ff1502842ebac0bf6384700f58c95d000428
+      - uses: canonical/desktop-engineering/gh-actions/flutter/weblate-l10n@0050a45461a9be48ec60d8f734f0530f80e80634
         with:
           github-token: ${{ secrets.DESKTOP_GH_BOT_TOKEN }}
           ssh-signing-private-key: ${{ secrets.DESKTOP_GH_BOT_SSH_SIGNING_PRIVATE_KEY }}
