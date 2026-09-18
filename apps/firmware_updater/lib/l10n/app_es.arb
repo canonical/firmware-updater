@@ -153,11 +153,11 @@
     "affectsFdeWarningBody1": "Asegúrese que tenga claves de recuperación para todas sus unidades cifradas. Necesitar introducirlas al arrancar tras actualizar el firmware.",
     "affectsFdeWarningBody2": "Necesita las claves de recuperación porque ha habilitado el cifrado del hardware respaldado en Ubuntu u otro sistema operativo en este equipo.",
     "affectsFdeCheckbox": "Tengo claves de recuperación para todas mis unidades cifradas",
-    "affectsFdeLinkLabel": "Saber más",
+    "affectsFdeLinkLabel": "Conocer más",
     "affectsFdeWarningUbuntuFdeTitle": "Puede perder todos sus datos si no tiene la clave de recuperación",
     "affectsFdeWarningOtherFdeBody": "Asegúrese de que tiene claves de recuperación para todos los discos cifrados. Es posible que deba introducirlas al arrancar tras actualizar el firmware.",
     "affectsFdeWarningUbuntuFdeBody": "El cifrado con soporte de hardware está activado en su ordenador. Es posible que deba introducir las claves de recuperación tras actualizar el firmware. Asegúrese también de tener las claves de recuperación de cualquier otro disco cifrado de este ordenador.",
-    "affectsFdeWarningBitlockerBody": "BitLocker está activado en su ordenador. Asegúrese de tener las claves de recuperación de todos los discos cifrados. Es posible que deba introducirlas al arrancar el equipo después de actualizar el firmware.",
+    "affectsFdeWarningBitlockerBody": "BitLocker está activado en el equipo. Cerciórese de tener las claves de recuperación de todos los discos cifrados. Es posible que deba introducirlas al arrancar el equipo después de actualizar el firmware.",
     "affectsFdeTextFieldLabel": "Introduzca la clave de recuperación",
-    "affectsFdeIncorrectKey": "La clave de recuperación no funciona, compruébela o reemplácela en el Centro de Seguridad"
+    "affectsFdeIncorrectKey": "La clave de recuperación no funciona; compruébela o reemplácela en el Centro de seguridad"
 }

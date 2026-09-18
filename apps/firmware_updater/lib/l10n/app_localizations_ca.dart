@@ -36,7 +36,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get affectsFdeTextFieldLabel => 'Introduïu la clau de recuperació';
 
   @override
-  String get affectsFdeLinkLabel => 'Sabeu més';
+  String get affectsFdeLinkLabel => 'Més informació';
 
   @override
   String get affectsFdeIncorrectKey =>
