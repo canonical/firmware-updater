@@ -18,7 +18,7 @@
     },
     "deviceUnavailable": "操作中はデバイスを使用できません。",
     "fwupdDeviceFlagInternal": "",
-    "fwupdDeviceFlagSupported": "",
+    "fwupdDeviceFlagSupported": "リモートサーバーでサポートされています",
     "fwupdDeviceFlagRegistered": "",
     "fwupdDeviceFlagNeedsReboot": "",
     "fwupdDeviceFlagNeedsShutdown": "",
