@@ -59,7 +59,7 @@
     "current": "現在",
     "flags": "フラグ",
     "fwupdDeviceFlagUpdatable": "アップデート可能",
-    "fwupdDeviceFlagOnlyOffline": "アップデートには再起動が必要です",
+    "fwupdDeviceFlagOnlyOffline": "アップデートするには再起動が必要です",
     "fwupdDeviceFlagNeedsBootloader": "ブートローダーモードが必要です",
     "fwupdDeviceFlagNotified": "ユーザーに通知済み",
     "fwupdDeviceFlagRequireAc": "外部電源への接続が必要です",
