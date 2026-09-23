@@ -9,38 +9,36 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get affectsFdeWarningTitle =>
-      'You may lose all your data without recovery keys';
+  String get affectsFdeWarningTitle => 'リカバリーキーがないと、すべてのデータを失う可能性があります';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'You may lose all your data without your recovery key';
+      'リカバリーキーがないと、すべてのデータを失う可能性があります';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'すべての暗号化されたディスクについて、リカバリーキーを持っていることを確認してください。ファームウェアの更新後、起動時にキーの入力を求められることがあります。';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'このコンピューターでは、ハードウェアベースの暗号化が有効になっています。ファームウェアの更新後、起動時にリカバリーキーの入力を求められることがあります。他の暗号化されたディスクについても、キーが用意されていることを確認してください。';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'このコンピューターでは、BitLockerが有効になっています。すべての暗号化されたディスクについて、リカバリーキーを持っていることを確認してください。ファームウェアの更新後、起動時にキーの入力を求められることがあります。';
 
   @override
-  String get affectsFdeCheckbox =>
-      'I have recovery keys for all my encrypted drives';
+  String get affectsFdeCheckbox => '暗号化されたすべてのディスクのリカバリーキーを持っています';
 
   @override
-  String get affectsFdeTextFieldLabel => 'Enter your recovery key';
+  String get affectsFdeTextFieldLabel => 'リカバリーキーを入力';
 
   @override
-  String get affectsFdeLinkLabel => 'Learn more';
+  String get affectsFdeLinkLabel => '詳しく見る';
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'リカバリーキーが使用できません。セキュリティセンターで確認するか、新しいキーに置き換えてください';
 
   @override
   String get allVersions => 'すべてのバージョン';
@@ -52,7 +50,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get batteryWarning => '注意: デバイスによってはアップデートに外部電源が必要な場合があります！';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'チェックサム';
 
   @override
   String get close => '閉じる';
@@ -81,215 +79,210 @@ class AppLocalizationsJa extends AppLocalizations {
   String get flags => 'フラグ';
 
   @override
-  String get fwupdDeviceFlagInternal => '';
+  String get fwupdDeviceFlagInternal => '内蔵デバイス';
 
   @override
-  String get fwupdDeviceFlagUpdatable => '';
+  String get fwupdDeviceFlagUpdatable => 'アップデート可能';
 
   @override
-  String get fwupdDeviceFlagOnlyOffline => '';
+  String get fwupdDeviceFlagOnlyOffline => 'アップデートするには再起動が必要です';
 
   @override
-  String get fwupdDeviceFlagRequireAc => '';
+  String get fwupdDeviceFlagRequireAc => '外部電源への接続が必要です';
 
   @override
-  String get fwupdDeviceFlagLocked => '';
+  String get fwupdDeviceFlagLocked => 'デバイスはロックされています';
 
   @override
-  String get fwupdDeviceFlagSupported => '';
+  String get fwupdDeviceFlagSupported => 'リモートサーバーに登録されています';
 
   @override
-  String get fwupdDeviceFlagNeedsBootloader => '';
+  String get fwupdDeviceFlagNeedsBootloader => 'ブートローダーモードが必要です';
 
   @override
-  String get fwupdDeviceFlagRegistered => '';
+  String get fwupdDeviceFlagRegistered => '登録済み';
 
   @override
-  String get fwupdDeviceFlagNeedsReboot => '';
+  String get fwupdDeviceFlagNeedsReboot => 'インストール後に再起動が必要です';
 
   @override
-  String get fwupdDeviceFlagNeedsShutdown => '';
+  String get fwupdDeviceFlagNeedsShutdown => 'インストール後に電源オフが必要です';
 
   @override
-  String get fwupdDeviceFlagReported => '';
+  String get fwupdDeviceFlagReported => 'リモートサーバーに報告済み';
 
   @override
-  String get fwupdDeviceFlagNotified => '';
+  String get fwupdDeviceFlagNotified => 'ユーザーに通知済み';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst => '';
+  String get fwupdDeviceFlagInstallParentFirst => '親デバイスを先に更新します';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => '';
+  String get fwupdDeviceFlagIsBootloader => 'ブートローダーモードです';
 
   @override
-  String get fwupdDeviceFlagWaitForReplug => '';
+  String get fwupdDeviceFlagWaitForReplug => 'デバイスの再接続を待機しています';
 
   @override
-  String get fwupdDeviceFlagIgnoreValidation => '';
+  String get fwupdDeviceFlagIgnoreValidation => '検証時の安全チェックを無視';
 
   @override
-  String get fwupdDeviceFlagTrusted => '';
+  String get fwupdDeviceFlagTrusted => '信頼済み';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => '';
+  String get fwupdDeviceFlagNeedsActivation => 'デバイスのアップデートには別途有効化が必要です';
 
   @override
-  String get fwupdDeviceFlagWillDisappear => '';
+  String get fwupdDeviceFlagWillDisappear => 'アップデート完了後、デバイスは再認識されません';
 
   @override
-  String get fwupdDeviceFlagCanVerify => '';
+  String get fwupdDeviceFlagCanVerify => '暗号学的ハッシュ検証が利用可能です';
 
   @override
-  String get fwupdDeviceFlagDualImage => '';
+  String get fwupdDeviceFlagDualImage => 'デバイスはアップデートを段階的に適用します';
 
   @override
-  String get fwupdDeviceFlagSelfRecovery => '';
+  String get fwupdDeviceFlagSelfRecovery => 'デバイスはファームウェア更新に失敗しても復旧できます';
 
   @override
-  String get fwupdDeviceFlagUsableDuringUpdate => '';
+  String get fwupdDeviceFlagUsableDuringUpdate => 'アップデート中もデバイスは使用可能です';
 
   @override
-  String get fwupdDeviceFlagVersionCheckRequired => '';
+  String get fwupdDeviceFlagVersionCheckRequired =>
+      'デバイスファームウェアにはバージョンチェックが必要です';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
-      'Device is required to install all provided releases';
+      'デバイスは提供されたすべてのリリースをインストールする必要があります';
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
-      'Device supports switching to a different branch of firmware';
+      'デバイスは異なるファームウェアブランチへの切り替えに対応しています';
 
   @override
   String get fwupdDeviceFlagBackupBeforeInstall =>
-      'Device will backup firmware before installing';
+      'デバイスはインストール前にファームウェアをバックアップします';
 
   @override
-  String get fwupdDeviceFlagWildcardInstall =>
-      'All devices of the same type will be updated at the same time';
+  String get fwupdDeviceFlagWildcardInstall => '同じ種類のすべてのデバイスは同時に更新されます';
 
   @override
-  String get fwupdDeviceFlagOnlyVersionUpgrade =>
-      'Only version upgrades are allowed';
+  String get fwupdDeviceFlagOnlyVersionUpgrade => 'バージョンアップグレードのみが許可されています';
 
   @override
-  String get fwupdDeviceFlagUnreachable => 'Device is unreachable';
+  String get fwupdDeviceFlagUnreachable => 'デバイスに接続できません';
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Full disk encryption secrets may be invalidated when updating';
+      'アップデート後、フルディスク暗号化の解除にリカバリーキーが必要になる場合があります';
 
   @override
-  String get fwupdDeviceFlagEndOfLife => 'End of life';
+  String get fwupdDeviceFlagEndOfLife => 'サポート終了';
 
   @override
-  String get fwupdDeviceFlagSignedPayload => 'Signed Payload';
+  String get fwupdDeviceFlagSignedPayload => '署名済みペイロード';
 
   @override
-  String get fwupdDeviceFlagUnsignedPayload => 'Unsigned Payload';
+  String get fwupdDeviceFlagUnsignedPayload => '未署名ペイロード';
 
   @override
-  String get fwupdErrorInternal => 'Internal error';
+  String get fwupdErrorInternal => '内部エラー';
 
   @override
-  String get fwupdErrorVersionNewer => 'Installed newer firmware version';
+  String get fwupdErrorVersionNewer => 'より新しいファームウェアがインストールされています';
 
   @override
-  String get fwupdErrorVersionSame => 'Installed same firmware version';
+  String get fwupdErrorVersionSame => '同じバージョンのファームウェアがインストールされています';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Already set to be installed offline';
+  String get fwupdErrorAlreadyPending => 'オフラインでのインストールがすでに予約されています';
 
   @override
-  String get fwupdErrorAuthFailed => 'Failed to get authentication';
+  String get fwupdErrorAuthFailed => '認証に失敗しました';
 
   @override
-  String get fwupdErrorRead => 'Failed to read from device';
+  String get fwupdErrorRead => 'デバイスからの読み込みに失敗しました';
 
   @override
-  String get fwupdErrorWrite => 'Failed to write to the device';
+  String get fwupdErrorWrite => 'デバイスへの書き込みに失敗しました';
 
   @override
-  String get fwupdErrorInvalidFile => 'Invalid file format';
+  String get fwupdErrorInvalidFile => '無効なファイル形式です';
 
   @override
-  String get fwupdErrorNotFound => 'No matching device exists';
+  String get fwupdErrorNotFound => '該当するデバイスがありません';
 
   @override
-  String get fwupdErrorNothingToDo => 'Nothing to do';
+  String get fwupdErrorNothingToDo => '実行できる処理がありません';
 
   @override
-  String get fwupdErrorNotSupported => 'Action was not possible';
+  String get fwupdErrorNotSupported => '操作を実行できませんでした';
 
   @override
-  String get fwupdErrorSignatureInvalid => 'Signature was invalid';
+  String get fwupdErrorSignatureInvalid => '署名が無効です';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'AC power was required';
+  String get fwupdErrorAcPowerRequired => '電源への接続が必要です';
 
   @override
-  String get fwupdErrorPermissionDenied => 'Permission was denied';
+  String get fwupdErrorPermissionDenied => '操作が拒否されました';
 
   @override
-  String get fwupdErrorBrokenSystem =>
-      'User has configured their system in a broken way';
+  String get fwupdErrorBrokenSystem => 'システムが正しく構成されていません';
 
   @override
-  String get fwupdErrorBatteryLevelTooLow =>
-      'The system battery level is too low';
+  String get fwupdErrorBatteryLevelTooLow => 'バッテリー残量が少なすぎます';
 
   @override
-  String get fwupdErrorNeedsUserAction =>
-      'User needs to do an action to complete the update';
+  String get fwupdErrorNeedsUserAction => '更新を完了するには操作が必要です';
 
   @override
-  String get fwupdErrorAuthExpired =>
-      'Failed to get auth as credentials have expired';
+  String get fwupdErrorAuthExpired => '認証情報の有効期限が切れているため、認証できませんでした';
 
   @override
-  String get fwupdErrorUnknown => 'Unknown error';
+  String get fwupdErrorUnknown => '不明なエラーが発生しました';
 
   @override
-  String get fwupdStatusUnknown => 'Unknown state';
+  String get fwupdStatusUnknown => '状態を確認できません';
 
   @override
-  String get fwupdStatusIdle => 'Idle';
+  String get fwupdStatusIdle => '待機';
 
   @override
-  String get fwupdStatusLoading => 'Loading a resource';
+  String get fwupdStatusLoading => 'リソースを読み込み中';
 
   @override
-  String get fwupdStatusDecompressing => 'Decompressing firmware';
+  String get fwupdStatusDecompressing => 'ファームウェアを展開中';
 
   @override
-  String get fwupdStatusDeviceRestart => 'Restarting the device';
+  String get fwupdStatusDeviceRestart => 'デバイスを再起動しています';
 
   @override
-  String get fwupdStatusDeviceWrite => 'Writing to a device';
+  String get fwupdStatusDeviceWrite => 'デバイスに書き込んでいます';
 
   @override
-  String get fwupdStatusDeviceVerify => 'Verifying (reading) a device';
+  String get fwupdStatusDeviceVerify => 'デバイスを検証しています';
 
   @override
-  String get fwupdStatusScheduling => 'Scheduling an offline update';
+  String get fwupdStatusScheduling => 'オフライン更新を予約しています';
 
   @override
-  String get fwupdStatusDownloading => 'A file is downloading';
+  String get fwupdStatusDownloading => 'ファイルをダウンロード中';
 
   @override
-  String get fwupdStatusDeviceRead => 'Reading from a device';
+  String get fwupdStatusDeviceRead => 'デバイスから読み込み中';
 
   @override
-  String get fwupdStatusDeviceErase => 'Erasing a device';
+  String get fwupdStatusDeviceErase => 'デバイスを消去しています';
 
   @override
-  String get fwupdStatusWaitingForAuth => 'Waiting for authentication';
+  String get fwupdStatusWaitingForAuth => '認証を待っています';
 
   @override
-  String get fwupdStatusDeviceBusy => 'The device is busy';
+  String get fwupdStatusDeviceBusy => 'デバイスの応答を待っています';
 
   @override
-  String get fwupdStatusShutdown => 'The daemon is shutting down';
+  String get fwupdStatusShutdown => 'デーモンを終了しています';
 
   @override
   String get guid => 'GUID';
