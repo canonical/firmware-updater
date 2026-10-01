@@ -44,7 +44,9 @@ void main() {
       client.notify(
         any,
         actions: anyNamed('actions'),
+        appName: 'Firmware Updater',
         appIcon: 'software-update-available',
+        hints: anyNamed('hints'),
         body: anyNamed('body'),
       ),
     ).thenAnswer((_) async => Notification(NotificationsClient(), 0));
@@ -60,14 +62,23 @@ void main() {
     };
 
     sendUpdateNotifications(client, updates);
-    verify(
+    final captured = verify(
       client.notify(
         any,
         actions: anyNamed('actions'),
+        appName: 'Firmware Updater',
         appIcon: 'software-update-available',
+        hints: captureAnyNamed('hints'),
         body: anyNamed('body'),
       ),
-    ).called(2);
+    ).captured;
+    expect(captured, hasLength(2));
+    for (final hints in captured) {
+      expect(
+        (hints as List<NotificationHint>).map((h) => h.key),
+        contains('desktop-entry'),
+      );
+    }
   });
 
   test('no detected devices', () async {

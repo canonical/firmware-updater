@@ -3,6 +3,9 @@ import 'package:desktop_notifications/desktop_notifications.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 
+// Desktop file snapd generates for the `firmware-updater` snap app.
+const desktopEntryName = 'firmware-updater_firmware-updater';
+
 Future<Map<FwupdDevice, FwupdRelease>> getUpdates([
   @visibleForTesting FwupdClient? client,
 ]) async {
@@ -42,7 +45,9 @@ Future<List<Notification>> sendUpdateNotifications(
         'Firmware update available for ${e.key.name}',
         body:
             '${e.key.name} can be upgraded from version ${e.key.version} to ${e.value.version}.',
+        appName: 'Firmware Updater',
         appIcon: 'software-update-available',
+        hints: [NotificationHint.desktopEntry(desktopEntryName)],
         actions: [
           NotificationAction(
             '${e.key.deviceId}, ${e.value.version}',
