@@ -331,6 +331,7 @@ class MockSnapdClient extends _i1.Mock implements _i2.SnapdClient {
   _i3.Future<List<_i2.Snap>> find({
     String? query,
     String? name,
+    String? commonId,
     String? category,
     String? section,
     _i2.SnapFindFilter? filter,
@@ -340,6 +341,7 @@ class MockSnapdClient extends _i1.Mock implements _i2.SnapdClient {
             Invocation.method(#find, [], {
               #query: query,
               #name: name,
+              #commonId: commonId,
               #category: category,
               #section: section,
               #filter: filter,
