@@ -350,7 +350,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get update => 'Ĝisdatigi';
 
   @override
-  String get updateAvailable => 'Ĝisdatigo disponeblas';
+  String get updateAvailable => 'Ĝisdatigo estas disponebla';
 
   @override
   String get updateChecksums => 'Ĝisdatigi kontrolsumojn';
