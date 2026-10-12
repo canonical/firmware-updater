@@ -24,5 +24,32 @@
     "fwupdDeviceFlagNotified": "ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੂਚਿਤ ਕੀਤਾ ਗਿਆ ਹੈ",
     "fwupdDeviceFlagTrusted": "ਭਰੋਸੇਯੋਗ",
     "fwupdDeviceFlagNeedsActivation": "ਡਿਵਾਈਸ ਅੱਪਡੇਟ ਨੂੰ ਐਕਟੀਵੇਸ਼ਨ ਦੀ ਲੋੜ ਹੈ",
-    "fwupdDeviceFlagDualImage": "ਡਿਵਾਈਸ ਨੇ ਅੱਪਡੇਟ ਸੈੱਟ ਕੀਤੇ"
+    "fwupdDeviceFlagDualImage": "ਡਿਵਾਈਸ ਨੇ ਅੱਪਡੇਟ ਸੈੱਟ ਕੀਤੇ",
+    "affectsFdeCheckbox": "ਮੇਰੇ ਕੋਲ ਮੇਰੀਆਂ ਸਭ ਇੰਕ੍ਰਿਪਟ ਕੀਤੀਆਂ ਡਰਾਇਵਾਂ ਲਈ ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਹਨ",
+    "affectsFdeIncorrectKey": "ਰਿਕਵਰੀ ਕੁੰਜੀ ਕੰਮ ਨਹੀਂ ਕਰਦੀ ਹੈ, ਇਸ ਨੂੰ ਜਾਂਚ ਜਾਂ ਸੁਰੱਖਿਆ ਕੇਂਦਰ ਵਿੱਚ ਜਾ ਕੇ ਬਦਲੋ",
+    "batteryWarning": "ਸਾਵਧਾਨ: ਕੁਝ ਡਿਵਾਈਸ ਅੱਪਡੇਟ ਬਾਹਰੀ ਪਾਵਰ ਸਮੇਂ ਹੀ ਉਪਲੱਬਧ ਹੋਣ ਸਕਦੇ ਹਨ!",
+    "deviceUnavailable": "ਇਸ ਕਾਰਵਾਈ ਦੇ ਦੌਰਾਨ ਡਿਵਾਈਸ ਮੌਜੂਦ ਨਹੀਂ ਹੋਵੇਗਾ।",
+    "downgradeConfirm": "ਕੀ <b>{name}</b> ਨੂੰ ਵਰਜ਼ਨ <b>{version}</b> ਲਈ ਡਾਊਨਗਰੇਡ ਕਰਨਾ ਹੈ?",
+    "@downgradeConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "flags": "ਫਲੈਗ",
+    "fwupdDeviceFlagSupported": "ਰਿਮੋਟ ਸਰਵਰ ਉੱਤੇ ਸਹਾਇਕ ਹੈ",
+    "fwupdDeviceFlagReported": "ਰਿਮੋਟ ਸਰਵਰ ਉੱਤੇ ਰਿਪੋਰਟ ਕੀਤਾ",
+    "fwupdDeviceFlagIsBootloader": "ਕੀ ਬੂਟ-ਲੋਡਰ ਮੋਡ ਵਿੱਚ ਹੈ",
+    "fwupdDeviceFlagWaitForReplug": "ਹਾਰਡਵੇਅਰ ਮੁੜ ਪਲੱਗ ਕੀਤੇ ਜਾਣ ਤੱਕ ਉਡੀਕ ਕਰਦਾ ਹੈ",
+    "fwupdDeviceFlagWillDisappear": "ਅੱਪਡੇਟ ਪੂਰਾ ਹੋਣ ਉੱਤੇ ਡਿਵਾਈਸ ਮੁੜ-ਦਿਖਾਈ ਨਹੀਂ ਦੇਵੇਗਾ",
+    "fwupdDeviceFlagCanVerify": "ਕ੍ਰਿਪਟੋਗਰਾਫਿਕਸ ਹੈਸ਼ ਜਾਂਚ ਮੌਜੂਦ ਹੈ",
+    "fwupdDeviceFlagUsableDuringUpdate": "ਡਿਵਾਈਸ ਅੱਪਡੇਟ ਦੇ ਦੌਰਾਨ ਵਰਤਣਯੋਗ ਹੈ",
+    "fwupdDeviceFlagVersionCheckRequired": "ਡਿਵਾਈਸ ਫਿਰਮਵੇਅਰ ਕਿਸੇ ਵਰਜ਼ਨ ਜਾਂਚ ਲਈ ਚਾਹੀਦਾ ਹੈ",
+    "affectsFdeWarningOtherFdeBody": "ਯਕੀਨ ਬਣਾ ਲਵੋ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਸਭ ਇੰਕ੍ਰਿਪਟ ਕੀਤੀਆਂ ਡਿਸਕਾਂ ਲਈ ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਹਨ। ਤੁਹਾਨੂੰ ਫਿਰਮਵੇਅਰ ਅੱਪਡੇਟ ਹੋਣ ਦੇ ਬਾਅਦ ਬੂਟ ਹੋਣ ਸਮੇਂ ਉਹ ਭਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ।",
+    "affectsFdeWarningUbuntuFdeBody": "ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਉੱਤੇ ਹਾਰਡਵੇਅਰ ਅਧਾਰਿਤ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਮਰੱਥ ਹੈ। ਤੁਹਾਨੂੰ ਫਿਰਮਵੇਅਰ ਅੱਪਡੇਟ ਹੋਣ ਦੇ ਬਾਅਦ ਬੂਟ ਹੋਣ ਸਮੇਂ ਤੁਹਾਡੀ ਰਿਕਵਰੀ ਕੁੰਜੀ ਭਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ। ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਇਸ ਕੰਪਿਊਟਰ ਉੱਤੇ ਹੋਰ ਕਿਸੇ ਵੀ ਇੰਕ੍ਰਿਪਟ ਕੀਤੀਆਂ ਡਿਸਕਾਂ ਲਈ ਵੀ ਤੁਹਾਡੇ ਕੋਲ ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਹਨ।",
+    "affectsFdeWarningBitlockerBody": "ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਉੱਤੇ ਬਿੱਟ-ਲਾਕਰ ਸਮਰੱਥ ਹੈ। ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਸਭ ਇੰਕ੍ਰਿਪਟ ਕੀਤੀਆਂ ਡਿਸਕਾਂ ਲਈ ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਹਨ। ਤੁਹਾਨੂੰ ਫਿਰਮਵੇਅਰ ਅੱਪਡੇਟ ਹੋਣ ਦੇ ਬਾਅਦ ਬੂਟ ਹੋਣ ਸਮੇਂ ਉਹ ਭਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ।"
 }
