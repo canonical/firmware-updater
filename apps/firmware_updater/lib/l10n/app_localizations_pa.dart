@@ -18,19 +18,19 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'ਯਕੀਨ ਬਣਾ ਲਵੋ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਸਭ ਇੰਕ੍ਰਿਪਟ ਕੀਤੀਆਂ ਡਿਸਕਾਂ ਲਈ ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਹਨ। ਤੁਹਾਨੂੰ ਫਿਰਮਵੇਅਰ ਅੱਪਡੇਟ ਹੋਣ ਦੇ ਬਾਅਦ ਬੂਟ ਹੋਣ ਸਮੇਂ ਉਹ ਭਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ।';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Hardware-backed encryption is enabled on your computer. You may need to enter your recovery key on boot after updating firmware. Make sure you also have recovery keys for any other encrypted disks on this computer.';
+      'ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਉੱਤੇ ਹਾਰਡਵੇਅਰ ਅਧਾਰਿਤ ਇੰਕ੍ਰਿਪਸ਼ਨ ਸਮਰੱਥ ਹੈ। ਤੁਹਾਨੂੰ ਫਿਰਮਵੇਅਰ ਅੱਪਡੇਟ ਹੋਣ ਦੇ ਬਾਅਦ ਬੂਟ ਹੋਣ ਸਮੇਂ ਤੁਹਾਡੀ ਰਿਕਵਰੀ ਕੁੰਜੀ ਭਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ। ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਇਸ ਕੰਪਿਊਟਰ ਉੱਤੇ ਹੋਰ ਕਿਸੇ ਵੀ ਇੰਕ੍ਰਿਪਟ ਕੀਤੀਆਂ ਡਿਸਕਾਂ ਲਈ ਵੀ ਤੁਹਾਡੇ ਕੋਲ ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਹਨ।';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਉੱਤੇ ਬਿੱਟ-ਲਾਕਰ ਸਮਰੱਥ ਹੈ। ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਸਭ ਇੰਕ੍ਰਿਪਟ ਕੀਤੀਆਂ ਡਿਸਕਾਂ ਲਈ ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਹਨ। ਤੁਹਾਨੂੰ ਫਿਰਮਵੇਅਰ ਅੱਪਡੇਟ ਹੋਣ ਦੇ ਬਾਅਦ ਬੂਟ ਹੋਣ ਸਮੇਂ ਉਹ ਭਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ।';
 
   @override
   String get affectsFdeCheckbox =>
-      'I have recovery keys for all my encrypted drives';
+      'ਮੇਰੇ ਕੋਲ ਮੇਰੀਆਂ ਸਭ ਇੰਕ੍ਰਿਪਟ ਕੀਤੀਆਂ ਡਰਾਇਵਾਂ ਲਈ ਰਿਕਵਰੀ ਕੁੰਜੀਆਂ ਹਨ';
 
   @override
   String get affectsFdeTextFieldLabel => 'ਆਪਣੀ ਰਿਕਵਰੀ ਕੁੰਜੀ ਦਿਓ';
@@ -40,7 +40,7 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'ਰਿਕਵਰੀ ਕੁੰਜੀ ਕੰਮ ਨਹੀਂ ਕਰਦੀ ਹੈ, ਇਸ ਨੂੰ ਜਾਂਚ ਜਾਂ ਸੁਰੱਖਿਆ ਕੇਂਦਰ ਵਿੱਚ ਜਾ ਕੇ ਬਦਲੋ';
 
   @override
   String get allVersions => 'ਸਾਰੇ ਵਰਜ਼ਨ';
@@ -50,7 +50,7 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get batteryWarning =>
-      'Warning: some device updates may only be available on external power!';
+      'ਸਾਵਧਾਨ: ਕੁਝ ਡਿਵਾਈਸ ਅੱਪਡੇਟ ਬਾਹਰੀ ਪਾਵਰ ਸਮੇਂ ਹੀ ਉਪਲੱਬਧ ਹੋਣ ਸਕਦੇ ਹਨ!';
 
   @override
   String get checksum => 'ਚੈਕ-ਸਮ';
@@ -66,7 +66,7 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get deviceUnavailable =>
-      'The device will be unavailable during this action.';
+      'ਇਸ ਕਾਰਵਾਈ ਦੇ ਦੌਰਾਨ ਡਿਵਾਈਸ ਮੌਜੂਦ ਨਹੀਂ ਹੋਵੇਗਾ।';
 
   @override
   String get deviceRequest => 'ਡਿਵਾਈਸ ਬੇਨਤੀ';
@@ -76,11 +76,11 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String downgradeConfirm(String name, String version) {
-    return 'Downgrade <b>$name</b> to version <b>$version</b>?';
+    return 'ਕੀ <b>$name</b> ਨੂੰ ਵਰਜ਼ਨ <b>$version</b> ਲਈ ਡਾਊਨਗਰੇਡ ਕਰਨਾ ਹੈ?';
   }
 
   @override
-  String get flags => 'Flags';
+  String get flags => 'ਫਲੈਗ';
 
   @override
   String get fwupdDeviceFlagInternal => 'ਅੰਦਰੂਨੀ ਡਿਵਾਈਸ';
@@ -98,7 +98,7 @@ class AppLocalizationsPa extends AppLocalizations {
   String get fwupdDeviceFlagLocked => 'ਡਿਵਾਈਸ ਲਾਕ ਹੈ';
 
   @override
-  String get fwupdDeviceFlagSupported => 'Supported on remote server';
+  String get fwupdDeviceFlagSupported => 'ਰਿਮੋਟ ਸਰਵਰ ਉੱਤੇ ਸਹਾਇਕ ਹੈ';
 
   @override
   String get fwupdDeviceFlagNeedsBootloader => 'ਬੂਟਲੋਡਰ ਚਾਹੀਦਾ ਹੈ';
@@ -115,7 +115,7 @@ class AppLocalizationsPa extends AppLocalizations {
       'ਇੰਸਟਾਲੇਸ਼ਨ ਦੇ ਬਾਅਦ ਬੰਦ ਕਰਨ ਦੀ ਲੋੜ ਹੈ';
 
   @override
-  String get fwupdDeviceFlagReported => 'Reported to remote server';
+  String get fwupdDeviceFlagReported => 'ਰਿਮੋਟ ਸਰਵਰ ਉੱਤੇ ਰਿਪੋਰਟ ਕੀਤਾ';
 
   @override
   String get fwupdDeviceFlagNotified => 'ਵਰਤੋਂਕਾਰ ਨੂੰ ਸੂਚਿਤ ਕੀਤਾ ਗਿਆ ਹੈ';
@@ -125,11 +125,11 @@ class AppLocalizationsPa extends AppLocalizations {
       'Install to parent device first';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => 'Is in bootloader mode';
+  String get fwupdDeviceFlagIsBootloader => 'ਕੀ ਬੂਟ-ਲੋਡਰ ਮੋਡ ਵਿੱਚ ਹੈ';
 
   @override
   String get fwupdDeviceFlagWaitForReplug =>
-      'Hardware is waiting to be replugged';
+      'ਹਾਰਡਵੇਅਰ ਮੁੜ ਪਲੱਗ ਕੀਤੇ ਜਾਣ ਤੱਕ ਉਡੀਕ ਕਰਦਾ ਹੈ';
 
   @override
   String get fwupdDeviceFlagIgnoreValidation =>
@@ -144,11 +144,10 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagWillDisappear =>
-      'Device will not re-appear after update completes';
+      'ਅੱਪਡੇਟ ਪੂਰਾ ਹੋਣ ਉੱਤੇ ਡਿਵਾਈਸ ਮੁੜ-ਦਿਖਾਈ ਨਹੀਂ ਦੇਵੇਗਾ';
 
   @override
-  String get fwupdDeviceFlagCanVerify =>
-      'Cryptographic hash verification is available';
+  String get fwupdDeviceFlagCanVerify => 'ਕ੍ਰਿਪਟੋਗਰਾਫਿਕਸ ਹੈਸ਼ ਜਾਂਚ ਮੌਜੂਦ ਹੈ';
 
   @override
   String get fwupdDeviceFlagDualImage => 'ਡਿਵਾਈਸ ਨੇ ਅੱਪਡੇਟ ਸੈੱਟ ਕੀਤੇ';
@@ -158,11 +157,11 @@ class AppLocalizationsPa extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagUsableDuringUpdate =>
-      'Device is usable for the duration of the update';
+      'ਡਿਵਾਈਸ ਅੱਪਡੇਟ ਦੇ ਦੌਰਾਨ ਵਰਤਣਯੋਗ ਹੈ';
 
   @override
   String get fwupdDeviceFlagVersionCheckRequired =>
-      'Device firmware is required to have a version check';
+      'ਡਿਵਾਈਸ ਫਿਰਮਵੇਅਰ ਕਿਸੇ ਵਰਜ਼ਨ ਜਾਂਚ ਲਈ ਚਾਹੀਦਾ ਹੈ';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>

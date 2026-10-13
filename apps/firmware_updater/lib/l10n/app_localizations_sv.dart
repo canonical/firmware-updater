@@ -40,7 +40,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Återställningsnyckeln fungerar inte. Kontrollera eller ersätt den i Säkerhetscenter.';
+      'Återställningsnyckeln fungerar inte. Kontrollera eller ersätt den i Säkerhetscenter';
 
   @override
   String get allVersions => 'Alla versioner';
