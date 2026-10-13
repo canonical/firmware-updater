@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   collection: ^1.17.2
-  dbus: ^0.7.8
+  dbus: ^0.8.0
   dio: ^5.3.3
   file: ^7.0.0
   flutter:
