@@ -375,7 +375,7 @@ void main() {
         find.widgetWithText(FilledButton, tester.lang.allVersions),
       );
       expect(lower.top, greaterThan(upper.top), reason: 'buttons not stacked');
-      expect(lower.top - upper.bottom, greaterThanOrEqualTo(8));
+      expect(lower.top - upper.bottom, moreOrLessEquals(8));
     });
 
     testWidgets('stacked checksum buttons are spaced', (tester) async {
@@ -403,7 +403,7 @@ void main() {
         find.widgetWithText(OutlinedButton, tester.lang.verifyFirmware),
       );
       expect(lower.top, greaterThan(upper.top), reason: 'buttons not stacked');
-      expect(lower.top - upper.bottom, greaterThanOrEqualTo(8));
+      expect(lower.top - upper.bottom, moreOrLessEquals(8));
     });
   });
 }
