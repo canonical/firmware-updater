@@ -342,5 +342,68 @@ void main() {
       await tester.tap(find.text(tester.lang.ok));
       verify(model.verify()).called(1);
     });
+
+    testWidgets('stacked update buttons are spaced', (tester) async {
+      final device = testDevice(id: 'a', version: '1.0.0');
+      final releases = [
+        FwupdRelease(
+          name: 'new release',
+          version: '2.0.0',
+          flags: {FwupdReleaseFlag.isUpgrade},
+        ),
+      ];
+      final model = mockModel(
+        device: device,
+        hasUpgrade: true,
+        releases: releases,
+      );
+      final notifier = mockNotifier();
+      final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
+      await tester.pumpApp(
+        (_) => buildPage(model: model, notifier: notifier, store: store),
+        size: const Size(500, 850),
+        providers: [
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
+        ],
+      );
+
+      final upper = tester.getRect(
+        find.widgetWithText(ElevatedButton, tester.lang.updateToLatest),
+      );
+      final lower = tester.getRect(
+        find.widgetWithText(FilledButton, tester.lang.allVersions),
+      );
+      expect(lower.top, greaterThan(upper.top), reason: 'buttons not stacked');
+      expect(lower.top - upper.bottom, moreOrLessEquals(8));
+    });
+
+    testWidgets('stacked checksum buttons are spaced', (tester) async {
+      final device = testDevice(
+        id: 'a',
+        flags: {FwupdDeviceFlag.canVerify},
+        checksum: '1337',
+      );
+      final model = mockModel(device: device);
+      final notifier = mockNotifier();
+      final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
+      await tester.pumpApp(
+        (_) => buildPage(model: model, notifier: notifier, store: store),
+        size: const Size(500, 850),
+        providers: [
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
+        ],
+      );
+
+      final upper = tester.getRect(
+        find.widgetWithText(OutlinedButton, tester.lang.updateChecksums),
+      );
+      final lower = tester.getRect(
+        find.widgetWithText(OutlinedButton, tester.lang.verifyFirmware),
+      );
+      expect(lower.top, greaterThan(upper.top), reason: 'buttons not stacked');
+      expect(lower.top - upper.bottom, moreOrLessEquals(8));
+    });
   });
 }

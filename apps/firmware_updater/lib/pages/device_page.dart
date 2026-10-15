@@ -140,6 +140,8 @@ class DevicePage extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 8),
                         child: OverflowBar(
                           alignment: MainAxisAlignment.start,
+                          spacing: 8,
+                          overflowSpacing: 8,
                           children: [
                             OutlinedButton(
                               onPressed: fwupdIdle
@@ -155,7 +157,6 @@ class DevicePage extends StatelessWidget {
                                   : null,
                               child: Text(l10n.updateChecksums),
                             ),
-                            const SizedBox(width: 8),
                             if (device.checksum != null)
                               OutlinedButton(
                                 onPressed: fwupdIdle
@@ -218,6 +219,7 @@ class DevicePage extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
       child: OverflowBar(
         alignment: MainAxisAlignment.start,
+        overflowSpacing: 8,
         children: [
           if (deviceModel.hasUpgrade)
             Padding(
