@@ -150,11 +150,12 @@ class AppLocalizationsSk extends AppLocalizations {
       'Overenie kryptografického hashu je k dispozícii';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Zariadenie pripravuje aktualizácie';
+  String get fwupdDeviceFlagDualImage =>
+      'Zariadenie ukladá aktualizácie do fázy';
 
   @override
   String get fwupdDeviceFlagSelfRecovery =>
-      'Zariadenie sa dokáže zotaviť zo zlyhaní flashovania';
+      'Zariadenie sa dokáže zotaviť zo zlyhaní pri zápise do flash pamäte';
 
   @override
   String get fwupdDeviceFlagUsableDuringUpdate =>
@@ -189,16 +190,16 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Tajné údaje šifrovania celého disku sa pri aktualizácii môžu zneplatniť';
+      'Tajné údaje šifrovania celého disku sa pri aktualizácii môžu stať neplatnými';
 
   @override
   String get fwupdDeviceFlagEndOfLife => 'Koniec životnosti';
 
   @override
-  String get fwupdDeviceFlagSignedPayload => 'Podpísané užitočné zaťaženie';
+  String get fwupdDeviceFlagSignedPayload => 'Podpísaný dátový balík';
 
   @override
-  String get fwupdDeviceFlagUnsignedPayload => 'Nepodpísané užitočné zaťaženie';
+  String get fwupdDeviceFlagUnsignedPayload => 'Nepodpísaný dátový balík';
 
   @override
   String get fwupdErrorInternal => 'Vnútorná chyba';
@@ -305,7 +306,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get fwupdStatusShutdown => 'Démon sa vypína';
 
   @override
-  String get guid => 'Identifikátory';
+  String get guid => 'Identifikátory GUID';
 
   @override
   String get installError => 'Zlyhala inštalácia firmvéru!';
@@ -363,7 +364,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get updateChecksumsInfo =>
-      'Týmto sa zaznamenajú aktuálne kryptografické odtlačky ako overené.';
+      'Týmto sa zaznamenajú aktuálne kryptografické hashové hodnoty ako overené.';
 
   @override
   String get updateToLatest => 'Aktualizovať na najnovšiu verziu';
