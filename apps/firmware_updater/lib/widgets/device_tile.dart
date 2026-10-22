@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:provider/provider.dart';
 
-class DeviceTile extends StatefulWidget {
+class DeviceTile extends StatelessWidget {
   const DeviceTile({
+    required this.device,
     super.key,
   });
 
@@ -14,35 +15,18 @@ class DeviceTile extends StatefulWidget {
     BuildContext context, {
     required FwupdDevice device,
   }) {
-    return ChangeNotifierProvider<DeviceModel>(
-      key: ValueKey(device.hashCode),
-      create: (_) => DeviceModel(
-        device,
-        getService<FwupdDbusService>(),
-        (getService<ConfigService>().config['testDeviceAffectsFde'] as bool?) ??
-            false,
-      ),
-      child: const DeviceTile(),
-    );
+    return DeviceTile(key: ValueKey(device.id), device: device);
   }
 
-  @override
-  State<DeviceTile> createState() => _DeviceTileState();
-}
-
-class _DeviceTileState extends State<DeviceTile> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<DeviceModel>().init();
-  }
+  final FwupdDevice device;
 
   @override
   Widget build(BuildContext context) {
-    final model = context.watch<DeviceModel>();
     return DeviceHeader(
-      device: model.device,
-      hasUpgrade: model.hasUpgrade,
+      device: device,
+      hasUpgrade: context.select<DeviceStore, bool>(
+        (store) => store.hasUpgrade(device.id),
+      ),
     );
   }
 }

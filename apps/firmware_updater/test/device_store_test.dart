@@ -123,4 +123,118 @@ void main() {
 
     expect(store.devices, isEmpty);
   });
+
+  group('sorting', () {
+    final a = testDevice(id: 'a');
+    final b = testDevice(id: 'b');
+    final c = testDevice(id: 'c');
+    final d = testDevice(id: 'd');
+
+    FwupdRelease release({required bool isUpgrade}) => FwupdRelease(
+      name: '',
+      version: '2.0',
+      flags: {if (isUpgrade) FwupdReleaseFlag.isUpgrade},
+    );
+
+    test('devices with upgrades come first', () async {
+      final service = mockService(
+        devices: [a, b, c, d],
+        releases: {
+          'b': [release(isUpgrade: false)],
+          'c': [release(isUpgrade: true)],
+          'd': [release(isUpgrade: true)],
+        },
+      );
+      final store = DeviceStore(service);
+      await store.init();
+
+      expect(store.devices, [c, d, a, b]);
+      expect(store.hasUpgrade('c'), isTrue);
+      expect(store.hasUpgrade('a'), isFalse);
+    });
+
+    test('re-sorts when upgrades appear or disappear', () async {
+      final deviceChanged = StreamController<FwupdDevice>.broadcast();
+      final releases = <String, List<FwupdRelease>>{};
+      final service = mockService(devices: [a, b, c], releases: releases);
+      when(service.deviceChanged).thenAnswer((_) => deviceChanged.stream);
+
+      final store = DeviceStore(service);
+      await store.init();
+      expect(store.devices, [a, b, c]);
+
+      var notified = 0;
+      store.addListener(() => ++notified);
+
+      releases['c'] = [release(isUpgrade: true)];
+      deviceChanged.add(c);
+      await pumpEventQueue();
+      expect(store.devices, [c, a, b]);
+      expect(notified, 1);
+
+      releases['b'] = [release(isUpgrade: true)];
+      deviceChanged.add(b);
+      await pumpEventQueue();
+      expect(store.devices, [b, c, a]);
+      expect(notified, 2);
+
+      // e.g. after installing the upgrade
+      releases['c'] = [release(isUpgrade: false)];
+      deviceChanged.add(c);
+      await pumpEventQueue();
+      expect(store.devices, [b, a, c]);
+      expect(notified, 3);
+
+      // no change in upgrade status, no notification
+      deviceChanged.add(a);
+      await pumpEventQueue();
+      expect(store.devices, [b, a, c]);
+      expect(notified, 3);
+
+      await store.dispose();
+      expect(deviceChanged.hasListener, isFalse);
+    });
+
+    test('refresh re-sorts', () async {
+      final releases = {
+        'c': [release(isUpgrade: true)],
+      };
+      final service = mockService(devices: [a, b, c], releases: releases);
+      final store = DeviceStore(service);
+      await store.init();
+      expect(store.devices, [c, a, b]);
+
+      releases
+        ..remove('c')
+        ..['d'] = [release(isUpgrade: true)];
+      when(service.getDevices()).thenAnswer((_) async => [a, b, c, d]);
+      await store.refresh();
+
+      expect(store.devices, [d, a, b, c]);
+    });
+
+    test('keeps the upgrade status if it cannot be determined', () async {
+      final deviceChanged = StreamController<FwupdDevice>.broadcast();
+      final service = mockService(
+        devices: [a, b],
+        releases: {
+          'b': [release(isUpgrade: true)],
+        },
+      );
+      when(service.deviceChanged).thenAnswer((_) => deviceChanged.stream);
+      final store = DeviceStore(service);
+      await store.init();
+      expect(store.devices, [b, a]);
+
+      // e.g. fwupd is busy installing
+      when(
+        service.getReleases(b),
+      ).thenAnswer((_) async => throw const FwupdInternalException());
+      deviceChanged.add(b);
+      await pumpEventQueue();
+
+      expect(store.devices, [b, a]);
+      expect(store.hasUpgrade('b'), isTrue);
+    });
+  });
 }
