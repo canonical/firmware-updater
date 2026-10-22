@@ -643,6 +643,14 @@ class MockDeviceStore extends _i1.Mock implements _i12.DeviceStore {
           as bool);
 
   @override
+  bool hasUpgrade(String? deviceId) =>
+      (super.noSuchMethod(
+            Invocation.method(#hasUpgrade, [deviceId]),
+            returnValue: false,
+          )
+          as bool);
+
+  @override
   _i6.Future<void> dispose() =>
       (super.noSuchMethod(
             Invocation.method(#dispose, []),
