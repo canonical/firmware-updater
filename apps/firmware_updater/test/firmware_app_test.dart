@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:firmware_updater/app.dart';
 import 'package:firmware_updater/pages.dart';
+import 'package:firmware_updater/recovery_key_model.dart';
 import 'package:firmware_updater/services.dart';
 import 'package:firmware_updater/widgets.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +42,7 @@ void main() {
     final store = MockDeviceStore();
     when(store.devices).thenReturn(devices);
     when(store.showReleases).thenReturn(false);
+    when(store.hasUpgrade(any)).thenReturn(false);
     when(store.indexOf(any)).thenAnswer(
       (i) => devices.indexWhere(
         (d) => d.deviceId == i.positionalArguments.single as String?,
@@ -254,5 +258,115 @@ void main() {
 
     cliListener(['foo']);
     verify(store.showReleases = true).called(1);
+  });
+
+  group('sorting keeps the focused device', () {
+    final a = testDevice(id: 'a', name: 'Device A');
+    final b = testDevice(id: 'b', name: 'Device B');
+    final c = testDevice(id: 'c', name: 'Device C');
+    final upgrade = FwupdRelease(
+      name: '',
+      version: '2.0',
+      flags: const {FwupdReleaseFlag.isUpgrade},
+    );
+
+    late Map<String, List<FwupdRelease>> releases;
+    late StreamController<FwupdDevice> deviceChanged;
+
+    Future<void> pumpRealStore(WidgetTester tester, {Size? size}) async {
+      releases = {};
+      deviceChanged = StreamController<FwupdDevice>.broadcast();
+      addTearDown(deviceChanged.close);
+      final service = mockService(devices: [a, b, c], releases: releases);
+      when(service.deviceChanged).thenAnswer((_) => deviceChanged.stream);
+      registerMockService<FwupdDbusService>(service);
+      registerMockService<GtkApplicationNotifier>(mockGtkApplicationNotifier());
+      registerMockService<ConfigService>(mockConfigService());
+
+      await tester.pumpApp(
+        (_) => Provider<RecoveryKeyModel>.value(
+          value: mockRecoveryKeyModel(),
+          child: buildPage(
+            store: DeviceStore(service),
+            notifier: mockNotifier(),
+          ),
+        ),
+        size: size ?? const Size(1000, 850),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    Future<void> setUpgrade(
+      WidgetTester tester,
+      FwupdDevice device, {
+      required bool available,
+    }) async {
+      releases[device.deviceId] = available ? [upgrade] : [];
+      deviceChanged.add(device);
+      await tester.pumpAndSettle();
+    }
+
+    List<String> tileOrder(WidgetTester tester) => tester
+        .widgetList<DeviceTile>(find.byType(DeviceTile))
+        .map((tile) => tile.device.deviceId)
+        .toList();
+
+    Finder detailPageOf(FwupdDevice device) => find.descendant(
+      of: find.byType(DetailPage),
+      matching: find.text(device.name),
+    );
+
+    testWidgets('selected device in landscape layout', (tester) async {
+      await pumpRealStore(tester);
+      expect(tileOrder(tester), ['a', 'b', 'c']);
+
+      await tester.tap(find.text(b.name));
+      await tester.pumpAndSettle();
+      expect(detailPageOf(b), findsWidgets);
+
+      await setUpgrade(tester, c, available: true);
+      expect(tileOrder(tester), ['c', 'a', 'b']);
+      expect(detailPageOf(b), findsWidgets);
+
+      await setUpgrade(tester, b, available: true);
+      expect(tileOrder(tester), ['b', 'c', 'a']);
+      expect(detailPageOf(b), findsWidgets);
+
+      await setUpgrade(tester, b, available: false);
+      await setUpgrade(tester, c, available: false);
+      expect(tileOrder(tester), ['a', 'b', 'c']);
+      expect(detailPageOf(b), findsWidgets);
+    });
+
+    testWidgets('implicitly selected first device in landscape layout', (
+      tester,
+    ) async {
+      await pumpRealStore(tester);
+      expect(detailPageOf(a), findsWidgets);
+
+      await setUpgrade(tester, c, available: true);
+      expect(tileOrder(tester), ['c', 'a', 'b']);
+      expect(detailPageOf(a), findsWidgets);
+    });
+
+    testWidgets('portrait layout', (tester) async {
+      await pumpRealStore(tester, size: const Size(400, 850));
+
+      await tester.tap(find.text(b.name));
+      await tester.pumpAndSettle();
+      expect(detailPageOf(b), findsWidgets);
+
+      await setUpgrade(tester, c, available: true);
+      expect(detailPageOf(b), findsWidgets);
+
+      // closed detail page must not re-open when the list is re-sorted
+      await tester.tap(find.byType(YaruBackButton));
+      await tester.pumpAndSettle();
+      expect(find.byType(DetailPage), findsNothing);
+
+      await setUpgrade(tester, b, available: true);
+      expect(tileOrder(tester), ['b', 'c', 'a']);
+      expect(find.byType(DetailPage), findsNothing);
+    });
   });
 }

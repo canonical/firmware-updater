@@ -19,11 +19,8 @@ class DeviceHeader extends StatelessWidget {
     return YaruMasterTile(
       title: Text(device.name),
       subtitle: Text(device.summary ?? ''),
-      leading: Badge(
-        isLabelVisible: hasUpgrade,
-        alignment: AlignmentDirectional.topStart,
-        child: Icon(DeviceIcon.fromName(device.icon.firstOrNull)),
-      ),
+      leading: Icon(DeviceIcon.fromName(device.icon.firstOrNull)),
+      trailing: hasUpgrade ? const Badge(smallSize: 10) : null,
     );
   }
 }
