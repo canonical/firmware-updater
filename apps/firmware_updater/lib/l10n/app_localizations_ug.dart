@@ -365,6 +365,12 @@ class AppLocalizationsUg extends AppLocalizations {
       'بۇ مەشغۇلات نۆۋەتتىكى شىفىرلىق مۇكەممەللىك كودىنىڭ ھالىتىنى دەلىللەنگەن دەپ خاتىرىلەيدۇ.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'ئەڭ يېڭىسىغا يېڭىلا';
 
   @override
@@ -377,6 +383,12 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'مۇقىم دېتال دەلىللەش';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

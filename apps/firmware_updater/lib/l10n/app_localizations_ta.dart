@@ -365,6 +365,12 @@ class AppLocalizationsTa extends AppLocalizations {
       'இது சரிபார்க்கப்பட்டபடி தற்போதைய கிரிப்டோகிராஃபிக் ஆச்களை பதிவு செய்யும்.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'அண்மைக் கால புதுப்பிப்பு';
 
   @override
@@ -377,6 +383,12 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'ஃபார்ம்வேரை சரிபார்க்கவும்';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

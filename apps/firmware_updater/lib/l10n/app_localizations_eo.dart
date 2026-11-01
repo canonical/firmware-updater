@@ -365,6 +365,12 @@ class AppLocalizationsEo extends AppLocalizations {
       'Tio registras la aktualajn ĉifrajn haketaĵojn kiel konfirmitajn.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'Ĝisdatigi al la plej nova versio';
 
   @override
@@ -377,6 +383,12 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Kontroli mikroprogramojn';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

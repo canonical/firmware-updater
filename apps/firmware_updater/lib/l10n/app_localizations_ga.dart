@@ -368,6 +368,12 @@ class AppLocalizationsGa extends AppLocalizations {
       'Déanfaidh sé seo taifead ar na hashes cripteagrafacha reatha mar a fhíoraítear iad.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'Nuashonrú ar an gceann is déanaí';
 
   @override
@@ -380,6 +386,12 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Fíoraigh Firmware';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

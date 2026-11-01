@@ -338,6 +338,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get updateChecksumsInfo => '이 작업은 현재 암호 해시를 인증된 것으로 기록합니다.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => '최신 버전으로 업데이트';
 
   @override
@@ -350,6 +356,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get verifyFirmware => '펌웨어 검증';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

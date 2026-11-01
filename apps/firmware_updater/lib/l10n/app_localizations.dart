@@ -879,6 +879,18 @@ abstract class AppLocalizations {
   /// **'This will record the current cryptographic hashes as verified.'**
   String get updateChecksumsInfo;
 
+  /// No description provided for @updateChecksumsSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Checksums updated'**
+  String get updateChecksumsSuccess;
+
+  /// No description provided for @updateChecksumsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to update checksums!'**
+  String get updateChecksumsError;
+
   /// No description provided for @updateToLatest.
   ///
   /// In en, this message translates to:
@@ -902,6 +914,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Verify Firmware'**
   String get verifyFirmware;
+
+  /// No description provided for @verifyFirmwareSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Firmware verified'**
+  String get verifyFirmwareSuccess;
+
+  /// No description provided for @verifyFirmwareError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to verify firmware!'**
+  String get verifyFirmwareError;
 
   /// No description provided for @verifyFirmwareConfirm.
   ///
