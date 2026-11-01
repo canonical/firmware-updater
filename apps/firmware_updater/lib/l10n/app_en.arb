@@ -133,6 +133,8 @@
     }
   },
   "updateChecksumsInfo": "This will record the current cryptographic hashes as verified.",
+  "updateChecksumsSuccess": "Checksums updated",
+  "updateChecksumsError": "Failed to update checksums!",
   "updateToLatest": "Update to Latest",
   "updateConfirm": "Update <b>{name}</b> to version <b>{version}</b>?",
   "@updateConfirm": {
@@ -147,6 +149,8 @@
   },
   "vendor": "Vendor",
   "verifyFirmware": "Verify Firmware",
+  "verifyFirmwareSuccess": "Firmware verified",
+  "verifyFirmwareError": "Failed to verify firmware!",
   "verifyFirmwareConfirm": "Verify firmware checksums of {name}?",
   "@verifyFirmwareConfirm": {
     "placeholders": {
