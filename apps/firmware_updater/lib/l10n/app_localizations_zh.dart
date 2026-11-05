@@ -337,6 +337,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get updateChecksumsInfo => '这将记录当前加密哈希值的状态为已验证。';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => '升级到最新';
 
   @override
@@ -349,6 +355,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get verifyFirmware => '验证固件';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

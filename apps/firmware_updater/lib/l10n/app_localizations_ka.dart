@@ -369,6 +369,12 @@ class AppLocalizationsKa extends AppLocalizations {
       'ეს ჩაიწერს მიმდინარე კრიპტოგრაფიულ ჰეშებს, როცა მათ გადაამოწმებს.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'განახლება უკანასკნელამდე';
 
   @override
@@ -381,6 +387,12 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'მიკროკოდის განამოწმება';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

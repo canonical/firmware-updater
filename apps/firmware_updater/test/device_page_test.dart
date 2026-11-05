@@ -304,7 +304,9 @@ void main() {
       expect(find.text(tester.lang.cancel), findsOneWidget);
 
       await tester.tap(find.text(tester.lang.update));
+      await tester.pumpAndSettle();
       verify(model.verifyUpdate()).called(1);
+      expect(find.text(tester.lang.updateChecksumsSuccess), findsOneWidget);
     });
 
     testWidgets('verify checksum', (tester) async {
@@ -340,7 +342,37 @@ void main() {
       expect(find.text(tester.lang.cancel), findsOneWidget);
 
       await tester.tap(find.text(tester.lang.ok));
+      await tester.pumpAndSettle();
       verify(model.verify()).called(1);
+      expect(find.text(tester.lang.verifyFirmwareSuccess), findsOneWidget);
+    });
+
+    testWidgets('verify checksum error', (tester) async {
+      final device = testDevice(
+        id: 'a',
+        flags: {FwupdDeviceFlag.canVerify},
+        checksum: '1337',
+      );
+      final model = mockModel(device: device);
+      when(model.verify()).thenAnswer((_) async => throw Exception('boom'));
+      final notifier = mockNotifier();
+      final store = mockStore();
+      final recoveryKeyModel = mockRecoveryKeyModel();
+      await tester.pumpApp(
+        (_) => buildPage(model: model, notifier: notifier, store: store),
+        providers: [
+          Provider<RecoveryKeyModel>(create: (_) => recoveryKeyModel),
+        ],
+      );
+
+      await tester.tap(find.text(tester.lang.verifyFirmware));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text(tester.lang.ok));
+      await tester.pumpAndSettle();
+
+      expect(find.html(tester.lang.verifyFirmwareError), findsOneWidget);
+      expect(find.text('Exception: boom'), findsOneWidget);
+      expect(find.text(tester.lang.verifyFirmwareSuccess), findsNothing);
     });
 
     testWidgets('stacked update buttons are spaced', (tester) async {

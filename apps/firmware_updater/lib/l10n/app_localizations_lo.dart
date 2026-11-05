@@ -361,6 +361,12 @@ class AppLocalizationsLo extends AppLocalizations {
       'ສິ່ງນີ້ຈະບັນທຶກ cryptographic hashes ປັດຈຸບັນວ່າຜ່ານການກວດສອບແລ້ວ.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'ອັບເດດເປັນເວີຊັນຫຼ້າສຸດ';
 
   @override
@@ -373,6 +379,12 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'ກວດສອບເຟີມແວ';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

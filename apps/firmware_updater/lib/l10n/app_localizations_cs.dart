@@ -366,6 +366,12 @@ class AppLocalizationsCs extends AppLocalizations {
       'Tím se zaznamenají stávající kryptografické otisky jako ověřené.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'Aktualizovat na nejnovější';
 
   @override
@@ -378,6 +384,12 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Ověřit firmware';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

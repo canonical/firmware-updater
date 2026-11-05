@@ -366,6 +366,12 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bu, güncel kriptografik karmaların doğrulanmış olarak kaydedilmesini sağlayacaktır.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'En Sona Güncelle';
 
   @override
@@ -378,6 +384,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Ürün Yazılımını Doğrula';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

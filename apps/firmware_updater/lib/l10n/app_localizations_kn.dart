@@ -368,6 +368,12 @@ class AppLocalizationsKn extends AppLocalizations {
       'ಇದು ಪ್ರಸ್ತುತ ಕ್ರಿಪ್ಟೋಗ್ರಾಫಿಕ್ ಹ್ಯಾಶ್‌ಗಳನ್ನು ಪರಿಶೀಲಿಸಿದಂತೆ ರೆಕಾರ್ಡ್ ಮಾಡುತ್ತದೆ.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'ಇತ್ತೀಚಿನದಕ್ಕೆ ನವೀಕರಿಸಿ';
 
   @override
@@ -380,6 +386,12 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'ಫರ್ಮ್ವೇರ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

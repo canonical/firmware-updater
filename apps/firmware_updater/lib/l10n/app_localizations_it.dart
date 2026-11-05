@@ -375,6 +375,12 @@ class AppLocalizationsIt extends AppLocalizations {
       'Ciò registrerà gli hash crittografici correnti come verificati.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'Aggiorna alla versione più recente';
 
   @override
@@ -387,6 +393,12 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Verifica firmware';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

@@ -370,6 +370,12 @@ class AppLocalizationsBe extends AppLocalizations {
       'Гэта запіша бягучыя крыптаграфічныя хэшы як правераныя.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'Абнавіць да апошняй версіі';
 
   @override
@@ -382,6 +388,12 @@ class AppLocalizationsBe extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Праверыць убудаваную праграму';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {
