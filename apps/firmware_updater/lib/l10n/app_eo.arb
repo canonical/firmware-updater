@@ -159,5 +159,9 @@
     "affectsFdeWarningUbuntuFdeTitle": "Eblas, ke vi perdos ĉiom da viaj datenoj, se vi perdos vian restaŭran ŝlosilon",
     "affectsFdeWarningOtherFdeBody": "Certigu, ke vi havas restaŭrajn ŝlosilojn por ĉiuj ĉifritaj diskoj. Vi eble bezonos ilin dum startado post ĝisdatigo de mikroprogramoj.",
     "affectsFdeWarningUbuntuFdeBody": "Aparata ĉifrado estas ŝaltita sur via komputilo. Vi eble bezonos tajpi vian restaŭran ŝlosilon dum startado post ĝisdatigo de mikroprogramoj. Certigu, ke vi ankaŭ havas restaŭrajn ŝlosilojn por aliajn ĉifritaj diskoj sur ĉi tiu komputilo.",
-    "affectsFdeWarningBitlockerBody": "BitLocker estas ŝaltita sur via komputilo. Certigu, ke vi havas restaŭrajn ŝlosilojn por ĉiuj ĉifritaj diskoj sur ĉi tiu komputilo. Vi eble bezonos tajpi ilin dum startado post ĝisdatigo de mikroprogramoj."
+    "affectsFdeWarningBitlockerBody": "BitLocker estas ŝaltita sur via komputilo. Certigu, ke vi havas restaŭrajn ŝlosilojn por ĉiuj ĉifritaj diskoj sur ĉi tiu komputilo. Vi eble bezonos tajpi ilin dum startado post ĝisdatigo de mikroprogramoj.",
+    "verifyFirmwareSuccess": "Mikroprogramoj kontroliĝis",
+    "verifyFirmwareError": "Malsukcesis kontroli mikroprogramojn!",
+    "updateChecksumsSuccess": "Kontrolsumoj ĝisdatiĝis",
+    "updateChecksumsError": "Malsukcesis ĝisdatigi kontrolsumojn!"
 }
