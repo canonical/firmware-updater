@@ -368,10 +368,11 @@ class AppLocalizationsDe extends AppLocalizations {
       'Damit werden die aktuellen kryptografischen Hashwerte als verifiziert festgehalten.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Prüfsummen aktualisiert';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError =>
+      'Prüfsummen konnten nicht aktualisiert werden!';
 
   @override
   String get updateToLatest => 'Auf den neuesten Stand aktualisieren';
@@ -388,10 +389,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get verifyFirmware => 'Firmware verifizieren';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Firmware verifiziert';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError => 'Firmware konnte nicht verifiziert werden!';
 
   @override
   String verifyFirmwareConfirm(String name) {

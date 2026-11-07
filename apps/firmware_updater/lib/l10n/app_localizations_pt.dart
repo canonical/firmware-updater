@@ -777,6 +777,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Isso registrará os hashes criptográficos atuais conforme verificados.';
 
   @override
+  String get updateChecksumsSuccess => 'Somas de verificação atualizadas';
+
+  @override
+  String get updateChecksumsError =>
+      'Falha ao atualizar as somas de verificação!';
+
+  @override
   String get updateToLatest => 'Atualizar para o Mais Recente';
 
   @override
@@ -789,6 +796,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get verifyFirmware => 'Verificar Firmware';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verificado';
+
+  @override
+  String get verifyFirmwareError => 'Falha ao verificar o firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {
