@@ -374,10 +374,11 @@ class AppLocalizationsPl extends AppLocalizations {
       'Spowoduje to zarejestrowanie bieżących skrótów kryptograficznych jako zweryfikowanych.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Sumy kontrolne zaktualizowane';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError =>
+      'Nie udało się zaktualizować sum kontrolnych!';
 
   @override
   String get updateToLatest => 'Zaktualizuj do najnowszej';
@@ -394,10 +395,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get verifyFirmware => 'Zweryfikuj oprogramowanie sprzętowe';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Oprogramowanie sprzętowe zweryfikowane';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError =>
+      'Nie udało się zweryfikować oprogramowania sprzętowego!';
 
   @override
   String verifyFirmwareConfirm(String name) {

@@ -157,5 +157,9 @@
     "fwupdDeviceFlagAffectsFde": "Baliteke eguneratzean diskoaren zifratze osorako gakoak baliogabetzea",
     "fwupdDeviceFlagEndOfLife": "Balio-bizitzaren amaiera",
     "fwupdDeviceFlagSignedPayload": "Karga erabilgarri sinatua",
-    "fwupdDeviceFlagUnsignedPayload": "Karga erabilgarri sinatu gabea"
+    "fwupdDeviceFlagUnsignedPayload": "Karga erabilgarri sinatu gabea",
+    "updateChecksumsSuccess": "Egiaztapen-batura eguneratua",
+    "updateChecksumsError": "Huts egin du egiaztapen-batura eguneratzeak!",
+    "verifyFirmwareSuccess": "Firmwarea egiaztatua",
+    "verifyFirmwareError": "Huts egin du firmwarea egiaztatzeak!"
 }

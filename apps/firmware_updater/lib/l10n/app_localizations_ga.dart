@@ -18,15 +18,15 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
-      'Cinntigh go bhfuil eochracha aisghabhála agat do na dioscaí criptithe go léir. B’fhéidir go mbeidh ort iad a iontráil ag am tosaithe tar éis an fhirmchlár a nuashonrú.';
+      'Cinntigh go bhfuil eochracha aisghabhála agat do na dioscaí criptithe go léir. B’fhéidir go mbeidh ort iad a iontráil ag am tosaithe tar éis an dochtearraí a nuashonrú.';
 
   @override
   String get affectsFdeWarningUbuntuFdeBody =>
-      'Tá criptiú crua-earraí cumasaithe ar do ríomhaire. B’fhéidir go mbeidh ort d’eochair aisghabhála a iontráil ar an tosaithe tar éis duit an fhirmchlár a nuashonrú. Déan cinnte go bhfuil eochracha aisghabhála agat freisin le haghaidh aon dioscaí criptithe eile ar an ríomhaire seo.';
+      'Tá criptiú crua-earraí cumasaithe ar do ríomhaire. B’fhéidir go mbeidh ort d’eochair aisghabhála a iontráil ar an tosaithe tar éis duit an dochtearraí a nuashonrú. Déan cinnte go bhfuil eochracha aisghabhála agat freisin le haghaidh aon dioscaí criptithe eile ar an ríomhaire seo.';
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'Tá BitLocker cumasaithe ar do ríomhaire. Déan cinnte go bhfuil eochracha aisghabhála agat do na dioscaí criptithe go léir. B’fhéidir go mbeidh ort iad a iontráil ag am tosaithe tar éis an fhirmchlár a nuashonrú.';
+      'Tá BitLocker cumasaithe ar do ríomhaire. Déan cinnte go bhfuil eochracha aisghabhála agat do na dioscaí criptithe go léir. B’fhéidir go mbeidh ort iad a iontráil ag am tosaithe tar éis an dochtearraí a nuashonrú.';
 
   @override
   String get affectsFdeCheckbox =>
@@ -165,7 +165,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagVersionCheckRequired =>
-      'Ní mór seiceáil leagain a bheith ag firmware gléis';
+      'Ní mór seiceáil leagain a bheith ag dochtearraí gléis';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
@@ -173,11 +173,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
-      'Tacaíonn gléas aistriú chuig brainse eile de firmware';
+      'Tacaíonn gléas aistriú chuig brainse eile de dochtearraí';
 
   @override
   String get fwupdDeviceFlagBackupBeforeInstall =>
-      'Déanfaidh an gléas firmware cúltaca sula suiteálfar é';
+      'Déanfaidh an gléas dochtearraí cúltaca sula suiteálfar é';
 
   @override
   String get fwupdDeviceFlagWildcardInstall =>
@@ -207,10 +207,11 @@ class AppLocalizationsGa extends AppLocalizations {
   String get fwupdErrorInternal => 'Earráid inmheánach';
 
   @override
-  String get fwupdErrorVersionNewer => 'Leagan firmware níos nuaí suiteáilte';
+  String get fwupdErrorVersionNewer =>
+      'Leagan dochtearraí níos nuaí suiteáilte';
 
   @override
-  String get fwupdErrorVersionSame => 'Suiteáilte an leagan firmware céanna';
+  String get fwupdErrorVersionSame => 'Suiteáilte an leagan dochtearraí céanna';
 
   @override
   String get fwupdErrorAlreadyPending => 'Socraithe le suiteáil as líne cheana';
@@ -274,7 +275,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get fwupdStatusLoading => 'Acmhainn á luchtú';
 
   @override
-  String get fwupdStatusDecompressing => 'Firmware dí-chomhbhrúite';
+  String get fwupdStatusDecompressing => 'Dochtearraí dí-chomhbhrúite';
 
   @override
   String get fwupdStatusDeviceRestart => 'An gléas á atosú';
@@ -310,7 +311,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get guid => 'Guids';
 
   @override
-  String get installError => 'Theip ar shuiteáil firmware!';
+  String get installError => 'Theip ar shuiteáil dochtearraí!';
 
   @override
   String get noDevicesFound => 'Níor aimsíodh gléasanna ar bith';
@@ -368,10 +369,11 @@ class AppLocalizationsGa extends AppLocalizations {
       'Déanfaidh sé seo taifead ar na hashes cripteagrafacha reatha mar a fhíoraítear iad.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Seiceanna suime nuashonraithe';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError =>
+      'Theip ar nuashonrú na suimeanna seiceála!';
 
   @override
   String get updateToLatest => 'Nuashonrú ar an gceann is déanaí';
@@ -385,17 +387,17 @@ class AppLocalizationsGa extends AppLocalizations {
   String get vendor => 'Díoltóir';
 
   @override
-  String get verifyFirmware => 'Fíoraigh Firmware';
+  String get verifyFirmware => 'Fíoraigh Dochtearraí';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Dochtearraí fíoraithe';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError => 'Theip ar fhíorú an dochtearraí!';
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Fíoraigh seiceálacha firmware de $name?';
+    return 'Fíoraigh seiceálacha dochtearraí de $name?';
   }
 
   @override
