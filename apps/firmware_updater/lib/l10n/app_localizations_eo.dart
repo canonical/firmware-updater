@@ -365,10 +365,10 @@ class AppLocalizationsEo extends AppLocalizations {
       'Tio registras la aktualajn ĉifrajn haketaĵojn kiel konfirmitajn.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Kontrolsumoj ĝisdatiĝis';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError => 'Malsukcesis ĝisdatigi kontrolsumojn!';
 
   @override
   String get updateToLatest => 'Ĝisdatigi al la plej nova versio';
@@ -385,10 +385,10 @@ class AppLocalizationsEo extends AppLocalizations {
   String get verifyFirmware => 'Kontroli mikroprogramojn';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Mikroprogramoj kontroliĝis';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError => 'Malsukcesis kontroli mikroprogramojn!';
 
   @override
   String verifyFirmwareConfirm(String name) {
