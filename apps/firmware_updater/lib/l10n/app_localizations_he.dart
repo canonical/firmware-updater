@@ -352,6 +352,12 @@ class AppLocalizationsHe extends AppLocalizations {
       'הפעולה הזאת תתעד את הגיבובים הקריפטוגרפיים כמאומתים.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'עדכון לעדכני ביותר';
 
   @override
@@ -364,6 +370,12 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'אימות קושחה';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

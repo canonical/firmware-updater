@@ -344,6 +344,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get updateChecksumsInfo => '現在の暗号化ハッシュを認証で使用するのに保存します。';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => '最新版にアップデート';
 
   @override
@@ -356,6 +362,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'ファームウェアの照合';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

@@ -374,6 +374,12 @@ class AppLocalizationsOc extends AppLocalizations {
       'Aquò salvarà las somas criptograficas actualas coma verificadas.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'Metre a jorn a la mai recenta';
 
   @override
@@ -386,6 +392,12 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Verificar lo micrologicial';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

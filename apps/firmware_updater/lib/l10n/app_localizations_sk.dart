@@ -367,6 +367,12 @@ class AppLocalizationsSk extends AppLocalizations {
       'Týmto sa zaznamenajú aktuálne kryptografické hashové hodnoty ako overené.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'Aktualizovať na najnovšiu verziu';
 
   @override
@@ -379,6 +385,12 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Overiť firmvér';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

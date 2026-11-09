@@ -374,6 +374,12 @@ class AppLocalizationsCa extends AppLocalizations {
       'Això enregistrarà les sumes criptogràfiques actuals com a verificades.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'Actualitza a l\'última versió';
 
   @override
@@ -386,6 +392,12 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Verifica el firmware';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {

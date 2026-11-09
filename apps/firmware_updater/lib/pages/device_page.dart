@@ -151,7 +151,12 @@ class DevicePage extends StatelessWidget {
                                         device.name,
                                       ),
                                       body: Text(l10n.updateChecksumsInfo),
-                                      onConfirm: model.verifyUpdate,
+                                      onConfirm: () => _runChecksumAction(
+                                        context,
+                                        model.verifyUpdate,
+                                        success: l10n.updateChecksumsSuccess,
+                                        error: l10n.updateChecksumsError,
+                                      ),
                                       actionText: l10n.update,
                                     )
                                   : null,
@@ -172,7 +177,12 @@ class DevicePage extends StatelessWidget {
                                             )
                                             ? null
                                             : Text(l10n.deviceUnavailable),
-                                        onConfirm: model.verify,
+                                        onConfirm: () => _runChecksumAction(
+                                          context,
+                                          model.verify,
+                                          success: l10n.verifyFirmwareSuccess,
+                                          error: l10n.verifyFirmwareError,
+                                        ),
                                       )
                                     : null,
                                 child: Text(l10n.verifyFirmware),
@@ -188,6 +198,26 @@ class DevicePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  static Future<void> _runChecksumAction(
+    BuildContext context,
+    Future<void> Function() action, {
+    required String success,
+    required String error,
+  }) async {
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      await action();
+      messenger.showSnackBar(SnackBar(content: Text(success)));
+    } on Exception catch (e) {
+      if (!context.mounted) return;
+      await showErrorDialog(
+        context,
+        title: error,
+        message: e is FwupdException ? e.localize(context) : e.toString(),
+      );
+    }
   }
 
   static Widget _buildAppBarTitle(

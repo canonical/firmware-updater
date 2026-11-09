@@ -371,6 +371,12 @@ class AppLocalizationsHu extends AppLocalizations {
       'Ez feljegyzi a jelenlegi kriptográfiai kivonatokat ellenőrzöttként.';
 
   @override
+  String get updateChecksumsSuccess => 'Checksums updated';
+
+  @override
+  String get updateChecksumsError => 'Failed to update checksums!';
+
+  @override
   String get updateToLatest => 'Frissítés a legújabbra';
 
   @override
@@ -383,6 +389,12 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get verifyFirmware => 'Belső vezérlőprogram ellenőrzése';
+
+  @override
+  String get verifyFirmwareSuccess => 'Firmware verified';
+
+  @override
+  String get verifyFirmwareError => 'Failed to verify firmware!';
 
   @override
   String verifyFirmwareConfirm(String name) {
