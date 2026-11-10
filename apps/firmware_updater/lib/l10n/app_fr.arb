@@ -160,6 +160,8 @@
     "affectsFdeWarningOtherFdeBody": "Assurez-vous d’avoir des clés de récupération pour tous les disques chiffrés. Vous devrez peut-être les saisir au démarrage après la mise à jour du micrologiciel (firmware).",
     "affectsFdeWarningUbuntuFdeBody": "Le chiffrement matériel est activé sur votre ordinateur. Vous devrez peut-être entrer votre clé de récupération au démarrage après la mise à jour du micrologiciel (firmware). Assurez-vous de posséder également des clés de récupération pour tous les autres disques chiffrés sur cet ordinateur.",
     "affectsFdeWarningBitlockerBody": "BitLocker est activé sur votre ordinateur. Assurez-vous d’avoir des clés de récupération pour tous les disques chiffrés. Vous devrez peut-être les saisir au démarrage après avoir mis à jour le micrologiciel (firmware).",
-    "verifyFirmwareError": "Échec de l'authentification du micrologiciel",
-    "verifyFirmwareSuccess": "Micrologiciel vérifié"
+    "verifyFirmwareError": "Échec de vérification du micrologiciel !",
+    "verifyFirmwareSuccess": "Micrologiciel vérifié",
+    "updateChecksumsSuccess": "Sommes de contrôle mises à jour",
+    "updateChecksumsError": "Échec de mise à jour des sommes de contrôle !"
 }
