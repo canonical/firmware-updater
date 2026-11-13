@@ -367,10 +367,10 @@ class AppLocalizationsSv extends AppLocalizations {
       'Detta kommer att registrera de aktuella kryptografiska kontrollsummorna som verifierade.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Kontrollsummor uppdaterade';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError => 'Kunde inte uppdatera kontrollsummor!';
 
   @override
   String get updateToLatest => 'Uppdatera till den senaste versionen';
@@ -387,10 +387,11 @@ class AppLocalizationsSv extends AppLocalizations {
   String get verifyFirmware => 'Verifiera fast programvara';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Fast programvara verifierad';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError =>
+      'Verifiering av fast programvara misslyckades!';
 
   @override
   String verifyFirmwareConfirm(String name) {

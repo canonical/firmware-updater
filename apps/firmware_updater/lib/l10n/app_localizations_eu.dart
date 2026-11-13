@@ -371,10 +371,11 @@ class AppLocalizationsEu extends AppLocalizations {
       'Honek uneko hash kriptografikoak egiaztatu gisa grabatuko ditu.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Egiaztapen-batura eguneratua';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError =>
+      'Huts egin du egiaztapen-batura eguneratzeak!';
 
   @override
   String get updateToLatest => 'Eguneratu azkenekora';
@@ -391,10 +392,10 @@ class AppLocalizationsEu extends AppLocalizations {
   String get verifyFirmware => 'Egiaztatu firmwarea';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Firmwarea egiaztatua';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError => 'Huts egin du firmwarea egiaztatzeak!';
 
   @override
   String verifyFirmwareConfirm(String name) {
