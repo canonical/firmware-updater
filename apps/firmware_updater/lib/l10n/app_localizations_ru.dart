@@ -368,10 +368,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'При этом будут записаны текущие проверенные криптографические хэши.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Контрольные суммы обновлены';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError => 'Не удалось обновить контрольные суммы!';
 
   @override
   String get updateToLatest => 'Обновить до последней версии';
@@ -388,10 +388,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get verifyFirmware => 'Проверить прошивку';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Прошивка проверена';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError => 'Не удалось проверить прошивку!';
 
   @override
   String verifyFirmwareConfirm(String name) {

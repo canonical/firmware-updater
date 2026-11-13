@@ -159,5 +159,9 @@
     "affectsFdeWarningUbuntuFdeTitle": "Bez svého záchranného klíče se může stát, že přijdete o veškerá data",
     "affectsFdeWarningOtherFdeBody": "Ověřte, že máte záchranné klíče pro všechny šifrované disky. Po aktualizaci firmwaru se může stát, že může být potřeba je zadat při startu systému.",
     "affectsFdeWarningUbuntuFdeBody": "Na počítači je zapnuté hardwarem obsluhované šifrování. Může se stát, že po aktualizaci firmwaru bude třeba zadat záchranný klíč. Ověřte, že máte záchranné klíče také pro jakékoli ostatní šifrované disky tohoto počítače.",
-    "affectsFdeWarningBitlockerBody": "Na počítači je zapnutý BitLocker. Ověřte, že máte záchranné klíče pro veškeré šifrované disky. Může se stát, že po aktualizaci firmwaru je bude třeba zadat při startu systému."
+    "affectsFdeWarningBitlockerBody": "Na počítači je zapnutý BitLocker. Ověřte, že máte záchranné klíče pro veškeré šifrované disky. Může se stát, že po aktualizaci firmwaru je bude třeba zadat při startu systému.",
+    "updateChecksumsSuccess": "Kontrolní součty aktualizovány",
+    "updateChecksumsError": "Aktualizace kontrolních součtů se nezdařila!",
+    "verifyFirmwareSuccess": "Firmware ověřen",
+    "verifyFirmwareError": "Ověření firmwaru se nezdařilo!"
 }

@@ -10,11 +10,11 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get affectsFdeWarningTitle =>
-      'Vi eble perdos ĉiom da datenoj sen restaŭra ŝlosilo';
+      'Vi eble perdos ĉiom da datumoj sen restaŭra ŝlosilo';
 
   @override
   String get affectsFdeWarningUbuntuFdeTitle =>
-      'Eblas, ke vi perdos ĉiom da viaj datenoj, se vi perdos vian restaŭran ŝlosilon';
+      'Eblas, ke vi perdos ĉiom da viaj datumoj, se vi perdos vian restaŭran ŝlosilon';
 
   @override
   String get affectsFdeWarningOtherFdeBody =>
@@ -326,7 +326,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get rebootConfirmMessage =>
-      'Vi devas restartigi vian aparaton por kompletigi la ĝisdatigon. Certigu, ke via aparato estas konektita al energifonto aŭ plene ŝargita. Konservu viajn dosierojn antaŭ la restarto por ne perdi datenojn.';
+      'Vi devas restartigi vian aparaton por kompletigi la ĝisdatigon. Certigu, ke via aparato estas konektita al energifonto aŭ plene ŝargita. Konservu viajn dosierojn antaŭ la restarto por ne perdi datumojn.';
 
   @override
   String get rebootConfirmTitle =>

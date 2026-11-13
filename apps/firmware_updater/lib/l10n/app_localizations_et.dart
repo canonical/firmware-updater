@@ -368,10 +368,11 @@ class AppLocalizationsEt extends AppLocalizations {
       'Sellega märgime praegused kontrollsummade räsid verifitseerituks.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Kontrollsummad on uuendatud';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError =>
+      'Kontrollsummade uuendamine ei õnnestunud!';
 
   @override
   String get updateToLatest => 'Uuenda viimase versioonini';
@@ -388,10 +389,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get verifyFirmware => 'Verifitseeri püsivara';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Püsivara on verifitseeritud';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError => 'Püsivara verifitseerimine ei õnnestunud!';
 
   @override
   String verifyFirmwareConfirm(String name) {

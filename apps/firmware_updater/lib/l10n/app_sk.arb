@@ -159,5 +159,9 @@
     "affectsFdeWarningUbuntuFdeTitle": "Bez kľúča na obnovenie môžete prísť o všetky svoje údaje",
     "affectsFdeWarningOtherFdeBody": "Uistite sa, že máte kľúče na obnovenie pre všetky šifrované disky. Po aktualizácii firmvéru ich možno budete musieť zadať pri spustení.",
     "affectsFdeWarningBitlockerBody": "Na vašom počítači je povolený systém BitLocker. Uistite sa, že máte kľúče na obnovenie pre všetky šifrované disky. Po aktualizácii firmvéru ich možno budete musieť zadať pri spustení.",
-    "affectsFdeWarningUbuntuFdeBody": "Na vašom počítači je povolené šifrovanie podporované hardvérom. Po aktualizácii firmvéru možno budete musieť zadať kľúč na obnovenie pri spustení. Uistite sa tiež, že máte kľúče na obnovenie pre akékoľvek ďalšie šifrované disky na tomto počítači."
+    "affectsFdeWarningUbuntuFdeBody": "Na vašom počítači je povolené šifrovanie podporované hardvérom. Po aktualizácii firmvéru možno budete musieť zadať kľúč na obnovenie pri spustení. Uistite sa tiež, že máte kľúče na obnovenie pre akékoľvek ďalšie šifrované disky na tomto počítači.",
+    "updateChecksumsSuccess": "Kontrolné súčty boli aktualizované",
+    "updateChecksumsError": "Nepodarilo sa aktualizovať kontrolné súčty!",
+    "verifyFirmwareSuccess": "Firmvér bol overený",
+    "verifyFirmwareError": "Nepodarilo sa overiť firmvér!"
 }
