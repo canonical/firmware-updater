@@ -123,4 +123,5 @@ apps:
     plugs:
       - desktop
       - fwupd
+      - gsettings
       - upower-observe
