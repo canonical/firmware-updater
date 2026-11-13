@@ -157,5 +157,9 @@
     "fwupdStatusDeviceErase": "デバイスを消去しています",
     "fwupdStatusWaitingForAuth": "認証を待っています",
     "fwupdStatusDeviceBusy": "デバイスの応答を待っています",
-    "fwupdStatusShutdown": "デーモンを終了しています"
+    "fwupdStatusShutdown": "デーモンを終了しています",
+    "verifyFirmwareError": "ファームウェアの照合に失敗しました！",
+    "updateChecksumsError": "チェックサムのアップデートに失敗しました！",
+    "updateChecksumsSuccess": "チェックサムをアップデートしました",
+    "verifyFirmwareSuccess": "ファームウェアを照合しました"
 }
