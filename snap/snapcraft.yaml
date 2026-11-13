@@ -3,7 +3,7 @@ version: git
 summary: Firmware Updater
 description: Update Firmware
 confinement: strict
-base: core24
+base: core26
 grade: stable
 license: GPL-3.0+
 icon: snap/local/firmware-updater.png
@@ -92,6 +92,10 @@ apps:
     command: bin/launch-firmware-updater.sh
     desktop: bin/data/flutter_assets/assets/firmware-updater.desktop
     extensions: [gnome]
+    plugs:
+      # flutter reads the accent color from gsettings until it learns
+      # to use the settings portal
+      - gsettings
 
   firmware-updater-app:
     desktop: bin/data/flutter_assets/assets/firmware-updater-app.desktop
@@ -102,6 +106,7 @@ apps:
     activates-on: [dbus-slot]
     extensions: [gnome]
     plugs:
+      - gsettings
       - fwupd
       - shutdown
       - upower-observe
@@ -118,4 +123,5 @@ apps:
     plugs:
       - desktop
       - fwupd
+      - gsettings
       - upower-observe
