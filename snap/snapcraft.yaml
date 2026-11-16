@@ -3,7 +3,7 @@ version: git
 summary: Firmware Updater
 description: Update Firmware
 confinement: strict
-base: core26
+base: core24
 grade: stable
 license: GPL-3.0+
 icon: snap/local/firmware-updater.png
