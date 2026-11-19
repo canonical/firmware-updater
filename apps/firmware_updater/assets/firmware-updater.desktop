@@ -49,6 +49,7 @@ Name[uk]=Оновлювач прошивки
 Name[zh]=固件更新器
 Name[zh_TW]=韌體更新程式
 Comment=Manage firmware on your device
+Comment[sv]=Hantera fast programvara på din enhet
 Keywords=firmware;
 #use sh because pkexec is broken under xfce/lxce http://pad.lv/1193526
 Exec=firmware-updater
