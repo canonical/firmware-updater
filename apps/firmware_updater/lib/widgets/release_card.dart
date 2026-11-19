@@ -28,6 +28,8 @@ class ReleaseCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
 
+    final isCurrentVersion = !release.isUpgrade && !release.isDowngrade;
+
     return YaruSection(
       margin: const EdgeInsets.symmetric(vertical: 8),
       width: double.infinity,
@@ -46,7 +48,7 @@ class ReleaseCard extends StatelessWidget {
             ),
           ),
           Visibility(
-            visible: release.version == device.version,
+            visible: isCurrentVersion,
             child: Chip(
               label: Text(l10n.currentVersion),
               labelStyle: Theme.of(context).textTheme.bodySmall,
