@@ -38,8 +38,10 @@ void main() {
       await tester.pumpAndTapButton(tester.lang.updateToLatest);
       await tester.pumpAndSettle();
 
+      final installation = client.testInstallation(webcam, upgrade);
       await tester.pumpAndTapDialogButton(tester.lang.update);
-      await client.testInstallation(webcam, upgrade);
+      await installation;
+      await tester.pumpAndSettle();
     });
 
     testWidgets('reinstall', (tester) async {
@@ -65,8 +67,10 @@ void main() {
       await tester.pumpAndTapReleaseButton(reinstall.version);
       await tester.pumpAndSettle();
 
+      final installation = client.testInstallation(webcam, reinstall);
       await tester.pumpAndTapDialogButton(tester.lang.reinstall);
-      await client.testInstallation(webcam, reinstall);
+      await installation;
+      await tester.pumpAndSettle();
     });
 
     testWidgets('downgrade', (tester) async {
@@ -94,8 +98,10 @@ void main() {
       await tester.pumpAndTapReleaseButton(downgrade.version);
       await tester.pumpAndSettle();
 
+      final installation = client.testInstallation(webcam, downgrade);
       await tester.pumpAndTapDialogButton(tester.lang.downgrade);
-      await client.testInstallation(webcam, downgrade);
+      await installation;
+      await tester.pumpAndSettle();
     });
 
     testWidgets('update checksum', (tester) async {
@@ -118,8 +124,10 @@ void main() {
       await tester.pumpAndTapButton(tester.lang.updateChecksums);
       await tester.pumpAndSettle();
 
+      final checksum = client.testUpdateChecksum(webcam);
       await tester.pumpAndTapDialogButton(tester.lang.update);
-      await client.testUpdateChecksum(webcam);
+      await checksum;
+      await tester.pumpAndSettle();
     });
   });
 }
@@ -141,66 +149,31 @@ extension IntegrationClient on FwupdClient {
     FwupdRelease release, [
     Duration timeout = const Duration(seconds: 60),
   ]) async {
-    await expectLater(
-      propertiesChanged
-          .where((p) => p.contains('Status'))
-          .map((_) => status)
-          .timeout(timeout),
-      emitsThrough(FwupdStatus.deviceWrite),
-    );
-
-    if (percentage < 100) {
-      await expectLater(
-        propertiesChanged
-            .where((p) => p.contains('Percentage'))
-            .map((_) => percentage)
-            .timeout(timeout),
-        emitsThrough(100),
-      );
-    }
-
-    if (status.isBusy) {
-      await expectLater(
-        propertiesChanged
-            .where((p) => p.contains('Status'))
-            .map((_) => status.isBusy)
-            .timeout(timeout),
-        emitsThrough(false),
-      );
-    }
-
-    final updateState = await findDevice(
-      (d) => d.deviceId == device.deviceId && d.version == release.version,
-    ).then((d) => d?.updateState);
-    if (updateState != FwupdUpdateState.success) {
-      await expectLater(
-        deviceChanged
-            .where(
-              (d) =>
-                  d.deviceId == device.deviceId && d.version == release.version,
-            )
-            .map((d) => d.updateState),
-        emitsThrough(FwupdUpdateState.success),
-      );
-    }
+    // fwupd 2.1.6 throttles non-idle D-Bus status updates by 250 ms. The
+    // test plugin finishes faster than that, so waiting for e.g.
+    // FwupdStatus.deviceWrite is racy. Wait for the device to report the
+    // installed version and a successful update state instead.
+    final installed = await deviceChanged
+        .where(
+          (d) =>
+              d.deviceId == device.deviceId &&
+              d.version == release.version &&
+              d.updateState == FwupdUpdateState.success,
+        )
+        .first
+        .timeout(timeout);
+    expect(installed.updateState, FwupdUpdateState.success);
   }
 
   Future<void> testUpdateChecksum(
     FwupdDevice device, [
     Duration timeout = const Duration(seconds: 60),
   ]) async {
-    await expectLater(
-      propertiesChanged
-          .where((p) => p.contains('Status'))
-          .map((_) => status)
-          .timeout(timeout),
-      emitsThrough(FwupdStatus.idle),
-    );
-
-    final checksum = await findDevice(
-      (d) => d.deviceId == device.deviceId,
-    ).then((d) => d?.checksum);
-    expect(checksum, isNotNull);
+    final verified = await deviceChanged
+        .where((d) => d.deviceId == device.deviceId && d.checksum != null)
+        .first
+        .timeout(timeout);
+    expect(verified.checksum, isNotNull);
   }
 }
 
