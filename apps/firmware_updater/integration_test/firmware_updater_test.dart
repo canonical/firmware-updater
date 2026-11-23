@@ -152,8 +152,9 @@ extension IntegrationClient on FwupdClient {
     // fwupd 2.1.6 throttles non-idle D-Bus status updates by 250 ms. The
     // test plugin finishes faster than that, so waiting for e.g.
     // FwupdStatus.deviceWrite is racy. Wait for the device to report the
-    // installed version and a successful update state instead.
-    final installed = await deviceChanged
+    // installed version and a successful update state instead, then wait for
+    // the daemon to return to idle (idle transitions are not throttled).
+    await deviceChanged
         .where(
           (d) =>
               d.deviceId == device.deviceId &&
@@ -162,18 +163,23 @@ extension IntegrationClient on FwupdClient {
         )
         .first
         .timeout(timeout);
-    expect(installed.updateState, FwupdUpdateState.success);
+
+    if (status.isBusy) {
+      await propertiesChanged
+          .where((p) => p.contains('Status') && !status.isBusy)
+          .first
+          .timeout(timeout);
+    }
   }
 
   Future<void> testUpdateChecksum(
     FwupdDevice device, [
     Duration timeout = const Duration(seconds: 60),
   ]) async {
-    final verified = await deviceChanged
+    await deviceChanged
         .where((d) => d.deviceId == device.deviceId && d.checksum != null)
         .first
         .timeout(timeout);
-    expect(verified.checksum, isNotNull);
   }
 }
 
