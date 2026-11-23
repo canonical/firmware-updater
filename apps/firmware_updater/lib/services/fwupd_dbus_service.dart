@@ -151,6 +151,7 @@ class FwupdDbusService extends FwupdService {
       final file = await _fetchRelease(release);
       resourceHandleFromFile ??= ResourceHandle.fromFile;
       final firmware = await SealedFirmwareFile.create(file);
+      Object? installError;
       try {
         await _fwupd.install(
           device.id,
@@ -161,8 +162,17 @@ class FwupdDbusService extends FwupdService {
               FwupdInstallFlag.allowReinstall,
           },
         );
+      } catch (error) {
+        installError = error;
+        rethrow;
       } finally {
-        await firmware.close();
+        try {
+          await firmware.close();
+        } catch (error, stackTrace) {
+          if (installError == null) {
+            Error.throwWithStackTrace(error, stackTrace);
+          }
+        }
       }
       if (device.flags.contains(FwupdDeviceFlag.needsReboot)) {
         if (await _confirmationListener?.call() ?? false) await reboot();

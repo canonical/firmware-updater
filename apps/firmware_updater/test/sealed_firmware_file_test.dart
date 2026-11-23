@@ -5,6 +5,27 @@ import 'package:file/local.dart';
 import 'package:firmware_updater/services/sealed_firmware_file.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+final _fcntl = DynamicLibrary.process()
+    .lookupFunction<
+      Int32 Function(Int32, Int32, VarArgs<(Int32,)>),
+      int Function(int, int, int)
+    >('fcntl');
+
+List<int> _firmwareDescriptors() => Directory('/proc/self/fd')
+    .listSync()
+    .map((entry) {
+      try {
+        final target = Link(entry.path).targetSync();
+        return target.contains('memfd:firmware-updater')
+            ? int.tryParse(entry.path.split('/').last)
+            : null;
+      } on FileSystemException {
+        return null;
+      }
+    })
+    .whereType<int>()
+    .toList();
+
 void main() {
   test(
     'seals a copy of a file in the system temporary directory',
@@ -19,15 +40,12 @@ void main() {
       final firmware = await SealedFirmwareFile.create(
         const LocalFileSystem().file(source.path),
       );
-      final fd = firmware.descriptor;
-      final fcntl = DynamicLibrary.process()
-          .lookupFunction<
-            Int32 Function(Int32, Int32, Int32),
-            int Function(int, int, int)
-          >('fcntl');
+      final descriptors = _firmwareDescriptors();
+      expect(descriptors, hasLength(1));
+      final fd = descriptors.single;
       try {
         expect(await firmware.file.read(5), [0, 1, 2, 3, 255]);
-        expect(fcntl(fd, 1034, 0) & 0x0f, 0x0f); // F_GET_SEALS
+        expect(_fcntl(fd, 1034, 0) & 0x0f, 0x0f); // F_GET_SEALS
         expect(
           () => File('/proc/self/fd/$fd').writeAsBytesSync([42]),
           throwsA(isA<FileSystemException>()),
@@ -35,7 +53,7 @@ void main() {
       } finally {
         await firmware.close();
       }
-      expect(fcntl(fd, 1034, 0), -1);
+      expect(_fcntl(fd, 1034, 0), -1);
     },
     skip: !Platform.isLinux,
   );
