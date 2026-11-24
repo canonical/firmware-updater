@@ -1,0 +1,57 @@
+{
+    "close": "Bağla",
+    "cancel": "İmtina",
+    "current": "Hazırki",
+    "affectsFdeTextFieldLabel": "Bərpa açarınızı daxil edin",
+    "affectsFdeLinkLabel": "Daha çox öyrən",
+    "appTitle": "Mikroproqram yeniləyicisi",
+    "deviceRequest": "Qurğu sorğusu",
+    "downgrade": "Aşağı versiyaya keç",
+    "affectsFdeWarningTitle": "Bərpa açarları olmadan bütün məlumatlarınızı itirə bilərsiniz",
+    "affectsFdeWarningUbuntuFdeTitle": "Bərpa açarınız olmadan bütün məlumatlarınızı itirə bilərsiniz",
+    "allVersions": "Bütün versiyalar",
+    "fwupdDeviceFlagTrusted": "Etibar edilən",
+    "fwupdDeviceFlagOnlyOffline": "Yenilənmə yenidən önyükləmə tələb edir",
+    "fwupdDeviceFlagNeedsBootloader": "Önyükləyici tələb edir",
+    "fwupdErrorInternal": "Daxili xəta",
+    "fwupdErrorVersionNewer": "Mikroproqramın daha yeni versiyası quraşdırıldı",
+    "fwupdErrorVersionSame": "Eyni mikroproqram versiyası quraşdırıldı",
+    "batteryWarning": "Xəbərdarlıq: bəzi cihaz yenilənmələri yalnız xarici enerji ilə əlçatan ola bilər!",
+    "fwupdDeviceFlagUpdatable": "Yenilənəbilən",
+    "fwupdDeviceFlagInternal": "Daxili cihaz",
+    "fwupdDeviceFlagSupported": "Uzaq serverdə dəstəklənir",
+    "fwupdDeviceFlagNeedsReboot": "Quraşdırmadan sonra önyükləmə tələb edir",
+    "rebootLater": "Daha sonra yenidən başlat",
+    "rebootNow": "İndi yenidən başlat",
+    "rebootConfirmMessage": "Yeniləməni tamamlamaq üçün cihazınızı yenidən başlatmalısınız. Cihazınızın qoşulduğuna və ya tam şarj edildiyinə əmin olun. Məlumatları itirməmək üçün yenidən başlatmazdan əvvəl fayllarınızı yadda saxlayın.",
+    "rebootConfirmTitle": "Bu yeniləməni tamamlamaq üçün yenidən başladın",
+    "flags": "Bayraqlar",
+    "fwupdStatusUnknown": "Naməlum vəziyyət",
+    "fwupdStatusLoading": "Resurs yüklənir",
+    "fwupdStatusDeviceRestart": "Cihaz yenidən başladılır",
+    "fwupdStatusDeviceWrite": "Cihaza yazılır",
+    "fwupdStatusDeviceVerify": "Cihaz təsdiqlənir (oxunur)",
+    "fwupdStatusDownloading": "Bir fayl endirilir",
+    "fwupdStatusDeviceRead": "Cihazdan oxunur",
+    "fwupdStatusWaitingForAuth": "Kimlik doğrulanması üçün gözləyir",
+    "fwupdStatusDeviceBusy": "Cihaz məşğuldur",
+    "ok": "Oldu",
+    "olderVersions": "Köhnə versiyalar",
+    "update": "Yenilə",
+    "updateAvailable": "Yenilənmə mövcuddur",
+    "affectsFdeWarningOtherFdeBody": "Bütün şifrələnmiş disklər üçün bərpa açarlarının olduğuna əmin olun. Mikroproqram yeniləndikdən sonra onları önyükləmə zamanı daxil etməli ola bilərsiniz.",
+    "deviceUnavailable": "Qurğu bu əməliyyat zamanı əlçatan olmayacaq.",
+    "affectsFdeCheckbox": "Bütün şifrələnmiş disklərim üçün bərpa açarlarım var",
+    "downgradeConfirm": "<b>{name}</b> <b>{version}</b> versiyasına endirilsin?",
+    "@downgradeConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "affectsFdeWarningUbuntuFdeBody": "Kompüterinizdə avadanlıq tərəfindən dəstəklənən şifrələmə aktivdir. Mikroproqram yeniləndikdən sonra bərpa açarını önyükləmə zamanı daxil etməli ola bilərsiniz. Bu kompüterdəki digər şifrələnmiş disklər üçün bərpa açarlarının da olduğuna əmin olun."
+}
