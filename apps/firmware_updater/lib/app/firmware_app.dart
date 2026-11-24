@@ -81,8 +81,9 @@ class _FirmwareAppState extends State<FirmwareApp> {
 
   @override
   void dispose() {
-    final gtkNotifier = getService<GtkApplicationNotifier>();
-    gtkNotifier.removeCommandLineListener(_commandLineListener);
+    tryGetService<GtkApplicationNotifier>()?.removeCommandLineListener(
+      _commandLineListener,
+    );
     _store.removeListener(_syncSelection);
     _controller?.dispose();
     super.dispose();
