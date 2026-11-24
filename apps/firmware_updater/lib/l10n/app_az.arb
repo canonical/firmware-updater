@@ -5,7 +5,7 @@
     "affectsFdeTextFieldLabel": "Bərpa açarınızı daxil edin",
     "affectsFdeLinkLabel": "Daha çox öyrən",
     "appTitle": "Mikroproqram yeniləyicisi",
-    "deviceRequest": "Avadanlıq sorğusu",
+    "deviceRequest": "Qurğu sorğusu",
     "downgrade": "Aşağı versiyaya keç",
     "affectsFdeWarningTitle": "Bərpa açarları olmadan bütün məlumatlarınızı itirə bilərsiniz",
     "affectsFdeWarningUbuntuFdeTitle": "Bərpa açarınız olmadan bütün məlumatlarınızı itirə bilərsiniz",
@@ -38,5 +38,7 @@
     "ok": "Oldu",
     "olderVersions": "Köhnə versiyalar",
     "update": "Yenilə",
-    "updateAvailable": "Yenilənmə mövcuddur"
+    "updateAvailable": "Yenilənmə mövcuddur",
+    "affectsFdeWarningOtherFdeBody": "Bütün şifrələnmiş disklər üçün bərpa açarlarının olduğuna əmin olun. Mikroproqram yeniləndikdən sonra onları önyükləmə zamanı daxil etməli ola bilərsiniz.",
+    "deviceUnavailable": "Qurğu bu əməliyyat zamanı əlçatan olmayacaq."
 }
