@@ -52,5 +52,6 @@
                 "type": "String"
             }
         }
-    }
+    },
+    "affectsFdeWarningUbuntuFdeBody": "Kompüterinizdə avadanlıq tərəfindən dəstəklənən şifrələmə aktivdir. Mikroproqram yeniləndikdən sonra bərpa açarını önyükləmə zamanı daxil etməli ola bilərsiniz. Bu kompüterdəki digər şifrələnmiş disklər üçün bərpa açarlarının da olduğuna əmin olun."
 }
