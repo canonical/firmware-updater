@@ -42,7 +42,7 @@
     "affectsFdeWarningOtherFdeBody": "Bütün şifrələnmiş disklər üçün bərpa açarlarının olduğuna əmin olun. Mikroproqram yeniləndikdən sonra onları önyükləmə zamanı daxil etməli ola bilərsiniz.",
     "deviceUnavailable": "Qurğu bu əməliyyat zamanı əlçatan olmayacaq.",
     "affectsFdeCheckbox": "Bütün şifrələnmiş disklərim üçün bərpa açarlarım var",
-    "downgradeConfirm": "<b>{name}</b> <b></b> versiyasına endirilsin?",
+    "downgradeConfirm": "<b>{name}</b> <b>{version}</b> versiyasına endirilsin?",
     "@downgradeConfirm": {
         "placeholders": {
             "name": {
