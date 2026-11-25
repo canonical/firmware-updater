@@ -121,10 +121,10 @@ void main() {
 
       expect(find.devicePage(tester.lang.updateChecksums), findsOneWidget);
 
+      final checksum = client.testUpdateChecksum(webcam);
       await tester.pumpAndTapButton(tester.lang.updateChecksums);
       await tester.pumpAndSettle();
 
-      final checksum = client.testUpdateChecksum(webcam);
       await tester.pumpAndTapDialogButton(tester.lang.update);
       await checksum;
       await tester.pumpAndSettle();

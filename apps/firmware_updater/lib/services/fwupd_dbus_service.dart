@@ -8,6 +8,7 @@ import 'package:dio/dio.dart';
 import 'package:file/file.dart';
 import 'package:file/local.dart';
 import 'package:firmware_updater/services.dart';
+import 'package:firmware_updater/services/sealed_firmware_file.dart';
 import 'package:fwupd/fwupd.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as p;
@@ -149,15 +150,31 @@ class FwupdDbusService extends FwupdService {
     try {
       final file = await _fetchRelease(release);
       resourceHandleFromFile ??= ResourceHandle.fromFile;
-      await _fwupd.install(
-        device.id,
-        resourceHandleFromFile(file.openSync()),
-        flags: {
-          if (release.isDowngrade) FwupdInstallFlag.allowOlder,
-          if (!release.isDowngrade && !release.isUpgrade)
-            FwupdInstallFlag.allowReinstall,
-        },
-      );
+      final firmware = await SealedFirmwareFile.create(file);
+      Object? installError;
+      try {
+        await _fwupd.install(
+          device.id,
+          resourceHandleFromFile(firmware.file),
+          flags: {
+            if (release.isDowngrade) FwupdInstallFlag.allowOlder,
+            if (!release.isDowngrade && !release.isUpgrade)
+              FwupdInstallFlag.allowReinstall,
+          },
+        );
+      } catch (error) {
+        installError = error;
+        rethrow;
+      } finally {
+        try {
+          await firmware.close();
+        } catch (error, stackTrace) {
+          if (installError == null) {
+            Error.throwWithStackTrace(error, stackTrace);
+          }
+          log.error('failed to close sealed firmware file: $error');
+        }
+      }
       if (device.flags.contains(FwupdDeviceFlag.needsReboot)) {
         if (await _confirmationListener?.call() ?? false) await reboot();
       }

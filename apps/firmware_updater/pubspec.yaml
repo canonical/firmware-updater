@@ -10,6 +10,7 @@ dependencies:
   collection: ^1.17.2
   dbus: ^0.7.8
   dio: ^5.3.3
+  ffi: ^2.1.4
   file: ^7.0.0
   flutter:
     sdk: flutter
