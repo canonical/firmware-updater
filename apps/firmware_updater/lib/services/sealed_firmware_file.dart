@@ -4,7 +4,8 @@ import 'dart:io' as io;
 import 'package:ffi/ffi.dart';
 import 'package:file/file.dart';
 
-// Linux file seals prevent the contents from changing after validation.
+// fwupd rejects unsealed file descriptors (e.g. from tmpfs), so pass the
+// firmware as a sealed memfd.
 const _mfdAllowSealing = 0x0002;
 const _mfdCloexec = 0x0001;
 const _fAddSeals = 1033;

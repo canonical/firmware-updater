@@ -172,6 +172,7 @@ class FwupdDbusService extends FwupdService {
           if (installError == null) {
             Error.throwWithStackTrace(error, stackTrace);
           }
+          log.error('failed to close sealed firmware file: $error');
         }
       }
       if (device.flags.contains(FwupdDeviceFlag.needsReboot)) {
