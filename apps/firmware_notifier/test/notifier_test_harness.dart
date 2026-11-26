@@ -50,29 +50,39 @@ class FakeNotificationsServer extends DBusObject {
   Future<DBusMethodResponse> handleMethodCall(
     DBusMethodCall methodCall,
   ) async {
-    if (methodCall.interface != 'org.freedesktop.Notifications' ||
-        methodCall.name != 'Notify') {
-      return DBusMethodErrorResponse.unknownMethod();
+    if (methodCall.interface != 'org.freedesktop.Notifications') {
+      return DBusMethodErrorResponse.unknownInterface();
     }
 
-    final [appName, _, appIcon, summary, body, actions, hints, _] =
-        methodCall.values;
-    final actionList = actions.asStringArray().toList();
-    final notification = FakeNotification(
-      id: _nextId++,
-      appName: appName.asString(),
-      appIcon: appIcon.asString(),
-      summary: summary.asString(),
-      body: body.asString(),
-      actions: {
-        for (var i = 0; i + 1 < actionList.length; i += 2)
-          actionList[i]: actionList[i + 1],
-      },
-      hints: hints.asStringVariantDict(),
-    );
-    notifications[notification.id] = notification;
-    _received.add(notification);
-    return DBusMethodSuccessResponse([DBusUint32(notification.id)]);
+    switch (methodCall.name) {
+      case 'Notify':
+        final [appName, _, appIcon, summary, body, actions, hints, _] =
+            methodCall.values;
+        final actionList = actions.asStringArray().toList();
+        final notification = FakeNotification(
+          id: _nextId++,
+          appName: appName.asString(),
+          appIcon: appIcon.asString(),
+          summary: summary.asString(),
+          body: body.asString(),
+          actions: {
+            for (var i = 0; i + 1 < actionList.length; i += 2)
+              actionList[i]: actionList[i + 1],
+          },
+          hints: hints.asStringVariantDict(),
+        );
+        notifications[notification.id] = notification;
+        _received.add(notification);
+        return DBusMethodSuccessResponse([DBusUint32(notification.id)]);
+      case 'CloseNotification':
+        final id = methodCall.values[0].asUint32();
+        if (notifications.containsKey(id)) {
+          await emitNotificationClosed(id);
+        }
+        return DBusMethodSuccessResponse([]);
+      default:
+        return DBusMethodErrorResponse.unknownMethod();
+    }
   }
 
   Future<void> emitActionInvoked(int id, String actionKey) async {

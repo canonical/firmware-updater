@@ -4,6 +4,6 @@ import 'package:fwupd/fwupd.dart';
 
 void main(List<String> arguments) async {
   final dbusClient = DBusClient.session();
-  await runNotifier(FwupdClient(), dbusClient);
+  await runNotifier(FwupdClient(), dbusClient, defaultDismissalsDirectory());
   await dbusClient.close();
 }
