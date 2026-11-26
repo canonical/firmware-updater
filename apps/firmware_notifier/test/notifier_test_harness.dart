@@ -43,6 +43,11 @@ class FakeNotificationsServer extends DBusObject {
 
   var _nextId = 1;
 
+  /// Whether the server closes a notification itself when one of its actions
+  /// is invoked, as GNOME does. A later `CloseNotification` for that ID then
+  /// fails, as some servers do for an unknown notification.
+  bool closeOnActionInvoked = false;
+
   /// Notifications as they are sent.
   Stream<FakeNotification> get received => _received.stream;
 
@@ -76,9 +81,13 @@ class FakeNotificationsServer extends DBusObject {
         return DBusMethodSuccessResponse([DBusUint32(notification.id)]);
       case 'CloseNotification':
         final id = methodCall.values[0].asUint32();
-        if (notifications.containsKey(id)) {
-          await emitNotificationClosed(id);
+        if (!notifications.containsKey(id)) {
+          return DBusMethodErrorResponse(
+            'org.freedesktop.Notifications.Error.UnknownNotification',
+            [DBusString('Unknown notification ID $id')],
+          );
         }
+        await emitNotificationClosed(id);
         return DBusMethodSuccessResponse([]);
       default:
         return DBusMethodErrorResponse.unknownMethod();
@@ -90,6 +99,9 @@ class FakeNotificationsServer extends DBusObject {
       DBusUint32(id),
       DBusString(actionKey),
     ]);
+    if (closeOnActionInvoked && notifications.containsKey(id)) {
+      await emitNotificationClosed(id);
+    }
   }
 
   Future<void> emitNotificationClosed(

@@ -68,6 +68,13 @@ Future<void> _handleNotification(
   _DismissalStore dismissalStore,
 ) async {
   var actionTaken = false;
+  var closed = false;
+  unawaited(
+    notification.closeReason.then((_) {
+      closed = true;
+    }),
+  );
+
   final actionHandled = notification.action.then((action) async {
     actionTaken = true;
     final parsed = _NotificationAction.parse(action);
@@ -75,7 +82,20 @@ Future<void> _handleNotification(
       await _openApplication(dbusClient, [parsed.deviceId, parsed.version]);
     } else {
       await dismissalStore.add(parsed.deviceId, parsed.version);
-      await notification.close();
+      // GNOME closes the notification itself when an action is invoked, and
+      // some servers return a D-Bus error when asked to close an unknown ID.
+      // Only close explicitly if it is still open, and never let a close
+      // failure end the run while other notifications are open.
+      if (!closed) {
+        try {
+          await notification.close();
+        } on Object catch (error, stackTrace) {
+          stderr.writeln(
+            'firmware-notifier: failed to close notification '
+            '${notification.id}: $error\n$stackTrace',
+          );
+        }
+      }
     }
   });
 

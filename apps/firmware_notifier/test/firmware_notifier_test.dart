@@ -125,6 +125,52 @@ void main() {
   );
 
   test(
+    'GNOME closing a Dismissed notification itself still writes the entry and waits',
+    () async {
+      final deviceA = device(id: 'a-id', name: 'Device A');
+      final deviceB = device(id: 'b-id', name: 'Device B');
+      await stubUpdates({
+        deviceA: [release('2.0')],
+        deviceB: [release('3.0')],
+      });
+      harness.notifications.closeOnActionInvoked = true;
+
+      final received = harness.notifications.received.take(2).toList();
+      var finished = false;
+      final run = runNotifier(
+        fwupd,
+        harness.bus,
+        dismissalsDirectory,
+      ).whenComplete(() => finished = true);
+      final notifications = await received;
+
+      final notificationA = notifications.singleWhere(
+        (n) => n.summary == 'Firmware update available for Device A',
+      );
+      final notificationB = notifications.singleWhere(
+        (n) => n.summary == 'Firmware update available for Device B',
+      );
+
+      await harness.notifications.emitActionInvoked(
+        notificationA.id,
+        actionKey(notificationA, "Don't Remind Me"),
+      );
+      // The server has closed A and would reject a second CloseNotification.
+      // Give the action handler time to try, then check the run keeps waiting.
+      await Future<void>.delayed(const Duration(milliseconds: 100));
+
+      expect(await readDismissalEntries(), [
+        {'deviceId': 'a-id', 'version': '2.0'},
+      ]);
+      expect(finished, isFalse);
+
+      await harness.notifications.emitNotificationClosed(notificationB.id);
+      await run.timeout(const Duration(seconds: 5));
+      expect(finished, isTrue);
+    },
+  );
+
+  test(
     'a second run sends nothing for a Dismissed update but notifies other devices',
     () async {
       await seedDismissals([
