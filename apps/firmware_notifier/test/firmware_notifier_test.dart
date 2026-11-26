@@ -470,6 +470,158 @@ void main() {
     expect(finished, isTrue);
   });
 
+  for (final (description, contents) in [
+    ('non-JSON', 'this is not JSON'),
+    ('wrong-shape', jsonEncode({'version': 1, 'dismissals': 'not a list'})),
+  ]) {
+    test(
+      'a $description dismissals file still notifies and logs the error',
+      () async {
+        final deviceA = device(id: 'a-id', name: 'Device A');
+        await stubUpdates({
+          deviceA: [release('2.0')],
+        });
+        await dismissalsFile().writeAsString(contents);
+
+        final captured = await _captureStderr(() async {
+          final run = runNotifier(fwupd, harness.bus, dismissalsDirectory);
+          final notification = await harness.notifications.received.first;
+          expect(
+            notification.summary,
+            'Firmware update available for Device A',
+          );
+
+          await harness.notifications.emitNotificationClosed(notification.id);
+          await run.timeout(const Duration(seconds: 5));
+        });
+
+        expect(captured, contains('dismissals file'));
+      },
+    );
+  }
+
+  test(
+    'an unknown dismissals version still notifies and logs the error',
+    () async {
+      final deviceA = device(id: 'a-id', name: 'Device A');
+      await stubUpdates({
+        deviceA: [release('2.0')],
+      });
+      await dismissalsFile().writeAsString(
+        jsonEncode({
+          'version': 2,
+          'dismissals': [
+            {'deviceId': 'a-id', 'version': '2.0'},
+          ],
+        }),
+      );
+
+      final captured = await _captureStderr(() async {
+        // The dismissal in the unknown-version file must be ignored, so the
+        // device still notifies.
+        final run = runNotifier(fwupd, harness.bus, dismissalsDirectory);
+        final notification = await harness.notifications.received.first;
+        expect(notification.actions.keys, [
+          'install/a-id/2.0',
+          'dismissal/a-id/2.0',
+        ]);
+
+        await harness.notifications.emitNotificationClosed(notification.id);
+        await run.timeout(const Duration(seconds: 5));
+      });
+
+      expect(captured, contains('dismissals file'));
+    },
+  );
+
+  test(
+    "Don't Remind Me over a corrupt dismissals file writes a valid file",
+    () async {
+      final deviceA = device(id: 'a-id', name: 'Device A');
+      await stubUpdates({
+        deviceA: [release('2.0')],
+      });
+      await dismissalsFile().writeAsString('this is not JSON');
+
+      final captured = await _captureStderr(() async {
+        final run = runNotifier(fwupd, harness.bus, dismissalsDirectory);
+        final notification = await harness.notifications.received.first;
+        await harness.notifications.emitActionInvoked(
+          notification.id,
+          actionKey(notification, "Don't Remind Me"),
+        );
+        await run.timeout(const Duration(seconds: 5));
+      });
+
+      expect(captured, contains('dismissals file'));
+      expect(await readDismissals(), {
+        'version': 1,
+        'dismissals': [
+          {'deviceId': 'a-id', 'version': '2.0'},
+        ],
+      });
+    },
+  );
+
+  test(
+    'a write failure is logged, closes the notification and finishes the run',
+    () async {
+      final deviceA = device(id: 'a-id', name: 'Device A');
+      await stubUpdates({
+        deviceA: [release('2.0')],
+      });
+      // A read-only directory makes both the temporary file write and the
+      // rename fail.
+      await Process.run('chmod', ['500', dismissalsDirectory.path]);
+
+      try {
+        final captured = await _captureStderr(() async {
+          final run = runNotifier(fwupd, harness.bus, dismissalsDirectory);
+          final notification = await harness.notifications.received.first;
+          await harness.notifications.emitActionInvoked(
+            notification.id,
+            actionKey(notification, "Don't Remind Me"),
+          );
+          await run.timeout(const Duration(seconds: 5));
+
+          expect(harness.notifications.notifications, isEmpty);
+          expect(await dismissalsFile().exists(), isFalse);
+        });
+
+        expect(captured, contains('failed to write dismissals file'));
+      } finally {
+        await Process.run('chmod', ['700', dismissalsDirectory.path]);
+      }
+    },
+  );
+
+  test('a missing dismissals file still notifies every device', () async {
+    final deviceA = device(id: 'a-id', name: 'Device A');
+    final deviceB = device(id: 'b-id', name: 'Device B', version: '3.0');
+    await stubUpdates({
+      deviceA: [release('2.0')],
+      deviceB: [release('4.0')],
+    });
+    expect(await dismissalsFile().exists(), isFalse);
+
+    final received = harness.notifications.received.take(2).toList();
+    final run = runNotifier(fwupd, harness.bus, dismissalsDirectory);
+    final notifications = await received;
+
+    expect(
+      notifications.map((notification) => notification.summary),
+      unorderedEquals([
+        'Firmware update available for Device A',
+        'Firmware update available for Device B',
+      ]),
+    );
+
+    for (final notification in notifications) {
+      await harness.notifications.emitNotificationClosed(notification.id);
+    }
+    await run.timeout(const Duration(seconds: 5));
+  });
+
   test('the run finishes only once every notification is closed', () async {
     final deviceA = device(id: 'a-id', name: 'Device A');
     final deviceB = device(id: 'b-id', name: 'Device B');
@@ -537,4 +689,39 @@ void main() {
       }
     });
   });
+}
+
+/// Runs [body] while capturing what the notifier writes to stderr.
+Future<String> _captureStderr(Future<void> Function() body) async {
+  final captured = _CapturedStderr();
+  await IOOverrides.runZoned(body, stderr: () => captured);
+  final text = captured.text;
+  await captured.close();
+  return text;
+}
+
+/// A stderr sink that keeps everything written to it in memory.
+class _CapturedStderr implements Stdout {
+  final _buffer = StringBuffer();
+
+  String get text => _buffer.toString();
+
+  @override
+  void write(Object? object) => _buffer.write(object);
+
+  @override
+  void writeln([Object? object = '']) => _buffer.writeln(object);
+
+  @override
+  void writeAll(Iterable<dynamic> objects, [String separator = '']) =>
+      _buffer.writeAll(objects, separator);
+
+  @override
+  void writeCharCode(int charCode) => _buffer.writeCharCode(charCode);
+
+  @override
+  Future<void> close() async {}
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
