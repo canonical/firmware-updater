@@ -501,6 +501,42 @@ void main() {
   }
 
   test(
+    'a dismissals file with a malformed entry still notifies and logs the error',
+    () async {
+      final deviceA = device(id: 'a-id', name: 'Device A');
+      await stubUpdates({
+        deviceA: [release('2.0')],
+      });
+      await dismissalsFile().writeAsString(
+        jsonEncode({
+          'version': 1,
+          'dismissals': [
+            {'deviceId': 'a-id', 'version': '2.0'},
+            42,
+            {'deviceId': 5},
+          ],
+        }),
+      );
+
+      final captured = await _captureStderr(() async {
+        // A single malformed entry makes the whole file corrupt, so even the
+        // otherwise valid entry must not silence its device.
+        final run = runNotifier(fwupd, harness.bus, dismissalsDirectory);
+        final notification = await harness.notifications.received.first;
+        expect(notification.actions.keys, [
+          'install/a-id/2.0',
+          'dismissal/a-id/2.0',
+        ]);
+
+        await harness.notifications.emitNotificationClosed(notification.id);
+        await run.timeout(const Duration(seconds: 5));
+      });
+
+      expect(captured, contains('dismissals file'));
+    },
+  );
+
+  test(
     'an unknown dismissals version still notifies and logs the error',
     () async {
       final deviceA = device(id: 'a-id', name: 'Device A');

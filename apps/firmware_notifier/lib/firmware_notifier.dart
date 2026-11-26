@@ -204,18 +204,25 @@ class _DismissalStore {
         return store;
       }
 
+      final dismissals = <_Dismissal>[];
       for (final entry in contents['dismissals'] as List) {
-        if (entry is Map &&
-            entry['deviceId'] is String &&
-            entry['version'] is String) {
-          store._dismissals.add(
-            _Dismissal(
-              entry['deviceId'] as String,
-              entry['version'] as String,
-            ),
+        if (entry is! Map ||
+            entry['deviceId'] is! String ||
+            entry['version'] is! String) {
+          stderr.writeln(
+            'firmware-notifier: ignoring unreadable dismissals file '
+            '${file.path}',
           );
+          return store;
         }
+        dismissals.add(
+          _Dismissal(
+            entry['deviceId'] as String,
+            entry['version'] as String,
+          ),
+        );
       }
+      store._dismissals.addAll(dismissals);
     } on Object catch (error, stackTrace) {
       stderr.writeln(
         'firmware-notifier: failed to read dismissals file ${file.path}: '
