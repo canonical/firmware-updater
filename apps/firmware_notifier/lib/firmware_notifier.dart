@@ -1,13 +1,55 @@
 import 'package:collection/collection.dart';
+import 'package:dbus/dbus.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
 import 'package:fwupd/fwupd.dart';
-import 'package:meta/meta.dart';
 
 // Desktop file snapd generates for the `firmware-updater` snap app.
 const desktopEntryName = 'firmware-updater_firmware-updater';
 
+/// Sends a notification for every device's Latest update and waits until all
+/// of them have been closed.
+///
+/// [fwupdClient] is used to find the Available updates and [dbusClient] is the
+/// session D-Bus used for notifications and for opening the app.
+Future<void> runNotifier(FwupdClient fwupdClient, DBusClient dbusClient) async {
+  final client = NotificationsClient(bus: dbusClient);
+  final updates = await getUpdates(fwupdClient);
+  final notifications = await sendUpdateNotifications(client, updates);
+
+  // The caller closes [dbusClient] once this returns, so launches still in
+  // flight are collected and awaited before returning.
+  final launches = <Future<void>>[];
+  notifications.map((n) => n.action).forEach((action) async {
+    final args = (await action).split(', ');
+    final launch = dbusClient.callMethod(
+      path: DBusObjectPath('/com/canonical/firmware_updater'),
+      interface: 'org.gtk.Application',
+      destination: 'com.canonical.firmware_updater',
+      name: 'CommandLine',
+      values: [
+        DBusObjectPath('/com/canonical/firmware_updater'),
+        DBusArray(
+          DBusSignature.array(DBusSignature.byte),
+          [
+            DBusArray.byte([0]),
+            for (final arg in args) DBusArray.byte(arg.runes.followedBy([0])),
+          ],
+        ),
+        DBusDict.stringVariant({}),
+      ],
+      replySignature: DBusSignature.int32,
+    );
+    launches.add(launch);
+    await launch;
+  });
+
+  await Future.wait(notifications.map((n) => n.closeReason));
+  await Future.wait(launches);
+  await client.close();
+}
+
 Future<Map<FwupdDevice, FwupdRelease>> getUpdates([
-  @visibleForTesting FwupdClient? client,
+  FwupdClient? client,
 ]) async {
   final fwupdClient = client ?? FwupdClient();
   await fwupdClient.connect();
