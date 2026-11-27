@@ -80,7 +80,7 @@ void main() {
       notificationA.body,
       'Device A can be upgraded from version 1.0 to 2.0.',
     );
-    expect(notificationA.actions, {'a-id, 2.0': 'Install'});
+    expect(notificationA.actions, {'install/a-id/2.0': 'Install'});
     expect(
       notificationA.hints['desktop-entry'],
       DBusString(desktopEntryName),
@@ -91,7 +91,7 @@ void main() {
     final notificationB = notifications.singleWhere(
       (n) => n.summary == 'Firmware update available for Device B',
     );
-    expect(notificationB.actions, {'b-id, 4.0': 'Install'});
+    expect(notificationB.actions, {'install/b-id/4.0': 'Install'});
 
     for (final notification in notifications) {
       await harness.notifications.emitNotificationClosed(notification.id);

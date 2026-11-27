@@ -31,7 +31,8 @@ Future<void> _handleNotification(
   var actionTaken = false;
   final actionHandled = notification.action.then((action) async {
     actionTaken = true;
-    await _openApplication(dbusClient, action.split(', '));
+    final parsed = _NotificationAction.parse(action);
+    await _openApplication(dbusClient, [parsed.deviceId, parsed.version]);
   });
 
   await Future.any([actionHandled, notification.closeReason]);
@@ -85,13 +86,50 @@ Future<List<Notification>> sendUpdateNotifications(
         hints: [NotificationHint.desktopEntry(desktopEntryName)],
         actions: [
           NotificationAction(
-            '${e.key.deviceId}, ${e.value.version}',
+            _NotificationAction(
+              _ActionKind.install,
+              e.key.deviceId,
+              e.value.version,
+            ).key,
             'Install',
           ),
         ],
       ),
     ),
   );
+}
+
+enum _ActionKind { install }
+
+/// A notification action, identified by its [kind] and the update it acts on.
+///
+/// The D-Bus action key is `<kind>/<device ID>/<version>`, with the ID and
+/// version URI-encoded, so the device ID can't collide with the separators.
+class _NotificationAction {
+  const _NotificationAction(this.kind, this.deviceId, this.version);
+
+  factory _NotificationAction.parse(String key) {
+    final parts = key.split('/');
+    final kind = parts.length == 3
+        ? _ActionKind.values.asNameMap()[parts[0]]
+        : null;
+    if (kind == null) {
+      throw FormatException('Invalid notification action key: $key');
+    }
+    return _NotificationAction(
+      kind,
+      Uri.decodeComponent(parts[1]),
+      Uri.decodeComponent(parts[2]),
+    );
+  }
+
+  final _ActionKind kind;
+  final String deviceId;
+  final String version;
+
+  String get key =>
+      '${kind.name}/${Uri.encodeComponent(deviceId)}/'
+      '${Uri.encodeComponent(version)}';
 }
 
 Future<void> _openApplication(
