@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:collection/collection.dart';
 import 'package:dbus/dbus.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
@@ -6,19 +10,53 @@ import 'package:fwupd/fwupd.dart';
 // Desktop file snapd generates for the `firmware-updater` snap app.
 const desktopEntryName = 'firmware-updater_firmware-updater';
 
+const _dismissalsFileName = 'dismissals.json';
+const _dismissalsVersion = 1;
+
+/// The per-user directory where dismissals are stored.
+///
+/// Inside the snap this is `$SNAP_USER_COMMON`, which survives refreshes and
+/// reverts. Outside the snap (e.g. `just run-bg` during development) it falls
+/// back to the user's XDG data directory. [environment] defaults to
+/// [Platform.environment].
+Directory defaultDismissalsDirectory([Map<String, String>? environment]) {
+  environment ??= Platform.environment;
+  final snapUserCommon = environment['SNAP_USER_COMMON'];
+  if (snapUserCommon != null && snapUserCommon.isNotEmpty) {
+    return Directory(snapUserCommon);
+  }
+
+  final xdgDataHome = environment['XDG_DATA_HOME'];
+  final dataHome = xdgDataHome != null && xdgDataHome.isNotEmpty
+      ? xdgDataHome
+      : '${environment['HOME']}/.local/share';
+  return Directory('$dataHome/firmware-updater');
+}
+
 /// Sends a notification for every device's Latest update and waits until all
 /// of them have been closed.
 ///
-/// [fwupdClient] is used to find the Available updates and [dbusClient] is the
-/// session D-Bus used for notifications and for opening the app.
-Future<void> runNotifier(FwupdClient fwupdClient, DBusClient dbusClient) async {
+/// [fwupdClient] is used to find the Available updates, [dbusClient] is the
+/// session D-Bus used for notifications and for opening the app, and
+/// [dismissalsDirectory] holds the user's dismissals.
+Future<void> runNotifier(
+  FwupdClient fwupdClient,
+  DBusClient dbusClient,
+  Directory dismissalsDirectory,
+) async {
+  final dismissalStore = await _DismissalStore.load(dismissalsDirectory);
   final client = NotificationsClient(bus: dbusClient);
   final updates = await getUpdates(fwupdClient);
+  updates.removeWhere(
+    (device, update) =>
+        dismissalStore.contains(device.deviceId, update.version),
+  );
   final notifications = await sendUpdateNotifications(client, updates);
 
   await Future.wait(
     notifications.map(
-      (notification) => _handleNotification(notification, dbusClient),
+      (notification) =>
+          _handleNotification(notification, dbusClient, dismissalStore),
     ),
   );
   await client.close();
@@ -27,12 +65,38 @@ Future<void> runNotifier(FwupdClient fwupdClient, DBusClient dbusClient) async {
 Future<void> _handleNotification(
   Notification notification,
   DBusClient dbusClient,
+  _DismissalStore dismissalStore,
 ) async {
   var actionTaken = false;
+  var closed = false;
+  unawaited(
+    notification.closeReason.then((_) {
+      closed = true;
+    }),
+  );
+
   final actionHandled = notification.action.then((action) async {
     actionTaken = true;
     final parsed = _NotificationAction.parse(action);
-    await _openApplication(dbusClient, [parsed.deviceId, parsed.version]);
+    if (parsed.kind == _ActionKind.install) {
+      await _openApplication(dbusClient, [parsed.deviceId, parsed.version]);
+    } else {
+      await dismissalStore.add(parsed.deviceId, parsed.version);
+      // GNOME closes the notification itself when an action is invoked, and
+      // some servers return a D-Bus error when asked to close an unknown ID.
+      // Only close explicitly if it is still open, and never let a close
+      // failure end the run while other notifications are open.
+      if (!closed) {
+        try {
+          await notification.close();
+        } on Object catch (error, stackTrace) {
+          stderr.writeln(
+            'firmware-notifier: failed to close notification '
+            '${notification.id}: $error\n$stackTrace',
+          );
+        }
+      }
+    }
   });
 
   await Future.any([actionHandled, notification.closeReason]);
@@ -93,13 +157,120 @@ Future<List<Notification>> sendUpdateNotifications(
             ).key,
             'Install',
           ),
+          NotificationAction(
+            _NotificationAction(
+              _ActionKind.dismissal,
+              e.key.deviceId,
+              e.value.version,
+            ).key,
+            "Don't Remind Me",
+          ),
         ],
       ),
     ),
   );
 }
 
-enum _ActionKind { install }
+class _Dismissal {
+  const _Dismissal(this.deviceId, this.version);
+
+  final String deviceId;
+  final String version;
+}
+
+class _DismissalStore {
+  _DismissalStore._(this._directory, this._dismissals);
+
+  final Directory _directory;
+  final List<_Dismissal> _dismissals;
+
+  File get _file => File('${_directory.path}/$_dismissalsFileName');
+
+  static Future<_DismissalStore> load(Directory directory) async {
+    final store = _DismissalStore._(directory, []);
+    final file = store._file;
+    try {
+      if (!await file.exists()) {
+        return store;
+      }
+
+      final contents = jsonDecode(await file.readAsString());
+      if (contents is! Map<String, dynamic> ||
+          contents['version'] != _dismissalsVersion ||
+          contents['dismissals'] is! List) {
+        stderr.writeln(
+          'firmware-notifier: ignoring unreadable dismissals file ${file.path}',
+        );
+        return store;
+      }
+
+      final dismissals = <_Dismissal>[];
+      for (final entry in contents['dismissals'] as List) {
+        if (entry is! Map ||
+            entry['deviceId'] is! String ||
+            entry['version'] is! String) {
+          stderr.writeln(
+            'firmware-notifier: ignoring unreadable dismissals file '
+            '${file.path}',
+          );
+          return store;
+        }
+        dismissals.add(
+          _Dismissal(
+            entry['deviceId'] as String,
+            entry['version'] as String,
+          ),
+        );
+      }
+      store._dismissals.addAll(dismissals);
+    } on Object catch (error, stackTrace) {
+      stderr.writeln(
+        'firmware-notifier: failed to read dismissals file ${file.path}: '
+        '$error\n$stackTrace',
+      );
+    }
+    return store;
+  }
+
+  bool contains(String deviceId, String version) => _dismissals.any(
+    (dismissal) =>
+        dismissal.deviceId == deviceId && dismissal.version == version,
+  );
+
+  Future<void> add(String deviceId, String version) async {
+    if (contains(deviceId, version)) {
+      return;
+    }
+    _dismissals.add(_Dismissal(deviceId, version));
+
+    final file = _file;
+    final temporaryFile = File('${file.path}.tmp');
+    try {
+      await _directory.create(recursive: true);
+      await temporaryFile.writeAsString(
+        const JsonEncoder.withIndent('  ').convert({
+          'version': _dismissalsVersion,
+          'dismissals': [
+            for (final dismissal in _dismissals)
+              {
+                'deviceId': dismissal.deviceId,
+                'version': dismissal.version,
+              },
+          ],
+        }),
+        flush: true,
+      );
+      await temporaryFile.rename(file.path);
+    } on Object catch (error, stackTrace) {
+      stderr.writeln(
+        'firmware-notifier: failed to write dismissals file ${file.path}: '
+        '$error\n$stackTrace',
+      );
+    }
+  }
+}
+
+enum _ActionKind { install, dismissal }
 
 /// A notification action, identified by its [kind] and the update it acts on.
 ///
