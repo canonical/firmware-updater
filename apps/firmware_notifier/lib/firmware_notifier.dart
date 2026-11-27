@@ -16,36 +16,29 @@ Future<void> runNotifier(FwupdClient fwupdClient, DBusClient dbusClient) async {
   final updates = await getUpdates(fwupdClient);
   final notifications = await sendUpdateNotifications(client, updates);
 
-  // The caller closes [dbusClient] once this returns, so launches still in
-  // flight are collected and awaited before returning.
-  final launches = <Future<void>>[];
-  notifications.map((n) => n.action).forEach((action) async {
-    final args = (await action).split(', ');
-    final launch = dbusClient.callMethod(
-      path: DBusObjectPath('/com/canonical/firmware_updater'),
-      interface: 'org.gtk.Application',
-      destination: 'com.canonical.firmware_updater',
-      name: 'CommandLine',
-      values: [
-        DBusObjectPath('/com/canonical/firmware_updater'),
-        DBusArray(
-          DBusSignature.array(DBusSignature.byte),
-          [
-            DBusArray.byte([0]),
-            for (final arg in args) DBusArray.byte(arg.runes.followedBy([0])),
-          ],
-        ),
-        DBusDict.stringVariant({}),
-      ],
-      replySignature: DBusSignature.int32,
-    );
-    launches.add(launch);
-    await launch;
+  await Future.wait(
+    notifications.map(
+      (notification) => _handleNotification(notification, dbusClient),
+    ),
+  );
+  await client.close();
+}
+
+Future<void> _handleNotification(
+  Notification notification,
+  DBusClient dbusClient,
+) async {
+  var actionTaken = false;
+  final actionHandled = notification.action.then((action) async {
+    actionTaken = true;
+    await _openApplication(dbusClient, action.split(', '));
   });
 
-  await Future.wait(notifications.map((n) => n.closeReason));
-  await Future.wait(launches);
-  await client.close();
+  await Future.any([actionHandled, notification.closeReason]);
+  if (actionTaken) {
+    await actionHandled;
+  }
+  await notification.closeReason;
 }
 
 Future<Map<FwupdDevice, FwupdRelease>> getUpdates([
@@ -98,5 +91,30 @@ Future<List<Notification>> sendUpdateNotifications(
         ],
       ),
     ),
+  );
+}
+
+Future<void> _openApplication(
+  DBusClient dbusClient,
+  List<String> arguments,
+) async {
+  await dbusClient.callMethod(
+    path: DBusObjectPath('/com/canonical/firmware_updater'),
+    interface: 'org.gtk.Application',
+    destination: 'com.canonical.firmware_updater',
+    name: 'CommandLine',
+    values: [
+      DBusObjectPath('/com/canonical/firmware_updater'),
+      DBusArray(
+        DBusSignature.array(DBusSignature.byte),
+        [
+          DBusArray.byte([0]),
+          for (final arg in arguments)
+            DBusArray.byte(arg.runes.followedBy([0])),
+        ],
+      ),
+      DBusDict.stringVariant({}),
+    ],
+    replySignature: DBusSignature.int32,
   );
 }
