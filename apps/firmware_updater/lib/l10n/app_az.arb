@@ -53,5 +53,99 @@
             }
         }
     },
-    "affectsFdeWarningUbuntuFdeBody": "Kompüterinizdə avadanlıq tərəfindən dəstəklənən şifrələmə aktivdir. Mikroproqram yeniləndikdən sonra bərpa açarını önyükləmə zamanı daxil etməli ola bilərsiniz. Bu kompüterdəki digər şifrələnmiş disklər üçün bərpa açarlarının da olduğuna əmin olun."
+    "affectsFdeWarningUbuntuFdeBody": "Kompüterinizdə avadanlıq tərəfindən dəstəklənən şifrələmə aktivdir. Mikroproqram yeniləndikdən sonra bərpa açarını önyükləmə zamanı daxil etməli ola bilərsiniz. Bu kompüterdəki digər şifrələnmiş disklər üçün bərpa açarlarının da olduğuna əmin olun.",
+    "reinstallConfirm": "<b>{name}</b> <b>{current}</b> versiyası yenidən quraşdırılsın?",
+    "@reinstallConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "current": {
+                "type": "String"
+            }
+        }
+    },
+    "currentVersion": "Hazırki versiya",
+    "showUpdates": "Yenilənmələri göstər",
+    "fwupdDeviceFlagNotified": "İstifadəçi xəbərdar edildi",
+    "fwupdDeviceFlagLocked": "Qurğu kilidləndi",
+    "fwupdDeviceFlagRequireAc": "Sistem xarici enerji mənbəyi tələb edir",
+    "fwupdDeviceFlagRegistered": "Qeydiyyatdan keçib",
+    "fwupdDeviceFlagBackupBeforeInstall": "Quraşdırmadan əvvəl qurğu mikroproqramı yedəkləyəcək",
+    "reinstall": "Yenidən quraşdır",
+    "vendor": "Təminatçı",
+    "guid": "QUİ-lər",
+    "checksum": "Yoxlama cəmi",
+    "updateChecksums": "Yoxlama cəmini yenilə",
+    "updateChecksumsConfirm": "<b>{name}</b> cihaz yoxlama cəmi yenilənsin?",
+    "@updateChecksumsConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "updateChecksumsInfo": "Bu, hazırki kriptoqrafik heşləri doğrulanmış kimi qeydə alacaq.",
+    "updateChecksumsSuccess": "Yoxlama cəmi yeniləndi",
+    "updateChecksumsError": "Yoxlama cəmləri yenilənə bilmədi!",
+    "verifyFirmwareConfirm": "{name} mikroproqramının yoxlama cəmləri doğrulansın?",
+    "@verifyFirmwareConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "minVersion": "Ən aşağı versiya",
+    "fwupdDeviceFlagCanVerify": "Kriptoqrafik heş doğrulama əlçatandır",
+    "fwupdDeviceFlagUsableDuringUpdate": "Qurğu güncəllənmə zamanı istifadə edilə bilər",
+    "verifyFirmware": "Mikroproqramı təsdiqlə",
+    "verifyFirmwareSuccess": "Mikroproqram təsdiqləndi",
+    "verifyFirmwareError": "Mikroproqram təsdiqlənə bilmədi!",
+    "fwupdDeviceFlagOnlyVersionUpgrade": "Yalnız versiya yüksəltmələri əlçatandır",
+    "affectsFdeWarningBitlockerBody": "BitLocker kompüterinizdə aktivdir. Bütün şifrələnmiş disklər üçün bərpa açarlarının olduğuna əmin olun. Mikroproqramı yenilədikdən sonra onları önyükləmə zamanı daxil etməli ola bilərsiniz.",
+    "affectsFdeIncorrectKey": "Bərpa açarı işləmir, onu Təhlükəsizlik Mərkəzində yoxlayın və ya dəyişdirin",
+    "fwupdDeviceFlagNeedsShutdown": "Quraşdırmadan sonra söndürülməlidir",
+    "fwupdDeviceFlagReported": "Uzaq serverə hesabat verildi",
+    "fwupdDeviceFlagInstallParentFirst": "Öncə ana qurğuya quraşdır",
+    "fwupdDeviceFlagIsBootloader": "Önyükləmə rejimindədir",
+    "fwupdDeviceFlagIgnoreValidation": "Doğrulama təhlükəsizlik yoxlamalarını görməzdən gəl",
+    "fwupdDeviceFlagEndOfLife": "Ömrünün sonu",
+    "fwupdErrorInvalidFile": "Etibarsız fayl formatı",
+    "fwupdErrorNotFound": "Uyğun gələn qurğu mövcud deyil",
+    "fwupdErrorNothingToDo": "Ediləcək heç nə yoxdur",
+    "fwupdErrorNotSupported": "Əməliyyat mümkün deyildi",
+    "fwupdErrorSignatureInvalid": "İmza etibarsız idi",
+    "fwupdErrorAcPowerRequired": "Dəyişən cərəyan enerjisi tələb olunurdu",
+    "fwupdErrorPermissionDenied": "İcazə rədd edildi",
+    "fwupdErrorAuthFailed": "Kimlik doğrulanması əldə edilə bilmədi",
+    "fwupdErrorRead": "Qurğudan oxunma uğursuz oldu",
+    "fwupdErrorWrite": "Qurğuya yazma uğursuz oldu",
+    "fwupdErrorUnknown": "Naməlum xəta",
+    "installError": "Mikroproqram quraşdırıla bilmədi!",
+    "noDevicesFound": "Heç bir qurğu tapılmadı",
+    "showReleases": "Buraxılışları göstər",
+    "updateToLatest": "Ən sonuncuya yüksəlt",
+    "updateConfirm": "<b>{name}</b> <b>{version}</b> versiyasına yenilənsin?",
+    "@updateConfirm": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            },
+            "version": {
+                "type": "String"
+            }
+        }
+    },
+    "fwupdDeviceFlagNeedsActivation": "Qurğu yenilənməsi aktivləşdirilməlidir",
+    "fwupdDeviceFlagWillDisappear": "Yenilənmə tamamlandıqdan sonra qurğu yenidən görünməyəcək",
+    "fwupdDeviceFlagDualImage": "Qurğu mərhələləri yenilənmələri",
+    "fwupdDeviceFlagUnreachable": "Qurğu əlçatan deyil",
+    "fwupdDeviceFlagAffectsFde": "Yenilənmə zamanı tam disk şifrələmə sirləri etibarsız ola bilər",
+    "fwupdErrorAlreadyPending": "Oflayn quraşdırmaq üçün ayarlanıb artıq",
+    "fwupdErrorBatteryLevelTooLow": "Sistemin batareya səviyyəsi çox aşağıdır",
+    "fwupdErrorNeedsUserAction": "Yenilənməni tamamlamaq üçün istifadəçi əməliyyat icra etməlidir",
+    "fwupdErrorAuthExpired": "Giriş məlumatlarının müddəti bitdiyi üçün doğrulama alınmadı",
+    "fwupdDeviceFlagVersionCheckRequired": "Versiya yoxlanışı üçün qurğu mikroproqramı tələb olunur",
+    "fwupdDeviceFlagInstallAllReleases": "Bütün təqdim edilmiş buraxılışları quraşdırmaq üçün qurğu tələb olunur"
 }

@@ -368,10 +368,10 @@ class AppLocalizationsUk extends AppLocalizations {
       'Поточні криптографічні хеші будуть записані як підтверджені.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Контрольні суми оновлено';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError => 'Не вдалося оновити контрольні суми!';
 
   @override
   String get updateToLatest => 'Оновити до останнього';
@@ -388,10 +388,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get verifyFirmware => 'Перевірка прошивки';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Прошивку перевірено';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError => 'Не вдалося перевірити прошивку!';
 
   @override
   String verifyFirmwareConfirm(String name) {
