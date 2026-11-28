@@ -26,7 +26,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get affectsFdeWarningBitlockerBody =>
-      'BitLocker is enabled on your computer. Make sure you have recovery keys for all encrypted disks. You might need to enter them on boot after updating firmware.';
+      'BitLocker kompüterinizdə aktivdir. Bütün şifrələnmiş disklər üçün bərpa açarlarının olduğuna əmin olun. Mikroproqramı yenilədikdən sonra onları önyükləmə zamanı daxil etməli ola bilərsiniz.';
 
   @override
   String get affectsFdeCheckbox =>
@@ -40,7 +40,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get affectsFdeIncorrectKey =>
-      'Recovery key does not work, check or replace it in the Security Center';
+      'Bərpa açarı işləmir, onu Təhlükəsizlik Mərkəzində yoxlayın və ya dəyişdirin';
 
   @override
   String get allVersions => 'Bütün versiyalar';
@@ -53,7 +53,7 @@ class AppLocalizationsAz extends AppLocalizations {
       'Xəbərdarlıq: bəzi cihaz yenilənmələri yalnız xarici enerji ilə əlçatan ola bilər!';
 
   @override
-  String get checksum => 'Checksum';
+  String get checksum => 'Yoxlama cəmi';
 
   @override
   String get close => 'Bağla';
@@ -94,10 +94,10 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagRequireAc =>
-      'System requires external power source';
+      'Sistem xarici enerji mənbəyi tələb edir';
 
   @override
-  String get fwupdDeviceFlagLocked => 'Device is locked';
+  String get fwupdDeviceFlagLocked => 'Qurğu kilidləndi';
 
   @override
   String get fwupdDeviceFlagSupported => 'Uzaq serverdə dəstəklənir';
@@ -106,7 +106,7 @@ class AppLocalizationsAz extends AppLocalizations {
   String get fwupdDeviceFlagNeedsBootloader => 'Önyükləyici tələb edir';
 
   @override
-  String get fwupdDeviceFlagRegistered => 'Registered';
+  String get fwupdDeviceFlagRegistered => 'Qeydiyyatdan keçib';
 
   @override
   String get fwupdDeviceFlagNeedsReboot =>
@@ -114,20 +114,19 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagNeedsShutdown =>
-      'Needs shutdown after installation';
+      'Quraşdırmadan sonra söndürülməlidir';
 
   @override
-  String get fwupdDeviceFlagReported => 'Reported to remote server';
+  String get fwupdDeviceFlagReported => 'Uzaq serverə hesabat verildi';
 
   @override
-  String get fwupdDeviceFlagNotified => 'User has been notified';
+  String get fwupdDeviceFlagNotified => 'İstifadəçi xəbərdar edildi';
 
   @override
-  String get fwupdDeviceFlagInstallParentFirst =>
-      'Install to parent device first';
+  String get fwupdDeviceFlagInstallParentFirst => 'Öncə ana qurğuya quraşdır';
 
   @override
-  String get fwupdDeviceFlagIsBootloader => 'Is in bootloader mode';
+  String get fwupdDeviceFlagIsBootloader => 'Önyükləmə rejimindədir';
 
   @override
   String get fwupdDeviceFlagWaitForReplug =>
@@ -135,39 +134,40 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagIgnoreValidation =>
-      'Ignore validation safety checks';
+      'Doğrulama təhlükəsizlik yoxlamalarını görməzdən gəl';
 
   @override
   String get fwupdDeviceFlagTrusted => 'Etibar edilən';
 
   @override
-  String get fwupdDeviceFlagNeedsActivation => 'Device update needs activation';
+  String get fwupdDeviceFlagNeedsActivation =>
+      'Qurğu yenilənməsi aktivləşdirilməlidir';
 
   @override
   String get fwupdDeviceFlagWillDisappear =>
-      'Device will not re-appear after update completes';
+      'Yenilənmə tamamlandıqdan sonra qurğu yenidən görünməyəcək';
 
   @override
   String get fwupdDeviceFlagCanVerify =>
-      'Cryptographic hash verification is available';
+      'Kriptoqrafik heş doğrulama əlçatandır';
 
   @override
-  String get fwupdDeviceFlagDualImage => 'Device stages updates';
+  String get fwupdDeviceFlagDualImage => 'Qurğu mərhələləri yenilənmələri';
 
   @override
   String get fwupdDeviceFlagSelfRecovery => 'Device can recover flash failures';
 
   @override
   String get fwupdDeviceFlagUsableDuringUpdate =>
-      'Device is usable for the duration of the update';
+      'Qurğu güncəllənmə zamanı istifadə edilə bilər';
 
   @override
   String get fwupdDeviceFlagVersionCheckRequired =>
-      'Device firmware is required to have a version check';
+      'Versiya yoxlanışı üçün qurğu mikroproqramı tələb olunur';
 
   @override
   String get fwupdDeviceFlagInstallAllReleases =>
-      'Device is required to install all provided releases';
+      'Bütün təqdim edilmiş buraxılışları quraşdırmaq üçün qurğu tələb olunur';
 
   @override
   String get fwupdDeviceFlagHasMultipleBranches =>
@@ -175,7 +175,7 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagBackupBeforeInstall =>
-      'Device will backup firmware before installing';
+      'Quraşdırmadan əvvəl qurğu mikroproqramı yedəkləyəcək';
 
   @override
   String get fwupdDeviceFlagWildcardInstall =>
@@ -183,17 +183,17 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get fwupdDeviceFlagOnlyVersionUpgrade =>
-      'Only version upgrades are allowed';
+      'Yalnız versiya yüksəltmələri əlçatandır';
 
   @override
-  String get fwupdDeviceFlagUnreachable => 'Device is unreachable';
+  String get fwupdDeviceFlagUnreachable => 'Qurğu əlçatan deyil';
 
   @override
   String get fwupdDeviceFlagAffectsFde =>
-      'Full disk encryption secrets may be invalidated when updating';
+      'Yenilənmə zamanı tam disk şifrələmə sirləri etibarsız ola bilər';
 
   @override
-  String get fwupdDeviceFlagEndOfLife => 'End of life';
+  String get fwupdDeviceFlagEndOfLife => 'Ömrünün sonu';
 
   @override
   String get fwupdDeviceFlagSignedPayload => 'Signed Payload';
@@ -213,37 +213,39 @@ class AppLocalizationsAz extends AppLocalizations {
       'Eyni mikroproqram versiyası quraşdırıldı';
 
   @override
-  String get fwupdErrorAlreadyPending => 'Already set to be installed offline';
+  String get fwupdErrorAlreadyPending =>
+      'Oflayn quraşdırmaq üçün ayarlanıb artıq';
 
   @override
-  String get fwupdErrorAuthFailed => 'Failed to get authentication';
+  String get fwupdErrorAuthFailed => 'Kimlik doğrulanması əldə edilə bilmədi';
 
   @override
-  String get fwupdErrorRead => 'Failed to read from device';
+  String get fwupdErrorRead => 'Qurğudan oxunma uğursuz oldu';
 
   @override
-  String get fwupdErrorWrite => 'Failed to write to the device';
+  String get fwupdErrorWrite => 'Qurğuya yazma uğursuz oldu';
 
   @override
-  String get fwupdErrorInvalidFile => 'Invalid file format';
+  String get fwupdErrorInvalidFile => 'Etibarsız fayl formatı';
 
   @override
-  String get fwupdErrorNotFound => 'No matching device exists';
+  String get fwupdErrorNotFound => 'Uyğun gələn qurğu mövcud deyil';
 
   @override
-  String get fwupdErrorNothingToDo => 'Nothing to do';
+  String get fwupdErrorNothingToDo => 'Ediləcək heç nə yoxdur';
 
   @override
-  String get fwupdErrorNotSupported => 'Action was not possible';
+  String get fwupdErrorNotSupported => 'Əməliyyat mümkün deyildi';
 
   @override
-  String get fwupdErrorSignatureInvalid => 'Signature was invalid';
+  String get fwupdErrorSignatureInvalid => 'İmza etibarsız idi';
 
   @override
-  String get fwupdErrorAcPowerRequired => 'AC power was required';
+  String get fwupdErrorAcPowerRequired =>
+      'Dəyişən cərəyan enerjisi tələb olunurdu';
 
   @override
-  String get fwupdErrorPermissionDenied => 'Permission was denied';
+  String get fwupdErrorPermissionDenied => 'İcazə rədd edildi';
 
   @override
   String get fwupdErrorBrokenSystem =>
@@ -251,18 +253,18 @@ class AppLocalizationsAz extends AppLocalizations {
 
   @override
   String get fwupdErrorBatteryLevelTooLow =>
-      'The system battery level is too low';
+      'Sistemin batareya səviyyəsi çox aşağıdır';
 
   @override
   String get fwupdErrorNeedsUserAction =>
-      'User needs to do an action to complete the update';
+      'Yenilənməni tamamlamaq üçün istifadəçi əməliyyat icra etməlidir';
 
   @override
   String get fwupdErrorAuthExpired =>
-      'Failed to get auth as credentials have expired';
+      'Giriş məlumatlarının müddəti bitdiyi üçün doğrulama alınmadı';
 
   @override
-  String get fwupdErrorUnknown => 'Unknown error';
+  String get fwupdErrorUnknown => 'Naməlum xəta';
 
   @override
   String get fwupdStatusUnknown => 'Naməlum vəziyyət';
@@ -307,13 +309,13 @@ class AppLocalizationsAz extends AppLocalizations {
   String get fwupdStatusShutdown => 'The daemon is shutting down';
 
   @override
-  String get guid => 'GUIDs';
+  String get guid => 'QUİ-lər';
 
   @override
-  String get installError => 'Failed to install firmware!';
+  String get installError => 'Mikroproqram quraşdırıla bilmədi!';
 
   @override
-  String get noDevicesFound => 'No devices found';
+  String get noDevicesFound => 'Heç bir qurğu tapılmadı';
 
   @override
   String get ok => 'Oldu';
@@ -336,18 +338,18 @@ class AppLocalizationsAz extends AppLocalizations {
       'Bu yeniləməni tamamlamaq üçün yenidən başladın';
 
   @override
-  String get reinstall => 'Reinstall';
+  String get reinstall => 'Yenidən quraşdır';
 
   @override
   String reinstallConfirm(String name, String current) {
-    return 'Reinstall <b>$name</b> version <b>$current</b>?';
+    return '<b>$name</b> <b>$current</b> versiyası yenidən quraşdırılsın?';
   }
 
   @override
-  String get showReleases => 'Show Releases';
+  String get showReleases => 'Buraxılışları göstər';
 
   @override
-  String get showUpdates => 'Show Updates';
+  String get showUpdates => 'Yenilənmələri göstər';
 
   @override
   String get update => 'Yenilə';
@@ -356,53 +358,53 @@ class AppLocalizationsAz extends AppLocalizations {
   String get updateAvailable => 'Yenilənmə mövcuddur';
 
   @override
-  String get updateChecksums => 'Update Checksums';
+  String get updateChecksums => 'Yoxlama cəmini yenilə';
 
   @override
   String updateChecksumsConfirm(String name) {
-    return 'Update device checksums of <b>$name</b>?';
+    return '<b>$name</b> cihaz yoxlama cəmi yenilənsin?';
   }
 
   @override
   String get updateChecksumsInfo =>
-      'This will record the current cryptographic hashes as verified.';
+      'Bu, hazırki kriptoqrafik heşləri doğrulanmış kimi qeydə alacaq.';
 
   @override
-  String get updateChecksumsSuccess => 'Checksums updated';
+  String get updateChecksumsSuccess => 'Yoxlama cəmi yeniləndi';
 
   @override
-  String get updateChecksumsError => 'Failed to update checksums!';
+  String get updateChecksumsError => 'Yoxlama cəmləri yenilənə bilmədi!';
 
   @override
-  String get updateToLatest => 'Update to Latest';
+  String get updateToLatest => 'Ən sonuncuya yüksəlt';
 
   @override
   String updateConfirm(String name, String version) {
-    return 'Update <b>$name</b> to version <b>$version</b>?';
+    return '<b>$name</b> <b>$version</b> versiyasına yenilənsin?';
   }
 
   @override
-  String get vendor => 'Vendor';
+  String get vendor => 'Təminatçı';
 
   @override
-  String get verifyFirmware => 'Verify Firmware';
+  String get verifyFirmware => 'Mikroproqramı təsdiqlə';
 
   @override
-  String get verifyFirmwareSuccess => 'Firmware verified';
+  String get verifyFirmwareSuccess => 'Mikroproqram təsdiqləndi';
 
   @override
-  String get verifyFirmwareError => 'Failed to verify firmware!';
+  String get verifyFirmwareError => 'Mikroproqram təsdiqlənə bilmədi!';
 
   @override
   String verifyFirmwareConfirm(String name) {
-    return 'Verify firmware checksums of $name?';
+    return '$name mikroproqramının yoxlama cəmləri doğrulansın?';
   }
 
   @override
-  String get currentVersion => 'Current Version';
+  String get currentVersion => 'Hazırki versiya';
 
   @override
-  String get minVersion => 'Minimum Version';
+  String get minVersion => 'Ən aşağı versiya';
 
   @override
   String get latestVersion => 'Latest Version';
